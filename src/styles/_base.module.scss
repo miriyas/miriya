@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -ms-overflow-style: none; // IE and Edge
+  scrollbar-width: none; // Firefox
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome
+  }
+}
+
+html,
+body {
+  height: 100vh;
+  height: -webkit-fill-available;
+}
+
+body {
+  // @miriya (2021-12-28) 사파리에서 터치를 핀치 시작으로 인식해서 반응이 늦는 문제를 manipulation으로 해결
+  // @miriya (2022-03-03) pan-y로 핀치 줌이나 가로 스크롤을 막음
+  overflow-y: auto;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+select,
+input,
+textarea {
+  // @miriya (2022-03-03): 사파리에서 줌 시작되지 않는 최소 사이즈
+  // https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+  font-size: 16px;
+}
+
+input,
+button {
+  appearance: none;
+}
+
+input::-webkit-contacts-auto-fill-button {
+  // @miriya (2019-06-17): 사파리에서 자동완성 사람 아이콘 없앰
+  position: absolute;
+  right: 0;
+  display: none !important;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+input {
+  background-color: transparent;
+  background-image: none !important;
+  border: 0;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+input:is([type='button'], [type='submit'], [type='reset']),
+input[type='file']::file-selector-button,
+button {
+  color: initial;
+} // override safari default blue
+
+details {
+  summary {
+    list-style: none;
+
+    &::marker,
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+}
+
+body,
+button,
+textarea {
+  font-family: sans-serif !important;
+}

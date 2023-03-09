@@ -1,0 +1,48 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
+  "plugins": ["stylelint-declaration-strict-value"],
+  "rules": {
+    "at-rule-empty-line-before": null,
+    "color-function-notation": "legacy",
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": "never",
+    "function-name-case": [
+      "lower",
+      {
+        "ignoreFunctions": "/^[a-z_](|[a-zA-Z0-9]+)$/"
+      }
+    ],
+    "keyframes-name-pattern": "^[a-z][a-zA-Z0-9_]+$",
+    "max-nesting-depth": 6,
+    "no-descending-specificity": null,
+    "no-invalid-position-at-import-rule": null,
+    "number-leading-zero": "always",
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["appearance"]
+      }
+    ],
+    "scss/at-function-pattern": "^[a-z_](|[a-zA-Z0-9-]+)$",
+    "scss/at-mixin-pattern": "^[a-z_](|[a-zA-Z0-9]+)$",
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/dollar-variable-pattern": [
+      "^[A-Z0-9_]+$",
+      {
+        "ignore": "local"
+      }
+    ],
+    "scss/double-slash-comment-empty-line-before": null,
+    "selector-max-id": 0,
+    "selector-class-pattern": "^[a-z](|[a-zA-Z0-9*]+)$",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "string-quotes": "single"
+  }
+}
