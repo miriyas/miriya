@@ -1,0 +1,79 @@
+@use 'sass:list';
+
+// Positioning
+@function _unpack-shorthand($shorthand) {
+  @if length($shorthand) == 1 {
+    @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
+  } @else if length($shorthand) == 2 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
+  } @else if length($shorthand) == 3 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
+  } @else {
+    @return $shorthand;
+  }
+}
+
+@function _is-length($value) {
+  @return type-of($value) != 'null' and
+    (
+      str-slice($value + '', 1, 4) == 'calc' or index(auto inherit initial 0, $value) or
+        (type-of($value) == 'number' and not(unitless($value)))
+    );
+}
+
+@mixin position($position, $box-edge-values) {
+  position: $position;
+  $box-edge-values: _unpack-shorthand($box-edge-values);
+  $offsets: (
+    top: list.nth($box-edge-values, 1),
+    right: list.nth($box-edge-values, 2),
+    bottom: list.nth($box-edge-values, 3),
+    left: list.nth($box-edge-values, 4),
+  );
+
+  @each $offset, $value in $offsets {
+    @if _is-length($value) {
+      #{$offset}: $value;
+    }
+  }
+}
+
+@mixin absoluteZero {
+  @include position(absolute, (0 0 0 0));
+}
+
+@mixin absolute($args: ()) {
+  @include position(absolute, $args);
+}
+
+@mixin fixed($args: ()) {
+  @include position(fixed, $args);
+}
+
+@mixin relative($args: ()) {
+  @include position(relative, $args);
+}
+
+@mixin middleBox {
+  @include position(absolute, 50% auto auto 50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin posCenterX($position: absolute) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin posCenterY($position: absolute) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin posCenter($position: absolute) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

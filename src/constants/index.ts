@@ -1,4 +1,6 @@
-export const IDOLS = [
+import { IIdol } from '@/types';
+
+export const IDOLS: IIdol[] = [
   // 1996 === === === === ===
   {
     debutYear: 1996,
@@ -8,7 +10,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'qB2sh9dKLQw',
-      start: 86,
+      startsAt: 86,
     },
     desc: {
       title: '서태지와 아이들 출신의 이주노가 프로듀싱한 혼성 댄스 그룹',
@@ -24,7 +26,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: '-7QspykoYBc',
-      start: 171,
+      startsAt: 171,
     },
     desc: {
       title: '중학생 멤버들의 귀여운 용모를 전면에 내세운 4인조 댄스 그룹',
@@ -40,7 +42,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'AEtFtzs8FDE',
-      start: 115,
+      startsAt: 115,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%BD%9C%EB%9D%BC(%EA%B0%80%EC%88%98)',
@@ -55,7 +57,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'R3DbYFoqGr8',
-      start: 41,
+      startsAt: 41,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9E%90%EC%9E%90(%ED%98%BC%EC%84%B1%EA%B7%B8%EB%A3%B9)',
@@ -70,7 +72,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'CkM1TcQ1o64',
-      start: 46,
+      startsAt: 46,
     },
     desc: {
       title: '톡톡 튀는 음악과 자유로운 무대매너로 신선한 충격을 전해줬던 대한민국의 3인조 모던 록 밴드',
@@ -87,7 +89,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: 'diCkr2E3vVA',
-      start: 180,
+      startsAt: 180,
     },
     desc: {
       naver: 'https://music.naver.com/artist/intro.nhn?artistId=10782',
@@ -103,7 +105,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'ly7qcY46ofw',
-      start: 92,
+      startsAt: 92,
     },
     desc: {
       title: '서태지 이후 본격적인 아이돌 전성시대의 왕조를 세움',
@@ -120,7 +122,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'thR2FBvc0EU',
-      start: 149,
+      startsAt: 149,
     },
     desc: {
       title: '유건형과 서정환으로 구성된 대한민국의 실력파 듀오',
@@ -136,7 +138,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'K5lViE7-4-c',
-      start: 142,
+      startsAt: 142,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EA%B5%AC%ED%94%BC(%EC%9D%8C%EC%95%85%20%EA%B7%B8%EB%A3%B9)',
@@ -151,7 +153,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'XrHIReVLZZs',
-      start: 146,
+      startsAt: 146,
     },
     desc: {
       namu: 'https://namu.wiki/w/IDOL',
@@ -176,7 +178,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: 'o1RFSX5Epmo',
-      start: 110,
+      startsAt: 110,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%86%8C%EC%B0%AC%ED%9C%98',
@@ -190,7 +192,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: 'euodkPs-JMA',
-      start: 63,
+      startsAt: 63,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%96%91%ED%8C%8C(%EA%B0%80%EC%88%98)',
@@ -221,7 +223,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: 'wxxb311BWRM',
-      start: 128,
+      startsAt: 128,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EA%B9%80%EC%97%B0%EC%9A%B0',
@@ -237,7 +239,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: 'EuEDha_el4A',
-      start: 298,
+      startsAt: 298,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9D%B4%ED%98%84%EB%8F%84',
@@ -262,7 +264,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'ps-2nZtdAZQ',
-      start: 155,
+      startsAt: 155,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%20%EC%97%90%EC%9D%B4',
@@ -274,7 +276,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: '0UpMpuf3o8E',
-      start: 1,
+      startsAt: 1,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9E%90%EC%9A%B0%EB%A6%BC',
@@ -304,7 +306,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: 'guTWZjpy5CI',
-      start: 10,
+      startsAt: 10,
     },
     desc: {
       namu: 'https://namu.wiki/w/S.E.S.',
@@ -317,7 +319,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: 'vEQpNDN0vmk',
-      start: 4,
+      startsAt: 4,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EB%B2%A0%EC%9D%B4%EB%B9%84%EB%B3%B5%EC%8A%A4',
@@ -330,7 +332,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: 'PSM_VxctljQ',
-      start: 24,
+      startsAt: 24,
     },
     desc: {
       namu: 'https://namu.wiki/w/디바(가수)',
@@ -344,7 +346,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '-MM1dcwAWIY',
-      start: 83,
+      startsAt: 83,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%A0%9D%EC%8A%A4%ED%82%A4%EC%8A%A4',
@@ -357,7 +359,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'Qk7975XcK-g',
-      start: 62,
+      startsAt: 62,
     },
     desc: {
       namu: 'https://namu.wiki/w/NRG(%EC%95%84%EC%9D%B4%EB%8F%8C)',
@@ -370,7 +372,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'NWROMz8DZv0',
-      start: 163,
+      startsAt: 163,
     },
     desc: {
       namu: 'https://namu.wiki/w/%ED%83%9C%EC%82%AC%EC%9E%90(%EC%95%84%EC%9D%B4%EB%8F%8C)',
@@ -382,7 +384,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'kuVtFzeEjF8',
-      start: 13,
+      startsAt: 13,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%A7%80%EB%88%84%EC%85%98',
@@ -406,7 +408,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: 'rAsMh0zyH3o',
-      start: 156,
+      startsAt: 156,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EB%B0%95%EC%A7%80%EC%9C%A4(%EB%A9%80%ED%8B%B0%20%EC%97%94%ED%84%B0%ED%85%8C%EC%9D%B4%EB%84%88)',
@@ -420,7 +422,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: 'v2j9WCHVG8A',
-      start: 91,
+      startsAt: 91,
     },
     desc: {
       namu: 'https://namu.wiki/w/%ED%99%8D%EA%B2%BD%EB%AF%BC',
@@ -433,7 +435,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '0IA6HHiFjec',
-      start: 102,
+      startsAt: 102,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%8A%A4%ED%8B%B0%EB%B8%8C%20%EC%9C%A0',
@@ -453,7 +455,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '_k-A0RULIPI',
-      start: 89,
+      startsAt: 89,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%96%80(%EA%B0%80%EC%88%98)',
@@ -468,7 +470,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'BH_NndGHsXI',
-      start: 74,
+      startsAt: 74,
     },
     desc: {
       namu: 'https://namu.wiki/w/S%23ARP',
@@ -481,7 +483,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'I60XdW1QTeQ',
-      start: 118,
+      startsAt: 118,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%BD%94%EC%9A%94%ED%83%9C',
@@ -508,7 +510,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: 'SyTtCQnESZo',
-      start: 99,
+      startsAt: 99,
     },
     desc: {
       namu: 'https://namu.wiki/w/%ED%95%91%ED%81%B4',
@@ -521,7 +523,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '4Mrf75nDAwU',
-      start: 12,
+      startsAt: 12,
     },
     desc: {
       namu: 'https://namu.wiki/w/%ED%95%9C%EC%8A%A4%EB%B0%B4%EB%93%9C',
@@ -543,7 +545,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'YxlXwKY825I',
-      start: 64,
+      startsAt: 64,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%8B%A0%ED%99%94(%EC%95%84%EC%9D%B4%EB%8F%8C)',
@@ -556,7 +558,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'gh2B1RtJbXg',
-      start: 147,
+      startsAt: 147,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9B%90%ED%83%80%EC%9E%84(%EA%B7%B8%EB%A3%B9)',
@@ -569,7 +571,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '5j8JqkOZc2k',
-      start: 73,
+      startsAt: 73,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9D%B4%EB%B8%8C(%EB%A1%9D%EB%B0%B4%EB%93%9C)',
@@ -617,7 +619,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: 'N7VBSaZ-jKQ',
-      start: 87,
+      startsAt: 87,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EA%B9%80%ED%98%84%EC%A0%95(1976)',
@@ -630,7 +632,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '2W0QV_G-7_w',
-      start: 92,
+      startsAt: 92,
     },
     desc: {
       namu: 'https://namu.wiki/w/J.ae',
@@ -673,7 +675,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: 'cYSKoLOFGvQ',
-      start: 80,
+      startsAt: 80,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%A1%B0%EC%84%B1%EB%AA%A8',
@@ -743,7 +745,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '8fTKs5DShYw',
-      start: 22,
+      startsAt: 22,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EB%91%90%EB%A6%AC%EC%95%88#s-3',
@@ -757,7 +759,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '72BqCAmhnxk',
-      start: 67,
+      startsAt: 67,
     },
   },
   {
@@ -767,7 +769,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'tWTq_PMXfBE',
-      start: 176,
+      startsAt: 176,
     },
   },
   {
@@ -777,7 +779,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'mVuZhU5z2AY',
-      start: 77,
+      startsAt: 77,
     },
   },
   {
@@ -787,7 +789,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: 'H5SJfNCf5Ig',
-      start: 63,
+      startsAt: 63,
     },
   },
   {
@@ -824,7 +826,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: 'fNqR8BVfwhU',
-      start: 162,
+      startsAt: 162,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9D%B4%EC%A0%95%ED%98%84(%EB%A9%80%ED%8B%B0%20%EC%97%94%ED%84%B0%ED%85%8C%EC%9D%B4%EB%84%88)',
@@ -837,7 +839,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: 'byEZDtOKqoA',
-      start: 30,
+      startsAt: 30,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EB%B0%B1%EC%A7%80%EC%98%81',
@@ -850,7 +852,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '0fBudhvR1ho',
-      start: 184,
+      startsAt: 184,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9D%B4%EC%88%98%EC%98%81(%EA%B0%80%EC%88%98)',
@@ -896,7 +898,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: 'cazcM_kEDSA',
-      start: 89,
+      startsAt: 89,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EA%B9%80%EB%B2%94%EC%88%98',
@@ -909,7 +911,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: 'sr3JaQ3h7YA',
-      start: 90,
+      startsAt: 90,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EB%B0%95%ED%9A%A8%EC%8B%A0',
@@ -933,7 +935,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: 'XIgxZCPzt5w',
-      start: 60,
+      startsAt: 60,
     },
   },
 
@@ -944,7 +946,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -960,7 +962,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -981,7 +983,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1014,7 +1016,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1024,7 +1026,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -1035,7 +1037,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1081,7 +1083,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1091,7 +1093,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1122,7 +1124,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1170,7 +1172,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1180,7 +1182,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1190,7 +1192,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1305,7 +1307,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1315,7 +1317,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -1333,7 +1335,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1343,7 +1345,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1359,7 +1361,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1400,7 +1402,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1410,7 +1412,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1420,7 +1422,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1462,7 +1464,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1484,7 +1486,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -1501,7 +1503,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1511,7 +1513,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1532,7 +1534,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1553,7 +1555,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1563,7 +1565,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1586,7 +1588,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1639,7 +1641,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1649,7 +1651,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1670,7 +1672,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1680,7 +1682,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1715,7 +1717,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1725,7 +1727,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1741,7 +1743,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1776,7 +1778,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1786,7 +1788,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1796,7 +1798,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1832,7 +1834,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1858,7 +1860,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1896,7 +1898,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -1907,7 +1909,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1917,7 +1919,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1927,7 +1929,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1953,7 +1955,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1975,7 +1977,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1985,7 +1987,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -1995,7 +1997,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2005,7 +2007,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2015,7 +2017,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2025,7 +2027,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2057,7 +2059,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2067,7 +2069,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2084,7 +2086,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2110,7 +2112,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2142,7 +2144,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2152,7 +2154,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2162,7 +2164,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2198,7 +2200,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2208,7 +2210,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2218,7 +2220,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2254,7 +2256,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2264,7 +2266,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -2276,7 +2278,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2332,7 +2334,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2342,7 +2344,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2374,13 +2376,13 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
     debutYear: 2011,
     name: '제이클리',
-    search: '장문복',
+    searchName: '장문복',
     category: 'boy-solo',
   },
 
@@ -2392,7 +2394,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2402,7 +2404,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2458,7 +2460,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2468,7 +2470,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2478,7 +2480,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2488,7 +2490,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2498,7 +2500,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2508,7 +2510,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2550,7 +2552,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2560,7 +2562,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2570,7 +2572,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2619,7 +2621,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2650,7 +2652,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2686,7 +2688,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2696,7 +2698,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2706,7 +2708,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2723,7 +2725,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2733,7 +2735,7 @@ export const IDOLS = [
     category: 'mixed-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -2744,7 +2746,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2754,7 +2756,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2764,7 +2766,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2807,7 +2809,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2817,7 +2819,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2863,7 +2865,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2873,7 +2875,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2883,7 +2885,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2893,7 +2895,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2909,7 +2911,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -2921,7 +2923,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2931,7 +2933,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2941,7 +2943,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2984,7 +2986,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -2994,7 +2996,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3004,7 +3006,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3014,7 +3016,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3052,7 +3054,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3063,7 +3065,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3080,7 +3082,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3090,7 +3092,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3100,7 +3102,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3110,7 +3112,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3154,7 +3156,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3164,7 +3166,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3205,7 +3207,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
 
@@ -3216,7 +3218,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3226,7 +3228,7 @@ export const IDOLS = [
     category: 'boy-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3296,7 +3298,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3364,7 +3366,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3375,7 +3377,7 @@ export const IDOLS = [
     category: 'girl-solo',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3410,7 +3412,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3420,7 +3422,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3461,7 +3463,7 @@ export const IDOLS = [
     category: 'boy-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {
@@ -3516,7 +3518,7 @@ export const IDOLS = [
     category: 'girl-group',
     youtube: {
       url: '',
-      start: 0,
+      startsAt: 0,
     },
   },
   {

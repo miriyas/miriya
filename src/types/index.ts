@@ -1,23 +1,25 @@
-export type TCategory = 'mixed-group';
+export type TCategory = 'mixed-group' | 'girl-group' | 'boy-group' | 'girl-solo' | 'boy-solo';
 
 export interface IYoutube {
-  url: string;
   startsAt: number;
+  url: string;
 }
 
 export interface IDesc {
-  title: string;
-  namu: string;
-  naver: string;
-  melon: string;
+  melon?: string;
+  namu?: string;
+  naver?: string;
+  title?: string;
 }
 
 export interface IIdol {
-  debutYear: number;
-  endYear: number;
-  major: boolean;
-  name: string;
   category: TCategory;
-  youtube: IYoutube;
-  desc: IDesc;
+  debutYear: number;
+  desc?: IDesc;
+  endYear?: number | '활동중';
+  major?: boolean;
+  name: string;
+  searchIndex?: number;
+  searchName?: string;
+  youtube?: IYoutube;
 }

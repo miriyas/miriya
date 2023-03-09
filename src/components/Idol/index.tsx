@@ -1,11 +1,23 @@
-import { IconSound } from '@/assets/svgs';
-import { IIdol } from '@/types';
 import Image from 'next/image';
 
+import { IIdol, TCategory } from '@/types';
+
+import { IconSound } from '@/assets/svgs';
 import styles from './Idol.module.scss';
+import { useMemo } from 'react';
 
 const filterIdolName = (name: string) => {
   return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|\&]/g, '');
+};
+
+const prettyCategory = (category: TCategory) => {
+  return {
+    'mixed-group': '혼성그룹',
+    'girl-group': '여성그룹',
+    'boy-group': '남성그룹',
+    'girl-solo': '여성솔로',
+    'boy-solo': '남성솔로',
+  }[category];
 };
 
 interface Props {
@@ -14,19 +26,26 @@ interface Props {
 
 const Idol = (props: Props) => {
   const {
-    idol: { name, youtube },
+    idol: { category, name, youtube, debutYear, endYear },
   } = props;
 
-  const profileUrl = `/images/idols/${filterIdolName(name)}.jpg`;
+  const profileUrl = useMemo(() => `/images/idols/${filterIdolName(name)}.jpg`, [name]);
+
+  const onClickUpper = () => {
+    console.log('click');
+  };
 
   return (
-    <li>
-      <div className={styles.profileImg}>
-        {name}
-        {youtube && youtube.url !== '' && <IconSound />}
-
-        <Image src={profileUrl} alt={name} width={100} height={100} />
-      </div>
+    <li className={styles.idol}>
+      <button type='button' className={styles.upper} onClick={onClickUpper}>
+        {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
+        <div className={styles.profileImg}>
+          <Image src={profileUrl} alt={name} width={100} height={100} />
+        </div>
+        <p className={styles.name}>{name}</p>
+        <p className={styles.category}>{prettyCategory(category)}</p>
+        <p className={styles.years}>{`${debutYear} ~ ${endYear}`}</p>
+      </button>
     </li>
   );
 };

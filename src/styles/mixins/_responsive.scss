@@ -1,0 +1,107 @@
+@function getMinBreakpoint($media) {
+  @if $media == S {
+    @return 320px;
+  } @else if $media == M {
+    @return 375px;
+  } @else if $media == ML {
+    @return 600px;
+  } @else if $media == SD {
+    @return 768px;
+  } @else if $media == MD {
+    @return 1000px;
+  } @else if $media == LD {
+    @return 1200px;
+  } @else if $media == HD {
+    @return 1300px;
+  } @else if $media == SHD {
+    @return 1800px;
+  } @else if $media == QHD {
+    @return 2400px;
+  } @else {
+    @return $media;
+  }
+}
+
+@function getMaxBreakpoint($media) {
+  @if $media == S {
+    @return 320px - 1px;
+  } @else if $media == M {
+    @return 375px - 1px;
+  } @else if $media == ML {
+    @return 600px - 1px;
+  } @else if $media == SD {
+    @return 768px - 1px;
+  } @else if $media == MD {
+    @return 1000px - 1px;
+  } @else if $media == LD {
+    @return 1200px - 1px;
+  } @else if $media == HD {
+    @return 1300px - 1px;
+  } @else if $media == SHD {
+    @return 1800px - 1px;
+  } @else if $media == QHD {
+    @return 2400px - 1px;
+  } @else {
+    @return $media - 1px;
+  }
+}
+
+@mixin between($min, $max) {
+  @media only screen and (min-width: getMinBreakpoint($min)) and (max-width: getMaxBreakpoint($max)) {
+    @content;
+  }
+}
+
+@mixin after($media) {
+  @media only screen and (min-width: getMinBreakpoint($media)) {
+    @content;
+  }
+}
+
+@mixin mobileOnly() {
+  @media only screen and (max-width: getMaxBreakpoint(SD)) {
+    @content;
+  }
+}
+
+@mixin desktopOnly() {
+  @media only screen and (min-width: getMinBreakpoint(SD)) {
+    @content;
+  }
+}
+
+@mixin responsiveOnly($media) {
+  @if $media == S {
+    @media only screen and (min-width: getMinBreakpoint(S)) and (max-width: getMaxBreakpoint(M)) {
+      @content;
+    }
+  } @else if $media == M {
+    @media only screen and (min-width: getMinBreakpoint(M)) and (max-width: getMaxBreakpoint(ML)) {
+      @content;
+    }
+  } @else if $media == ML {
+    @media only screen and (min-width: getMinBreakpoint(ML)) and (max-width: getMaxBreakpoint(SD)) {
+      @content;
+    }
+  } @else if $media == SD {
+    @media only screen and (min-width: getMinBreakpoint(SD)) and (max-width: getMaxBreakpoint(MD)) {
+      @content;
+    }
+  } @else if $media == MD {
+    @media only screen and (min-width: getMinBreakpoint(MD)) and (max-width: getMaxBreakpoint(LD)) {
+      @content;
+    }
+  } @else if $media == LD {
+    @media only screen and (min-width: getMinBreakpoint(LD)) and (max-width: getMaxBreakpoint(HD)) {
+      @content;
+    }
+  } @else if $media == HD {
+    @media only screen and (min-width: getMinBreakpoint(HD)) and (max-width: getMaxBreakpoint(SHD)) {
+      @content;
+    }
+  } @else if $media == SHD {
+    @media only screen and (min-width: getMinBreakpoint(SHD)) and (max-width: getMaxBreakpoint(QHD)) {
+      @content;
+    }
+  }
+}

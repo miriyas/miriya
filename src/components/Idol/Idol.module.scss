@@ -1,5 +1,198 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
 .idol {
-  .profileImg {
-    background-color: red;
+  width: 140px;
+  height: 220px;
+  margin: 20px;
+  background-color: c.$C_WHITE;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(c.$C_GRAY_4, 0.1);
+
+  .upper {
+    @include m.flexbox(center, center);
+    flex-direction: column;
+    position: relative;
+    padding: 24px 14px 14px;
+
+    .withSound {
+      @include m.absolute(8px 8px auto auto);
+      width: 14px;
+      height: 14px;
+      fill: c.$C_GRAY_8;
+    }
+
+    .name {
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .category,
+    .years {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .profileImg {
+      img {
+        border-radius: 50%;
+      }
+    }
   }
 }
+
+// .years {
+//   max-width: 800px;
+//   margin: 0 auto;
+//   text-align: left;
+// }
+
+// .yearTop {
+//   h2 {
+//     font-size: 36px;
+//     font-weight: bold;
+//   }
+
+//   p {
+//     padding-top: 8px;
+//     font-size: 14px;
+//     line-height: 24px;
+//   }
+// }
+
+// .year {
+//   margin: 28px auto 100px;
+// }
+
+// .idol {
+//   width: 132px;
+//   height: 156px;
+//   font-size: 12px;
+//   background-color: #ffffff;
+//   box-shadow: 0 2px 4px 0 rgba(#444444, 0.05);
+//   border-radius: 10px;
+//   overflow: hidden;
+//   user-select: none;
+
+//   .twrapper {
+//     width: 132px;
+//     height: 156px;
+//     transition: 0.3s;
+//     // background-color: #000000;
+//   }
+
+//   &.major {
+//     .name {
+//       font-weight: bold;
+//     }
+//   }
+
+//   &.selected {
+//     width: 292px;
+//     height: 340px;
+
+//     .twrapper {
+//       width: 292px;
+//       height: 340px;
+//     }
+
+//     &.fullDesc {
+//       width: 292px;
+//       height: 524px;
+
+//       .twrapper {
+//         width: 292px;
+//         height: 524px;
+//       }
+//     }
+//   }
+
+//   &.noClick {
+//     cursor: not-allowed;
+//   }
+
+//   .top {
+//     height: 132px;
+//     position: relative;
+//     overflow: hidden;
+//     cursor: pointer;
+
+//     &:hover {
+//       transition: 0.3s;
+
+//       .shade {
+//         opacity: 0;
+//       }
+//       .sound {
+//         opacity: 0.7;
+//       }
+//     }
+
+//     .sound {
+//       position: absolute;
+//       top: 8px;
+//       right: 8px;
+//       width: 14px;
+//       opacity: 0.4;
+//     }
+//   }
+
+//   .picture,
+//   .shade {
+//     position: absolute;
+//     top: 16px;
+//     left: 50%;
+//     width: 100px;
+//     height: 100px;
+//     border-radius: 50px;
+//     transform: translateX(-50%);
+//   }
+
+//   .shade {
+//     background-color: #d6d6d6;
+//     opacity: 0.1;
+//     z-index: 20;
+//   }
+
+//   .period {
+//     height: 16px;
+//     color: #999999;
+//     text-align: center;
+//   }
+
+//   .fullDesc {
+//     padding: 16px;
+//     height: 174px;
+//     text-align: left;
+//     // background-color: #F7F7F7;
+
+//     p {
+//       padding-bottom: 8px;
+//     }
+
+//     a {
+//       padding: 0 2px;
+//     }
+//   }
+
+//   iframe {
+//     // position: absolute;
+//   }
+// }
+
+// // .mixed-group {
+// //   background-color: #DAD8A7;
+// // }
+// // .girl-group {
+// //   background-color: #FF9E9D;
+// // }
+// // .boy-group {
+// //   background-color: #7FC7AF;
+// // }
+// // .girl-solo {
+// //   background: pink;
+// // }
+// // .boy-solo {
+// //   background: skyblue;
+// // }
