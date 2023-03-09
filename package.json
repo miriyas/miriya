@@ -14,6 +14,7 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "lodash": "^4.17.21",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
+    "@types/lodash": "^4.14.191",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
     "stylelint-config-recess-order": "^4.0.0",

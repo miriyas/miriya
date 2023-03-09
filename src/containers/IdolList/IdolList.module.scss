@@ -1,5 +1,11 @@
 @use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
 
 .idolList {
+  @include m.flexbox(center, center);
   background-color: c.$C_BG;
+
+  .idolYears {
+    max-width: 800px;
+  }
 }

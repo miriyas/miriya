@@ -44,7 +44,7 @@ const Idol = (props: Props) => {
         </div>
         <p className={styles.name}>{name}</p>
         <p className={styles.category}>{prettyCategory(category)}</p>
-        <p className={styles.years}>{`${debutYear} ~ ${endYear}`}</p>
+        <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
       </button>
     </li>
   );

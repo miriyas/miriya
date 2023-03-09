@@ -1,11 +1,14 @@
 import Head from 'next/head';
+import { groupBy } from 'lodash';
 
 import { IDOLS } from '@/constants';
 
-import Idol from '@/components/Idol';
+import IdolYear from '@/components/IdolYear';
 import styles from './IdolList.module.scss';
 
 const IdolList = () => {
+  const years = groupBy(IDOLS, 'debutYear');
+
   return (
     <>
       <Head>
@@ -15,9 +18,9 @@ const IdolList = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.idolList}>
-        <ul>
-          {IDOLS.map((idol) => {
-            return <Idol key={`${idol.name}-${idol.debutYear}`} idol={idol} />;
+        <ul className={styles.idolYears}>
+          {Object.keys(years).map((year) => {
+            return <IdolYear key={year} idols={years[year]} year={Number(year)} />;
           })}
         </ul>
       </main>
