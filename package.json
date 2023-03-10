@@ -12,8 +12,10 @@
     "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "classnames": "^2.3.2",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "isotope-layout": "^3.0.6",
     "lodash": "^4.17.21",
     "next": "13.2.3",
     "react": "18.2.0",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
+    "@types/isotope-layout": "^3.0.9",
     "@types/lodash": "^4.14.191",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",

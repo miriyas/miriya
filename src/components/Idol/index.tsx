@@ -1,10 +1,11 @@
+import { useMemo, useState } from 'react';
 import Image from 'next/image';
+import cx from 'classnames';
 
 import { IIdol, TCategory } from '@/types';
 
 import { IconSound } from '@/assets/svgs';
 import styles from './Idol.module.scss';
-import { useMemo } from 'react';
 
 const filterIdolName = (name: string) => {
   return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|\&]/g, '');
@@ -25,9 +26,10 @@ interface Props {
 }
 
 const Idol = (props: Props) => {
-  const {
-    idol: { category, name, youtube, debutYear, endYear },
-  } = props;
+  const { idol } = props;
+  const { category, name, youtube, debutYear, endYear } = idol;
+
+  const [opened, setOpened] = useState(false);
 
   const profileUrl = useMemo(() => `/images/idols/${filterIdolName(name)}.jpg`, [name]);
 
@@ -36,7 +38,7 @@ const Idol = (props: Props) => {
   };
 
   return (
-    <li className={styles.idol}>
+    <li className={cx(styles.idol, 'grid-item', { [styles.opened]: opened })}>
       <button type='button' className={styles.upper} onClick={onClickUpper}>
         {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
         <div className={styles.profileImg}>

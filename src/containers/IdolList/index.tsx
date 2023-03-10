@@ -20,6 +20,7 @@ const IdolList = () => {
       <main className={styles.idolList}>
         <ul className={styles.idolYears}>
           {Object.keys(years).map((year) => {
+            // if (typeof window === 'undefined') return <></>;
             return <IdolYear key={year} idols={years[year]} year={Number(year)} />;
           })}
         </ul>
