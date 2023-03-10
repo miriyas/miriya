@@ -7,6 +7,7 @@ import { IIdol, TCategory } from '@/types';
 
 import { IconSound } from '@/assets/svgs';
 import styles from './Idol.module.scss';
+import Youtube from '@/components/Idol/Youtube';
 
 const filterIdolName = (name: string) => {
   return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|\&]/g, '');
@@ -34,6 +35,8 @@ const Idol = (props: Props) => {
   const idolRef = useRef<HTMLLIElement>(null);
   const [opened, setOpened] = useState(false);
 
+  const hasYoutube = youtube && youtube.startsAt && youtube.url;
+
   useClickAway(idolRef, () => {
     if (!opened) return;
     setOpened(false);
@@ -41,6 +44,7 @@ const Idol = (props: Props) => {
   });
 
   const onClickUpper = () => {
+    if (!hasYoutube) return;
     setOpened(true);
     sort();
   };
@@ -58,7 +62,7 @@ const Idol = (props: Props) => {
         <p className={styles.category}>{prettyCategory(category)}</p>
         <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
       </button>
-      <div className={styles.lower}>dsafsdf</div>
+      {opened && <div className={styles.lower}>{hasYoutube && <Youtube youtube={youtube} />}</div>}
     </li>
   );
 };
