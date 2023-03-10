@@ -35,7 +35,7 @@ const Idol = (props: Props) => {
   const idolRef = useRef<HTMLLIElement>(null);
   const [opened, setOpened] = useState(false);
 
-  const hasYoutube = youtube && youtube.startsAt && youtube.url;
+  const hasYoutube = youtube && youtube.startsAt >= 0 && youtube.url;
 
   useClickAway(idolRef, () => {
     if (!opened) return;

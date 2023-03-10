@@ -25,8 +25,8 @@ export const IDOLS: IIdol[] = [
     name: 'UP',
     category: 'mixed-group',
     youtube: {
-      url: '-7QspykoYBc',
-      startsAt: 171,
+      url: 'W26H4SDa19U',
+      startsAt: 167,
     },
     desc: {
       title: '중학생 멤버들의 귀여운 용모를 전면에 내세운 4인조 댄스 그룹',
@@ -41,8 +41,8 @@ export const IDOLS: IIdol[] = [
     name: '콜라',
     category: 'mixed-group',
     youtube: {
-      url: 'AEtFtzs8FDE',
-      startsAt: 115,
+      url: 'sigUTJ46jTs',
+      startsAt: 118,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%BD%9C%EB%9D%BC(%EA%B0%80%EC%88%98)',
@@ -104,7 +104,7 @@ export const IDOLS: IIdol[] = [
     name: 'H.O.T',
     category: 'boy-group',
     youtube: {
-      url: 'ly7qcY46ofw',
+      url: 'i54a8uRJOp4',
       startsAt: 92,
     },
     desc: {
@@ -121,7 +121,7 @@ export const IDOLS: IIdol[] = [
     name: '언타이틀',
     category: 'boy-group',
     youtube: {
-      url: 'thR2FBvc0EU',
+      url: '4g6Hi6ydWnI',
       startsAt: 149,
     },
     desc: {
@@ -152,8 +152,8 @@ export const IDOLS: IIdol[] = [
     name: 'IDOL',
     category: 'boy-group',
     youtube: {
-      url: 'XrHIReVLZZs',
-      startsAt: 146,
+      url: 'vD_0UwJ9r5k',
+      startsAt: 60,
     },
     desc: {
       namu: 'https://namu.wiki/w/IDOL',
@@ -318,8 +318,8 @@ export const IDOLS: IIdol[] = [
     name: '베이비복스',
     category: 'girl-group',
     youtube: {
-      url: 'vEQpNDN0vmk',
-      startsAt: 4,
+      url: 'Qa5ve47TD4E',
+      startsAt: 64,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EB%B2%A0%EC%9D%B4%EB%B9%84%EB%B3%B5%EC%8A%A4',
@@ -331,7 +331,7 @@ export const IDOLS: IIdol[] = [
     name: '디바',
     category: 'girl-group',
     youtube: {
-      url: 'PSM_VxctljQ',
+      url: '_6pEn8RvESA',
       startsAt: 24,
     },
     desc: {
@@ -371,8 +371,8 @@ export const IDOLS: IIdol[] = [
     name: '태사자',
     category: 'boy-group',
     youtube: {
-      url: 'NWROMz8DZv0',
-      startsAt: 163,
+      url: 'du8X6K6jCRA',
+      startsAt: 1,
     },
     desc: {
       namu: 'https://namu.wiki/w/%ED%83%9C%EC%82%AC%EC%9E%90(%EC%95%84%EC%9D%B4%EB%8F%8C)',
@@ -469,8 +469,8 @@ export const IDOLS: IIdol[] = [
     name: 'S#ARP',
     category: 'mixed-group',
     youtube: {
-      url: 'BH_NndGHsXI',
-      startsAt: 74,
+      url: 'n_28BGqfvE8',
+      startsAt: 79,
     },
     desc: {
       namu: 'https://namu.wiki/w/S%23ARP',
@@ -509,8 +509,8 @@ export const IDOLS: IIdol[] = [
     name: '핑클',
     category: 'girl-group',
     youtube: {
-      url: 'SyTtCQnESZo',
-      startsAt: 99,
+      url: 'CRR9Wsqf8Ls',
+      startsAt: 101,
     },
     desc: {
       namu: 'https://namu.wiki/w/%ED%95%91%ED%81%B4',
@@ -632,7 +632,7 @@ export const IDOLS: IIdol[] = [
     category: 'girl-solo',
     youtube: {
       url: '2W0QV_G-7_w',
-      startsAt: 92,
+      startsAt: 125,
     },
     desc: {
       namu: 'https://namu.wiki/w/J.ae',
@@ -743,10 +743,6 @@ export const IDOLS: IIdol[] = [
     debutYear: 1999,
     name: '두리안',
     category: 'girl-group',
-    youtube: {
-      url: '8fTKs5DShYw',
-      startsAt: 22,
-    },
     desc: {
       namu: 'https://namu.wiki/w/%EB%91%90%EB%A6%AC%EC%95%88#s-3',
     },
@@ -825,8 +821,8 @@ export const IDOLS: IIdol[] = [
     name: '이정현',
     category: 'girl-solo',
     youtube: {
-      url: 'fNqR8BVfwhU',
-      startsAt: 162,
+      url: 'C3OAWCvIzCE',
+      startsAt: 163,
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9D%B4%EC%A0%95%ED%98%84(%EB%A9%80%ED%8B%B0%20%EC%97%94%ED%84%B0%ED%85%8C%EC%9D%B4%EB%84%88)',
@@ -862,6 +858,10 @@ export const IDOLS: IIdol[] = [
     debutYear: 1999,
     name: '소냐',
     category: 'girl-solo',
+    youtube: {
+      url: 'BAxS5lsyec4',
+      startsAt: 83,
+    },
     desc: {
       namu: 'https://namu.wiki/w/%EC%86%8C%EB%83%90(%EA%B0%80%EC%88%98)',
     },
@@ -878,6 +878,10 @@ export const IDOLS: IIdol[] = [
     debutYear: 1999,
     name: '채정안',
     category: 'girl-solo',
+    youtube: {
+      url: 'P6UpqC53Pf8',
+      startsAt: 85,
+    },
     desc: {
       namu: 'https://namu.wiki/w/%EC%B1%84%EC%A0%95%EC%95%88',
     },
@@ -897,7 +901,7 @@ export const IDOLS: IIdol[] = [
     name: '김범수',
     category: 'boy-solo',
     youtube: {
-      url: 'cazcM_kEDSA',
+      url: 'hlx3DZQA5PY',
       startsAt: 89,
     },
     desc: {
@@ -945,8 +949,8 @@ export const IDOLS: IIdol[] = [
     name: '샤크라',
     category: 'girl-group',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: '0BlrHpBzDUI',
+      startsAt: 95,
     },
   },
   {
@@ -961,51 +965,74 @@ export const IDOLS: IIdol[] = [
     name: '문차일드',
     category: 'boy-group',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: '-sq8j3uCh5A',
+      startsAt: 63,
     },
   },
   {
     debutYear: 2000,
     name: 'UN',
     category: 'boy-group',
+    youtube: {
+      url: 'vghS3zLmeOw',
+      startsAt: 117,
+    },
   },
   {
     debutYear: 2000,
     name: '량현량하',
     category: 'boy-group',
+    youtube: {
+      url: '-xtgeYvY33g',
+      startsAt: 6,
+    },
   },
-
   {
     debutYear: 2000,
     major: true,
     name: '보아',
     category: 'girl-solo',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'ceZc-5p3g1w',
+      startsAt: 41,
     },
   },
   {
     debutYear: 2000,
     name: '화요비',
     category: 'girl-solo',
+    youtube: {
+      url: 'lVYLj8GNNyw',
+      startsAt: 82,
+    },
   },
   {
     debutYear: 2000,
     name: '왁스',
     category: 'girl-solo',
+    youtube: {
+      url: '6A4FnyJcNBM',
+      startsAt: 76,
+    },
   },
   {
     debutYear: 2000,
     name: '정인',
     category: 'girl-solo',
+    youtube: {
+      url: 'Zm1JcsqbXzs',
+      startsAt: 74,
+    },
   },
 
   {
     debutYear: 2000,
     name: '은지원',
     category: 'boy-solo',
+    youtube: {
+      url: '0cWWnlO7BIA',
+      startsAt: 6,
+    },
   },
 
   // 2001 === === === === ===
@@ -1015,8 +1042,8 @@ export const IDOLS: IIdol[] = [
     name: '더 자두',
     category: 'mixed-group',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'prTlJcipGbo',
+      startsAt: 64,
     },
   },
   {
@@ -1025,8 +1052,8 @@ export const IDOLS: IIdol[] = [
     name: '거북이',
     category: 'mixed-group',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'cNZk2y57jzs',
+      startsAt: 16,
     },
   },
 
@@ -1036,19 +1063,27 @@ export const IDOLS: IIdol[] = [
     name: '쥬얼리',
     category: 'girl-group',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'l9Ih9zqtWJY',
+      startsAt: 60,
     },
   },
   {
     debutYear: 2001,
     name: '밀크',
     category: 'girl-group',
+    youtube: {
+      url: 'oyJtrvJfvDE',
+      startsAt: 69,
+    },
   },
   {
     debutYear: 2001,
     name: '슈가',
     category: 'girl-group',
+    youtube: {
+      url: 'j6SibyE5PPQ',
+      startsAt: 77,
+    },
   },
   {
     debutYear: 2001,
@@ -1082,8 +1117,8 @@ export const IDOLS: IIdol[] = [
     name: '에픽하이',
     category: 'boy-group',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'IAgRgOh_t3o',
+      startsAt: 16,
     },
   },
   {
@@ -1092,14 +1127,18 @@ export const IDOLS: IIdol[] = [
     name: '브라운 아이즈',
     category: 'boy-group',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'rZLypVnNhuw',
+      startsAt: 77,
     },
   },
   {
     debutYear: 2001,
     name: '디베이스',
     category: 'boy-group',
+    youtube: {
+      url: 'Xp17ec9SdXA',
+      startsAt: 10,
+    },
   },
   {
     debutYear: 2001,
@@ -1110,11 +1149,19 @@ export const IDOLS: IIdol[] = [
     debutYear: 2001,
     name: '오션',
     category: 'boy-group',
+    youtube: {
+      url: 'jZeOy8GRr7I',
+      startsAt: 46,
+    },
   },
   {
     debutYear: 2001,
     name: 'JTL',
     category: 'boy-group',
+    youtube: {
+      url: 'w-Zu7ZXIKoE',
+      startsAt: 43,
+    },
   },
 
   {
@@ -1123,7 +1170,7 @@ export const IDOLS: IIdol[] = [
     name: '장나라',
     category: 'girl-solo',
     youtube: {
-      url: '',
+      url: 'fKmU0rmgATE',
       startsAt: 0,
     },
   },
@@ -1132,27 +1179,47 @@ export const IDOLS: IIdol[] = [
     name: '하늘',
     searchName: '로티플스카이',
     category: 'girl-solo',
+    youtube: {
+      url: '0wFngk3YtXw',
+      startsAt: 27,
+    },
   },
   {
     debutYear: 2001,
     name: '죠앤',
     category: 'girl-solo',
+    youtube: {
+      url: 'dxb8kdClnpY',
+      startsAt: 9,
+    },
   },
   {
     debutYear: 2001,
     name: '다나',
     searchName: '다나 더 그레이스',
     category: 'girl-solo',
+    youtube: {
+      url: 'HdCH3JsW4x8',
+      startsAt: 83,
+    },
   },
   {
     debutYear: 2001,
     name: '유리',
     category: 'girl-solo',
+    youtube: {
+      url: '',
+      startsAt: 0,
+    },
   },
   {
     debutYear: 2001,
     name: '린',
     category: 'girl-solo',
+    youtube: {
+      url: 'nj_6geqNPLA',
+      startsAt: 58,
+    },
   },
   {
     debutYear: 2001,
@@ -1171,8 +1238,8 @@ export const IDOLS: IIdol[] = [
     name: '성시경',
     category: 'boy-solo',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'xnH9T6WWznc',
+      startsAt: 71,
     },
   },
   {
@@ -1181,8 +1248,8 @@ export const IDOLS: IIdol[] = [
     name: '싸이',
     category: 'boy-solo',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'yqPIEab9-wY',
+      startsAt: 33,
     },
   },
   {
@@ -1191,14 +1258,18 @@ export const IDOLS: IIdol[] = [
     name: '리치',
     category: 'boy-solo',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'Nkcomvtw9QY',
+      startsAt: 72,
     },
   },
   {
     debutYear: 2001,
     name: '문희준',
     category: 'boy-solo',
+    youtube: {
+      url: 'Hen4taZWrdQ',
+      startsAt: 70,
+    },
   },
   {
     debutYear: 2001,
@@ -1214,6 +1285,10 @@ export const IDOLS: IIdol[] = [
     debutYear: 2001,
     name: '강타',
     category: 'boy-solo',
+    youtube: {
+      url: 'bJQHAv0J2Bs',
+      startsAt: 203,
+    },
   },
   {
     debutYear: 2001,
