@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import { useClickAway } from 'react-use';
 import Image from 'next/image';
 import cx from 'classnames';
 
@@ -23,22 +24,31 @@ const prettyCategory = (category: TCategory) => {
 
 interface Props {
   idol: IIdol;
+  sort: () => void;
 }
 
 const Idol = (props: Props) => {
-  const { idol } = props;
+  const { idol, sort } = props;
   const { category, name, youtube, debutYear, endYear } = idol;
 
+  const idolRef = useRef<HTMLLIElement>(null);
   const [opened, setOpened] = useState(false);
+
+  useClickAway(idolRef, () => {
+    if (!opened) return;
+    setOpened(false);
+    sort();
+  });
+
+  const onClickUpper = () => {
+    setOpened(true);
+    sort();
+  };
 
   const profileUrl = useMemo(() => `/images/idols/${filterIdolName(name)}.jpg`, [name]);
 
-  const onClickUpper = () => {
-    console.log('click');
-  };
-
   return (
-    <li className={cx(styles.idol, 'grid-item', { [styles.opened]: opened })}>
+    <li ref={idolRef} className={cx(styles.idol, `grid-item-${debutYear}`, { [styles.opened]: opened })}>
       <button type='button' className={styles.upper} onClick={onClickUpper}>
         {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
         <div className={styles.profileImg}>
@@ -48,6 +58,7 @@ const Idol = (props: Props) => {
         <p className={styles.category}>{prettyCategory(category)}</p>
         <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
       </button>
+      <div className={styles.lower}>dsafsdf</div>
     </li>
   );
 };

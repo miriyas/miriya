@@ -1,4 +1,6 @@
 .idolYear {
+  margin-bottom: 100px;
+
   .title {
     font-size: 36px;
     font-weight: 600;
@@ -8,5 +10,9 @@
     margin-top: 8px;
     font-size: 14px;
     line-height: 24px;
+  }
+
+  .idols {
+    margin: 14px -14px 0;
   }
 }

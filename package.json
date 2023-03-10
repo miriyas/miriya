@@ -9,27 +9,28 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "18.14.6",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
     "classnames": "^2.3.2",
-    "eslint": "8.35.0",
-    "eslint-config-next": "13.2.3",
     "isotope-layout": "^3.0.6",
     "lodash": "^4.17.21",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.5"
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
     "@types/isotope-layout": "^3.0.9",
     "@types/lodash": "^4.14.191",
+    "@types/node": "18.14.6",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.35.0",
+    "eslint-config-next": "13.2.3",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
     "stylelint-config-recess-order": "^4.0.0",
     "stylelint-config-standard-scss": "^7.0.1",
-    "stylelint-declaration-strict-value": "^1.9.2"
+    "stylelint-declaration-strict-value": "^1.9.2",
+    "typescript": "4.9.5"
   }
 }

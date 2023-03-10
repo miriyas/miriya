@@ -8,7 +8,7 @@
  * Copyright 2010-2018 Metafizzy
  */
 
-const isotope = (window, factory) => {
+const isotopeLayout = (window, factory) => {
   // universal module definition
   /* jshint strict: false */ /*globals define, module, require */
   if (typeof define == 'function' && define.amd) {
@@ -24,6 +24,7 @@ const isotope = (window, factory) => {
       './layout-modes/masonry',
       './layout-modes/fit-rows',
       './layout-modes/vertical',
+      './layout-modes/packery',
     ], function (Outlayer, getSize, matchesSelector, utils, Item, LayoutMode) {
       return factory(window, Outlayer, getSize, matchesSelector, utils, Item, LayoutMode);
     });
@@ -41,6 +42,7 @@ const isotope = (window, factory) => {
       require('./layout-modes/masonry'),
       require('./layout-modes/fit-rows'),
       require('./layout-modes/vertical'),
+      require('./layout-modes/packery'),
     );
   } else {
     // browser global
@@ -57,7 +59,7 @@ const isotope = (window, factory) => {
 };
 
 if (typeof window !== 'undefined') {
-  isotope(window, function factory(window, Outlayer, getSize, matchesSelector, utils, Item, LayoutMode) {
+  isotopeLayout(window, function factory(window, Outlayer, getSize, matchesSelector, utils, Item, LayoutMode) {
     'use strict';
 
     // -------------------------- vars -------------------------- //

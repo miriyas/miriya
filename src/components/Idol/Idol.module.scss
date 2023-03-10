@@ -2,21 +2,27 @@
 @use 'src/styles/mixins' as m;
 
 .idol {
-  width: 140px;
-  height: 220px;
-  margin: 20px;
+  width: c.$W_IDOL;
+  height: c.$H_IDOL;
   background-color: c.$C_WHITE;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(c.$C_GRAY_4, 0.1);
+  transition: 200ms;
 
   &.opened {
-    background-color: red;
+    width: c.$W_IDOL * 2 + c.$GUTTER_IDOL * 2;
+    height: c.$H_IDOL * 2 + c.$GUTTER_IDOL * 2;
+
+    .lower {
+      display: block;
+    }
   }
 
   .upper {
     @include m.flexbox(center, center);
     flex-direction: column;
     position: relative;
+    width: 100%;
     padding: 24px 14px 14px;
 
     .withSound {
@@ -43,6 +49,10 @@
         border-radius: 50%;
       }
     }
+  }
+
+  .lower {
+    display: none;
   }
 }
 
