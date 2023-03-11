@@ -1,14 +1,14 @@
 import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
-import type { IsotopeOptions } from 'isotope-layout';
 import cx from 'classnames';
 
+import type { IsotopeOptions } from 'isotope-layout';
+import { YEARS } from '@/constants';
 import { IIdol, IIsotopes } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 
 import Idol from '@/components/Idol';
 import styles from './IdolYear.module.scss';
-import { YEARS } from '@/constants';
 
 interface Props {
   idols: IIdol[];

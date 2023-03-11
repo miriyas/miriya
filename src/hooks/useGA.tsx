@@ -13,8 +13,6 @@ export function useGA() {
   const gaEvent: <T extends EventNameTypes>(eventName: T, data: DataType[T]) => void = useMemo(
     () =>
       debounce((eventName, data = {}) => {
-        console.log(window.gtag);
-
         window.gtag?.('event', eventName, decamelizeKeys(data));
       }, 500),
     [],

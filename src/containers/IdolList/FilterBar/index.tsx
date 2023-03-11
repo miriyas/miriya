@@ -5,11 +5,11 @@ import { YEAR_INFO } from '@/constants';
 import { CATEGORIES, IIsotopes, TCategory } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
+import { useGA } from '@/hooks/useGA';
+import { IDOL } from '@/constants/ga';
 
 import Header from './Header';
 import styles from './FilterBar.module.scss';
-import { useGA } from '@/hooks/useGA';
-import { IDOL } from '@/constants/ga';
 
 interface Props {
   isotopes: MutableRefObject<IIsotopes>;
@@ -25,7 +25,7 @@ const FilterBar = (props: Props) => {
   const onClickCategory: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newCategory = e.currentTarget.title;
     setCurrentCategory(newCategory as TCategory);
-    Object.keys(isotopes.current).map((key) => {
+    Object.keys(isotopes.current).forEach((key) => {
       isotopes.current[Number(key)].arrange({
         filter: (elem) => elem.classList.value.includes(`category-${newCategory}`),
       });

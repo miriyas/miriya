@@ -1,10 +1,11 @@
-import { useGA } from '@/hooks/useGA';
-import { IconGithub } from '@/assets/svgs';
-import { IDOLS, YEAR_INFO } from '@/constants';
-
-import styles from './FilterBar.module.scss';
-import { IDOL } from '@/constants/ga';
 import { MouseEventHandler } from 'react';
+
+import { useGA } from '@/hooks/useGA';
+import { IDOLS, YEAR_INFO } from '@/constants';
+import { IDOL } from '@/constants/ga';
+
+import { IconGithub } from '@/assets/svgs';
+import styles from './FilterBar.module.scss';
 
 const Header = () => {
   const { gaEvent } = useGA();

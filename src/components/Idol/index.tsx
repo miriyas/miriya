@@ -6,14 +6,14 @@ import cx from 'classnames';
 import { useGA } from '@/hooks/useGA';
 import { IIdol } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
+import { IDOL } from '@/constants/ga';
 
 import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '@/assets/svgs';
 import Youtube from '@/components/Idol/Youtube';
 import styles from './Idol.module.scss';
-import { IDOL } from '@/constants/ga';
 
 const filterIdolName = (name: string) => {
-  return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|\&]/g, '');
+  return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|&]/g, '');
 };
 
 interface Props {

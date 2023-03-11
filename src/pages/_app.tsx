@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 
+import type { AppProps } from 'next/app';
 import '@/utils/ga';
 import { useGA } from '@/hooks/useGA';
 
 import '@/styles/globals.scss';
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const { gaPV } = useGA();
   const { pathname, query } = useRouter();
 
@@ -16,4 +16,6 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [gaPV, pathname, query]);
 
   return <Component {...pageProps} />;
-}
+};
+
+export default App;

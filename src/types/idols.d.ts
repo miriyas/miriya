@@ -1,3 +1,5 @@
+import Isotope from '@/libs/isotope-layout';
+
 export type TCategory = 'total' | 'mixed-group' | 'girl-group' | 'boy-group' | 'girl-solo' | 'boy-solo';
 
 export const CATEGORIES: TCategory[] = ['total', 'mixed-group', 'girl-group', 'boy-group', 'girl-solo', 'boy-solo'];
