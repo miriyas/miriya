@@ -1,9 +1,10 @@
 import { MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import cx from 'classnames';
-import { IIdol } from '@/types';
-import Isotope from '@/libs/isotope-layout';
 import type { IsotopeOptions } from 'isotope-layout';
-import { IIsotopes } from '@/types';
+import cx from 'classnames';
+
+import { IIdol, IIsotopes } from '@/types';
+import Isotope from '@/libs/isotope-layout';
+import { useResponsive } from '@/hooks/useResponsive';
 
 import Idol from '@/components/Idol';
 import styles from './IdolYear.module.scss';
@@ -18,6 +19,8 @@ interface Props {
 const IdolYear = (props: Props) => {
   const { idols, isotopes, year } = props;
 
+  const { isMobile } = useResponsive();
+
   const yearDesc = YEARS.find((yearData) => yearData.year === year);
 
   const OPTIONS: IsotopeOptions = useMemo(
@@ -25,13 +28,13 @@ const IdolYear = (props: Props) => {
       itemSelector: `.grid-item-${year}`,
       layoutMode: 'packery',
       transitionDuration: 200,
+      percentPosition: true,
       packery: {
         gutter: 28,
-        columnWidth: 140,
-        fitWidth: true,
+        columnWidth: isMobile ? 132 : 140,
       },
     }),
-    [year],
+    [year, isMobile],
   );
 
   useEffect(() => {
