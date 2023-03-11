@@ -2,6 +2,8 @@
 
 <img src='./screenshot.png' alt=''>
 
+<img src='./screenshot-lighthouse.png' alt=''>
+
 # History of Idols
 
 ## 일반인을 위한 글
