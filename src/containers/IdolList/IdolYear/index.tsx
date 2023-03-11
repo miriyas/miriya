@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
 import type { IsotopeOptions } from 'isotope-layout';
 import cx from 'classnames';
 
@@ -20,8 +20,6 @@ const IdolYear = (props: Props) => {
   const { idols, isotopes, year } = props;
 
   const { isMobile } = useResponsive();
-
-  const yearDesc = YEARS.find((yearData) => yearData.year === year);
 
   const OPTIONS: IsotopeOptions = useMemo(
     () => ({
@@ -49,6 +47,8 @@ const IdolYear = (props: Props) => {
       isotopes.current[year].arrange(OPTIONS);
     }, 300); // NOTE: covers transition duration
   }, [OPTIONS, isotopes, year]);
+
+  const yearDesc = YEARS.find((yearData) => yearData.year === year);
 
   return (
     <div id={`idol-year-${year}`} className={styles.idolYear}>
