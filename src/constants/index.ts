@@ -15,7 +15,7 @@ export const IDOLS: IIdol[] = [
     desc: {
       title: '서태지와 아이들 출신의 이주노가 프로듀싱한 혼성 댄스 그룹',
       namu: 'https://namu.wiki/w/%EC%98%81%ED%84%B1%EC%8A%A4%ED%81%B4%EB%9F%BD',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=164',
+      naver: 'https://vibe.naver.com/artist/164',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100045',
     },
   },
@@ -31,7 +31,7 @@ export const IDOLS: IIdol[] = [
     desc: {
       title: '중학생 멤버들의 귀여운 용모를 전면에 내세운 4인조 댄스 그룹',
       namu: 'https://namu.wiki/w/UP',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=336',
+      naver: 'https://vibe.naver.com/artist/336',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100019',
     },
   },
@@ -46,7 +46,7 @@ export const IDOLS: IIdol[] = [
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%BD%9C%EB%9D%BC(%EA%B0%80%EC%88%98)',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=1585',
+      naver: 'https://vibe.naver.com/artist/1585',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=101793',
     },
   },
@@ -61,7 +61,7 @@ export const IDOLS: IIdol[] = [
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9E%90%EC%9E%90(%ED%98%BC%EC%84%B1%EA%B7%B8%EB%A3%B9)',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=9579',
+      naver: 'https://vibe.naver.com/artist/9579',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100101',
     },
   },
@@ -77,7 +77,7 @@ export const IDOLS: IIdol[] = [
     desc: {
       title: '톡톡 튀는 음악과 자유로운 무대매너로 신선한 충격을 전해줬던 대한민국의 3인조 모던 록 밴드',
       namu: 'https://namu.wiki/w/%EC%A3%BC%EC%A3%BC%ED%81%B4%EB%9F%BD',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=253',
+      naver: 'https://vibe.naver.com/artist/253',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100053',
     },
   },
@@ -92,7 +92,7 @@ export const IDOLS: IIdol[] = [
       startsAt: 180,
     },
     desc: {
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=10782',
+      naver: 'https://vibe.naver.com/artist/10782',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100155',
     },
   },
@@ -110,7 +110,7 @@ export const IDOLS: IIdol[] = [
     desc: {
       title: '서태지 이후 본격적인 아이돌 전성시대의 왕조를 세움',
       namu: 'https://namu.wiki/w/H.O.T.',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=314',
+      naver: 'https://vibe.naver.com/artist/314',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100008',
     },
   },
@@ -127,7 +127,7 @@ export const IDOLS: IIdol[] = [
     desc: {
       title: '유건형과 서정환으로 구성된 대한민국의 실력파 듀오',
       namu: 'https://namu.wiki/w/%EC%96%B8%ED%83%80%EC%9D%B4%ED%8B%80',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=159',
+      naver: 'https://vibe.naver.com/artist/159',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100042',
     },
   },
@@ -142,7 +142,7 @@ export const IDOLS: IIdol[] = [
     },
     desc: {
       namu: 'https://namu.wiki/w/%EA%B5%AC%ED%94%BC(%EC%9D%8C%EC%95%85%20%EA%B7%B8%EB%A3%B9)',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=10',
+      naver: 'https://vibe.naver.com/artist/10',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100023',
     },
   },
@@ -167,7 +167,7 @@ export const IDOLS: IIdol[] = [
     searchName: 'Hamohamo',
     category: 'boy-group',
     desc: {
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=9490',
+      naver: 'https://vibe.naver.com/artist/9490',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=100178',
     },
   },
@@ -182,7 +182,7 @@ export const IDOLS: IIdol[] = [
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%86%8C%EC%B0%AC%ED%9C%98',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=127',
+      naver: 'https://vibe.naver.com/artist/127',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=3897',
     },
   },
@@ -227,7 +227,7 @@ export const IDOLS: IIdol[] = [
     },
     desc: {
       namu: 'https://namu.wiki/w/%EA%B9%80%EC%97%B0%EC%9A%B0',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=30',
+      naver: 'https://vibe.naver.com/artist/30',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=6017',
     },
   },
@@ -243,7 +243,7 @@ export const IDOLS: IIdol[] = [
     },
     desc: {
       namu: 'https://namu.wiki/w/%EC%9D%B4%ED%98%84%EB%8F%84',
-      naver: 'https://music.naver.com/artist/intro.nhn?artistId=213',
+      naver: 'https://vibe.naver.com/artist/213',
       melon: 'https://www.melon.com/artist/timeline.htm?artistId=3614',
     },
   },

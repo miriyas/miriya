@@ -20,11 +20,16 @@
   }
 
   .upper {
-    @include m.flexbox(center, center);
-    flex-direction: column;
+    @include m.flexbox(center, start);
     position: relative;
     width: 100%;
     padding: 24px 14px 14px;
+
+    .leftWing {
+      @include m.flexbox(center, center);
+      flex-direction: column;
+      flex: 1;
+    }
 
     .withSound {
       @include m.absolute(8px 8px auto auto);
@@ -48,6 +53,32 @@
     .profileImg {
       img {
         border-radius: 50%;
+      }
+    }
+
+    .rightWing {
+      @include m.flexbox(center, center);
+      flex-direction: column;
+      flex: 1;
+      font-size: 12px;
+
+      .desc {
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+
+      .outerLinks {
+        @include m.flexbox(center, center);
+        gap: 8px;
+
+        a {
+          color: c.$C_BLUE;
+          line-height: 20px;
+
+          svg {
+            width: 32px;
+          }
+        }
       }
     }
   }

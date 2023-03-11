@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import { IIdol, prettyCategory } from '@/types';
 
-import { IconSound } from '@/assets/svgs';
+import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '@/assets/svgs';
 import styles from './Idol.module.scss';
 import Youtube from '@/components/Idol/Youtube';
 
@@ -47,7 +47,7 @@ const Idol = (props: Props) => {
       className={cx(styles.idol, `grid-item-${debutYear}`, `category-${category}`, { [styles.opened]: opened })}
     >
       <div className={styles.upper}>
-        <button type='button' onClick={onClickUpper}>
+        <button type='button' onClick={onClickUpper} className={styles.leftWing}>
           {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
           <div className={styles.profileImg}>
             <Image src={profileUrl} alt={name} width={100} height={100} />
@@ -56,7 +56,28 @@ const Idol = (props: Props) => {
           <p className={styles.category}>{prettyCategory(category)}</p>
           <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
         </button>
-        <div className={styles.desc}>{desc?.namu}</div>
+        {opened && desc && (
+          <div className={styles.rightWing}>
+            {desc.title && <p className={styles.desc}>{desc.title}</p>}
+            <div className={styles.outerLinks}>
+              {desc.namu && (
+                <a href={desc.namu} target='_blank'>
+                  <IconDescNamu />
+                </a>
+              )}
+              {desc.melon && (
+                <a href={desc.melon} target='_blank'>
+                  <IconDescMelon />
+                </a>
+              )}
+              {desc.naver && (
+                <a href={desc.naver} target='_blank'>
+                  <IconDescVibe />
+                </a>
+              )}
+            </div>
+          </div>
+        )}
       </div>
       {opened && <div className={styles.lower}>{hasYoutube && <Youtube youtube={youtube} />}</div>}
     </li>
