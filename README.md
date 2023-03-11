@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/miriyas/idols/maintainability"><img src="https://api.codeclimate.com/v1/badges/59cc1769c02f412ac124/maintainability" /></a>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
