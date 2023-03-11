@@ -47,18 +47,18 @@ const IdolYear = (props: Props) => {
   }, [OPTIONS]);
 
   return (
-    <li className={styles.idolYear}>
-      <p className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
+    <div className={styles.idolYear}>
+      <dt className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
         {year}
-      </p>
-      {yearDesc && <p className={styles.desc}>{yearDesc.desc}</p>}
+      </dt>
+      {yearDesc && <dd className={styles.desc}>{yearDesc.desc}</dd>}
 
       <ul className={cx(styles.idols, `grid-${year}`)}>
         {idols.map((idol) => {
           return <Idol key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} />;
         })}
       </ul>
-    </li>
+    </div>
   );
 };
 

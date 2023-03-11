@@ -1311,6 +1311,10 @@ export const IDOLS: IIdol[] = [
     debutYear: 2002,
     name: '이삭 N 지연',
     category: 'girl-group',
+    youtube: {
+      url: 'x4QJuTH7g0M',
+      startsAt: 30,
+    },
   },
   {
     debutYear: 2002,
@@ -1327,16 +1331,28 @@ export const IDOLS: IIdol[] = [
     debutYear: 2002,
     name: '바이브',
     category: 'boy-group',
+    youtube: {
+      url: 'bDNvu2CXpLI',
+      startsAt: 57,
+    },
   },
   {
     debutYear: 2002,
     name: '제이워크',
     category: 'boy-group',
+    youtube: {
+      url: 'XF_QGzB600c',
+      startsAt: 81,
+    },
   },
   {
     debutYear: 2002,
     name: '블랙비트',
     category: 'boy-group',
+    youtube: {
+      url: 'gmliMnOTk50',
+      startsAt: 85,
+    },
   },
   {
     debutYear: 2002,
@@ -1352,6 +1368,10 @@ export const IDOLS: IIdol[] = [
     debutYear: 2002,
     name: '노을',
     category: 'boy-group',
+    youtube: {
+      url: 'j8mbW0jW-T0',
+      startsAt: 74,
+    },
   },
   {
     debutYear: 2002,
@@ -1368,11 +1388,19 @@ export const IDOLS: IIdol[] = [
     debutYear: 2002,
     name: '별',
     category: 'girl-solo',
+    youtube: {
+      url: 'nVP-TrxRS9M',
+      startsAt: 57,
+    },
   },
   {
     debutYear: 2002,
     name: '미나',
     category: 'girl-solo',
+    youtube: {
+      url: 'QvEor-eb0CQ',
+      startsAt: 102,
+    },
   },
 
   {
@@ -1381,8 +1409,8 @@ export const IDOLS: IIdol[] = [
     name: '비',
     category: 'boy-solo',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'VGa2_bAHeQ8',
+      startsAt: 88,
     },
   },
   {
@@ -1391,8 +1419,8 @@ export const IDOLS: IIdol[] = [
     name: '휘성',
     category: 'boy-solo',
     youtube: {
-      url: '',
-      startsAt: 0,
+      url: 'YXiLkrSft1w',
+      startsAt: 65,
     },
   },
 

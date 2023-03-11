@@ -3,6 +3,7 @@
 
 .idolList {
   @include m.flexbox(center, center);
+  flex-direction: column;
   background-color: c.$C_BG;
 
   .idolYears {
