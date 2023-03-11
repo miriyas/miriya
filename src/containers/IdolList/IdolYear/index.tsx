@@ -45,7 +45,7 @@ const IdolYear = (props: Props) => {
   const sort = useCallback(() => {
     setTimeout(() => {
       isotopes.current[year].arrange(OPTIONS);
-    }, 300); // NOTE: covers transition duration
+    }, 100); // NOTE: covers transition duration
   }, [OPTIONS, isotopes, year]);
 
   const yearDesc = YEARS.find((yearData) => yearData.year === year);

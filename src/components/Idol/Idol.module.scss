@@ -7,7 +7,6 @@
   background-color: c.$C_WHITE;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(c.$C_GRAY_4, 0.1);
-  transition: 200ms;
   overflow: hidden;
 
   @include m.after(M) {
