@@ -51,18 +51,18 @@ const IdolYear = (props: Props) => {
   const yearDesc = YEARS.find((yearData) => yearData.year === year);
 
   return (
-    <div id={`idol-year-${year}`} className={styles.idolYear}>
-      <dt className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
+    <li id={`idol-year-${year}`} className={styles.idolYear}>
+      <div className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
         {year}
-      </dt>
-      {yearDesc && <dd className={styles.desc}>{yearDesc.desc}</dd>}
+      </div>
+      {yearDesc && <div className={styles.desc}>{yearDesc.desc}</div>}
 
       <ul className={cx(styles.idols, `grid-${year}`)}>
         {idols.map((idol) => {
           return <Idol key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} />;
         })}
       </ul>
-    </div>
+    </li>
   );
 };
 

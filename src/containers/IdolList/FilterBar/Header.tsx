@@ -26,7 +26,7 @@ const Header = () => {
           </span>
         </h1>
         <div className={styles.outerLinks}>
-          <a href='https://github.com/miriyas/idols' target='_blank'>
+          <a href='https://github.com/miriyas/idols' target='_blank' title='Github'>
             <IconGithub />
           </a>
         </div>

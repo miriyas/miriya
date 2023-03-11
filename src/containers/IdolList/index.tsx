@@ -16,6 +16,13 @@ const IdolList = () => {
   const years = groupBy(IDOLS, 'debutYear');
   const isotopes = useRef<IIsotopes>({});
 
+  const onClickToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <NextSeo
@@ -42,11 +49,14 @@ const IdolList = () => {
       />
       <main className={styles.idolList}>
         <FilterBar isotopes={isotopes} />
-        <dl className={styles.idolYears}>
+        <ul className={styles.idolYears}>
           {Object.keys(years).map((year) => {
             return <IdolYear key={year} idols={years[year]} year={Number(year)} isotopes={isotopes} />;
           })}
-        </dl>
+        </ul>
+        <button type='button' onClick={onClickToTop} className={styles.toTop}>
+          <p>위로</p>
+        </button>
       </main>
     </>
   );
