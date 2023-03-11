@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
-const _ = require['lodash'];
-
 const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['localhost', '*'],
+  },
+  env: {
+    NEXT_PUBLIC_GA_ID: 'G-BCXXRGTY78',
   },
   webpack(config) {
     config.module.rules.push({

@@ -32,6 +32,7 @@
   },
   "rules": {
     "arrow-body-style": "off",
+    "no-plusplus": "off",
     "react/display-name": "off",
     "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],
     "react/jsx-one-expression-per-line": "off",
@@ -39,7 +40,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "react/jsx-wrap-multilines": "off",
-    "react/react-in-jsx-scope": "off", // 이거 쓸수있도록 변경되어야함 코드 리팩토링 필수
+    "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
