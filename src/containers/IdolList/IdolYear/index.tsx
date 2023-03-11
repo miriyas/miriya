@@ -2,7 +2,7 @@ import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
 import type { IsotopeOptions } from 'isotope-layout';
 import cx from 'classnames';
 
-import { IIdol, IIsotopes } from '@/types';
+import { IIdol, IIsotopes } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 

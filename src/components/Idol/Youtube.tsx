@@ -1,5 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
-import { IYoutube } from '@/types';
+import { IYoutube } from '@/types/idols.d';
 
 interface Props {
   youtube: IYoutube;

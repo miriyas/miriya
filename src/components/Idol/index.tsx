@@ -1,13 +1,16 @@
-import { useMemo, useRef, useState } from 'react';
+import { MouseEventHandler, useMemo, useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 import Image from 'next/image';
 import cx from 'classnames';
 
-import { IIdol, prettyCategory } from '@/types';
+import { useGA } from '@/hooks/useGA';
+import { IIdol } from '@/types/idols.d';
+import { prettyCategory } from '@/utils/idols';
 
 import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '@/assets/svgs';
-import styles from './Idol.module.scss';
 import Youtube from '@/components/Idol/Youtube';
+import styles from './Idol.module.scss';
+import { IDOL } from '@/constants/ga';
 
 const filterIdolName = (name: string) => {
   return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|\&]/g, '');
@@ -22,6 +25,7 @@ const Idol = (props: Props) => {
   const { idol, sort } = props;
   const { category, desc, name, youtube, debutYear, endYear } = idol;
 
+  const { gaEvent } = useGA();
   const idolRef = useRef<HTMLLIElement>(null);
   const [opened, setOpened] = useState(false);
 
@@ -37,6 +41,14 @@ const Idol = (props: Props) => {
     if (!hasYoutube) return;
     setOpened(true);
     sort();
+    gaEvent(IDOL.IDOL_OPEN, { name });
+  };
+
+  const onClickDesc: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    const { title: target, href } = e.currentTarget;
+    gaEvent(IDOL.IDOL_DESC_CLICK, { name, target });
+    window.open(href);
   };
 
   const profileUrl = useMemo(() => `/images/idols/${filterIdolName(name)}.jpg`, [name]);
@@ -61,17 +73,17 @@ const Idol = (props: Props) => {
             {desc.title && <p className={styles.desc}>{desc.title}</p>}
             <div className={styles.outerLinks}>
               {desc.namu && (
-                <a href={desc.namu} target='_blank'>
+                <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키'>
                   <IconDescNamu />
                 </a>
               )}
               {desc.melon && (
-                <a href={desc.melon} target='_blank'>
+                <a href={desc.melon} target='_blank' onClick={onClickDesc} title='멜론'>
                   <IconDescMelon />
                 </a>
               )}
               {desc.naver && (
-                <a href={desc.naver} target='_blank'>
+                <a href={desc.naver} target='_blank' onClick={onClickDesc} title='바이브'>
                   <IconDescVibe />
                 </a>
               )}

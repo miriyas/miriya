@@ -2,11 +2,14 @@ import { MouseEventHandler, MutableRefObject, useState } from 'react';
 import cx from 'classnames';
 
 import { YEAR_INFO } from '@/constants';
-import { CATEGORIES, IIsotopes, prettyCategory, TCategory } from '@/types';
+import { CATEGORIES, IIsotopes, TCategory } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
+import { prettyCategory } from '@/utils/idols';
 
 import Header from './Header';
 import styles from './FilterBar.module.scss';
+import { useGA } from '@/hooks/useGA';
+import { IDOL } from '@/constants/ga';
 
 interface Props {
   isotopes: MutableRefObject<IIsotopes>;
@@ -15,6 +18,7 @@ interface Props {
 const FilterBar = (props: Props) => {
   const { isotopes } = props;
 
+  const { gaEvent } = useGA();
   const [currentCategory, setCurrentCategory] = useState<TCategory>('total');
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
@@ -26,6 +30,7 @@ const FilterBar = (props: Props) => {
         filter: (elem) => elem.classList.value.includes(`category-${newCategory}`),
       });
     });
+    gaEvent(IDOL.IDOL_CATEGORY_CLICK, { category: newCategory });
   };
 
   const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -38,6 +43,7 @@ const FilterBar = (props: Props) => {
       top: target?.offsetTop,
       behavior: 'smooth',
     });
+    gaEvent(IDOL.IDOL_YEAR_CLICK, { year: newYear });
   };
 
   return (

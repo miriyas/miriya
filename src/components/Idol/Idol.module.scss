@@ -81,11 +81,16 @@
         gap: 8px;
 
         a {
+          width: 32px;
+          height: 32px;
           color: c.$C_BLUE;
           line-height: 20px;
+          border-radius: 2px;
+          overflow: hidden;
 
           svg {
             width: 32px;
+            height: 32px;
           }
         }
       }

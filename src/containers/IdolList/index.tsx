@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import { groupBy } from 'lodash';
 
 import { IDOLS } from '@/constants';
-import { IIsotopes } from '@/types';
+import { IIsotopes } from '@/types/idols.d';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';

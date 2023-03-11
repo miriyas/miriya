@@ -1,4 +1,4 @@
-import { IIdol, IYearDesc } from '@/types';
+import { IIdol, IYearDesc } from '@/types/idols.d';
 
 export const IDOLS: IIdol[] = [
   // 1996 === === === === ===
@@ -430,6 +430,7 @@ export const IDOLS: IIdol[] = [
   },
   {
     debutYear: 1997,
+    endYear: '도주',
     major: true,
     name: '유승준',
     category: 'boy-solo',

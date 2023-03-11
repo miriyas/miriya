@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
+    "humps": "^2.0.1",
     "isotope-layout": "^3.0.6",
     "lodash": "^4.17.21",
     "next": "13.2.3",
@@ -20,6 +21,8 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
+    "@types/gtag.js": "^0.0.12",
+    "@types/humps": "^2.0.2",
     "@types/isotope-layout": "^3.0.9",
     "@types/lodash": "^4.14.191",
     "@types/node": "18.14.6",

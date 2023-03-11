@@ -1,9 +1,20 @@
+import { useGA } from '@/hooks/useGA';
 import { IconGithub } from '@/assets/svgs';
 import { IDOLS, YEAR_INFO } from '@/constants';
 
 import styles from './FilterBar.module.scss';
+import { IDOL } from '@/constants/ga';
+import { MouseEventHandler } from 'react';
 
 const Header = () => {
+  const { gaEvent } = useGA();
+
+  const onClickGithub: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    window.open(e.currentTarget.href);
+    gaEvent(IDOL.IDOL_GITHUB_CLICK, {});
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.upper}>
@@ -20,10 +31,11 @@ const Header = () => {
         </div>
       </div>
       <div className={styles.notice}>
-        96년부터 현재까지 활동한 한국 아이돌을 정리중입니다.
+        데뷔일 기준, 96년부터 현재까지 활동한 한국 아이돌을 정리중입니다.
         <br />
         소스는 나무위키&nbsp;
         <a
+          onClick={onClickGithub}
           href='https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC'
           target='_blank'
         >

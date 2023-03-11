@@ -1306,6 +1306,16 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@types/gtag.js@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.12.tgz#095122edca896689bdfcdd73b057e23064d23572"
+  integrity sha512-YQV9bUsemkzG81Ea295/nF/5GijnD2Af7QhEofh7xu+kvCN6RdodgNwwGWXB5GMI3NoyvQo0odNctoH/qLMIpg==
+
+"@types/humps@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/humps/-/humps-2.0.2.tgz#6643e2beb13e0e7a22c65b2128b4315a727ecbe0"
+  integrity sha512-FuyQoVNSW6mjSLxLVRq8YK1pi8P5zyL2pahEuCtMqlbmV4jyWYITz4eE2fZIErNovIfKU32tPbCl44VbOUaEiw==
+
 "@types/isotope-layout@^3.0.9":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@types/isotope-layout/-/isotope-layout-3.0.9.tgz#be66995aaf51917574093fa7964d00ebd76bc401"
@@ -2603,6 +2613,11 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+humps@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
+  integrity sha512-E0eIbrFWUhwfXJmsbdjRQFQPrl5pTEoKlz163j1mTqqUnU9PgR4AgB8AIITzuB3vLBdxZXyZ9TDIrwB2OASz4g==
 
 hyphenate-style-name@^1.0.3:
   version "1.0.4"
