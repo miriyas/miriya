@@ -43,3 +43,7 @@ export interface IYearDesc {
   year: number;
   desc: string;
 }
+
+export interface IIsotopes {
+  [key: number]: Isotope;
+}

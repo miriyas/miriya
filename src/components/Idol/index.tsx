@@ -42,7 +42,10 @@ const Idol = (props: Props) => {
   const profileUrl = useMemo(() => `/images/idols/${filterIdolName(name)}.jpg`, [name]);
 
   return (
-    <li ref={idolRef} className={cx(styles.idol, `grid-item-${debutYear}`, { [styles.opened]: opened })}>
+    <li
+      ref={idolRef}
+      className={cx(styles.idol, `grid-item-${debutYear}`, `category-${category}`, { [styles.opened]: opened })}
+    >
       <div className={styles.upper}>
         <button type='button' onClick={onClickUpper}>
           {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}

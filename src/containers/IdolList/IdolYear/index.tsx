@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cx from 'classnames';
 import { IIdol } from '@/types';
 import Isotope from '@/libs/isotope-layout';
 import type { IsotopeOptions } from 'isotope-layout';
+import { IIsotopes } from '@/types';
 
 import Idol from '@/components/Idol';
 import styles from './IdolYear.module.scss';
@@ -11,11 +12,11 @@ import { YEARS } from '@/constants';
 interface Props {
   idols: IIdol[];
   year: number;
+  isotopes: MutableRefObject<IIsotopes>;
 }
 
 const IdolYear = (props: Props) => {
-  const { idols, year } = props;
-  const isotope = useRef<Isotope | null>();
+  const { idols, isotopes, year } = props;
 
   const yearDesc = YEARS.find((yearData) => yearData.year === year);
 
@@ -37,17 +38,17 @@ const IdolYear = (props: Props) => {
     const elem = document.querySelector<HTMLElement>(`.grid-${year}`);
     if (!elem) return;
 
-    isotope.current = new Isotope(elem, OPTIONS);
-  }, [OPTIONS, year]);
+    isotopes.current[year] = new Isotope(elem, OPTIONS);
+  }, [OPTIONS, isotopes, year]);
 
   const sort = useCallback(() => {
     setTimeout(() => {
-      isotope.current?.arrange(OPTIONS);
-    }, 200); // NOTE: covers transition duration
-  }, [OPTIONS]);
+      isotopes.current[year].arrange(OPTIONS);
+    }, 300); // NOTE: covers transition duration
+  }, [OPTIONS, isotopes, year]);
 
   return (
-    <div className={styles.idolYear}>
+    <div id={`idol-year-${year}`} className={styles.idolYear}>
       <dt className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
         {year}
       </dt>
