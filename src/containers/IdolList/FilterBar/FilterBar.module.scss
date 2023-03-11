@@ -8,14 +8,43 @@
   font-size: 14px;
   overflow: hidden;
 
+  .header {
+    .upper {
+      @include m.flexbox(between, end);
+
+      h1 {
+        margin-top: 24px;
+        font-size: 32px;
+        font-weight: 700;
+
+        span {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+
+      .outerLinks {
+        svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  .notice,
   .categories,
   .years {
-    @include m.flexbox(center, center);
-    flex-wrap: wrap;
     width: 100%;
     margin-top: 14px;
     background-color: c.$C_WHITE;
     border-radius: 8px;
+  }
+
+  .categories,
+  .years {
+    @include m.flexbox(center, center);
+    flex-wrap: wrap;
 
     li {
       margin: 0 8px;
@@ -27,6 +56,17 @@
       button {
         font-weight: inherit;
       }
+    }
+  }
+
+  .notice {
+    padding: 8px 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: c.$C_GRAY_8;
+
+    a {
+      color: c.$C_BLUE;
     }
   }
 

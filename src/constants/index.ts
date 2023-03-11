@@ -3688,6 +3688,11 @@ export const IDOLS: IIdol[] = [
   },
 ];
 
+export const YEAR_INFO = {
+  start: 1996,
+  end: 2019,
+};
+
 export const YEARS: IYearDesc[] = [
   {
     year: 1996,

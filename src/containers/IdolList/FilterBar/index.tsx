@@ -1,9 +1,12 @@
 import { MouseEventHandler, MutableRefObject, useState } from 'react';
 import cx from 'classnames';
-import { CATEGORIES, IIsotopes, prettyCategory, TCategory } from '@/types';
 
-import styles from './FilterBar.module.scss';
+import { YEAR_INFO } from '@/constants';
+import { CATEGORIES, IIsotopes, prettyCategory, TCategory } from '@/types';
 import { getNumberArr } from '@/utils';
+
+import Header from './Header';
+import styles from './FilterBar.module.scss';
 
 interface Props {
   isotopes: MutableRefObject<IIsotopes>;
@@ -39,6 +42,7 @@ const FilterBar = (props: Props) => {
 
   return (
     <div className={styles.filterBar}>
+      <Header />
       <ul className={styles.categories}>
         {CATEGORIES.map((category) => {
           return (
@@ -51,8 +55,8 @@ const FilterBar = (props: Props) => {
         })}
       </ul>
       <ul className={styles.years}>
-        {getNumberArr(24).map((n) => {
-          const year = 1996 + n;
+        {getNumberArr(YEAR_INFO.end - YEAR_INFO.start + 1).map((n) => {
+          const year = YEAR_INFO.start + n;
           return (
             <li key={year} className={cx({ [styles.current]: year === currentYear })}>
               <button type='button' onClick={onClickYear} title={String(year)}>
