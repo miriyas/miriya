@@ -21,3 +21,7 @@
 아시죠? 개선하고 싶은 부분이 있다면 PR을 올려주세요.
 
 몇년 전 까지는 유튜브 자동 재생이 되었는데, 막혀버렸네요 :(
+
+[![Miriyas's GitHub stats](https://github-readme-stats.vercel.app/api?username=miriyas)](https://github.com/anuraghazra/github-readme-stats)
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=miriyas)](https://github.com/anuraghazra/github-readme-stats)
