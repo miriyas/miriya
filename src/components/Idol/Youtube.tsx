@@ -1,7 +1,7 @@
-import { IYoutube } from '@/types/idols.d';
+import { YoutubeType } from '@/types/idols.d';
 
 interface Props {
-  youtube: IYoutube;
+  youtube: YoutubeType;
 }
 
 const Youtube = (props: Props) => {

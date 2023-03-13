@@ -1,6 +1,6 @@
-import { TCategory } from '@/types/idols';
+import { Category } from '@/types/idols';
 
-export const prettyCategory = (category: TCategory) => {
+export const prettyCategory = (category: Category) => {
   return {
     total: '전체',
     'mixed-group': '혼성그룹',

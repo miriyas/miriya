@@ -4,7 +4,7 @@ import Image from 'next/image';
 import cx from 'classnames';
 
 import { useGA } from '@/hooks/useGA';
-import { IIdol } from '@/types/idols.d';
+import { IdolType } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 import { IDOL } from '@/constants/ga';
 
@@ -17,7 +17,7 @@ const filterIdolName = (name: string) => {
 };
 
 interface Props {
-  idol: IIdol;
+  idol: IdolType;
   sort: () => void;
 }
 

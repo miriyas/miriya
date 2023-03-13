@@ -2,7 +2,7 @@ import { MouseEventHandler, MutableRefObject, useState } from 'react';
 import cx from 'classnames';
 
 import { YEAR_INFO } from '@/constants';
-import { CATEGORIES, IIsotopes, TCategory } from '@/types/idols.d';
+import { CATEGORIES, IsotopesType, Category } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';
@@ -12,19 +12,19 @@ import Header from './Header';
 import styles from './FilterBar.module.scss';
 
 interface Props {
-  isotopes: MutableRefObject<IIsotopes>;
+  isotopes: MutableRefObject<IsotopesType>;
 }
 
 const FilterBar = (props: Props) => {
   const { isotopes } = props;
 
   const { gaEvent } = useGA();
-  const [currentCategory, setCurrentCategory] = useState<TCategory>('total');
+  const [currentCategory, setCurrentCategory] = useState<Category>('total');
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
   const onClickCategory: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newCategory = e.currentTarget.title;
-    setCurrentCategory(newCategory as TCategory);
+    setCurrentCategory(newCategory as Category);
     Object.keys(isotopes.current).forEach((key) => {
       isotopes.current[Number(key)].arrange({
         filter: (elem) => elem.classList.value.includes(`category-${newCategory}`),

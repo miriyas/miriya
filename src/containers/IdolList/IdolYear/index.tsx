@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import type { IsotopeOptions } from 'isotope-layout';
 import { YEARS } from '@/constants';
-import { IIdol, IIsotopes } from '@/types/idols.d';
+import { IdolType, IsotopesType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 
@@ -11,9 +11,9 @@ import Idol from '@/components/Idol';
 import styles from './IdolYear.module.scss';
 
 interface Props {
-  idols: IIdol[];
+  idols: IdolType[];
   year: number;
-  isotopes: MutableRefObject<IIsotopes>;
+  isotopes: MutableRefObject<IsotopesType>;
 }
 
 const IdolYear = (props: Props) => {

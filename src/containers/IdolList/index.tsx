@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import { groupBy } from 'lodash';
 
 import { IDOLS } from '@/constants';
-import { IIsotopes } from '@/types/idols.d';
+import { IsotopesType } from '@/types/idols.d';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';
@@ -14,7 +14,7 @@ const description = '96년부터 2019년까지 활동한 아이돌들';
 
 const IdolList = () => {
   const years = groupBy(IDOLS, 'debutYear');
-  const isotopes = useRef<IIsotopes>({});
+  const isotopes = useRef<IsotopesType>({});
 
   const onClickToTop = () => {
     window.scrollTo({

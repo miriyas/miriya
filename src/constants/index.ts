@@ -1,6 +1,6 @@
-import { IIdol, IYearDesc } from '@/types/idols.d';
+import { IdolType, YearDescType } from '@/types/idols.d';
 
-export const IDOLS: IIdol[] = [
+export const IDOLS: IdolType[] = [
   // 1996 === === === === ===
   {
     debutYear: 1996,
@@ -3694,7 +3694,7 @@ export const YEAR_INFO = {
   end: 2019,
 };
 
-export const YEARS: IYearDesc[] = [
+export const YEARS: YearDescType[] = [
   {
     year: 1996,
     desc: '서태지와 아이들 은퇴, OECD 회원국이 됨, 코스닥 개장, 애틀란타 올림픽, 운동권의 쇠퇴, 전/노 대통령 사형선고, 유니텔 서비스 시작, FM 방송 시작, 시트콤 남자셋 여자셋 방영, 국민학교가 초등학교가 됨, 서지원 자살, 김광석 의문사, 디아블로 출시',
