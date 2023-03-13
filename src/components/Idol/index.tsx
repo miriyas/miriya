@@ -8,7 +8,7 @@ import { IIdol } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 import { IDOL } from '@/constants/ga';
 
-import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '@/assets/svgs';
+import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '../../../public/images/svgs';
 import Youtube from '@/components/Idol/Youtube';
 import styles from './Idol.module.scss';
 

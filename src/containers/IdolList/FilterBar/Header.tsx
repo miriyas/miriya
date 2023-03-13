@@ -4,7 +4,7 @@ import { useGA } from '@/hooks/useGA';
 import { IDOLS, YEAR_INFO } from '@/constants';
 import { IDOL } from '@/constants/ga';
 
-import { IconGithub } from '@/assets/svgs';
+import { IconGithub } from '../../../../public/images/svgs';
 import styles from './FilterBar.module.scss';
 
 const Header = () => {
