@@ -7,12 +7,12 @@ import { IsotopesType } from '@/types/idols.d';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';
-import styles from './IdolList.module.scss';
+import styles from './Idols.module.scss';
 
 const title = 'History of Idols';
 const description = '96년부터 2019년까지 활동한 아이돌들';
 
-const IdolList = () => {
+const Idols = () => {
   const years = groupBy(IDOLS, 'debutYear');
   const isotopes = useRef<IsotopesType>({});
 
@@ -29,12 +29,12 @@ const IdolList = () => {
         title={title}
         description={description}
         openGraph={{
-          url: 'https://idols.vercel.app/',
+          url: 'https://miriya.vercel.app/',
           title,
           description,
           images: [
             {
-              url: 'https://idols.vercel.app/images/image.jpg',
+              url: 'https://miriya.vercel.app/images/image.jpg',
               width: 1200,
               height: 630,
               alt: '',
@@ -47,7 +47,7 @@ const IdolList = () => {
           cardType: 'summary_large_image',
         }}
       />
-      <main className={styles.idolList}>
+      <main className={styles.idols}>
         <FilterBar isotopes={isotopes} />
         <ul className={styles.idolYears}>
           {Object.keys(years).map((year) => {
@@ -62,4 +62,4 @@ const IdolList = () => {
   );
 };
 
-export default IdolList;
+export default Idols;

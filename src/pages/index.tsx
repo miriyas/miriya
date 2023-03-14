@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import IdolList from '@/containers/IdolList';
+import IdolsPage from '@/containers/Idols';
 
-const IdolListPage: NextPage = () => <IdolList />;
+const IdolListPage: NextPage = () => <IdolsPage />;
 
 export default IdolListPage;
