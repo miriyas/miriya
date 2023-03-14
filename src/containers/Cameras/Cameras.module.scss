@@ -2,4 +2,6 @@
 @use 'src/styles/mixins' as m;
 
 .cameras {
+  @include m.flexbox(center, center);
+  flex-direction: column;
 }
