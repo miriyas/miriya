@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { NextSeo } from 'next-seo';
 import { groupBy } from 'lodash';
 
-import { IDOLS } from '@/constants';
+import { IDOLS } from '@/constants/idols';
 import { IsotopesType } from '@/types/idols.d';
 
 import FilterBar from './FilterBar';

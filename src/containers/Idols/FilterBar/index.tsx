@@ -1,7 +1,7 @@
 import { MouseEventHandler, MutableRefObject, useState } from 'react';
 import cx from 'classnames';
 
-import { YEAR_INFO } from '@/constants';
+import { YEAR_INFO } from '@/constants/idols';
 import { CATEGORIES, IsotopesType, Category } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';

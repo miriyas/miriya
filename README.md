@@ -14,7 +14,7 @@
 
 정리할 자료가 수백명이나 되다 보니 내용상 누락이나 잘못된 부분이 있을 수 있습니다. ['이곳'](https://github.com/miriyas/idols/issues)에 글을 남겨주시거나, ['miriya.lee@gmail.com'](mailto://miriya.lee@gmail.com)으로 메일을 보내주세요.
 
-정말 큰 도움이 되고 싶을 경우, ['원본 데이터'](https://github.com/miriyas/idols/blob/main/src/constants/index.ts)를 참조하여 유튜브 주소나 시작 시간 등을 만들어주시면 더욱 좋습니다.
+정말 큰 도움이 되고 싶을 경우, ['원본 데이터'](https://github.com/miriyas/idols/blob/main/src/constants/idols.ts)를 참조하여 유튜브 주소나 시작 시간 등을 만들어주시면 더욱 좋습니다.
 
 ## 개발자를 위한 글
 

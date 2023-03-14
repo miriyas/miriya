@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react';
 
 import { useGA } from '@/hooks/useGA';
-import { IDOLS, YEAR_INFO } from '@/constants';
+import { IDOLS, YEAR_INFO } from '@/constants/idols';
 import { IDOL } from '@/constants/ga';
 
 import { IconGithub } from '../../../../public/images/svgs';
