@@ -1,0 +1,16 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
+.cameraYear {
+  margin-top: 50px;
+
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .cameras {
+    @include m.flexbox(start, center);
+    flex-wrap: wrap;
+  }
+}

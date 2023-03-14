@@ -1,4 +1,8 @@
 import { NextSeo } from 'next-seo';
+import { groupBy } from 'lodash';
+
+import { CAMERAS } from '@/constants/cameras';
+import CameraYear from '@/containers/Cameras/CameraYear';
 
 import styles from './Cameras.module.scss';
 
@@ -6,6 +10,8 @@ const title = 'History of DSLR';
 const description = '1998년부터 2011년까지의 DSLR 카메라들';
 
 const Cameras = () => {
+  const years = groupBy(CAMERAS, 'year');
+
   const onClickToTop = () => {
     window.scrollTo({
       top: 0,
@@ -38,6 +44,12 @@ const Cameras = () => {
         }}
       />
       <main className={styles.cameras}>
+        <ul className={styles.cameraYears}>
+          {Object.keys(years).map((year) => {
+            return <CameraYear key={year} cameras={years[year]} year={Number(year)} />;
+          })}
+        </ul>
+
         <button type='button' onClick={onClickToTop} className={styles.toTop}>
           <p>위로</p>
         </button>

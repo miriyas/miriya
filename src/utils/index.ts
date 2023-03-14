@@ -2,3 +2,14 @@
 export const getNumberArr = (length: number): number[] => {
   return [...Array(length).keys()];
 };
+
+/** 숫자를 M, K 등으로 단위 묶음 리턴 */
+export const shrinkNumber = (value: number) => {
+  if (value >= 1_000_000) {
+    return `${parseInt(String(value / 1_000_000), 10).toString()}M`;
+  }
+  if (value >= 1_000) {
+    return `${parseInt(String(value / 1000), 10).toString()}K`;
+  }
+  return value;
+};

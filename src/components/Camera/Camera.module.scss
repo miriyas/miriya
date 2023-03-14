@@ -1,0 +1,32 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
+.camera {
+  @include m.flexbox(center, center);
+  flex-direction: column;
+  width: 240px;
+  margin-bottom: 24px;
+  overflow: hidden;
+
+  + .camera {
+    margin-left: 14px;
+  }
+
+  .cameraImg {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 8px;
+    border: 1px solid c.$C_GRAY_E;
+  }
+
+  .name {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  p {
+    margin-top: 4px;
+    font-size: 10px;
+    text-align: center;
+  }
+}
