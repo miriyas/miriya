@@ -1107,7 +1107,7 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2005,
-    name: '*ist DS2',
+    name: '*ist DS2 / Samsung GX-1S',
     maker: CAMERA_MAKER.PENTAX,
     sensor: {
       pixelsFamiliar: '6.1M',
@@ -1230,11 +1230,61 @@ export const CAMERAS: CameraType[] = [
     year: 2006,
     name: '30D',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DIGIC2,
+      pixelsFamiliar: '8.2M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 3200,
+    },
+    shutter: {
+      fps: 5,
+      speed: 8000,
+    },
+    focus: {
+      points: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.9,
+      coverage: 95,
+    },
+    display: {
+      inches: 2.5,
+      pixels: 230_000,
+    },
+    metering: '35분할측광',
   },
   {
     year: 2006,
-    name: 'K10D',
+    name: 'K10D / Samsung GX-10',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      pixelsFamiliar: '10.2M',
+      type: SENSOR_TYPE.CCD,
+      isoMin: 100,
+      isoMax: 3200,
+      vr: true,
+    },
+    shutter: {
+      fps: 3,
+      speed: 4000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX7,
+      points: 11,
+      pointsCross: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.95,
+      coverage: 96,
+    },
+    display: {
+      inches: 2.5,
+      pixels: 210_000,
+    },
+    metering: '16분할측광',
   },
   {
     year: 2006,
@@ -1357,7 +1407,7 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2006,
-    name: '*ist DL2',
+    name: '*ist DL2 / Samsung GX-1L',
     maker: CAMERA_MAKER.PENTAX,
     sensor: {
       pixelsFamiliar: '6.1M',
@@ -1451,11 +1501,61 @@ export const CAMERAS: CameraType[] = [
     year: 2007,
     name: '1Ds markIII',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DDIGIC2,
+      pixelsFamiliar: '21.1M',
+      size: SENSOR_SIZE.FF,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 3200,
+    },
+    shutter: {
+      fps: 5,
+      speed: 8000,
+    },
+    focus: {
+      points: 45,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.76,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 230_000,
+    },
+    metering: '63분할측광',
   },
   {
     year: 2007,
     name: '1D markIII',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DDIGIC2,
+      pixelsFamiliar: '10.1M',
+      size: SENSOR_SIZE.APSH,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 10,
+      speed: 8000,
+    },
+    focus: {
+      points: 45,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.76,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 230_000,
+    },
+    metering: '63분할측광',
   },
   {
     year: 2007,
@@ -1493,6 +1593,30 @@ export const CAMERAS: CameraType[] = [
     year: 2007,
     name: '40D',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DIGIC2,
+      pixelsFamiliar: '10.1M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 3200,
+    },
+    shutter: {
+      fps: 6.5,
+      speed: 8000,
+    },
+    focus: {
+      points: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.95,
+      coverage: 95,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 230_000,
+    },
+    metering: '35분할측광',
   },
   {
     year: 2007,
@@ -1686,6 +1810,41 @@ export const CAMERAS: CameraType[] = [
     year: 2008,
     name: '5D markII',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DIGIC4,
+      pixelsFamiliar: '21.1M',
+      size: SENSOR_SIZE.FF,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 25600,
+    },
+    shutter: {
+      fps: 3.9,
+      speed: 8000,
+    },
+    focus: {
+      points: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.71,
+      coverage: 98,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 920_000,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+      ],
+    },
+    metering: '35분할측광',
   },
   {
     year: 2008,
@@ -1722,16 +1881,102 @@ export const CAMERAS: CameraType[] = [
     year: 2008,
     name: '50D',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DIGIC4,
+      pixelsFamiliar: '15.1M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 6.3,
+      speed: 8000,
+    },
+    focus: {
+      points: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.95,
+      coverage: 95,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 920_000,
+    },
+    metering: '35분할측광',
   },
   {
     year: 2008,
     name: 'D90',
     maker: CAMERA_MAKER.NIKON,
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED,
+      pixelsFamiliar: '12.3M',
+      type: SENSOR_TYPE.CCD,
+      isoMin: 100,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 4.5,
+      speed: 4000,
+    },
+    focus: {
+      name: FOCUS_NAME.CAM1000,
+      points: 11,
+      pointsCross: 1,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.94,
+      coverage: 95,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 920_000,
+    },
+    video: {
+      format: 'M-JPEG',
+      modes: [
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 24,
+        },
+      ],
+    },
+    metering: '420 RGB측광',
   },
   {
     year: 2008,
-    name: 'K20D',
+    name: 'K20D / Samsung GX-20',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      pixelsFamiliar: '14.6M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+      vr: true,
+    },
+    shutter: {
+      fps: 3,
+      speed: 4000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX7,
+      points: 11,
+      pointsCross: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.95,
+      coverage: 96,
+    },
+    display: {
+      inches: 2.7,
+      pixels: 230_000,
+    },
+    metering: '16분할측광',
   },
   {
     year: 2008,
@@ -1953,12 +2198,78 @@ export const CAMERAS: CameraType[] = [
     year: 2008,
     name: 'K-m / K2000',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      pixelsFamiliar: '10.2M',
+      type: SENSOR_TYPE.CCD,
+      isoMin: 100,
+      isoMax: 3200,
+      vr: true,
+    },
+    shutter: {
+      fps: 3.5,
+      speed: 4000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX7,
+      points: 5,
+      pointsCross: 5,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_MIRROR,
+      magnification: 0.85,
+      coverage: 96,
+    },
+    display: {
+      inches: 2.7,
+      pixels: 230_000,
+    },
+    metering: '16분할측광',
   },
   // 2009 =============================================
   {
     year: 2009,
     name: '1D markIV',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DDIGIC4,
+      pixelsFamiliar: '16.1M',
+      size: SENSOR_SIZE.APSH,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 102400,
+    },
+    shutter: {
+      fps: 10,
+      speed: 8000,
+    },
+    focus: {
+      points: 45,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.76,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 920_000,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    metering: '63분할측광',
   },
   {
     year: 2009,
@@ -2037,6 +2348,45 @@ export const CAMERAS: CameraType[] = [
     year: 2009,
     name: '7D',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DDIGIC4,
+      pixelsFamiliar: '17.9M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 8,
+      speed: 8000,
+    },
+    focus: {
+      points: 19,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 1.0,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 920_000,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    metering: '63분할측광',
   },
   {
     year: 2009,
@@ -2084,6 +2434,32 @@ export const CAMERAS: CameraType[] = [
     year: 2009,
     name: 'K-7',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      pixelsFamiliar: '14.6M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+      vr: true,
+    },
+    shutter: {
+      fps: 5.2,
+      speed: 8000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX7P,
+      points: 11,
+      pointsCross: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.92,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    metering: '77분할측광',
   },
 
   {
@@ -2355,22 +2731,142 @@ export const CAMERAS: CameraType[] = [
     year: 2009,
     name: 'K-x',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      pixelsFamiliar: '12.4M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 12800,
+      vr: true,
+    },
+    shutter: {
+      fps: 4.7,
+      speed: 6000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX7P,
+      points: 11,
+      pointsCross: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_MIRROR,
+      magnification: 0.85,
+      coverage: 96,
+    },
+    display: {
+      inches: 2.7,
+      pixels: 230_000,
+    },
+    metering: '16분할측광',
   },
   // 2010 =============================================
   {
     year: 2010,
     name: '645D',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      size: SENSOR_SIZE.F645C13,
+      pixelsFamiliar: '40M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 1600,
+      vr: true,
+    },
+    shutter: {
+      fps: 1.1,
+      speed: 4000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX9P,
+      points: 11,
+      pointsCross: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.62,
+      coverage: 98,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    metering: '77분할측광',
   },
   {
     year: 2010,
     name: 'K-5',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      pixelsFamiliar: '16.2M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 80,
+      isoMax: 51200,
+      vr: true,
+    },
+    shutter: {
+      fps: 7,
+      speed: 8000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX9P,
+      points: 11,
+      pointsCross: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.92,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    metering: '77분할측광',
   },
   {
     year: 2010,
     name: '60D',
     maker: CAMERA_MAKER.CANON,
+    sensor: {
+      engine: ENGINE_TYPE.DIGIC4,
+      pixelsFamiliar: '17.8M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 5.3,
+      speed: 8000,
+    },
+    focus: {
+      points: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.95,
+      coverage: 96,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 1040_000,
+      tilt: true,
+      swivel: true,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    metering: '63분할측광',
   },
   {
     year: 2010,
@@ -2420,12 +2916,79 @@ export const CAMERAS: CameraType[] = [
     year: 2010,
     name: 'D3100',
     maker: CAMERA_MAKER.NIKON,
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED2,
+      pixelsFamiliar: '14.2M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 3,
+      speed: 4000,
+    },
+    focus: {
+      name: FOCUS_NAME.CAM1000,
+      points: 11,
+      pointsCross: 1,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_MIRROR,
+      magnification: 0.8,
+      coverage: 95,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 230_000,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 24,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+      ],
+    },
+    metering: '420 RGB측광',
   },
 
   {
     year: 2010,
     name: 'K-r',
     maker: CAMERA_MAKER.PENTAX,
+    sensor: {
+      pixelsFamiliar: '12.4M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 25600,
+      vr: true,
+    },
+    shutter: {
+      fps: 5.6,
+      speed: 6000,
+    },
+    focus: {
+      name: FOCUS_NAME.SAFOX9,
+      points: 11,
+      pointsCross: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_MIRROR,
+      magnification: 0.85,
+      coverage: 96,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    metering: '16분할측광',
   },
   {
     year: 2010,

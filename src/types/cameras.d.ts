@@ -16,6 +16,7 @@ export const SENSOR_SIZE = {
   C26: '2.6crop',
   C19: '1.9crop',
   FF: 'Full Frame',
+  F645C13: '645 1.3crop',
   APSH: 'APS-H',
   APSC: 'APS-C',
 };
@@ -49,6 +50,9 @@ export const FOCUS_NAME = {
   CAM3500DX: 'Multi-CAM 3500DX',
   CAM3500FX: 'Multi-CAM 3500FX',
   SAFOX7: 'SAFOX VII',
+  SAFOX7P: 'SAFOX VII+',
+  SAFOX9: 'SAFOX IX',
+  SAFOX9P: 'SAFOX IX+',
 };
 
 export type FocusNameTypes = ValueOf<typeof FOCUS_NAME>;
@@ -56,9 +60,12 @@ export type FocusNameTypes = ValueOf<typeof FOCUS_NAME>;
 export const ENGINE_TYPE = {
   DIGIC1: 'DIGIC I',
   DIGIC2: 'DIGIC II',
+  DDIGIC2: 'Dual DIGIC II',
   DIGIC3: 'DIGIC III',
   DIGIC4: 'DIGIC IV',
+  DDIGIC4: 'Dual DIGIC IV',
   EXPEED: 'EXPEED',
+  EXPEED2: 'EXPEED2',
 };
 
 export type EngineTypes = ValueOf<typeof ENGINE_TYPE>;
