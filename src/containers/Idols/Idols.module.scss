@@ -10,38 +10,4 @@
   .idolYears {
     max-width: 812px;
   }
-
-  .toTop {
-    @include m.fixed(auto 14px 14px auto);
-    width: 52px;
-    height: 52px;
-    background-color: c.$C_WHITE;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px 0 rgba(c.$C_GRAY_4, 0.1);
-
-    &::before,
-    &::after {
-      position: absolute;
-      top: 14px;
-      content: '';
-      width: 14px;
-      height: 3px;
-      background-color: c.$C_GRAY_8;
-    }
-
-    &::before {
-      right: 15px;
-      transform: rotate(45deg);
-    }
-
-    &::after {
-      left: 15px;
-      transform: rotate(-45deg);
-    }
-
-    p {
-      margin-top: 24px;
-      font-size: 12px;
-    }
-  }
 }

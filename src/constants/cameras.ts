@@ -3422,3 +3422,8 @@ export const CAMERAS: CameraType[] = [
 
   // 2023 =============================================
 ];
+
+export const YEAR_INFO = {
+  start: 1995,
+  end: 2011,
+};

@@ -16,13 +16,6 @@ const Idols = () => {
   const years = groupBy(IDOLS, 'debutYear');
   const isotopes = useRef<IsotopesType>({});
 
-  const onClickToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <>
       <NextSeo
@@ -54,9 +47,6 @@ const Idols = () => {
             return <IdolYear key={year} idols={years[year]} year={Number(year)} isotopes={isotopes} />;
           })}
         </ul>
-        <button type='button' onClick={onClickToTop} className={styles.toTop}>
-          <p>위로</p>
-        </button>
       </main>
     </>
   );

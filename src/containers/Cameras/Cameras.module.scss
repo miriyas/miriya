@@ -4,4 +4,12 @@
 .cameras {
   @include m.flexbox(center, center);
   flex-direction: column;
+  @include m.flexbox(center, center);
+  flex-direction: column;
+  padding: 0 14px;
+  background-color: c.$C_BG;
+
+  .cameraYears {
+    max-width: 812px;
+  }
 }
