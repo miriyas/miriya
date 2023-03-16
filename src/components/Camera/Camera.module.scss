@@ -2,11 +2,12 @@
 @use 'src/styles/mixins' as m;
 
 .camera {
-  @include m.flexbox(center, center);
+  @include m.flexbox(start, center);
+  position: relative;
   flex-direction: column;
   width: 240px;
-  height: 320px;
-  padding: 24px 14px 14px;
+  height: 360px;
+  padding: 8px 8px 8px;
   margin-right: 14px;
   margin-bottom: 24px;
   overflow: hidden;
@@ -20,13 +21,61 @@
   }
 
   .name {
+    width: 100%;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    text-align: center;
     font-size: 11px;
     font-weight: 600;
+    border-bottom: 1px solid c.$C_GRAY_D;
   }
 
-  p {
+  table {
+    width: 100%;
     margin-top: 4px;
     font-size: 10px;
-    text-align: center;
+    line-height: 16px;
+
+    th {
+      width: 70px;
+      text-align: center;
+    }
+
+    td {
+      @include m.flexbox(start, center);
+    }
+
+    p {
+      @include m.flexbox(center, center);
+      padding: 0 4px;
+      color: c.$C_WHITE;
+      margin-right: 4px;
+      border-radius: 2px;
+
+      &.gray {
+        background-color: c.$C_GRAY_4;
+      }
+
+      &.red {
+        background-color: c.$C_RED;
+      }
+
+      &.orange {
+        background-color: c.$C_ORANGE;
+      }
+
+      &.blue {
+        background-color: c.$C_BLUE;
+      }
+    }
+
+    .refs {
+      a {
+        color: c.$C_BLUE;
+        + a {
+          margin-left: 4px;
+        }
+      }
+    }
   }
 }

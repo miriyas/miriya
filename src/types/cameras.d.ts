@@ -64,17 +64,31 @@ export const ENGINE_TYPE = {
   DIGIC2: 'DIGIC II',
   DDIGIC2: 'Dual DIGIC II',
   DIGIC3: 'DIGIC III',
+  DDIGIC3: 'Dual DIGIC III',
   DIGIC4: 'DIGIC IV',
   DDIGIC4: 'Dual DIGIC IV',
   DIGIC5: 'DIGIC V',
   DIGIC5P: 'DIGIC V+',
   DDIGIC5P: 'Dual DIGIC V+',
   DIGIC6: 'DIGIC VI',
+  DDIGIC6: 'Dual DIGIC VI',
   DIGIC6P: 'DIGIC VI+',
   DDIGIC6P: 'Dual DIGIC VI+',
+  DIGIC7: 'DIGIC VII',
+  DIGIC8: 'DIGIC VIII',
+  DIGIC10: 'DIGIC X',
   EXPEED: 'EXPEED',
   EXPEED2: 'EXPEED2',
 };
+
+export interface FocusType {
+  name?: FocusNameTypes;
+  contrast?: boolean;
+  points?: number;
+  pointsCross?: number;
+  pointsDouble?: number;
+  phaseDetection?: boolean;
+}
 
 export type EngineTypes = ValueOf<typeof ENGINE_TYPE>;
 
@@ -86,8 +100,8 @@ export const VIDEO_SCAN_TYPE = {
 export type VideoScanTypes = ValueOf<typeof VIDEO_SCAN_TYPE>;
 
 export interface Sensor {
-  name?: EngineTypes;
-  engine?: string;
+  name?: string;
+  engine?: EngineTypes;
   pixelsFamiliar: string;
   size?: SensorSizeTypes;
   type: SensorTypes;
@@ -108,27 +122,23 @@ export interface CameraType {
   desc?: string;
   sensor?: Sensor;
   shutter?: {
-    fps: number;
+    fps: number | '?';
     speed?: number;
   };
-  focus?: {
-    name?: FocusNameTypes;
-    contrast?: boolean;
-    points?: number;
-    pointsCross?: number;
-  };
+  focus?: FocusType;
   display?: {
-    inches: number;
-    pixels?: number;
+    inches: number | '?';
+    pixels?: number | '?';
     liveview?: true;
     tilt?: boolean;
     swivel?: boolean;
     trueblack?: boolean;
+    touch?: boolean;
   };
-  optics?: {
+  viewfinder?: {
     type: OpticsTypes;
-    magnification: number;
-    coverage: number;
+    magnification: number | '?';
+    coverage: number | '?';
   };
   video?: {
     format: string;
@@ -138,11 +148,9 @@ export interface CameraType {
       fps: number;
     }[];
   };
-  metering?:
-    | string
-    | {
-        desc: string;
-        engine: EngineTypes;
-      };
+  metering?: {
+    engine?: EngineTypes;
+    desc: string;
+  };
   refs?: string[];
 }

@@ -4,7 +4,8 @@ export const getNumberArr = (length: number): number[] => {
 };
 
 /** 숫자를 M, K 등으로 단위 묶음 리턴 */
-export const shrinkNumber = (value: number) => {
+export const shrinkNumber = (value: number | string) => {
+  if (typeof value === 'string') return value;
   if (value >= 1_000_000) {
     return `${parseInt(String(value / 1_000_000), 10).toString()}M`;
   }
