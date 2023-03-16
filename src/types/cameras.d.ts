@@ -60,6 +60,12 @@ export const OPTICS_TYPE = {
 
 export type OpticsTypes = ValueOf<typeof OPTICS_TYPE>;
 
+export interface ViewFinderType {
+  type: OpticsTypes;
+  magnification: number | '?';
+  coverage?: number;
+}
+
 export const FOCUS_NAME = {
   AM200: 'Advanced AM200',
   CAM274: 'CAM274',
@@ -129,6 +135,16 @@ export interface Sensor {
   vr?: boolean;
 }
 
+export interface DisplayType {
+  inches: number | '?';
+  pixels?: number | '?';
+  liveview?: true;
+  tilt?: boolean;
+  swivel?: boolean;
+  trueblack?: boolean;
+  touch?: boolean;
+}
+
 export interface CameraType {
   year: number;
   name: string;
@@ -145,20 +161,8 @@ export interface CameraType {
     speed?: number;
   };
   focus?: FocusType;
-  display?: {
-    inches: number | '?';
-    pixels?: number | '?';
-    liveview?: true;
-    tilt?: boolean;
-    swivel?: boolean;
-    trueblack?: boolean;
-    touch?: boolean;
-  };
-  viewfinder?: {
-    type: OpticsTypes;
-    magnification: number | '?';
-    coverage: number | '?';
-  };
+  display?: DisplayType;
+  viewfinder?: ViewFinderType;
   video?: {
     format: string;
     modes: {

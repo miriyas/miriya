@@ -632,9 +632,6 @@ export const CAMERAS: CameraType[] = [
       magnification: '?',
       coverage: 95,
     },
-    display: {
-      inches: '?',
-    },
     refs: ['https://www.dpreview.com/reviews/kodakdcs14n/'],
   },
   {

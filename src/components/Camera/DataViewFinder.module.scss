@@ -1,0 +1,12 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
+.dataViewFinder {
+  .pentaPrism {
+    background-color: c.$C_GREEN;
+  }
+
+  .pentaMirror {
+    background-color: c.$C_YELLOW;
+  }
+}

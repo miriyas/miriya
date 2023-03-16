@@ -48,34 +48,62 @@
     p {
       @include m.flexbox(center, center);
       padding: 0 4px;
-      color: c.$C_WHITE;
       margin-right: 4px;
       border-radius: 2px;
-
-      &.gray {
-        background-color: c.$C_GRAY_4;
-      }
-
-      &.red {
-        background-color: c.$C_RED;
-      }
-
-      &.orange {
-        background-color: c.$C_ORANGE;
-      }
-
-      &.blue {
-        background-color: c.$C_BLUE;
-      }
-    }
-
-    .refs {
-      a {
-        color: c.$C_BLUE;
-        + a {
-          margin-left: 4px;
-        }
-      }
     }
   }
+}
+
+.gray {
+  color: c.$C_GRAY_4;
+}
+
+.grayBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_GRAY_4;
+}
+
+.red {
+  color: c.$C_RED;
+}
+
+.redBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_RED;
+}
+
+.orange {
+  color: c.$C_ORANGE;
+}
+
+.orangeBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_ORANGE;
+}
+
+.yellow {
+  color: c.$C_YELLOW;
+}
+
+.yellowBg {
+  color: c.$C_BLACK;
+  background-color: c.$C_YELLOW;
+}
+
+.green {
+  color: c.$C_GREEN;
+}
+
+.greenBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_GREEN;
+}
+
+.blue {
+  color: c.$C_BLUE;
+}
+
+.blueBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_BLUE;
 }

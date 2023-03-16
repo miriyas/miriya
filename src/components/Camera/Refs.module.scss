@@ -1,0 +1,11 @@
+@use 'src/styles/constants' as c;
+
+.refs {
+  a {
+    color: c.$C_BLUE;
+
+    + a {
+      margin-left: 4px;
+    }
+  }
+}
