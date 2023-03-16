@@ -5,18 +5,17 @@
   @include m.flexbox(center, center);
   flex-direction: column;
   width: 240px;
+  padding: 24px 14px 14px;
+  margin-right: 14px;
   margin-bottom: 24px;
   overflow: hidden;
-
-  + .camera {
-    margin-left: 14px;
-  }
+  background-color: c.$C_WHITE;
+  border-radius: 8px;
 
   .cameraImg {
     width: 140px;
     height: 140px;
     margin-bottom: 8px;
-    border: 1px solid c.$C_GRAY_E;
   }
 
   .name {

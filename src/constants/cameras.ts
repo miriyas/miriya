@@ -14,7 +14,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1995,
     maker: CAMERA_MAKER.NIKON,
-    name: 'E2 / Fujifilm Fujix DS-505',
+    name: 'E2',
+    maker2: CAMERA_MAKER.FUJIFILM,
+    name2: 'Fujix DS-505',
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -44,7 +46,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1995,
     maker: CAMERA_MAKER.NIKON,
-    name: 'E2s / Fujifilm Fujix DS-515',
+    name: 'E2s',
+    maker2: CAMERA_MAKER.FUJIFILM,
+    name2: 'Fujix DS-515',
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -75,7 +79,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1996,
     maker: CAMERA_MAKER.NIKON,
-    name: 'E2N / Fujifilm Fujix DS-505A',
+    name: 'E2N',
+    maker2: CAMERA_MAKER.FUJIFILM,
+    name2: 'Fujix DS-505A',
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -106,7 +112,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1996,
     maker: CAMERA_MAKER.NIKON,
-    name: 'E2NS / Fujifilm Fujix DS-515A',
+    name: 'E2NS',
+    maker2: CAMERA_MAKER.FUJIFILM,
+    name2: 'Fujix DS-515A',
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -138,7 +146,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.NIKON,
-    name: 'E3 / Fujifilm Fujix DS-560',
+    name: 'E3',
+    maker2: CAMERA_MAKER.FUJIFILM,
+    name2: 'Fujix DS-560',
     sensor: {
       pixelsFamiliar: '1.4M',
       size: SENSOR_SIZE.I23,
@@ -173,7 +183,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.NIKON,
-    name: 'E3s / Fujifilm Fujix DS-565',
+    name: 'E3s',
+    maker2: CAMERA_MAKER.FUJIFILM,
+    name2: 'Fujix DS-565',
     sensor: {
       pixelsFamiliar: '1.4M',
       size: SENSOR_SIZE.I23,
@@ -208,7 +220,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.CANON,
-    name: 'D2000 / Kodak DCS520',
+    name: 'D2000',
+    maker2: CAMERA_MAKER.KODAK,
+    name2: 'DCS520',
     sensor: {
       name: 'Kodak M15',
       pixelsFamiliar: '2.0M',
@@ -236,7 +250,9 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.CANON,
-    name: 'D6000 / Kodak DCS560',
+    name: 'D6000',
+    maker2: CAMERA_MAKER.KODAK,
+    name2: 'DCS560',
     sensor: {
       pixelsFamiliar: '6.1M',
       size: SENSOR_SIZE.APSH,
@@ -265,7 +281,7 @@ export const CAMERAS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.KODAK,
-    name: 'Kodak DCS315', // DCS330
+    name: 'Kodak DCS315',
     sensor: {
       pixelsFamiliar: '1.5M',
       size: SENSOR_SIZE.C26,
@@ -629,7 +645,8 @@ export const CAMERAS: CameraType[] = [
   {
     year: 2003,
     maker: CAMERA_MAKER.CANON,
-    name: '300D / Digital Rebel / Kiss Digital',
+    name: '300D',
+    otherNames: ['Digital Rebel', 'Kiss Digital'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC1,
       pixelsFamiliar: '6.3M',
@@ -1078,7 +1095,8 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2005,
-    name: '350D / Digital Rebel XT / Kiss Digital N',
+    name: '350D',
+    otherNames: ['Digital Rebel XT', 'Kiss Digital N'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
@@ -1107,8 +1125,10 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2005,
-    name: '*ist DS2 / Samsung GX-1S',
     maker: CAMERA_MAKER.PENTAX,
+    name: '*ist DS2',
+    maker2: CAMERA_MAKER.SAMSUNG,
+    name2: 'GX-1S',
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -1257,8 +1277,10 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2006,
-    name: 'K10D / Samsung GX-10',
     maker: CAMERA_MAKER.PENTAX,
+    name: 'K10D',
+    maker2: CAMERA_MAKER.SAMSUNG,
+    name2: 'GX-10',
     sensor: {
       pixelsFamiliar: '10.2M',
       type: SENSOR_TYPE.CCD,
@@ -1378,7 +1400,8 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2006,
-    name: '400D / Digital Rebel XTi / Kiss Digital X',
+    name: '400D',
+    otherNames: ['Digital Rebel XTi', 'Kiss Digital X'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
@@ -1407,8 +1430,10 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2006,
-    name: '*ist DL2 / Samsung GX-1L',
     maker: CAMERA_MAKER.PENTAX,
+    name: '*ist DL2',
+    maker2: CAMERA_MAKER.SAMSUNG,
+    name2: 'GX-1L',
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -1949,8 +1974,10 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2008,
-    name: 'K20D / Samsung GX-20',
     maker: CAMERA_MAKER.PENTAX,
+    name: 'K20D',
+    maker2: CAMERA_MAKER.SAMSUNG,
+    name2: 'GX-20',
     sensor: {
       pixelsFamiliar: '14.6M',
       type: SENSOR_TYPE.CMOS,
@@ -2012,7 +2039,8 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2008,
-    name: '450D / Digital Rebel XSi / Kiss Digital X2',
+    name: '450D',
+    otherNames: ['Digital Rebel XSi', 'Kiss Digital X2'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC3,
@@ -2104,7 +2132,8 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2008,
-    name: '1000D / Digital Rebel XS / Kiss Digital F',
+    name: '1000D',
+    otherNames: ['Digital Rebel XS', 'Kiss Digital F'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC3,
@@ -2196,7 +2225,8 @@ export const CAMERAS: CameraType[] = [
 
   {
     year: 2008,
-    name: 'K-m / K2000',
+    name: 'K-m',
+    otherNames: ['K2000'],
     maker: CAMERA_MAKER.PENTAX,
     sensor: {
       pixelsFamiliar: '10.2M',
@@ -2496,7 +2526,8 @@ export const CAMERAS: CameraType[] = [
 
   {
     year: 2009,
-    name: '500D / Digital Rebel X1i / Kiss Digital X3',
+    name: '500D',
+    otherNames: ['Digital Rebel T1i', 'Kiss Digital X3'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
@@ -2870,7 +2901,8 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2010,
-    name: '550D / Digital Rebel T2i / Kiss Digital X4',
+    name: '550D',
+    otherNames: ['Digital Rebel T2i', 'Kiss Digital X4'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
@@ -3314,7 +3346,8 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2011,
-    name: '600D / Digital Rebel T3i / Kiss Digital X5',
+    name: '600D',
+    otherNames: ['Digital Rebel T3i', 'Kiss Digital X5'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
@@ -3360,7 +3393,8 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2011,
-    name: '1100D / Digital Rebel T3 / Kiss Digital X50',
+    name: '1100D',
+    otherNames: ['Digital Rebel T3', 'Kiss Digital X50'],
     maker: CAMERA_MAKER.CANON,
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,

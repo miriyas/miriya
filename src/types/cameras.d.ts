@@ -2,11 +2,13 @@ import { ValueOf } from '@/types';
 
 export const CAMERA_MAKER = {
   CANON: 'Canon',
+  FUJIFILM: 'Fujifilm',
+  KODAK: 'Kodak',
+  MINOLTA: 'Minolta',
   NIKON: 'Nikon',
   PENTAX: 'Pentax',
-  MINOLTA: 'Minolta',
+  SAMSUNG: 'Samsung',
   SONY: 'Sony',
-  KODAK: 'Kodak',
 };
 
 export type CameraMakerTypes = ValueOf<typeof CAMERA_MAKER>;
@@ -91,7 +93,10 @@ export interface Sensor {
 export interface CameraType {
   year: number;
   name: string;
+  otherNames?: string[];
   maker: CameraMakerTypes;
+  name2?: string;
+  maker2?: CameraMakerTypes;
   sensor?: Sensor;
   shutter?: {
     fps: number;

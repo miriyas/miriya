@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { CameraType } from '@/types/cameras';
 import { prettyOpticsType, prettySensorSize } from './utils';
 import { shrinkNumber } from '@/utils';
@@ -48,7 +50,14 @@ const Camera = (props: Props) => {
 
   return (
     <li className={styles.camera}>
-      <div className={styles.cameraImg}>{/* <Image src={profileUrl} alt={name} width={100} height={100} /> */}</div>
+      <div className={styles.cameraImg}>
+        <Image
+          src={`${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}-${name.toLowerCase()}.jpg`}
+          alt={name}
+          width={140}
+          height={140}
+        />
+      </div>
       <p className={styles.name}>
         {maker} {name}
       </p>
