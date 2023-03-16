@@ -1,6 +1,10 @@
+import { MutableRefObject, useEffect, useMemo } from 'react';
 import cx from 'classnames';
 
+import type { IsotopeOptions } from 'isotope-layout';
+import { IsotopesType } from '@/types/index.d';
 import { CameraType } from '@/types/cameras';
+import Isotope from '@/libs/isotope-layout';
 
 import Camera from '@/components/Camera';
 import styles from './CameraYear.module.scss';
@@ -8,10 +12,32 @@ import styles from './CameraYear.module.scss';
 interface Props {
   cameras: CameraType[];
   year: number;
+  isotopes: MutableRefObject<IsotopesType>;
 }
 
 const CameraYear = (props: Props) => {
-  const { cameras, year } = props;
+  const { cameras, year, isotopes } = props;
+
+  const OPTIONS: IsotopeOptions = useMemo(
+    () => ({
+      itemSelector: `.grid-item-${year}`,
+      layoutMode: 'packery',
+      transitionDuration: 200,
+      percentPosition: true,
+      packery: {
+        gutter: 14,
+        columnWidth: 240,
+      },
+    }),
+    [year],
+  );
+
+  useEffect(() => {
+    const elem = document.querySelector<HTMLElement>(`.grid-${year}`);
+    if (!elem) return;
+
+    isotopes.current[year] = new Isotope(elem, OPTIONS);
+  }, [OPTIONS, isotopes, year]);
 
   return (
     <li id={`camera-year-${year}`} className={styles.cameraYear}>

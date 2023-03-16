@@ -1,49 +1,59 @@
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler, MutableRefObject, useState } from 'react';
 import cx from 'classnames';
 
-import { YEAR_INFO } from '@/constants/idols';
-import { CATEGORIES, Category } from '@/types/idols.d';
+import { YEAR_INFO } from '@/constants/cameras';
+import { IsotopesType } from '@/types/index.d';
+import { CameraMakerTypes, CAMERA_MAKERS } from '@/types/cameras.d';
 import { getNumberArr } from '@/utils';
-import { prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';
-import { IDOL } from '@/constants/ga';
+import { CAMERA } from '@/constants/ga';
 
 import Header from './Header';
 import styles from './FilterBar.module.scss';
 
-const FilterBar = () => {
+interface Props {
+  isotopes: MutableRefObject<IsotopesType>;
+}
+
+const FilterBar = (props: Props) => {
+  const { isotopes } = props;
   const { gaEvent } = useGA();
-  const [currentCategory, setCurrentCategory] = useState<Category>('total');
+  const [currentMaker, setCurrentMaker] = useState<CameraMakerTypes>('ALL');
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
-  const onClickCategory: MouseEventHandler<HTMLButtonElement> = (e) => {
-    const newCategory = e.currentTarget.title;
-    setCurrentCategory(newCategory as Category);
-    gaEvent(IDOL.IDOL_CATEGORY_CLICK, { category: newCategory });
+  const onClickMaker: MouseEventHandler<HTMLButtonElement> = (e) => {
+    const newMaker = e.currentTarget.title;
+    setCurrentMaker(newMaker as CameraMakerTypes);
+    Object.keys(isotopes.current).forEach((key) => {
+      isotopes.current[Number(key)].arrange({
+        filter: (elem) => (newMaker === 'ALL' ? true : elem.classList.value.includes(`maker-${newMaker}`)),
+      });
+    });
+    gaEvent(CAMERA.CAMERA_MAKER_CLICK, { maker: newMaker });
   };
 
   const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newYear = e.currentTarget.title;
     setCurrentYear(Number(newYear));
 
-    const target = document.querySelector<HTMLLIElement>(`#idol-year-${newYear}`);
+    const target = document.querySelector<HTMLLIElement>(`#camera-year-${newYear}`);
 
     window.scrollTo({
       top: target?.offsetTop,
       behavior: 'smooth',
     });
-    gaEvent(IDOL.IDOL_YEAR_CLICK, { year: newYear });
+    gaEvent(CAMERA.CAMERA_YEAR_CLICK, { year: newYear });
   };
 
   return (
     <div className={styles.filterBar}>
       <Header />
       <ul className={styles.categories}>
-        {CATEGORIES.map((category) => {
+        {CAMERA_MAKERS.map((maker) => {
           return (
-            <li key={category} className={cx({ [styles.current]: category === currentCategory })}>
-              <button type='button' onClick={onClickCategory} title={category}>
-                {prettyCategory(category)}
+            <li key={maker} className={cx({ [styles.current]: maker === currentMaker })}>
+              <button type='button' onClick={onClickMaker} title={maker}>
+                {maker}
               </button>
             </li>
           );

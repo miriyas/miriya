@@ -9,9 +9,22 @@ export const CAMERA_MAKER = {
   PENTAX: 'Pentax',
   SAMSUNG: 'Samsung',
   SONY: 'Sony',
+  ALL: 'ALL',
 };
 
 export type CameraMakerTypes = ValueOf<typeof CAMERA_MAKER>;
+
+export const CAMERA_MAKERS = [
+  'ALL',
+  CAMERA_MAKER.CANON,
+  CAMERA_MAKER.FUJIFILM,
+  CAMERA_MAKER.KODAK,
+  CAMERA_MAKER.MINOLTA,
+  CAMERA_MAKER.NIKON,
+  CAMERA_MAKER.PENTAX,
+  CAMERA_MAKER.SAMSUNG,
+  CAMERA_MAKER.SONY,
+];
 
 export const SENSOR_SIZE = {
   I23: '2/3"',

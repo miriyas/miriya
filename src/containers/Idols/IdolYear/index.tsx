@@ -3,7 +3,8 @@ import cx from 'classnames';
 
 import type { IsotopeOptions } from 'isotope-layout';
 import { YEARS } from '@/constants/idols';
-import { IdolType, IsotopesType } from '@/types/idols.d';
+import { IsotopesType } from '@/types';
+import { IdolType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 

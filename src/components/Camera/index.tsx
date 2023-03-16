@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import cx from 'classnames';
 
 import { CameraType } from '@/types/cameras.d';
 import { extractAFData, extractSensorData, prettyOpticsType } from './utils';
@@ -13,13 +14,12 @@ interface Props {
 
 const Camera = (props: Props) => {
   const { camera } = props;
-  const { display, focus, maker, name, maker2, name2, otherNames, viewfinder, sensor, shutter, metering, refs } =
+  const { display, focus, maker, name, maker2, name2, otherNames, viewfinder, sensor, shutter, metering, refs, year } =
     camera;
 
-  const name1data = `${maker} ${name}`;
   const name2data = maker2 ? `${maker2} ${name2}` : '';
   const nameOtherData = otherNames?.join(' / ');
-  const nameLine = [name1data, name2data, nameOtherData].filter((item) => !!item).join(' / ');
+  const nameLine = [name, name2data, nameOtherData].filter((item) => !!item).join(' / ');
 
   const sensorData = extractSensorData(sensor);
 
@@ -48,7 +48,7 @@ const Camera = (props: Props) => {
     .toLowerCase()}.jpg`;
 
   return (
-    <li className={styles.camera}>
+    <li className={cx(styles.camera, `grid-item-${year}`, `maker-${maker}`)}>
       <MakerLogo maker={maker} />
       <div className={styles.cameraImg}>
         <Image src={imageUrl} alt={name} width={140} height={140} />

@@ -2,7 +2,8 @@ import { MouseEventHandler, MutableRefObject, useState } from 'react';
 import cx from 'classnames';
 
 import { YEAR_INFO } from '@/constants/idols';
-import { CATEGORIES, IsotopesType, Category } from '@/types/idols.d';
+import { IsotopesType } from '@/types/index.d';
+import { CATEGORIES, Category } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';
@@ -27,7 +28,7 @@ const FilterBar = (props: Props) => {
     setCurrentCategory(newCategory as Category);
     Object.keys(isotopes.current).forEach((key) => {
       isotopes.current[Number(key)].arrange({
-        filter: (elem) => elem.classList.value.includes(`category-${newCategory}`),
+        filter: (elem) => (newCategory === 'total' ? true : elem.classList.value.includes(`category-${newCategory}`)),
       });
     });
     gaEvent(IDOL.IDOL_CATEGORY_CLICK, { category: newCategory });
