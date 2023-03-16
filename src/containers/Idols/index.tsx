@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import { groupBy } from 'lodash';
 
 import { IDOLS } from '@/constants/idols';
-import { IsotopesType } from '@/types/idols.d';
+import { IsotopesType } from '@/types/index.d';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';
