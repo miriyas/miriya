@@ -6,6 +6,7 @@ import { extractAFData, extractSensorData, prettyOpticsType } from './utils';
 import { shrinkNumber } from '@/utils';
 
 import MakerLogo from './MakerLogo';
+import ShakeReduction from './ShakeReduction';
 import styles from './Camera.module.scss';
 
 interface Props {
@@ -36,12 +37,10 @@ const Camera = (props: Props) => {
   const opticsType = prettyOpticsType(viewfinder?.type);
   const magnification = viewfinder?.magnification ? `x${viewfinder?.magnification}` : '';
   const coverage = viewfinder?.coverage ? `${viewfinder?.coverage}%` : '';
-  const opticsData = opticsType ? `${opticsType} ${[magnification, coverage].filter((item) => !!item).join('/')}` : '?';
+  const vfData = opticsType ? `${opticsType} ${[magnification, coverage].filter((item) => !!item).join('/')}` : '?';
   const displaySize = display?.inches ? `${display?.inches}"` : '';
   const displayRes = display?.pixels ? shrinkNumber(display?.pixels) : '';
   const displayData = displaySize ? [displaySize, displayRes, 'LCD'].filter((item) => !!item).join(' ') : 'No Display';
-
-  const line5 = sensor?.vr ? '손떨림보정' : '';
 
   const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}/${maker.toLowerCase()}-${name
     .replace(/ |\/|\*/gi, '') // '모든' 공백 제거, replaceAll은 아직은 호환성 때문에 사용 안함
@@ -50,6 +49,7 @@ const Camera = (props: Props) => {
   return (
     <li className={cx(styles.camera, `grid-item-${year}`, `maker-${maker}`)}>
       <MakerLogo maker={maker} />
+      <ShakeReduction maker={maker} sensor={sensor} />
       <div className={styles.cameraImg}>
         <Image src={imageUrl} alt={name} width={140} height={140} />
       </div>
@@ -83,7 +83,7 @@ const Camera = (props: Props) => {
 
           <tr>
             <th>Viewfinder</th>
-            <td>{opticsData}</td>
+            <td>{vfData}</td>
           </tr>
           <tr>
             <th>Display</th>

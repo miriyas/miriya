@@ -6,8 +6,11 @@ export const CAMERA_MAKER = {
   KODAK: 'Kodak',
   MINOLTA: 'Minolta',
   NIKON: 'Nikon',
+  OLYMPUS: 'Olympus',
+  PANASONIC: 'Panasonic',
   PENTAX: 'Pentax',
   SAMSUNG: 'Samsung',
+  SIGMA: 'Sigma',
   SONY: 'Sony',
   ALL: 'ALL',
 };
@@ -21,8 +24,11 @@ export const CAMERA_MAKERS = [
   CAMERA_MAKER.KODAK,
   CAMERA_MAKER.MINOLTA,
   CAMERA_MAKER.NIKON,
+  CAMERA_MAKER.OLYMPUS,
+  CAMERA_MAKER.PANASONIC,
   CAMERA_MAKER.PENTAX,
   CAMERA_MAKER.SAMSUNG,
+  CAMERA_MAKER.SIGMA,
   CAMERA_MAKER.SONY,
 ];
 

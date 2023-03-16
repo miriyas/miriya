@@ -1,0 +1,30 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
+.shakeReduction {
+  @include m.flexbox(center, center);
+  @include m.absolute(14px 14px auto auto);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 10px;
+
+  &.minolta {
+    color: c.$C_YELLOW;
+    background-color: c.$C_GRAY_2;
+  }
+
+  &.nikon {
+    color: c.$C_RED;
+    background-color: c.$C_GRAY_2;
+  }
+
+  &.sony {
+    color: c.$C_WHITE;
+    background-color: c.$C_GRAY_2;
+  }
+
+  &.pentax {
+    color: c.$C_WHITE;
+    background-color: c.$C_RED;
+  }
+}
