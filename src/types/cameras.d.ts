@@ -66,6 +66,12 @@ export const ENGINE_TYPE = {
   DIGIC3: 'DIGIC III',
   DIGIC4: 'DIGIC IV',
   DDIGIC4: 'Dual DIGIC IV',
+  DIGIC5: 'DIGIC V',
+  DIGIC5P: 'DIGIC V+',
+  DDIGIC5P: 'Dual DIGIC V+',
+  DIGIC6: 'DIGIC VI',
+  DIGIC6P: 'DIGIC VI+',
+  DDIGIC6P: 'Dual DIGIC VI+',
   EXPEED: 'EXPEED',
   EXPEED2: 'EXPEED2',
 };
@@ -97,6 +103,9 @@ export interface CameraType {
   maker: CameraMakerTypes;
   name2?: string;
   maker2?: CameraMakerTypes;
+  predecessor?: string[];
+  successor?: string[];
+  desc?: string;
   sensor?: Sensor;
   shutter?: {
     fps: number;
@@ -111,6 +120,7 @@ export interface CameraType {
   display?: {
     inches: number;
     pixels?: number;
+    liveview?: true;
     tilt?: boolean;
     swivel?: boolean;
     trueblack?: boolean;
@@ -123,11 +133,16 @@ export interface CameraType {
   video?: {
     format: string;
     modes: {
-      resolution: number;
+      resolution: number | '4K';
       scan: VideoScanTypes;
       fps: number;
     }[];
   };
-  metering?: string;
+  metering?:
+    | string
+    | {
+        desc: string;
+        engine: EngineTypes;
+      };
   refs?: string[];
 }

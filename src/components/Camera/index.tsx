@@ -48,15 +48,14 @@ const Camera = (props: Props) => {
 
   const line5 = sensor?.vr ? '손떨림보정' : '';
 
+  const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}/${maker.toLowerCase()}-${name
+    .replace(/ /gi, '') // '모든' 공백 제거, replaceAll은 아직은 호환성 때문에 사용 안함
+    .toLowerCase()}.jpg`;
+
   return (
     <li className={styles.camera}>
       <div className={styles.cameraImg}>
-        <Image
-          src={`${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}-${name.toLowerCase()}.jpg`}
-          alt={name}
-          width={140}
-          height={140}
-        />
+        <Image src={imageUrl} alt={name} width={140} height={140} />
       </div>
       <p className={styles.name}>
         {maker} {name}

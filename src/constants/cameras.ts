@@ -1035,6 +1035,36 @@ export const CAMERAS: CameraType[] = [
   },
   {
     year: 2005,
+    maker: CAMERA_MAKER.CANON,
+    name: '20Da',
+    sensor: {
+      engine: ENGINE_TYPE.DIGIC2,
+      pixelsFamiliar: '8.2M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 3200,
+    },
+    shutter: {
+      fps: 5,
+      speed: 8000,
+    },
+    focus: {
+      points: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.9,
+      coverage: 95,
+    },
+    display: {
+      inches: 1.8,
+      pixels: 118_000,
+      liveview: true,
+    },
+    metering: '35분할측광',
+  },
+  {
+    year: 2005,
     name: 'D70s',
     maker: CAMERA_MAKER.NIKON,
     sensor: {
@@ -2898,6 +2928,7 @@ export const CAMERAS: CameraType[] = [
       ],
     },
     metering: '63분할측광',
+    refs: ['https://en.wikipedia.org/wiki/Canon_EOS_60D'],
   },
   {
     year: 2010,
@@ -2990,7 +3021,6 @@ export const CAMERAS: CameraType[] = [
     },
     metering: '420 RGB측광',
   },
-
   {
     year: 2010,
     name: 'K-r',
@@ -3280,6 +3310,57 @@ export const CAMERAS: CameraType[] = [
   // 2011 =============================================
   {
     year: 2011,
+    name: '1D X',
+    maker: CAMERA_MAKER.CANON,
+    predecessor: ['1D markIV', '1Ds markIII'],
+    successor: ['1D X markII', '1D C'],
+    // desc: '',
+    sensor: {
+      engine: ENGINE_TYPE.DDIGIC5P,
+      pixelsFamiliar: '18.1M',
+      size: SENSOR_SIZE.FF,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 204800,
+    },
+    shutter: {
+      fps: 14,
+      speed: 8000,
+    },
+    focus: {
+      points: 61,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.76,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 1040_000,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1920,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    metering: {
+      desc: '10만 RGB측광',
+      engine: ENGINE_TYPE.DIGIC4,
+    },
+  },
+  {
+    year: 2011,
     name: 'A580',
     maker: CAMERA_MAKER.SONY,
     sensor: {
@@ -3433,6 +3514,96 @@ export const CAMERAS: CameraType[] = [
   },
 
   // 2012 =============================================
+  {
+    year: 2012,
+    name: '1D C',
+    maker: CAMERA_MAKER.CANON,
+    predecessor: ['1D X'],
+    desc: '세계 최초의 4K DSLR',
+    sensor: {
+      pixelsFamiliar: '18.1M',
+      size: SENSOR_SIZE.FF,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 204800,
+    },
+    shutter: {
+      fps: 14,
+      speed: 8000,
+    },
+    focus: {
+      points: 61,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.76,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 1040_000,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 25,
+        },
+      ],
+    },
+    metering: '10만 RGB측광',
+  },
+  {
+    year: 2012,
+    name: '60Da',
+    maker: CAMERA_MAKER.CANON,
+    successor: ['20Da'],
+    desc: '60D 기반의 천체 촬영용 카메라',
+    sensor: {
+      engine: ENGINE_TYPE.DIGIC4,
+      pixelsFamiliar: '17.8M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 5.3,
+      speed: 8000,
+    },
+    focus: {
+      points: 9,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.95,
+      coverage: 96,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 1040_000,
+      tilt: true,
+      swivel: true,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    metering: '63분할측광',
+    refs: ['https://en.wikipedia.org/wiki/Canon_EOS_60D'],
+  },
 
   // 2013 =============================================
 
@@ -3441,6 +3612,63 @@ export const CAMERAS: CameraType[] = [
   // 2015 =============================================
 
   // 2016 =============================================
+  {
+    year: 2016,
+    name: '1D X markII',
+    maker: CAMERA_MAKER.CANON,
+    predecessor: ['1D X'],
+    successor: ['1D X markIII'],
+    // desc: '',
+    sensor: {
+      engine: ENGINE_TYPE.DDIGIC6P,
+      pixelsFamiliar: '20.2M',
+      size: SENSOR_SIZE.FF,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 409600,
+    },
+    shutter: {
+      fps: 14,
+      speed: 8000,
+    },
+    focus: {
+      points: 61,
+      pointsCross: 41,
+    },
+    optics: {
+      type: OPTICS_TYPE.PENTA_PRISM,
+      magnification: 0.76,
+      coverage: 100,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 1620_000,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+        {
+          resolution: 1920,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    metering: {
+      desc: '36만 RGB측광',
+      engine: ENGINE_TYPE.DIGIC4,
+    },
+  },
 
   // 2017 =============================================
 
