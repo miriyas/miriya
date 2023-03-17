@@ -1,5 +1,16 @@
 import { ValueOf } from '@/types';
 
+export const GRADE = {
+  FLAGSHIP: 'FLAGSHIP',
+  PROFESSIONAL: 'PROFESSIONAL',
+  ADVANCED: 'ADVANCED',
+  MIDRANGE: 'MIDRANGE',
+  ENTRY: 'ENTRY',
+  VALUE: 'VALUE',
+} as const;
+
+export type GradeTypes = ValueOf<typeof GRADE>;
+
 export const CAMERA_MAKER = {
   CANON: 'Canon',
   FUJIFILM: 'Fujifilm',
@@ -155,6 +166,7 @@ export interface DisplayType {
 
 export interface CameraType {
   year: number;
+  grade: GradeTypes;
   name: string;
   otherNames?: string[];
   maker: CameraMakerTypes;

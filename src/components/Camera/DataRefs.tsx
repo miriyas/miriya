@@ -1,19 +1,22 @@
-import styles from './Refs.module.scss';
+import { CameraType } from '@/types/cameras';
+
+import styles from './Camera.module.scss';
 
 interface Props {
   nameLine: string;
-  refs?: string[];
+  camera: CameraType;
 }
 
-const Refs = (props: Props) => {
-  const { nameLine, refs } = props;
+const DataRefs = (props: Props) => {
+  const { nameLine, camera } = props;
+  const { refs } = camera;
 
   if (!refs) return null;
 
   return (
     <tr>
       <th>Ref.</th>
-      <td className={styles.refs}>
+      <td className={styles.dataRefs}>
         {refs.map((ref, i) => {
           const key = `${nameLine}-${i}`;
           return (
@@ -27,4 +30,4 @@ const Refs = (props: Props) => {
   );
 };
 
-export default Refs;
+export default DataRefs;

@@ -1,8 +1,8 @@
-import { SENSOR_SIZE, SensorSizeTypes, Sensor } from '@/types/cameras.d';
+import { SENSOR_SIZE, SensorSizeTypes, CameraType } from '@/types/cameras.d';
 
 import styles from './Camera.module.scss';
 
-export const prettySensorSize = (sensorSize?: SensorSizeTypes) => {
+const prettySensorSize = (sensorSize?: SensorSizeTypes) => {
   if (!sensorSize) return <p className={styles.grayBg}>APS-C</p>;
   return {
     [SENSOR_SIZE.FF]: <p className={styles.redBg}>FullFrame</p>,
@@ -15,24 +15,36 @@ export const prettySensorSize = (sensorSize?: SensorSizeTypes) => {
 };
 
 interface Props {
-  sensor?: Sensor;
+  camera: CameraType;
 }
 
 const DataSensor = (props: Props) => {
-  const { sensor } = props;
+  const { camera } = props;
+  const { sensor } = camera;
 
   if (!sensor) return null;
 
   const sensorData = [sensor.name, sensor.pixelsFamiliar, sensor.type].filter((item) => !!item).join(' ');
+  const isoData = sensor?.isoMin ? `ISO${sensor?.isoMin}-${sensor?.isoMax}` : '';
 
   return (
-    <tr>
-      <th>Sensor</th>
-      <td>
-        {prettySensorSize(sensor.size)}
-        {sensorData}
-      </td>
-    </tr>
+    <>
+      <tr>
+        <th>Sensor</th>
+        <td>
+          {prettySensorSize(sensor.size)}
+          {sensorData}
+        </td>
+      </tr>
+      <tr>
+        <th>Engine</th>
+        <td>{sensor.engine ?? '?'}</td>
+      </tr>
+      <tr>
+        <th>ISO</th>
+        <td>{isoData}</td>
+      </tr>
+    </>
   );
 };
 

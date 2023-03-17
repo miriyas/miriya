@@ -1301,24 +1301,6 @@ export const NIKONS: CameraType[] = [
       isoMax: 25600,
     },
   },
-  {
-    year: 2013,
-    name: '70D',
-    maker: CAMERA_MAKER.CANON,
-  },
-  {
-    year: 2013,
-    name: 'D5300',
-    maker: CAMERA_MAKER.NIKON,
-    sensor: {
-      name: 'TOS-5105',
-      engine: ENGINE_TYPE.EXPEED4,
-      pixelsFamiliar: '24.1M',
-      type: SENSOR_TYPE.CMOS,
-      isoMin: 100,
-      isoMax: 25600,
-    },
-  },
 
   // 2014 =============================================
   {

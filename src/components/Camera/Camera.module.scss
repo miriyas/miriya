@@ -6,7 +6,7 @@
   position: relative;
   flex-direction: column;
   width: 240px;
-  height: 380px;
+  height: 420px;
   padding: 32px 8px 8px;
   margin-bottom: 24px;
   overflow: hidden;
@@ -42,6 +42,10 @@
 
     td {
       @include m.flexbox(start, center);
+
+      a {
+        color: c.$C_BLUE;
+      }
     }
 
     p {
@@ -49,6 +53,26 @@
       padding: 0 4px;
       margin-right: 4px;
       border-radius: 2px;
+    }
+
+    .dataRefs {
+      a {
+        color: c.$C_BLUE;
+
+        + a {
+          margin-left: 4px;
+        }
+      }
+    }
+
+    .dataViewFinder {
+      .pentaPrism {
+        background-color: c.$C_GREEN;
+      }
+
+      .pentaMirror {
+        background-color: c.$C_YELLOW;
+      }
     }
   }
 }

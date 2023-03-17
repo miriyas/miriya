@@ -1,8 +1,8 @@
-import { ViewFinderType, OPTICS_TYPE, OpticsTypes } from '@/types/cameras.d';
+import { OPTICS_TYPE, OpticsTypes, CameraType } from '@/types/cameras.d';
 
 import styles from './Camera.module.scss';
 
-export const prettyOpticsType = (type?: OpticsTypes) => {
+const prettyOpticsType = (type?: OpticsTypes) => {
   if (!type) return null;
   return {
     [OPTICS_TYPE.PENTA_PRISM]: <span className={styles.green}>펜타프리즘</span>,
@@ -11,11 +11,12 @@ export const prettyOpticsType = (type?: OpticsTypes) => {
 };
 
 interface Props {
-  viewfinder?: ViewFinderType;
+  camera: CameraType;
 }
 
 const DataViewFinder = (props: Props) => {
-  const { viewfinder } = props;
+  const { camera } = props;
+  const { viewfinder } = camera;
 
   if (!viewfinder) return null;
 

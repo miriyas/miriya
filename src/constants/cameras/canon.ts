@@ -7,8 +7,11 @@ import {
   FOCUS_NAME,
   VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
+  GRADE,
 } from '@/types/cameras.d';
 
+// https://www.dpreview.com/products/timeline
+// https://global.canon/en/c-museum/camera.html?s=dslr
 // https://en.wikipedia.org/wiki/Template:Canon_EOS_digital_cameras
 // http://www.ayton.id.au/wiki/doku.php?id=photo:canoneoshistory
 
@@ -108,6 +111,7 @@ export const CANONS: CameraType[] = [
     name: 'D2000',
     maker2: CAMERA_MAKER.KODAK,
     name2: 'DCS520',
+    predecessor: ['DCS3'],
     sensor: {
       name: 'Kodak M15',
       pixelsFamiliar: '2.0M',
@@ -140,6 +144,7 @@ export const CANONS: CameraType[] = [
     name: 'D6000',
     maker2: CAMERA_MAKER.KODAK,
     name2: 'DCS560',
+    predecessor: ['DCS1'],
     sensor: {
       pixelsFamiliar: '6.1M',
       size: SENSOR_SIZE.APSH,
@@ -172,7 +177,9 @@ export const CANONS: CameraType[] = [
   {
     year: 2000,
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
     name: 'D30',
+    successor: ['D60'],
     sensor: {
       pixelsFamiliar: '3.1M',
       type: SENSOR_TYPE.CMOS,
@@ -265,7 +272,10 @@ export const CANONS: CameraType[] = [
   {
     year: 2002,
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
     name: 'D60',
+    predecessor: ['D30'],
+    successor: ['10D'],
     sensor: {
       pixelsFamiliar: '6.3M',
       type: SENSOR_TYPE.CMOS,
@@ -294,7 +304,10 @@ export const CANONS: CameraType[] = [
   {
     year: 2003,
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
     name: '10D',
+    predecessor: ['D60'],
+    successor: ['20D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC1,
       pixelsFamiliar: '6.3M',
@@ -424,7 +437,10 @@ export const CANONS: CameraType[] = [
   {
     year: 2004,
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
     name: '20D',
+    predecessor: ['10D'],
+    successor: ['30D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '8.2M',
@@ -521,13 +537,16 @@ export const CANONS: CameraType[] = [
   {
     year: 2005,
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
     name: '20Da',
+    successor: ['60Da'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '8.2M',
       type: SENSOR_TYPE.CMOS,
       isoMin: 100,
       isoMax: 3200,
+      astro: true,
     },
     shutter: {
       fps: 5,
@@ -586,8 +605,11 @@ export const CANONS: CameraType[] = [
   // 2006 =============================================
   {
     year: 2006,
-    name: '30D',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '30D',
+    predecessor: ['20D'],
+    successor: ['40D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '8.2M',
@@ -716,8 +738,11 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2007,
-    name: '40D',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '40D',
+    predecessor: ['30D'],
+    successor: ['50D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC3,
       pixelsFamiliar: '10.1M',
@@ -791,8 +816,11 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2008,
-    name: '50D',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '50D',
+    predecessor: ['40D'],
+    successor: ['60D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
       pixelsFamiliar: '15.1M',
@@ -1030,8 +1058,11 @@ export const CANONS: CameraType[] = [
   // 2010 =============================================
   {
     year: 2010,
-    name: '60D',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '60D',
+    predecessor: ['50D'],
+    successor: ['70D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
       pixelsFamiliar: '17.8M',
@@ -1331,8 +1362,9 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2012,
-    name: '60Da',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '60Da',
     successor: ['20Da'],
     desc: '60D 기반의 천체 촬영용 카메라',
     sensor: {
@@ -1341,6 +1373,7 @@ export const CANONS: CameraType[] = [
       type: SENSOR_TYPE.CMOS,
       isoMin: 100,
       isoMax: 12800,
+      astro: true,
     },
     shutter: {
       fps: 5.3,
@@ -1477,6 +1510,27 @@ export const CANONS: CameraType[] = [
   },
 
   // 2013 =============================================
+  {
+    year: 2013,
+    maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '70D',
+    predecessor: ['60D'],
+    successor: ['80D'],
+  },
+  {
+    year: 2013,
+    name: 'D5300',
+    maker: CAMERA_MAKER.NIKON,
+    sensor: {
+      name: 'TOS-5105',
+      engine: ENGINE_TYPE.EXPEED4,
+      pixelsFamiliar: '24.1M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 25600,
+    },
+  },
   {
     year: 2013,
     maker: CAMERA_MAKER.CANON,
@@ -1806,8 +1860,12 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2016,
-    name: '80D',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '80D',
+    predecessor: ['70D'],
+    successor: ['90D'],
+
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC6,
     // }
@@ -1982,8 +2040,11 @@ export const CANONS: CameraType[] = [
   // 2019 =============================================
   {
     year: 2019,
-    name: '90D',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: '90D',
+    predecessor: ['80D'],
+    successor: ['R10'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC8,
     // }
@@ -2158,8 +2219,9 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2022,
-    name: 'R10',
     maker: CAMERA_MAKER.CANON,
+    grade: GRADE.MIDRANGE,
+    name: 'R10',
     predecessor: ['M5'],
   },
 
