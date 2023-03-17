@@ -41,7 +41,9 @@ const CameraYear = (props: Props) => {
 
   return (
     <li id={`camera-year-${year}`} className={styles.cameraYear}>
-      <div className={styles.title}>{year}년</div>
+      <div className={styles.title}>
+        {year}년 / {cameras.length}기종
+      </div>
 
       <ul className={cx(styles.cameras, `grid-${year}`)}>
         {cameras.map((camera) => {

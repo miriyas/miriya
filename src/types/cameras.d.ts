@@ -104,6 +104,12 @@ export const ENGINE_TYPE = {
   DIGIC10: 'DIGIC X',
   EXPEED: 'EXPEED',
   EXPEED2: 'EXPEED2',
+  EXPEED3: 'EXPEED3',
+  EXPEED4: 'EXPEED4',
+  EXPEED5: 'EXPEED5',
+  EXPEED6: 'EXPEED6',
+  BIONZ: 'Bionz',
+  BIONZX: 'Bionz X',
 };
 
 export interface FocusType {
@@ -133,6 +139,8 @@ export interface Sensor {
   isoMin: number;
   isoMax: number;
   vr?: boolean;
+  astro?: boolean;
+  noLowPass?: boolean;
 }
 
 export interface DisplayType {
