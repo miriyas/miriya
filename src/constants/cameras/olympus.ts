@@ -1,13 +1,18 @@
 import {
   CameraType,
   CAMERA_MAKER,
-  OPTICS_TYPE,
-  SENSOR_TYPE,
-  SENSOR_SIZE,
-  FOCUS_NAME,
-  VIDEO_SCAN_TYPE,
-  ENGINE_TYPE,
+  // OPTICS_TYPE,
+  // SENSOR_TYPE,
+  // SENSOR_SIZE,
+  // FOCUS_NAME,
+  // VIDEO_SCAN_TYPE,
+  // ENGINE_TYPE,
+  MOUNT,
+  GRADE,
 } from '@/types/cameras.d';
+
+// https://en.wikipedia.org/wiki/Template:Olympus_DSLR_cameras
+// https://en.wikipedia.org/wiki/Template:Micro_Four_Thirds_cameras
 
 export const OLYMPUSES: CameraType[] = [
   // 1995 =============================================
@@ -21,8 +26,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2003 =============================================
   {
     year: 2003,
-    name: 'E-1',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.FLAGSHIP,
+    name: 'E-1',
+    predecessor: [],
+    successor: ['E-3'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -36,8 +45,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2004 =============================================
   {
     year: 2004,
-    name: 'E-300',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.ENTRY,
+    name: 'E-300',
+    predecessor: [],
+    successor: ['E-330'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -49,11 +62,33 @@ export const OLYMPUSES: CameraType[] = [
   },
 
   // 2005 =============================================
+  {
+    year: 2005,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-500',
+    predecessor: ['E-510'],
+    successor: [],
+    // sensor: {
+    //   size: SENSOR_SIZE.FF,
+    //   engine: ENGINE_TYPE.EXPEED4,
+    //   pixelsFamiliar: '16.2M',
+    //   type: SENSOR_TYPE.CMOS,
+    //   isoMin: 100,
+    //   isoMax: 409600,
+    // },
+  },
+
   // 2006 =============================================
   {
     year: 2006,
-    name: 'E-330',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.ENTRY,
+    name: 'E-330',
+    predecessor: ['E-300'],
+    successor: ['E-450'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -65,8 +100,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2006,
-    name: 'E-400',
     maker: CAMERA_MAKER.OLYMPUS,
+    name: 'E-400',
+    mount: MOUNT.FourThird,
+    grade: GRADE.ENTRY,
+    predecessor: [],
+    successor: ['E-410'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -80,8 +119,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2007 =============================================
   {
     year: 2007,
-    name: 'E-3',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.FLAGSHIP,
+    name: 'E-3',
+    predecessor: ['E-1'],
+    successor: ['E-5'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -93,8 +136,29 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2007,
-    name: 'E-410',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-510',
+    predecessor: ['E-500'],
+    successor: ['E-520'],
+    // sensor: {
+    //   size: SENSOR_SIZE.FF,
+    //   engine: ENGINE_TYPE.EXPEED4,
+    //   pixelsFamiliar: '16.2M',
+    //   type: SENSOR_TYPE.CMOS,
+    //   isoMin: 100,
+    //   isoMax: 409600,
+    // },
+  },
+  {
+    year: 2007,
+    maker: CAMERA_MAKER.OLYMPUS,
+    name: 'E-410',
+    mount: MOUNT.FourThird,
+    grade: GRADE.ENTRY,
+    predecessor: ['E-400'],
+    successor: ['E-420'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -108,8 +172,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2008 =============================================
   {
     year: 2008,
-    name: 'E-30',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.ADVANCED,
+    name: 'E-30',
+    predecessor: [],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -121,8 +189,29 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2008,
-    name: 'E-420',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-520',
+    predecessor: ['E-510'],
+    successor: [],
+    // sensor: {
+    //   size: SENSOR_SIZE.FF,
+    //   engine: ENGINE_TYPE.EXPEED4,
+    //   pixelsFamiliar: '16.2M',
+    //   type: SENSOR_TYPE.CMOS,
+    //   isoMin: 100,
+    //   isoMax: 409600,
+    // },
+  },
+  {
+    year: 2008,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.ENTRY,
+    name: 'E-420',
+    predecessor: ['E-410'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -136,8 +225,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2009 =============================================
   {
     year: 2009,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.MIDRANGE,
     name: 'E-620',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: [],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -149,8 +242,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2009,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.MIDRANGE,
     name: 'E-600',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: [],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -162,8 +259,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2009,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.ENTRY,
     name: 'E-450',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-330'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -175,8 +276,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2009,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
     name: 'E-P1',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: [],
+    successor: ['E-P2'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -188,8 +293,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2009,
-    name: 'E-P2',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-P2',
+    predecessor: ['E-P2'],
+    successor: ['E-P3'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -203,8 +312,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2010 =============================================
   {
     year: 2010,
-    name: 'E-5',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.FourThird,
+    grade: GRADE.FLAGSHIP,
+    name: 'E-5',
+    predecessor: ['E-3'],
+    successor: ['E-M1X'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -216,8 +329,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2010,
-    name: 'E-PL1',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
+    name: 'E-PL1',
+    predecessor: [],
+    successor: ['E-PL2'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -231,8 +348,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2011 =============================================
   {
     year: 2011,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
     name: 'E-P3',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-P2'],
+    successor: ['E-P5'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -244,8 +365,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2011,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
     name: 'E-PL2',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-PL1'],
+    successor: ['E-PL3'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -257,8 +382,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2011,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
     name: 'E-PL3',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-PL2'],
+    successor: ['E-PL5'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -270,8 +399,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2011,
-    name: 'E-PM1',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRY,
+    name: 'E-PM1',
+    predecessor: [],
+    successor: ['E-PM2'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -285,8 +418,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2012 =============================================
   {
     year: 2012,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ADVANCED,
     name: 'E-M5',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: [],
+    successor: ['E-M5 II'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -298,8 +435,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2012,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
     name: 'E-PL5',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-PL3'],
+    successor: ['E-PL6'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -311,8 +452,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'E-PM2',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRY,
+    name: 'E-PM2',
+    predecessor: ['E-PM1'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -326,8 +471,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2013 =============================================
   {
     year: 2013,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.PROFESSIONAL,
     name: 'E-M1',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: [],
+    successor: ['E-M1 II'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -339,8 +488,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2013,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
     name: 'E-P5',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-P3'],
+    successor: ['PEN-F'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -352,8 +505,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2013,
-    name: 'E-PL6',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
+    name: 'E-PL6',
+    predecessor: ['E-PL5'],
+    successor: ['E-PL7'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -367,8 +524,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2014 =============================================
   {
     year: 2014,
-    name: 'E-M10',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-M10',
+    predecessor: [],
+    successor: ['E-M10 II'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -380,8 +541,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2014,
-    name: 'E-PL7',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
+    name: 'E-PL7',
+    predecessor: ['E-PL6'],
+    successor: ['E-PL8'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -395,8 +560,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2015 =============================================
   {
     year: 2015,
-    name: 'E-M5 II',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ADVANCED,
+    name: 'E-M5 II',
+    predecessor: ['E-M5'],
+    successor: ['E-M5 III'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -408,8 +577,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2015,
-    name: 'E-M10 II',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-M10 II',
+    predecessor: ['E-M10'],
+    successor: ['E-M10 III'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -423,8 +596,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2016 =============================================
   {
     year: 2016,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.PROFESSIONAL,
     name: 'E-M1 II',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-M1'],
+    successor: ['E-M1 III'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -436,8 +613,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2016,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
     name: 'PEN-F',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-P5'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -449,8 +630,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2016,
-    name: 'E-PL8',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
+    name: 'E-PL8',
+    predecessor: ['E-PL7'],
+    successor: ['E-PL9'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -464,8 +649,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2017 =============================================
   {
     year: 2017,
-    name: 'E-M10 III',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-M10 III',
+    predecessor: ['E-M10 II'],
+    successor: ['E-M10 IV'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -479,8 +668,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2018 =============================================
   {
     year: 2018,
-    name: 'E-PL9',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
+    name: 'E-PL9',
+    predecessor: ['E-PL8'],
+    successor: ['E-PL10'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -494,8 +687,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2019 =============================================
   {
     year: 2019,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.FLAGSHIP,
     name: 'E-M1X',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-5'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -507,8 +704,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2019,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ADVANCED,
     name: 'E-M5 III',
-    maker: CAMERA_MAKER.OLYMPUS,
+    predecessor: ['E-M5 II'],
+    successor: ['OM-5'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -520,8 +721,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2019,
-    name: 'E-PL10',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRYMID,
+    name: 'E-PL10',
+    predecessor: ['E-PL9'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -535,8 +740,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2020 =============================================
   {
     year: 2020,
-    name: 'E-M1 III',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.PROFESSIONAL,
+    name: 'E-M1 III',
+    predecessor: ['E-M1 II'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -548,8 +757,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2020,
-    name: 'E-M10 IV',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-M10 IV',
+    predecessor: ['E-M10 III'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -563,8 +776,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2021 =============================================
   {
     year: 2021,
-    name: 'E-P7',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-P7',
+    predecessor: [],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -578,8 +795,12 @@ export const OLYMPUSES: CameraType[] = [
   // 2022 =============================================
   {
     year: 2022,
-    name: 'OM-1',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.FLAGSHIP,
+    name: 'OM-1',
+    predecessor: ['E-M1X'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -591,8 +812,12 @@ export const OLYMPUSES: CameraType[] = [
   },
   {
     year: 2022,
-    name: 'OM-5',
     maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ADVANCED,
+    name: 'OM-5',
+    predecessor: ['E-M5 III'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,

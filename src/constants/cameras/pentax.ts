@@ -5,9 +5,14 @@ import {
   SENSOR_TYPE,
   SENSOR_SIZE,
   FOCUS_NAME,
-  VIDEO_SCAN_TYPE,
-  ENGINE_TYPE,
+  // VIDEO_SCAN_TYPE,
+  // ENGINE_TYPE,
+  MOUNT,
+  GRADE,
 } from '@/types/cameras.d';
+
+// https://en.wikipedia.org/wiki/Template:Pentax_digital_interchangeable_lens_cameras
+// https://en.wikipedia.org/wiki/Template:Pentax_MILC_cameras
 
 export const PENTAXS: CameraType[] = [
   // 1995 =============================================
@@ -22,7 +27,11 @@ export const PENTAXS: CameraType[] = [
   {
     year: 2003,
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.MIDRANGE,
     name: '*ist D',
+    predecessor: [],
+    successor: ['K10D'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -56,7 +65,11 @@ export const PENTAXS: CameraType[] = [
   {
     year: 2004,
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
     name: '*ist DS',
+    predecessor: [],
+    successor: ['*ist DS2'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -90,9 +103,13 @@ export const PENTAXS: CameraType[] = [
   {
     year: 2005,
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
     name: '*ist DS2',
     maker2: CAMERA_MAKER.SAMSUNG,
     name2: 'GX-1S',
+    predecessor: ['*ist DS'],
+    successor: ['K-r'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -123,8 +140,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2005,
-    name: '*ist DL',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
+    name: '*ist DL',
+    predecessor: [],
+    successor: ['*ist DL2'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -158,9 +179,13 @@ export const PENTAXS: CameraType[] = [
   {
     year: 2006,
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.MIDRANGE,
     name: 'K10D',
     maker2: CAMERA_MAKER.SAMSUNG,
     name2: 'GX-10',
+    predecessor: ['*ist D'],
+    successor: ['K20D'],
     sensor: {
       pixelsFamiliar: '10.2M',
       type: SENSOR_TYPE.CCD,
@@ -193,9 +218,13 @@ export const PENTAXS: CameraType[] = [
   {
     year: 2006,
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
     name: '*ist DL2',
     maker2: CAMERA_MAKER.SAMSUNG,
     name2: 'GX-1L',
+    predecessor: ['*ist DL'],
+    successor: ['K110D'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -226,8 +255,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2006,
-    name: 'K100D',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRYMID,
+    name: 'K100D',
+    predecessor: [],
+    successor: ['K100D super'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -259,8 +292,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2006,
-    name: 'K110D',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
+    name: 'K110D',
+    predecessor: ['*ist DL2'],
+    successor: ['K-m'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -293,8 +330,12 @@ export const PENTAXS: CameraType[] = [
   // 2007 =============================================
   {
     year: 2007,
-    name: 'K100D super',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRYMID,
+    name: 'K100D super',
+    predecessor: ['K100D'],
+    successor: ['K200D'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -329,9 +370,13 @@ export const PENTAXS: CameraType[] = [
   {
     year: 2008,
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.MIDRANGE,
     name: 'K20D',
     maker2: CAMERA_MAKER.SAMSUNG,
     name2: 'GX-20',
+    predecessor: ['K10D'],
+    successor: ['KP'],
     sensor: {
       pixelsFamiliar: '14.6M',
       type: SENSOR_TYPE.CMOS,
@@ -363,8 +408,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2008,
-    name: 'K200D',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRYMID,
+    name: 'K200D',
+    predecessor: ['K100D super'],
+    successor: ['K-30'],
     sensor: {
       pixelsFamiliar: '10.2M',
       type: SENSOR_TYPE.CCD,
@@ -396,9 +445,13 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2008,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
     name: 'K-m',
     otherNames: ['K2000'],
-    maker: CAMERA_MAKER.PENTAX,
+    predecessor: ['K110D'],
+    successor: ['K-x'],
     sensor: {
       pixelsFamiliar: '10.2M',
       type: SENSOR_TYPE.CCD,
@@ -432,8 +485,12 @@ export const PENTAXS: CameraType[] = [
   // 2009 =============================================
   {
     year: 2009,
-    name: 'K-7',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ADVANCED,
+    name: 'K-7',
+    predecessor: ['K20D'],
+    successor: ['K-5'],
     sensor: {
       pixelsFamiliar: '14.6M',
       type: SENSOR_TYPE.CMOS,
@@ -465,8 +522,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2009,
-    name: 'K-x',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
+    name: 'K-x',
+    predecessor: ['K-m'],
+    successor: ['K-S1'],
     sensor: {
       pixelsFamiliar: '12.4M',
       type: SENSOR_TYPE.CMOS,
@@ -500,8 +561,12 @@ export const PENTAXS: CameraType[] = [
   // 2010 =============================================
   {
     year: 2010,
-    name: '645D',
     maker: CAMERA_MAKER.PENTAX,
+    name: '645D',
+    mount: MOUNT.M645,
+    grade: GRADE.PROFESSIONAL,
+    predecessor: [],
+    successor: ['645Z'],
     sensor: {
       size: SENSOR_SIZE.F645C13,
       pixelsFamiliar: '40M',
@@ -534,8 +599,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2010,
-    name: 'K-5',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ADVANCED,
+    name: 'K-5',
+    predecessor: ['K-7'],
+    successor: ['K-5 II', 'K-5 IIs'],
     sensor: {
       pixelsFamiliar: '16.2M',
       type: SENSOR_TYPE.CMOS,
@@ -567,8 +636,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2010,
-    name: 'K-r',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
+    name: 'K-r',
+    predecessor: ['*ist DS2'],
+    successor: ['K-500'],
     sensor: {
       pixelsFamiliar: '12.4M',
       type: SENSOR_TYPE.CMOS,
@@ -602,10 +675,14 @@ export const PENTAXS: CameraType[] = [
   // 2011 =============================================
   {
     year: 2011,
-    name: 'Q',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxQ,
+    grade: GRADE.ENTRY,
+    name: 'Q',
+    predecessor: [],
+    successor: ['Q10'],
     // sensor: {
-    //   size: SENSOR_SIZE.FF,
+    //   size: SENSOR_SIZE.Q23,
     //   engine: ENGINE_TYPE.EXPEED4,
     //   pixelsFamiliar: '16.2M',
     //   type: SENSOR_TYPE.CMOS,
@@ -617,8 +694,12 @@ export const PENTAXS: CameraType[] = [
   // 2012 =============================================
   {
     year: 2012,
-    name: 'K-5 II',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ADVANCED,
+    name: 'K-5 II',
+    predecessor: ['K-5'],
+    successor: ['K-3'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -630,8 +711,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'K-5 IIs',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ADVANCED,
+    name: 'K-5 IIs',
+    predecessor: ['K-5'],
+    successor: ['K-3'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -644,8 +729,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2012,
+    maker: CAMERA_MAKER.PENTAX,
     name: 'K-01',
-    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
+    predecessor: [],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -657,8 +746,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2012,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRYMID,
     name: 'K-30',
-    maker: CAMERA_MAKER.PENTAX,
+    predecessor: ['K200D'],
+    successor: ['K-50'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -670,10 +763,14 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'Q10',
     maker: CAMERA_MAKER.PENTAX,
+    name: 'Q10',
+    mount: MOUNT.PentaxQ,
+    grade: GRADE.ENTRY,
+    predecessor: ['Q'],
+    successor: [],
     // sensor: {
-    //   size: SENSOR_SIZE.FF,
+    //   size: SENSOR_SIZE.Q23,
     //   engine: ENGINE_TYPE.EXPEED4,
     //   pixelsFamiliar: '16.2M',
     //   type: SENSOR_TYPE.CMOS,
@@ -685,8 +782,13 @@ export const PENTAXS: CameraType[] = [
   // 2013 =============================================
   {
     year: 2013,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ADVANCED,
     name: 'K-3',
-    maker: CAMERA_MAKER.PENTAX,
+    predecessor: ['K-5 II'],
+    successor: ['K-3 II'],
+
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -698,8 +800,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2013,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRYMID,
     name: 'K-50',
-    maker: CAMERA_MAKER.PENTAX,
+    predecessor: ['K-30'],
+    successor: ['K-70'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -711,8 +817,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2013,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
     name: 'K-500',
-    maker: CAMERA_MAKER.PENTAX,
+    predecessor: ['K-r'],
+    successor: ['K-S2'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -724,8 +834,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2013,
-    name: 'Q7',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxQ,
+    grade: GRADE.ENTRY,
+    name: 'Q7',
+    predecessor: [],
+    successor: ['Q-S1'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -739,8 +853,12 @@ export const PENTAXS: CameraType[] = [
   // 2014 =============================================
   {
     year: 2014,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.PROFESSIONAL,
     name: '645Z',
-    maker: CAMERA_MAKER.PENTAX,
+    predecessor: ['645D'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -752,8 +870,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2014,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
     name: 'K-S1',
-    maker: CAMERA_MAKER.PENTAX,
+    predecessor: ['K-x'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -765,8 +887,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2014,
-    name: 'Q-S1',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxQ,
+    grade: GRADE.ENTRY,
+    name: 'Q-S1',
+    predecessor: ['Q7'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -780,8 +906,30 @@ export const PENTAXS: CameraType[] = [
   // 2015 =============================================
   {
     year: 2015,
-    name: 'K-3 II',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.PROFESSIONAL,
+    name: '645Z IR',
+    predecessor: ['645D'],
+    successor: [],
+    // sensor: {
+    //   size: SENSOR_SIZE.FF,
+    //   engine: ENGINE_TYPE.EXPEED4,
+    //   pixelsFamiliar: '16.2M',
+    //   type: SENSOR_TYPE.CMOS,
+    //   isoMin: 100,
+    //   isoMax: 409600,
+    //   ir: true
+    // },
+  },
+  {
+    year: 2015,
+    maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ADVANCED,
+    name: 'K-3 II',
+    predecessor: ['K-3'],
+    successor: ['K-3 III'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -793,8 +941,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2015,
-    name: 'K-S2',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRY,
+    name: 'K-S2',
+    predecessor: ['K-500'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -808,8 +960,12 @@ export const PENTAXS: CameraType[] = [
   // 2016 =============================================
   {
     year: 2016,
-    name: 'K-1',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.FLAGSHIP,
+    name: 'K-1',
+    predecessor: [],
+    successor: ['K-1 II'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -821,8 +977,12 @@ export const PENTAXS: CameraType[] = [
   },
   {
     year: 2016,
-    name: 'K-70',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRYMID,
+    name: 'K-70',
+    predecessor: ['K-50'],
+    successor: ['KF'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -836,8 +996,13 @@ export const PENTAXS: CameraType[] = [
   // 2017 =============================================
   {
     year: 2017,
-    name: 'KP',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.FLAGSHIP,
+    name: 'KP',
+    predecessor: ['K20D'],
+    successor: [],
+
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -851,8 +1016,12 @@ export const PENTAXS: CameraType[] = [
   // 2018 =============================================
   {
     year: 2018,
-    name: 'K-1 II',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.FLAGSHIP,
+    name: 'K-1 II',
+    predecessor: ['K-1'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -869,8 +1038,12 @@ export const PENTAXS: CameraType[] = [
   // 2021 =============================================
   {
     year: 2021,
-    name: 'K-3 III',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ADVANCED,
+    name: 'K-3 III',
+    predecessor: ['K-3 II'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -884,8 +1057,12 @@ export const PENTAXS: CameraType[] = [
   // 2022 =============================================
   {
     year: 2022,
-    name: 'KF',
     maker: CAMERA_MAKER.PENTAX,
+    mount: MOUNT.PentaxK,
+    grade: GRADE.ENTRYMID,
+    name: 'KF',
+    predecessor: ['K-70'],
+    successor: [],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,

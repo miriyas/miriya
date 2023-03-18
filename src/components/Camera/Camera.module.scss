@@ -19,14 +19,22 @@
     margin-bottom: 8px;
   }
 
-  .name {
+  .top {
     width: 100%;
     margin-bottom: 4px;
     padding-bottom: 8px;
     text-align: center;
-    font-size: 11px;
-    font-weight: 600;
     border-bottom: 1px solid c.$C_GRAY_D;
+
+    .name {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .desc {
+      margin-top: 4px;
+      font-size: 10px;
+    }
   }
 
   table {
@@ -55,13 +63,11 @@
       border-radius: 2px;
     }
 
-    .dataRefs {
-      a {
-        color: c.$C_BLUE;
+    a {
+      color: c.$C_BLUE;
 
-        + a {
-          margin-left: 4px;
-        }
+      + a {
+        margin-left: 8px;
       }
     }
 

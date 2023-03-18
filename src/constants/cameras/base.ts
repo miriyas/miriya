@@ -1,69 +1,21 @@
 import {
   CameraType,
-  CAMERA_MAKER,
-  OPTICS_TYPE,
-  SENSOR_TYPE,
-  SENSOR_SIZE,
-  FOCUS_NAME,
-  VIDEO_SCAN_TYPE,
-  ENGINE_TYPE,
-  GRADE,
-  MOUNT,
+  // CAMERA_MAKER,
+  // OPTICS_TYPE,
+  // SENSOR_TYPE,
+  // SENSOR_SIZE,
+  // FOCUS_NAME,
+  // VIDEO_SCAN_TYPE,
+  // ENGINE_TYPE,
 } from '@/types/cameras.d';
 
-// https://en.wikipedia.org/wiki/Contax_N_Digital
-
-export const CONTAXES: CameraType[] = [
+export const BASE: CameraType[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================
   // 1998 =============================================
   // 1999 =============================================
   // 2000 =============================================
-  {
-    year: 2000,
-    maker: CAMERA_MAKER.CONTAX,
-    mount: MOUNT.ContaxN,
-    grade: GRADE.FLAGSHIP,
-    predecessor: [],
-    successor: [],
-    name: 'N Digital',
-    desc: '최초의 풀프레임 DSLR',
-    sensor: {
-      name: 'FTF3020-C',
-      pixelsFamiliar: '6.13M',
-      size: SENSOR_SIZE.FF,
-      type: SENSOR_TYPE.CCD,
-      isoMin: 50,
-      isoMax: 1600,
-    },
-    shutter: {
-      fps: 4,
-      speed: 8000,
-    },
-    focus: {
-      points: 5,
-    },
-    viewfinder: {
-      type: OPTICS_TYPE.PENTA_PRISM,
-      magnification: 0.73,
-      coverage: 95,
-    },
-    display: {
-      inches: 2.0,
-      pixels: 200_000,
-    },
-    metering: {
-      desc: '5분할측광',
-    },
-    refs: [
-      'https://www.dpreview.com/articles/3315211933/contaxn1digital',
-      'https://www.dpreview.com/products/contax/slrs/contax_ndigital/specifications',
-      'https://www.juzaphoto.com/recensione.php?l=en&t=contax_n_digital',
-      'https://cameramanuals.org/contax/contax_n_digital-02.pdf',
-    ],
-  },
-
   // 2001 =============================================
   // 2002 =============================================
   // 2003 =============================================

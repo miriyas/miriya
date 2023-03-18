@@ -4,10 +4,10 @@ import {
   OPTICS_TYPE,
   SENSOR_TYPE,
   SENSOR_SIZE,
-  FOCUS_NAME,
   VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
   GRADE,
+  MOUNT,
 } from '@/types/cameras.d';
 
 // https://www.dpreview.com/products/timeline
@@ -20,6 +20,10 @@ export const CANONS: CameraType[] = [
   {
     year: 1995,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    predecessor: [],
+    successor: [],
     name: 'DCS5',
     maker2: CAMERA_MAKER.KODAK,
     name2: 'EOS-DSC5',
@@ -43,10 +47,13 @@ export const CANONS: CameraType[] = [
   {
     year: 1995,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
     name: 'DCS3',
     maker2: CAMERA_MAKER.KODAK,
     name2: 'EOS-DSC3',
     desc: '센서별로 3c, 3m, 3IR로 출시, 각각 ISO상이',
+    predecessor: [],
     successor: ['D2000'],
     sensor: {
       pixelsFamiliar: '1.3M',
@@ -67,10 +74,13 @@ export const CANONS: CameraType[] = [
   {
     year: 1995,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
     name: 'DCS1',
     maker2: CAMERA_MAKER.KODAK,
     name2: 'EOS-DSC1',
     desc: '센서별로 1c, 1m, 1IR로 출시, 각각 ISO상이',
+    predecessor: [],
     successor: ['D6000'],
     sensor: {
       pixelsFamiliar: '6.0M',
@@ -108,10 +118,13 @@ export const CANONS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
     name: 'D2000',
     maker2: CAMERA_MAKER.KODAK,
     name2: 'DCS520',
     predecessor: ['DCS3'],
+    successor: [],
     sensor: {
       name: 'Kodak M15',
       pixelsFamiliar: '2.0M',
@@ -141,10 +154,13 @@ export const CANONS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
     name: 'D6000',
     maker2: CAMERA_MAKER.KODAK,
     name2: 'DCS560',
     predecessor: ['DCS1'],
+    successor: [],
     sensor: {
       pixelsFamiliar: '6.1M',
       size: SENSOR_SIZE.APSH,
@@ -177,8 +193,10 @@ export const CANONS: CameraType[] = [
   {
     year: 2000,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
     grade: GRADE.MIDRANGE,
     name: 'D30',
+    predecessor: [],
     successor: ['D60'],
     sensor: {
       pixelsFamiliar: '3.1M',
@@ -207,8 +225,12 @@ export const CANONS: CameraType[] = [
   // 2001 =============================================
   {
     year: 2001,
-    name: '1D',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D',
+    predecessor: [],
+    successor: ['1D markII', '1Ds'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC1,
       pixelsFamiliar: '4.1M',
@@ -238,8 +260,11 @@ export const CANONS: CameraType[] = [
   // 2002 =============================================
   {
     year: 2002,
-    name: '1Ds',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1Ds',
+    predecessor: ['1D'],
     successor: ['1Ds markII'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC1,
@@ -272,6 +297,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2002,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
     grade: GRADE.MIDRANGE,
     name: 'D60',
     predecessor: ['D30'],
@@ -304,6 +330,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2003,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
     grade: GRADE.MIDRANGE,
     name: '10D',
     predecessor: ['D60'],
@@ -338,8 +365,12 @@ export const CANONS: CameraType[] = [
   {
     year: 2003,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.ENTRY,
     name: '300D',
     otherNames: ['Rebel', 'Kiss Digital'],
+    predecessor: [],
+    successor: ['350D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC1,
       pixelsFamiliar: '6.3M',
@@ -371,8 +402,11 @@ export const CANONS: CameraType[] = [
   // 2004 =============================================
   {
     year: 2004,
-    name: '1Ds markII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1Ds markII',
+    predecessor: ['1Ds'],
     successor: ['1Ds markIII'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
@@ -404,8 +438,12 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2004,
-    name: '1D markII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D markII',
+    predecessor: ['1D'],
+    successor: ['1D markII N'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '8.2M',
@@ -437,6 +475,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2004,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '20D',
     predecessor: ['10D'],
@@ -472,8 +511,12 @@ export const CANONS: CameraType[] = [
   // 2005 =============================================
   {
     year: 2005,
-    name: '1D markII N',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D markII N',
+    predecessor: ['1D markII'],
+    successor: ['1D markIII'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '8.2M',
@@ -504,8 +547,12 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2005,
-    name: '5D',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
+    name: '5D',
+    predecessor: [],
+    successor: ['5D markII'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '12.8M',
@@ -537,8 +584,10 @@ export const CANONS: CameraType[] = [
   {
     year: 2005,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '20Da',
+    predecessor: [],
     successor: ['60Da'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
@@ -571,9 +620,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2005,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '350D',
     otherNames: ['Rebel XT', 'Kiss Digital N'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['300D'],
+    successor: ['400D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '8M',
@@ -606,6 +659,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2006,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '30D',
     predecessor: ['20D'],
@@ -639,9 +693,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2006,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '400D',
     otherNames: ['Rebel XTi', 'Kiss Digital X'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['350D'],
+    successor: ['450D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC2,
       pixelsFamiliar: '10.1M',
@@ -673,8 +731,11 @@ export const CANONS: CameraType[] = [
   // 2007 =============================================
   {
     year: 2007,
-    name: '1Ds markIII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1Ds markIII',
+    predecessor: ['1Ds markII'],
     successor: ['1D X'],
     sensor: {
       engine: ENGINE_TYPE.DDIGIC3,
@@ -706,8 +767,12 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2007,
-    name: '1D markIII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D markIII',
+    predecessor: ['1D markII N'],
+    successor: ['1D markIV'],
     sensor: {
       engine: ENGINE_TYPE.DDIGIC3,
       pixelsFamiliar: '10.1M',
@@ -739,6 +804,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2007,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '40D',
     predecessor: ['30D'],
@@ -774,8 +840,12 @@ export const CANONS: CameraType[] = [
   // 2008 =============================================
   {
     year: 2008,
-    name: '5D markII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
+    name: '5D markII',
+    predecessor: ['5D'],
+    successor: ['5D markIII'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
       pixelsFamiliar: '21.1M',
@@ -817,6 +887,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2008,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '50D',
     predecessor: ['40D'],
@@ -850,9 +921,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2008,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '450D',
     otherNames: ['Rebel XSi', 'Kiss Digital X2'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['400D'],
+    successor: ['500D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC3,
       pixelsFamiliar: '12.2M',
@@ -882,9 +957,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2008,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '1000D',
     otherNames: ['Rebel XS', 'Kiss Digital F'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: [],
+    successor: ['1100D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC3,
       pixelsFamiliar: '10.1M',
@@ -916,8 +995,12 @@ export const CANONS: CameraType[] = [
   // 2009 =============================================
   {
     year: 2009,
-    name: '1D markIV',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D markIV',
+    predecessor: ['1D markIII'],
+    successor: ['1D X'],
     sensor: {
       engine: ENGINE_TYPE.DDIGIC4,
       pixelsFamiliar: '16.1M',
@@ -963,8 +1046,12 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2009,
-    name: '7D',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ADVANCED,
+    name: '7D',
+    predecessor: [],
+    successor: ['7D markII'],
     sensor: {
       engine: ENGINE_TYPE.DDIGIC4,
       pixelsFamiliar: '17.9M',
@@ -1009,9 +1096,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2009,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '500D',
     otherNames: ['Rebel T1i', 'Kiss Digital X3'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['450D'],
+    successor: ['550D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
       pixelsFamiliar: '15.1M',
@@ -1059,6 +1150,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2010,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '60D',
     predecessor: ['50D'],
@@ -1110,9 +1202,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2010,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '550D',
     otherNames: ['Rebel T2i', 'Kiss Digital X4'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['500D'],
+    successor: ['600D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
       pixelsFamiliar: '17.9M',
@@ -1159,8 +1255,10 @@ export const CANONS: CameraType[] = [
   // 2011 =============================================
   {
     year: 2011,
-    name: '1D X',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D X',
     predecessor: ['1D markIV', '1Ds markIII'],
     successor: ['1D X markII', '1D C'],
     // desc: '',
@@ -1210,9 +1308,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2011,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '600D',
     otherNames: ['Rebel T3i', 'Kiss Digital X5'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['550D'],
+    successor: ['650D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
       pixelsFamiliar: '17.9M',
@@ -1259,9 +1361,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2011,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '1100D',
     otherNames: ['Rebel T3', 'Kiss Digital X50'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['1000D'],
+    successor: ['1200D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
       pixelsFamiliar: '12.2M',
@@ -1303,9 +1409,12 @@ export const CANONS: CameraType[] = [
   // 2012 =============================================
   {
     year: 2012,
-    name: '1D C',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D C',
     predecessor: ['1D X'],
+    successor: [],
     desc: '세계 최초의 4K DSLR',
     sensor: {
       pixelsFamiliar: '18.1M',
@@ -1346,16 +1455,24 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2012,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
     name: '5D markIII',
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['5D markII'],
+    successor: ['5D markIV', '5Ds'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC5P,
     // }
   },
   {
     year: 2012,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.ADVANCED,
     name: '6D',
-    maker: CAMERA_MAKER.CANON,
+    predecessor: [],
+    successor: ['6D markII'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC5P,
     // }
@@ -1363,9 +1480,11 @@ export const CANONS: CameraType[] = [
   {
     year: 2012,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '60Da',
-    successor: ['20Da'],
+    predecessor: ['20Da'],
+    successor: ['Ra'],
     desc: '60D 기반의 천체 촬영용 카메라',
     sensor: {
       engine: ENGINE_TYPE.DIGIC4,
@@ -1415,9 +1534,13 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2012,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '650D',
     otherNames: ['Rebel T4i', 'Kiss Digital X6i'],
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['600D'],
+    successor: ['700D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC5,
       pixelsFamiliar: '18M',
@@ -1466,8 +1589,11 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'M',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRYMID,
+    name: 'M',
+    predecessor: [],
     successor: ['M2'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC5,
@@ -1513,6 +1639,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2013,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '70D',
     predecessor: ['60D'],
@@ -1520,20 +1647,9 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2013,
-    name: 'D5300',
-    maker: CAMERA_MAKER.NIKON,
-    sensor: {
-      name: 'TOS-5105',
-      engine: ENGINE_TYPE.EXPEED4,
-      pixelsFamiliar: '24.1M',
-      type: SENSOR_TYPE.CMOS,
-      isoMin: 100,
-      isoMax: 25600,
-    },
-  },
-  {
-    year: 2013,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '700D',
     otherNames: ['Rebel T5i', 'Kiss Digital X7i'],
     predecessor: ['650D'],
@@ -1588,8 +1704,11 @@ export const CANONS: CameraType[] = [
   {
     year: 2013,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '100D',
     otherNames: ['Rebel SL1', 'Kiss Digital X7'],
+    predecessor: [],
     successor: ['200D'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC5,
@@ -1637,8 +1756,10 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2013,
-    name: 'M2',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRYMID,
+    name: 'M2',
     predecessor: ['M'],
     successor: ['M3'],
     sensor: {
@@ -1681,17 +1802,23 @@ export const CANONS: CameraType[] = [
   // 2014 =============================================
   {
     year: 2014,
-    name: '7D markII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ADVANCED,
+    name: '7D markII',
+    predecessor: ['7D'],
+    successor: ['R7'],
     // sensor: {
     //   engine: ENGINE_TYPE.DDIGIC6,
     // }
   },
   {
     year: 2014,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.ENTRY,
     name: '1200D',
     otherNames: ['Rebel T5', 'Kiss Digital X70', 'EOS Hi'],
-    maker: CAMERA_MAKER.CANON,
     predecessor: ['1100D'],
     successor: ['1300D'],
     desc: '캐논의 1080p 엔트리 기종',
@@ -1736,23 +1863,34 @@ export const CANONS: CameraType[] = [
   // 2015 =============================================
   {
     year: 2015,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
     name: '5Ds',
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['5D markIII'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DDIGIC6,
     // }
   },
   {
     year: 2015,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
     name: '5Ds R',
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['5D markIII'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DDIGIC6,
+    // noLowPass: true,
     // }
   },
   {
     year: 2015,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '750D',
     otherNames: ['Rebel T6i', 'Kiss Digital X8i'],
     predecessor: ['700D'],
@@ -1764,8 +1902,11 @@ export const CANONS: CameraType[] = [
   {
     year: 2015,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.MIDRANGE,
     name: '760D',
     otherNames: ['Rebel T6s', '8000D'],
+    predecessor: ['700D'],
     successor: ['77D'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC6,
@@ -1773,8 +1914,10 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2015,
-    name: 'M3',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRYMID,
+    name: 'M3',
     predecessor: ['M2'],
     successor: ['M6'],
     // sensor: {
@@ -1783,8 +1926,10 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2015,
-    name: 'M10',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRY,
+    name: 'M10',
     predecessor: ['M2'],
     successor: ['M100'],
     // sensor: {
@@ -1795,8 +1940,10 @@ export const CANONS: CameraType[] = [
   // 2016 =============================================
   {
     year: 2016,
-    name: '1D X markII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
+    name: '1D X markII',
     predecessor: ['1D X'],
     successor: ['1D X markIII'],
     // desc: '',
@@ -1852,8 +1999,12 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2016,
-    name: '5D markIV',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
+    name: '5D markIV',
+    predecessor: ['5D markIII'],
+    successor: ['R5'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC6P,
     // }
@@ -1861,6 +2012,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2016,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '80D',
     predecessor: ['70D'],
@@ -1872,9 +2024,11 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2016,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '1300D',
     otherNames: ['Rebel T6', 'Kiss Digital X80'],
-    maker: CAMERA_MAKER.CANON,
     predecessor: ['1200D'],
     successor: ['2000D', '4000D'],
     // sensor: {
@@ -1883,8 +2037,11 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2016,
-    name: 'M5',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.MIDRANGE,
+    name: 'M5',
+    predecessor: [],
     successor: ['R10'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC7,
@@ -1894,8 +2051,12 @@ export const CANONS: CameraType[] = [
   // 2017 =============================================
   {
     year: 2017,
-    name: '6D markII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.ADVANCED,
+    name: '6D markII',
+    predecessor: ['6D'],
+    successor: ['R6'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC7,
     // }
@@ -1903,6 +2064,8 @@ export const CANONS: CameraType[] = [
   {
     year: 2017,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '800D',
     otherNames: ['Rebel T7i', 'Kiss Digital X9i'],
     predecessor: ['750D'],
@@ -1914,6 +2077,8 @@ export const CANONS: CameraType[] = [
   {
     year: 2017,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '200D',
     otherNames: ['Rebel SL2', 'Kiss Digital X9'],
     predecessor: ['100D'],
@@ -1968,6 +2133,8 @@ export const CANONS: CameraType[] = [
   {
     year: 2017,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.MIDRANGE,
     name: '77D',
     otherNames: ['770D', '9000D'],
     predecessor: ['760D'],
@@ -1978,8 +2145,10 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2017,
-    name: 'M6',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRYMID,
+    name: 'M6',
     predecessor: ['M3'],
     successor: ['M6 markII'],
     // sensor: {
@@ -1988,8 +2157,10 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2017,
-    name: 'M100',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRY,
+    name: 'M100',
     predecessor: ['M10'],
     successor: ['M200'],
     // sensor: {
@@ -2000,36 +2171,48 @@ export const CANONS: CameraType[] = [
   // 2018 =============================================
   {
     year: 2018,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '2000D',
     otherNames: ['Rebel T7', 'Kiss Digital X90', '1500D'],
-    maker: CAMERA_MAKER.CANON,
     predecessor: ['1300D'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC4P,
     // }
   },
   {
     year: 2018,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.VALUE,
     name: '4000D',
     otherNames: ['Rebel T100', '3000D'],
-    maker: CAMERA_MAKER.CANON,
     predecessor: ['1300D'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC4P,
     // }
   },
   {
     year: 2018,
-    name: 'R',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.ADVANCED,
+    name: 'R',
+    predecessor: [],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC8,
     // }
   },
   {
     year: 2018,
-    name: 'M50',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRYMID,
+    name: 'M50',
     predecessor: ['M5'],
     successor: ['M50 markII'],
     // sensor: {
@@ -2041,6 +2224,7 @@ export const CANONS: CameraType[] = [
   {
     year: 2019,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '90D',
     predecessor: ['80D'],
@@ -2052,6 +2236,8 @@ export const CANONS: CameraType[] = [
   {
     year: 2019,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '250D',
     otherNames: ['Rebel SL3', 'Kiss Digital X10', '200D markII'],
     predecessor: ['200D'],
@@ -2105,34 +2291,49 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2019,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.ADVANCED,
     name: 'Ra',
-    maker: CAMERA_MAKER.CANON,
+    predecessor: ['60Da'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC8,
+    // astro: true,
     // }
   },
   {
     year: 2019,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.MIDRANGE,
     name: 'RP',
-    maker: CAMERA_MAKER.CANON,
+    predecessor: [],
+    successor: ['R8'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC8,
     // }
   },
   {
     year: 2019,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRYMID,
     name: 'M6 markII',
-    maker: CAMERA_MAKER.CANON,
     predecessor: ['M6'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC8,
     // }
   },
   {
     year: 2019,
-    name: 'M200',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRY,
+    name: 'M200',
     predecessor: ['M100'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC8,
     // }
@@ -2142,7 +2343,11 @@ export const CANONS: CameraType[] = [
   {
     year: 2020,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.FLAGSHIP,
     name: '1D X markIII',
+    predecessor: ['1D X markII'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC10,
     // }
@@ -2150,6 +2355,8 @@ export const CANONS: CameraType[] = [
   {
     year: 2020,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFS,
+    grade: GRADE.ENTRY,
     name: '850D',
     otherNames: ['Rebel T8i', 'Kiss Digital X10i'],
     predecessor: ['800D'],
@@ -2160,16 +2367,23 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2020,
-    name: 'R5',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'R5',
+    predecessor: ['5D markIV'],
+    successor: ['R5C'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC10,
     // }
   },
   {
     year: 2020,
-    name: 'R6',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.ADVANCED,
+    name: 'R6',
+    predecessor: ['6D markII'],
     successor: ['R6 markII'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC10,
@@ -2177,8 +2391,10 @@ export const CANONS: CameraType[] = [
   },
   {
     year: 2020,
-    name: 'M50 markII',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonEFM,
+    grade: GRADE.ENTRYMID,
+    name: 'M50 markII',
     predecessor: ['M50'],
     successor: ['R50'],
     // sensor: {
@@ -2189,8 +2405,12 @@ export const CANONS: CameraType[] = [
   // 2021 =============================================
   {
     year: 2021,
-    name: 'R3',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'R3',
+    predecessor: [],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC10,
     // }
@@ -2199,36 +2419,61 @@ export const CANONS: CameraType[] = [
   // 2022 =============================================
   {
     year: 2022,
-    name: 'R5 C',
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'R5 C',
+    predecessor: ['R5'],
+    successor: [],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC10,
     // }
   },
   {
     year: 2022,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.ADVANCED,
     name: 'R6 markII',
-    maker: CAMERA_MAKER.CANON,
     predecessor: ['R6'],
+    successor: [],
   },
   {
     year: 2022,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRFS,
+    grade: GRADE.ADVANCED,
     name: 'R7',
-    maker: CAMERA_MAKER.CANON,
     predecessor: ['7D markII', '90D'],
+    successor: [],
   },
   {
     year: 2022,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRFS,
     grade: GRADE.MIDRANGE,
     name: 'R10',
     predecessor: ['M5'],
+    successor: [],
   },
 
   // 2023 =============================================
   {
-    year: 2018,
-    name: 'R8',
+    year: 2023,
     maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRF,
+    grade: GRADE.MIDRANGE,
+    name: 'R8',
+    predecessor: ['RP'],
+    successor: [],
+  },
+  {
+    year: 2023,
+    maker: CAMERA_MAKER.CANON,
+    mount: MOUNT.CanonRFS,
+    grade: GRADE.ENTRYMID,
+    name: 'R50',
+    predecessor: ['M50 markII'],
+    successor: [],
   },
 ];

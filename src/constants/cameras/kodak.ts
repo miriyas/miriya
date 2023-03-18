@@ -5,9 +5,12 @@ import {
   SENSOR_TYPE,
   SENSOR_SIZE,
   FOCUS_NAME,
+  MOUNT,
+  GRADE,
   VIDEO_SCAN_TYPE,
-  ENGINE_TYPE,
 } from '@/types/cameras.d';
+
+// https://en.wikipedia.org/wiki/Kodak_DCS
 
 export const KODAKS: CameraType[] = [
   // 1995 =============================================
@@ -17,7 +20,11 @@ export const KODAKS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.KODAK,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
     name: 'DCS315',
+    predecessor: [],
+    successor: [],
     sensor: {
       pixelsFamiliar: '1.5M',
       size: SENSOR_SIZE.C26,
@@ -55,7 +62,11 @@ export const KODAKS: CameraType[] = [
   {
     year: 1999,
     maker: CAMERA_MAKER.KODAK,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
     name: 'DCS330',
+    predecessor: [],
+    successor: [],
     sensor: {
       pixelsFamiliar: '3M',
       size: SENSOR_SIZE.C19,
@@ -94,8 +105,12 @@ export const KODAKS: CameraType[] = [
   // 2002 =============================================
   {
     year: 2002,
-    name: 'DCS Pro 14n',
     maker: CAMERA_MAKER.KODAK,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'DCS Pro 14n',
+    predecessor: [],
+    successor: [],
     sensor: {
       pixelsFamiliar: '13.9M',
       size: SENSOR_SIZE.FF,
@@ -124,8 +139,12 @@ export const KODAKS: CameraType[] = [
   // 2004 =============================================
   {
     year: 2004,
-    name: 'DCS Pro SLR/n',
     maker: CAMERA_MAKER.KODAK,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'DCS Pro SLR/n',
+    predecessor: [],
+    successor: [],
     sensor: {
       pixelsFamiliar: '13.5M',
       size: SENSOR_SIZE.FF,
@@ -150,8 +169,12 @@ export const KODAKS: CameraType[] = [
   },
   {
     year: 2004,
-    name: 'DCS Pro SLR/c',
     maker: CAMERA_MAKER.KODAK,
+    mount: MOUNT.CanonEF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'DCS Pro SLR/c',
+    predecessor: [],
+    successor: [],
     sensor: {
       pixelsFamiliar: '14M',
       size: SENSOR_SIZE.FF,
@@ -189,16 +212,52 @@ export const KODAKS: CameraType[] = [
   // 2014 =============================================
   {
     year: 2014,
-    name: 'Pixpro S-1',
     maker: CAMERA_MAKER.KODAK,
-    // sensor: {
-    //   size: SENSOR_SIZE.FF,
-    //   engine: ENGINE_TYPE.EXPEED4,
-    //   pixelsFamiliar: '16.2M',
-    //   type: SENSOR_TYPE.CMOS,
-    //   isoMin: 100,
-    //   isoMax: 409600,
-    // },
+    mount: MOUNT.MFourThird,
+    grade: GRADE.ENTRY,
+    name: 'Pixpro S-1',
+    predecessor: [],
+    successor: [],
+    sensor: {
+      pixelsFamiliar: '16.83M',
+      size: SENSOR_SIZE.FT,
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 200,
+      isoMax: 12800,
+      vr: true,
+    },
+    shutter: {
+      fps: 4,
+      speed: 4000,
+    },
+    focus: {
+      points: 25,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 920_000,
+      tilt: true,
+    },
+    video: {
+      format: 'H.264',
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+
+    metering: {
+      desc: '5분할측광',
+    },
+    refs: ['https://kodakpixpro.com/cameras/mirrorless/s-1/'],
   },
 
   // 2015 =============================================

@@ -7,16 +7,24 @@ import {
   FOCUS_NAME,
   VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
+  MOUNT,
+  GRADE,
 } from '@/types/cameras.d';
+
+// https://en.wikipedia.org/wiki/Template:Nikon_DSLR_cameras
 
 export const NIKONS: CameraType[] = [
   // 1995 =============================================
   {
     year: 1995,
     maker: CAMERA_MAKER.NIKON,
+    grade: GRADE.PROFESSIONAL,
+    mount: MOUNT.NikonF,
     name: 'E2',
     maker2: CAMERA_MAKER.FUJIFILM,
     name2: 'Fujix DS-505',
+    predecessor: [],
+    successor: ['E2N'],
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -48,9 +56,13 @@ export const NIKONS: CameraType[] = [
   {
     year: 1995,
     maker: CAMERA_MAKER.NIKON,
+    grade: GRADE.PROFESSIONAL,
+    mount: MOUNT.NikonF,
     name: 'E2s',
     maker2: CAMERA_MAKER.FUJIFILM,
     name2: 'Fujix DS-515',
+    predecessor: [],
+    successor: ['E2Ns'],
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -84,9 +96,13 @@ export const NIKONS: CameraType[] = [
   {
     year: 1996,
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
     name: 'E2N',
     maker2: CAMERA_MAKER.FUJIFILM,
     name2: 'Fujix DS-505A',
+    predecessor: ['E2'],
+    successor: ['E3'],
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -119,9 +135,13 @@ export const NIKONS: CameraType[] = [
   {
     year: 1996,
     maker: CAMERA_MAKER.NIKON,
-    name: 'E2NS',
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'E2Ns',
     maker2: CAMERA_MAKER.FUJIFILM,
     name2: 'Fujix DS-515A',
+    predecessor: ['E2s'],
+    successor: ['E3s'],
     sensor: {
       pixelsFamiliar: '1.3M',
       size: SENSOR_SIZE.I23,
@@ -158,9 +178,13 @@ export const NIKONS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.NIKON,
+    grade: GRADE.PROFESSIONAL,
     name: 'E3',
     maker2: CAMERA_MAKER.FUJIFILM,
     name2: 'Fujix DS-560',
+    mount: MOUNT.NikonF,
+    predecessor: ['E2N'],
+    successor: [],
     sensor: {
       pixelsFamiliar: '1.4M',
       size: SENSOR_SIZE.I23,
@@ -197,9 +221,13 @@ export const NIKONS: CameraType[] = [
   {
     year: 1998,
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
     name: 'E3s',
     maker2: CAMERA_MAKER.FUJIFILM,
     name2: 'Fujix DS-565',
+    predecessor: ['E2Ns'],
+    successor: [],
     sensor: {
       pixelsFamiliar: '1.4M',
       size: SENSOR_SIZE.I23,
@@ -237,8 +265,12 @@ export const NIKONS: CameraType[] = [
   // 1999 =============================================
   {
     year: 1999,
-    name: 'D1',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D1',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: [],
+    successor: ['D1H', 'D1X'],
     sensor: {
       pixelsFamiliar: '2.74M',
       type: SENSOR_TYPE.CCD,
@@ -272,8 +304,12 @@ export const NIKONS: CameraType[] = [
   // 2001 =============================================
   {
     year: 2001,
-    name: 'D1H',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D1H',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: ['D1'],
+    successor: ['D2H'],
     sensor: {
       pixelsFamiliar: '2.74M',
       type: SENSOR_TYPE.CCD,
@@ -304,8 +340,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2001,
-    name: 'D1X',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D1X',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: ['D1'],
+    successor: ['D2X'],
     sensor: {
       pixelsFamiliar: '5.33M',
       type: SENSOR_TYPE.CCD,
@@ -338,8 +378,12 @@ export const NIKONS: CameraType[] = [
   // 2002 =============================================
   {
     year: 2002,
-    name: 'D100',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'D100',
+    predecessor: [],
+    successor: ['D200'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -372,8 +416,12 @@ export const NIKONS: CameraType[] = [
   // 2003 =============================================
   {
     year: 2003,
-    name: 'D2H',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D2H',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: ['D1H'],
+    successor: ['D2Hs'],
     sensor: {
       pixelsFamiliar: '4.1M',
       type: SENSOR_TYPE.LBCAST,
@@ -406,8 +454,12 @@ export const NIKONS: CameraType[] = [
   // 2004 =============================================
   {
     year: 2004,
-    name: 'D2X',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D2X',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: ['D1X'],
+    successor: ['D2Xs'],
     sensor: {
       pixelsFamiliar: '12.4M',
       type: SENSOR_TYPE.CMOS,
@@ -438,8 +490,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2004,
-    name: 'D70',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D70',
+    predecessor: [],
+    successor: ['D70s'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -472,8 +528,12 @@ export const NIKONS: CameraType[] = [
   // 2005 =============================================
   {
     year: 2005,
-    name: 'D2Hs',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D2Hs',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: ['D2H'],
+    successor: ['D3'],
     sensor: {
       pixelsFamiliar: '4.1M',
       type: SENSOR_TYPE.LBCAST,
@@ -504,8 +564,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2005,
-    name: 'D200',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'D200',
+    predecessor: ['D100'],
+    successor: ['D300'],
     sensor: {
       pixelsFamiliar: '10.2M',
       type: SENSOR_TYPE.CCD,
@@ -536,8 +600,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2005,
-    name: 'D70s',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D70s',
+    predecessor: ['D70'],
+    successor: ['D80'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -568,8 +636,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2005,
-    name: 'D50',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    name: 'D50',
+    predecessor: [],
+    successor: ['D40x'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -602,8 +674,12 @@ export const NIKONS: CameraType[] = [
   // 2006 =============================================
   {
     year: 2006,
-    name: 'D2Xs',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D2Xs',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: ['D2X'],
+    successor: ['D3'],
     sensor: {
       pixelsFamiliar: '12.4M',
       type: SENSOR_TYPE.CMOS,
@@ -634,8 +710,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2006,
-    name: 'D80',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D80',
+    predecessor: ['D70s'],
+    successor: ['D90'],
     sensor: {
       pixelsFamiliar: '10.2M',
       type: SENSOR_TYPE.CCD,
@@ -666,8 +746,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2006,
-    name: 'D40',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRY,
+    name: 'D40',
+    predecessor: [],
+    successor: ['D3000'],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -700,8 +784,12 @@ export const NIKONS: CameraType[] = [
   // 2007 =============================================
   {
     year: 2007,
-    name: 'D3',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D3',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: ['D2Xs', 'D2Hs'],
+    successor: ['D3s'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED,
@@ -734,8 +822,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2007,
-    name: 'D300',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D300',
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    predecessor: ['D200'],
+    successor: ['D300s'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED,
       size: SENSOR_SIZE.APSC,
@@ -768,8 +860,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2007,
-    name: 'D40x',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D40x',
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    predecessor: ['D50'],
+    successor: ['D60'],
     sensor: {
       pixelsFamiliar: '10.2M',
       type: SENSOR_TYPE.CCD,
@@ -802,8 +898,12 @@ export const NIKONS: CameraType[] = [
   // 2008 =============================================
   {
     year: 2008,
-    name: 'D3X',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D3X',
+    grade: GRADE.FLAGSHIP,
+    mount: MOUNT.NikonF,
+    predecessor: [],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED,
@@ -836,8 +936,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2008,
-    name: 'D700',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ADVANCED,
+    name: 'D700',
+    predecessor: [],
+    successor: ['D750'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED,
       size: SENSOR_SIZE.FF,
@@ -870,8 +974,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2008,
-    name: 'D90',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D90',
+    predecessor: ['D80'],
+    successor: ['D7000'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED,
       pixelsFamiliar: '12.3M',
@@ -913,8 +1021,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2008,
-    name: 'D60',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    name: 'D60',
+    predecessor: ['D40x'],
+    successor: ['D5000'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED,
       pixelsFamiliar: '10.2M',
@@ -948,8 +1060,12 @@ export const NIKONS: CameraType[] = [
   // 2009 =============================================
   {
     year: 2009,
-    name: 'D3s',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.FLAGSHIP,
+    name: 'D3s',
+    predecessor: ['D3'],
+    successor: ['D4'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED2,
@@ -992,8 +1108,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2009,
-    name: 'D300s',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D300s',
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    predecessor: ['D300'],
+    successor: ['D500'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED,
       size: SENSOR_SIZE.APSC,
@@ -1036,8 +1156,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2009,
-    name: 'D5000',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D5000',
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    predecessor: ['D60'],
+    successor: ['D5100'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED,
       pixelsFamiliar: '12.3M',
@@ -1070,8 +1194,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2009,
-    name: 'D3000',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRY,
+    name: 'D3000',
+    predecessor: ['D40'],
+    successor: ['D3100'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED,
       pixelsFamiliar: '10.2M',
@@ -1105,8 +1233,12 @@ export const NIKONS: CameraType[] = [
   // 2010 =============================================
   {
     year: 2010,
-    name: 'D7000',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D7000',
+    predecessor: ['D90'],
+    successor: ['D7100'],
     sensor: {
       size: SENSOR_SIZE.APSC,
       engine: ENGINE_TYPE.EXPEED2,
@@ -1118,8 +1250,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2010,
-    name: 'D3100',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRY,
+    name: 'D3100',
+    predecessor: ['D3000'],
+    successor: ['D3200'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED2,
       pixelsFamiliar: '14.2M',
@@ -1168,8 +1304,12 @@ export const NIKONS: CameraType[] = [
   // 2011 =============================================
   {
     year: 2011,
-    name: 'D5100',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    name: 'D5100',
+    predecessor: ['D5000'],
+    successor: ['D5200'],
     sensor: {
       name: 'IMX071',
       engine: ENGINE_TYPE.EXPEED2,
@@ -1183,8 +1323,12 @@ export const NIKONS: CameraType[] = [
   // 2012 =============================================
   {
     year: 2012,
-    name: 'D4',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.FLAGSHIP,
+    name: 'D4',
+    predecessor: ['D3s'],
+    successor: ['D4s'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED3,
@@ -1196,8 +1340,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'D800',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'D800',
+    predecessor: [],
+    successor: ['D810'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED3,
@@ -1209,8 +1357,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'D800E',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D800E',
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    predecessor: [],
+    successor: ['D810'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED3,
@@ -1223,8 +1375,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'D600',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ADVANCED,
+    name: 'D600',
+    predecessor: [],
+    successor: ['D610'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED3,
@@ -1236,8 +1392,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'D5200',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    name: 'D5200',
+    predecessor: ['D5100'],
+    successor: ['D5300'],
     sensor: {
       name: 'TOS-5105',
       engine: ENGINE_TYPE.EXPEED3,
@@ -1249,8 +1409,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2012,
-    name: 'D3200',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRY,
+    name: 'D3200',
+    predecessor: ['D3100'],
+    successor: ['D3300'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED3,
       pixelsFamiliar: '24.2M',
@@ -1264,8 +1428,12 @@ export const NIKONS: CameraType[] = [
   // 2013 =============================================
   {
     year: 2013,
-    name: 'Df',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'Df',
+    predecessor: [],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED3,
@@ -1277,8 +1445,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2013,
-    name: 'D610',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ADVANCED,
+    name: 'D610',
+    predecessor: ['D600'],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED3,
@@ -1290,8 +1462,29 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2013,
-    name: 'D7100',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    name: 'D5300',
+    predecessor: ['D5200'],
+    successor: ['D5500'],
+    sensor: {
+      name: 'TOS-5105',
+      engine: ENGINE_TYPE.EXPEED4,
+      pixelsFamiliar: '24.1M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 25600,
+    },
+  },
+  {
+    year: 2013,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D7100',
+    predecessor: ['D7000'],
+    successor: ['D7200'],
     sensor: {
       size: SENSOR_SIZE.APSC,
       engine: ENGINE_TYPE.EXPEED3,
@@ -1305,8 +1498,12 @@ export const NIKONS: CameraType[] = [
   // 2014 =============================================
   {
     year: 2014,
-    name: 'D4s',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.FLAGSHIP,
+    name: 'D4s',
+    predecessor: ['D4'],
+    successor: ['D5'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED4,
@@ -1318,8 +1515,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2014,
-    name: 'D810',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'D810',
+    predecessor: ['D800'],
+    successor: ['D850'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED4,
@@ -1331,8 +1532,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2014,
-    name: 'D750',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ADVANCED,
+    name: 'D750',
+    predecessor: ['D700'],
+    successor: ['D780'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED4,
@@ -1344,8 +1549,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2014,
-    name: 'D3300',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRY,
+    name: 'D3300',
+    predecessor: ['D3200'],
+    successor: ['D3400'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED4,
       pixelsFamiliar: '24.2M',
@@ -1359,8 +1568,12 @@ export const NIKONS: CameraType[] = [
   // 2015 =============================================
   {
     year: 2015,
-    name: 'D810A',
     maker: CAMERA_MAKER.NIKON,
+    name: 'D810A',
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    predecessor: ['D800'],
+    successor: ['D850'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED4,
@@ -1373,8 +1586,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2015,
-    name: 'D7200',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D7200',
+    predecessor: ['D7100'],
+    successor: ['D7500'],
     sensor: {
       size: SENSOR_SIZE.APSC,
       engine: ENGINE_TYPE.EXPEED4,
@@ -1386,8 +1603,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2015,
-    name: 'D5500',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    name: 'D5500',
+    predecessor: ['D5300'],
+    successor: ['D5600'],
     sensor: {
       name: 'TOS-5105',
       engine: ENGINE_TYPE.EXPEED4,
@@ -1403,8 +1624,12 @@ export const NIKONS: CameraType[] = [
   // 2016 =============================================
   {
     year: 2016,
-    name: 'D5',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.FLAGSHIP,
+    name: 'D5',
+    predecessor: ['D4s'],
+    successor: ['D6'],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED5,
@@ -1416,8 +1641,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2016,
-    name: 'D500',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'D500',
+    predecessor: ['D300s'],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED5,
@@ -1429,8 +1658,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2016,
-    name: 'D5600',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRYMID,
+    name: 'D5600',
+    predecessor: ['D5500'],
+    successor: [],
     sensor: {
       name: 'TOS-5105',
       engine: ENGINE_TYPE.EXPEED4,
@@ -1443,8 +1676,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2016,
-    name: 'D3400',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRY,
+    name: 'D3400',
+    predecessor: ['D3300'],
+    successor: ['D3500'],
     sensor: {
       engine: ENGINE_TYPE.EXPEED4,
       pixelsFamiliar: '24.2M',
@@ -1458,8 +1695,12 @@ export const NIKONS: CameraType[] = [
   // 2017 =============================================
   {
     year: 2017,
-    name: 'D850',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.PROFESSIONAL,
+    name: 'D850',
+    predecessor: ['D810'],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED5,
@@ -1471,8 +1712,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2017,
-    name: 'D7500',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.MIDRANGE,
+    name: 'D7500',
+    predecessor: ['D7200'],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.APSC,
       engine: ENGINE_TYPE.EXPEED5,
@@ -1486,8 +1731,12 @@ export const NIKONS: CameraType[] = [
   // 2018 =============================================
   {
     year: 2018,
-    name: 'D3500',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ENTRY,
+    name: 'D3500',
+    predecessor: ['D3400'],
+    successor: [],
     sensor: {
       engine: ENGINE_TYPE.EXPEED4,
       pixelsFamiliar: '24.2M',
@@ -1502,8 +1751,12 @@ export const NIKONS: CameraType[] = [
   // 2020 =============================================
   {
     year: 2020,
-    name: 'D6',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.FLAGSHIP,
+    name: 'D6',
+    predecessor: ['D5'],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED6,
@@ -1515,8 +1768,12 @@ export const NIKONS: CameraType[] = [
   },
   {
     year: 2020,
-    name: 'D780',
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonF,
+    grade: GRADE.ADVANCED,
+    name: 'D780',
+    predecessor: ['D750'],
+    successor: [],
     sensor: {
       size: SENSOR_SIZE.FF,
       engine: ENGINE_TYPE.EXPEED6,

@@ -15,13 +15,41 @@
         height: 14px;
       }
     }
+
+    .grade {
+      font-size: 10px;
+      font-weight: 600;
+
+      &.flagship {
+        color: c.$C_RED;
+      }
+
+      &.professional {
+        color: c.$C_PURPLE;
+      }
+
+      &.advanced {
+        color: c.$C_ORANGE;
+      }
+
+      &.midrange,
+      &.entrymid {
+        color: c.$C_GREEN;
+      }
+
+      &.entry,
+      &.value {
+        color: c.$C_GREEN;
+      }
+    }
   }
 
   .rightWing {
     @include m.absolute(14px 14px auto auto);
 
     .shakeReduction,
-    .astro {
+    .astro,
+    .ir {
       margin-bottom: 2px;
       padding: 2px 4px;
       border-radius: 2px;
@@ -55,6 +83,11 @@
     .astro {
       color: c.$C_WHITE;
       background-color: c.$C_GREEN;
+    }
+
+    .ir {
+      color: c.$C_WHITE;
+      background-color: c.$C_RED;
     }
   }
 }

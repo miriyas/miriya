@@ -1,10 +1,35 @@
 import { ValueOf } from '@/types';
 
+export const MOUNT = {
+  CanonEF: 'Canon EF',
+  CanonEFS: 'Canon EF-S',
+  CanonEFM: 'Canon EF-M',
+  CanonRF: 'Canon RF',
+  CanonRFS: 'Canon RF-S',
+  ContaxN: 'Contax N',
+  FourThird: '4/3',
+  MFourThird: 'Micro 4/3',
+  LeicaL: 'Leica L',
+  NikonF: 'Nikon F',
+  NikonZ: 'Nikon Z',
+  NikonS: 'Nikon S',
+  Nikon1: 'Nikon 1',
+  PentaxK: 'Pentax K',
+  PentaxQ: 'Pentax Q',
+  SigmaSA: 'Sigma SA',
+  SonyA: 'Sony A',
+  SonyE: 'Sony E',
+  M645: '645',
+} as const;
+
+export type MountTypes = ValueOf<typeof MOUNT>;
+
 export const GRADE = {
   FLAGSHIP: 'FLAGSHIP',
   PROFESSIONAL: 'PROFESSIONAL',
   ADVANCED: 'ADVANCED',
   MIDRANGE: 'MIDRANGE',
+  ENTRYMID: 'ENTRYMID',
   ENTRY: 'ENTRY',
   VALUE: 'VALUE',
 } as const;
@@ -13,6 +38,7 @@ export type GradeTypes = ValueOf<typeof GRADE>;
 
 export const CAMERA_MAKER = {
   CANON: 'Canon',
+  CONTAX: 'Contax',
   FUJIFILM: 'Fujifilm',
   KODAK: 'Kodak',
   MINOLTA: 'Minolta',
@@ -31,6 +57,7 @@ export type CameraMakerTypes = ValueOf<typeof CAMERA_MAKER>;
 export const CAMERA_MAKERS = [
   'ALL',
   CAMERA_MAKER.CANON,
+  CAMERA_MAKER.CONTAX,
   CAMERA_MAKER.FUJIFILM,
   CAMERA_MAKER.KODAK,
   CAMERA_MAKER.MINOLTA,
@@ -44,6 +71,8 @@ export const CAMERA_MAKERS = [
 ];
 
 export const SENSOR_SIZE = {
+  Q17: '1/1.7"',
+  Q23: '1/2.3"',
   I23: '2/3"',
   C26: '2.6crop',
   C19: '1.9crop',
@@ -51,6 +80,7 @@ export const SENSOR_SIZE = {
   F645C13: '645 1.3crop',
   APSH: 'APS-H',
   APSC: 'APS-C',
+  FT: '4/3',
 };
 
 export type SensorSizeTypes = ValueOf<typeof SENSOR_SIZE>;
@@ -59,6 +89,7 @@ export const SENSOR_TYPE = {
   CCD: 'CCD',
   CMOS: 'CMOS',
   LBCAST: 'LBCAST',
+  FOVEON: 'Foveon',
 };
 
 export type SensorTypes = ValueOf<typeof SENSOR_TYPE>;
@@ -121,6 +152,7 @@ export const ENGINE_TYPE = {
   EXPEED6: 'EXPEED6',
   BIONZ: 'Bionz',
   BIONZX: 'Bionz X',
+  DTRUE3: 'Dual True III',
 };
 
 export interface FocusType {
@@ -152,6 +184,7 @@ export interface Sensor {
   vr?: boolean;
   astro?: boolean;
   noLowPass?: boolean;
+  ir?: boolean;
 }
 
 export interface DisplayType {
@@ -167,13 +200,14 @@ export interface DisplayType {
 export interface CameraType {
   year: number;
   grade: GradeTypes;
+  mount: MountTypes;
   name: string;
   otherNames?: string[];
   maker: CameraMakerTypes;
   name2?: string;
   maker2?: CameraMakerTypes;
-  predecessor?: string[];
-  successor?: string[];
+  predecessor: string[];
+  successor: string[];
   desc?: string;
   sensor?: Sensor;
   shutter?: {

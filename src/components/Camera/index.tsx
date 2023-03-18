@@ -18,7 +18,7 @@ interface Props {
 
 const Camera = (props: Props) => {
   const { camera } = props;
-  const { maker, name, maker2, name2, otherNames, metering, year } = camera;
+  const { desc, maker, name, maker2, name2, otherNames, metering, year } = camera;
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
   const nameOtherData = otherNames?.join(' / ');
@@ -36,7 +36,10 @@ const Camera = (props: Props) => {
       <div className={styles.cameraImg}>
         <Image src={imageUrl} alt={name} width={140} height={140} />
       </div>
-      <p className={styles.name}>{nameLine}</p>
+      <div className={styles.top}>
+        <p className={styles.name}>{nameLine}</p>
+        {desc && <p className={styles.desc}>{desc}</p>}
+      </div>
       <table>
         <tbody>
           <DataSensor camera={camera} />
