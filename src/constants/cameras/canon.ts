@@ -871,7 +871,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1026,7 +1026,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1076,7 +1076,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1127,7 +1127,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1181,7 +1181,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1233,7 +1233,7 @@ export const CANONS: CameraType[] = [
       pixels: 1040_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1287,7 +1287,7 @@ export const CANONS: CameraType[] = [
       pixels: 1040_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1920,
@@ -1341,7 +1341,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1392,7 +1392,7 @@ export const CANONS: CameraType[] = [
       pixels: 230_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 720,
@@ -1440,7 +1440,7 @@ export const CANONS: CameraType[] = [
       pixels: 1040_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: '4K',
@@ -1513,7 +1513,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1569,7 +1569,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1619,7 +1619,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1683,7 +1683,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1736,7 +1736,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1783,7 +1783,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1846,7 +1846,7 @@ export const CANONS: CameraType[] = [
       pixels: 460_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 720,
@@ -1973,7 +1973,7 @@ export const CANONS: CameraType[] = [
       pixels: 1620_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: '4K',
@@ -2112,7 +2112,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -2271,7 +2271,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,

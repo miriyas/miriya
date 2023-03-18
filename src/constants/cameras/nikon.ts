@@ -1006,7 +1006,7 @@ export const NIKONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: 'M-JPEG',
+      format: ['M-JPEG'],
       modes: [
         {
           resolution: 720,
@@ -1093,7 +1093,7 @@ export const NIKONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: 'M-JPEG',
+      format: ['M-JPEG'],
       modes: [
         {
           resolution: 720,
@@ -1141,7 +1141,7 @@ export const NIKONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: 'M-JPEG',
+      format: ['M-JPEG'],
       modes: [
         {
           resolution: 720,
@@ -1282,7 +1282,7 @@ export const NIKONS: CameraType[] = [
       pixels: 230_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
@@ -1318,6 +1318,102 @@ export const NIKONS: CameraType[] = [
       isoMin: 100,
       isoMax: 102400,
     },
+  },
+  {
+    year: 2011,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.ADVANCED,
+    name: '1 V1',
+    predecessor: [],
+    successor: ['1 V2'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED3,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '10.1M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 19,
+      speed: 16000,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+    },
+    focus: {
+      points: 135,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.INTERLACED,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_v1/specifications'],
+  },
+  {
+    year: 2011,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.MIDRANGE,
+    name: '1 J1',
+    predecessor: [],
+    successor: ['1 J2'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED3,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '10M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 10,
+      speed: 16000,
+    },
+    focus: {
+      points: 135,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 460_000,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.INTERLACED,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: [
+      'https://www.dpreview.com/products/nikon/slrs/nikon_j1/specifications',
+      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j1',
+    ],
   },
 
   // 2012 =============================================
@@ -1424,6 +1520,99 @@ export const NIKONS: CameraType[] = [
       isoMax: 12800,
     },
   },
+  {
+    year: 2012,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.ADVANCED,
+    name: '1 V2',
+    predecessor: ['1 V1'],
+    successor: ['1 V3'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED3A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '14M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 15,
+      speed: 16000,
+    },
+    focus: {
+      points: 73,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.INTERLACED,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_v2/specifications'],
+  },
+  {
+    year: 2012,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.MIDRANGE,
+    name: '1 J2',
+    predecessor: ['1 J1'],
+    successor: ['1 J3'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED3,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '10M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 10,
+      speed: 16000,
+    },
+    focus: {
+      points: 135,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.INTERLACED,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: [
+      'https://www.dpreview.com/products/nikon/slrs/nikon_j2/specifications',
+      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j2',
+    ],
+  },
 
   // 2013 =============================================
   {
@@ -1493,6 +1682,100 @@ export const NIKONS: CameraType[] = [
       isoMin: 100,
       isoMax: 25600,
     },
+  },
+  {
+    year: 2013,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.MIDRANGE,
+    name: '1 J3',
+    predecessor: ['1 J2'],
+    successor: ['1 J4'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED3A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '14M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 160,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 15,
+      speed: 16000,
+    },
+    focus: {
+      points: 135,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.INTERLACED,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_j3/specifications'],
+  },
+  {
+    year: 2013,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.ENTRY,
+    name: '1 S1',
+    predecessor: [],
+    successor: ['1 S2'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED3A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '10M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 15,
+      speed: 16000,
+    },
+    focus: {
+      points: 135,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 460_000,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.INTERLACED,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: [
+      'https://en.wikipedia.org/wiki/Nikon_1_S1',
+      'https://www.dpreview.com/products/nikon/slrs/nikon_s1/specifications',
+      'https://www.photographyblog.com/reviews/nikon_1_s1_review',
+    ],
   },
 
   // 2014 =============================================
@@ -1564,6 +1847,202 @@ export const NIKONS: CameraType[] = [
       isoMax: 25600,
     },
   },
+  {
+    year: 2014,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.ADVANCED,
+    name: '1 V3',
+    predecessor: ['1 V2'],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED4A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '18M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 60,
+      speed: 16000,
+    },
+    focus: {
+      points: 171,
+      contrast: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 2359000,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 1037_000,
+      tilt: true,
+      touch: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_v3/specifications'],
+  },
+  {
+    year: 2014,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.MIDRANGE,
+    name: '1 J4',
+    predecessor: ['1 J3'],
+    successor: ['1 J5'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED4A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '18M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 160,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 60,
+      speed: 16000,
+    },
+    focus: {
+      points: 171,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 1037_000,
+      touch: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+        {
+          resolution: 984,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_j4/specifications'],
+  },
+  {
+    year: 2014,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.ENTRY,
+    name: '1 S2',
+    predecessor: ['1 S1'],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED4A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '14.2M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 60,
+      speed: 16000,
+    },
+    focus: {
+      points: 171,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 460_000,
+    },
+    video: {
+      format: ['MPEG-4'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: [
+      'https://en.wikipedia.org/wiki/Nikon_1_S2',
+      'https://www.dpreview.com/products/nikon/slrs/nikon_s2/specifications',
+      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20s2',
+    ],
+  },
+  {
+    year: 2014,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.ENTRY,
+    name: '1 AW1',
+    predecessor: [],
+    successor: [],
+    rugged: true,
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED4A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '14.2M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 160,
+      isoMax: 6400,
+    },
+    shutter: {
+      fps: 60,
+      speed: 16000,
+    },
+    focus: {
+      points: 135,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 921_000,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.INTERLACED,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: [
+      'https://en.wikipedia.org/wiki/Nikon_1_S2',
+      'https://www.dpreview.com/products/nikon/slrs/nikon_aw1/specifications',
+      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20aw1',
+    ],
+  },
 
   // 2015 =============================================
   {
@@ -1619,6 +2098,58 @@ export const NIKONS: CameraType[] = [
       noLowPass: true,
       // 니콘 첫 터치
     },
+  },
+  {
+    year: 2015,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.Nikon1,
+    grade: GRADE.MIDRANGE,
+    name: '1 J5',
+    predecessor: ['1 J4'],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED5A,
+      size: SENSOR_SIZE.Q1,
+      pixelsFamiliar: '21M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 160,
+      isoMax: 12800,
+    },
+    shutter: {
+      fps: 60,
+      speed: 16000,
+    },
+    focus: {
+      points: 171,
+      contrast: true,
+    },
+    display: {
+      inches: 3.0,
+      pixels: 1037_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 15,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+        {
+          resolution: 720,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_j5/specifications'],
   },
 
   // 2016 =============================================

@@ -323,7 +323,7 @@ export const SIGMAS: CameraType[] = [
       pixels: 2_100_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: '4K',
@@ -371,7 +371,7 @@ export const SIGMAS: CameraType[] = [
       pixels: 2_100_000,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: '4K',

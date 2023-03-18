@@ -239,7 +239,7 @@ export const KODAKS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: 'H.264',
+      format: ['H.264'],
       modes: [
         {
           resolution: 1080,
