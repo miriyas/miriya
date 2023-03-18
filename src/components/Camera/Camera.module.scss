@@ -27,6 +27,22 @@
       position: relative;
       z-index: 2;
       mix-blend-mode: multiply;
+      line-height: 0;
+      text-indent: -999000px;
+
+      &::after {
+        position: relative;
+        display: block;
+        width: 140px;
+        height: 140px;
+        content: '';
+        background-color: white;
+        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1255/image-not-found.svg');
+        background-position: center;
+        background-size: 100px 100px;
+        background-repeat: no-repeat;
+        padding: 50% 0;
+      }
     }
   }
 
