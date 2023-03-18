@@ -1,5 +1,8 @@
+import Link from 'next/link';
+
 import { CameraType } from '@/types/cameras.d';
 
+import { cameraId } from '@/components/Camera/utils';
 import styles from './Camera.module.scss';
 
 interface Props {
@@ -14,11 +17,11 @@ const DataSiblings = (props: Props) => {
   const beforeData =
     predecessor.length > 0
       ? predecessor.map((name) => {
-          const key = `${maker}-${name}`;
+          const key = cameraId(maker, name);
           return (
-            <a key={key} href={`#${key}`}>
+            <Link key={key} href={`#${key}`}>
               {name}
-            </a>
+            </Link>
           );
         })
       : '-';
@@ -26,11 +29,11 @@ const DataSiblings = (props: Props) => {
   const afterData =
     successor.length > 0
       ? successor.map((name) => {
-          const key = `${maker}-${name}`;
+          const key = cameraId(maker, name);
           return (
-            <a key={key} href={`#${key}`} className={styles.sibling}>
+            <Link key={key} href={`#${key}`} className={styles.sibling}>
               {name}
-            </a>
+            </Link>
           );
         })
       : '-';
