@@ -6,6 +6,7 @@ import { IsotopesType } from '@/types/index.d';
 import { CATEGORIES, Category } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
+import { smoothScrollToId } from '@/utils/visual';
 import { useGA } from '@/hooks/useGA';
 import { IDOL } from '@/constants/ga';
 
@@ -37,13 +38,7 @@ const FilterBar = (props: Props) => {
   const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newYear = e.currentTarget.title;
     setCurrentYear(Number(newYear));
-
-    const target = document.querySelector<HTMLLIElement>(`#idol-year-${newYear}`);
-
-    window.scrollTo({
-      top: target?.offsetTop,
-      behavior: 'smooth',
-    });
+    smoothScrollToId(`idol-year-${newYear}`);
     gaEvent(IDOL.IDOL_YEAR_CLICK, { year: newYear });
   };
 

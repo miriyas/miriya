@@ -53,7 +53,10 @@
         font-weight: 700;
       }
 
-      button {
+      button,
+      a {
+        display: block;
+        color: c.$C_BLACK;
         font-weight: inherit;
       }
     }

@@ -1,9 +1,20 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { ParsedUrlQuery } from 'querystring';
 
 import { CameraType } from '@/types/cameras.d';
 
 import { cameraId } from '@/components/Camera/utils';
 import styles from './Camera.module.scss';
+
+const getSiblingLink = (key: string, query: ParsedUrlQuery) => {
+  return {
+    hash: key,
+    query: {
+      ...query,
+    },
+  };
+};
 
 interface Props {
   camera: CameraType;
@@ -11,15 +22,18 @@ interface Props {
 
 const DataSiblings = (props: Props) => {
   const { camera } = props;
-
   const { maker, predecessor, successor } = camera;
+
+  const { isReady, query } = useRouter();
+
+  if (!isReady) return null;
 
   const beforeData =
     predecessor.length > 0
       ? predecessor.map((name) => {
           const key = cameraId(maker, name);
           return (
-            <Link key={key} href={`#${key}`}>
+            <Link key={key} href={getSiblingLink(key, query)} className={styles.sibling}>
               {name}
             </Link>
           );
@@ -31,7 +45,7 @@ const DataSiblings = (props: Props) => {
       ? successor.map((name) => {
           const key = cameraId(maker, name);
           return (
-            <Link key={key} href={`#${key}`} className={styles.sibling}>
+            <Link key={key} href={getSiblingLink(key, query)} className={styles.sibling}>
               {name}
             </Link>
           );

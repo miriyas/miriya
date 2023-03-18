@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { NextSeo } from 'next-seo';
 import { groupBy } from 'lodash';
+import { useRouter } from 'next/router';
 
 import { IsotopesType } from '@/types/index.d';
 import { CAMERAS } from '@/constants/cameras';
@@ -15,6 +16,7 @@ const description = '1998년부터 2011년까지의 DSLR 카메라들';
 const Cameras = () => {
   const years = groupBy(CAMERAS, 'year');
   const isotopes = useRef<IsotopesType>({});
+  const { isReady } = useRouter();
 
   return (
     <>
@@ -41,7 +43,7 @@ const Cameras = () => {
         }}
       />
       <main className={styles.cameras}>
-        <FilterBar isotopes={isotopes} />
+        {isReady && <FilterBar isotopes={isotopes} />}
         <ul className={styles.cameraYears}>
           {Object.keys(years).map((year) => {
             return <CameraYear key={year} cameras={years[year]} year={Number(year)} isotopes={isotopes} />;

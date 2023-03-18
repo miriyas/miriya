@@ -37,18 +37,18 @@ export const GRADE = {
 export type GradeTypes = ValueOf<typeof GRADE>;
 
 export const CAMERA_MAKER = {
-  CANON: 'Canon',
-  CONTAX: 'Contax',
-  FUJIFILM: 'Fujifilm',
-  KODAK: 'Kodak',
-  MINOLTA: 'Minolta',
-  NIKON: 'Nikon',
-  OLYMPUS: 'Olympus',
-  PANASONIC: 'Panasonic',
-  PENTAX: 'Pentax',
-  SAMSUNG: 'Samsung',
-  SIGMA: 'Sigma',
-  SONY: 'Sony',
+  CANON: 'canon',
+  CONTAX: 'contax',
+  FUJIFILM: 'fujifilm',
+  KODAK: 'kodak',
+  MINOLTA: 'minolta',
+  NIKON: 'nikon',
+  OLYMPUS: 'olympus',
+  PANASONIC: 'panasonic',
+  PENTAX: 'pentax',
+  SAMSUNG: 'samsung',
+  SIGMA: 'sigma',
+  SONY: 'sony',
   ALL: 'ALL',
 };
 

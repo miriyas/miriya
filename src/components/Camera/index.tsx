@@ -41,7 +41,12 @@ const Camera = (props: Props) => {
   const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}/${id}.jpg`;
 
   return (
-    <li className={cx(styles.camera, `grid-item-${year}`, `maker-${maker}`, { [styles.selected]: selected })} id={id}>
+    <li
+      id={id}
+      className={cx(styles.camera, `grid-item-${year}`, `maker-${maker.toLowerCase()}`, {
+        [styles.selected]: selected,
+      })}
+    >
       <Badges camera={camera} />
       <div className={styles.cameraImg}>
         <Image src={imageUrl} alt={name} width={140} height={140} />
