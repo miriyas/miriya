@@ -45,6 +45,7 @@ const Camera = (props: Props) => {
       <Badges camera={camera} />
       <div className={styles.cameraImg}>
         <Image src={imageUrl} alt={name} width={140} height={140} />
+        <div className={styles.shadow} />
       </div>
       <div className={styles.top}>
         <p className={styles.name}>{nameLine}</p>

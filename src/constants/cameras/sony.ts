@@ -33,7 +33,7 @@ export const SONYS: CameraType[] = [
     name: 'DG-7D',
     otherNames: ['Dynax 7D', 'Maxxum 7D', 'α-7 Digital'],
     predecessor: [],
-    successor: ['A700'],
+    successor: [],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -72,7 +72,7 @@ export const SONYS: CameraType[] = [
     name: 'DG-5D',
     otherNames: ['Dynax 5D', 'Maxxum 5D', 'α-5 Digital', 'α Sweet Digital'],
     predecessor: [],
-    successor: ['A500'],
+    successor: [],
     sensor: {
       pixelsFamiliar: '6.1M',
       type: SENSOR_TYPE.CCD,
@@ -147,7 +147,7 @@ export const SONYS: CameraType[] = [
     mount: MOUNT.SonyA,
     grade: GRADE.ADVANCED,
     name: 'A700',
-    predecessor: ['DG-7D'],
+    predecessor: [],
     successor: ['A77'],
     sensor: {
       pixelsFamiliar: '12.2M',
@@ -411,7 +411,7 @@ export const SONYS: CameraType[] = [
     mount: MOUNT.SonyA,
     grade: GRADE.ENTRYMID,
     name: 'A500',
-    predecessor: ['DG-5D'],
+    predecessor: [],
     successor: ['A560'],
     sensor: {
       size: SENSOR_SIZE.APSC,
