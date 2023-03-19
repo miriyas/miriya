@@ -24,12 +24,12 @@ const Cameras = () => {
         title={title}
         description={description}
         openGraph={{
-          url: 'https://miriya.vercel.app/',
+          url: 'https://miriya.vercel.app/cameras',
           title,
           description,
           images: [
             {
-              url: 'https://miriya.vercel.app/images/idols.jpg',
+              url: 'https://miriya.vercel.app/images/image-cameras.jpg',
               width: 1200,
               height: 630,
               alt: '',
