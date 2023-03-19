@@ -8,7 +8,7 @@ import { IdolType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 
-import Idol from '@/components/Idol';
+import Idol from '@/containers/idols/Idol';
 import styles from './IdolYear.module.scss';
 
 interface Props {

@@ -6,7 +6,7 @@ import { IsotopesType } from '@/types/index.d';
 import { CameraType } from '@/types/cameras';
 import Isotope from '@/libs/isotope-layout';
 
-import Camera from '@/components/Camera';
+import Camera from '@/containers/cameras/Camera';
 import styles from './CameraYear.module.scss';
 
 interface Props {

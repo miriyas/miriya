@@ -2,6 +2,7 @@ import Image from 'next/image';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 import { CameraType } from '@/types/cameras.d';
 import { cameraId } from './utils';
@@ -23,14 +24,13 @@ const Camera = (props: Props) => {
   const { camera } = props;
   const { desc, maker, name, maker2, name2, otherNames, metering, year } = camera;
 
-  const { asPath } = useRouter();
   const [selected, setSelected] = useState(false);
 
   const id = cameraId(maker, name);
 
-  useEffect(() => {
-    setSelected(asPath.split('#')[1] === id);
-  }, [asPath, id]);
+  // useEffect(() => {
+  //   setSelected(asPath.split('#')[1] === id);
+  // }, [asPath, id]);
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
   const nameOtherData = otherNames?.join(' / ');

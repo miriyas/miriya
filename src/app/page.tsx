@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
-import IdolsPage from '@/containers/Idols';
+
+import IdolsPage from './idols/page';
 
 const IdolListPage: NextPage = () => <IdolsPage />;
 

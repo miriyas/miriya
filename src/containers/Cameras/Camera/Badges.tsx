@@ -13,7 +13,7 @@ import {
   LogoPentax,
   LogoSamsung,
   LogoSony,
-} from '../../../public/images/svgs';
+} from '../../../../public/images/svgs';
 import styles from './Badges.module.scss';
 
 const GRADES = {

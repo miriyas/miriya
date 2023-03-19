@@ -1,7 +1,7 @@
 import { MouseEventHandler, MutableRefObject, useState } from 'react';
-import cx from 'classnames';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import cx from 'classnames';
 import { startCase } from 'lodash';
 
 import { YEAR_INFO } from '@/constants/cameras';
@@ -22,7 +22,8 @@ interface Props {
 const FilterBar = (props: Props) => {
   const { isotopes } = props;
   const { gaEvent } = useGA();
-  const { query, pathname } = useRouter();
+  const pathname = usePathname();
+  const query = useSearchParams();
   const [currentMaker, setCurrentMaker] = useState<string>(String(query.maker) ?? 'ALL');
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
