@@ -4,9 +4,9 @@ import {
   OPTICS_TYPE,
   SENSOR_TYPE,
   SENSOR_SIZE,
-  FOCUS_NAME,
-  VIDEO_SCAN_TYPE,
-  ENGINE_TYPE,
+  // FOCUS_NAME,
+  // VIDEO_SCAN_TYPE,
+  // ENGINE_TYPE,
   GRADE,
   MOUNT,
 } from '@/types/cameras.d';

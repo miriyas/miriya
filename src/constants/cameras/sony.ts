@@ -783,7 +783,7 @@ export const SONYS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: 'AVCHD',
+      format: ['AVCHD'],
       modes: [
         {
           resolution: 1080,
@@ -832,7 +832,7 @@ export const SONYS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: 'AVCHD',
+      format: ['AVCHD'],
       modes: [
         {
           resolution: 1080,
@@ -880,7 +880,7 @@ export const SONYS: CameraType[] = [
       trueblack: true,
     },
     video: {
-      format: 'AVCHD',
+      format: ['AVCHD'],
       modes: [
         {
           resolution: 1080,
