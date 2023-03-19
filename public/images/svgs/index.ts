@@ -9,6 +9,7 @@ import LogoKodak from './logo-kodak.svg';
 import LogoMinolta from './logo-minolta.svg';
 import LogoNikon from './logo-nikon.svg';
 import LogoOlympus from './logo-olympus.svg';
+import LogoPanasonic from './logo-panasonic.svg';
 import LogoPentax from './logo-pentax.svg';
 import LogoSamsung from './logo-samsung.svg';
 import LogoSigma from './logo-sigma.svg';
@@ -26,6 +27,7 @@ export {
   LogoMinolta,
   LogoNikon,
   LogoOlympus,
+  LogoPanasonic,
   LogoPentax,
   LogoSamsung,
   LogoSigma,

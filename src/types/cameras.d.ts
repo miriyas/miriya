@@ -11,8 +11,7 @@ export const MOUNT = {
   MFourThird: 'Micro 4/3',
   LeicaL: 'Leica L',
   NikonF: 'Nikon F',
-  // NikonZ: 'Nikon Z',
-  // NikonS: 'Nikon S',
+  NikonZ: 'Nikon Z',
   Nikon1: 'Nikon 1',
   PentaxK: 'Pentax K',
   PentaxQ: 'Pentax Q',
@@ -155,6 +154,8 @@ export const ENGINE_TYPE = {
   EXPEED5: 'EXPEED5',
   EXPEED5A: 'EXPEED5A', // 니콘 1시리즈 전용, 1J5
   EXPEED6: 'EXPEED6',
+  DEXPEED6: 'Dual EXPEED6',
+  EXPEED7: 'EXPEED7',
   BIONZ: 'Bionz',
   BIONZX: 'Bionz X',
   DTRUE3: 'Dual True III',
@@ -226,7 +227,7 @@ export interface CameraType {
   video?: {
     format: string[];
     modes: {
-      resolution: number | '4K';
+      resolution: number | '8K' | '4K';
       scan: VideoScanTypes;
       fps: number;
     }[];

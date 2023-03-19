@@ -12,6 +12,8 @@ import {
 } from '@/types/cameras.d';
 
 // https://en.wikipedia.org/wiki/Template:Nikon_DSLR_cameras
+// https://en.wikipedia.org/wiki/Template:Nikon_1_cameras
+// https://en.wikipedia.org/wiki/Template:Nikon_Z_cameras
 
 export const NIKONS: CameraType[] = [
   // 1995 =============================================
@@ -2263,6 +2265,114 @@ export const NIKONS: CameraType[] = [
   {
     year: 2018,
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.PROFESSIONAL,
+    name: 'Z7',
+    predecessor: [],
+    successor: ['Z7 II'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED6,
+      size: SENSOR_SIZE.FF,
+      pixelsFamiliar: '46M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 32,
+      isoMax: 102400,
+      vr: true,
+    },
+    shutter: {
+      fps: 9,
+      speed: 8000,
+    },
+    focus: {
+      points: 493,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 3690_000,
+      magnification: 0.8,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 2100_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z7/13'],
+  },
+  {
+    year: 2018,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.PROFESSIONAL,
+    name: 'Z6',
+    predecessor: [],
+    successor: ['Z6 II'],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED6,
+      size: SENSOR_SIZE.FF,
+      pixelsFamiliar: '25M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 204800,
+      vr: true,
+    },
+    shutter: {
+      fps: 12,
+      speed: 8000,
+    },
+    focus: {
+      points: 273,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 3690_000,
+      magnification: 0.8,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 2100_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z6/11'],
+  },
+  {
+    year: 2018,
+    maker: CAMERA_MAKER.NIKON,
     mount: MOUNT.NikonF,
     grade: GRADE.ENTRY,
     name: 'D3500',
@@ -2279,6 +2389,60 @@ export const NIKONS: CameraType[] = [
   },
 
   // 2019 =============================================
+  {
+    year: 2019,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.ADVANCED,
+    name: 'Z50',
+    predecessor: [],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED6,
+      size: SENSOR_SIZE.APSC,
+      pixelsFamiliar: '21M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 204800,
+    },
+    shutter: {
+      fps: 11,
+      speed: 4000,
+    },
+    focus: {
+      points: 209,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 2360_000,
+      magnification: 1.02,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 1040_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z50-review/10'],
+  },
+
   // 2020 =============================================
   {
     year: 2020,
@@ -2300,6 +2464,169 @@ export const NIKONS: CameraType[] = [
   {
     year: 2020,
     maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.PROFESSIONAL,
+    name: 'Z7 II',
+    predecessor: ['Z7'],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.DEXPEED6,
+      size: SENSOR_SIZE.FF,
+      pixelsFamiliar: '46M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 32,
+      isoMax: 102400,
+      vr: true,
+    },
+    shutter: {
+      fps: 10,
+      speed: 8000,
+    },
+    focus: {
+      points: 493,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 3690_000,
+      magnification: 0.8,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 2100_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z7-ii-review/2'],
+  },
+  {
+    year: 2020,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.PROFESSIONAL,
+    name: 'Z6 II',
+    predecessor: ['Z6'],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.DEXPEED6,
+      size: SENSOR_SIZE.FF,
+      pixelsFamiliar: '25M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 204800,
+      vr: true,
+    },
+    shutter: {
+      fps: 14,
+      speed: 8000,
+    },
+    focus: {
+      points: 273,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 3690_000,
+      magnification: 0.8,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 2100_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z6-ii-review/2'],
+  },
+  {
+    year: 2020,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.ADVANCED,
+    name: 'Z5',
+    predecessor: [],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED6,
+      size: SENSOR_SIZE.FF,
+      pixelsFamiliar: '24M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 50,
+      isoMax: 102400,
+      vr: true,
+    },
+    shutter: {
+      fps: 4.5,
+      speed: 8000,
+    },
+    focus: {
+      points: 273,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 3690_000,
+      magnification: 0.8,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 1040_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 60,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z5-review/9'],
+  },
+
+  {
+    year: 2020,
+    maker: CAMERA_MAKER.NIKON,
     mount: MOUNT.NikonF,
     grade: GRADE.ADVANCED,
     name: 'D780',
@@ -2316,6 +2643,169 @@ export const NIKONS: CameraType[] = [
   },
 
   // 2021 =============================================
+  {
+    year: 2020,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.PROFESSIONAL,
+    name: 'Z9',
+    predecessor: [],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.DEXPEED6,
+      size: SENSOR_SIZE.FF,
+      pixelsFamiliar: '46M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 32,
+      isoMax: 102400,
+      vr: true,
+    },
+    shutter: {
+      fps: 30,
+      speed: 32000,
+    },
+    focus: {
+      points: 493,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 3690_000,
+      magnification: 0.8,
+    },
+    display: {
+      inches: 3.2,
+      pixels: 2100_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['H.265', 'H.264'],
+      modes: [
+        {
+          resolution: '8K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_z9/specifications'],
+  },
+  {
+    year: 2019,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.ADVANCED,
+    name: 'Z fc',
+    predecessor: [],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED6,
+      size: SENSOR_SIZE.APSC,
+      pixelsFamiliar: '21M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 204800,
+    },
+    shutter: {
+      fps: 11,
+      speed: 4000,
+    },
+    focus: {
+      points: 209,
+      contrast: true,
+      phaseDetection: true,
+    },
+    viewfinder: {
+      type: OPTICS_TYPE.ELECTRIC,
+      resolution: 2360_000,
+      magnification: 1.02,
+    },
+    display: {
+      inches: 3,
+      pixels: 1040_000,
+      touch: true,
+      tilt: true,
+      swivel: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z-fc-review/2'],
+  },
+
   // 2022 =============================================
+  {
+    year: 2022,
+    maker: CAMERA_MAKER.NIKON,
+    mount: MOUNT.NikonZ,
+    grade: GRADE.ENTRY,
+    name: 'Z30',
+    predecessor: [],
+    successor: [],
+    sensor: {
+      engine: ENGINE_TYPE.EXPEED6,
+      size: SENSOR_SIZE.APSC,
+      pixelsFamiliar: '21M',
+      type: SENSOR_TYPE.CMOS,
+      isoMin: 100,
+      isoMax: 204800,
+    },
+    shutter: {
+      fps: 11,
+      speed: 4000,
+    },
+    focus: {
+      points: 209,
+      contrast: true,
+      phaseDetection: true,
+    },
+    display: {
+      inches: 3,
+      pixels: 1040_000,
+      touch: true,
+      tilt: true,
+    },
+    video: {
+      format: ['MPEG-4', 'H.264'],
+      modes: [
+        {
+          resolution: '4K',
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 30,
+        },
+        {
+          resolution: 1080,
+          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
+          fps: 120,
+        },
+      ],
+    },
+    refs: ['https://www.dpreview.com/reviews/nikon-z50-review/10'],
+  },
+
   // 2023 =============================================
 ];

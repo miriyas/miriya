@@ -654,7 +654,7 @@ export const OLYMPUSES: CameraType[] = [
     grade: GRADE.MIDRANGE,
     name: 'E-M10 III',
     predecessor: ['E-M10 II'],
-    successor: ['E-M10 IV'],
+    successor: ['E-M10 IIIs'],
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -754,6 +754,24 @@ export const OLYMPUSES: CameraType[] = [
     //   isoMin: 100,
     //   isoMax: 409600,
     // },
+  },
+  {
+    year: 2017,
+    maker: CAMERA_MAKER.OLYMPUS,
+    mount: MOUNT.MFourThird,
+    grade: GRADE.MIDRANGE,
+    name: 'E-M10 IIIs',
+    predecessor: ['E-M10 III'],
+    successor: ['E-M10 IV'],
+    // sensor: {
+    //   size: SENSOR_SIZE.FF,
+    //   engine: ENGINE_TYPE.EXPEED4,
+    //   pixelsFamiliar: '16.2M',
+    //   type: SENSOR_TYPE.CMOS,
+    //   isoMin: 100,
+    //   isoMax: 409600,
+    // },
+    refs: ['https://www.dpreview.com/products/olympus/slrs/olympus_em10iiis'],
   },
   {
     year: 2020,
