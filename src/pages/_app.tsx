@@ -25,7 +25,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <Component {...pageProps} />{' '}
+      <Component {...pageProps} />
       <button type='button' onClick={onClickToTop} className={styles.toTop}>
         <p>위로</p>
       </button>
