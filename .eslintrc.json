@@ -8,6 +8,9 @@
     "eslint-config-prettier",
     "next/core-web-vitals"
   ],
+  "globals": {
+    "NodeJS": true
+  },
   "plugins": ["@typescript-eslint"],
   "env": {
     "browser": true,

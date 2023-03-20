@@ -1,5 +1,6 @@
-import { MouseEventHandler, MutableRefObject, useState } from 'react';
+import { MouseEventHandler, MutableRefObject, useCallback, useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { usePrevious } from 'react-use';
 import Link from 'next/link';
 import cx from 'classnames';
 import { startCase } from 'lodash';
@@ -24,16 +25,38 @@ const FilterBar = (props: Props) => {
   const { gaEvent } = useGA();
   const pathname = usePathname();
   const query = useSearchParams();
-  const [currentMaker, setCurrentMaker] = useState<string>(String(query.maker) ?? 'ALL');
+  const [currentMaker, setCurrentMaker] = useState<string>(query.get('maker') ?? 'ALL');
   const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  const prevMaker = usePrevious(currentMaker);
+
+  const filterCameras = useCallback(
+    (maker: string) => {
+      Object.keys(isotopes.current).forEach((key) => {
+        isotopes.current[Number(key)].arrange({
+          filter: (elem) => (maker === 'ALL' ? true : elem.classList.value.includes(`maker-${maker}`)),
+        });
+      });
+    },
+    [isotopes],
+  );
+
+  useEffect(() => {
+    let tm: NodeJS.Timeout;
+    if (currentMaker !== prevMaker) {
+      tm = setTimeout(() => {
+        filterCameras(currentMaker);
+      }, 300); // Animation duration
+    }
+
+    return () => {
+      clearTimeout(tm);
+    };
+  }, [prevMaker, currentMaker, filterCameras]);
 
   const onClickMaker: MouseEventHandler<HTMLAnchorElement> = (e) => {
     const maker = e.currentTarget.title;
-    Object.keys(isotopes.current).forEach((key) => {
-      isotopes.current[Number(key)].arrange({
-        filter: (elem) => (maker === 'ALL' ? true : elem.classList.value.includes(`maker-${maker}`)),
-      });
-    });
+    filterCameras(maker);
     setCurrentMaker(maker as CameraMakerTypes);
     gaEvent(CAMERA.CAMERA_MAKER_CLICK, { maker });
   };
@@ -51,18 +74,8 @@ const FilterBar = (props: Props) => {
       <ul className={styles.categories}>
         {CAMERA_MAKERS.map((maker) => {
           return (
-            <li key={maker} className={cx({ [styles.current]: maker === (currentMaker || query.maker) })}>
-              <Link
-                href={{
-                  pathname,
-                  query: {
-                    ...query,
-                    maker,
-                  },
-                }}
-                onClick={onClickMaker}
-                title={maker}
-              >
+            <li key={maker} className={cx({ [styles.current]: maker === (currentMaker || query.get('maker')) })}>
+              <Link href={{ pathname, query: { maker } }} onClick={onClickMaker} title={maker}>
                 {startCase(maker)}
               </Link>
             </li>

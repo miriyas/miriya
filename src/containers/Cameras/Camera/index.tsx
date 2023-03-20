@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import cx from 'classnames';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useAtomValue } from 'jotai';
 
 import { CameraType } from '@/types/cameras.d';
+import { selectedCameraAtom } from '../states';
 import { cameraId } from './utils';
 
 import Badges from './Badges';
@@ -24,13 +23,9 @@ const Camera = (props: Props) => {
   const { camera } = props;
   const { desc, maker, name, maker2, name2, otherNames, metering, year } = camera;
 
-  const [selected, setSelected] = useState(false);
-
   const id = cameraId(maker, name);
 
-  // useEffect(() => {
-  //   setSelected(asPath.split('#')[1] === id);
-  // }, [asPath, id]);
+  const selected = useAtomValue(selectedCameraAtom);
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
   const nameOtherData = otherNames?.join(' / ');
@@ -44,7 +39,7 @@ const Camera = (props: Props) => {
     <li
       id={id}
       className={cx(styles.camera, `grid-item-${year}`, `maker-${maker.toLowerCase()}`, {
-        [styles.selected]: selected,
+        [styles.selected]: selected === id,
       })}
     >
       <Badges camera={camera} />

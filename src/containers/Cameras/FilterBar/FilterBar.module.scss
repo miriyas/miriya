@@ -55,7 +55,8 @@
 
       button,
       a {
-        display: block;
+        @include m.flexbox(center, center);
+        height: 24px;
         color: c.$C_BLACK;
         font-weight: inherit;
       }
