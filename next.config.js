@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['miriya.sgp1.cdn.digitaloceanspaces.com', 'localhost', '*'],
+    domains: ['https://www.digicamdb.com', 'miriya.sgp1.cdn.digitaloceanspaces.com', 'localhost', '*'],
   },
   env: {
     NEXT_PUBLIC_GA_ID: 'G-BCXXRGTY78',

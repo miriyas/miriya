@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Cameras from '@/containers/cameras';
 
 const title = 'History of DSLR';
@@ -30,6 +29,6 @@ export const metadata = {
   },
 };
 
-const CamerasPage: NextPage = () => <Cameras />;
+const CamerasPage = async () => <Cameras />;
 
 export default CamerasPage;
