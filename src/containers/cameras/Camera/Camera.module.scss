@@ -3,10 +3,14 @@
 
 .camera {
   position: relative;
-  width: 240px;
+  width: 100%;
   height: 420px;
   border-radius: 8px;
   overflow: hidden;
+
+  @include m.after(521px) {
+    width: 240px;
+  }
 
   &.selected {
     border: 1px solid c.$C_GRAY_D;
