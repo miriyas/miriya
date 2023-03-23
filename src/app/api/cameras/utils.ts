@@ -7,7 +7,9 @@ export const getCameraDataFromURL = async (url: string) => {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  if (!response.ok) {
+  const noData = $('.table_specs tr').length === 0;
+
+  if (!response.ok || noData) {
     return {
       error: 'No Data Found',
     };
