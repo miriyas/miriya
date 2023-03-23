@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description,
   keywords: ['DSLR', 'DSLT', 'MILC', 'camera', 'history', 'interchangable'],
   openGraph: {
+    description,
     type: 'website',
     title,
     url,
