@@ -1,0 +1,237 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
+.camera {
+  @include m.flexbox(start, center);
+  position: relative;
+  flex-direction: column;
+  width: 240px;
+  height: 420px;
+  padding: 8px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  background-color: c.$C_WHITE;
+  border-radius: 8px;
+
+  &.selected {
+    border: 1px solid c.$C_GRAY_D;
+  }
+
+  .dataExternal {
+    height: 100%;
+    overflow: auto;
+    margin-bottom: 12px;
+
+    &.loading,
+    &.error {
+      @include m.flexbox(center, center);
+      flex-direction: column;
+      font-size: 10px;
+      line-height: 20px;
+
+      .id {
+        font-weight: 700;
+      }
+    }
+
+    .outerLink {
+      display: block;
+      margin: 8px 0;
+      font-size: 10px;
+      color: c.$C_BLUE;
+      text-align: center;
+    }
+  }
+
+  .sourceBtn {
+    @include m.absolute(auto 0 0 0);
+    @include m.flexbox(center, center);
+    height: 20px;
+    font-size: 10px;
+    background-color: c.$C_WHITE;
+    border-top: 1px solid c.$C_GRAY_E;
+
+    &.external {
+      span {
+        &.here {
+          font-weight: 400;
+        }
+
+        &.cameraDb {
+          font-weight: 700;
+        }
+      }
+    }
+
+    span {
+      padding: 0 8px;
+
+      &.here {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .cameraImg {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 24px 0 8px;
+
+    img {
+      position: relative;
+      z-index: 2;
+      mix-blend-mode: multiply;
+      line-height: 0;
+      text-indent: -999000px;
+
+      &::after {
+        position: relative;
+        display: block;
+        width: 140px;
+        height: 140px;
+        content: '';
+        background-color: white;
+        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1255/image-not-found.svg');
+        background-position: center;
+        background-size: 100px 100px;
+        background-repeat: no-repeat;
+        padding: 50% 0;
+      }
+    }
+  }
+
+  .shadow {
+    @include m.absolute(auto 50% -8px auto);
+    z-index: 1;
+    width: 200px;
+    height: 100px;
+    background-image: radial-gradient(circle, c.$C_GRAY_8, c.$C_WHITE 50px);
+    background-repeat: no-repeat;
+    transform: scaleY(20%) translateX(50%);
+    transform-origin: bottom;
+    opacity: 0.5;
+  }
+
+  .top {
+    width: 100%;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    text-align: center;
+    border-bottom: 1px solid c.$C_GRAY_D;
+
+    .name {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .desc {
+      margin-top: 4px;
+      font-size: 10px;
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-top: 4px;
+    font-size: 10px;
+    line-height: 16px;
+
+    th {
+      width: 70px;
+      text-align: center;
+      color: c.$C_GRAY_8;
+    }
+
+    td {
+      @include m.flexbox(start, center);
+
+      a {
+        color: c.$C_BLUE;
+      }
+    }
+
+    p {
+      @include m.flexbox(center, center);
+      padding: 0 4px;
+      margin-right: 4px;
+      border-radius: 2px;
+    }
+
+    a {
+      color: c.$C_BLUE;
+
+      + a {
+        margin-left: 8px;
+      }
+    }
+
+    .sensor {
+      white-space: nowrap;
+    }
+
+    .dataViewFinder {
+      .pentaPrism {
+        background-color: c.$C_GREEN;
+      }
+
+      .pentaMirror {
+        background-color: c.$C_YELLOW;
+      }
+    }
+  }
+}
+
+.gray {
+  color: c.$C_GRAY_4;
+}
+
+.grayBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_GRAY_4;
+}
+
+.red {
+  color: c.$C_RED;
+}
+
+.redBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_RED;
+}
+
+.orange {
+  color: c.$C_ORANGE;
+}
+
+.orangeBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_ORANGE;
+}
+
+.yellow {
+  color: c.$C_YELLOW;
+}
+
+.yellowBg {
+  color: c.$C_BLACK;
+  background-color: c.$C_YELLOW;
+}
+
+.green {
+  color: c.$C_GREEN;
+}
+
+.greenBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_GREEN;
+}
+
+.blue {
+  color: c.$C_BLUE;
+}
+
+.blueBg {
+  color: c.$C_WHITE;
+  background-color: c.$C_BLUE;
+}
