@@ -1,7 +1,7 @@
+'use server';
+
 import CamerasContent from './Content';
 
-const Cameras = () => {
-  return <CamerasContent />;
-};
+const Cameras = () => <CamerasContent />;
 
 export default Cameras;
