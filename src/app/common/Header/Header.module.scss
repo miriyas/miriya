@@ -1,0 +1,50 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
+.appHeader {
+  @include m.flexbox(center, center);
+  background-color: c.$C_WHITE;
+  border-bottom: 1px solid c.$C_GRAY_E;
+
+  .wrapper {
+    @include m.flexbox(between, center);
+    width: 100%;
+    height: 32px;
+    padding: 0 14px;
+  }
+
+  ul {
+    @include m.flexbox(center, center);
+
+    li {
+      + li {
+        margin-left: 14px;
+      }
+
+      a {
+        font-size: 14px;
+        color: c.$C_BLACK;
+
+        &.active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .outerLinks {
+    a {
+      @include m.flexbox(center, center);
+      height: 24px;
+      font-size: 14px;
+      font-weight: 700;
+      color: c.$C_BLACK;
+
+      svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 4px;
+      }
+    }
+  }
+}

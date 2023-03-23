@@ -5,8 +5,8 @@
   position: relative;
   width: 100%;
   height: 420px;
-  border-radius: 8px;
   overflow: hidden;
+  border-radius: 8px;
 
   @include m.after(521px) {
     width: 240px;
@@ -20,6 +20,7 @@
     .dataInternal {
       transform: rotateY(180deg);
     }
+
     .dataExternal {
       transform: rotateY(0);
     }
@@ -29,19 +30,19 @@
   .dataExternal {
     @include m.absolute(0 0 0 0);
     @include m.flexbox(start, center);
-    height: 420px;
     flex-direction: column;
-    padding: 8px;
+    height: 420px;
+    padding: 8px 8px c.$H_CAMERA_DATA_SOURCE_BTN;
     margin-bottom: 24px;
-    backface-visibility: hidden;
-    transition: 300ms;
     background-color: c.$C_WHITE;
+    transition: 300ms;
+    backface-visibility: hidden;
   }
 
   .dataExternal {
     height: 100%;
-    overflow: auto;
     margin-bottom: 12px;
+    overflow: auto;
     transform: rotateY(180deg);
 
     &.loading,
@@ -68,7 +69,7 @@
   .sourceBtn {
     @include m.absolute(auto 0 0 0);
     @include m.flexbox(center, center);
-    height: 20px;
+    height: c.$H_CAMERA_DATA_SOURCE_BTN;
     font-size: 10px;
     background-color: c.$C_WHITE;
     border-top: 1px solid c.$C_GRAY_E;
@@ -103,22 +104,22 @@
     img {
       position: relative;
       z-index: 2;
-      mix-blend-mode: multiply;
       line-height: 0;
       text-indent: -999000px;
+      mix-blend-mode: multiply;
 
       &::after {
         position: relative;
         display: block;
         width: 140px;
         height: 140px;
+        padding: 50% 0;
         content: '';
         background-color: white;
         background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1255/image-not-found.svg');
+        background-repeat: no-repeat;
         background-position: center;
         background-size: 100px 100px;
-        background-repeat: no-repeat;
-        padding: 50% 0;
       }
     }
   }
@@ -130,15 +131,15 @@
     height: 100px;
     background-image: radial-gradient(circle, c.$C_GRAY_8, c.$C_WHITE 50px);
     background-repeat: no-repeat;
+    opacity: 0.5;
     transform: scaleY(20%) translateX(50%);
     transform-origin: bottom;
-    opacity: 0.5;
   }
 
   .top {
     width: 100%;
-    margin-bottom: 4px;
     padding-bottom: 8px;
+    margin-bottom: 4px;
     text-align: center;
     border-bottom: 1px solid c.$C_GRAY_D;
 
@@ -161,8 +162,8 @@
 
     th {
       width: 70px;
-      text-align: center;
       color: c.$C_GRAY_8;
+      text-align: center;
     }
 
     td {

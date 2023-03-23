@@ -1,5 +1,4 @@
 * {
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -97,8 +96,12 @@ details {
   }
 }
 
-body,
-button,
-textarea {
-  font-family: sans-serif !important;
+p,
+span,
+a,
+input,
+textarea,
+th,
+td {
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }

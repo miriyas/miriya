@@ -2,8 +2,11 @@ import React from 'react';
 
 import type { Metadata } from 'next';
 
+import Header from './common/Header';
 import Providers from './providers';
-import Additional from './Additional';
+import Additional from './common/Additional';
+import ToTop from './common/ToTop';
+import Footer from './common/Footer';
 import '@/styles/globals.scss';
 
 const title = 'Home';
@@ -25,7 +28,12 @@ const RootLayout = ({ children }: Props) => {
     <html lang='en'>
       <body>
         <Additional />
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+          <ToTop />
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

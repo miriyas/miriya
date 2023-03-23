@@ -4,10 +4,10 @@
 .idol {
   width: c.$W_IDOL_M;
   height: c.$H_IDOL;
+  overflow: hidden;
   background-color: c.$C_WHITE;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(c.$C_GRAY_4, 0.1);
-  overflow: hidden;
 
   @include m.after(M) {
     width: c.$W_IDOL;
@@ -34,8 +34,8 @@
 
     .leftWing {
       @include m.flexbox(center, center);
-      flex-direction: column;
       flex: 1;
+      flex-direction: column;
     }
 
     .withSound {
@@ -65,8 +65,8 @@
 
     .rightWing {
       @include m.flexbox(center, center);
-      flex-direction: column;
       flex: 1;
+      flex-direction: column;
       font-size: 12px;
 
       .desc {
@@ -81,10 +81,10 @@
         a {
           width: 32px;
           height: 32px;
-          color: c.$C_BLUE;
-          line-height: 20px;
-          border-radius: 2px;
           overflow: hidden;
+          line-height: 20px;
+          color: c.$C_BLUE;
+          border-radius: 2px;
 
           svg {
             width: 32px;

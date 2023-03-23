@@ -2,6 +2,6 @@ import type { NextPage } from 'next';
 
 import IdolsPage from './idols/page';
 
-const IdolListPage: NextPage = () => <IdolsPage />;
+const HomePage: NextPage = () => <IdolsPage />;
 
-export default IdolListPage;
+export default HomePage;
