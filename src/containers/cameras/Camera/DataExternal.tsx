@@ -11,19 +11,21 @@ import styles from './Camera.module.scss';
 
 interface Props {
   camera: CameraType;
+  showExternalData: boolean;
 }
 
 const DataExternal = (props: Props) => {
-  const { camera } = props;
+  const { camera, showExternalData } = props;
   const { maker, name } = camera;
 
   const id = cameraId(maker, name);
   const externalId = externalCameraId(maker, name);
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isError } = useQuery(
     ['getExternalCameraDataApi', externalId],
     () => getExternalCameraDataApi(externalId).then((res) => res.json()),
     {
+      enabled: showExternalData,
       cacheTime: 6 * 1000,
       refetchOnMount: false,
     },
@@ -40,7 +42,7 @@ const DataExternal = (props: Props) => {
 
   const hasError = Object.keys(data)[0] === 'error';
 
-  if (hasError) {
+  if (isError || hasError) {
     return (
       <div className={cx(styles.dataExternal, styles.error)}>
         <p className={styles.id}>{id}</p>

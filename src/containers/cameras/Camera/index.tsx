@@ -18,10 +18,10 @@ const Camera = (props: Props) => {
   const { camera } = props;
   const { maker, name, year } = camera;
 
-  const [externalData, setExternalData] = useState(false);
+  const [showExternalData, setShowExternalData] = useState(false);
 
   const onClickExternal = () => {
-    setExternalData((prev) => !prev);
+    setShowExternalData((prev) => !prev);
   };
 
   const id = cameraId(maker, name);
@@ -32,13 +32,15 @@ const Camera = (props: Props) => {
       id={id}
       className={cx(styles.camera, `grid-item-${year}`, `maker-${maker.toLowerCase()}`, {
         [styles.selected]: selected === id,
+        [styles.showExternalData]: showExternalData,
       })}
     >
-      {externalData ? <DataExternal camera={camera} /> : <Data camera={camera} />}
+      <DataExternal camera={camera} showExternalData={showExternalData} />
+      <Data camera={camera} />
       <button
         type='button'
         onClick={onClickExternal}
-        className={cx(styles.sourceBtn, { [styles.external]: externalData })}
+        className={cx(styles.sourceBtn, { [styles.external]: showExternalData })}
       >
         <span className={styles.here}>Original</span>
         <span className={styles.cameraDb}>CameraDB</span>

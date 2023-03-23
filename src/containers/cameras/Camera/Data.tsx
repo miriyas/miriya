@@ -31,7 +31,7 @@ const Data = (props: Props) => {
   const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}/${id}.jpg`;
 
   return (
-    <>
+    <div className={styles.dataInternal}>
       <Badges camera={camera} />
       <div className={styles.cameraImg}>
         <Image src={imageUrl} alt={name} width={140} height={140} />
@@ -55,7 +55,7 @@ const Data = (props: Props) => {
           <DataSiblings camera={camera} />
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

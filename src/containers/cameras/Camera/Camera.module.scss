@@ -2,25 +2,43 @@
 @use 'src/styles/mixins' as m;
 
 .camera {
-  @include m.flexbox(start, center);
   position: relative;
-  flex-direction: column;
   width: 240px;
   height: 420px;
-  padding: 8px;
-  margin-bottom: 24px;
-  overflow: hidden;
-  background-color: c.$C_WHITE;
   border-radius: 8px;
+  overflow: hidden;
 
   &.selected {
     border: 1px solid c.$C_GRAY_D;
+  }
+
+  &.showExternalData {
+    .dataInternal {
+      transform: rotateY(180deg);
+    }
+    .dataExternal {
+      transform: rotateY(0);
+    }
+  }
+
+  .dataInternal,
+  .dataExternal {
+    @include m.absolute(0 0 0 0);
+    @include m.flexbox(start, center);
+    height: 420px;
+    flex-direction: column;
+    padding: 8px;
+    margin-bottom: 24px;
+    backface-visibility: hidden;
+    transition: 300ms;
+    background-color: c.$C_WHITE;
   }
 
   .dataExternal {
     height: 100%;
     overflow: auto;
     margin-bottom: 12px;
+    transform: rotateY(180deg);
 
     &.loading,
     &.error {
