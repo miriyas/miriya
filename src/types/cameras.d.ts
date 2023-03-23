@@ -8,6 +8,8 @@ export const MOUNT = {
   CanonRFS: 'Canon RF-S',
   ContaxN: 'Contax N',
   FourThird: '4/3',
+  FujiG: 'Fujifilm G',
+  FujiX: 'Fujifilm X',
   MFourThird: 'Micro 4/3',
   LeicaL: 'Leica L',
   NikonF: 'Nikon F',
@@ -98,6 +100,7 @@ export const OPTICS_TYPE = {
   PENTA_PRISM: 'PentaPrism',
   PENTA_MIRROR: 'PentaMirror',
   ELECTRIC: 'Electric',
+  HYBRID: 'Hybrid',
 };
 
 export type OpticsTypes = ValueOf<typeof OPTICS_TYPE>;
@@ -156,6 +159,8 @@ export const ENGINE_TYPE = {
   EXPEED6: 'EXPEED6',
   DEXPEED6: 'Dual EXPEED6',
   EXPEED7: 'EXPEED7',
+  EXRPRO: 'EXR Pro',
+  EXRPRO2: 'EXR Pro II',
   BIONZ: 'Bionz',
   BIONZX: 'Bionz X',
   DTRUE3: 'Dual True III',
@@ -185,12 +190,13 @@ export interface Sensor {
   pixelsFamiliar: string;
   size?: SensorSizeTypes;
   type: SensorTypes;
-  isoMin: number;
-  isoMax: number;
+  isoMin?: number;
+  isoMax?: number;
   vr?: boolean;
   astro?: boolean;
   noLowPass?: boolean;
   ir?: boolean;
+  cleaning?: boolean;
 }
 
 export interface DisplayType {

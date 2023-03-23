@@ -2,6 +2,7 @@ import { CameraType } from '@/types/cameras.d';
 
 import { CANONS } from './canon';
 import { CONTAXES } from './contax';
+import { FUJIFILM } from './fujifilm';
 import { KODAKS } from './kodak';
 import { NIKONS } from './nikon';
 import { OLYMPUSES } from './olympus';
@@ -18,6 +19,7 @@ export const YEAR_INFO = {
 export const CAMERAS: CameraType[] = [
   ...CANONS,
   ...CONTAXES,
+  ...FUJIFILM,
   ...KODAKS,
   ...NIKONS,
   ...OLYMPUSES,
