@@ -10,6 +10,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.28.0",
     "cheerio": "^1.0.0-rc.12",
     "classnames": "^2.3.2",
     "humps": "^2.0.1",

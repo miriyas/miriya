@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Providers from './providers';
 import Additional from './Additional';
 import '@/styles/globals.scss';
 
@@ -22,7 +23,7 @@ const RootLayout = ({ children }: Props) => {
     <html lang='en'>
       <body>
         <Additional />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

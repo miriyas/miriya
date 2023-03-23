@@ -1,19 +1,13 @@
 'use server';
 
-import { useState } from 'react';
-import { useMount } from 'react-use';
 import cx from 'classnames';
+import { useQuery } from '@tanstack/react-query';
 
 import { CameraType } from '@/types/cameras.d';
 import { cameraId, externalCameraId } from './utils';
+import { getExternalCameraDataApi } from '@/services/cameras';
 
 import styles from './Camera.module.scss';
-
-const getData = async (maker: string, name: string) => {
-  const id = externalCameraId(maker, name);
-  const res = await fetch(`/api/cameras/${id}`);
-  return res.json();
-};
 
 interface Props {
   camera: CameraType;
@@ -23,18 +17,19 @@ const DataExternal = (props: Props) => {
   const { camera } = props;
   const { maker, name } = camera;
 
-  const [data, setData] = useState<Record<string, string>>();
-
   const id = cameraId(maker, name);
   const externalId = externalCameraId(maker, name);
 
-  useMount(() => {
-    getData(maker, name).then((res) => {
-      setData(res);
-    });
-  });
+  const { data, isLoading } = useQuery(
+    ['getExternalCameraDataApi', externalId],
+    () => getExternalCameraDataApi(externalId).then((res) => res.json()),
+    {
+      cacheTime: 6 * 1000,
+      refetchOnMount: false,
+    },
+  );
 
-  if (!data) {
+  if (isLoading) {
     return (
       <div className={cx(styles.dataExternal, styles.loading)}>
         <p className={styles.id}>{id}</p>
