@@ -1,5 +1,7 @@
 import React from 'react';
 
+import type { Metadata } from 'next';
+
 import Providers from './providers';
 import Additional from './Additional';
 import '@/styles/globals.scss';
@@ -7,7 +9,7 @@ import '@/styles/globals.scss';
 const title = 'Home';
 const description = 'Welcome';
 
-export const metadata = {
+export const metadata: Metadata = {
   title,
   description,
   authors: [{ name: 'miriya lee', url: 'https://miriya.vercell.app' }],

@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { NextPage, Metadata } from 'next';
 import Idols from '@/containers/idols';
 
 const title = 'History of Idols';
@@ -6,7 +6,7 @@ const description = '96년부터 2019년까지 활동한 아이돌들';
 const url = 'https://miriya.vercel.app/idols';
 const imageUrl = 'https://miriya.vercel.app/images/image-idols.jpg';
 
-export const metadata = {
+export const metadata: Metadata = {
   title,
   description,
   keywords: ['idols', 'korea'],
@@ -16,9 +16,12 @@ export const metadata = {
     url,
     images: [
       {
+        type: 'image/jpeg',
         url: imageUrl,
+        secureUrl: imageUrl,
         width: 1200,
         height: 630,
+        alt: title,
       },
     ],
   },
