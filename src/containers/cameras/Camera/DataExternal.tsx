@@ -1,5 +1,3 @@
-'use server';
-
 import cx from 'classnames';
 import { useQuery } from '@tanstack/react-query';
 
