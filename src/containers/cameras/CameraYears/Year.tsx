@@ -1,12 +1,13 @@
 'use client';
 
-import { MutableRefObject, Suspense, useEffect, useMemo } from 'react';
+import { Suspense, useEffect, useMemo } from 'react';
 import cx from 'clsx';
+import { useAtomValue } from 'jotai';
 
 import type { IsotopeOptions } from 'isotope-layout';
-import { IsotopesType } from '@/types/index.d';
 import { CameraType } from '@/types/cameras';
 import Isotope from '@/libs/isotope-layout';
+import { isotopesAtom } from '@/containers/cameras/states';
 
 import Camera from '@/components/Camera';
 import styles from './CameraYears.module.scss';
@@ -14,11 +15,12 @@ import styles from './CameraYears.module.scss';
 interface Props {
   cameras: CameraType[];
   year: number;
-  isotopes: MutableRefObject<IsotopesType>;
 }
 
 const CameraYear = (props: Props) => {
-  const { cameras, year, isotopes } = props;
+  const { cameras, year } = props;
+
+  const isotopes = useAtomValue(isotopesAtom);
 
   const OPTIONS: IsotopeOptions = useMemo(
     () => ({
@@ -35,10 +37,10 @@ const CameraYear = (props: Props) => {
   );
 
   useEffect(() => {
+    // 연도별로 isotope init
     const elem = document.querySelector<HTMLElement>(`.grid-${year}`);
     if (!elem) return;
-
-    isotopes.current[year] = new Isotope(elem, OPTIONS);
+    isotopes[year] = new Isotope(elem, OPTIONS);
   }, [OPTIONS, isotopes, year]);
 
   return (

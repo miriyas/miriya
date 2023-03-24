@@ -1,3 +1,5 @@
 import { atom } from 'jotai';
 
-export const selectedCameraAtom = atom<string | undefined>(undefined);
+import { IsotopesType } from '@/types/index.d';
+
+export const isotopesAtom = atom<IsotopesType>({});

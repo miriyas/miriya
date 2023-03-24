@@ -1,32 +1,31 @@
 'use client';
 
-import { MouseEventHandler, MutableRefObject, useCallback, useEffect, useState } from 'react';
+import { MouseEventHandler, useCallback, useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { usePrevious } from 'react-use';
 import Link from 'next/link';
 import cx from 'clsx';
 import { startCase } from 'lodash';
+import { useAtomValue } from 'jotai';
 
 import { YEAR_INFO } from '@/constants/cameras';
-import { IsotopesType } from '@/types/index.d';
 import { CameraMakerTypes, CAMERA_MAKERS } from '@/types/cameras.d';
 import { getNumberArr } from '@/utils';
 import { smoothScrollToId } from '@/utils/visual';
 import { useGA } from '@/hooks/useGA';
 import { CAMERA } from '@/constants/ga';
+import { isotopesAtom } from '@/containers/cameras/states';
 
 import Header from './Header';
 import styles from './FilterBar.module.scss';
 
-interface Props {
-  isotopes: MutableRefObject<IsotopesType>;
-}
-
-const FilterBar = (props: Props) => {
-  const { isotopes } = props;
+const FilterBar = () => {
   const { gaEvent } = useGA();
   const pathname = usePathname();
   const query = useSearchParams();
+
+  const isotopes = useAtomValue(isotopesAtom);
+
   const [currentMaker, setCurrentMaker] = useState<string>(query.get('maker') ?? 'ALL');
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
@@ -34,8 +33,8 @@ const FilterBar = (props: Props) => {
 
   const filterCameras = useCallback(
     (maker: string) => {
-      Object.keys(isotopes.current).forEach((key) => {
-        isotopes.current[Number(key)].arrange({
+      Object.keys(isotopes).forEach((key) => {
+        isotopes[Number(key)].arrange({
           filter: (elem) => (maker === 'ALL' ? true : elem.classList.value.includes(`maker-${maker}`)),
         });
       });
