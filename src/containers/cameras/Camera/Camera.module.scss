@@ -31,7 +31,7 @@
     @include m.flexbox(start, center);
     flex-direction: column;
     height: 420px;
-    padding: 8px 8px var(--h-camera-data-source-bt);
+    padding: 8px 8px var(--h-camera-data-source-btn);
     margin-bottom: 24px;
     background-color: var(--color-white);
     transition: 300ms;
@@ -68,7 +68,7 @@
   .sourceBtn {
     @include m.absolute(auto 0 0 0);
     @include m.flexbox(center, center);
-    height: var(--h-camera-data-source-bt);
+    height: var(--h-camera-data-source-btn);
     font-size: 10px;
     background-color: var(--color-white);
     border-top: 1px solid var(--color-gray-e);
