@@ -1,13 +1,39 @@
-'use server';
+'use client';
 
-import CamerasContent from './Content';
-// import ClientFunctions from './ClientFunctions';
+import { Suspense, useRef } from 'react';
+import { useMount } from 'react-use';
+import { groupBy } from 'lodash';
+import dynamic from 'next/dynamic';
 
-const Cameras = () => (
-  <>
-    {/* <ClientFunctions /> */}
-    <CamerasContent />
-  </>
-);
+import { IsotopesType } from '@/types/index.d';
+import { CAMERAS } from '@/constants/cameras';
 
-export default Cameras;
+import FilterBar from './FilterBar';
+import styles from './Cameras.module.scss';
+
+const CameraYear = dynamic(() => import('./CameraYear'), { ssr: false });
+
+const CamerasContent = () => {
+  const years = groupBy(CAMERAS, 'year');
+  const isotopes = useRef<IsotopesType>({});
+
+  useMount(() => {
+    const currentHash = window.location.hash.replace('#', '');
+    document.getElementById(currentHash)?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  return (
+    <main className={styles.cameras}>
+      <Suspense fallback={<div>placeholder</div>}>
+        <FilterBar isotopes={isotopes} />
+      </Suspense>
+      <ul className={styles.cameraYears}>
+        {Object.keys(years).map((year) => {
+          return <CameraYear key={year} cameras={years[year]} year={Number(year)} isotopes={isotopes} />;
+        })}
+      </ul>
+    </main>
+  );
+};
+
+export default CamerasContent;

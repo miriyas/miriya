@@ -1,3 +1,5 @@
+'use client';
+
 import { MutableRefObject, Suspense, useEffect, useMemo } from 'react';
 import cx from 'clsx';
 
