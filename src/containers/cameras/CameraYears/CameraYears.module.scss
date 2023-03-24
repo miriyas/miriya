@@ -1,0 +1,29 @@
+@use 'src/styles/mixins' as m;
+
+.cameraYears {
+  width: 100%;
+  max-width: 1002px;
+
+  .cameraYear {
+    margin-top: 50px;
+
+    &.placeholder {
+      .title {
+        opacity: 0.5;
+      }
+    }
+
+    .title {
+      padding-top: 14px;
+      margin-bottom: 24px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .cameras {
+      @include m.flexbox(start, center);
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+  }
+}

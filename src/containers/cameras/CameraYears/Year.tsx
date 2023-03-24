@@ -9,7 +9,7 @@ import { CameraType } from '@/types/cameras';
 import Isotope from '@/libs/isotope-layout';
 
 import Camera from '@/components/Camera';
-import styles from './CameraYear.module.scss';
+import styles from './CameraYears.module.scss';
 
 interface Props {
   cameras: CameraType[];
