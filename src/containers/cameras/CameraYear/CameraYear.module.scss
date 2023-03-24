@@ -3,6 +3,12 @@
 .cameraYear {
   margin-top: 50px;
 
+  &.placeholder {
+    .title {
+      opacity: 0.5;
+    }
+  }
+
   .title {
     padding-top: 14px;
     margin-bottom: 24px;
@@ -13,5 +19,6 @@
   .cameras {
     @include m.flexbox(start, center);
     flex-wrap: wrap;
+    gap: 14px;
   }
 }

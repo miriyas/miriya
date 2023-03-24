@@ -9,9 +9,10 @@ import { IsotopesType } from '@/types/index.d';
 import { CAMERAS } from '@/constants/cameras';
 
 import FilterBar from './FilterBar';
+import CameraYearPlaceholder from './CameraYear/Placeholder';
 import styles from './Cameras.module.scss';
 
-const CameraYear = dynamic(() => import('./CameraYear'), { ssr: false });
+const CameraYear = dynamic(() => import('./CameraYear'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 const CamerasContent = () => {
   const years = groupBy(CAMERAS, 'year');
@@ -24,7 +25,7 @@ const CamerasContent = () => {
 
   return (
     <main className={styles.cameras}>
-      <Suspense fallback={<div>placeholder</div>}>
+      <Suspense fallback={null}>
         <FilterBar isotopes={isotopes} />
       </Suspense>
       <ul className={styles.cameraYears}>
