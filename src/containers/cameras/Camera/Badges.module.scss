@@ -10,16 +10,16 @@
       height: 20px;
 
       &.olympus {
-        svg {
-          width: 60px;
-          height: 20px;
+        img {
+          height: 14px;
+          margin-left: -4px;
         }
       }
 
-      svg {
+      img {
         display: block;
-        width: 100%;
-        height: 14px;
+        width: auto;
+        height: 10px;
       }
     }
 

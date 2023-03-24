@@ -1,19 +1,8 @@
 import cx from 'classnames';
+import Image from 'next/image';
 
 import { CameraType, CAMERA_MAKER, GRADE } from '@/types/cameras.d';
 
-import {
-  LogoCanon,
-  LogoFujifilm,
-  LogoKodak,
-  LogoMinolta,
-  LogoNikon,
-  LogoOlympus,
-  LogoPanasonic,
-  LogoPentax,
-  LogoSamsung,
-  LogoSony,
-} from '../../../../public/images/svgs';
 import styles from './Badges.module.scss';
 
 const GRADES = {
@@ -26,17 +15,19 @@ const GRADES = {
   [GRADE.VALUE]: '저렴이',
 } as const;
 
-const LOGOS = {
-  [CAMERA_MAKER.CANON]: <LogoCanon />,
-  [CAMERA_MAKER.FUJIFILM]: <LogoFujifilm />,
-  [CAMERA_MAKER.MINOLTA]: <LogoMinolta />,
-  [CAMERA_MAKER.KODAK]: <LogoKodak />,
-  [CAMERA_MAKER.NIKON]: <LogoNikon />,
-  [CAMERA_MAKER.OLYMPUS]: <LogoOlympus />,
-  [CAMERA_MAKER.PANASONIC]: <LogoPanasonic />,
-  [CAMERA_MAKER.PENTAX]: <LogoPentax />,
-  [CAMERA_MAKER.SAMSUNG]: <LogoSamsung />,
-  [CAMERA_MAKER.SONY]: <LogoSony />,
+const LOGO_WIDTHS = {
+  [CAMERA_MAKER.CANON]: 96,
+  [CAMERA_MAKER.CONTAX]: 120,
+  [CAMERA_MAKER.FUJIFILM]: 120,
+  [CAMERA_MAKER.KODAK]: 79,
+  [CAMERA_MAKER.MINOLTA]: 102,
+  [CAMERA_MAKER.NIKON]: 79,
+  [CAMERA_MAKER.OLYMPUS]: 128,
+  [CAMERA_MAKER.PANASONIC]: 132,
+  [CAMERA_MAKER.PENTAX]: 100,
+  [CAMERA_MAKER.SAMSUNG]: 130,
+  [CAMERA_MAKER.SIGMA]: 91,
+  [CAMERA_MAKER.SONY]: 113,
 };
 
 const SHAKE_REDUCTION_NAMES = {
@@ -63,7 +54,9 @@ const BadgesMakerLogo = (props: Props) => {
   return (
     <div className={styles.badges}>
       <div className={styles.leftWing}>
-        <div className={cx(styles.makerLogo, styles[maker.toLowerCase()])}>{LOGOS[maker]}</div>
+        <div className={cx(styles.makerLogo, styles[maker.toLowerCase()])}>
+          <Image src={`/images/cameras/makers/logo-${maker}.png`} alt='' width={LOGO_WIDTHS[maker]} height={20} />
+        </div>
         {grade && (
           <div className={cx(styles.grade, styles[grade.toLowerCase()])}>
             {mount}
