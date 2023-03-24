@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import type { Metadata } from 'next';
 
@@ -52,7 +52,9 @@ const RootLayout = ({ children }: Props) => {
   return (
     <html lang='en'>
       <body>
-        <Additional />
+        <Suspense fallback={<div>placeholder</div>}>
+          <Additional />
+        </Suspense>
         <Providers>
           <Header />
           {children}

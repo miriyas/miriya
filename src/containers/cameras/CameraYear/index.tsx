@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useMemo } from 'react';
+import { MutableRefObject, Suspense, useEffect, useMemo } from 'react';
 import cx from 'clsx';
 
 import type { IsotopeOptions } from 'isotope-layout';
@@ -47,7 +47,11 @@ const CameraYear = (props: Props) => {
 
       <ul className={cx(styles.cameras, `grid-${year}`)}>
         {cameras.map((camera) => {
-          return <Camera key={`${camera.maker}-${camera.year}-${camera.name}`} camera={camera} />;
+          return (
+            <Suspense key={`${camera.maker}-${camera.year}-${camera.name}`} fallback={null}>
+              <Camera camera={camera} />
+            </Suspense>
+          );
         })}
       </ul>
     </li>

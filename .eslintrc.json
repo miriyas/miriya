@@ -120,6 +120,7 @@
     ],
     "no-param-reassign": ["error", { "props": false }],
     "no-unused-expressions": ["warn"],
+    "no-unused-vars": ["warn"],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/camelcase": "off",

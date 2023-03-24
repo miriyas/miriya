@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { groupBy } from 'lodash';
 
 import { IsotopesType } from '@/types/index.d';
@@ -16,7 +16,9 @@ const CamerasContent = () => {
 
   return (
     <main className={styles.cameras}>
-      <FilterBar isotopes={isotopes} />
+      <Suspense fallback={<div>placeholder</div>}>
+        <FilterBar isotopes={isotopes} />
+      </Suspense>
       <ul className={styles.cameraYears}>
         {Object.keys(years).map((year) => {
           return <CameraYear key={year} cameras={years[year]} year={Number(year)} isotopes={isotopes} />;

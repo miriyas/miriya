@@ -1,3 +1,5 @@
+'use client';
+
 import { MouseEventHandler, MutableRefObject, useCallback, useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { usePrevious } from 'react-use';
