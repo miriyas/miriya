@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description,
   keywords: ['idols', 'korea'],
   openGraph: {
+    description,
     type: 'website',
     title,
     url,
