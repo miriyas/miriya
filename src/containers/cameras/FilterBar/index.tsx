@@ -75,7 +75,7 @@ const FilterBar = (props: Props) => {
         {CAMERA_MAKERS.map((maker) => {
           return (
             <li key={maker} className={cx({ [styles.current]: maker === (currentMaker || query.get('maker')) })}>
-              <Link href={{ pathname, query: { maker } }} onClick={onClickMaker} title={maker}>
+              <Link href={{ pathname, query: { maker } }} onClick={onClickMaker} title={maker} rel='nofollow'>
                 {startCase(maker)}
               </Link>
             </li>

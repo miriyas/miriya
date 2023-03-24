@@ -18,7 +18,7 @@ const DataRefs = (props: Props) => {
         {refs.map((ref, i) => {
           const key = `${nameLine}-${i}`;
           return (
-            <a key={key} href={ref} target='_blank'>
+            <a key={key} href={ref} target='_blank' rel='nofollow'>
               Link {i + 1}
             </a>
           );

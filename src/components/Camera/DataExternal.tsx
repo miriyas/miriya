@@ -63,7 +63,12 @@ const DataExternal = (props: Props) => {
           })}
         </tbody>
       </table>
-      <a href={`https://www.digicamdb.com/specs/${externalId}`} target='_blank' className={styles.outerLink}>
+      <a
+        href={`https://www.digicamdb.com/specs/${externalId}`}
+        target='_blank'
+        className={styles.outerLink}
+        rel='nofollow'
+      >
         See full DB © digicamdb.com
       </a>
     </div>

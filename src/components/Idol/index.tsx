@@ -7,9 +7,9 @@ import { useGA } from '@/hooks/useGA';
 import { IdolType } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 import { IDOL } from '@/constants/ga';
-import Youtube from '@/containers/idols/Idol/Youtube';
 
-import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '../../../../public/images/svgs';
+import Youtube from '@/components/Idol/Youtube';
+import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '../../../public/images/svgs';
 import styles from './Idol.module.scss';
 
 const filterIdolName = (name: string) => {
@@ -73,17 +73,17 @@ const Idol = (props: Props) => {
             {desc.title && <p className={styles.desc}>{desc.title}</p>}
             <div className={styles.outerLinks}>
               {desc.namu && (
-                <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키'>
+                <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키' rel='nofollow'>
                   <IconDescNamu />
                 </a>
               )}
               {desc.melon && (
-                <a href={desc.melon} target='_blank' onClick={onClickDesc} title='멜론'>
+                <a href={desc.melon} target='_blank' onClick={onClickDesc} title='멜론' rel='nofollow'>
                   <IconDescMelon />
                 </a>
               )}
               {desc.naver && (
-                <a href={desc.naver} target='_blank' onClick={onClickDesc} title='바이브'>
+                <a href={desc.naver} target='_blank' onClick={onClickDesc} title='바이브' rel='nofollow'>
                   <IconDescVibe />
                 </a>
               )}

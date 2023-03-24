@@ -48,7 +48,13 @@ const Header = () => {
           })}
         </ul>
         <div className={styles.outerLinks}>
-          <a onClick={onClickGithub} href='https://github.com/miriyas/miriya' target='_blank' title='Github'>
+          <a
+            onClick={onClickGithub}
+            href='https://github.com/miriyas/miriya'
+            target='_blank'
+            title='Github'
+            rel='nofollow'
+          >
             <IconGithub />
             <span>Github</span>
           </a>

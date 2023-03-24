@@ -2,18 +2,13 @@
 
 import { MouseEventHandler } from 'react';
 
-import { CameraType } from '@/types/cameras.d';
-import { cameraId } from '@/containers/cameras/Camera/utils';
-
-import styles from './Camera.module.scss';
-
 interface Props {
-  camera: CameraType;
+  hash: string;
+  name: string;
 }
 
-const DataSiblings = (props: Props) => {
-  const { camera } = props;
-  const { maker, predecessor, successor } = camera;
+const SiblingLink = (props: Props) => {
+  const { hash, name } = props;
 
   const onClickSiblings: MouseEventHandler<HTMLAnchorElement> = (e) => {
     // NOTE: 형제 기종을 클릭하면 해당 위치로 스무스하게 스크롤해준다.
@@ -30,42 +25,11 @@ const DataSiblings = (props: Props) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
-  const beforeData =
-    predecessor.length > 0
-      ? predecessor.map((name) => {
-          const hash = cameraId(maker, name);
-          return (
-            <a key={hash} href={`#${hash}`} className={styles.sibling} data-target={hash} onClick={onClickSiblings}>
-              {name}
-            </a>
-          );
-        })
-      : '-';
-
-  const afterData =
-    successor.length > 0
-      ? successor.map((name) => {
-          const hash = cameraId(maker, name);
-          return (
-            <a key={hash} href={`#${hash}`} className={styles.sibling} data-target={hash} onClick={onClickSiblings}>
-              {name}
-            </a>
-          );
-        })
-      : '-';
-
   return (
-    <>
-      <tr>
-        <th>Predecessor</th>
-        <td>{beforeData}</td>
-      </tr>
-      <tr>
-        <th>Successor</th>
-        <td>{afterData}</td>
-      </tr>
-    </>
+    <a href={`#${hash}`} data-target={hash} onClick={onClickSiblings} rel='nofollow'>
+      {name}
+    </a>
   );
 };
 
-export default DataSiblings;
+export default SiblingLink;

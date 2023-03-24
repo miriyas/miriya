@@ -20,6 +20,7 @@ const Header = () => {
         <a
           href='https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC'
           target='_blank'
+          rel='nofollow'
         >
           한국 아이돌/역사
         </a>
@@ -31,7 +32,7 @@ const Header = () => {
         <br />
         {IDOLS.length}명 편집하느라 지친 터라 의도하지 않은 얼굴 교체나 틀린 내용, 추가할 부분이 있을 수 있습니다.
         <br />
-        <a href='mailto:miriya.lee@gmail.com' target='_blank'>
+        <a href='mailto:miriya.lee@gmail.com' target='_blank' rel='nofollow'>
           miriya.lee@gmail.com
         </a>
         으로 신고해주세요. 개발자라면, 상단 깃허브 링크로 PR을 올려주세요.

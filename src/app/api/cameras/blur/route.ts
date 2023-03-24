@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   const id = searchParams.get('id');
   const url = `${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker}/${id}.jpg`;
 
-  console.log('get!~!!');
+  // console.log('get!~!!');
 
   const { base64 } = await getPlaiceholder(url, { size: 14 });
   return NextResponse.json(base64);
