@@ -25,10 +25,11 @@ body {
 }
 
 body {
-  // @miriya (2021-12-28) 사파리에서 터치를 핀치 시작으로 인식해서 반응이 늦는 문제를 manipulation으로 해결
-  // @miriya (2022-03-03) pan-y로 핀치 줌이나 가로 스크롤을 막음
   overflow-y: auto;
   touch-action: pan-y;
+  // @miriya (2021-12-28) 사파리에서 터치를 핀치 시작으로 인식해서 반응이 늦는 문제를 manipulation으로 해결
+  // @miriya (2022-03-03) pan-y로 핀치 줌이나 가로 스크롤을 막음
+  background-color: #f6f6f6;
   -webkit-overflow-scrolling: touch;
 }
 
