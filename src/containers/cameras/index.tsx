@@ -1,11 +1,11 @@
 'use server';
 
 import CamerasContent from './Content';
-import ClientFunctions from './ClientFunctions';
+// import ClientFunctions from './ClientFunctions';
 
 const Cameras = () => (
   <>
-    <ClientFunctions />
+    {/* <ClientFunctions /> */}
     <CamerasContent />
   </>
 );
