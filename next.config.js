@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['https://www.digicamdb.com', 'miriya.sgp1.cdn.digitaloceanspaces.com', 'localhost', '*'],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 86400,
   },
   env: {
     NEXT_PUBLIC_GA_ID: 'G-BCXXRGTY78',
@@ -11,20 +11,6 @@ const nextConfig = {
   },
   experimental: {
     appDir: true,
-  },
-  async headers() {
-    return [
-      {
-        source: '/:all*(svg|jpg|png)',
-        locale: false,
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000',
-          },
-        ],
-      },
-    ];
   },
   webpack(config) {
     config.module.rules.push({
