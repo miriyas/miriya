@@ -12,15 +12,19 @@
   "dependencies": {
     "@tanstack/react-query": "^4.28.0",
     "cheerio": "^1.0.0-rc.12",
+    "client-only": "^0.0.1",
     "clsx": "^1.2.1",
     "humps": "^2.0.1",
     "isotope-layout": "^3.0.6",
     "jotai": "^2.0.3",
     "lodash": "^4.17.21",
     "next": "^13.2.5-canary.14",
+    "plaiceholder": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-use": "^17.4.0"
+    "react-use": "^17.4.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.31.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",

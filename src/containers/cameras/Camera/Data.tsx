@@ -1,9 +1,7 @@
-import Image from 'next/image';
-
 import { CameraType } from '@/types/cameras.d';
-import { cameraId } from './utils';
 
 import Badges from './Badges';
+import DataImage from './DataImage';
 import DataRefs from './DataRefs';
 import DataSensor from './DataSensor';
 import DataViewFinder from './DataViewFinder';
@@ -18,9 +16,7 @@ interface Props {
 
 const Data = (props: Props) => {
   const { camera } = props;
-  const { desc, maker, name, maker2, name2, otherNames, metering } = camera;
-
-  const id = cameraId(maker, name);
+  const { desc, name, maker2, name2, otherNames, metering } = camera;
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
   const nameOtherData = otherNames?.join(' / ');
@@ -28,15 +24,10 @@ const Data = (props: Props) => {
 
   const meteringData = metering ? [metering.engine, metering.desc].filter((item) => !!item).join('/') : '?';
 
-  const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}/${id}.jpg`;
-
   return (
     <div className={styles.dataInternal}>
       <Badges camera={camera} />
-      <div className={styles.cameraImg}>
-        <Image src={imageUrl} alt={name} width={140} height={140} />
-        <div className={styles.shadow} />
-      </div>
+      <DataImage camera={camera} />
       <div className={styles.top}>
         <p className={styles.name}>{nameLine}</p>
         {desc && <p className={styles.desc}>{desc}</p>}

@@ -96,6 +96,7 @@
 
   .cameraImg {
     position: relative;
+    flex-shrink: 0;
     width: 140px;
     height: 140px;
     margin: 24px 0 8px;

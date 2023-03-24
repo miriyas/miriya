@@ -1,7 +1,13 @@
 'use server';
 
 import CamerasContent from './Content';
+import ClientFunctions from './ClientFunctions';
 
-const Cameras = () => <CamerasContent />;
+const Cameras = () => (
+  <>
+    <ClientFunctions />
+    <CamerasContent />
+  </>
+);
 
 export default Cameras;
