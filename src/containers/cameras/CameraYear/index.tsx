@@ -1,5 +1,5 @@
 import { MutableRefObject, useEffect, useMemo } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import type { IsotopeOptions } from 'isotope-layout';
 import { IsotopesType } from '@/types/index.d';

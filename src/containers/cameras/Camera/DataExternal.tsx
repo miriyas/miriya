@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import cx from 'clsx';
 import { useQuery } from '@tanstack/react-query';
 
 import { CameraType } from '@/types/cameras.d';

@@ -2,7 +2,7 @@ import { MouseEventHandler, MutableRefObject, useCallback, useEffect, useState }
 import { usePathname, useSearchParams } from 'next/navigation';
 import { usePrevious } from 'react-use';
 import Link from 'next/link';
-import cx from 'classnames';
+import cx from 'clsx';
 import { startCase } from 'lodash';
 
 import { YEAR_INFO } from '@/constants/cameras';

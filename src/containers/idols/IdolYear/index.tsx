@@ -1,5 +1,5 @@
 import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import type { IsotopeOptions } from 'isotope-layout';
 import { YEARS } from '@/constants/idols';

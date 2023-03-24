@@ -1,5 +1,5 @@
 import { MouseEventHandler, MutableRefObject, useState } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import { YEAR_INFO } from '@/constants/idols';
 import { IsotopesType } from '@/types/index.d';

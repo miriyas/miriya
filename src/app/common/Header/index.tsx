@@ -3,7 +3,7 @@
 import React, { MouseEventHandler } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import { useGA } from '@/hooks/useGA';
 import { COMMON } from '@/constants/ga';

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import cx from 'clsx';
 import { useAtomValue } from 'jotai';
 import { useState } from 'react';
 

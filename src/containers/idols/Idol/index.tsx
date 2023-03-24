@@ -1,7 +1,7 @@
 import { MouseEventHandler, useMemo, useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 import Image from 'next/image';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import { useGA } from '@/hooks/useGA';
 import { IdolType } from '@/types/idols.d';
