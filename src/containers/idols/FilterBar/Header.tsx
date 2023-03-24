@@ -1,21 +1,8 @@
-import { MouseEventHandler } from 'react';
-
-import { useGA } from '@/hooks/useGA';
 import { IDOLS, YEAR_INFO } from '@/constants/idols';
-import { COMMON } from '@/constants/ga';
 
-import { IconGithub } from '../../../../public/images/svgs';
 import styles from './FilterBar.module.scss';
 
 const Header = () => {
-  const { gaEvent } = useGA();
-
-  const onClickGithub: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    e.preventDefault();
-    window.open(e.currentTarget.href);
-    gaEvent(COMMON.COMMON_GITHUB_CLICK, {});
-  };
-
   return (
     <div className={styles.header}>
       <div className={styles.upper}>
@@ -25,11 +12,6 @@ const Header = () => {
             {YEAR_INFO.start}~{YEAR_INFO.end}
           </span>
         </h1>
-        <div className={styles.outerLinks}>
-          <a onClick={onClickGithub} href='https://github.com/miriyas/miriya' target='_blank' title='Github'>
-            <IconGithub />
-          </a>
-        </div>
       </div>
       <div className={styles.notice}>
         데뷔일 기준, 96년부터 현재까지 활동한 한국 아이돌을 정리중입니다.
