@@ -1,9 +1,8 @@
-@use 'src/styles/constants' as c;
 @use 'src/styles/mixins' as m;
 
 .appFooter {
-  background-color: c.$C_WHITE;
-  border-top: 1px solid c.$C_GRAY_E;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-e);
 
   .wrapper {
     @include m.flexbox(center, center);
@@ -11,7 +10,7 @@
     height: 32px;
     padding: 0 14px;
     font-size: 12px;
-    color: c.$C_GRAY_4;
+    color: var(--color-gray-4);
     text-align: center;
 
     a {

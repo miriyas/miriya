@@ -1,8 +1,9 @@
 // Global styles
 @import 'reset.module';
 @import 'base.module';
+@import 'variable';
 
 // Modules
 
 // Libraries
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+@import '//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css';

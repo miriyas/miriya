@@ -1,0 +1,29 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-1: #111111;
+  --color-gray-2: #232323;
+  --color-gray-4: #4c4c4c;
+  --color-gray-7: #767676; /* Minimum WCAG AA Pass */
+  --color-gray-8: #8c8c8c; /* Fail to WCAG AA */
+  --color-gray-d: #dddddd;
+  --color-gray-e: #eeeeee;
+
+  --color-bg: #f6f6f6;
+  --color-blue: #0071f0; /* Minimum WCAG AA Pass */
+  --color-red: #ff3b30;
+  --color-orange: #ff9500;
+  --color-yellow: #ffcc00;
+  --color-green: #26873e; /* Minimum WCAG AA Pass */
+  --color-teal: #5ac8fa;
+  --color-indigo: #5856d6;
+  --color-purple: #af52de;
+  --color-pink: #ff2d55;
+
+  /* Sizes */
+  --w-idol-m: 132px;
+  --w-idol: 140px;
+  --h-idol: 220px;
+  --gutter-idol: 28px;
+  --h-camera-data-source-btn: 20px;
+}

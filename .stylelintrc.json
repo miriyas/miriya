@@ -40,7 +40,7 @@
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": ["global"]
+        "ignorePseudoClasses": ["global", "export"]
       }
     ],
     "string-quotes": "single"

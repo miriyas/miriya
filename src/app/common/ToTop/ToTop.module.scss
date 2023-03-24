@@ -1,22 +1,21 @@
-@use 'src/styles/constants' as c;
 @use 'src/styles/mixins' as m;
 
 .toTop {
   @include m.fixed(auto 14px 14px auto);
   width: 52px;
   height: 52px;
-  background-color: c.$C_WHITE;
+  background-color: var(--color-white);
   border-radius: 4px;
-  box-shadow: 0 2px 4px 0 rgba(c.$C_GRAY_4, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(var(--color-gray-4), 0.1);
 
   &::before,
   &::after {
     position: absolute;
     top: 14px;
-    content: '';
     width: 14px;
     height: 3px;
-    background-color: c.$C_GRAY_8;
+    content: '';
+    background-color: var(--color-gray-8);
   }
 
   &::before {

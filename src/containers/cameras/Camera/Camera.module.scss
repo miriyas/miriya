@@ -1,4 +1,3 @@
-@use 'src/styles/constants' as c;
 @use 'src/styles/mixins' as m;
 
 .camera {
@@ -13,7 +12,7 @@
   }
 
   &.selected {
-    border: 1px solid c.$C_GRAY_D;
+    border: 1px solid var(--color-gray-d);
   }
 
   &.showExternalData {
@@ -32,9 +31,9 @@
     @include m.flexbox(start, center);
     flex-direction: column;
     height: 420px;
-    padding: 8px 8px c.$H_CAMERA_DATA_SOURCE_BTN;
+    padding: 8px 8px var(--h-camera-data-source-bt);
     margin-bottom: 24px;
-    background-color: c.$C_WHITE;
+    background-color: var(--color-white);
     transition: 300ms;
     backface-visibility: hidden;
   }
@@ -61,7 +60,7 @@
       display: block;
       margin: 8px 0;
       font-size: 10px;
-      color: c.$C_BLUE;
+      color: var(--color-blue);
       text-align: center;
     }
   }
@@ -69,10 +68,10 @@
   .sourceBtn {
     @include m.absolute(auto 0 0 0);
     @include m.flexbox(center, center);
-    height: c.$H_CAMERA_DATA_SOURCE_BTN;
+    height: var(--h-camera-data-source-bt);
     font-size: 10px;
-    background-color: c.$C_WHITE;
-    border-top: 1px solid c.$C_GRAY_E;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-gray-e);
 
     &.external {
       span {
@@ -115,7 +114,7 @@
         height: 140px;
         padding: 50% 0;
         content: '';
-        background-color: white;
+        background-color: var(--color-white);
         background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1255/image-not-found.svg');
         background-repeat: no-repeat;
         background-position: center;
@@ -129,7 +128,7 @@
     z-index: 1;
     width: 200px;
     height: 100px;
-    background-image: radial-gradient(circle, c.$C_GRAY_8, c.$C_WHITE 50px);
+    background-image: radial-gradient(circle, var(--color-gray-8), var(--color-white) 50px);
     background-repeat: no-repeat;
     opacity: 0.5;
     transform: scaleY(20%) translateX(50%);
@@ -141,7 +140,7 @@
     padding-bottom: 8px;
     margin-bottom: 4px;
     text-align: center;
-    border-bottom: 1px solid c.$C_GRAY_D;
+    border-bottom: 1px solid var(--color-gray-d);
 
     .name {
       font-size: 11px;
@@ -162,7 +161,7 @@
 
     th {
       width: 70px;
-      color: c.$C_GRAY_7;
+      color: var(--color-gray-7);
       text-align: center;
     }
 
@@ -170,7 +169,7 @@
       @include m.flexbox(start, center);
 
       a {
-        color: c.$C_BLUE;
+        color: var(--color-blue);
       }
     }
 
@@ -182,7 +181,7 @@
     }
 
     a {
-      color: c.$C_BLUE;
+      color: var(--color-blue);
 
       + a {
         margin-left: 8px;
@@ -195,66 +194,66 @@
 
     .dataViewFinder {
       .pentaPrism {
-        background-color: c.$C_GREEN;
+        background-color: var(--color-green);
       }
 
       .pentaMirror {
-        background-color: c.$C_YELLOW;
+        background-color: var(--color-yellow);
       }
     }
   }
 }
 
 .gray {
-  color: c.$C_GRAY_4;
+  color: var(--color-gray-4);
 }
 
 .grayBg {
-  color: c.$C_WHITE;
-  background-color: c.$C_GRAY_4;
+  color: var(--color-white);
+  background-color: var(--color-gray-4);
 }
 
 .red {
-  color: c.$C_RED;
+  color: var(--color-red);
 }
 
 .redBg {
-  color: c.$C_WHITE;
-  background-color: c.$C_RED;
+  color: var(--color-white);
+  background-color: var(--color-red);
 }
 
 .orange {
-  color: c.$C_ORANGE;
+  color: var(--color-orange);
 }
 
 .orangeBg {
-  color: c.$C_WHITE;
-  background-color: c.$C_ORANGE;
+  color: var(--color-white);
+  background-color: var(--color-orange);
 }
 
 .yellow {
-  color: c.$C_YELLOW;
+  color: var(--color-yellow);
 }
 
 .yellowBg {
-  color: c.$C_BLACK;
-  background-color: c.$C_YELLOW;
+  color: var(--color-black);
+  background-color: var(--color-yellow);
 }
 
 .green {
-  color: c.$C_GREEN;
+  color: var(--color-green);
 }
 
 .greenBg {
-  color: c.$C_WHITE;
-  background-color: c.$C_GREEN;
+  color: var(--color-white);
+  background-color: var(--color-green);
 }
 
 .blue {
-  color: c.$C_BLUE;
+  color: var(--color-blue);
 }
 
 .blueBg {
-  color: c.$C_WHITE;
-  background-color: c.$C_BLUE;
+  color: var(--color-white);
+  background-color: var(--color-blue);
 }

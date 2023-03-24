@@ -1,24 +1,23 @@
-@use 'src/styles/constants' as c;
 @use 'src/styles/mixins' as m;
 
 .idol {
-  width: c.$W_IDOL_M;
-  height: c.$H_IDOL;
+  width: var(--w-idol-m);
+  height: var(--h-idol);
   overflow: hidden;
-  background-color: c.$C_WHITE;
+  background-color: var(--color-white);
   border-radius: 8px;
-  box-shadow: 0 2px 4px 0 rgba(c.$C_GRAY_4, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(var(--color-gray-4), 0.1);
 
   @include m.after(M) {
-    width: c.$W_IDOL;
+    width: var(--w-idol);
   }
 
   &.opened {
-    width: c.$W_IDOL_M * 2 + c.$GUTTER_IDOL;
-    height: c.$H_IDOL * 2 + c.$GUTTER_IDOL;
+    width: calc(var(--w-idol-m) * 2 + var(--gutter-idol));
+    height: calc(var(--h-idol) * 2 + var(--gutter-idol));
 
     @include m.after(M) {
-      width: c.$W_IDOL * 2 + c.$GUTTER_IDOL;
+      width: calc(var(--w-idol) * 2 + var(--gutter-idol));
     }
 
     .lower {
@@ -42,7 +41,7 @@
       @include m.absolute(8px 8px auto auto);
       width: 14px;
       height: 14px;
-      fill: c.$C_GRAY_8;
+      fill: var(--color-gray-8);
     }
 
     .name {
@@ -83,7 +82,7 @@
           height: 32px;
           overflow: hidden;
           line-height: 20px;
-          color: c.$C_BLUE;
+          color: var(--color-blue);
           border-radius: 2px;
 
           svg {

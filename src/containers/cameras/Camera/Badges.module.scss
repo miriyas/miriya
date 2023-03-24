@@ -1,4 +1,3 @@
-@use 'src/styles/constants' as c;
 @use 'src/styles/mixins' as m;
 
 .badges {
@@ -28,25 +27,25 @@
       font-weight: 600;
 
       &.flagship {
-        color: c.$C_RED;
+        color: var(--color-red);
       }
 
       &.professional {
-        color: c.$C_PURPLE;
+        color: var(--color-purple);
       }
 
       &.advanced {
-        color: c.$C_ORANGE;
+        color: var(--color-orange);
       }
 
       &.midrange,
       &.entrymid {
-        color: c.$C_GREEN;
+        color: var(--color-green);
       }
 
       &.entry,
       &.value {
-        color: c.$C_GREEN;
+        color: var(--color-green);
       }
     }
   }
@@ -67,34 +66,34 @@
       @include m.flexbox(center, center);
 
       &.minolta {
-        color: c.$C_YELLOW;
-        background-color: c.$C_GRAY_2;
+        color: var(--color-yellow);
+        background-color: var(--color-gray-2);
       }
 
       &.nikon {
-        color: c.$C_RED;
-        background-color: c.$C_GRAY_2;
+        color: var(--color-red);
+        background-color: var(--color-gray-2);
       }
 
       &.sony {
-        color: c.$C_WHITE;
-        background-color: c.$C_GRAY_2;
+        color: var(--color-white);
+        background-color: var(--color-gray-2);
       }
 
       &.pentax {
-        color: c.$C_WHITE;
-        background-color: c.$C_RED;
+        color: var(--color-white);
+        background-color: var(--color-red);
       }
     }
 
     .astro {
-      color: c.$C_WHITE;
-      background-color: c.$C_GREEN;
+      color: var(--color-white);
+      background-color: var(--color-green);
     }
 
     .ir {
-      color: c.$C_WHITE;
-      background-color: c.$C_RED;
+      color: var(--color-white);
+      background-color: var(--color-red);
     }
   }
 }
