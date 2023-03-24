@@ -38,10 +38,12 @@ const DataSensor = (props: Props) => {
           {sensorData}
         </td>
       </tr>
-      <tr>
-        <th>Engine</th>
-        <td>{sensor.engine ?? '?'}</td>
-      </tr>
+      {sensor.engine && (
+        <tr>
+          <th>Engine</th>
+          <td>{sensor.engine}</td>
+        </tr>
+      )}
       <tr>
         <th>ISO</th>
         <td>{isoData}</td>

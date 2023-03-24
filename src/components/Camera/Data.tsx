@@ -5,7 +5,7 @@ import DataImage from './DataImage';
 import DataRefs from './DataRefs';
 import DataSensor from './DataSensor';
 import DataViewFinder from './DataViewFinder';
-// import DataSiblings from './DataSiblings';
+import DataSiblings from './DataSiblings';
 import DataShutter from './DataShutter';
 import DataDisplay from './DataDisplay';
 import styles from './Camera.module.scss';
@@ -43,7 +43,7 @@ const Data = (props: Props) => {
           <DataViewFinder camera={camera} />
           <DataDisplay camera={camera} />
           <DataRefs nameLine={nameLine} camera={camera} />
-          {/* <DataSiblings camera={camera} /> */}
+          <DataSiblings camera={camera} />
         </tbody>
       </table>
     </div>

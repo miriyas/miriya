@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react';
 
 import { CameraType } from '@/types/cameras.d';
 import { cameraId } from './utils';
-import { useIsClient } from '@/hooks/useIsClient';
 
 import Data from './Data';
 import DataExternal from './DataExternal';
 import styles from './Camera.module.scss';
+
+const getIsSelected = (id: string) => {
+  return typeof window !== 'undefined' ? window.location.hash.replace('#', '') === id : false;
+};
 
 interface Props {
   camera: CameraType;
@@ -21,10 +24,7 @@ const Camera = (props: Props) => {
 
   const id = cameraId(maker, name);
 
-  const isClient = useIsClient();
-  const isSelected = isClient ? window.location.hash.replace('#', '') === id : false;
-
-  const [selected, setSelected] = useState(isSelected);
+  const [selected, setSelected] = useState(getIsSelected(id));
   const [showExternalData, setShowExternalData] = useState(false);
 
   const onClickExternal = () => {
@@ -35,14 +35,14 @@ const Camera = (props: Props) => {
     // DataSiblings에서 형제 기종을 클릭했을때 해시 변경되는 이벤트를 탐지하여 하이라이트 해준다.
 
     const onHashChanged = () => {
-      setSelected(isSelected);
+      setSelected(getIsSelected(id));
     };
 
     window.addEventListener('hashchange', onHashChanged);
     return () => {
       window.removeEventListener('hashchange', onHashChanged);
     };
-  }, [id, isSelected]);
+  }, [id]);
 
   return (
     <li

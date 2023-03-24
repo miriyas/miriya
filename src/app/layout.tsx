@@ -52,7 +52,7 @@ const RootLayout = ({ children }: Props) => {
   return (
     <html lang='en'>
       <body>
-        <Suspense fallback={<div>placeholder</div>}>
+        <Suspense fallback={null}>
           <Additional />
         </Suspense>
         <Providers>

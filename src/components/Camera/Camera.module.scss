@@ -8,12 +8,12 @@
   background-color: var(--color-white);
   border-radius: 8px;
 
-  &.placeholder {
-    opacity: 0.8;
-  }
-
   @include m.after(521px) {
     width: 240px;
+  }
+
+  &.placeholder {
+    opacity: 0.8;
   }
 
   &.selected {
@@ -38,6 +38,7 @@
     height: 420px;
     padding: 8px 8px var(--h-camera-data-source-btn);
     margin-bottom: 24px;
+    overflow: auto;
     transition: 300ms;
     backface-visibility: hidden;
   }
@@ -45,7 +46,6 @@
   .dataExternal {
     height: 100%;
     margin-bottom: 12px;
-    overflow: auto;
     transform: rotateY(180deg);
 
     &.loading,
