@@ -1,6 +1,6 @@
 'use client';
 
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { MouseEventHandler, useEffect, useState, useTransition } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import cx from 'clsx';
@@ -25,6 +25,7 @@ const FilterBar = ({ years }: Props) => {
   const { gaEvent } = useGA();
   const pathname = usePathname();
   const query = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
+  const [, startTransition] = useTransition();
 
   const [selectedMaker, setSelectedMaker] = useAtom(selectedMakerAtom);
   const [currentYear, setCurrentYear] = useState<number | null>(null);
@@ -42,8 +43,10 @@ const FilterBar = ({ years }: Props) => {
 
   const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
     const year = e.currentTarget.title;
-    document.getElementById(`camera-year-${year}`)?.scrollIntoView({ behavior: 'smooth' });
-    setCurrentYear(Number(year));
+    startTransition(() => {
+      document.getElementById(`camera-year-${year}`)?.scrollIntoView({ behavior: 'smooth' });
+      setCurrentYear(Number(year));
+    });
     gaEvent(CAMERA.CAMERA_YEAR_CLICK, { year });
   };
 

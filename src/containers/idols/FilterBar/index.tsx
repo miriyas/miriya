@@ -1,4 +1,4 @@
-import { MouseEventHandler, MutableRefObject, useState } from 'react';
+import { MouseEventHandler, MutableRefObject, useState, useTransition } from 'react';
 import cx from 'clsx';
 
 import { YEAR_INFO } from '@/constants/idols';
@@ -6,7 +6,6 @@ import { IsotopesType } from '@/types/index.d';
 import { CATEGORIES, Category } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
-import { smoothScrollToId } from '@/utils/visual';
 import { useGA } from '@/hooks/useGA';
 import { IDOL } from '@/constants/ga';
 
@@ -21,12 +20,15 @@ const FilterBar = (props: Props) => {
   const { isotopes } = props;
 
   const { gaEvent } = useGA();
+  const [, startTransition] = useTransition();
   const [currentCategory, setCurrentCategory] = useState<Category>('total');
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
   const onClickCategory: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newCategory = e.currentTarget.title;
-    setCurrentCategory(newCategory as Category);
+    startTransition(() => {
+      setCurrentCategory(newCategory as Category);
+    });
     Object.keys(isotopes.current).forEach((key) => {
       isotopes.current[Number(key)].arrange({
         filter: (elem) => (newCategory === 'total' ? true : elem.classList.value.includes(`category-${newCategory}`)),
@@ -37,8 +39,10 @@ const FilterBar = (props: Props) => {
 
   const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newYear = e.currentTarget.title;
-    setCurrentYear(Number(newYear));
-    smoothScrollToId(`idol-year-${newYear}`);
+    startTransition(() => {
+      setCurrentYear(Number(newYear));
+    });
+    document.getElementById(`idol-year-${newYear}`)?.scrollIntoView({ behavior: 'smooth' });
     gaEvent(IDOL.IDOL_YEAR_CLICK, { year: newYear });
   };
 
