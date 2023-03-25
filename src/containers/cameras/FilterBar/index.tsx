@@ -1,8 +1,6 @@
 'use client';
 
-import { MouseEventHandler, useEffect, useState, useTransition } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
+import { MouseEventHandler, useState, useTransition } from 'react';
 import cx from 'clsx';
 import { Dictionary, startCase } from 'lodash';
 import { useAtom } from 'jotai';
@@ -23,21 +21,15 @@ interface Props {
 
 const FilterBar = ({ years }: Props) => {
   const { gaEvent } = useGA();
-  const pathname = usePathname();
-  const query = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
   const [, startTransition] = useTransition();
 
   const [selectedMaker, setSelectedMaker] = useAtom(selectedMakerAtom);
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
-  useEffect(() => {
-    const freshMaker = query.get('maker');
-    if (freshMaker && freshMaker !== selectedMaker) {
-      setSelectedMaker(freshMaker);
-    }
-  }, [selectedMaker, query, setSelectedMaker]);
-
-  const onClickMaker: MouseEventHandler<HTMLAnchorElement> = (e) => {
+  const onClickMaker: MouseEventHandler<HTMLButtonElement> = (e) => {
+    setSelectedMaker(e.currentTarget.title);
+    // search params가 변경되었을 때 리랜더 되어 언마운트 애니메이션이 불가능해지므로, next/navigation 안쓰고 강제로 soft navigation 사용
+    window.history.pushState(null, '', `?maker=${e.currentTarget.title}`);
     gaEvent(CAMERA.CAMERA_MAKER_CLICK, { maker: e.currentTarget.title });
   };
 
@@ -57,9 +49,9 @@ const FilterBar = ({ years }: Props) => {
         {CAMERA_MAKERS.map((maker) => {
           return (
             <li key={maker} className={cx({ [styles.current]: maker === selectedMaker })}>
-              <Link href={{ pathname, query: { maker } }} onClick={onClickMaker} title={maker} rel='nofollow'>
+              <button type='button' onClick={onClickMaker} title={maker}>
                 {startCase(maker)}
-              </Link>
+              </button>
             </li>
           );
         })}

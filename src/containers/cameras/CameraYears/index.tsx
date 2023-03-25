@@ -16,7 +16,7 @@ const CameraYears = ({ years }: Props) => {
   useEffect(() => {
     // 초기 로딩시 해시 아이디가 있으면 해당 기종 위치로 이동
     const currentHash = window.location.hash.replace('#', '');
-    document.getElementById(currentHash)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(currentHash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, []);
 
   return (

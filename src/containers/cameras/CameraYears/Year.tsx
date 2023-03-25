@@ -22,7 +22,7 @@ const CameraYear = (props: Props) => {
 
   const filteredCameras = cameras.filter((c) => (selectedMaker === 'ALL' ? c : c.maker === selectedMaker));
 
-  if (filteredCameras.length === 0) return null;
+  // if (filteredCameras.length === 0) return null;
 
   return (
     <li id={`camera-year-${year}`} className={styles.cameraYear}>
@@ -31,7 +31,7 @@ const CameraYear = (props: Props) => {
       </div>
 
       <ul className={cx(styles.cameras, `grid-${year}`)}>
-        {filteredCameras.map((camera) => {
+        {cameras.map((camera) => {
           return (
             <Suspense key={`${camera.maker}-${camera.year}-${camera.name}`} fallback={null}>
               <Camera camera={camera} />

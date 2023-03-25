@@ -1,3 +1,6 @@
 import { atom } from 'jotai';
 
-export const selectedMakerAtom = atom<string>('ALL');
+const params = new URLSearchParams(window.location.search);
+const initialMaker = params.get('maker');
+
+export const selectedMakerAtom = atom<string>(initialMaker ?? 'ALL');
