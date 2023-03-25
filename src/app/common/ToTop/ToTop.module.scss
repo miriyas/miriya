@@ -1,12 +1,12 @@
 @use 'src/styles/mixins' as m;
 
 .toTop {
+  @include m.commonBoxShadow;
   @include m.fixed(auto 14px 14px auto);
   width: 52px;
   height: 52px;
   background-color: var(--color-white);
   border-radius: 4px;
-  box-shadow: 0 2px 4px 0 rgba(var(--color-gray-4), 0.1);
 
   &::before,
   &::after {

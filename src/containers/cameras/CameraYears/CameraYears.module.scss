@@ -18,6 +18,12 @@
       margin-bottom: 24px;
       font-size: 18px;
       font-weight: 600;
+
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-gray-7);
+      }
     }
 
     .cameras {

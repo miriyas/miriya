@@ -1,70 +1,48 @@
 'use client';
 
-import { MouseEventHandler, useCallback, useEffect, useState } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { usePrevious } from 'react-use';
 import Link from 'next/link';
 import cx from 'clsx';
-import { startCase } from 'lodash';
-import { useAtomValue } from 'jotai';
+import { Dictionary, startCase } from 'lodash';
+import { useAtom } from 'jotai';
 
-import { YEAR_INFO } from '@/constants/cameras';
-import { CameraMakerTypes, CAMERA_MAKERS } from '@/types/cameras.d';
-import { getNumberArr } from '@/utils';
-import { smoothScrollToId } from '@/utils/visual';
 import { useGA } from '@/hooks/useGA';
 import { CAMERA } from '@/constants/ga';
-import { isotopesAtom } from '@/containers/cameras/states';
+import { YEAR_INFO } from '@/constants/cameras';
+import { CameraType, CAMERA_MAKERS } from '@/types/cameras.d';
+import { getNumberArr } from '@/utils';
+import { selectedMakerAtom } from '../states';
 
 import Header from './Header';
 import styles from './FilterBar.module.scss';
 
-const FilterBar = () => {
+interface Props {
+  years: Dictionary<CameraType[]>;
+}
+
+const FilterBar = ({ years }: Props) => {
   const { gaEvent } = useGA();
   const pathname = usePathname();
-  const query = useSearchParams();
+  const query = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
 
-  const isotopes = useAtomValue(isotopesAtom);
-
-  const [currentMaker, setCurrentMaker] = useState<string>(query.get('maker') ?? 'ALL');
+  const [selectedMaker, setSelectedMaker] = useAtom(selectedMakerAtom);
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
-  const prevMaker = usePrevious(currentMaker);
-
-  const filterCameras = useCallback(
-    (maker: string) => {
-      Object.keys(isotopes).forEach((key) => {
-        isotopes[Number(key)].arrange({
-          filter: (elem) => (maker === 'ALL' ? true : elem.classList.value.includes(`maker-${maker}`)),
-        });
-      });
-    },
-    [isotopes],
-  );
-
   useEffect(() => {
-    let tm: NodeJS.Timeout;
-    if (currentMaker !== prevMaker) {
-      tm = setTimeout(() => {
-        filterCameras(currentMaker);
-      }, 300); // Animation duration
+    const freshMaker = query.get('maker');
+    if (freshMaker && freshMaker !== selectedMaker) {
+      setSelectedMaker(freshMaker);
     }
-
-    return () => {
-      clearTimeout(tm);
-    };
-  }, [prevMaker, currentMaker, filterCameras]);
+  }, [selectedMaker, query, setSelectedMaker]);
 
   const onClickMaker: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    const maker = e.currentTarget.title;
-    filterCameras(maker);
-    setCurrentMaker(maker as CameraMakerTypes);
-    gaEvent(CAMERA.CAMERA_MAKER_CLICK, { maker });
+    gaEvent(CAMERA.CAMERA_MAKER_CLICK, { maker: e.currentTarget.title });
   };
 
   const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
     const year = e.currentTarget.title;
-    smoothScrollToId(`camera-year-${year}`);
+    document.getElementById(`camera-year-${year}`)?.scrollIntoView({ behavior: 'smooth' });
     setCurrentYear(Number(year));
     gaEvent(CAMERA.CAMERA_YEAR_CLICK, { year });
   };
@@ -75,7 +53,7 @@ const FilterBar = () => {
       <ul className={styles.categories}>
         {CAMERA_MAKERS.map((maker) => {
           return (
-            <li key={maker} className={cx({ [styles.current]: maker === (currentMaker || query.get('maker')) })}>
+            <li key={maker} className={cx({ [styles.current]: maker === selectedMaker })}>
               <Link href={{ pathname, query: { maker } }} onClick={onClickMaker} title={maker} rel='nofollow'>
                 {startCase(maker)}
               </Link>
@@ -88,7 +66,12 @@ const FilterBar = () => {
           const year = YEAR_INFO.start + n;
           return (
             <li key={year} className={cx({ [styles.current]: year === currentYear })}>
-              <button type='button' onClick={onClickYear} title={String(year)}>
+              <button
+                type='button'
+                onClick={onClickYear}
+                title={String(year)}
+                disabled={!Object.keys(years).includes(String(year))}
+              >
                 {year}
               </button>
             </li>

@@ -1,17 +1,20 @@
 'use client';
 
 import { useEffect } from 'react';
-import { groupBy } from 'lodash';
+import { Dictionary } from 'lodash';
 
-import { CAMERAS } from '@/constants/cameras';
+import { CameraType } from '@/types/cameras';
 
 import Year from './Year';
 import styles from './CameraYears.module.scss';
 
-const CameraYears = () => {
-  const years = groupBy(CAMERAS, 'year');
+interface Props {
+  years: Dictionary<CameraType[]>;
+}
 
+const CameraYears = ({ years }: Props) => {
   useEffect(() => {
+    // 초기 로딩시 해시 아이디가 있으면 해당 기종 위치로 이동
     const currentHash = window.location.hash.replace('#', '');
     document.getElementById(currentHash)?.scrollIntoView({ behavior: 'smooth' });
   }, []);

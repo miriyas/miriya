@@ -1,3 +1,7 @@
 @forward 'flexbox';
 @forward 'position';
 @forward 'responsive';
+
+@mixin commonBoxShadow {
+  box-shadow: 0 2px 4px 0 rgba(var(--color-gray-4-rgb), 0.1);
+}

@@ -1,12 +1,12 @@
 @use 'src/styles/mixins' as m;
 
 .idol {
+  @include m.commonBoxShadow;
   width: var(--w-idol-m);
   height: var(--h-idol);
   overflow: hidden;
   background-color: var(--color-white);
   border-radius: 8px;
-  box-shadow: 0 2px 4px 0 rgba(var(--color-gray-4), 0.1);
 
   @include m.after(M) {
     width: var(--w-idol);

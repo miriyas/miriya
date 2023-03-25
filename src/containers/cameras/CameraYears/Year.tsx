@@ -1,13 +1,11 @@
 'use client';
 
-import { Suspense, useEffect, useMemo } from 'react';
+import { Suspense } from 'react';
 import cx from 'clsx';
 import { useAtomValue } from 'jotai';
 
-import type { IsotopeOptions } from 'isotope-layout';
 import { CameraType } from '@/types/cameras';
-import Isotope from '@/libs/isotope-layout';
-import { isotopesAtom } from '@/containers/cameras/states';
+import { selectedMakerAtom } from '@/containers/cameras/states';
 
 import Camera from '@/components/Camera';
 import styles from './CameraYears.module.scss';
@@ -20,37 +18,20 @@ interface Props {
 const CameraYear = (props: Props) => {
   const { cameras, year } = props;
 
-  const isotopes = useAtomValue(isotopesAtom);
+  const selectedMaker = useAtomValue(selectedMakerAtom);
 
-  const OPTIONS: IsotopeOptions = useMemo(
-    () => ({
-      itemSelector: `.grid-item-${year}`,
-      layoutMode: 'packery',
-      transitionDuration: 200,
-      percentPosition: true,
-      packery: {
-        gutter: 14,
-        columnWidth: 240,
-      },
-    }),
-    [year],
-  );
+  const filteredCameras = cameras.filter((c) => (selectedMaker === 'ALL' ? c : c.maker === selectedMaker));
 
-  useEffect(() => {
-    // 연도별로 isotope init
-    const elem = document.querySelector<HTMLElement>(`.grid-${year}`);
-    if (!elem) return;
-    isotopes[year] = new Isotope(elem, OPTIONS);
-  }, [OPTIONS, isotopes, year]);
+  if (filteredCameras.length === 0) return null;
 
   return (
     <li id={`camera-year-${year}`} className={styles.cameraYear}>
       <div className={styles.title}>
-        {year}년 / {cameras.length}기종
+        {year}년 <span>{filteredCameras.length}기종</span>
       </div>
 
       <ul className={cx(styles.cameras, `grid-${year}`)}>
-        {cameras.map((camera) => {
+        {filteredCameras.map((camera) => {
           return (
             <Suspense key={`${camera.maker}-${camera.year}-${camera.name}`} fallback={null}>
               <Camera camera={camera} />
