@@ -1,6 +1,6 @@
 'use client';
 
-import { MouseEventHandler, useState, useTransition } from 'react';
+import { MouseEventHandler, useEffect, useState, useTransition } from 'react';
 import cx from 'clsx';
 import { Dictionary, startCase } from 'lodash';
 import { useAtom } from 'jotai';
@@ -25,6 +25,12 @@ const FilterBar = ({ years }: Props) => {
 
   const [selectedMaker, setSelectedMaker] = useAtom(selectedMakerAtom);
   const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const initialMaker = params.get('maker') ?? 'ALL';
+    setSelectedMaker(initialMaker);
+  }, [setSelectedMaker]);
 
   const onClickMaker: MouseEventHandler<HTMLButtonElement> = (e) => {
     setSelectedMaker(e.currentTarget.title);
