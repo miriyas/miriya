@@ -1,5 +1,5 @@
-import { MouseEventHandler, useMemo, useRef, useState } from 'react';
-import { useClickAway } from 'react-use';
+import { MouseEventHandler, useMemo, useRef } from 'react';
+import { useClickAway, useRafState } from 'react-use';
 import Image from 'next/image';
 import cx from 'clsx';
 
@@ -27,7 +27,7 @@ const Idol = (props: Props) => {
 
   const { gaEvent } = useGA();
   const idolRef = useRef<HTMLLIElement>(null);
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useRafState(false);
 
   const hasYoutube = youtube && youtube.startsAt >= 0 && youtube.url;
 
