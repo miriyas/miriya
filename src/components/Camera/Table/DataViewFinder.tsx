@@ -1,6 +1,6 @@
 import { OPTICS_TYPE, OpticsTypes, CameraType } from '@/types/cameras.d';
 
-import styles from './Camera.module.scss';
+import styles from './Table.module.scss';
 
 const prettyOpticsType = (type?: OpticsTypes) => {
   if (!type) return null;

@@ -10,7 +10,7 @@ import { CameraType } from '@/types/cameras.d';
 import { cameraId } from './utils';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
-import Data from './Data';
+import DataInternal from './DataInternal';
 import DataExternal from './DataExternal';
 import styles from './Camera.module.scss';
 
@@ -77,7 +77,7 @@ const Camera = (props: Props) => {
       >
         <div className={styles.wrapper}>
           <DataExternal camera={camera} showExternalData={showExternalData} />
-          <Data camera={camera} />
+          <DataInternal camera={camera} />
           <button
             type='button'
             onClick={onClickExternal}

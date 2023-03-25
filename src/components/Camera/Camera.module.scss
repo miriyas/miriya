@@ -1,6 +1,7 @@
 @use 'src/styles/mixins' as m;
 
 .camera {
+  @include m.commonBoxShadow;
   position: relative;
   width: 100%;
   height: 420px;
@@ -139,48 +140,6 @@
     }
   }
 
-  .cameraImg {
-    position: relative;
-    flex-shrink: 0;
-    width: 140px;
-    height: 140px;
-    margin: 24px 0 8px;
-
-    img {
-      position: relative;
-      z-index: 2;
-      line-height: 0;
-      text-indent: -999000px;
-      mix-blend-mode: multiply;
-
-      &::after {
-        position: relative;
-        display: block;
-        width: 140px;
-        height: 140px;
-        padding: 50% 0;
-        content: '';
-        background-color: var(--color-white);
-        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1255/image-not-found.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 100px 100px;
-      }
-    }
-  }
-
-  .shadow {
-    @include m.absolute(auto 50% -8px auto);
-    z-index: 1;
-    width: 200px;
-    height: 100px;
-    background-image: radial-gradient(circle, var(--color-gray-8), var(--color-white) 50px);
-    background-repeat: no-repeat;
-    opacity: 0.5;
-    transform: scaleY(20%) translateX(50%);
-    transform-origin: bottom;
-  }
-
   .top {
     width: 100%;
     padding-bottom: 8px;
@@ -198,108 +157,4 @@
       font-size: 10px;
     }
   }
-
-  table {
-    width: 100%;
-    margin-top: 4px;
-    font-size: 10px;
-    line-height: 16px;
-
-    th {
-      width: 70px;
-      color: var(--color-gray-7);
-      text-align: center;
-    }
-
-    td {
-      @include m.flexbox(start, center);
-
-      a {
-        color: var(--color-blue);
-      }
-    }
-
-    p {
-      @include m.flexbox(center, center);
-      padding: 0 4px;
-      margin-right: 4px;
-      border-radius: 2px;
-    }
-
-    a {
-      color: var(--color-blue);
-
-      + a {
-        margin-left: 8px;
-      }
-    }
-
-    .sensor {
-      white-space: nowrap;
-    }
-
-    .dataViewFinder {
-      .pentaPrism {
-        background-color: var(--color-green);
-      }
-
-      .pentaMirror {
-        background-color: var(--color-yellow);
-      }
-    }
-  }
-}
-
-.gray {
-  color: var(--color-gray-4);
-}
-
-.grayBg {
-  color: var(--color-white);
-  background-color: var(--color-gray-4);
-}
-
-.red {
-  color: var(--color-red);
-}
-
-.redBg {
-  color: var(--color-white);
-  background-color: var(--color-red);
-}
-
-.orange {
-  color: var(--color-orange);
-}
-
-.orangeBg {
-  color: var(--color-white);
-  background-color: var(--color-orange);
-}
-
-.yellow {
-  color: var(--color-yellow);
-}
-
-.yellowBg {
-  color: var(--color-black);
-  background-color: var(--color-yellow);
-}
-
-.green {
-  color: var(--color-green);
-}
-
-.greenBg {
-  color: var(--color-white);
-  background-color: var(--color-green);
-}
-
-.blue {
-  color: var(--color-blue);
-}
-
-.blueBg {
-  color: var(--color-white);
-  background-color: var(--color-blue);
 }

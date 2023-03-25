@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { CameraType } from '@/types/cameras.d';
 import { cameraId } from './utils';
 
-import styles from './Camera.module.scss';
+import styles from './Image.module.scss';
 
 interface Props {
   camera: CameraType;
@@ -17,7 +17,7 @@ const DataImage = (props: Props) => {
   const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/cameras/${maker.toLowerCase()}/${id}.jpg`;
 
   return (
-    <div className={styles.cameraImg}>
+    <div className={styles.cameraImage}>
       <Image
         src={imageUrl}
         alt={name}

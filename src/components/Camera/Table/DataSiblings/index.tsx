@@ -1,7 +1,7 @@
 import { CameraType } from '@/types/cameras.d';
 
 import { cameraId } from '@/components/Camera/utils';
-import SiblingLink from '@/components/Camera/DataSiblings/SiblingLink';
+import SiblingLink from './SiblingLink';
 
 interface Props {
   camera: CameraType;

@@ -2,7 +2,7 @@ import cx from 'clsx';
 
 import { SENSOR_SIZE, SensorSizeTypes, CameraType } from '@/types/cameras.d';
 
-import styles from './Camera.module.scss';
+import styles from './Table.module.scss';
 
 const prettySensorSize = (sensorSize?: SensorSizeTypes) => {
   if (!sensorSize) return <p className={styles.grayBg}>APS-C</p>;
@@ -33,7 +33,7 @@ const DataSensor = (props: Props) => {
     <>
       <tr>
         <th>Sensor</th>
-        <td>
+        <td className={styles.dataSensor}>
           {prettySensorSize(sensor.size)}
           {sensorData}
         </td>
