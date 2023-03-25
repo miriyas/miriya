@@ -41,6 +41,17 @@ const nextConfig = {
                     overrides: { removeViewBox: false },
                   },
                 },
+                {
+                  name: 'cleanupIDs', // Prevent id collision
+                  params: {
+                    prefix: {
+                      toString() {
+                        this.counter = this.counter || 0;
+                        return `id-${this.counter++}`;
+                      },
+                    },
+                  },
+                },
               ],
             },
           },
