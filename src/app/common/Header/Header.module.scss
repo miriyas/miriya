@@ -20,6 +20,10 @@
         margin-left: 14px;
       }
 
+      &:first-child {
+        font-weight: 700 !important;
+      }
+
       a {
         font-size: 14px;
         color: var(--color-black);

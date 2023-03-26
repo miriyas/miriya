@@ -38,7 +38,12 @@ img {
 }
 
 a {
+  color: var(--color-blue);
   text-decoration: none;
+}
+
+q {
+  color: var(--color-purple);
 }
 
 select,
@@ -102,7 +107,18 @@ span,
 a,
 input,
 textarea,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 th,
 td {
   font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+main {
+  min-height: 100vh;
 }

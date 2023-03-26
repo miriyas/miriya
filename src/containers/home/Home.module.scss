@@ -1,0 +1,17 @@
+@use 'src/styles/mixins' as m;
+
+.home {
+  @include m.flexbox(center, center);
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.6;
+
+  .centering {
+    width: 100%;
+    max-width: 820px;
+  }
+
+  .pages {
+    margin-top: 24px;
+  }
+}

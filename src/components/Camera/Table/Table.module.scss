@@ -14,10 +14,6 @@
 
   td {
     @include m.flexbox(start, center);
-
-    a {
-      color: var(--color-blue);
-    }
   }
 
   p {
@@ -28,8 +24,6 @@
   }
 
   a {
-    color: var(--color-blue);
-
     + a {
       margin-left: 8px;
     }

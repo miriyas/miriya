@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import CamerasPage from '@/containers/cameras';
+import Profile from '@/containers/profile';
 
-const title = 'History of DSLR';
-const description = '1998년부터 2011년까지의 DSLR 카메라들';
-const url = 'https://miriya.vercel.app/cameras';
-const imageUrl = 'https://miriya.vercel.app/images/cameras/og.jpg';
+const title = 'MIRIYA';
+const description = '프론트엔드 웹 개발자로 일하고 있는 miriya의 개인 작업 목록';
+const url = 'https://miriya.vercel.app/';
+const imageUrl = 'https://miriya.vercel.app/images/profile/og.jpg';
 
 export const metadata: Metadata = {
   title,
   description,
-  keywords: ['DSLR', 'DSLT', 'MILC', 'camera', 'history', 'interchangable'],
+  keywords: ['miriya'],
   openGraph: {
     description,
     type: 'website',
@@ -34,6 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-const CamerasPage = async () => <CamerasPage />;
+const ProfilePage = async () => <Profile />;
 
-export default CamerasPage;
+export default ProfilePage;

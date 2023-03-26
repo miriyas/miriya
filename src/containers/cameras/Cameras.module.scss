@@ -3,7 +3,6 @@
 .cameras {
   @include m.flexbox(start, center);
   flex-direction: column;
-  min-height: 100vh;
   padding: 0 14px 14px;
   background-color: var(--color-bg);
 }

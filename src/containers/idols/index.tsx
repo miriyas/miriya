@@ -2,6 +2,6 @@
 
 import IdolsContent from './Content';
 
-const Idols = () => <IdolsContent />;
+const IdolsPage = () => <IdolsContent />;
 
-export default Idols;
+export default IdolsPage;

@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
+import Home from '@/containers/home';
 
-import IdolsPage from './idols/page';
-
-const HomePage: NextPage = () => <IdolsPage />;
+const HomePage: NextPage = () => <Home />;
 
 export default HomePage;

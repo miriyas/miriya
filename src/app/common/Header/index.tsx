@@ -13,6 +13,10 @@ import styles from './Header.module.scss';
 
 const ROUTES = [
   {
+    href: '/',
+    title: 'MIRIYA',
+  },
+  {
     href: '/idols',
     title: 'History of Idols',
   },

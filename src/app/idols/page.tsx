@@ -4,7 +4,7 @@ import Idols from '@/containers/idols';
 const title = 'History of Idols';
 const description = '96년부터 2019년까지 활동한 아이돌들';
 const url = 'https://miriya.vercel.app/idols';
-const imageUrl = 'https://miriya.vercel.app/images/image-idols.jpg';
+const imageUrl = 'https://miriya.vercel.app/images/idols/og.jpg';
 
 export const metadata: Metadata = {
   title,

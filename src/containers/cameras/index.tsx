@@ -12,7 +12,7 @@ import styles from './Cameras.module.scss';
 
 const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
-const Cameras = () => {
+const CamerasPage = () => {
   const years = groupBy(CAMERAS, 'year');
 
   return (
@@ -25,4 +25,4 @@ const Cameras = () => {
   );
 };
 
-export default Cameras;
+export default CamerasPage;

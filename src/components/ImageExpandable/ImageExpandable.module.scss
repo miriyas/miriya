@@ -1,0 +1,39 @@
+@use 'src/styles/mixins' as m;
+
+.imageExpandable {
+  &::before {
+    content: '';
+    transition: 300ms;
+  }
+
+  &[open] {
+    @include m.fixed(0 0 0 0);
+
+    &::before {
+      @include m.fixed(0 0 0 0);
+      content: '';
+      background-color: var(--color-black);
+    }
+
+    summary {
+      @include m.absolute(0 0 0 0);
+      z-index: 2;
+      cursor: zoom-out;
+      opacity: 0;
+    }
+
+    .detailsImg {
+      @include m.middleBox;
+      z-index: 1;
+      width: initial;
+      max-width: 100vw;
+      height: initial;
+      max-height: 100vh;
+      user-select: none;
+    }
+  }
+
+  summary {
+    cursor: zoom-in;
+  }
+}
