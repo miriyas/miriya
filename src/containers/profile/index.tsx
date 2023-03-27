@@ -2,14 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import LinkExternal from '@/components/LinkExternal';
-import ImageExpandable from '@/components/ImageExpandable';
 import styles from './Profile.module.scss';
+import ImageAlbum from '@/components/ImageAlbum';
 
 const ProfilePage = () => {
   return (
     <main className={styles.profile}>
       <div className={styles.centering}>
-        <Image src='/images/home/profile.jpg' width={200} height={200} alt='' className={styles.profileImg} />
+        <div className={styles.profileImg}>
+          <Image src='/images/home/profile.jpg' fill alt='' />
+        </div>
         <h1 className={styles.name}>JunHyuk Lee</h1>
         <p className={styles.desc}>Senior Web Developer</p>
         <p className={styles.desc2}>프론트엔드 웹 개발자로 일하고 있는 miriya의 개인 작업 목록입니다.</p>
@@ -25,10 +27,20 @@ const ProfilePage = () => {
           싶었지만 갈 수 없었습니다. 대신 다 큰 지금은 대학생들 졸업전시회를 방문하거나, 친한 작가분들의 전시회에 다니고
           있지요.
         </p>
-        <div className={styles.imagesWrapper}>
-          <ImageExpandable src='/images/profile/picture1.jpg' width={334} height={194} />
-          <ImageExpandable src='/images/profile/picture2.jpg' width={325} height={194} />
-        </div>
+        <ImageAlbum
+          images={[
+            {
+              src: '/images/profile/picture1.jpg',
+              width: 334,
+              height: 194,
+            },
+            {
+              src: '/images/profile/picture2.jpg',
+              width: 325,
+              height: 194,
+            },
+          ]}
+        />
         <p>
           고등학생때는 회원수 100만명, 국내 6위 게임 카페를&nbsp;
           <LinkExternal href='https://miriyas.tistory.com/category/%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EB%8B%A4%EC%9D%8C%20%EC%B9%B4%ED%8E%98'>
@@ -47,11 +59,25 @@ const ProfilePage = () => {
           우상단(!)에 취소 버튼이 달려 있어 전환률을 떨굴거라고 열변을 토하곤 했지요. 근데 그 쎈 성격이 나이 먹어가면서
           점점 부드러워지더군요. 이젠 키움증권 영웅문 앱 정도 UX가 아니면 화가 나지도 않네요.
         </p>
-        <div className={styles.imagesWrapper}>
-          <ImageExpandable src='/images/profile/cgv.jpg' width={180} height={320} />
-          <ImageExpandable src='/images/profile/shit1.jpg' width={146} height={320} />
-          <ImageExpandable src='/images/profile/shit2.jpg' width={146} height={320} />
-        </div>
+        <ImageAlbum
+          images={[
+            {
+              src: '/images/profile/cgv.jpg',
+              width: 180,
+              height: 320,
+            },
+            {
+              src: '/images/profile/shit1.jpg',
+              width: 146,
+              height: 320,
+            },
+            {
+              src: '/images/profile/shit2.jpg',
+              width: 146,
+              height: 320,
+            },
+          ]}
+        />
         <p>
           대학 입학하고 나선 선배의 <Link href='/cameras#canon-30d'>Canon EOS 30D</Link> 카메라를 만져보곤 DSLR에
           매료되어 취미를 가지게 되었습니다. 휴학하고 2년동안 KMA에서 실내 컨퍼런스 사진을 촬영하는 일을 하게
@@ -66,10 +92,20 @@ const ProfilePage = () => {
           <LinkExternal href='https://miriyas.tistory.com/15601338'>사진 찍는 일</LinkExternal>과 홈페이지 개발을
           담당했었죠. 당시 PM분이 &quot;너 남의거 잘 까니까 니거 개발 잘 할것 같다&quot; 하고 취직을 시켜주셨지요.
         </p>
-        <div className={styles.imagesWrapper}>
-          <ImageExpandable src='/images/profile/uxcamp.jpg' width={368} height={244} />
-          <ImageExpandable src='/images/profile/kma.jpg' width={402} height={244} />
-        </div>
+        <ImageAlbum
+          images={[
+            {
+              src: '/images/profile/uxcamp.jpg',
+              width: 368,
+              height: 244,
+            },
+            {
+              src: '/images/profile/kma.jpg',
+              width: 402,
+              height: 244,
+            },
+          ]}
+        />
         <p>
           관심사가 엄청 방대한 편이라, 여러 사람들을 만나도 이야기거리가 떨어질 일이 없습니다. 자동차, 카메라, 인테리어,
           DIY, 온갖 나무위키 등.. 여가 시간에는 카카오 지도에&nbsp;
@@ -79,10 +115,20 @@ const ProfilePage = () => {
           차를 잭으로 들어올려 파손된 범퍼를 수리하고, 알칸타라 핸들 커버를 바느질하거나 시트지를 랩핑하고, 엔진오일을
           직접 교환하는 등 소소한 일을 하는 것을 좋아합니다.
         </p>
-        <div className={styles.imagesWrapper}>
-          <ImageExpandable src='/images/profile/car1.jpg' width={244} height={244} />
-          <ImageExpandable src='/images/profile/car2.jpg' width={244} height={244} />
-        </div>
+        <ImageAlbum
+          images={[
+            {
+              src: '/images/profile/car1.jpg',
+              width: 244,
+              height: 244,
+            },
+            {
+              src: '/images/profile/car2.jpg',
+              width: 244,
+              height: 244,
+            },
+          ]}
+        />
         <p>
           2012년부터 개발을 시작하였는데, 처음엔&nbsp;
           <LinkExternal href='https://rubyonrails.org/'>Ruby on Rails</LinkExternal>를 했지만 지금은&nbsp;
@@ -92,9 +138,15 @@ const ProfilePage = () => {
           않지만 그건 당연하게도 제가 디자이너가 아니기 때문입니다. 아마 그럴리는 없겠지만 지나가던 디자이너가 Figma로
           디자인 딱 던져주시면 다음날 해가 뜨기 전 까지 업데이트 해보지요.
         </p>
-        <div className={styles.imagesWrapper}>
-          <ImageExpandable src='/images/profile/work.jpg' width={368} height={244} />
-        </div>
+        <ImageAlbum
+          images={[
+            {
+              src: '/images/profile/work.jpg',
+              width: 368,
+              height: 244,
+            },
+          ]}
+        />
         <p>
           <LinkExternal href='https://github.com/spoqa/spoqa-han-sans/pull/49'>경량 웹폰트</LinkExternal>를 튜닝하기도
           하고, 쓸데없이 반응속도가 매우 빠른 로딩 스피너를 만들면서 즐거워하기도 합니다. 요즘 프론트엔드 개발자들은
@@ -106,10 +158,20 @@ const ProfilePage = () => {
           <LinkExternal href='https://developer.chrome.com/docs/lighthouse/overview/'>라이트하우스</LinkExternal>
           &nbsp;점수 놀이도 참 재미있습니다.
         </p>
-        <div className={styles.imagesWrapper}>
-          <ImageExpandable src='/images/profile/car3.jpg' width={284} height={500} />
-          <ImageExpandable src='/images/profile/cocktail.jpg' width={378} height={500} />
-        </div>
+        <ImageAlbum
+          images={[
+            {
+              src: '/images/profile/car3.jpg',
+              width: 284,
+              height: 500,
+            },
+            {
+              src: '/images/profile/cocktail.jpg',
+              width: 378,
+              height: 500,
+            },
+          ]}
+        />
         <p>
           자동차 뒤쪽 앰블럼을 404e로 교체해놨습니다. 웹개발자가 흔히 보게 되는 404 에러를 나타낸 것이죠. 집 인테리어를
           한 이후로는 사람들을 초대해 티파티를 하거나, 칵테일을 만들어주는 것을 즐깁니다. 최근에는 작은 일회용

@@ -34,6 +34,16 @@
   }
 
   summary {
+    @include m.flexbox(center, center);
     cursor: zoom-in;
+
+    img {
+      display: block;
+
+      @include m.before(MD) {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
   }
 }

@@ -2,39 +2,69 @@
 
 .profile {
   @include m.flexbox(center, start);
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--color-gray-2);
+
+  @include m.after(SD) {
+    font-size: 14px;
+  }
 
   .centering {
     @include m.flexbox(start, center);
     flex-direction: column;
     width: 100%;
     max-width: 820px;
-    padding: 48px 24px 24px;
+    padding: 48px 14px 24px;
     background-color: var(--color-white);
 
+    @include m.after(SD) {
+      padding: 48px 24px 24px;
+    }
+
     .profileImg {
+      position: relative;
+      width: 100px;
+      height: 100px;
       margin-bottom: 24px;
+
+      @include m.after(SD) {
+        width: 200px;
+        height: 200px;
+      }
     }
 
     .name {
-      font-size: 36px;
+      font-size: 24px;
       line-height: 1;
+
+      @include m.after(SD) {
+        font-size: 36px;
+      }
     }
 
     .desc {
-      margin: 14px 0 24px;
-      font-size: 24px;
+      margin: 8px 0 14px;
+      font-size: 18px;
       line-height: 1;
       color: var(--color-gray-8);
       text-align: center;
+
+      @include m.after(SD) {
+        margin: 14px 0 24px;
+        font-size: 24px;
+      }
     }
 
     .desc2 {
-      margin: 0 0 24px;
-      font-size: 16px;
+      margin: 0 0 14px;
+      font-size: 12px;
       text-align: center;
+
+      @include m.after(SD) {
+        margin: 0 0 24px;
+        font-size: 16px;
+      }
     }
 
     p {
@@ -47,12 +77,6 @@
       span {
         color: var(--color-gray-8);
       }
-    }
-
-    .imagesWrapper {
-      @include m.flexbox(center, center);
-      gap: 14px;
-      margin: 24px 0;
     }
   }
 }

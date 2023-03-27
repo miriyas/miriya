@@ -1,0 +1,38 @@
+@use 'src/styles/mixins' as m;
+
+.imageAlbum {
+  @include m.flexbox(center, center);
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin: 24px 0;
+
+  @include m.after(SD) {
+    gap: 14px;
+    width: auto;
+  }
+
+  details {
+    &:only-child {
+      flex: 1;
+      // 1 ITEM
+    }
+
+    &:first-child:nth-last-child(2),
+    &:first-child:nth-last-child(2) ~ details {
+      // 2 ITEMS
+      @include m.after(SD) {
+        flex: 1;
+      }
+    }
+
+    &:first-child:nth-last-child(3),
+    &:first-child:nth-last-child(3) ~ details {
+      // 3 ITEMS
+    }
+  }
+
+  @include m.after(SD) {
+    flex-direction: row;
+  }
+}

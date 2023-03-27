@@ -52,6 +52,12 @@
   }
 }
 
+@mixin before($media) {
+  @media only screen and (max-width: getMaxBreakpoint($media)) {
+    @content;
+  }
+}
+
 @mixin after($media) {
   @media only screen and (min-width: getMinBreakpoint($media)) {
     @content;
