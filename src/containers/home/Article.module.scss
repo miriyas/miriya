@@ -26,6 +26,19 @@
       @include m.flexbox(center, center);
       padding: 14px;
 
+      &.noData {
+        padding: 14px !important;
+
+        summary {
+          padding-bottom: 0;
+        }
+
+        .fakeViewMore,
+        .devComment {
+          display: none;
+        }
+      }
+
       &[open] {
         summary {
           padding-bottom: 0;

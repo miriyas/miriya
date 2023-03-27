@@ -32,12 +32,12 @@ const HomeArticle = (props: Props) => {
           href={`/${href}`}
           style={{ backgroundImage: `url('/images/${href}/og.jpg')` }}
         />
-        <details ref={detailsRef}>
+        <details ref={detailsRef} className={cx({ [styles.noData]: !children })}>
           <summary>
             {summary}
             <span className={styles.fakeViewMore}>더보기 &gt;</span>
           </summary>
-          {children && <p className={styles.devComment}>{children}</p>}
+          <p className={styles.devComment}>{children}</p>
         </details>
       </article>
     </li>
