@@ -26,10 +26,10 @@
       }
     }
 
-    &:first-child:nth-last-child(3),
-    &:first-child:nth-last-child(3) ~ details {
-      // 3 ITEMS
-    }
+    // &:first-child:nth-last-child(3),
+    // &:first-child:nth-last-child(3) ~ details {
+    //   // 3 ITEMS
+    // }
   }
 
   @include m.after(SD) {

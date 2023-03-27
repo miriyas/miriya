@@ -50,6 +50,7 @@
       a {
         @include m.flexbox(center, center);
         height: 24px;
+        font-size: 13px;
         font-weight: inherit;
         color: inherit;
 

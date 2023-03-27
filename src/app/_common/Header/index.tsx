@@ -45,13 +45,55 @@ const Header = () => {
 
   return (
     <header className={styles.appHeader}>
-      <nav className={styles.wrapper}>
+      <nav className={styles.mobileNav}>
+        <Link href={ROUTES[0].href} className={styles.home} onClick={onClickLink}>
+          {ROUTES[0].title}
+        </Link>
+        <details>
+          <summary>
+            <span />
+            <span />
+            <span />
+          </summary>
+          <div className={styles.menus}>
+            <ul>
+              {ROUTES.slice(1).map((route) => {
+                const { href, title } = route;
+                return (
+                  <li key={href}>
+                    <Link href={href} className={cx({ [styles.active]: current === href })} onClick={onClickLink}>
+                      {title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className={styles.github}>
+              <a
+                onClick={onClickGithub}
+                href='https://github.com/miriyas/miriya'
+                target='_blank'
+                title='Github'
+                rel='nofollow'
+              >
+                <IconGithub />
+              </a>
+            </div>
+          </div>
+        </details>
+      </nav>
+
+      <nav className={styles.desktopNav}>
         <ul>
-          {ROUTES.map((route) => {
+          {ROUTES.map((route, i) => {
             const { href, title } = route;
             return (
               <li key={href}>
-                <Link href={href} className={cx({ [styles.active]: current === href })} onClick={onClickLink}>
+                <Link
+                  href={href}
+                  className={cx({ [styles.active]: current === href, [styles.home]: i === 0 })}
+                  onClick={onClickLink}
+                >
                   {title}
                 </Link>
               </li>
