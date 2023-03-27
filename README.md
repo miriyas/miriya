@@ -135,3 +135,8 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 - src/containers/cameras/FilterBar/index.tsx
 - /cameras?maker=nikon 등으로 링크 이동시 리랜더됨
 - pushState로 처리함
+
+5. 사파리에서 idol 이미지 border-radius 오작동
+
+- 처음엔 잘 나오는데, 주변 다른 아이돌을 클릭해서 확장할 경우 둥글게 처리 된 것이 사각으로 나옴
+- 웹킷 버그였음. https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari

@@ -6,6 +6,7 @@ import { cameraId, externalCameraId } from './utils';
 import { getExternalCameraDataApi } from '@/services/cameras';
 
 import styles from './Camera.module.scss';
+import tableStyles from './Table/Table.module.scss';
 
 interface Props {
   camera: CameraType;
@@ -51,7 +52,7 @@ const DataExternal = (props: Props) => {
 
   return (
     <div className={styles.dataExternal}>
-      <table>
+      <table className={tableStyles.dataTable}>
         <tbody>
           {Object.keys(data).map((label) => {
             return (
