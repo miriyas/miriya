@@ -5,6 +5,35 @@
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-gray-e);
 
+  a {
+    @include m.flexbox(center, center);
+    height: var(--h-nav);
+    font-size: 14px;
+    color: var(--color-black);
+    transition: 200ms;
+
+    &.active,
+    &.home {
+      font-weight: 700;
+    }
+
+    &.home {
+      color: var(--color-black) !important;
+    }
+
+    &:hover {
+      color: var(--color-blue) !important;
+
+      &.home {
+        color: var(--color-black) !important;
+      }
+
+      svg path {
+        fill: var(--color-blue) !important;
+      }
+    }
+  }
+
   .mobileNav {
     width: 100%;
 
@@ -110,19 +139,11 @@
 
     li {
       &:first-child a {
-        font-size: 18px;
-        font-weight: 700 !important;
+        @include m.after(SD) {
+          font-size: 18px;
+          font-weight: 700 !important;
+        }
       }
-    }
-  }
-
-  a {
-    font-size: 14px;
-    color: var(--color-black);
-
-    &.active,
-    &.home {
-      font-weight: 700;
     }
   }
 
@@ -138,6 +159,10 @@
         width: 18px;
         height: 18px;
         margin-right: 4px;
+
+        path {
+          transition: 200ms;
+        }
       }
     }
   }
