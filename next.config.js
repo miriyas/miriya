@@ -1,5 +1,10 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compress: true,
   images: {
     domains: ['https://www.digicamdb.com', 'miriya.sgp1.cdn.digitaloceanspaces.com'],
     imageSizes: [100, 200, 280],
@@ -11,6 +16,7 @@ const nextConfig = {
   },
   experimental: {
     appDir: true,
+    optimizeCss: true,
   },
   async headers() {
     return [
@@ -62,4 +68,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);
