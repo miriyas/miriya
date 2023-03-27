@@ -1,16 +1,16 @@
 'use client';
 
 import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import { groupBy } from 'lodash';
 
 import { CAMERAS } from '@/constants/cameras';
 
 import FilterBar from './FilterBar';
-import CameraYearPlaceholder from './CameraYears/Placeholder';
+// import CameraYearPlaceholder from './CameraYears/Placeholder';
 import styles from './Cameras.module.scss';
-
-const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
+import CameraYears from './CameraYears';
+// const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 const CamerasPage = () => {
   const years = groupBy(CAMERAS, 'year');
