@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CamerasPage from '@/containers/cameras';
+import Cameras from '@/containers/cameras';
 
 const title = 'History of DSLR';
 const description = '1998년부터 2011년까지의 DSLR 카메라들';
@@ -34,6 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-const CamerasPage = async () => <CamerasPage />;
+const CamerasPage = async () => <Cameras />;
 
 export default CamerasPage;

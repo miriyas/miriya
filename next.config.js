@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     domains: ['https://www.digicamdb.com', 'miriya.sgp1.cdn.digitaloceanspaces.com'],
-    imageSizes: [200, 280],
+    imageSizes: [100, 200, 280],
     minimumCacheTTL: 86400,
   },
   env: {

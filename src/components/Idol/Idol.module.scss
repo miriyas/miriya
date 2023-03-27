@@ -56,12 +56,6 @@
       font-size: 12px;
     }
 
-    .profileImg {
-      img {
-        border-radius: 50%;
-      }
-    }
-
     .rightWing {
       @include m.flexbox(center, center);
       flex: 1;

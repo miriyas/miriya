@@ -1,6 +1,5 @@
-import { MouseEventHandler, useMemo, useRef } from 'react';
+import { MouseEventHandler, useRef } from 'react';
 import { useClickAway, useRafState } from 'react-use';
-import Image from 'next/image';
 import cx from 'clsx';
 
 import { useGA } from '@/hooks/useGA';
@@ -11,18 +10,17 @@ import { IDOL } from '@/constants/ga';
 import Youtube from '@/components/Idol/Youtube';
 import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '../../../public/images/svgs';
 import styles from './Idol.module.scss';
-
-const filterIdolName = (name: string) => {
-  return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|&]/g, '');
-};
+import ImageSprite from '@/components/Idol/ImageSprite';
 
 interface Props {
   idol: IdolType;
   sort: () => void;
+  i: number;
+  yearLength: number;
 }
 
 const Idol = (props: Props) => {
-  const { idol, sort } = props;
+  const { idol, sort, i, yearLength } = props;
   const { category, desc, name, youtube, debutYear, endYear } = idol;
 
   const { gaEvent } = useGA();
@@ -51,8 +49,6 @@ const Idol = (props: Props) => {
     window.open(href);
   };
 
-  const profileUrl = useMemo(() => `/images/idols/${filterIdolName(name)}.jpg`, [name]);
-
   return (
     <li
       ref={idolRef}
@@ -62,7 +58,7 @@ const Idol = (props: Props) => {
         <button type='button' onClick={onClickUpper} className={styles.leftWing}>
           {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
           <div className={styles.profileImg}>
-            <Image src={profileUrl} alt={name} width={100} height={100} />
+            <ImageSprite year={Number(debutYear)} i={i} yearLength={yearLength} />
           </div>
           <p className={styles.name}>{name}</p>
           <p className={styles.category}>{prettyCategory(category)}</p>

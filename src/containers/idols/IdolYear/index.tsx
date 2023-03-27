@@ -61,8 +61,10 @@ const IdolYear = (props: Props) => {
       {yearDesc && <div className={styles.desc}>{yearDesc.desc}</div>}
 
       <ul className={cx(styles.idols, `grid-${year}`)}>
-        {idols.map((idol) => {
-          return <Idol key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} />;
+        {idols.map((idol, i) => {
+          return (
+            <Idol key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} i={i} yearLength={idols.length} />
+          );
         })}
       </ul>
     </li>

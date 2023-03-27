@@ -1,0 +1,13 @@
+@use 'src/styles/mixins' as m;
+
+.imageSprite {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    @include m.absolute(0 0 0 0);
+  }
+}
