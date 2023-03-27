@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 
-import Header from './common/Header';
 import Providers from './providers';
-import Additional from './common/Additional';
-import ToTop from './common/ToTop';
-import Footer from './common/Footer';
+import Header from './_common/Header';
+import Additional from './_common/Additional';
+import ToTop from './_common/ToTop';
+import Footer from './_common/Footer';
 import '@/styles/globals.scss';
 
 export { metadata } from './profile/page';
