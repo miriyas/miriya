@@ -1,5 +1,3 @@
-'use server';
-
 import IdolsContent from './Content';
 
 const IdolsPage = () => <IdolsContent />;

@@ -4,6 +4,7 @@ import React, { MouseEventHandler } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import cx from 'clsx';
+import { useRafState } from 'react-use';
 
 import { useGA } from '@/hooks/useGA';
 import { COMMON } from '@/constants/ga';
@@ -30,6 +31,12 @@ const Header = () => {
   const { gaEvent } = useGA();
   const pathname = usePathname();
 
+  const [current, setCurrent] = useRafState(pathname); // NOTE: 로딩에 의한 탭 전환 딜레이 줄이기 위해 Request Animation Frame 사용
+
+  const onClickLink: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    setCurrent(e.currentTarget.pathname);
+  };
+
   const onClickGithub: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
     window.open(e.currentTarget.href);
@@ -44,7 +51,7 @@ const Header = () => {
             const { href, title } = route;
             return (
               <li key={href}>
-                <Link href={href} className={cx({ [styles.active]: pathname === href })}>
+                <Link href={href} className={cx({ [styles.active]: current === href })} onClick={onClickLink}>
                   {title}
                 </Link>
               </li>

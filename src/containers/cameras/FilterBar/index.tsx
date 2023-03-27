@@ -3,8 +3,8 @@
 import { MouseEventHandler, useEffect, useState, useTransition } from 'react';
 import cx from 'clsx';
 import { Dictionary, startCase } from 'lodash';
-import { useAtom } from 'jotai';
 
+import useRafAtom from '@/hooks/useRafAtom';
 import { useGA } from '@/hooks/useGA';
 import { CAMERA } from '@/constants/ga';
 import { YEAR_INFO } from '@/constants/cameras';
@@ -23,7 +23,7 @@ const FilterBar = ({ years }: Props) => {
   const { gaEvent } = useGA();
   const [, startTransition] = useTransition();
 
-  const [selectedMaker, setSelectedMaker] = useAtom(selectedMakerAtom);
+  const [selectedMaker, setSelectedMaker] = useRafAtom(selectedMakerAtom);
   const [currentYear, setCurrentYear] = useState<number | null>(null);
 
   useEffect(() => {
