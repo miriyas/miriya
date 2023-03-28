@@ -1,11 +1,6 @@
 @use 'src/styles/mixins' as m;
 
 .idols {
-  @include m.flexbox(center, center);
-  flex-direction: column;
-  padding: 0 14px;
-  background-color: var(--color-bg);
-
   .idolYears {
     max-width: 812px;
   }

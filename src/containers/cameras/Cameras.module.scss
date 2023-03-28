@@ -1,8 +1,0 @@
-@use 'src/styles/mixins' as m;
-
-.cameras {
-  @include m.flexbox(start, center);
-  flex-direction: column;
-  padding: 0 14px 14px;
-  background-color: var(--color-bg);
-}

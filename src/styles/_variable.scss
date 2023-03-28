@@ -7,6 +7,7 @@
   --color-gray-4-rgb: 76, 76, 76;
   --color-gray-7: #767676; /* Minimum WCAG AA Pass */
   --color-gray-8: #8c8c8c; /* Fail to WCAG AA */
+  --color-gray-c: #cccccc;
   --color-gray-d: #dddddd;
   --color-gray-e: #eeeeee;
 
@@ -26,6 +27,17 @@
   --w-idol: 140px;
   --h-idol: 220px;
   --h-nav: 44px;
+
+  /* Idol related */
   --gutter-idol: 28px;
+
+  /* Camera related */
   --h-camera-data-source-btn: 20px;
+
+  /* Pentax DSLR */
+  --pc-ist: #cdebea;
+  --pc-k: #cce8d7;
+  --pc-new-k: #ccd6e0;
+  --h-pentax-picture: 320px;
+  --x-pentax-cell: 22px;
 }

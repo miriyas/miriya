@@ -1,0 +1,34 @@
+@use 'src/styles/mixins' as m;
+
+.grids {
+  .quarters,
+  .lines {
+    @include m.flexbox(center, center);
+
+    li {
+      @include m.flexbox(center, center);
+      width: var(--x-pentax-cell);
+      height: var(--x-pentax-cell);
+      font-size: 12px;
+    }
+  }
+
+  .quarters {
+    background-color: var(--color-gray-e);
+    border-bottom: 1px solid var(--color-gray-c);
+  }
+
+  .lines {
+    li {
+      border-bottom: 1px solid var(--color-gray-d);
+    }
+  }
+
+  li {
+    border-right: 1px dashed var(--color-gray-d);
+
+    &:nth-child(4n) {
+      border-right: 1px solid var(--color-gray-c);
+    }
+  }
+}

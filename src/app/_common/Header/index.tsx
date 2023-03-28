@@ -25,6 +25,10 @@ const ROUTES = [
     href: '/cameras',
     title: 'History of DSLR',
   },
+  {
+    href: '/pentax',
+    title: 'Pentaxian Encyclopedia',
+  },
 ];
 
 const Header = () => {
