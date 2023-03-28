@@ -1,0 +1,26 @@
+@use 'src/styles/mixins' as m;
+
+.viewMore {
+  @include m.absolute(0 0 0 auto);
+  top: var(--x-pentax-cell);
+  width: var(--x-pentax-cell);
+  background-color: var(--color-gray-e);
+
+  svg {
+    width: 14px;
+    height: 14px;
+    transition: 200ms;
+  }
+
+  &.scrollEnded {
+    .arrow {
+      transform: rotate(180deg) translateY(-1px);
+    }
+
+    @include m.after(SD) {
+      svg {
+        transform: rotate(0) translateY(1px);
+      }
+    }
+  }
+}

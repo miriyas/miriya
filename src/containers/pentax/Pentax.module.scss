@@ -8,6 +8,7 @@
 
   .wrapper {
     @include m.flexbox(center, center);
+    position: relative;
     margin-top: 24px;
     background-color: var(--color-white);
 
@@ -40,11 +41,22 @@
       flex: 1;
       flex-direction: column;
       height: calc(var(--h-pentax-picture) + var(--x-pentax-cell));
+      padding-right: var(--x-pentax-cell); // ViewMoreButton;
       overflow-x: auto;
       cursor: grab;
+      background-color: var(--color-black);
+
+      &.grabbing {
+        cursor: grabbing;
+      }
 
       &::-webkit-scrollbar {
         display: none; // Chrome
+      }
+
+      .endOfScroll {
+        @include m.absolute(0 0 0 auto);
+        width: 1px;
       }
 
       .years {
@@ -77,6 +89,7 @@
 
       .timeline {
         position: relative;
+        background-color: var(--color-white);
       }
     }
   }

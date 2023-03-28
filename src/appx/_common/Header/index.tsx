@@ -25,10 +25,6 @@ const ROUTES = [
     href: '/cameras',
     title: 'History of DSLR',
   },
-  {
-    href: '/pentax',
-    title: 'Pentaxian Encyclopedia',
-  },
 ];
 
 const Header = () => {
@@ -49,55 +45,13 @@ const Header = () => {
 
   return (
     <header className={styles.appHeader}>
-      <nav className={styles.mobileNav}>
-        <Link href={ROUTES[0].href} className={styles.home} onClick={onClickLink}>
-          {ROUTES[0].title}
-        </Link>
-        <details>
-          <summary>
-            <span />
-            <span />
-            <span />
-          </summary>
-          <div className={styles.menus}>
-            <ul>
-              {ROUTES.slice(1).map((route) => {
-                const { href, title } = route;
-                return (
-                  <li key={href}>
-                    <Link href={href} className={cx({ [styles.active]: current === href })} onClick={onClickLink}>
-                      {title}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className={styles.github}>
-              <a
-                onClick={onClickGithub}
-                href='https://github.com/miriyas/miriya'
-                target='_blank'
-                title='Github'
-                rel='nofollow'
-              >
-                <IconGithub />
-              </a>
-            </div>
-          </div>
-        </details>
-      </nav>
-
-      <nav className={styles.desktopNav}>
+      <nav className={styles.wrapper}>
         <ul>
-          {ROUTES.map((route, i) => {
+          {ROUTES.map((route) => {
             const { href, title } = route;
             return (
               <li key={href}>
-                <Link
-                  href={href}
-                  className={cx({ [styles.active]: current === href, [styles.home]: i === 0 })}
-                  onClick={onClickLink}
-                >
+                <Link href={href} className={cx({ [styles.active]: current === href })} onClick={onClickLink}>
                   {title}
                 </Link>
               </li>

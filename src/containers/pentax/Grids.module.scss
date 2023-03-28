@@ -1,6 +1,9 @@
 @use 'src/styles/mixins' as m;
 
 .grids {
+  height: var(--h-pentax-picture);
+  overflow: hidden;
+
   .quarters,
   .lines {
     @include m.flexbox(center, center);

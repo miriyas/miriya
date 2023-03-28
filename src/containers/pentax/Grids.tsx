@@ -13,7 +13,7 @@ const Grids = () => (
         });
       })}
     </ul>
-    {getNumberArr(13).map((line) => {
+    {getNumberArr(14).map((line) => {
       const key = `line-${line}`;
       return (
         <ul key={key} className={styles.lines}>
