@@ -3,6 +3,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   openAnalyzer: false,
 });
 
+const id = Math.random().toString(32).slice(2);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compress: true,
@@ -57,6 +59,16 @@ const nextConfig = {
                         return `id-${this.counter++}`;
                       },
                     },
+                  },
+                },
+                {
+                  name: 'prefixIds',
+                  params: {
+                    // Use that ID here.
+                    // Do NOT generate the ID itself in the "prefix" function
+                    // because that will result in each ID being unique,
+                    // breaking the gradient references within a single SVG.
+                    prefix: id,
                   },
                 },
               ],
