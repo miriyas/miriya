@@ -10,6 +10,9 @@ interface Props {
 
 const DataColumn2 = ({ camera }: Props) => {
   const { data } = camera;
+
+  if (!data) return null;
+
   const {
     sensor,
     display,
@@ -25,7 +28,6 @@ const DataColumn2 = ({ camera }: Props) => {
     exposureRange,
     shutter,
     continuous,
-    continuousExtra,
     continuousLength,
   } = data;
 
@@ -56,7 +58,10 @@ const DataColumn2 = ({ camera }: Props) => {
             <td>{sensor.engine ?? '-'}</td>
           </tr>
 
-          <tr />
+          <tr>
+            <th className={styles.blank} />
+            <td />
+          </tr>
 
           <tr>
             <th>LCD</th>
@@ -83,7 +88,10 @@ const DataColumn2 = ({ camera }: Props) => {
             <td>{imageType}</td>
           </tr>
 
-          <tr />
+          <tr>
+            <th className={styles.blank} />
+            <td />
+          </tr>
 
           <tr>
             <th>촬영모드</th>
@@ -91,11 +99,11 @@ const DataColumn2 = ({ camera }: Props) => {
           </tr>
           <tr>
             <th>K/M 측광</th>
-            <td>{meteringK}</td>
+            <td>{meteringK ?? '-'}</td>
           </tr>
           <tr>
             <th>A/F/FA 측광</th>
-            <td>{meteringA}</td>
+            <td>{meteringA ?? '-'}</td>
           </tr>
           <tr>
             <th>측광범위</th>

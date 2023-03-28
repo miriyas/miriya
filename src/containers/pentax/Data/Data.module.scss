@@ -1,34 +1,46 @@
 @use 'src/styles/mixins' as m;
 
 .data {
-  @include m.flexbox(center, start);
+  display: table;
+  width: 100%;
   border: 1px solid var(--color-black);
   border-top: 0;
 
   .column {
-    @include m.flexbox(start, start);
-    flex: 1;
-    flex-direction: column;
+    position: relative;
+    display: table-cell;
+    width: 33.33%;
     padding: 14px;
   }
 
   table {
     th,
     td {
-      height: 24px;
-      font-size: 14px;
+      height: 22px;
+      font-size: 13px;
     }
 
     th {
+      position: relative;
       width: 100px;
       padding-right: 8px;
       color: var(--color-gray-7);
       text-align: right;
+
+      &::after {
+        @include m.absolute(0 0 0 auto);
+        content: ':';
+      }
+    }
+
+    td {
+      padding-left: 8px;
     }
   }
 
   .comment {
-    font-size: 14px;
+    @include m.absolute(auto auto 14px 14px);
+    font-size: 13px;
     line-height: 1.6;
     color: var(--color-gray-4);
   }

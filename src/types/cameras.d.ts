@@ -126,6 +126,8 @@ export const FOCUS_NAME = {
   SAFOX7P: 'SAFOX VII+',
   SAFOX9: 'SAFOX IX',
   SAFOX9P: 'SAFOX IX+',
+  SAFOX10: 'SAFOX X',
+  SAFOX11: 'SAFOX XI',
 };
 
 export type FocusNameTypes = ValueOf<typeof FOCUS_NAME>;

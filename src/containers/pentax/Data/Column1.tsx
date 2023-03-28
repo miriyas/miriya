@@ -10,7 +10,6 @@ interface Props {
 
 const DataColumn1 = ({ camera }: Props) => {
   const { startYear, endYear, data } = camera;
-  const { body, bonus, mount, power, memory, etc, comment, sensor, display, imageType } = data;
 
   const endYearData = endYear ? `${endYear}년` : '생산중';
 
@@ -27,53 +26,53 @@ const DataColumn1 = ({ camera }: Props) => {
           <tr>
             <th>규격</th>
             <td>
-              {body.width} x {body.height} x {body.depth}mm
+              {data?.body.width} x {data?.body.height} x {data?.body.depth}mm
             </td>
           </tr>
           <tr>
             <th>재질</th>
-            <td>{body.material}</td>
+            <td>{data?.body.material ?? '-'}</td>
           </tr>
           <tr>
             <th>방진방습</th>
-            <td>{bonus?.wr ? '지원' : '-'}</td>
+            <td>{data?.bonus?.wr ? '지원' : '-'}</td>
           </tr>
           <tr>
             <th>손떨림보정</th>
-            <td>{bonus?.sr ? bonus.sr : '-'}</td>
+            <td>{data?.bonus?.sr ? data?.bonus.sr : '-'}</td>
           </tr>
 
           <tr>
             <th>먼지제거</th>
-            <td>{bonus?.dustRemove ? bonus.dustRemove : '-'}</td>
+            <td>{data?.bonus?.dustRemove ? data?.bonus.dustRemove : '-'}</td>
           </tr>
 
           <tr>
             <th>마운트</th>
-            <td>{mount}</td>
+            <td>{data?.mount ?? '-'}</td>
           </tr>
 
           <tr>
             <th>세로그립</th>
-            <td>{body.verticalGrip ?? '-'}</td>
+            <td>{data?.body.verticalGrip ?? '-'}</td>
           </tr>
 
           <tr>
             <th>전원</th>
-            <td>{power}</td>
+            <td>{data?.power ?? '-'}</td>
           </tr>
 
           <tr>
             <th>메모리</th>
-            <td>{memory}</td>
+            <td>{data?.memory ?? '-'}</td>
           </tr>
           <tr>
             <th>기타</th>
-            <td>{etc}</td>
+            <td>{data?.etc ?? '-'}</td>
           </tr>
         </tbody>
       </table>
-      <p className={styles.comment}>{comment}</p>
+      <p className={styles.comment}>{data?.comment}</p>
     </div>
   );
 };

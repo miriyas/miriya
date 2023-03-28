@@ -1,5 +1,5 @@
 import { ValueOf } from '@/types';
-import { EngineTypes, FocusType, OpticsTypes } from '@/types/cameras';
+import { EngineTypes, FocusNameTypes, OpticsTypes } from '@/types/cameras';
 
 export const PENTAX_DSLR_TYPE = {
   IST: 'IST',
@@ -21,6 +21,8 @@ export const PENTAX_DSLR_SENSOR_SIZE = {
   C153: '23.5 x 15.7mm, 1.53crop',
   C1532: '23.4 x 15.6mm, 1.53crop',
   C1533: '23.6 x 15.8mm, 1.53crop',
+  C1534: '23.5 x 15.6mm, 1.53crop',
+  C1535: '23.7 x 15.7mm, 1.53crop',
 } as const;
 
 export type PentaxDslrSensorSizeTypes = ValueOf<typeof PENTAX_DSLR_SENSOR_SIZE>;
@@ -35,66 +37,69 @@ export interface PentaxDslr {
   endQuarter?: number;
   data?: {
     body: {
-      material: PentaxDslrMaterialTypes;
+      material: PentaxDslrMaterialTypes | undefined;
       width: number;
       height: number;
       depth: number;
       weight: {
         base: number;
-        extra: string;
+        extra: string | undefined;
       };
-      verticalGrip?: string;
+      verticalGrip?: string | undefined;
     };
-    mount: string;
-    power: string;
-    memory: string;
-    etc: string;
-    comment: string;
+    mount: string | undefined;
+    power: string | undefined;
+    memory: string | undefined;
+    etc?: string | undefined;
+    comment: string | undefined;
     bonus?: {
-      wr: boolean;
-      dustRemove: string;
+      wr?: boolean | undefined;
+      sr?: string | undefined;
+      dustRemove?: string | undefined;
     };
     sensor: {
-      pixels: string;
-      size: PentaxDslrSensorSizeTypes;
-      iso: string;
-      engine: EngineTypes;
+      pixels: string | undefined;
+      size: PentaxDslrSensorSizeTypes | undefined;
+      iso: string | undefined;
+      engine?: EngineTypes | undefined;
     };
-    display: string;
-    liveView?: boolean;
-    liveViewAF?: string;
-    movie?: string;
-    movieType?: string;
-    imageType: string;
-    modes: string;
-    meteringA: string;
-    meteringRange: string;
-    exposureRange: string;
-    shutter: string;
-    continuous: number;
-    continuousExtra?: string;
-    continuousLength?: string;
+    display: string | undefined;
+    liveView?: boolean | undefined;
+    liveViewAF?: string | undefined;
+    movie?: string | undefined;
+    movieType?: string | undefined;
+    imageType: string | undefined;
+    modes: string | undefined;
+    meteringK?: string | undefined;
+    meteringA: string | undefined;
+    meteringRange: string | undefined;
+    exposureRange: string | undefined;
+    shutter: string | undefined;
+    continuous: number | string | undefined;
+    continuousLength?: number | string | undefined;
     viewFinder: {
-      type: OpticsTypes;
-      coverage: number;
-      magnification: string;
-      magnification2?: string;
-      screenReplace?: string;
+      type: OpticsTypes | undefined;
+      coverage: number | undefined;
+      magnification: string | undefined;
+      magnification2?: string | undefined;
+      screenReplace?: boolean | undefined;
     };
     flash: {
-      interlock: string;
+      interlock: string | undefined;
       modes: string[];
-      syncSpeed: string;
-      redEye: boolean;
-      internal?: string;
-      release?: string;
-      releaseW?: string;
+      syncSpeed: string | undefined;
+      redEye: boolean | undefined;
+      internal?: string | undefined;
+      release?: string | undefined;
+      releaseW?: string | undefined;
     };
     focus: {
-      name: FocusType;
-      points: number;
-      superImpose: boolean;
-      supersonicMotor: boolean;
+      name: FocusNameTypes | undefined;
+      points: number | string | undefined;
+      sensitivity?: string | undefined;
+      superImpose?: boolean | undefined;
+      supersonicMotor?: boolean | undefined;
     };
+    refs?: string[];
   };
 }
