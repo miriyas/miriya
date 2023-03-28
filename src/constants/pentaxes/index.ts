@@ -123,7 +123,7 @@ export const PENTAX_DSLRS = [
     endQuarter: 3,
   },
   {
-    type: PENTAX_DSLR_TYPE.K,
+    type: PENTAX_DSLR_TYPE.NEW_K,
     name: 'KP',
     line: 6,
     startYear: 2017,

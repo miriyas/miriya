@@ -2,13 +2,13 @@
 
 import cx from 'clsx';
 
-import { YEAR_INFO } from '@/constants/pentaxes';
-import Cameras from '@/containers/pentax/Cameras';
+import { PENTAX_DSLRS, YEAR_INFO } from '@/constants/pentaxes';
 import Grids from '@/containers/pentax/Grids';
 import { useDraggable } from '@/hooks/useDraggable';
 import { getNumberArr } from '@/utils';
 import ViewMoreButton from '@/containers/pentax/ViewMoreButton';
 
+import Camera from './Camera';
 import styles from './Pentax.module.scss';
 
 const PentaxPage = () => {
@@ -33,7 +33,11 @@ const PentaxPage = () => {
             </ol>
             <div className={styles.timeline} ref={draggableRef}>
               <Grids />
-              <Cameras />
+              <ul className={styles.cameras}>
+                {PENTAX_DSLRS.map((dslr) => {
+                  return <Camera key={dslr.name} data={dslr} />;
+                })}
+              </ul>
               <div className={`${styles.endOfScroll} lastItem`} />
             </div>
           </div>
