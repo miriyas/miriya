@@ -164,7 +164,11 @@ export const ENGINE_TYPE = {
   BIONZ: 'Bionz',
   BIONZX: 'Bionz X',
   DTRUE3: 'Dual True III',
+  PRIME: 'PRIME',
+  PRIME2: 'PRIME II',
 };
+
+export type EngineTypes = ValueOf<typeof ENGINE_TYPE>;
 
 export interface FocusType {
   name?: FocusNameTypes;
@@ -174,8 +178,6 @@ export interface FocusType {
   pointsDouble?: number;
   phaseDetection?: boolean;
 }
-
-export type EngineTypes = ValueOf<typeof ENGINE_TYPE>;
 
 export const VIDEO_SCAN_TYPE = {
   PROGRESSIVE: 'Progressive',

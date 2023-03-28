@@ -1,8 +1,10 @@
 import cx from 'clsx';
-import { useMemo } from 'react';
+import { FocusEventHandler, MouseEventHandler, useMemo } from 'react';
+import { useSetAtom } from 'jotai';
 
 import { YEAR_INFO } from '@/constants/pentaxes';
 import { PentaxDslr } from '@/types/pentaxes';
+import { selectedCameraAtom } from './states';
 
 import styles from './Camera.module.scss';
 
@@ -30,14 +32,23 @@ interface Props {
 }
 
 const Camera = ({ data }: Props) => {
+  const setSelectedCamera = useSetAtom(selectedCameraAtom);
   const className = useMemo(() => {
     return cx(styles.camera, styles[data.type.toLowerCase()], {
       [styles.inProduction]: !data.endYear,
     });
   }, [data.endYear, data.type]);
 
+  const onMouseOver: MouseEventHandler<HTMLLIElement> = () => {
+    setSelectedCamera(data.name);
+  };
+
+  const onFocus: FocusEventHandler<HTMLLIElement> = () => {
+    setSelectedCamera(data.name);
+  };
+
   return (
-    <li key={data.name} className={className} style={getPosition(data)}>
+    <li key={data.name} className={className} style={getPosition(data)} onMouseOver={onMouseOver} onFocus={onFocus}>
       {data.name}
     </li>
   );

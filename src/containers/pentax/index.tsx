@@ -9,6 +9,7 @@ import { getNumberArr } from '@/utils';
 import ViewMoreButton from '@/containers/pentax/ViewMoreButton';
 
 import Camera from './Camera';
+import Data from './Data';
 import styles from './Pentax.module.scss';
 
 const PentaxPage = () => {
@@ -43,16 +44,7 @@ const PentaxPage = () => {
           </div>
           {showArrow && <ViewMoreButton wrapperRef={wrapperRef} />}
         </section>
-        <div className={styles.lower}>
-          <table>
-            <tbody>
-              <tr>
-                <th>ㅇㅇ</th>
-                <td>aa</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <Data />
       </div>
     </main>
   );
