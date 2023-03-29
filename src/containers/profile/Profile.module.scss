@@ -1,7 +1,6 @@
 @use 'src/styles/mixins' as m;
 
 .profile {
-  @include m.flexbox(center, start);
   font-size: 12px;
   line-height: 1.6;
   color: var(--color-gray-2);

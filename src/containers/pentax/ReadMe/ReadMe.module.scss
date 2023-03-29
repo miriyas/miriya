@@ -2,6 +2,7 @@
 
 .mdWrapper {
   @include m.flexbox(between, start);
+  flex-direction: column;
   height: 50vh;
   margin-top: 24px;
   overflow-y: auto;
@@ -10,6 +11,7 @@
   color: var(--color-gray-2);
 
   @include m.after(SD) {
+    flex-direction: row;
     font-size: 14px;
   }
 
