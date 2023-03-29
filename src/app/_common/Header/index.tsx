@@ -16,18 +16,22 @@ const ROUTES = [
   {
     href: '/',
     title: 'MIRIYA',
+    mobileTitle: 'MIRIYA',
   },
   {
     href: '/idols',
     title: 'History of Idols',
+    mobileTitle: 'Idols',
   },
   {
     href: '/cameras',
     title: 'History of DSLR',
+    mobileTitle: 'DSLR',
   },
   {
     href: '/pentax',
     title: 'Pentaxian Encyclopedia',
+    mobileTitle: 'Pentaxian',
   },
 ];
 
@@ -51,7 +55,7 @@ const Header = () => {
     <header className={styles.appHeader}>
       <nav className={styles.mobileNav}>
         <Link href={ROUTES[0].href} className={styles.home} onClick={onClickLink}>
-          {ROUTES[0].title}
+          <span className={styles.mobileOnly}>{ROUTES[0].mobileTitle}</span>
         </Link>
         <details>
           <summary>
@@ -62,11 +66,11 @@ const Header = () => {
           <div className={styles.menus}>
             <ul>
               {ROUTES.slice(1).map((route) => {
-                const { href, title } = route;
+                const { href, mobileTitle } = route;
                 return (
                   <li key={href}>
                     <Link href={href} className={cx({ [styles.active]: current === href })} onClick={onClickLink}>
-                      {title}
+                      {mobileTitle}
                     </Link>
                   </li>
                 );
