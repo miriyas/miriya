@@ -34,8 +34,8 @@ const PentaxPage = () => {
             <div className={styles.timeline} ref={draggableRef}>
               <Grids />
               <ul className={styles.cameras}>
-                {PENTAX_DSLRS.map((dslr) => {
-                  return <Camera key={dslr.name} data={dslr} />;
+                {PENTAX_DSLRS.map((camera) => {
+                  return <Camera key={camera.name} camera={camera} />;
                 })}
               </ul>
               <div className={`${styles.endOfScroll} lastItem`} />

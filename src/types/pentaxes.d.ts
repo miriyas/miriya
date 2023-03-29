@@ -5,6 +5,9 @@ export const PENTAX_DSLR_TYPE = {
   IST: 'IST',
   K: 'K',
   NEW_K: 'NEWK',
+  K645: 'K645',
+  Q: 'Q',
+  SHIT: 'SHIT',
 } as const;
 
 export type PentaxDslrTypes = ValueOf<typeof PENTAX_DSLR_TYPE>;
@@ -35,7 +38,7 @@ export interface PentaxDslr {
   startQuarter: number;
   endYear?: number;
   endQuarter?: number;
-  data?: {
+  data: {
     body: {
       material: PentaxDslrMaterialTypes | undefined;
       width: number;

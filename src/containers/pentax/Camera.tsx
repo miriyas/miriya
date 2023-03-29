@@ -28,28 +28,33 @@ const getPosition = (dslr: PentaxDslr) => {
 };
 
 interface Props {
-  data: PentaxDslr;
+  camera: PentaxDslr;
 }
 
-const Camera = ({ data }: Props) => {
+const Camera = ({ camera }: Props) => {
+  const { data, name, type, endYear } = camera;
+  const { bonus } = data;
+
   const setSelectedCamera = useSetAtom(selectedCameraAtom);
+
   const className = useMemo(() => {
-    return cx(styles.camera, styles[data.type.toLowerCase()], {
-      [styles.inProduction]: !data.endYear,
+    return cx(styles.camera, styles[type.toLowerCase()], {
+      [styles.inProduction]: !endYear,
+      [styles.ws]: bonus?.wr,
     });
-  }, [data.endYear, data.type]);
+  }, [bonus?.wr, endYear, type]);
 
   const onMouseOver: MouseEventHandler<HTMLLIElement> = () => {
-    setSelectedCamera(data.name);
+    setSelectedCamera(name);
   };
 
   const onFocus: FocusEventHandler<HTMLLIElement> = () => {
-    setSelectedCamera(data.name);
+    setSelectedCamera(name);
   };
 
   return (
-    <li key={data.name} className={className} style={getPosition(data)} onMouseOver={onMouseOver} onFocus={onFocus}>
-      {data.name}
+    <li key={name} className={className} style={getPosition(camera)} onMouseOver={onMouseOver} onFocus={onFocus}>
+      {name}
     </li>
   );
 };
