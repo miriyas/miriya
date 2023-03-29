@@ -4,10 +4,10 @@ import { useAtomValue } from 'jotai';
 import Image from 'next/image';
 
 import { PENTAX_DSLRS } from '@/constants/pentaxes';
-import { selectedCameraAtom } from '@/containers/pentax/states';
+import { selectedCameraAtom } from './states';
 
-import styles from './Pictures.module.scss';
 import { cameraId } from '@/components/Camera/utils';
+import styles from './Pictures.module.scss';
 
 const Pictures = () => {
   const selectedCameraName = useAtomValue(selectedCameraAtom);

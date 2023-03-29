@@ -3,7 +3,7 @@
 import { useAtomValue } from 'jotai';
 
 import { PENTAX_DSLRS } from '@/constants/pentaxes';
-import { selectedCameraAtom } from '@/containers/pentax/states';
+import { selectedCameraAtom } from '../states';
 
 import DataColumn1 from './Column1';
 import DataColumn2 from './Column2';

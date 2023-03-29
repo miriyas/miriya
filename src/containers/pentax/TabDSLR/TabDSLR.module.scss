@@ -1,0 +1,74 @@
+@use 'src/styles/mixins' as m;
+
+.pentaxes {
+  .centering {
+    width: 100%;
+    min-width: 900px;
+    max-width: 1200px;
+  }
+
+  .wrapper {
+    @include m.flexbox(center, center);
+    position: relative;
+    margin-top: 24px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+
+    .rightWing {
+      @include m.flexbox(start, start);
+      flex: 1;
+      flex-direction: column;
+      height: calc(var(--h-pentax-picture) + var(--x-pentax-cell));
+      padding-right: var(--x-pentax-cell); // ViewMoreButton;
+      overflow-x: auto;
+      cursor: grab;
+      background-color: var(--color-black);
+
+      &.grabbing {
+        cursor: grabbing;
+      }
+
+      &::-webkit-scrollbar {
+        display: none; // Chrome
+      }
+
+      .endOfScroll {
+        @include m.absolute(0 0 0 auto);
+        width: 1px;
+      }
+
+      .years {
+        @include m.flexbox(between, center);
+        background-color: var(--color-black);
+
+        li {
+          @include m.flexbox(center, center);
+          position: relative;
+          flex-shrink: 0;
+          width: calc(var(--x-pentax-cell) * 4);
+          height: var(--x-pentax-cell);
+          font-size: 12px;
+          color: var(--color-white);
+          text-align: center;
+
+          &::after {
+            @include m.absolute(auto 0 0 auto);
+            width: 1px;
+            height: 2px;
+            content: '';
+            background-color: var(--color-gray-e);
+          }
+
+          &:last-child::after {
+            display: none;
+          }
+        }
+      }
+
+      .timeline {
+        position: relative;
+        background-color: var(--color-white);
+      }
+    }
+  }
+}
