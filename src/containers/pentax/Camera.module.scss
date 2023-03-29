@@ -3,11 +3,31 @@
 .camera {
   @include m.flexbox(center, center);
   position: absolute;
-  font-size: 11px;
+  font-size: 10px;
   text-align: center;
   cursor: pointer;
   // background-color: rgba(0, 0, 0, 20%); // For test
   border: 1px solid var(--color-gray-8);
+
+  &.wr {
+    &::after {
+      @include m.absolute(10px 1px auto auto);
+      font-size: 10px;
+      color: var(--color-blue);
+      content: 'WR';
+      transform: scale(0.8);
+    }
+  }
+
+  &.sr {
+    &::before {
+      @include m.absolute(1px 1px auto auto);
+      font-size: 10px;
+      color: var(--color-red);
+      content: 'SR';
+      transform: scale(0.8);
+    }
+  }
 
   &.ist {
     background-color: var(--pc-ist);

@@ -40,9 +40,10 @@ const Camera = ({ camera }: Props) => {
   const className = useMemo(() => {
     return cx(styles.camera, styles[type.toLowerCase()], {
       [styles.inProduction]: !endYear,
-      [styles.ws]: bonus?.wr,
+      [styles.wr]: bonus?.wr,
+      [styles.sr]: bonus?.sr,
     });
-  }, [bonus?.wr, endYear, type]);
+  }, [bonus?.sr, bonus?.wr, endYear, type]);
 
   const onMouseOver: MouseEventHandler<HTMLLIElement> = () => {
     setSelectedCamera(name);

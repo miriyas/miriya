@@ -14,7 +14,7 @@ export function getReadme() {
 }
 
 export async function GET() {
-  const markdown = await getReadme();
-  const result = await remark().use(html, { sanitize: false }).process(markdown);
+  const data = await getReadme();
+  const result = await remark().use(html, { sanitize: false }).process(data);
   return NextResponse.json(result.toString());
 }

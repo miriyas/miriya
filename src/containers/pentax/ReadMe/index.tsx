@@ -1,17 +1,30 @@
 /* eslint-disable react/no-danger */
 import { useQuery } from '@tanstack/react-query';
 
-import { getReadmeApi } from '@/services/pentaxes';
+import { getHelpMeMarkdownApi, getReadMeMarkdownApi } from '@/services/pentaxes';
 
 import styles from './ReadMe.module.scss';
 
 const ReadMe = () => {
-  const { data, isLoading, isError } = useQuery(['getReadmeApi'], () => getReadmeApi().then((res) => res.json()), {
+  const {
+    data: readMe,
+    isLoading: isReadMeLoading,
+    isError: isReadMeError,
+  } = useQuery(['getReadMeMarkdownApi'], () => getReadMeMarkdownApi().then((res) => res.json()), {
     cacheTime: 6 * 1000,
     refetchOnMount: false,
   });
 
-  if (isLoading) {
+  const {
+    data: helpMe,
+    isLoading: isHelpMeLoading,
+    isError: isHelpMeError,
+  } = useQuery(['getHelpMeMarkdownApi'], () => getHelpMeMarkdownApi().then((res) => res.json()), {
+    cacheTime: 6 * 1000,
+    refetchOnMount: false,
+  });
+
+  if (isReadMeLoading || isHelpMeLoading) {
     return (
       <div className={styles.loading}>
         <p>Loading...</p>
@@ -19,7 +32,7 @@ const ReadMe = () => {
     );
   }
 
-  if (isError) {
+  if (isReadMeError || isHelpMeError) {
     return (
       <div className={styles.error}>
         <p>ERROR</p>
@@ -28,8 +41,9 @@ const ReadMe = () => {
   }
 
   return (
-    <div className={styles.readMe}>
-      <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: data }} />
+    <div className={styles.mdWrapper}>
+      <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: readMe }} />
+      <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: helpMe }} />
     </div>
   );
 };
