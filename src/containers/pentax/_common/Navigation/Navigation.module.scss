@@ -1,0 +1,37 @@
+@use 'src/styles/mixins' as m;
+
+.navigation {
+  @include m.flexbox(between, center);
+  height: var(--x-pentax-cell);
+  font-size: 12px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+
+  ul {
+    @include m.flexbox(center, center);
+
+    li {
+      color: var(--color-white);
+
+      a {
+        @include m.flexbox(center, center);
+        height: var(--x-pentax-cell);
+        padding: 0 8px;
+        color: var(--color-black);
+
+        &.active {
+          color: var(--color-white);
+          background-color: var(--color-black);
+        }
+      }
+    }
+  }
+
+  .desc {
+    margin-right: 8px;
+
+    span {
+      color: var(--color-pentax-limit);
+    }
+  }
+}

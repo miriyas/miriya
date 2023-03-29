@@ -5,14 +5,7 @@ import ReadMe from './ReadMe';
 import styles from './Pentax.module.scss';
 
 const PentaxPage = () => {
-  return (
-    <main className={styles.pentaxes}>
-      <div className={styles.centering}>
-        <TabDSLR />
-        <ReadMe />
-      </div>
-    </main>
-  );
+  return <ReadMe />;
 };
 
 export default PentaxPage;
