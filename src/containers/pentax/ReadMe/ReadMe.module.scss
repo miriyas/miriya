@@ -1,0 +1,32 @@
+@use 'src/styles/mixins' as m;
+
+.readMe {
+  margin-top: 24px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-gray-2);
+
+  @include m.after(SD) {
+    font-size: 14px;
+  }
+
+  .markdown {
+    h1 {
+      margin-bottom: 14px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    > ul {
+      > li {
+        margin: 0 0 14px 24px;
+        list-style-type: disc;
+
+        li {
+          margin: 0 0 0 14px;
+          list-style-type: circle;
+        }
+      }
+    }
+  }
+}

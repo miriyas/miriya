@@ -15,6 +15,7 @@
     "cheerio": "^1.0.0-rc.12",
     "client-only": "^0.0.1",
     "clsx": "^1.2.1",
+    "gray-matter": "^4.0.3",
     "humps": "^2.0.1",
     "iconv-lite": "^0.6.3",
     "isotope-layout": "^3.0.6",
@@ -25,6 +26,8 @@
     "react-dom": "^18.2.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.2",
     "server-only": "^0.0.1"
   },
   "devDependencies": {

@@ -11,6 +11,7 @@ import ViewMoreButton from '@/containers/pentax/ViewMoreButton';
 import Camera from './Camera';
 import Pictures from './Pictures';
 import Data from './Data';
+import ReadMe from './ReadMe';
 import styles from './Pentax.module.scss';
 
 const PentaxPage = () => {
@@ -43,6 +44,7 @@ const PentaxPage = () => {
           {showArrow && <ViewMoreButton wrapperRef={wrapperRef} />}
         </section>
         <Data />
+        <ReadMe />
       </div>
     </main>
   );

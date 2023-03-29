@@ -100,6 +100,21 @@ const DataColumn3 = ({ camera }: Props) => {
             <th>초음파모터</th>
             <td>{data?.focus.supersonicMotor ? '사용가능' : '-'}</td>
           </tr>
+          <tr>
+            <th>레퍼런스</th>
+            <td>
+              {data?.refs
+                ? data?.refs?.map((ref, i) => {
+                    const key = `${ref}-${i}`;
+                    return (
+                      <a key={key} href={ref} target='_blank' rel='nofollow'>
+                        Link {i + 1}
+                      </a>
+                    );
+                  })
+                : '-'}
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

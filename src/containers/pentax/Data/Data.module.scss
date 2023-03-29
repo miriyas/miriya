@@ -31,6 +31,10 @@
         @include m.absolute(0 0 0 auto);
         content: ':';
       }
+
+      &.blank::after {
+        display: none;
+      }
     }
 
     td {
