@@ -1,19 +1,24 @@
 'use client';
 
 import cx from 'clsx';
+import { useAtomValue } from 'jotai';
 
-import { PENTAX_DSLRS, YEAR_INFO } from '@/constants/pentaxes';
+import { PENTAX_DSLRS, PENTAX_DSLRS_YEAR_INFO, X_CELL_DSLR } from '@/constants/pentaxes';
 import { useDraggable } from '@/hooks/useDraggable';
 import { getNumberArr } from '@/utils';
+import { selectedCameraAtom } from './states';
 
+import Picture from '../_common/Picture';
 import ViewMoreButton from '../_common/ViewMoreButton';
 import Camera from './Camera';
-import Pictures from './Pictures';
 import Data from './Data';
-import Grids from './Grids';
 import styles from './TabDSLR.module.scss';
 
-const PentaxPage = () => {
+const { start: yearStart, end: yearEnd } = PENTAX_DSLRS_YEAR_INFO;
+
+const PentaxDSLRPage = () => {
+  const selectedCameraName = useAtomValue(selectedCameraAtom);
+
   const { draggableRef, wrapperRef, handlers, isMouseDown, showArrow } = useDraggable({
     noArrowAbove: 2400,
   });
@@ -21,16 +26,24 @@ const PentaxPage = () => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.upper}>
-        <Pictures />
+        <Picture selectedCameraName={selectedCameraName} baseUrl='dslr' />
         <div className={cx(styles.rightWing, { [styles.grabbing]: isMouseDown })} ref={wrapperRef} {...handlers}>
           <ol className={styles.years}>
-            {getNumberArr(YEAR_INFO.end - YEAR_INFO.start + 1).map((n) => {
-              const year = YEAR_INFO.start + n;
+            {getNumberArr(yearEnd - yearStart + 1).map((n) => {
+              const year = yearStart + n;
               return <li key={year}>{year}</li>;
             })}
           </ol>
-          <div className={styles.timeline} ref={draggableRef}>
-            <Grids />
+          <div
+            className={styles.timeline}
+            ref={draggableRef}
+            style={{
+              width: `${X_CELL_DSLR * 4 * (yearEnd - yearStart + 1)}px`,
+            }}
+          >
+            <div className={styles.gridsWrapper}>
+              <div className={styles.cssGrid} />
+            </div>
             <ul className={styles.cameras}>
               {PENTAX_DSLRS.map((camera) => {
                 return <Camera key={camera.name} camera={camera} />;
@@ -46,4 +59,4 @@ const PentaxPage = () => {
   );
 };
 
-export default PentaxPage;
+export default PentaxDSLRPage;

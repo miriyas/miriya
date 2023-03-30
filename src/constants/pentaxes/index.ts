@@ -1,10 +1,5 @@
 export const VERSION = 2.1;
 
-export const YEAR_INFO = {
-  start: 2003,
-  end: 2023,
-};
-
 export const MENUS = [
   {
     id: 'pentax-nav-home',
@@ -38,4 +33,5 @@ export const MENUS = [
   },
 ];
 
-export { PENTAX_DSLRS } from './dslr';
+export { PENTAX_DSLRS, PENTAX_DSLRS_YEAR_INFO, X_CELL_DSLR } from './dslr';
+export { PENTAX_SLRS, PENTAX_SLRS_YEAR_INFO } from './slr';

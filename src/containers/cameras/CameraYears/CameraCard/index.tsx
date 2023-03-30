@@ -7,7 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 import { useAtomValue } from 'jotai';
 
 import { CameraType } from '@/types/cameras.d';
-import { cameraId } from './utils';
+import { cameraId } from '@/utils/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
 import DataInternal from './DataInternal';

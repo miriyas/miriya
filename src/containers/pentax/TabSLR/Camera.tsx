@@ -2,7 +2,7 @@ import cx from 'clsx';
 import { FocusEventHandler, MouseEventHandler, useMemo } from 'react';
 import { useSetAtom } from 'jotai';
 
-import { PENTAX_DSLRS_YEAR_INFO, X_CELL_DSLR } from '@/constants/pentaxes';
+import { PENTAX_DSLRS_YEAR_INFO } from '@/constants/pentaxes';
 import { PentaxDslr } from '@/types/pentaxes';
 import { selectedCameraAtom } from './states';
 
@@ -10,16 +10,17 @@ import styles from './Camera.module.scss';
 
 const { start: yearStart, end: yearEnd } = PENTAX_DSLRS_YEAR_INFO;
 
-const H_QUARTERS = X_CELL_DSLR; // --x-pentax-cell
-const H_LINE = X_CELL_DSLR; // --x-pentax-cell
-const W_LINE = X_CELL_DSLR; // --x-pentax-cell
+// NOTE: src/styles/_variable.scss 와 싱크 맞춰야함
+const H_QUARTERS = 22; // --x-pentax-cell
+const H_LINE = 22; // --x-pentax-cell
+const W_LINE = 22; // --x-pentax-cell
 const W_YEAR = W_LINE * 4;
 
 const getPosition = (dslr: PentaxDslr) => {
   const { line, startYear, startQuarter, endYear, endQuarter } = dslr;
 
   return {
-    top: `${H_QUARTERS + H_LINE * (line - 1) - 1}px`,
+    top: `${H_QUARTERS + H_LINE * (line - 1)}px`,
     left: `${(startYear - yearStart) * W_YEAR + (startQuarter - 1) * W_LINE - 1}px`,
     width: `${((endYear || yearEnd) - startYear) * W_YEAR + ((endQuarter || 4) - startQuarter + 1) * W_LINE + 1}px`,
     height: `${H_LINE + 1}px`,

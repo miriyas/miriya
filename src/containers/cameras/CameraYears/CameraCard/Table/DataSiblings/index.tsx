@@ -1,6 +1,6 @@
 import { CameraType } from '@/types/cameras.d';
+import { cameraId } from '@/utils/cameras';
 
-import { cameraId } from '@/containers/cameras/CameraYears/CameraCard/utils';
 import SiblingLink from './SiblingLink';
 
 interface Props {

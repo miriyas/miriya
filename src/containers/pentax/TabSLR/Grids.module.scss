@@ -4,7 +4,6 @@
   height: var(--h-pentax-picture);
   overflow: hidden;
 
-  .quarters,
   .lines {
     @include m.flexbox(center, center);
 
@@ -13,16 +12,6 @@
       width: var(--x-pentax-cell);
       height: var(--x-pentax-cell);
       font-size: 12px;
-    }
-  }
-
-  .quarters {
-    background-color: var(--color-gray-e);
-    border-bottom: 1px solid var(--color-gray-c);
-  }
-
-  .lines {
-    li {
       border-bottom: 1px solid var(--color-gray-d);
     }
   }

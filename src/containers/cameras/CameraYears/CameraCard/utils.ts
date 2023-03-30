@@ -1,9 +1,5 @@
 import { CAMERA_MAKER, CameraMakerTypes } from '@/types/cameras.d';
 
-export const cameraId = (maker: CameraMakerTypes, name: string) => {
-  return `${maker}-${name}`.replace(/ |\/|\*/gi, '').toLowerCase();
-};
-
 /** digicamDB용 id 생성 */
 export const externalCameraId = (maker: CameraMakerTypes, name: string) => {
   let newName = name.toLowerCase();

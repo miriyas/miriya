@@ -62,33 +62,7 @@
 
     .timeline {
       position: relative;
-      width: 100%;
-      height: 100%;
       background-color: var(--color-white);
-
-      .gridsWrapper {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-
-        .cssGrid {
-          width: 100%;
-          height: 101%;
-          padding-bottom: 1px;
-          margin: -1px 0 0 -1px;
-          background-image: /* 진한 세로 */ repeating-linear-gradient(
-              90deg,
-              var(--color-gray-c) 0 1px,
-              transparent 1px 100%
-            ),
-            /* 가로 */ repeating-linear-gradient(var(--color-gray-d) 0 1px, transparent 1px 100%),
-            /* 세로 점선 오버레이 */ repeating-linear-gradient(var(--color-white) 0 3px, transparent 1px 100%),
-            /* 세로 점선 배경 */ repeating-linear-gradient(90deg, var(--color-gray-d) 0 1px, transparent 1px 100%);
-          background-size: /* 진한 세로 */ calc(var(--x-pentax-cell) * 4) calc(var(--x-pentax-cell) * 4),
-            /* 가로 */ var(--x-pentax-cell) var(--x-pentax-cell), /* 세로 점선 오버레이 */ 6px 6px,
-            /* 세로 점선 배경 */ var(--x-pentax-cell) var(--x-pentax-cell);
-        }
-      }
     }
   }
 }

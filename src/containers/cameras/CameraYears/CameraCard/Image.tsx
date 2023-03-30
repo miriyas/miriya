@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { CameraType } from '@/types/cameras.d';
-import { cameraId } from './utils';
+import { cameraId } from '@/utils/cameras';
 
 import styles from './Image.module.scss';
 

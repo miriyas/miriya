@@ -1,21 +1,22 @@
 'use client';
 
-import { useAtomValue } from 'jotai';
 import Image from 'next/image';
 
 import { PENTAX_DSLRS } from '@/constants/pentaxes';
-import { selectedCameraAtom } from './states';
+import { cameraId } from '@/utils/cameras';
 
-import { cameraId } from '@/containers/cameras/CameraYears/CameraCard/utils';
-import styles from './Pictures.module.scss';
+import styles from './Picture.module.scss';
 
-const Pictures = () => {
-  const selectedCameraName = useAtomValue(selectedCameraAtom);
+interface Props {
+  selectedCameraName: string;
+  baseUrl: 'dslr' | 'slr';
+}
 
+const Picture = ({ selectedCameraName, baseUrl }: Props) => {
   const camera = PENTAX_DSLRS.find((c) => c.name === selectedCameraName) || PENTAX_DSLRS[0];
 
   const id = cameraId('pentax', camera.name);
-  const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/pentaxes/dslr/${id}.jpg`;
+  const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/pentaxes/${baseUrl}/${id}.jpg`;
 
   return (
     <div className={styles.pictureWrapper}>
@@ -34,4 +35,4 @@ const Pictures = () => {
   );
 };
 
-export default Pictures;
+export default Picture;

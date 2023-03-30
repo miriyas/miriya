@@ -1,15 +1,12 @@
 import { ENGINE_TYPE, FOCUS_NAME, OPTICS_TYPE } from '@/types/cameras.d';
 import { PENTAX_DSLR_MATERIAL, PENTAX_DSLR_SENSOR_SIZE, PENTAX_DSLR_TYPE, PentaxDslr } from '@/types/pentaxes.d';
 
-// NOTE: src/styles/_variable.scss 와 싱크 맞춰야함
-export const X_CELL_DSLR = 22;
-
-export const PENTAX_DSLRS_YEAR_INFO = {
-  start: 2003,
-  end: 2023,
+export const PENTAX_SLRS_YEAR_INFO = {
+  start: 1975,
+  end: 2004,
 };
 
-export const PENTAX_DSLRS: PentaxDslr[] = [
+export const PENTAX_SLRS: PentaxDslr[] = [
   // Line 1 ==============================
   {
     type: PENTAX_DSLR_TYPE.K645,
