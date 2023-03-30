@@ -10,7 +10,7 @@ import { IdolType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 
-import Idol from '@/components/Idol';
+import IdolCard from './IdolCard';
 import styles from './IdolYear.module.scss';
 
 interface Props {
@@ -63,7 +63,7 @@ const IdolYear = (props: Props) => {
       <ul className={cx(styles.idols, `grid-${year}`)}>
         {idols.map((idol, i) => {
           return (
-            <Idol key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} i={i} yearLength={idols.length} />
+            <IdolCard key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} i={i} yearLength={idols.length} />
           );
         })}
       </ul>

@@ -2,7 +2,7 @@
 
 import { PentaxDslr } from '@/types/pentaxes.d';
 
-import { prettyOpticsType } from '@/components/Camera/Table/utils';
+import { prettyOpticsType } from '@/containers/cameras/CameraYears/CameraCard/Table/utils';
 import styles from './Data.module.scss';
 
 interface Props {

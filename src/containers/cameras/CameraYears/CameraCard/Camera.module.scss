@@ -1,0 +1,160 @@
+@use 'src/styles/mixins' as m;
+
+.camera {
+  @include m.commonBoxShadow;
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  transition: opacity 100ms, width 200ms;
+
+  .wrapper {
+    width: 100%;
+    height: 420px;
+  }
+
+  @include m.after(521px) {
+    width: 240px;
+
+    .wrapper {
+      width: 240px;
+    }
+  }
+
+  &.isHidden {
+    display: none;
+  }
+
+  &.exitActive,
+  &.exitDone {
+    width: 1px;
+    opacity: 0;
+    transform: scaleX(0.1);
+    transform-origin: center;
+  }
+
+  &.enter {
+    display: block;
+    width: 1px;
+    opacity: 0;
+    transform: scaleX(0.1);
+    transform-origin: center;
+  }
+
+  &.enterDone,
+  &.enterActive {
+    width: 240px;
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  &.exitDone {
+    display: none;
+  }
+
+  &.placeholder {
+    opacity: 0.8;
+  }
+
+  &.selected {
+    border: 1px solid var(--color-gray-d);
+  }
+
+  &.showExternalData {
+    .dataInternal {
+      transform: rotateY(180deg);
+    }
+
+    .dataExternal {
+      transform: rotateY(0);
+    }
+  }
+
+  .dataInternal,
+  .dataExternal {
+    @include m.absolute(0 0 0 0);
+    @include m.flexbox(start, center);
+    flex-direction: column;
+    height: 420px;
+    padding: 8px 8px var(--h-camera-data-source-btn);
+    margin-bottom: 24px;
+    overflow: auto;
+    background-color: var(--color-white);
+    transition: 300ms;
+    backface-visibility: hidden;
+  }
+
+  .dataExternal {
+    height: 100%;
+    margin-bottom: 12px;
+    transform: rotateY(180deg);
+
+    &.loading,
+    &.error {
+      @include m.flexbox(center, center);
+      flex-direction: column;
+      font-size: 10px;
+      line-height: 20px;
+
+      .id {
+        font-weight: 700;
+      }
+    }
+
+    .outerLink {
+      display: block;
+      margin: 8px 0;
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+
+  .sourceBtn {
+    @include m.absolute(auto 0 0 0);
+    @include m.flexbox(center, center);
+    height: var(--h-camera-data-source-btn);
+    font-size: 10px;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-gray-e);
+
+    &.external {
+      span {
+        &.here {
+          font-weight: 400;
+        }
+
+        &.cameraDb {
+          font-weight: 700;
+        }
+      }
+    }
+
+    span {
+      padding: 0 8px;
+
+      &.here {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .top {
+    width: 100%;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-gray-d);
+
+    .name {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .desc {
+      margin-top: 4px;
+      font-size: 10px;
+    }
+  }
+}

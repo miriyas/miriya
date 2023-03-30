@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { PENTAX_DSLRS } from '@/constants/pentaxes';
 import { selectedCameraAtom } from './states';
 
-import { cameraId } from '@/components/Camera/utils';
+import { cameraId } from '@/containers/cameras/CameraYears/CameraCard/utils';
 import styles from './Pictures.module.scss';
 
 const Pictures = () => {

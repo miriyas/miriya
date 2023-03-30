@@ -1,0 +1,94 @@
+@use 'src/styles/mixins' as m;
+
+.idol {
+  @include m.commonBoxShadow;
+  width: var(--w-idol-m);
+  height: var(--h-idol);
+  overflow: hidden;
+  background-color: var(--color-white);
+  border-radius: 8px;
+
+  @include m.after(M) {
+    width: var(--w-idol);
+  }
+
+  &.opened {
+    width: calc(var(--w-idol-m) * 2 + var(--gutter-idol));
+    height: calc(var(--h-idol) * 2 + var(--gutter-idol));
+
+    @include m.after(M) {
+      width: calc(var(--w-idol) * 2 + var(--gutter-idol));
+    }
+
+    .lower {
+      display: block;
+    }
+  }
+
+  .upper {
+    @include m.flexbox(center, start);
+    position: relative;
+    width: 100%;
+    padding: 24px 14px 14px;
+
+    .leftWing {
+      @include m.flexbox(center, center);
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .withSound {
+      @include m.absolute(8px 8px auto auto);
+      width: 14px;
+      height: 14px;
+      fill: var(--color-gray-8);
+    }
+
+    .name {
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .category,
+    .years {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .rightWing {
+      @include m.flexbox(center, center);
+      flex: 1;
+      flex-direction: column;
+      font-size: 12px;
+
+      .desc {
+        margin-bottom: 24px;
+        line-height: 1.4;
+      }
+
+      .outerLinks {
+        @include m.flexbox(center, center);
+        gap: 8px;
+
+        a {
+          width: 32px;
+          height: 32px;
+          overflow: hidden;
+          line-height: 20px;
+          border-radius: 2px;
+
+          svg {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  .lower {
+    display: none;
+    padding-top: 14px;
+  }
+}

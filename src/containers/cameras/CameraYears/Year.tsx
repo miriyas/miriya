@@ -7,7 +7,7 @@ import { useAtomValue } from 'jotai';
 import { CameraType } from '@/types/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
-import Camera from '@/components/Camera';
+import Camera from './CameraCard';
 import styles from './CameraYears.module.scss';
 
 interface Props {
