@@ -58,7 +58,7 @@ const Home = () => {
                 <a href='http://www.slrclub.com' target='_blank' rel='nofollow'>
                   SLR클럽
                 </a>
-                &nbsp; 활동을 활발하게 했었고,.
+                &nbsp; 활동을 활발하게 했었고,
                 <br />
                 당시에 플래시와 포토샵으로&nbsp;
                 <a href='http://www.slrclub.com/bbs/vx2.php?id=best_review&no=2248' target='_blank' rel='nofollow'>
