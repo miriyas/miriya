@@ -65,6 +65,12 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 
 아시죠? 개선하고 싶은 부분이 있다면 PR을 올려주세요.
 
+모든 코드는 빡쎄게 린터를 걸어두었습니다.
+
+https://github.com/miriyas/miriya/blob/main/.stylelintrc.json
+
+https://github.com/miriyas/miriya/blob/main/.eslintrc.json
+
 각종 버튼에는 GA를 붙여두었습니다.
 
 <br />
