@@ -1,0 +1,20 @@
+@use 'src/styles/mixins' as m;
+
+.pentaxes {
+  margin-top: 24px;
+
+  .centering {
+    width: 100%;
+    min-width: 900px;
+    max-width: 1200px;
+
+    section {
+      @include m.flexbox(center, center);
+      flex-direction: column;
+      height: calc(var(--h-pentax-picture) + var(--x-pentax-cell) + var(--h-pentax-data));
+      background-color: var(--color-white);
+      border: 1px solid var(--color-black);
+      border-top: 0;
+    }
+  }
+}

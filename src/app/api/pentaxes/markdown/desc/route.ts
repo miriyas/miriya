@@ -5,8 +5,8 @@ import { NextResponse } from 'next/server';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-export function getHelpme() {
-  const fullPath = join(process.cwd(), 'src/containers/pentax/ReadMe/HELPME.md');
+export function getDesc() {
+  const fullPath = join(process.cwd(), 'src/containers/pentax/TabHome/Contents/Desc/DESC.md');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { content } = matter(fileContents);
 
@@ -14,7 +14,7 @@ export function getHelpme() {
 }
 
 export async function GET() {
-  const data = await getHelpme();
+  const data = await getDesc();
   const result = await remark().use(html, { sanitize: false }).process(data);
   return NextResponse.json(result.toString());
 }

@@ -1,0 +1,33 @@
+@use 'src/styles/mixins' as m;
+
+.navigation {
+  @include m.flexbox(between, center);
+
+  ul {
+    @include m.flexbox(center, center);
+    gap: 14px;
+    width: 100%;
+
+    li {
+      @include m.flexbox(center, between);
+      width: 120px;
+      height: 160px;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-gray-c);
+      border-radius: 4px;
+
+      a {
+        @include m.flexbox(center, center);
+        flex-direction: column;
+      }
+
+      .label {
+        font-size: 12px;
+        line-height: 1.4;
+        color: var(--color-black);
+        text-align: center;
+        white-space: pre-wrap;
+      }
+    }
+  }
+}

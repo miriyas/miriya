@@ -19,8 +19,8 @@ const PentaxPage = () => {
   });
 
   return (
-    <>
-      <section className={styles.wrapper}>
+    <section className={styles.wrapper}>
+      <div className={styles.upper}>
         <Pictures />
         <div className={cx(styles.rightWing, { [styles.grabbing]: isMouseDown })} ref={wrapperRef} {...handlers}>
           <ol className={styles.years}>
@@ -40,9 +40,9 @@ const PentaxPage = () => {
           </div>
         </div>
         {showArrow && <ViewMoreButton wrapperRef={wrapperRef} />}
-      </section>
+      </div>
       <Data />
-    </>
+    </section>
   );
 };
 

@@ -5,8 +5,6 @@
   width: 100px;
   height: 100px;
   overflow: hidden;
-  isolation: isolate; // 사파리 웹킷 엔진 오버플로우 안되는 버그 해결
-  border-radius: 50%;
 
   img {
     @include m.absolute(0 0 0 0);

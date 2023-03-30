@@ -1,7 +1,7 @@
 'use client';
 
 const PentaxSLRPage = () => {
-  return <div>SLR / 공사중</div>;
+  return <section>SLR / 공사중</section>;
 };
 
 export default PentaxSLRPage;

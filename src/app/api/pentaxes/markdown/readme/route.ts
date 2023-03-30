@@ -6,7 +6,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 export function getReadme() {
-  const fullPath = join(process.cwd(), 'src/containers/pentax/ReadMe/README.md');
+  const fullPath = join(process.cwd(), 'src/containers/pentax/TabHome/ReadMe/README.md');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { content } = matter(fileContents);
 

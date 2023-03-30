@@ -1,0 +1,27 @@
+@use 'src/styles/mixins' as m;
+
+.contents {
+  flex: 2;
+  height: 100%;
+
+  .upper {
+    @include m.flexbox(center, center);
+    flex-direction: column;
+    margin-top: 48px;
+
+    .logoWrapper {
+      position: relative;
+      margin: 24px 0 0 -8px;
+
+      span {
+        @include m.absolute(7px -16px auto auto);
+        color: var(--color-pentax-limit);
+      }
+    }
+
+    h1 {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+  }
+}

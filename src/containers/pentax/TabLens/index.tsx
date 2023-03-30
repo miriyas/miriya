@@ -1,7 +1,7 @@
 'use client';
 
 const PentaxLensPage = () => {
-  return <div>LENS / 공사중</div>;
+  return <section>LENS / 공사중</section>;
 };
 
 export default PentaxLensPage;

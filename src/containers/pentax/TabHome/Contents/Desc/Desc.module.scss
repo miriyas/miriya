@@ -1,0 +1,30 @@
+.desc {
+  padding: 0 24px;
+  margin-top: 48px;
+
+  .markdown {
+    flex: 1;
+    font-size: 12px;
+    line-height: 1.6;
+
+    h2 {
+      margin: 14px 0;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    > ul {
+      margin-top: 10px;
+
+      > li {
+        margin: 0 0 4px 24px;
+        list-style-type: disc;
+
+        li {
+          margin: 0 0 0 14px;
+          list-style-type: circle;
+        }
+      }
+    }
+  }
+}

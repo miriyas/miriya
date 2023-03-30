@@ -2,12 +2,11 @@
 
 .mdWrapper {
   @include m.flexbox(between, start);
+  flex: 1;
   flex-direction: column;
-  height: 50vh;
-  margin-top: 24px;
+  height: calc(var(--h-pentax-picture) + var(--h-pentax-data) - var(--x-pentax-cell));
+  padding: 14px;
   overflow-y: auto;
-  font-size: 12px;
-  line-height: 1.6;
   color: var(--color-gray-2);
 
   @include m.after(SD) {
@@ -17,10 +16,12 @@
 
   .markdown {
     flex: 1;
+    font-size: 10px;
+    line-height: 1.6;
 
     h1 {
       margin-bottom: 14px;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
     }
 

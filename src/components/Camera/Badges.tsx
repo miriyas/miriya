@@ -47,7 +47,7 @@ interface Props {
   camera: CameraType;
 }
 
-const BadgesMakerLogo = (props: Props) => {
+const Badges = (props: Props) => {
   const { camera } = props;
   const { grade, maker, mount, sensor } = camera;
 
@@ -75,4 +75,4 @@ const BadgesMakerLogo = (props: Props) => {
   );
 };
 
-export default BadgesMakerLogo;
+export default Badges;

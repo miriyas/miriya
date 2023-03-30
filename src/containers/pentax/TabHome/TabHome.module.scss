@@ -1,0 +1,19 @@
+@use 'src/styles/mixins' as m;
+
+.wrapper {
+  @include m.flexbox(center, center);
+  flex-direction: column;
+
+  .fakeBar {
+    flex-shrink: 0;
+    width: 100%;
+    height: var(--x-pentax-cell);
+    background-color: var(--color-black);
+  }
+
+  .contentsWrapper {
+    @include m.flexbox(center, start);
+    flex: 1;
+    height: calc(var(--h-pentax-picture) + var(--h-pentax-data));
+  }
+}

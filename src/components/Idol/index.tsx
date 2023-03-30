@@ -7,10 +7,10 @@ import { IdolType } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 import { IDOL } from '@/constants/ga';
 
-import Youtube from '@/components/Idol/Youtube';
 import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '../../../public/svgs';
+import Youtube from './Youtube';
+import IdolImage from './IdolImage';
 import styles from './Idol.module.scss';
-import ImageSprite from '@/components/Idol/ImageSprite';
 
 interface Props {
   idol: IdolType;
@@ -58,7 +58,7 @@ const Idol = (props: Props) => {
         <button type='button' onClick={onClickUpper} className={styles.leftWing}>
           {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
           <div className={styles.profileImg}>
-            <ImageSprite year={Number(debutYear)} i={i} yearLength={yearLength} />
+            <IdolImage year={Number(debutYear)} i={i} yearLength={yearLength} />
           </div>
           <p className={styles.name}>{name}</p>
           <p className={styles.category}>{prettyCategory(category)}</p>
