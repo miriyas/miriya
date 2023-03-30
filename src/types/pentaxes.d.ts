@@ -106,3 +106,91 @@ export interface PentaxDslr {
     refs?: string[];
   };
 }
+
+export const PENTAX_SLR_MOUNT = {
+  K: 'K',
+  KF: 'KF',
+  KA: 'KA',
+  KA2: 'KA2',
+  KAF: 'KAF',
+  KAF2: 'KAF2',
+} as const;
+
+export type PentaxSlrMountTypes = ValueOf<typeof PENTAX_SLR_MOUNT>;
+
+export interface PentaxSlr {
+  name: string;
+  line: number;
+  startYear: number;
+  endYear: number;
+  mount: PentaxSlrMountTypes;
+  crippled?: boolean;
+  af?: boolean;
+  data?: {
+    body: {
+      material: PentaxDslrMaterialTypes | undefined;
+      width: number;
+      height: number;
+      depth: number;
+      weight: {
+        base: number;
+        extra: string | undefined;
+      };
+      verticalGrip?: string | undefined;
+    };
+    mount: string | undefined;
+    power: string | undefined;
+    memory: string | undefined;
+    etc?: string | undefined;
+    comment: string | undefined;
+    bonus?: {
+      wr?: boolean | undefined;
+      sr?: string | undefined;
+      dustRemove?: string | undefined;
+    };
+    sensor: {
+      pixels: string | undefined;
+      size: PentaxDslrSensorSizeTypes | undefined;
+      iso: string | undefined;
+      engine?: EngineTypes | undefined;
+    };
+    display: string | undefined;
+    liveView?: boolean | undefined;
+    liveViewAF?: string | undefined;
+    movie?: string | undefined;
+    movieType?: string | undefined;
+    imageType: string | undefined;
+    modes: string | undefined;
+    meteringK?: string | undefined;
+    meteringA: string | undefined;
+    meteringRange: string | undefined;
+    exposureRange: string | undefined;
+    shutter: string | undefined;
+    continuous: number | string | undefined;
+    continuousLength?: number | string | undefined;
+    viewFinder: {
+      type: OpticsTypes | undefined;
+      coverage: number | undefined;
+      magnification: string | undefined;
+      magnification2?: string | undefined;
+      screenReplace?: boolean | undefined;
+    };
+    flash: {
+      interlock: string | undefined;
+      modes: string[];
+      syncSpeed: string | undefined;
+      redEye: boolean | undefined;
+      internal?: string | undefined;
+      release?: string | undefined;
+      releaseW?: string | undefined;
+    };
+    focus: {
+      name: FocusNameTypes | undefined;
+      points: number | string | undefined;
+      sensitivity?: string | undefined;
+      superImpose?: boolean | undefined;
+      supersonicMotor?: boolean | undefined;
+    };
+    refs?: string[];
+  };
+}

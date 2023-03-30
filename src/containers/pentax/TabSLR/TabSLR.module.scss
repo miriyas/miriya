@@ -14,7 +14,7 @@
     flex: 1;
     flex-direction: column;
     height: calc(var(--h-pentax-picture) + var(--x-pentax-dslr-cell));
-    overflow-x: auto;
+    overflow: hidden;
     background-color: var(--color-black);
 
     .yearsWrapper {
@@ -69,10 +69,12 @@
               var(--color-gray-c) 0 1px,
               transparent 1px 100%
             ),
+            /* 진한 가로 */ repeating-linear-gradient(var(--color-gray-8) 0 1px, transparent 1px 100%),
             /* 가로 */ repeating-linear-gradient(var(--color-gray-d) 0 1px, transparent 1px 100%),
             /* 세로 점선 오버레이 */ repeating-linear-gradient(var(--color-white) 0 3px, transparent 1px 100%),
             /* 세로 점선 배경 */ repeating-linear-gradient(90deg, var(--color-gray-d) 0 1px, transparent 1px 100%);
-          background-size: /* 진한 세로 */ calc(var(--w-pentax-slr-cell) * 4) calc(var(--h-pentax-slr-cell) * 4),
+          background-size: /* 진한 세로 */ calc(var(--w-pentax-slr-cell) * 5) calc(var(--h-pentax-slr-cell) * 5),
+            /* 진한 가로 */ var(--w-pentax-slr-cell) calc(var(--h-pentax-slr-cell) * 6),
             /* 가로 */ var(--w-pentax-slr-cell) var(--h-pentax-slr-cell), /* 세로 점선 오버레이 */ 6px 6px,
             /* 세로 점선 배경 */ var(--w-pentax-slr-cell) var(--h-pentax-slr-cell);
         }
