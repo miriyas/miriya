@@ -1,13 +1,18 @@
 @use 'src/styles/mixins' as m;
 
 .mdWrapper {
-  @include m.flexbox(between, start);
-  flex: 1;
+  @include m.flexbox(center, start);
   flex-direction: column;
+  flex-shrink: 0;
+  width: 400px;
   height: calc(var(--h-pentax-picture) + var(--h-pentax-data) - var(--x-pentax-cell));
   padding: 14px;
   overflow-y: auto;
   color: var(--color-gray-2);
+
+  &.loading {
+    align-items: center;
+  }
 
   @include m.after(SD) {
     flex-direction: row;

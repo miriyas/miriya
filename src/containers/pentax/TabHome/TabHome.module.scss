@@ -14,6 +14,7 @@
   .contentsWrapper {
     @include m.flexbox(center, start);
     flex: 1;
+    width: 100%;
     height: calc(var(--h-pentax-picture) + var(--h-pentax-data));
   }
 }

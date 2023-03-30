@@ -1,7 +1,9 @@
 @use 'src/styles/mixins' as m;
 
 .contents {
-  flex: 2;
+  @include m.flexbox(start, center);
+  flex: 1;
+  flex-direction: column;
   height: 100%;
 
   .upper {

@@ -5,6 +5,7 @@ import { CameraType } from '@/types/cameras.d';
 import { cameraId, externalCameraId } from './utils';
 import { getExternalCameraDataApi } from '@/services/cameras';
 
+import Loading from '@/components/Loading';
 import styles from './Camera.module.scss';
 import tableStyles from './Table/Table.module.scss';
 
@@ -34,7 +35,7 @@ const DataExternal = (props: Props) => {
     return (
       <div className={cx(styles.dataExternal, styles.loading)}>
         <p className={styles.id}>{id}</p>
-        <p>Loading...</p>
+        <Loading />
       </div>
     );
   }

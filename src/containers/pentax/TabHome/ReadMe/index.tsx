@@ -1,8 +1,10 @@
 /* eslint-disable react/no-danger */
+import cx from 'clsx';
 import { useQuery } from '@tanstack/react-query';
 
 import { getReadMeMarkdownApi } from '@/services/pentaxes';
 
+import Loading from '@/components/Loading';
 import styles from './ReadMe.module.scss';
 
 const ReadMe = () => {
@@ -17,16 +19,20 @@ const ReadMe = () => {
 
   if (isLoading) {
     return (
-      <div className={styles.loading}>
-        <p>Loading...</p>
+      <div className={cx(styles.mdWrapper, styles.loading)}>
+        <div className={styles.loading}>
+          <Loading />
+        </div>
       </div>
     );
   }
 
   if (isError) {
     return (
-      <div className={styles.error}>
-        <p>ERROR</p>
+      <div className={styles.mdWrapper}>
+        <div className={styles.error}>
+          <p>ERROR</p>
+        </div>
       </div>
     );
   }
