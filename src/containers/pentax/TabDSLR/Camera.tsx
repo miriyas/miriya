@@ -10,9 +10,9 @@ import styles from './Camera.module.scss';
 
 const { start: yearStart, end: yearEnd } = PENTAX_DSLRS_YEAR_INFO;
 
-const H_QUARTERS = X_CELL_DSLR; // --x-pentax-cell
-const H_LINE = X_CELL_DSLR; // --x-pentax-cell
-const W_LINE = X_CELL_DSLR; // --x-pentax-cell
+const H_QUARTERS = X_CELL_DSLR; // --x-pentax-dslr-cell
+const H_LINE = X_CELL_DSLR; // --x-pentax-dslr-cell
+const W_LINE = X_CELL_DSLR; // --x-pentax-dslr-cell
 const W_YEAR = W_LINE * 4;
 
 const getPosition = (dslr: PentaxDslr) => {

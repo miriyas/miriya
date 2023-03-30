@@ -13,8 +13,8 @@
     @include m.flexbox(start, start);
     flex: 1;
     flex-direction: column;
-    height: calc(var(--h-pentax-picture) + var(--x-pentax-cell));
-    padding-right: var(--x-pentax-cell); // ViewMoreButton;
+    height: calc(var(--h-pentax-picture) + var(--x-pentax-dslr-cell));
+    padding-right: var(--x-pentax-dslr-cell); // ViewMoreButton;
     overflow-x: auto;
     cursor: grab;
     background-color: var(--color-black);
@@ -40,8 +40,8 @@
         @include m.flexbox(center, center);
         position: relative;
         flex-shrink: 0;
-        width: calc(var(--x-pentax-cell) * 4);
-        height: var(--x-pentax-cell);
+        width: calc(var(--x-pentax-dslr-cell) * 4);
+        height: var(--x-pentax-dslr-cell);
         font-size: 12px;
         color: var(--color-white);
         text-align: center;
@@ -84,9 +84,9 @@
             /* 가로 */ repeating-linear-gradient(var(--color-gray-d) 0 1px, transparent 1px 100%),
             /* 세로 점선 오버레이 */ repeating-linear-gradient(var(--color-white) 0 3px, transparent 1px 100%),
             /* 세로 점선 배경 */ repeating-linear-gradient(90deg, var(--color-gray-d) 0 1px, transparent 1px 100%);
-          background-size: /* 진한 세로 */ calc(var(--x-pentax-cell) * 4) calc(var(--x-pentax-cell) * 4),
-            /* 가로 */ var(--x-pentax-cell) var(--x-pentax-cell), /* 세로 점선 오버레이 */ 6px 6px,
-            /* 세로 점선 배경 */ var(--x-pentax-cell) var(--x-pentax-cell);
+          background-size: /* 진한 세로 */ calc(var(--x-pentax-dslr-cell) * 4) calc(var(--x-pentax-dslr-cell) * 4),
+            /* 가로 */ var(--x-pentax-dslr-cell) var(--x-pentax-dslr-cell), /* 세로 점선 오버레이 */ 6px 6px,
+            /* 세로 점선 배경 */ var(--x-pentax-dslr-cell) var(--x-pentax-dslr-cell);
         }
       }
     }

@@ -13,56 +13,70 @@
     @include m.flexbox(start, start);
     flex: 1;
     flex-direction: column;
-    height: calc(var(--h-pentax-picture) + var(--x-pentax-cell));
-    padding-right: var(--x-pentax-cell); // ViewMoreButton;
+    height: calc(var(--h-pentax-picture) + var(--x-pentax-dslr-cell));
     overflow-x: auto;
-    cursor: grab;
     background-color: var(--color-black);
 
-    &.grabbing {
-      cursor: grabbing;
-    }
-
-    &::-webkit-scrollbar {
-      display: none; // Chrome
-    }
-
-    .endOfScroll {
-      @include m.absolute(0 0 0 auto);
-      width: 1px;
+    .yearsWrapper {
+      @include m.absolute(0 0 auto auto);
+      z-index: 10;
+      overflow: hidden;
     }
 
     .years {
       @include m.flexbox(between, center);
+      margin-right: -32px;
       background-color: var(--color-black);
 
       li {
         @include m.flexbox(center, center);
         position: relative;
         flex-shrink: 0;
-        width: calc(var(--x-pentax-cell) * 4);
-        height: var(--x-pentax-cell);
+        width: 140px;
+        height: var(--x-pentax-dslr-cell);
         font-size: 12px;
         color: var(--color-white);
         text-align: center;
 
         &::after {
-          @include m.absolute(auto 0 0 auto);
+          @include m.absolute(auto 50% 0 auto);
           width: 1px;
           height: 2px;
           content: '';
           background-color: var(--color-gray-e);
-        }
-
-        &:last-child::after {
-          display: none;
         }
       }
     }
 
     .timeline {
       position: relative;
+      width: 100%;
+      height: 100%;
       background-color: var(--color-white);
+
+      .gridsWrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .cssGrid {
+          width: 100%;
+          height: 101%;
+          padding-bottom: 1px;
+          margin: 21px 0 0 -1px;
+          background-image: /* 진한 세로 */ repeating-linear-gradient(
+              90deg,
+              var(--color-gray-c) 0 1px,
+              transparent 1px 100%
+            ),
+            /* 가로 */ repeating-linear-gradient(var(--color-gray-d) 0 1px, transparent 1px 100%),
+            /* 세로 점선 오버레이 */ repeating-linear-gradient(var(--color-white) 0 3px, transparent 1px 100%),
+            /* 세로 점선 배경 */ repeating-linear-gradient(90deg, var(--color-gray-d) 0 1px, transparent 1px 100%);
+          background-size: /* 진한 세로 */ calc(var(--w-pentax-slr-cell) * 4) calc(var(--h-pentax-slr-cell) * 4),
+            /* 가로 */ var(--w-pentax-slr-cell) var(--h-pentax-slr-cell), /* 세로 점선 오버레이 */ 6px 6px,
+            /* 세로 점선 배경 */ var(--w-pentax-slr-cell) var(--h-pentax-slr-cell);
+        }
+      }
     }
   }
 }

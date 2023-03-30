@@ -44,5 +44,7 @@
   --pc-shit: #e8decc;
   --h-pentax-picture: 320px;
   --h-pentax-data: 470px;
-  --x-pentax-cell: 22px; // src/constants/pentaxes/dslr.ts 와 싱크 맞춰야함
+  --x-pentax-dslr-cell: 22px; // src/constants/pentaxes/dslr.ts 와 싱크 맞춰야함
+  --w-pentax-slr-cell: 28px; // src/constants/pentaxes/slr.ts 와 싱크 맞춰야함
+  --h-pentax-slr-cell: 16px; // src/constants/pentaxes/slr.ts 와 싱크 맞춰야함
 }

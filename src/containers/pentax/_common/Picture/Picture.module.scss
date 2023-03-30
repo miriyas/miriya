@@ -4,14 +4,14 @@
   position: relative;
   flex-shrink: 0;
   width: var(--h-pentax-picture);
-  height: calc(var(--h-pentax-picture) + var(--x-pentax-cell));
+  height: calc(var(--h-pentax-picture) + var(--x-pentax-dslr-cell));
   background-color: var(--color-black);
 
   .picture {
     @include m.flexbox(center, center);
     width: var(--h-pentax-picture);
     height: var(--h-pentax-picture);
-    margin-top: var(--x-pentax-cell);
+    margin-top: var(--x-pentax-dslr-cell);
     background-color: var(--color-white);
     border-right: 1px solid var(--color-gray-8);
   }

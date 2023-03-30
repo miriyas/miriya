@@ -11,9 +11,9 @@ import styles from './Camera.module.scss';
 const { start: yearStart, end: yearEnd } = PENTAX_DSLRS_YEAR_INFO;
 
 // NOTE: src/styles/_variable.scss 와 싱크 맞춰야함
-const H_QUARTERS = 22; // --x-pentax-cell
-const H_LINE = 22; // --x-pentax-cell
-const W_LINE = 22; // --x-pentax-cell
+const H_QUARTERS = 22; // --x-pentax-dslr-cell
+const H_LINE = 22; // --x-pentax-dslr-cell
+const W_LINE = 22; // --x-pentax-dslr-cell
 const W_YEAR = W_LINE * 4;
 
 const getPosition = (dslr: PentaxDslr) => {

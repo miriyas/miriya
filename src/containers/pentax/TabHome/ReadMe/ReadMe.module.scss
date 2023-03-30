@@ -5,7 +5,7 @@
   flex-direction: column;
   flex-shrink: 0;
   width: 400px;
-  height: calc(var(--h-pentax-picture) + var(--h-pentax-data) - var(--x-pentax-cell));
+  height: calc(var(--h-pentax-picture) + var(--h-pentax-data) - var(--x-pentax-dslr-cell));
   padding: 14px;
   overflow-y: auto;
   color: var(--color-gray-2);

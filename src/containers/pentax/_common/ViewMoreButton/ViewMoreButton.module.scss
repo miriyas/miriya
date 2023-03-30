@@ -2,8 +2,8 @@
 
 .viewMore {
   @include m.absolute(0 0 0 auto);
-  top: var(--x-pentax-cell);
-  width: var(--x-pentax-cell);
+  top: var(--x-pentax-dslr-cell);
+  width: var(--x-pentax-dslr-cell);
   background-color: var(--color-gray-e);
 
   svg {
