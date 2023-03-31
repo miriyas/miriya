@@ -12,7 +12,7 @@ const { start: yearStart } = PENTAX_SLRS_YEAR_INFO;
 
 // NOTE: src/styles/_variable.scss 와 싱크 맞춰야함
 const W_LINE = 27; // --w-pentax-slr-cell
-const H_LINE = 18; // --h-pentax-slr-cell
+const H_LINE = 17; // --h-pentax-slr-cell
 const YEAR_PADDING = 21;
 
 const getPosition = (dslr: PentaxSlr) => {
@@ -54,6 +54,7 @@ const Camera = ({ camera }: Props) => {
   return (
     <li key={name} className={className} style={getPosition(camera)} onMouseOver={onMouseOver} onFocus={onFocus}>
       {name}
+      <div className={styles.badge} />
     </li>
   );
 };
