@@ -1,4 +1,4 @@
-import { externalCameraId } from './utils';
+import { externalCameraId } from './digicam';
 
 it('externalCameraId', () => {
   // DCS5, DCS3, DCS1, M2, Ra, R5C, R8, R50

@@ -2,7 +2,7 @@
 
 import { PentaxDslr } from '@/types/pentaxes.d';
 
-import { prettyOpticsType } from '@/containers/cameras/CameraYears/CameraCard/Table/utils';
+import OpticsType from '@/components/OpticsType';
 import styles from './Data.module.scss';
 
 interface Props {
@@ -28,7 +28,9 @@ const DataColumn3 = ({ camera }: Props) => {
         <tbody>
           <tr>
             <th>뷰파인더</th>
-            <td>{prettyOpticsType(viewFinder.type)}</td>
+            <td>
+              <OpticsType type={viewFinder.type} />
+            </td>
           </tr>
           <tr>
             <th>시야율</th>

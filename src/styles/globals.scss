@@ -6,5 +6,62 @@
 
 // Modules
 
+// Global
+:global {
+  .gray {
+    color: var(--color-gray-4);
+  }
+
+  .grayBg {
+    color: var(--color-white);
+    background-color: var(--color-gray-4);
+  }
+
+  .red {
+    color: var(--color-red);
+  }
+
+  .redBg {
+    color: var(--color-white);
+    background-color: var(--color-red);
+  }
+
+  .orange {
+    color: var(--color-orange);
+  }
+
+  .orangeBg {
+    color: var(--color-white);
+    background-color: var(--color-orange);
+  }
+
+  .yellow {
+    color: var(--color-yellow);
+  }
+
+  .yellowBg {
+    color: var(--color-black);
+    background-color: var(--color-yellow);
+  }
+
+  .green {
+    color: var(--color-green);
+  }
+
+  .greenBg {
+    color: var(--color-white);
+    background-color: var(--color-green);
+  }
+
+  .blue {
+    color: var(--color-blue);
+  }
+
+  .blueBg {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+  }
+}
+
 // Libraries
 @import '//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css';

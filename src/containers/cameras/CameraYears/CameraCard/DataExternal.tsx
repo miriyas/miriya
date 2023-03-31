@@ -2,7 +2,7 @@ import cx from 'clsx';
 import { useQuery } from '@tanstack/react-query';
 
 import { CameraType } from '@/types/cameras.d';
-import { externalCameraId } from './utils';
+import { externalCameraId } from '@/utils/digicam';
 import { cameraId } from '@/utils/cameras';
 import { getExternalCameraDataApi } from '@/services/cameras';
 

@@ -6,7 +6,7 @@ import { groupBy } from 'lodash';
 import { getNumberArr } from '@/utils';
 import { CAMERAS } from '@/constants/cameras';
 
-import CameraPlaceholder from '@/containers/cameras/CameraYears/CameraCard/Placeholder';
+import CameraPlaceholder from './CameraCard/Placeholder';
 import styles from './CameraYears.module.scss';
 
 const CameraYearPlaceholder = () => {
