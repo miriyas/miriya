@@ -1,5 +1,6 @@
-import type { NextPage, Metadata } from 'next';
+import type { Metadata } from 'next';
 import Idols from '@/containers/idols';
+import { getIdols, getIdolYears } from '@/services/idols';
 
 const title = 'History of Idols';
 const description = '96년부터 2019년까지 활동한 아이돌들';
@@ -34,6 +35,19 @@ export const metadata: Metadata = {
   },
 };
 
-const IdolsPage: NextPage = () => <Idols />;
+const IdolsPage = async () => {
+  const idols = await getIdols();
+  const idolYears = await getIdolYears();
+
+  // IDOLS.forEach((idol) => {
+  //   createIdolDoc(idol);
+  // });
+
+  // YEARS.forEach((yearDesc) => {
+  //   createIdolYearDoc(yearDesc);
+  // });
+
+  return <Idols idols={idols} idolYears={idolYears} />;
+};
 
 export default IdolsPage;

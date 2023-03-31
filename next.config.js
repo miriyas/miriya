@@ -16,6 +16,13 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_GA_ID: 'G-BCXXRGTY78',
     NEXT_PUBLIC_CDN_URL: 'https://miriya.sgp1.cdn.digitaloceanspaces.com',
+    NEXT_FIREBASE_API_KEY: 'AIzaSyBA-Zq6nUqit0bxiPQCkOYuyofaGs3Tmkw',
+    NEXT_FIREBASE_AUTH_DOMAIN: 'miriyas.firebaseapp.com',
+    NEXT_FIREBASE_PROJECT_ID: 'miriyas',
+    NEXT_FIREBASE_STORAGE_BUCKET: 'miriyas.appspot.com',
+    NEXT_FIREBASE_MESSAGING_SENDER_ID: '857542953507',
+    NEXT_FIREBASE_APP_ID: '1:857542953507:web:68b4a4f68a21df8bfe3f96',
+    NEXT_FIREBASE_MEASUREMENT_ID: 'G-0TXNVQK8Q3',
   },
   experimental: {
     appDir: true,

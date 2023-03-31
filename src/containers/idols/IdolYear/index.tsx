@@ -4,7 +4,6 @@ import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
 import cx from 'clsx';
 
 import type { IsotopeOptions } from 'isotope-layout';
-import { YEARS } from '@/constants/idols';
 import { IsotopesType } from '@/types';
 import { IdolType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
@@ -17,10 +16,11 @@ interface Props {
   idols: IdolType[];
   year: number;
   isotopes: MutableRefObject<IsotopesType>;
+  yearDesc: string;
 }
 
 const IdolYear = (props: Props) => {
-  const { idols, isotopes, year } = props;
+  const { idols, isotopes, year, yearDesc } = props;
 
   const { isMobile } = useResponsive();
 
@@ -51,14 +51,12 @@ const IdolYear = (props: Props) => {
     }, 100); // NOTE: covers transition duration
   }, [OPTIONS, isotopes, year]);
 
-  const yearDesc = YEARS.find((yearData) => yearData.year === year);
-
   return (
     <li id={`idol-year-${year}`} className={styles.idolYear}>
       <div className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
         {year}
       </div>
-      {yearDesc && <div className={styles.desc}>{yearDesc.desc}</div>}
+      {yearDesc && <div className={styles.desc}>{yearDesc}</div>}
 
       <ul className={cx(styles.idols, `grid-${year}`)}>
         {idols.map((idol, i) => {

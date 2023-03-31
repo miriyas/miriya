@@ -21,7 +21,6 @@ export interface IdolType {
   debutYear: Year;
   desc?: DescType;
   endYear?: Year;
-  spritePos?: number;
   major?: boolean;
   name: string;
   searchIndex?: number;

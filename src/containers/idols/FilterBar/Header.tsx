@@ -1,15 +1,19 @@
-import { IDOLS, YEAR_INFO } from '@/constants/idols';
-
 import styles from './FilterBar.module.scss';
 
-const Header = () => {
+interface Props {
+  idolsLength: number;
+  yearStart: number;
+  yearEnd: number;
+}
+
+const Header = ({ idolsLength, yearStart, yearEnd }: Props) => {
   return (
     <div className={styles.header}>
       <div className={styles.upper}>
         <h1>
           History of Idols&nbsp;
           <span>
-            {YEAR_INFO.start}~{YEAR_INFO.end}
+            {yearStart}~{yearEnd}
           </span>
         </h1>
       </div>
@@ -30,7 +34,7 @@ const Header = () => {
         <br />
         대표 사진은 구할 수 있는 한 가장 오래되고 촌스러운 사진을 골랐습니다.
         <br />
-        {IDOLS.length}명 편집하느라 지친 터라 의도하지 않은 얼굴 교체나 틀린 내용, 추가할 부분이 있을 수 있습니다.
+        {idolsLength}명 편집하느라 지친 터라 의도하지 않은 얼굴 교체나 틀린 내용, 추가할 부분이 있을 수 있습니다.
         <br />
         <a href='mailto:miriya.lee@gmail.com' target='_blank' rel='nofollow'>
           miriya.lee@gmail.com

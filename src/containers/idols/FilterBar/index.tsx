@@ -1,7 +1,6 @@
 import { MouseEventHandler, MutableRefObject, useState, useTransition } from 'react';
 import cx from 'clsx';
 
-import { YEAR_INFO } from '@/constants/idols';
 import { IsotopesType } from '@/types/index.d';
 import { CATEGORIES, Category } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
@@ -14,10 +13,13 @@ import styles from './FilterBar.module.scss';
 
 interface Props {
   isotopes: MutableRefObject<IsotopesType>;
+  idolsLength: number;
+  yearStart: number;
+  yearEnd: number;
 }
 
 const FilterBar = (props: Props) => {
-  const { isotopes } = props;
+  const { isotopes, idolsLength, yearStart, yearEnd } = props;
 
   const { gaEvent } = useGA();
   const [, startTransition] = useTransition();
@@ -48,7 +50,7 @@ const FilterBar = (props: Props) => {
 
   return (
     <div className={styles.filterBar}>
-      <Header />
+      <Header idolsLength={idolsLength} />
       <ul className={styles.categories}>
         {CATEGORIES.map((category) => {
           return (
@@ -61,8 +63,8 @@ const FilterBar = (props: Props) => {
         })}
       </ul>
       <ul className={styles.years}>
-        {getNumberArr(YEAR_INFO.end - YEAR_INFO.start + 1).map((n) => {
-          const year = YEAR_INFO.start + n;
+        {getNumberArr(yearEnd - yearStart + 1).map((n) => {
+          const year = yearStart + n;
           return (
             <li key={year} className={cx({ [styles.current]: year === currentYear })}>
               <button type='button' onClick={onClickYear} title={String(year)}>
