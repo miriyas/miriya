@@ -1,17 +1,17 @@
 'use client';
 
-import { PentaxDslr } from '@/types/pentaxes.d';
+import { PentaxSlr } from '@/types/pentaxes.d';
 
 import styles from './Data.module.scss';
 
 interface Props {
-  camera: PentaxDslr;
+  camera: PentaxSlr;
 }
 
 const DataColumn1 = ({ camera }: Props) => {
-  const { startYear, endYear, data } = camera;
+  const { startYear, endYear, mount, data } = camera;
 
-  const { body, bonus, mount, power, memory, etc, comment } = data;
+  const { body, power, comment, etc, refs } = data;
 
   const endYearData = endYear ? `${endYear}년` : '생산중';
 
@@ -26,51 +26,49 @@ const DataColumn1 = ({ camera }: Props) => {
             </td>
           </tr>
           <tr>
+            <th>마운트</th>
+            <td>{mount ?? '-'}</td>
+          </tr>
+          <tr>
             <th>규격</th>
             <td>
               {body.width} x {body.height} x {body.depth}mm
             </td>
           </tr>
           <tr>
-            <th>재질</th>
-            <td>{body.material ?? '-'}</td>
+            <th>무게</th>
+            <td>{body.weight}g</td>
           </tr>
           <tr>
-            <th>방진방습</th>
-            <td>{bonus?.wr ? '지원' : '-'}</td>
+            <th>색상</th>
+            <td>{body.color ?? '-'}</td>
           </tr>
-          <tr>
-            <th>손떨림보정</th>
-            <td>{bonus?.sr ? bonus.sr : '-'}</td>
-          </tr>
-
-          <tr>
-            <th>먼지제거</th>
-            <td>{bonus?.dustRemove ? bonus.dustRemove : '-'}</td>
-          </tr>
-
-          <tr>
-            <th>마운트</th>
-            <td>{mount ?? '-'}</td>
-          </tr>
-
           <tr>
             <th>세로그립</th>
             <td>{body.verticalGrip ?? '-'}</td>
           </tr>
-
           <tr>
             <th>전원</th>
             <td>{power ?? '-'}</td>
           </tr>
-
-          <tr>
-            <th>메모리</th>
-            <td>{memory ?? '-'}</td>
-          </tr>
           <tr>
             <th>기타</th>
             <td>{etc ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>레퍼런스</th>
+            <td>
+              {refs
+                ? refs?.map((ref, i) => {
+                    const key = `${ref}-${i}`;
+                    return (
+                      <a key={key} href={ref} target='_blank' rel='nofollow'>
+                        Link {i + 1}
+                      </a>
+                    );
+                  })
+                : '-'}
+            </td>
           </tr>
         </tbody>
       </table>

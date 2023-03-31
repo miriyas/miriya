@@ -1,6 +1,6 @@
 import cx from 'clsx';
 import { FocusEventHandler, MouseEventHandler, useMemo } from 'react';
-import { useSetAtom } from 'jotai';
+import { useAtom } from 'jotai';
 
 import { PENTAX_SLRS_YEAR_INFO } from '@/constants/pentaxes';
 import { PentaxSlr } from '@/types/pentaxes';
@@ -33,14 +33,15 @@ interface Props {
 const Camera = ({ camera }: Props) => {
   const { mount, name, af, crippled } = camera;
 
-  const setSelectedCamera = useSetAtom(selectedCameraAtom);
+  const [selectedCamera, setSelectedCamera] = useAtom(selectedCameraAtom);
 
   const className = useMemo(() => {
     return cx(styles.camera, styles[mount.toLowerCase()], {
+      [styles.current]: name === selectedCamera,
       [styles.af]: af,
       [styles.crippled]: crippled,
     });
-  }, [af, crippled, mount]);
+  }, [af, crippled, mount, name, selectedCamera]);
 
   const onMouseOver: MouseEventHandler<HTMLLIElement> = () => {
     setSelectedCamera(name);

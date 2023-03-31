@@ -4,6 +4,8 @@
   display: table;
   width: 100%;
   height: var(--h-pentax-data);
+  font-size: 13px;
+  line-height: 1.6;
   border-top: 0;
 
   .column {
@@ -44,8 +46,6 @@
 
   .comment {
     @include m.absolute(auto auto 14px 14px);
-    font-size: 13px;
-    line-height: 1.6;
     color: var(--color-gray-4);
   }
 }

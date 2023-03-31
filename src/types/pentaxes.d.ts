@@ -126,70 +126,67 @@ export interface PentaxSlr {
   mount: PentaxSlrMountTypes;
   crippled?: boolean;
   af?: boolean;
-  data?: {
+  data: {
+    comment: string;
     body: {
-      material: PentaxDslrMaterialTypes | undefined;
-      width: number;
-      height: number;
-      depth: number;
-      weight: {
-        base: number;
-        extra: string | undefined;
-      };
-      verticalGrip?: string | undefined;
+      width?: number;
+      height?: number;
+      depth?: number;
+      weight: number;
+      verticalGrip?: string;
+      color?: string;
     };
-    mount: string | undefined;
-    power: string | undefined;
-    memory: string | undefined;
-    etc?: string | undefined;
-    comment: string | undefined;
-    bonus?: {
-      wr?: boolean | undefined;
-      sr?: string | undefined;
-      dustRemove?: string | undefined;
+    power: string;
+    etc?: string;
+    modes: string;
+    metering: {
+      k?: string;
+      a?: string;
+      range?: string;
     };
-    sensor: {
-      pixels: string | undefined;
-      size: PentaxDslrSensorSizeTypes | undefined;
-      iso: string | undefined;
-      engine?: EngineTypes | undefined;
+    asa: {
+      dx?: string;
+      manual?: string;
     };
-    display: string | undefined;
-    liveView?: boolean | undefined;
-    liveViewAF?: string | undefined;
-    movie?: string | undefined;
-    movieType?: string | undefined;
-    imageType: string | undefined;
-    modes: string | undefined;
-    meteringK?: string | undefined;
-    meteringA: string | undefined;
-    meteringRange: string | undefined;
-    exposureRange: string | undefined;
-    shutter: string | undefined;
-    continuous: number | string | undefined;
-    continuousLength?: number | string | undefined;
+    exposure?: {
+      range?: string;
+      fix?: boolean;
+    };
+    panorama?: boolean | string;
+    shutter: {
+      build: string;
+      speed: string;
+      emergency?: string;
+      timer?: string;
+      release?: string;
+      releaseW?: string;
+    };
+    winder: {
+      internal: string;
+      external?: string;
+      motorDrive?: string;
+    };
+    etc: string;
     viewFinder: {
-      type: OpticsTypes | undefined;
-      coverage: number | undefined;
-      magnification: string | undefined;
-      magnification2?: string | undefined;
-      screenReplace?: boolean | undefined;
+      coverage?: number;
+      magnification: string | number;
+      seeShutterSpeed?: string;
+      seeAperture?: string;
+      screenReplace?: boolean;
+      finderReplace?: boolean;
     };
     flash: {
-      interlock: string | undefined;
-      modes: string[];
-      syncSpeed: string | undefined;
-      redEye: boolean | undefined;
-      internal?: string | undefined;
-      release?: string | undefined;
-      releaseW?: string | undefined;
+      sync: string;
+      modes?: string[];
+      syncSpeed: string;
+      internal?: string;
+      redEye?: boolean;
     };
-    focus: {
-      name: FocusNameTypes | undefined;
-      points: number | string | undefined;
-      sensitivity?: string | undefined;
-      superImpose?: boolean | undefined;
-      supersonicMotor?: boolean | undefined;
+    focus?: {
+      name: FocusNameTypes;
+      sensitivity?: string;
+      support?: boolean;
+      powerZoom?: string;
     };
     refs?: string[];
   };

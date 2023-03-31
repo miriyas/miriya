@@ -1,129 +1,102 @@
 'use client';
 
-import { PentaxDslr } from '@/types/pentaxes.d';
+import { PentaxSlr } from '@/types/pentaxes.d';
 
 import styles from './Data.module.scss';
 
 interface Props {
-  camera: PentaxDslr;
+  camera: PentaxSlr;
 }
 
 const DataColumn2 = ({ camera }: Props) => {
   const { data } = camera;
 
-  if (!data) return null;
+  const { asa, modes, metering, exposure, panorama, shutter, winder } = data;
 
-  const {
-    sensor,
-    display,
-    liveView,
-    liveViewAF,
-    movie,
-    movieType,
-    imageType,
-    modes,
-    meteringK,
-    meteringA,
-    meteringRange,
-    exposureRange,
-    shutter,
-    continuous,
-    continuousLength,
-  } = data;
-
-  let continuousSpeedData = continuous ? `${continuous}fps` : '-';
-  if (typeof continuous === 'string') continuousSpeedData = continuous;
-
-  let continuousLengthData = continuousLength ? `${continuousLength}장` : '-';
-  if (typeof continuousLength === 'string') continuousLengthData = continuousLength;
+  let panoramaData = typeof panorama === 'string' ? panorama : '가능';
+  if (!panorama) panoramaData = '-';
 
   return (
     <div className={styles.column}>
       <table>
         <tbody>
           <tr>
-            <th>센서화소</th>
-            <td>{sensor.pixels}</td>
-          </tr>
-          <tr>
-            <th>센서크기</th>
-            <td>{sensor.size}</td>
-          </tr>
-          <tr>
-            <th>지원감도</th>
-            <td>{sensor.iso}</td>
-          </tr>
-          <tr>
-            <th>프로세서</th>
-            <td>{sensor.engine ?? '-'}</td>
-          </tr>
-
-          <tr>
-            <th className={styles.blank} />
-            <td />
-          </tr>
-
-          <tr>
-            <th>LCD</th>
-            <td>{display}</td>
-          </tr>
-          <tr>
-            <th>라이브뷰</th>
-            <td>{liveView ? '가능' : '-'}</td>
-          </tr>
-          <tr>
-            <th>라이브뷰AF</th>
-            <td>{liveViewAF ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>동영상</th>
-            <td>{movie ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>동영상형식</th>
-            <td>{movieType ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>이미지형식</th>
-            <td>{imageType}</td>
-          </tr>
-
-          <tr>
-            <th className={styles.blank} />
-            <td />
-          </tr>
-
-          <tr>
             <th>촬영모드</th>
             <td>{modes}</td>
           </tr>
           <tr>
             <th>K/M 측광</th>
-            <td>{meteringK ?? '-'}</td>
+            <td>{metering.k ?? '-'}</td>
           </tr>
           <tr>
             <th>A/F/FA 측광</th>
-            <td>{meteringA ?? '-'}</td>
+            <td>{metering.a ?? '-'}</td>
           </tr>
           <tr>
             <th>측광범위</th>
-            <td>{meteringRange}</td>
+            <td>{metering.range}</td>
           </tr>
           <tr>
             <th>노출보정</th>
-            <td>{exposureRange}</td>
+            <td>{exposure?.range ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>DX ASA</th>
+            <td>{asa.dx ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>매뉴얼 ASA</th>
+            <td>{asa.manual ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>노출고정</th>
+            <td>{exposure?.fix ? '가능' : '-'}</td>
+          </tr>
+          <tr>
+            <th>파노라마포멧</th>
+            <td>{panoramaData}</td>
+          </tr>
+
+          <tr>
+            <th className={styles.blank} />
+            <td />
+          </tr>
+
+          <tr>
+            <th>셔터구조</th>
+            <td>{shutter.build}</td>
           </tr>
           <tr>
             <th>셔터속도</th>
-            <td>{shutter}</td>
+            <td>{shutter.speed}</td>
           </tr>
           <tr>
-            <th>연사속도</th>
-            <td>{continuousSpeedData}</td>
+            <th>비상셔터</th>
+            <td>{shutter.emergency ?? '-'}</td>
           </tr>
           <tr>
-            <th>연사매수</th>
-            <td>{continuousLengthData}</td>
+            <th>셀프타이머</th>
+            <td>{shutter.timer}</td>
+          </tr>
+          <tr>
+            <th>유선릴리즈</th>
+            <td>{shutter.release ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>무선릴리즈</th>
+            <td>{shutter.releaseW ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>내장와인더</th>
+            <td>{winder.internal ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>외장와인더</th>
+            <td>{winder.external ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>모터드라이브</th>
+            <td>{winder.motorDrive ?? '-'}</td>
           </tr>
         </tbody>
       </table>

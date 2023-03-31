@@ -15,7 +15,7 @@ export const MENUS = [
   },
   {
     id: 'pentax-nav-slr',
-    label: '펜탁스 SLR (구현중)',
+    label: '펜탁스 SLR',
     labelDetailed: '펜탁스\nSLR 카메라',
     href: '/pentax/slr',
   },

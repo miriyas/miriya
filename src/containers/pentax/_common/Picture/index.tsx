@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { PENTAX_DSLRS } from '@/constants/pentaxes';
+import { PENTAX_DSLRS, PENTAX_SLRS } from '@/constants/pentaxes';
 import { cameraId } from '@/utils/cameras';
 
 import styles from './Picture.module.scss';
@@ -13,7 +13,10 @@ interface Props {
 }
 
 const Picture = ({ selectedCameraName, baseUrl }: Props) => {
-  const camera = PENTAX_DSLRS.find((c) => c.name === selectedCameraName) || PENTAX_DSLRS[0];
+  const camera =
+    baseUrl === 'dslr'
+      ? PENTAX_DSLRS.find((c) => c.name === selectedCameraName) || PENTAX_DSLRS[0]
+      : PENTAX_SLRS.find((c) => c.name === selectedCameraName) || PENTAX_SLRS[0];
 
   const id = cameraId('pentax', camera.name);
   const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/pentaxes/${baseUrl}/${id}.jpg`;

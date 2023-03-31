@@ -2,7 +2,7 @@
 
 import { useAtomValue } from 'jotai';
 
-import { PENTAX_DSLRS } from '@/constants/pentaxes';
+import { PENTAX_SLRS } from '@/constants/pentaxes';
 import { selectedCameraAtom } from '../states';
 
 import DataColumn1 from './Column1';
@@ -13,7 +13,7 @@ import styles from './Data.module.scss';
 const Data = () => {
   const selectedCameraName = useAtomValue(selectedCameraAtom);
 
-  const camera = PENTAX_DSLRS.find((c) => c.name === selectedCameraName) || PENTAX_DSLRS[0];
+  const camera = PENTAX_SLRS.find((c) => c.name === selectedCameraName) || PENTAX_SLRS[0];
 
   return (
     <div className={styles.data}>

@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai';
 
 import { PENTAX_SLRS, PENTAX_SLRS_YEAR_INFO } from '@/constants/pentaxes';
 import { getNumberArr } from '@/utils';
-import { selectedCameraAtom } from '@/containers/pentax/TabDSLR/states';
+import { selectedCameraAtom } from './states';
 
 import Picture from '../_common/Picture';
 import Camera from './Camera';
@@ -19,7 +19,7 @@ const PentaxSLRPage = () => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.upper}>
-        <Picture selectedCameraName={selectedCameraName} baseUrl='dslr' />
+        <Picture selectedCameraName={selectedCameraName} baseUrl='slr' />
         <div className={styles.rightWing}>
           <div className={styles.yearsWrapper}>
             <ol className={styles.years}>

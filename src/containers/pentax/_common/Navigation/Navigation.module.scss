@@ -19,6 +19,10 @@
         padding: 0 8px;
         color: var(--color-black);
 
+        &:hover {
+          font-weight: 700;
+        }
+
         &.active {
           color: var(--color-white);
           background-color: var(--color-black);
