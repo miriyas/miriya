@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
 import Image from 'next/image';
 import cx from 'clsx';
 
 import { authModalAtom, showPasswordAtom } from './states';
+import useAuth from '@/hooks/useAuth';
 
 import { Modal } from '@/components/Modal';
 import styles from './Auth.module.scss';
@@ -17,12 +18,22 @@ const AuthModal = () => {
   const [tab, setTab] = useState<'login' | 'signup' | undefined>(authModal);
   const showPassword = useAtomValue(showPasswordAtom);
 
+  const { user } = useAuth();
+
+  const onClose = useCallback(() => {
+    setAuthModal(undefined);
+  }, [setAuthModal]);
+
+  useEffect(() => {
+    if (user) onClose();
+  }, [onClose, user]);
+
   useEffect(() => {
     setTab(authModal);
   }, [authModal]);
 
   return (
-    <Modal isShow={!!authModal} onClose={() => setAuthModal(undefined)} closeIcon>
+    <Modal isShow={!!authModal} onClose={onClose} closeIcon>
       <div className={styles.authModal}>
         <div className={styles.head}>
           <div className={cx(styles.imageWrapper, { [styles.hidePassword]: !showPassword })}>
