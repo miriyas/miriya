@@ -1,7 +1,7 @@
 // import { nanoid } from 'nanoid';
 import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
 
-import db from '@/utils/firebase';
+import { db } from '@/utils/firebase';
 import { IdolType, YearDescType } from '@/types/idols';
 
 const ROOT = 'idolsPage';

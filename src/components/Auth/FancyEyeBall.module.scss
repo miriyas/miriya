@@ -1,0 +1,45 @@
+@use 'src/styles/mixins' as m;
+
+.fancyEyeBall {
+  @include m.absolute(5px 4px auto auto);
+  width: 24px;
+  height: 24px;
+
+  .eyeTemplate,
+  .eyeBall,
+  .eyeClosed {
+    @include m.absolute(0 0 0 0);
+    width: 24px;
+    height: 24px;
+    color: var(--color-gray-c);
+  }
+
+  .eyeTemplate {
+    z-index: 2;
+  }
+
+  .eyeBall {
+    z-index: 1;
+    transition: 100ms;
+
+    &.top {
+      top: -2px;
+      bottom: auto;
+    }
+
+    &.left {
+      right: auto;
+      left: -2px;
+    }
+
+    &.bottom {
+      top: auto;
+      bottom: -2px;
+    }
+
+    &.right {
+      right: -2px;
+      left: auto;
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@use 'src/styles/mixins' as m;
+
+.modalWrapper {
+  @include m.fixed(0 0 0 0);
+  @include m.flexbox;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--color-black-rgb), 0.5);
+
+  &.enterActive,
+  &.exitActive {
+    > .wrapper {
+      transition: all 200ms ease-out;
+    }
+  }
+
+  &.enter {
+    > .wrapper {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+  }
+
+  &.enterActive,
+  &.exit {
+    > .wrapper {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.exitActive {
+    > .wrapper {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+  }
+
+  .bg {
+    @include m.absolute(0 0 0 0);
+    width: 100%;
+    height: 100%;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal {
+    @include m.middleBox;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border-radius: 8px;
+
+    .header {
+      @include m.flexbox(center, center);
+      position: relative;
+      height: 44px;
+    }
+
+    .closeButton {
+      @include m.flexbox(center, center);
+      right: 0;
+      width: 44px;
+      height: 44px;
+
+      &.only {
+        @include m.absolute(0 0 auto auto);
+      }
+
+      &:not(.only) {
+        @include m.posCenterY;
+      }
+
+      &:hover svg {
+        fill: var(--color-blue);
+      }
+
+      svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+        fill: var(--color-gray-4);
+      }
+    }
+  }
+}

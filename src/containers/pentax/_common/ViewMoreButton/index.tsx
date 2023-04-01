@@ -4,7 +4,7 @@ import cx from 'clsx';
 import { RefObject, useEffect, useRef } from 'react';
 import { useRafState, useUnmount } from 'react-use';
 
-import { ChevronRight } from 'public/svgs';
+import { IconChevronRight } from 'public/svgs';
 
 import styles from './ViewMoreButton.module.scss';
 
@@ -62,7 +62,7 @@ const ViewMoreButton = (props: Props) => {
       aria-label='More'
       onClick={toggleViewMore}
     >
-      <ChevronRight className={styles.arrow} />
+      <IconChevronRight className={styles.arrow} />
     </button>
   );
 };

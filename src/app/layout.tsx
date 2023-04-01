@@ -26,6 +26,7 @@ const RootLayout = ({ children }: Props) => {
           <ToTop />
           <Footer />
         </Providers>
+        <div id='modal' />
       </body>
     </html>
   );

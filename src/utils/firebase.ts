@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_FIREBASE_API_KEY,
@@ -11,6 +12,10 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_FIREBASE_MEASUREMENT_ID,
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-export default getFirestore();
+const db = getFirestore();
+
+const auth = getAuth(app);
+
+export { db, auth };

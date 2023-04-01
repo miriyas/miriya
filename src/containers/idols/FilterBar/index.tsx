@@ -50,7 +50,7 @@ const FilterBar = (props: Props) => {
 
   return (
     <div className={styles.filterBar}>
-      <Header idolsLength={idolsLength} />
+      <Header idolsLength={idolsLength} yearStart={yearStart} yearEnd={yearEnd} />
       <ul className={styles.categories}>
         {CATEGORIES.map((category) => {
           return (

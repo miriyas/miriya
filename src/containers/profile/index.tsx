@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ExternalLink from '@/components/ExternalLink';
-import styles from './Profile.module.scss';
 import ImageAlbum from '@/components/ImageAlbum';
+import styles from './Profile.module.scss';
 
 const ProfilePage = () => {
   return (
