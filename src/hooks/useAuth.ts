@@ -1,5 +1,11 @@
 import { useCallback } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as signOutFB } from 'firebase/auth';
+import {
+  browserLocalPersistence,
+  createUserWithEmailAndPassword,
+  setPersistence,
+  signInWithEmailAndPassword,
+  signOut as signOutFB,
+} from 'firebase/auth';
 import { useMount } from 'react-use';
 import { useAtom } from 'jotai';
 
@@ -16,11 +22,13 @@ const useAuth = () => {
   });
 
   const signUpEmail = useCallback(async (email: string, password: string) => {
-    await createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password);
   }, []);
 
   const signInEmail = useCallback(async (email: string, password: string) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    setPersistence(auth, browserLocalPersistence).then(() => {
+      return signInWithEmailAndPassword(auth, email, password);
+    });
   }, []);
 
   const signOut = () => {
