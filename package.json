@@ -10,6 +10,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.0.0",
     "@next/bundle-analyzer": "^13.2.4",
     "@tanstack/react-query": "^4.28.0",
     "cheerio": "^1.0.0-rc.12",
@@ -27,12 +28,14 @@
     "next": "^13.2.5-canary.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-portal": "^4.2.2",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.2",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",

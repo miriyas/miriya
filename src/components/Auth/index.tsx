@@ -1,10 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtomValue } from 'jotai';
+import { useResetAtom } from 'jotai/utils';
 import Image from 'next/image';
 import cx from 'clsx';
 
+import { logInErrorAtom, signUpErrorAtom } from '@/states/auth';
 import { authModalAtom, showPasswordAtom } from './states';
 import useAuth from '@/hooks/useAuth';
 
@@ -14,15 +16,21 @@ import LogIn from '@/components/Auth/LogIn';
 import SignUp from '@/components/Auth/SignUp';
 
 const AuthModal = () => {
-  const [authModal, setAuthModal] = useAtom(authModalAtom);
+  const authModal = useAtomValue(authModalAtom);
+  const resetAuthModal = useResetAtom(authModalAtom);
+  const resetLogInError = useResetAtom(logInErrorAtom);
+  const resetSignUpError = useResetAtom(signUpErrorAtom);
+
   const [tab, setTab] = useState<'login' | 'signup' | undefined>(authModal);
   const showPassword = useAtomValue(showPasswordAtom);
 
   const { user } = useAuth();
 
   const onClose = useCallback(() => {
-    setAuthModal(undefined);
-  }, [setAuthModal]);
+    resetAuthModal();
+    resetLogInError();
+    resetSignUpError();
+  }, [resetAuthModal, resetLogInError, resetSignUpError]);
 
   useEffect(() => {
     if (user) onClose();

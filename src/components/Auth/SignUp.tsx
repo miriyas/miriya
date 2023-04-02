@@ -1,10 +1,13 @@
 'use client';
 
-import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
+import { Dispatch, FormEventHandler, MouseEventHandler, SetStateAction } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useAtom } from 'jotai';
 
 import useAuth from '@/hooks/useAuth';
 import { showPasswordAtom } from './states';
+import { SignUpSchema, signUpValidator } from '@/utils/validator';
 
 import FancyEyeBall from './FancyEyeBall';
 import styles from './Auth.module.scss';
@@ -14,28 +17,25 @@ interface Props {
 }
 
 const SignUp = ({ setTab }: Props) => {
-  const { signUpEmail } = useAuth();
+  const { signUpEmail, signUpLoading, signUpError } = useAuth();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const methods = useForm<SignUpSchema>({ mode: 'onBlur', resolver: yupResolver(signUpValidator) });
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = methods;
+
   const [showPassword, setShowPassword] = useAtom(showPasswordAtom);
 
   const onClickLogIn: MouseEventHandler<HTMLButtonElement> = () => {
     setTab('login');
   };
 
-  const onChangeEmail: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setEmail(e.currentTarget.value);
-  };
-
-  const onChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setPassword(e.currentTarget.value);
-  };
-
-  const submitSignUp = () => {
-    if (password.length < 6) return;
-    signUpEmail(email, password);
-  };
+  const submitSignUp = handleSubmit((formValues: SignUpSchema) => {
+    signUpEmail(formValues.email, formValues.password);
+  });
 
   const onSignUpForm: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -47,23 +47,36 @@ const SignUp = ({ setTab }: Props) => {
     submitSignUp();
   };
 
+  const errorMessage = Object.values(errors).length > 0 ? Object.values(errors)[0].message : undefined;
+
   return (
     <form onSubmit={onSignUpForm}>
       <div className={styles.inputWrapper}>
-        <input type='string' value={email} onChange={onChangeEmail} placeholder='이메일' />
+        <input {...register('email')} type='string' placeholder='이메일' disabled={signUpLoading} />
       </div>
       <div className={styles.inputWrapper}>
         <input
+          {...register('password')}
           type={showPassword ? 'string' : 'password'}
-          value={password}
-          onChange={onChangePassword}
           placeholder='비밀번호'
+          autoComplete='off'
+          disabled={signUpLoading}
         />
         <FancyEyeBall showPassword={showPassword} setShowPassword={setShowPassword} />
+      </div>
+      <div className={styles.inputWrapper}>
+        <input
+          {...register('passwordConfirm')}
+          type={showPassword ? 'string' : 'password'}
+          placeholder='비밀번호'
+          autoComplete='off'
+          disabled={signUpLoading}
+        />
       </div>
       <button type='submit' onClick={onSignUpClick}>
         회원가입
       </button>
+      <div className={styles.error}>{signUpError || errorMessage}</div>
 
       <div className={styles.toOtherTab}>
         계정이 있다면?&nbsp;

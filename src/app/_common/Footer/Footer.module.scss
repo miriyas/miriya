@@ -17,6 +17,10 @@
     .auth {
       @include m.flexbox(center, center);
       gap: 8px;
+
+      button {
+        font-size: 12px;
+      }
     }
 
     a {
