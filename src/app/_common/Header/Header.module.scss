@@ -1,12 +1,12 @@
 @use 'src/styles/mixins' as m;
 
 .appHeader {
-  @include m.flexbox(center, center);
+  @include m.flexbox;
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-gray-e);
 
   a {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     height: var(--h-nav);
     font-size: 14px;
     color: var(--color-black);
@@ -43,7 +43,7 @@
     }
 
     a {
-      @include m.flexbox(center, center);
+      @include m.flexbox;
       height: var(--h-nav);
       padding: 0 14px;
       font-size: 14px;
@@ -135,7 +135,7 @@
   }
 
   ul {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
 
     li {
       &:first-child a {
@@ -148,8 +148,10 @@
   }
 
   .outerLinks {
+    @include m.flexbox;
+
     a {
-      @include m.flexbox(center, center);
+      @include m.flexbox;
       height: 24px;
       font-size: 14px;
       font-weight: 700;

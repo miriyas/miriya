@@ -5,7 +5,7 @@
   padding: 32px;
 
   .head {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     flex-direction: column;
 
     .imageWrapper {
@@ -38,7 +38,7 @@
   }
 
   .tabs {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     height: 44px;
 
     li {

@@ -11,7 +11,7 @@
   }
 
   article {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     flex-direction: column;
     width: 100%;
 
@@ -23,7 +23,7 @@
     }
 
     details {
-      @include m.flexbox(center, center);
+      @include m.flexbox;
       padding: 14px;
 
       &.noData {

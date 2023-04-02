@@ -8,7 +8,7 @@
   background-color: var(--color-black);
 
   .picture {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     width: var(--h-pentax-picture);
     height: var(--h-pentax-picture);
     margin-top: var(--x-pentax-dslr-cell);

@@ -34,16 +34,14 @@
   }
 
   summary {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     cursor: zoom-in;
 
     img {
       display: block;
-
-      @include m.before(MD) {
-        width: 100% !important;
-        height: auto !important;
-      }
+      width: 100% !important;
+      height: auto !important;
+      max-height: 100vw;
     }
   }
 }

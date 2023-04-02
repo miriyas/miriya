@@ -29,7 +29,7 @@
 }
 
 .loadingPage {
-  @include m.flexbox(center, center);
+  @include m.flexbox;
   width: 100%;
   min-height: 100vh;
 }

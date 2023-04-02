@@ -2,7 +2,7 @@
 
 .wrapper {
   .upper {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     position: relative;
     width: 100%;
     background-color: var(--color-white);
@@ -28,7 +28,7 @@
       background-color: var(--color-black);
 
       li {
-        @include m.flexbox(center, center);
+        @include m.flexbox;
         position: relative;
         flex-shrink: 0;
         width: 135px;

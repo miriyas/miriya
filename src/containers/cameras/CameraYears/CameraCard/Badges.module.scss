@@ -63,7 +63,7 @@
     }
 
     .shakeReduction {
-      @include m.flexbox(center, center);
+      @include m.flexbox;
 
       &.minolta {
         color: var(--color-yellow);

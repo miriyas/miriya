@@ -17,7 +17,7 @@
   }
 
   p {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     padding: 0 4px;
     margin-right: 4px;
     border-radius: 2px;

@@ -8,13 +8,13 @@
   border: 1px solid var(--color-black);
 
   ul {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
 
     li {
       color: var(--color-white);
 
       a {
-        @include m.flexbox(center, center);
+        @include m.flexbox;
         height: var(--x-pentax-dslr-cell);
         padding: 0 8px;
         color: var(--color-black);

@@ -1,11 +1,11 @@
 @use 'src/styles/mixins' as m;
 
 .emailBased {
-  @include m.flexbox(center, center);
+  @include m.flexbox;
   flex-direction: column;
 
   form {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     flex-direction: column;
   }
 

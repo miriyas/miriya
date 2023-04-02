@@ -4,7 +4,7 @@
   @include m.flexbox(between, center);
 
   ul {
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     gap: 14px;
     width: 100%;
 
@@ -17,7 +17,7 @@
       border-radius: 4px;
 
       a {
-        @include m.flexbox(center, center);
+        @include m.flexbox;
         flex-direction: column;
       }
 

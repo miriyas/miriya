@@ -1,7 +1,7 @@
 @use 'src/styles/mixins' as m;
 
 .home {
-  @include m.flexbox(center, center);
+  @include m.flexbox;
   font-size: 14px;
   line-height: 1.6;
 

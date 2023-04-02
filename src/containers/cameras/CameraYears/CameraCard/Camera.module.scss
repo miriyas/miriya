@@ -93,7 +93,7 @@
 
     &.loading,
     &.error {
-      @include m.flexbox(center, center);
+      @include m.flexbox;
       flex-direction: column;
       font-size: 10px;
       line-height: 20px;
@@ -113,7 +113,7 @@
 
   .sourceBtn {
     @include m.absolute(auto 0 0 0);
-    @include m.flexbox(center, center);
+    @include m.flexbox;
     height: var(--h-camera-data-source-btn);
     font-size: 10px;
     background-color: var(--color-white);

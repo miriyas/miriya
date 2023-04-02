@@ -9,7 +9,7 @@
     max-width: 1200px;
 
     section {
-      @include m.flexbox(center, center);
+      @include m.flexbox;
       flex-direction: column;
       height: calc(var(--h-pentax-picture) + var(--x-pentax-dslr-cell) + var(--h-pentax-data));
       background-color: var(--color-white);

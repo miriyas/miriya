@@ -27,7 +27,7 @@
     }
 
     .auth {
-      @include m.flexbox(center, center);
+      @include m.flexbox;
       gap: 8px;
 
       button {
