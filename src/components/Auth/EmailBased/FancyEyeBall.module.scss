@@ -5,6 +5,14 @@
   width: 24px;
   height: 24px;
 
+  &:focus {
+    .eyeTemplate,
+    .eyeBall,
+    .eyeClosed {
+      color: var(--color-gray-4);
+    }
+  }
+
   .eyeTemplate,
   .eyeBall,
   .eyeClosed {

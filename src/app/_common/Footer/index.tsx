@@ -28,6 +28,7 @@ const Footer = () => {
       <div className={styles.wrapper}>
         {user ? (
           <div className={styles.auth}>
+            {user.displayName || user.email}
             <button type='button' onClick={logOut}>
               로그아웃
             </button>
