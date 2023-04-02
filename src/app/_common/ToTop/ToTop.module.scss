@@ -2,7 +2,7 @@
 
 .toTop {
   @include m.commonBoxShadow;
-  @include m.fixed(auto 14px 14px auto);
+  @include m.fixed(auto 14px calc(24px + var(--h-footer)) auto);
   width: 52px;
   height: 52px;
   background-color: var(--color-white);

@@ -126,6 +126,6 @@ main {
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  padding: 0 14px 14px;
+  padding: 24px 24px calc(24px + var(--h-footer));
   background-color: var(--color-bg);
 }

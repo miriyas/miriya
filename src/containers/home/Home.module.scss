@@ -2,7 +2,6 @@
 
 .home {
   @include m.flexbox(center, center);
-  padding: 24px;
   font-size: 14px;
   line-height: 1.6;
 

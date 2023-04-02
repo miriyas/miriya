@@ -8,5 +8,6 @@
 
   img {
     @include m.absolute(0 0 0 0);
+    width: 100px;
   }
 }
