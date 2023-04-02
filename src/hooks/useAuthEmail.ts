@@ -67,7 +67,7 @@ const useAuthEmail = () => {
     [setLogInError, setLogInLoading],
   );
 
-  const cleanUp = () => {
+  const cleanUpEmailRelatedState = () => {
     resetLogInError();
     resetSignUpError();
   };
@@ -79,7 +79,7 @@ const useAuthEmail = () => {
     signUpLoading,
     logInError,
     signUpError,
-    cleanUp,
+    cleanUpEmailRelatedState,
   };
 };
 

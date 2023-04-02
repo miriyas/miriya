@@ -3,8 +3,7 @@
 import { useMemo, useRef } from 'react';
 import { groupBy } from 'lodash';
 
-import { IsotopesType } from '@/types/index.d';
-import { IdolType, YearDescType } from '@/types/idols.d';
+import { IdolType, YearDescType, IsotopesType } from '@/types/idols.d';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';

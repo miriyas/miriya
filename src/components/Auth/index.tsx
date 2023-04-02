@@ -9,6 +9,7 @@ import cx from 'clsx';
 import { authModalAtom, showPasswordAtom } from './states';
 import useAuth from '@/hooks/useAuth';
 import useAuthEmail from '@/hooks/useAuthEmail';
+import useAuthSocial from '@/hooks/useAuthSocial';
 
 import { Modal } from '@/components/Modal';
 import EmailBased from './EmailBased';
@@ -20,13 +21,15 @@ const AuthModal = () => {
   const resetAuthModal = useResetAtom(authModalAtom);
 
   const { user } = useAuth();
-  const { cleanUp } = useAuthEmail();
+  const { cleanUpEmailRelatedState } = useAuthEmail();
+  const { cleanUpSocialRelatedState } = useAuthSocial();
   const showPassword = useAtomValue(showPasswordAtom);
 
   const onClose = useCallback(() => {
     resetAuthModal();
-    cleanUp();
-  }, [resetAuthModal, cleanUp]);
+    cleanUpEmailRelatedState();
+    cleanUpSocialRelatedState();
+  }, [resetAuthModal, cleanUpEmailRelatedState, cleanUpSocialRelatedState]);
 
   useEffect(() => {
     // 로그인 하면 모달 닫기.

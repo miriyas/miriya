@@ -13,9 +13,13 @@ interface Props {
   children: React.ReactNode;
 }
 
+// fb:app_id는 Metadata에서 지원하지 않음, others에 넣으면 property가 아니라 name으로 들어감..
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang='en'>
+      <head>
+        <meta property='fb:app_id' content='1374093376066474' />
+      </head>
       <body>
         <Suspense fallback={null}>
           <Additional />

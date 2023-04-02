@@ -1,8 +1,7 @@
 import { MouseEventHandler, MutableRefObject, useState, useTransition } from 'react';
 import cx from 'clsx';
 
-import { IsotopesType } from '@/types/index.d';
-import { CATEGORIES, Category } from '@/types/idols.d';
+import { CATEGORIES, Category, IsotopesType } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';

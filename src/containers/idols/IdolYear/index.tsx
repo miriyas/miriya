@@ -4,8 +4,7 @@ import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
 import cx from 'clsx';
 
 import type { IsotopeOptions } from 'isotope-layout';
-import { IsotopesType } from '@/types';
-import { IdolType } from '@/types/idols.d';
+import { IdolType, IsotopesType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 

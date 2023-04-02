@@ -1,4 +1,3 @@
-import Isotope from '@/libs/isotope-layout';
 import type { Gtag } from '@types/gtag.js';
 
 declare global {
@@ -8,8 +7,6 @@ declare global {
   }
 }
 
-export interface IsotopesType {
-  [key: number]: Isotope;
-}
-
 export type ValueOf<T extends Object> = T[keyof T];
+
+export type SupportedProviders = 'google' | 'facebook' | 'github';

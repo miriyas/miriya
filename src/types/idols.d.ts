@@ -1,3 +1,5 @@
+import Isotope from '@/libs/isotope-layout';
+
 export type Category = 'total' | 'mixed-group' | 'girl-group' | 'boy-group' | 'girl-solo' | 'boy-solo';
 
 export const CATEGORIES: Category[] = ['total', 'mixed-group', 'girl-group', 'boy-group', 'girl-solo', 'boy-solo'];
@@ -31,4 +33,8 @@ export interface IdolType {
 export interface YearDescType {
   year: number;
   desc: string;
+}
+
+export interface IsotopesType {
+  [key: number]: Isotope;
 }

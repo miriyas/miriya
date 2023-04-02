@@ -1,24 +1,33 @@
 import { useCallback } from 'react';
 import { useAtom } from 'jotai';
 import { signInWithPopup } from 'firebase/auth';
-import { atomWithReset } from 'jotai/utils';
+import { atomWithReset, useResetAtom } from 'jotai/utils';
 
-import { auth, providerGoogle } from '@/utils/firebase';
+import { auth, PROVIDERS } from '@/utils/firebase';
 
 export const socialErrorAtom = atomWithReset('');
 
 const useAuthSocial = () => {
   const [socialError, setSocialError] = useAtom(socialErrorAtom);
+  const resetSocialError = useResetAtom(socialErrorAtom);
 
-  const logInGoogle = useCallback(() => {
-    signInWithPopup(auth, providerGoogle).catch((error) => {
-      setSocialError(error.code);
-    });
-  }, [setSocialError]);
+  const logInWithSocial = useCallback(
+    (provider: 'google' | 'facebook' | 'github') => {
+      signInWithPopup(auth, PROVIDERS[provider]).catch((error) => {
+        setSocialError(error.code);
+      });
+    },
+    [setSocialError],
+  );
+
+  const cleanUpSocialRelatedState = useCallback(() => {
+    resetSocialError();
+  }, [resetSocialError]);
 
   return {
-    logInGoogle,
+    logInWithSocial,
     socialError,
+    cleanUpSocialRelatedState,
   };
 };
 
