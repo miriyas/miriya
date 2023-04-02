@@ -10,7 +10,7 @@ import AuthModal from '@/components/Auth';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
-  const { user, signOut } = useAuth();
+  const { user, logOut } = useAuth();
 
   const setAuthModal = useSetAtom(authModalAtom);
 
@@ -27,7 +27,7 @@ const Footer = () => {
       <div className={styles.wrapper}>
         {user ? (
           <div className={styles.auth}>
-            <button type='button' onClick={signOut}>
+            <button type='button' onClick={logOut}>
               로그아웃
             </button>
           </div>

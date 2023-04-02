@@ -5,7 +5,6 @@ import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import { IconClose } from 'public/svgs';
-
 import styles from './Modal.module.scss';
 
 interface Props {

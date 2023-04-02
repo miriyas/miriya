@@ -5,7 +5,6 @@ import { useRafState } from 'react-use';
 import cx from 'clsx';
 
 import { IconEyeBall, IconEyeClosed, IconEyeTemplate } from 'public/svgs';
-
 import styles from './FancyEyeBall.module.scss';
 
 interface Props {

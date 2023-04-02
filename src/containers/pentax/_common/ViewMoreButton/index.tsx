@@ -5,7 +5,6 @@ import { RefObject, useEffect, useRef } from 'react';
 import { useRafState, useUnmount } from 'react-use';
 
 import { IconChevronRight } from 'public/svgs';
-
 import styles from './ViewMoreButton.module.scss';
 
 const scrollAmount = 2000; // 충분한 사이즈를 임의로 넣음

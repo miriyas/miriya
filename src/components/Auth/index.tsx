@@ -1,62 +1,50 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAtomValue } from 'jotai';
 import { useResetAtom } from 'jotai/utils';
 import Image from 'next/image';
 import cx from 'clsx';
 
-import { logInErrorAtom, signUpErrorAtom } from '@/states/auth';
 import { authModalAtom, showPasswordAtom } from './states';
 import useAuth from '@/hooks/useAuth';
+import useAuthEmail from '@/hooks/useAuthEmail';
 
 import { Modal } from '@/components/Modal';
+import EmailBased from './EmailBased';
+import SocialBased from './SocialBased';
 import styles from './Auth.module.scss';
-import LogIn from '@/components/Auth/LogIn';
-import SignUp from '@/components/Auth/SignUp';
 
 const AuthModal = () => {
   const authModal = useAtomValue(authModalAtom);
   const resetAuthModal = useResetAtom(authModalAtom);
-  const resetLogInError = useResetAtom(logInErrorAtom);
-  const resetSignUpError = useResetAtom(signUpErrorAtom);
-
-  const [tab, setTab] = useState<'login' | 'signup' | undefined>(authModal);
-  const showPassword = useAtomValue(showPasswordAtom);
 
   const { user } = useAuth();
+  const { cleanUp } = useAuthEmail();
+  const showPassword = useAtomValue(showPasswordAtom);
 
   const onClose = useCallback(() => {
     resetAuthModal();
-    resetLogInError();
-    resetSignUpError();
-  }, [resetAuthModal, resetLogInError, resetSignUpError]);
+    cleanUp();
+  }, [resetAuthModal, cleanUp]);
 
   useEffect(() => {
+    // 로그인 하면 모달 닫기.
     if (user) onClose();
   }, [onClose, user]);
-
-  useEffect(() => {
-    setTab(authModal);
-  }, [authModal]);
 
   return (
     <Modal isShow={!!authModal} onClose={onClose} closeIcon>
       <div className={styles.authModal}>
         <div className={styles.head}>
           <div className={cx(styles.imageWrapper, { [styles.hidePassword]: !showPassword })}>
-            <Image src='/images/home/profile.jpg' fill alt='' className={styles.image} />
+            <Image src='/images/home/profile.jpg' fill alt='' title='AI가 그린 그림이지롱' className={styles.image} />
           </div>
-          <p className={styles.welcome}>
-            환영합니다. 댓글좀 달아주세요.
-            <br />
-            비밀번호는 그냥 6글자 이상만 입력하셔도 됩니다.
-          </p>
+          <p className={styles.desc}>환영합니다. 댓글좀 달아주세요.</p>
         </div>
-        <div className={styles.wrapper}>
-          {tab === 'login' && <LogIn setTab={setTab} />}
-          {tab === 'signup' && <SignUp setTab={setTab} />}
-        </div>
+        <SocialBased />
+        <p className={styles.desc}>위에 클릭해서 소셜 로그인, 아니면..</p>
+        <EmailBased />
       </div>
     </Modal>
   );

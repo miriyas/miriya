@@ -5,19 +5,20 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAtom } from 'jotai';
 
-import useAuth from '@/hooks/useAuth';
-import { showPasswordAtom } from './states';
+import useAuthEmail from '@/hooks/useAuthEmail';
+import { showPasswordAtom } from '../states';
 import { SignUpSchema, signUpValidator } from '@/utils/validator';
 
 import FancyEyeBall from './FancyEyeBall';
-import styles from './Auth.module.scss';
+import authStyles from '../Auth.module.scss';
+import styles from './EmailBased.module.scss';
 
 interface Props {
   setTab: Dispatch<SetStateAction<'login' | 'signup' | undefined>>;
 }
 
 const SignUp = ({ setTab }: Props) => {
-  const { signUpEmail, signUpLoading, signUpError } = useAuth();
+  const { signUpEmail, signUpLoading, signUpError } = useAuthEmail();
 
   const methods = useForm<SignUpSchema>({ mode: 'onBlur', resolver: yupResolver(signUpValidator) });
 
@@ -58,7 +59,7 @@ const SignUp = ({ setTab }: Props) => {
         <input
           {...register('password')}
           type={showPassword ? 'string' : 'password'}
-          placeholder='비밀번호'
+          placeholder='비밀번호 (6글자 이상)'
           autoComplete='off'
           disabled={signUpLoading}
         />
@@ -68,7 +69,7 @@ const SignUp = ({ setTab }: Props) => {
         <input
           {...register('passwordConfirm')}
           type={showPassword ? 'string' : 'password'}
-          placeholder='비밀번호'
+          placeholder='비밀번호 확인'
           autoComplete='off'
           disabled={signUpLoading}
         />
@@ -76,7 +77,7 @@ const SignUp = ({ setTab }: Props) => {
       <button type='submit' onClick={onSignUpClick}>
         회원가입
       </button>
-      <div className={styles.error}>{signUpError || errorMessage}</div>
+      <div className={authStyles.commonError}>{signUpError || errorMessage}</div>
 
       <div className={styles.toOtherTab}>
         계정이 있다면?&nbsp;

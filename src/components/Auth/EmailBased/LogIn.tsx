@@ -5,19 +5,20 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAtom } from 'jotai';
 
-import useAuth from '@/hooks/useAuth';
-import { showPasswordAtom } from './states';
+import useAuthEmail from '@/hooks/useAuthEmail';
+import { showPasswordAtom } from '../states';
 import { LogInSchema, logInValidator } from '@/utils/validator';
 
-import styles from './Auth.module.scss';
 import FancyEyeBall from './FancyEyeBall';
+import authStyles from '../Auth.module.scss';
+import styles from './EmailBased.module.scss';
 
 interface Props {
   setTab: Dispatch<SetStateAction<'login' | 'signup' | undefined>>;
 }
 
 const LogIn = ({ setTab }: Props) => {
-  const { logInEmail, logInLoading, logInError } = useAuth();
+  const { logInEmail, logInLoading, logInError } = useAuthEmail();
 
   const methods = useForm<LogInSchema>({ mode: 'onBlur', resolver: yupResolver(logInValidator) });
 
@@ -58,7 +59,7 @@ const LogIn = ({ setTab }: Props) => {
         <input
           {...register('password')}
           type={showPassword ? 'string' : 'password'}
-          placeholder='비밀번호'
+          placeholder='비밀번호 (6글자 이상)'
           autoComplete='off'
           disabled={logInLoading}
         />
@@ -67,9 +68,9 @@ const LogIn = ({ setTab }: Props) => {
       <button type='submit' onClick={onSignInClick} disabled={logInLoading}>
         로그인
       </button>
-      <div className={styles.error}>{logInError || errorMessage}</div>
+      <div className={authStyles.commonError}>{logInError || errorMessage}</div>
       <div className={styles.toOtherTab}>
-        자 이제 시작이야 -&nbsp;
+        이렇게 반가울데가.. &nbsp;
         <button type='button' onClick={onClickSionUp}>
           회원가입
         </button>

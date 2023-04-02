@@ -8,6 +8,10 @@ import IconEyeBall from './eye-ball.svg';
 import IconEyeClosed from './eye-closed.svg';
 import IconClose from './close.svg';
 import IconChevronRight from './chevron-right.svg';
+import IconProviderApple from './provider-apple.svg';
+import IconProviderFacebook from './provider-facebook.svg';
+import IconProviderGithub from './provider-github.svg';
+import IconProviderGoogle from './provider-google.svg';
 
 export {
   IconSound,
@@ -20,4 +24,8 @@ export {
   IconEyeClosed,
   IconClose,
   IconChevronRight,
+  IconProviderApple,
+  IconProviderFacebook,
+  IconProviderGithub,
+  IconProviderGoogle,
 };

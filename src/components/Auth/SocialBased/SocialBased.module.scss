@@ -1,0 +1,13 @@
+@use 'src/styles/mixins' as m;
+
+.socialBased {
+  ul {
+    @include m.flexbox;
+    gap: 8px;
+  }
+
+  button svg {
+    width: 28px;
+    height: 28px;
+  }
+}

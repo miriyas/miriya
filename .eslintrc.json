@@ -84,7 +84,7 @@
             "group": "type"
           },
           {
-            "pattern": "{components,components/_common/**,@/components,@/components/**,svgs,@/assets/**/*,@/app/**,routes/**}",
+            "pattern": "{components,components/_common/**,@/components,@/components/**,svgs,@/assets/**/*,@/app/**,routes/**,public/**}",
             "group": "index"
           },
           {
