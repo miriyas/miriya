@@ -149,13 +149,17 @@
 
   .outerLinks {
     @include m.flexbox;
+    gap: 16px;
 
     a {
       @include m.flexbox;
       height: 24px;
       font-size: 14px;
-      font-weight: 700;
       color: var(--color-black);
+
+      &.github {
+        font-weight: 700;
+      }
 
       svg {
         width: 18px;

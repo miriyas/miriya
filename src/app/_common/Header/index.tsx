@@ -109,7 +109,9 @@ const Header = () => {
           })}
         </ul>
         <div className={styles.outerLinks}>
+          <Link href='/guestbook'>방명록</Link>
           <a
+            className={styles.github}
             onClick={onClickGithub}
             href='https://github.com/miriyas/miriya'
             target='_blank'

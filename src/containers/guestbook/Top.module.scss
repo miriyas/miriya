@@ -1,0 +1,36 @@
+@use 'src/styles/mixins' as m;
+
+.top {
+  @include m.flexbox(center, end);
+  width: 100%;
+  height: 44px;
+  padding-bottom: 4px;
+
+  .leftWing {
+    width: 230px;
+    font-size: 10px;
+    text-align: center;
+
+    span {
+      color: var(--color-red);
+    }
+  }
+
+  .rightWing {
+    @include m.flexbox(between, end);
+    flex: 1;
+    height: 100%;
+    padding: 0 8px;
+
+    .title {
+      margin-left: 8px;
+      color: var(--color-guestbook-primary);
+    }
+
+    .url {
+      font-family: initial;
+      font-size: 10px;
+      color: var(--color-gray-8);
+    }
+  }
+}
