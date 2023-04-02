@@ -14,6 +14,18 @@
     color: var(--color-gray-4);
     text-align: center;
 
+    > * {
+      flex: 1;
+
+      &:first-child {
+        justify-content: flex-start !important;
+      }
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+
     .auth {
       @include m.flexbox(center, center);
       gap: 8px;

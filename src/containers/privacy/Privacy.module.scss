@@ -1,0 +1,72 @@
+@use 'src/styles/mixins' as m;
+
+.privacy {
+  @include m.flexbox(center, center);
+
+  .centering {
+    @include m.flexbox(center, start);
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 800px;
+    padding: 14px;
+    overflow-y: auto;
+    color: var(--color-gray-2);
+  }
+
+  &.loading .centering {
+    align-items: center;
+    height: 400px;
+  }
+
+  .markdown {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.6;
+
+    h1 {
+      margin: 14px 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 14px 0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    > ol {
+      > li {
+        margin: 0 0 14px 24px;
+        list-style-type: decimal;
+
+        ol li {
+          margin: 0 0 0 14px;
+          list-style-type: lower-roman;
+        }
+
+        ul li {
+          margin: 0 0 0 14px;
+          list-style-type: disc;
+        }
+      }
+    }
+
+    > ul {
+      > li {
+        margin: 0 0 14px 24px;
+        list-style-type: disc;
+
+        li {
+          margin: 0 0 0 14px;
+          list-style-type: circle;
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+  }
+}

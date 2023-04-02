@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useSetAtom } from 'jotai';
+import Link from 'next/link';
 
 import { authModalAtom } from '@/components/Auth/states';
 import useAuth from '@/hooks/useAuth';
@@ -44,6 +45,7 @@ const Footer = () => {
         <a href='mailto:miriya.lee@gmail.com' rel='nofollow'>
           MIRIYA © 2012-2023
         </a>
+        <Link href='/privacy'>개인정보처리방침</Link>
       </div>
       <AuthModal />
     </footer>
