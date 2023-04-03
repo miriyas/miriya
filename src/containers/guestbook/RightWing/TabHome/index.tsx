@@ -6,7 +6,7 @@ import CommentsRecent from './CommentsRecent';
 import CommentsCategory from './CommentsCategory';
 import Commits from './Commits';
 import rightWingStyles from '../RightWing.module.scss';
-import styles from './TabHome.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   commitsData: FullCommitData[];
