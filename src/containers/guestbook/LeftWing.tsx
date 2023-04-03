@@ -8,7 +8,9 @@ const LeftWing = () => {
       <div className={styles.wrapper}>
         <div className={styles.upper}>
           <div className={styles.mood}>
-            TODAY IS.. <Image src='/images/guestbook/flower.png' alt='' width={22} height={22} />
+            <p>
+              TODAY IS.. <Image src='/images/guestbook/flower.png' alt='' width={22} height={22} />
+            </p>
             <span>행복</span>
           </div>
           <div className={styles.imageWrapper}>

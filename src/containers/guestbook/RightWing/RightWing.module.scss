@@ -8,7 +8,7 @@
   border: 1px solid var(--color-gray-8);
   border-radius: 8px;
 
-  .scroll {
+  > div {
     height: 100%;
     padding-right: 14px;
     overflow-y: auto;
@@ -33,159 +33,8 @@
 
   .menu {
     margin-bottom: 2px;
+    font-family: var(--font-dunggeunmo);
     font-size: 12px;
     color: var(--color-guestbook-bg2);
-  }
-
-  .recents {
-    @include m.flexbox(start, start);
-    gap: 4px;
-    height: 70px;
-    margin-bottom: 14px;
-    font-family: initial;
-    font-size: 12px;
-    color: var(--color-gray-4);
-
-    ul,
-    table {
-      width: 50%;
-    }
-
-    ul {
-      padding-top: 2px;
-      border-top: 1px solid var(--color-gray-c);
-
-      li {
-        @include m.flexbox(start, center);
-        width: 100%;
-        height: 16px;
-        overflow: hidden;
-
-        .commentBadge {
-          @include m.flexbox;
-          flex-shrink: 0;
-          width: 40px;
-          padding: 2px 0;
-          margin-right: 4px;
-          font-size: 10px;
-          color: var(--color-white);
-          text-align: center;
-          white-space: nowrap;
-          border-radius: 2px;
-
-          &.idols {
-            background-color: var(--color-cy-4);
-          }
-
-          &.dslr {
-            background-color: var(--color-cy-2);
-          }
-
-          &.pentax {
-            background-color: var(--color-cy-3);
-          }
-
-          &.guestbook {
-            background-color: var(--color-cy-1);
-          }
-        }
-
-        .commentBody {
-          overflow: hidden;
-          // flex: 1;
-          text-overflow: ellipsis;
-          word-wrap: break-word;
-          white-space: nowrap;
-        }
-      }
-    }
-
-    table {
-      height: 100%;
-      border-bottom: 1px solid var(--color-gray-c);
-
-      tr {
-        border-top: 1px solid var(--color-gray-c);
-      }
-
-      td {
-        width: 50%;
-        padding: 2px 0 0 4px;
-
-        .category,
-        .count {
-          display: inline-block;
-          height: 20px;
-          line-height: 20px;
-        }
-
-        .count {
-          margin-left: 8px;
-          color: var(--color-cy-5);
-
-          .new {
-            width: 9px;
-            height: 9px;
-            margin-left: 2px;
-          }
-        }
-      }
-    }
-  }
-
-  .imageWrapper {
-    position: relative;
-    width: 100%;
-    height: 240px;
-    margin-bottom: 14px;
-    border: 1px solid var(--color-gray-c);
-  }
-
-  .commits {
-    padding-top: 4px;
-    font-family: initial;
-    font-size: 12px;
-    border-top: 1px solid var(--color-gray-c);
-
-    li {
-      @include m.flexbox(start, center);
-      position: relative;
-      height: 20px;
-      padding-left: 10px;
-      border-bottom: 1px solid var(--color-gray-e);
-
-      &::before {
-        @include m.absolute(auto auto 8px 2px);
-        width: 3px;
-        height: 3px;
-        content: '';
-        background-color: var(--color-gray-8);
-        border-radius: 50%;
-      }
-
-      .message {
-        color: var(--color-gray-4);
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-
-      .author {
-        margin-left: 4px;
-        color: var(--color-cy-6);
-
-        span {
-          margin-right: 2px;
-          color: var(--color-gray-4);
-        }
-      }
-
-      time {
-        margin-left: 4px;
-        font-size: 10px;
-        color: var(--color-gray-8);
-      }
-    }
   }
 }

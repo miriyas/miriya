@@ -2,7 +2,7 @@ import { FullCommitData } from '@/types/github';
 import { getTimeDiffText } from '@/utils/date';
 
 import ExternalLink from '@/components/ExternalLink';
-import styles from './RightWing.module.scss';
+import styles from './Commits.module.scss';
 
 const prettyAuthor = (name: string) => {
   if (name === 'Lee Jun Hyuk') {

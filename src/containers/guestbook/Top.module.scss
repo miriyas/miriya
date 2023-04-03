@@ -8,6 +8,7 @@
 
   .leftWing {
     width: 230px;
+    font-family: var(--font-dunggeunmo);
     font-size: 10px;
     text-align: center;
 
@@ -24,11 +25,11 @@
 
     .title {
       margin-left: 8px;
+      font-family: var(--font-dunggeunmo);
       color: var(--color-guestbook-primary);
     }
 
     .url {
-      font-family: initial;
       font-size: 10px;
       color: var(--color-gray-8);
     }
