@@ -141,7 +141,7 @@
     border: 1px solid var(--color-gray-c);
   }
 
-  .updates {
+  .commits {
     padding-top: 4px;
     font-family: initial;
     font-size: 12px;
@@ -150,11 +150,12 @@
     li {
       @include m.flexbox(start, center);
       position: relative;
-      height: 18px;
+      height: 20px;
       padding-left: 10px;
+      border-bottom: 1px solid var(--color-gray-e);
 
       &::before {
-        @include m.absolute(7px auto auto 2px);
+        @include m.absolute(auto auto 8px 2px);
         width: 3px;
         height: 3px;
         content: '';
@@ -162,9 +163,22 @@
         border-radius: 50%;
       }
 
+      .message {
+        color: var(--color-gray-4);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
       .author {
         margin-left: 4px;
         color: var(--color-cy-6);
+
+        span {
+          margin-right: 2px;
+          color: var(--color-gray-4);
+        }
       }
 
       time {

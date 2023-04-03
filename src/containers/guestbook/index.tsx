@@ -2,6 +2,7 @@
 
 import localFont from 'next/font/local';
 
+import { FullCommitData } from '@/types/github.d';
 import { CounterData } from '@/types/guestbook.d';
 
 import Top from './Top';
@@ -13,9 +14,10 @@ const dungGeunMoFont = localFont({ src: './DungGeunMo.woff2', variable: '--font-
 
 interface Props {
   counterData: CounterData;
+  commitsData: FullCommitData[];
 }
 
-const GuestBookPage = ({ counterData }: Props) => {
+const GuestBookPage = ({ counterData, commitsData }: Props) => {
   return (
     <main className={styles.guestBook} style={dungGeunMoFont.style}>
       <div className={styles.centering}>
@@ -33,7 +35,7 @@ const GuestBookPage = ({ counterData }: Props) => {
                 <div />
               </div>
             </div>
-            <RightWing />
+            <RightWing commitsData={commitsData} />
             <nav className={styles.rightNav}>
               <ul>
                 <li>홈</li>

@@ -1,9 +1,16 @@
 import Image from 'next/image';
 import cx from 'clsx';
 
+import { FullCommitData } from '@/types/github.d';
+
+import Commits from './Commits';
 import styles from './RightWing.module.scss';
 
-const RightWing = () => {
+interface Props {
+  commitsData: FullCommitData[];
+}
+
+const RightWing = ({ commitsData }: Props) => {
   return (
     <section className={styles.rightWing}>
       <div className={styles.scroll}>
@@ -70,58 +77,7 @@ const RightWing = () => {
           <Image src='/images/guestbook/miniroom.png' fill alt='' className={styles.image} />
         </div>
         <p className={styles.menu}>최근 업데이트</p>
-        <ul className={styles.updates}>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-          <li>
-            <p className={styles.message}>ㄹㅇㅁㄴㄹㅇㄴㄹㄴㄹ</p>
-            <p className={styles.author}>(miriya)</p>
-            <time className={styles.message}>2019. 1. 18</time>
-          </li>
-        </ul>
+        <Commits data={commitsData} />
       </div>
     </section>
   );
