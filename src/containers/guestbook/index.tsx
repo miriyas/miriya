@@ -27,15 +27,15 @@ const TABS = [
   },
   {
     key: GUESTBOOK_TAB.IDOLS,
-    label: 'IDOLS',
+    label: '아이돌',
   },
   {
-    key: GUESTBOOK_TAB.DSLR,
-    label: 'DSLR',
+    key: GUESTBOOK_TAB.CAMERA,
+    label: '카메라',
   },
   {
     key: GUESTBOOK_TAB.PENTAX,
-    label: 'PENTAX',
+    label: '펜탁스',
   },
   {
     key: GUESTBOOK_TAB.GUEST,

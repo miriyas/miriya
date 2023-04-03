@@ -16,7 +16,7 @@ const CATEGORY_COMMENTS_TEMP = {
     count: 12,
     countTotal: 24,
   },
-  [GUESTBOOK_TAB.DSLR]: {
+  [GUESTBOOK_TAB.CAMERA]: {
     count: 12,
     countTotal: 24,
   },
@@ -49,7 +49,7 @@ const CommentsCategory = () => {
           </td>
           <td>
             <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.IDOLS}>
-              <p className={styles.category}>Idols</p>
+              <p className={styles.category}>아이돌</p>
               <p className={styles.count}>
                 {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.IDOLS].count}/
                 {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.IDOLS].countTotal}
@@ -59,17 +59,17 @@ const CommentsCategory = () => {
         </tr>
         <tr>
           <td>
-            <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.DSLR}>
-              <p className={styles.category}>DSLR</p>
+            <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.CAMERA}>
+              <p className={styles.category}>카메라</p>
               <p className={styles.count}>
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.DSLR].count}/
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.DSLR].countTotal}
+                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.CAMERA].count}/
+                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.CAMERA].countTotal}
               </p>
             </button>
           </td>
           <td>
             <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.PENTAX}>
-              <p className={styles.category}>Pentax</p>
+              <p className={styles.category}>펜탁스</p>
               <p className={styles.count}>
                 {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.PENTAX].count}/
                 {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.PENTAX].countTotal}

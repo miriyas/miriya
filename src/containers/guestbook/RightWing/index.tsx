@@ -8,7 +8,7 @@ import { tabAtom } from '../states';
 
 import TabHome from './TabHome';
 import TabIdol from './TabIdol';
-import TabDSLR from './TabDSLR';
+import TabCamera from './TabCamera';
 import TabPentax from './TabPentax';
 import TabGuest from './TabGuest';
 import styles from './RightWing.module.scss';
@@ -27,7 +27,7 @@ const RightWing = ({ commitsData }: Props) => {
     <section className={styles.rightWing}>
       {tab === GUESTBOOK_TAB.HOME && <TabHome commitsData={commitsData} />}
       {tab === GUESTBOOK_TAB.IDOLS && <TabIdol />}
-      {tab === GUESTBOOK_TAB.DSLR && <TabDSLR />}
+      {tab === GUESTBOOK_TAB.CAMERA && <TabCamera />}
       {tab === GUESTBOOK_TAB.PENTAX && <TabPentax />}
       {tab === GUESTBOOK_TAB.GUEST && <TabGuest />}
     </section>

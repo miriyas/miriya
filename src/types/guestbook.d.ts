@@ -3,7 +3,7 @@ import { ValueOf } from '@/types';
 export const GUESTBOOK_TAB = {
   HOME: 'HOME',
   IDOLS: 'IDOLS',
-  DSLR: 'DSLR',
+  CAMERA: 'CAMERA',
   PENTAX: 'PENTAX',
   GUEST: 'GUEST',
 } as const;

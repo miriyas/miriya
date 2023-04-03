@@ -34,24 +34,17 @@ const SignUp = ({ setTab }: Props) => {
     setTab('login');
   };
 
-  const submitSignUp = handleSubmit((formValues: SignUpSchema) => {
-    signUpEmail(formValues.email, formValues.password);
-  });
-
-  const onSignUpForm: FormEventHandler<HTMLFormElement> = (e) => {
+  const onSignUp: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    submitSignUp();
-  };
-
-  const onSignUpClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault();
-    submitSignUp();
+    handleSubmit((formValues: SignUpSchema) => {
+      signUpEmail(formValues.email, formValues.password);
+    });
   };
 
   const errorMessage = Object.values(errors).length > 0 ? Object.values(errors)[0].message : undefined;
 
   return (
-    <form onSubmit={onSignUpForm}>
+    <form onSubmit={onSignUp}>
       <div className={styles.inputWrapper}>
         <input {...register('email')} type='string' placeholder='이메일' disabled={signUpLoading} />
       </div>
@@ -74,9 +67,7 @@ const SignUp = ({ setTab }: Props) => {
           disabled={signUpLoading}
         />
       </div>
-      <button type='submit' onClick={onSignUpClick}>
-        회원가입
-      </button>
+      <button type='submit'>회원가입</button>
       <div className={authStyles.commonError}>{signUpError || errorMessage}</div>
 
       <div className={styles.toOtherTab}>

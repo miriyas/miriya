@@ -9,7 +9,7 @@ import styles from './CommentsRecent.module.scss';
 
 const RECENT_COMMENTS_TEMP = [
   {
-    category: GUESTBOOK_TAB.DSLR,
+    category: GUESTBOOK_TAB.CAMERA,
     body: '캐논이 어쩌고',
   },
   {

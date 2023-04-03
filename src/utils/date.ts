@@ -5,7 +5,7 @@ dayjs.locale('ko');
 
 export const getTimeDiff = (_date?: dayjs.ConfigType) => {
   const now = dayjs();
-  const date = dayjs(_date);
+  const date = typeof _date === 'number' ? dayjs.unix(_date) : dayjs(_date);
 
   const diff = {
     second: now.diff(date, 'second'),

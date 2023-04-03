@@ -34,24 +34,17 @@ const LogIn = ({ setTab }: Props) => {
     setTab('signup');
   };
 
-  const submitSignIn = handleSubmit((formValues: LogInSchema) => {
-    logInEmail(formValues.email, formValues.password);
-  });
-
-  const onSignInForm: FormEventHandler<HTMLFormElement> = (e) => {
+  const onSignIn: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    submitSignIn();
-  };
-
-  const onSignInClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault();
-    submitSignIn();
+    handleSubmit((formValues: LogInSchema) => {
+      logInEmail(formValues.email, formValues.password);
+    });
   };
 
   const errorMessage = Object.values(errors).length > 0 ? Object.values(errors)[0].message : undefined;
 
   return (
-    <form onSubmit={onSignInForm}>
+    <form onSubmit={onSignIn}>
       <div className={styles.inputWrapper}>
         <input {...register('email')} type='string' placeholder='이메일' disabled={logInLoading} />
       </div>
@@ -65,7 +58,7 @@ const LogIn = ({ setTab }: Props) => {
         />
         <FancyEyeBall showPassword={showPassword} setShowPassword={setShowPassword} />
       </div>
-      <button type='submit' onClick={onSignInClick} disabled={logInLoading}>
+      <button type='submit' disabled={logInLoading}>
         로그인
       </button>
       <div className={authStyles.commonError}>{logInError || errorMessage}</div>

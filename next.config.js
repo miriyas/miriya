@@ -9,9 +9,15 @@ const id = Math.random().toString(32).slice(2);
 const nextConfig = {
   compress: true,
   images: {
-    domains: ['https://www.digicamdb.com', 'miriya.sgp1.cdn.digitaloceanspaces.com'],
     imageSizes: [100, 200, 280],
     minimumCacheTTL: 86400,
+    domains: ['https://www.digicamdb.com', 'miriya.sgp1.cdn.digitaloceanspaces.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   env: {
     NEXT_PUBLIC_GA_ID: 'G-BCXXRGTY78',
