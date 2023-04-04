@@ -25,7 +25,6 @@
     "isotope-layout": "^3.0.6",
     "jotai": "^2.0.3",
     "lodash": "^4.17.21",
-    "nanoid": "^4.0.2",
     "next": "^13.2.5-canary.18",
     "react": "^18.2.0",
     "react-avatar": "^3.7.0",

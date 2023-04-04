@@ -1,4 +1,3 @@
-// import { nanoid } from 'nanoid';
 import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
 
 import { db } from '@/utils/firebase';

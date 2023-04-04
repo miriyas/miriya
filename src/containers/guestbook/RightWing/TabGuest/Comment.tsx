@@ -17,7 +17,7 @@ interface Props {
 }
 
 const CommentItem = ({ comment, no }: Props) => {
-  const { user, isAdmin } = useAuth();
+  const { user, isAdmin, isAuthor } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
   const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
@@ -42,6 +42,7 @@ const CommentItem = ({ comment, no }: Props) => {
     });
   };
 
+  if (comment.hidden && (!isAdmin || !isAuthor(comment.authorId))) return null;
   if (comment.deletedAt && !isAdmin) return null;
 
   return (
