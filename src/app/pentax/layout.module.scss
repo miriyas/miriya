@@ -3,10 +3,13 @@
 .pentaxes {
   margin-top: 24px;
 
+  @include m.mobileOnly {
+    display: block;
+    overflow: auto;
+  }
+
   .centering {
-    width: 100%;
-    min-width: 900px;
-    max-width: 1200px;
+    width: 1200px;
 
     section {
       @include m.flexbox;

@@ -16,5 +16,6 @@
     flex: 1;
     width: 100%;
     height: calc(var(--h-pentax-picture) + var(--h-pentax-data));
+    overflow: hidden;
   }
 }

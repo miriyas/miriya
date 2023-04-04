@@ -12,10 +12,14 @@
     var(--w-guestbook-grid) var(--h-guestbook-grid), var(--x-guestbook-grid-overlay) var(--x-guestbook-grid-overlay),
     var(--w-guestbook-grid) var(--h-guestbook-grid);
 
+  @include m.mobileOnly {
+    display: block;
+    overflow: auto;
+  }
+
   .centering {
     position: relative;
-    width: 100%;
-    max-width: 800px;
+    width: 800px;
     height: var(--h-cy);
     padding: 28px;
     background-color: var(--color-guestbook-bg2);

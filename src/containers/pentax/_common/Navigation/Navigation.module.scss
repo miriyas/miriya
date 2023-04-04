@@ -12,6 +12,7 @@
 
     li {
       color: var(--color-white);
+      user-select: none;
 
       a {
         @include m.flexbox;

@@ -54,9 +54,14 @@ const Header = () => {
   return (
     <header className={styles.appHeader}>
       <nav className={styles.mobileNav}>
-        <Link href={ROUTES[0].href} className={styles.home} onClick={onClickLink}>
-          <span className={styles.mobileOnly}>{ROUTES[0].mobileTitle}</span>
-        </Link>
+        <div className={styles.upper}>
+          <Link href={ROUTES[0].href} className={styles.home} onClick={onClickLink}>
+            <span className={styles.mobileOnly}>{ROUTES[0].mobileTitle}</span>
+          </Link>
+          <Link href='/guestbook' className={styles.guestbook}>
+            방명록
+          </Link>
+        </div>
         <details>
           <summary>
             <span />

@@ -1,7 +1,7 @@
 @use 'src/styles/mixins' as m;
 
 .mdWrapper {
-  @include m.flexbox(center, start);
+  @include m.flexbox(start, start);
   flex-direction: column;
   flex-shrink: 0;
   width: 400px;
@@ -12,6 +12,7 @@
 
   &.loading {
     align-items: center;
+    justify-content: center;
   }
 
   @include m.after(SD) {

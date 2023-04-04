@@ -3,7 +3,7 @@
 .desc {
   @include m.flexbox;
   padding: 0 24px;
-  margin-top: 48px;
+  margin: 48px 0;
 
   .markdown {
     flex: 1;
