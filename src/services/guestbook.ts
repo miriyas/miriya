@@ -11,11 +11,12 @@ import {
   deleteDoc,
   doc,
   getCountFromServer,
+  updateDoc,
 } from 'firebase/firestore';
 import { Dispatch } from 'react';
 import { SetStateAction } from 'jotai';
 
-import { db } from '@/utils/firebase';
+import { auth, db } from '@/utils/firebase';
 import { Comment, NewComment, TARGET_CATEGORY } from '@/types/comments.d';
 import { getTSBefore } from '@/utils/date';
 
@@ -27,13 +28,6 @@ const todayQ = query(
   where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK),
   where('createdAt', '>=', getTSBefore(1, 'day')),
 );
-
-export const createCommentDoc = async (comment: NewComment) => {
-  await addDoc(collection(db, ROOT), {
-    ...comment,
-    createdAt: serverTimestamp(),
-  });
-};
 
 export const getComments = async () => {
   const snapshot = await getDocs(q);
@@ -70,6 +64,34 @@ export const getCommentsRealtime = (setComments: Dispatch<SetStateAction<Comment
   });
 };
 
-export const deleteComment = async (commentId: string) => {
+export const createCommentDoc = async (comment: NewComment) => {
+  await addDoc(collection(db, ROOT), {
+    ...comment,
+    createdAt: serverTimestamp(),
+  });
+};
+
+export const editCommentDoc = async (comment: Comment) => {
+  const ref = doc(db, ROOT, comment.id);
+  await updateDoc(ref, {
+    author: comment.author,
+    body: comment.body,
+    hidden: comment.hidden,
+    updatedAt: serverTimestamp(),
+  });
+};
+
+export const markDeleteComment = async (commentId: string, authorId: string) => {
+  const uid = auth.currentUser?.uid;
+  if (uid !== authorId) return; // TODO: 서버로 기능을 넘겨야함
+  const ref = doc(db, ROOT, commentId);
+  await updateDoc(ref, {
+    deletedAt: serverTimestamp(),
+  });
+};
+
+export const deleteComment = async (commentId: string, authorId: string) => {
+  const uid = auth.currentUser?.uid;
+  if (uid !== authorId) return; // TODO: 서버로 기능을 넘겨야함
   await deleteDoc(doc(db, ROOT, commentId));
 };

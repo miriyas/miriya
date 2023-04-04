@@ -4,8 +4,7 @@ import { getCommentsRealtime } from '@/services/guestbook';
 import { Comment } from '@/types/comments.d';
 import CommentItem from '@/containers/guestbook/RightWing/TabGuest/Comment';
 
-import Form from './Form';
-import styles from './index.module.scss';
+import NewForm from './NewForm';
 
 const TabGuest = () => {
   const [comments, setComments] = useState<Comment[]>([]);
@@ -16,9 +15,9 @@ const TabGuest = () => {
   }, []);
 
   return (
-    <div className={styles.tabGuest}>
-      <Form />
-      <ul className={styles.itemList}>
+    <div>
+      <NewForm />
+      <ul>
         {comments.map((comment, i) => {
           return <CommentItem key={comment.id} comment={comment} no={comments.length - i} />;
         })}

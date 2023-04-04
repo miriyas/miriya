@@ -1,5 +1,7 @@
 import { ValueOf } from '@/types';
 
+import { FbTimeStamp } from './firebase.d';
+
 export const TARGET_CATEGORY = {
   GUESTBOOK: 'GUESTBOOK',
   IDOLS: 'IDOLS',
@@ -33,8 +35,7 @@ export interface Comment {
   targetCategory: TargetCategoryTypes;
   targetId?: string;
   hidden?: boolean;
-  createdAt?: {
-    nanoseconds: number;
-    seconds: number;
-  };
+  createdAt?: FbTimeStamp;
+  updatedAt?: FbTimeStamp;
+  deletedAt?: FbTimeStamp;
 }

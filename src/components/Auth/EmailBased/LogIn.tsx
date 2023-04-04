@@ -34,11 +34,13 @@ const LogIn = ({ setTab }: Props) => {
     setTab('signup');
   };
 
+  const submitLogIn = handleSubmit((formValues: LogInSchema) => {
+    logInEmail(formValues.email, formValues.password);
+  });
+
   const onSignIn: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    handleSubmit((formValues: LogInSchema) => {
-      logInEmail(formValues.email, formValues.password);
-    });
+    submitLogIn();
   };
 
   const errorMessage = Object.values(errors).length > 0 ? Object.values(errors)[0].message : undefined;
