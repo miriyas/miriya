@@ -40,6 +40,7 @@
     }
 
     textarea {
+      @include m.cyworldStyleScrollBar;
       resize: none;
       background-color: var(--color-white);
       border: 1px solid var(--color-gray-c);

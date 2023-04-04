@@ -5,3 +5,23 @@
 @mixin commonBoxShadow {
   box-shadow: 0 2px 4px 0 rgba(var(--color-gray-4-rgb), 0.1);
 }
+
+@mixin cyworldStyleScrollBar {
+  scrollbar-width: auto;
+  scrollbar-color: #dddddd #f1f1f1;
+
+  /* Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border: 1px solid #d6d6d6;
+    border-radius: 0;
+  }
+}

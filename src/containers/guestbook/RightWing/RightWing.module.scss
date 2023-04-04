@@ -9,26 +9,10 @@
   border-radius: 8px;
 
   > div {
+    @include m.cyworldStyleScrollBar;
     height: 100%;
     padding-right: 14px;
     overflow-y: auto;
-    scrollbar-width: auto;
-    scrollbar-color: #dddddd #f1f1f1;
-
-    /* Chrome, Edge, and Safari */
-    &::-webkit-scrollbar {
-      width: 16px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: #dddddd;
-      border: 1px solid #d6d6d6;
-      border-radius: 0;
-    }
   }
 
   .menu {

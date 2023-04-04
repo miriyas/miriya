@@ -76,8 +76,10 @@
 
   .rightWing {
     @include m.flexbox(start, center);
+    @include m.cyworldStyleScrollBar;
     flex: 1;
     min-height: 96px;
+    overflow-y: auto;
     font-size: 12px;
     white-space: pre-line;
 
