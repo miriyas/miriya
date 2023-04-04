@@ -1,6 +1,10 @@
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 
+export const getTSBefore = (value: number, unit: 'hour' | 'day' | 'week' | 'year') => {
+  return dayjs().subtract(value, unit).toDate();
+};
+
 dayjs.locale('ko');
 
 export const getTimeDiff = (_date?: dayjs.ConfigType) => {
@@ -39,7 +43,7 @@ export const getTimeDiffText = (_date?: dayjs.ConfigType, preserveDay?: boolean)
     case diff.second > 0:
       return '1분 전';
     default:
-      return '';
+      return '방금 전';
   }
 };
 

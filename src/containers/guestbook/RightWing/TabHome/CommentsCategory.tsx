@@ -1,9 +1,11 @@
 import { useSetAtom } from 'jotai';
 import Image from 'next/image';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useState } from 'react';
+import { useMount } from 'react-use';
 
 import { GuestbookTabTypes, GUESTBOOK_TAB } from '@/types/guestbook.d';
 import { tabAtom } from '../../states';
+import { getCommentsCount } from '@/services/guestbook';
 
 import styles from './CommentsCategory.module.scss';
 
@@ -28,10 +30,18 @@ const CATEGORY_COMMENTS_TEMP = {
 
 const CommentsCategory = () => {
   const setTab = useSetAtom(tabAtom);
+  const [guestbookCount, setGuestbookCount] = useState({
+    today: 0,
+    total: 0,
+  });
 
   const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     setTab(e.currentTarget.dataset.tab as GuestbookTabTypes);
   };
+
+  useMount(async () => {
+    setGuestbookCount(await getCommentsCount());
+  });
 
   return (
     <table className={styles.commentsCategory}>
@@ -41,9 +51,10 @@ const CommentsCategory = () => {
             <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.GUEST}>
               <p className={styles.category}>방명록</p>
               <p className={styles.count}>
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.GUEST].count}/
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.GUEST].countTotal}
-                <Image src='/images/guestbook/new.png' width={9} height={9} alt='' className={styles.new} />
+                {guestbookCount.today}/{guestbookCount.total}
+                {guestbookCount.today > 0 && (
+                  <Image src='/images/guestbook/new.png' width={9} height={9} alt='' className={styles.new} />
+                )}
               </p>
             </button>
           </td>

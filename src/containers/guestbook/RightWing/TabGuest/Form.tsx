@@ -4,7 +4,7 @@ import { createCommentDoc } from '@/services/guestbook';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
 
-import styles from './index.module.scss';
+import styles from './Form.module.scss';
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 
 const TabGuest = () => {
