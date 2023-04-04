@@ -46,7 +46,7 @@ const CommentItem = ({ comment, no }: Props) => {
   if (!isAdmin && comment.deletedAt) return null;
 
   return (
-    <li className={cx(styles.commentItem, { [styles.deleted]: comment.deletedAt })}>
+    <li className={cx(styles.commentItem, { [styles.deleted]: comment.deletedAt, [styles.hidden]: comment.hidden })}>
       <div className={styles.upper}>
         <div className={styles.leftWing}>
           <p className={styles.number}>No.{no}</p>
