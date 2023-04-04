@@ -78,8 +78,9 @@
     @include m.flexbox(start, center);
     @include m.cyworldStyleScrollBar;
     flex: 1;
+    width: 302px;
     min-height: 96px;
-    overflow-y: auto;
+    overflow: auto;
     font-size: 12px;
     white-space: pre-line;
 
