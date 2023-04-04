@@ -1,4 +1,5 @@
 import GuestBook from '@/containers/guestbook';
+// import { getRecentComments } from '@/services/guestbook';
 import { GADataRow } from '@/types/guestbook';
 
 const GuestBookPage = async () => {
@@ -15,6 +16,7 @@ const GuestBookPage = async () => {
     next: { revalidate: 60 * 10 }, // 10분 캐시
   });
   const commitsData = await commitsRaw.json();
+  // const recentComments = await getRecentComments(4);
 
   return (
     <GuestBook
@@ -23,6 +25,8 @@ const GuestBookPage = async () => {
         today,
       }}
       commitsData={commitsData}
+      // recentComments={recentComments}
+      data-superjson
     />
   );
 };

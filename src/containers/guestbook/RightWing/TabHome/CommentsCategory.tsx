@@ -15,16 +15,16 @@ const CATEGORY_COMMENTS_TEMP = {
     countTotal: 24,
   },
   [GUESTBOOK_TAB.IDOLS]: {
-    count: 12,
-    countTotal: 24,
+    count: 0,
+    countTotal: 0,
   },
   [GUESTBOOK_TAB.CAMERA]: {
-    count: 12,
-    countTotal: 24,
+    count: 0,
+    countTotal: 0,
   },
   [GUESTBOOK_TAB.PENTAX]: {
-    count: 12,
-    countTotal: 24,
+    count: 0,
+    countTotal: 0,
   },
 };
 

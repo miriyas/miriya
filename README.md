@@ -243,3 +243,7 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 
 - 처음엔 잘 나오는데, 주변 다른 아이돌을 클릭해서 확장할 경우 둥글게 처리 된 것이 사각으로 나옴
 - 웹킷 버그였음. https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari
+
+6. next super json 라이브러리 사용시 앱 구동 불가
+
+- [NEXT-939 SIGSEGV on next build with 13.2.4 #46989]: https://github.com/vercel/next.js/issues/46989

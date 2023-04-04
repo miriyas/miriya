@@ -23,11 +23,22 @@ import { COLLECTION } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/auth';
 
 const q = query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK));
+const allQ = query(collection(db, COLLECTION.COMMENTS));
 const todayQ = query(
   collection(db, COLLECTION.COMMENTS),
   where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK),
   where('createdAt', '>=', getTSBefore(1, 'day')),
 );
+
+export const getRecentComments = async (limit: number) => {
+  const snapshot = await getDocs(allQ);
+  return snapshot.docs
+    .sort((a, b) => b.data().createdAt - a.data().createdAt)
+    .splice(0, limit)
+    .map((item) => {
+      return item.data() as Comment;
+    });
+};
 
 export const getComments = async () => {
   const snapshot = await getDocs(q);

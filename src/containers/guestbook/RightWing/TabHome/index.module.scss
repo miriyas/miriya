@@ -10,9 +10,15 @@
     font-size: 12px;
     color: var(--color-gray-4);
 
+    .commentsRecentLoading,
     ul,
     table {
       width: 50%;
+    }
+
+    .commentsRecentLoading {
+      @include m.flexbox;
+      height: 100%;
     }
   }
 

@@ -33,6 +33,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
     optimizeCss: true,
+    // swcPlugins: [['next-superjson-plugin', {}]],
   },
   async headers() {
     return [

@@ -1,30 +1,21 @@
 import cx from 'clsx';
 import { useSetAtom } from 'jotai';
 import { MouseEventHandler } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-import { GuestbookTabTypes, GUESTBOOK_TAB } from '@/types/guestbook.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
+import { GuestbookTabTypes } from '@/types/guestbook.d';
 import { tabAtom } from '@/containers/guestbook/states';
+import { getRecentComments } from '@/services/guestbook';
 
 import styles from './CommentsRecent.module.scss';
 
-const RECENT_COMMENTS_TEMP = [
-  {
-    category: GUESTBOOK_TAB.CAMERA,
-    body: '캐논이 어쩌고',
-  },
-  {
-    category: GUESTBOOK_TAB.IDOLS,
-    body: '비티에스가 어쩌고 저쩌고 그렇고 그렇게fdasf',
-  },
-  {
-    category: GUESTBOOK_TAB.PENTAX,
-    body: '펜탁스가 짱이라능',
-  },
-  {
-    category: GUESTBOOK_TAB.GUEST,
-    body: '미리야 병신',
-  },
-];
+const CategoryMap = {
+  [TARGET_CATEGORY.GUESTBOOK]: '방명록',
+  [TARGET_CATEGORY.CAMERA]: '카메라',
+  [TARGET_CATEGORY.IDOLS]: '아이돌',
+  [TARGET_CATEGORY.PENTAX]: '펜탁스',
+};
 
 const CommentsRecent = () => {
   const setTab = useSetAtom(tabAtom);
@@ -33,15 +24,23 @@ const CommentsRecent = () => {
     setTab(e.currentTarget.dataset.tab as GuestbookTabTypes);
   };
 
+  const { data: recentComments } = useQuery(['getRecentComments'], () => getRecentComments(4).then((res) => res), {
+    suspense: true,
+    cacheTime: 6 * 1000,
+    refetchOnMount: false,
+  });
+
   return (
     <ul className={styles.commentsRecent}>
-      {RECENT_COMMENTS_TEMP.map((recent, i) => {
+      {recentComments?.map((recent, i) => {
         const key = `recent-${i}`;
         return (
           <li key={key}>
-            <button type='button' onClick={onClick} data-tab={recent.category}>
-              <div className={cx(styles.commentBadge, styles[recent.category.toLowerCase()])}>{recent.category}</div>
-              <p className={styles.commentBody}>{recent.body}</p>
+            <button type='button' onClick={onClick} data-tab={recent.targetCategory}>
+              <div className={cx(styles.commentBadge, styles[recent.targetCategory.toLowerCase()])}>
+                {CategoryMap[recent.targetCategory]}
+              </div>
+              <p className={styles.commentBody}>{recent.body.substring(0, 20)}</p>
             </button>
           </li>
         );

@@ -6,6 +6,21 @@
   width: 80px;
   height: 80px;
 
+  &.small {
+    width: 40px;
+    height: 40px;
+
+    &::before {
+      width: 22px;
+      height: 22px;
+      border-width: 3px;
+    }
+
+    p {
+      display: none;
+    }
+  }
+
   p {
     margin-left: 6px;
     font-size: 12px;
