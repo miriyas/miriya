@@ -2,6 +2,7 @@
 
 .appFooter {
   @include m.fixed(auto 0 0 0);
+  z-index: var(--z-global-footer);
   background-color: var(--color-white);
   border-top: 1px solid var(--color-gray-e);
 

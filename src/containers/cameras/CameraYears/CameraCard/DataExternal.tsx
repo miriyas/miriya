@@ -6,7 +6,6 @@ import { externalCameraId } from '@/utils/digicam';
 import { cameraId } from '@/utils/cameras';
 import { getExternalCameraDataApi } from '@/services/cameras';
 
-import Loading from '@/components/Loading';
 import styles from './Camera.module.scss';
 import tableStyles from './Table/Table.module.scss';
 
@@ -26,20 +25,14 @@ const DataExternal = (props: Props) => {
     ['getExternalCameraDataApi', externalId],
     () => getExternalCameraDataApi(externalId).then((res) => res.json()),
     {
+      suspense: true,
       enabled: showExternalData,
       cacheTime: 6 * 1000,
       refetchOnMount: false,
     },
   );
 
-  if (isLoading) {
-    return (
-      <div className={cx(styles.dataExternal, styles.loading)}>
-        <p className={styles.id}>{id}</p>
-        <Loading />
-      </div>
-    );
-  }
+  if (isLoading) return null;
 
   const hasError = Object.keys(data)[0] === 'error';
 

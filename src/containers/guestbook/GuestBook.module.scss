@@ -79,7 +79,7 @@
 
     .rightNav {
       @include m.absolute(100px -12px auto auto);
-      z-index: 100;
+      z-index: var(--z-page-nav);
 
       ul {
         @include m.flexbox;

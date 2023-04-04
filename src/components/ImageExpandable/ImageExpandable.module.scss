@@ -17,14 +17,14 @@
 
     summary {
       @include m.absolute(0 0 0 0);
-      z-index: 2;
+      z-index: var(--z-2);
       cursor: zoom-out;
       opacity: 0;
     }
 
     .detailsImg {
       @include m.middleBox;
-      z-index: 1;
+      z-index: var(--z-1);
       width: initial;
       max-width: 100vw;
       height: initial;

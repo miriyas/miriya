@@ -9,7 +9,7 @@
 
   img {
     position: relative;
-    z-index: 2;
+    z-index: var(--z-2);
     line-height: 0;
     text-indent: -999000px;
     mix-blend-mode: multiply;
@@ -31,7 +31,7 @@
 
   .shadow {
     @include m.absolute(auto 50% -8px auto);
-    z-index: 1;
+    z-index: var(--z-1);
     width: 200px;
     height: 100px;
     background-image: radial-gradient(circle, var(--color-gray-8), var(--color-white) 50px);

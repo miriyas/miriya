@@ -19,7 +19,7 @@
 
     .yearsWrapper {
       @include m.absolute(0 0 auto auto);
-      z-index: 10;
+      z-index: var(--z-1);
       overflow: hidden;
     }
 

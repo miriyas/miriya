@@ -1,7 +1,7 @@
 'use client';
 
 import cx from 'clsx';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useRafState } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
 import { useAtomValue } from 'jotai';
@@ -13,6 +13,7 @@ import { selectedMakerAtom } from '@/containers/cameras/states';
 import DataInternal from './DataInternal';
 import DataExternal from './DataExternal';
 import styles from './Camera.module.scss';
+import Loading from '@/components/Loading';
 
 const getIsSelected = (id: string) => {
   return typeof window !== 'undefined' ? window.location.hash.replace('#', '') === id : false;
@@ -76,7 +77,16 @@ const Camera = (props: Props) => {
         })}
       >
         <div className={styles.wrapper}>
-          <DataExternal camera={camera} showExternalData={showExternalData} />
+          <Suspense
+            fallback={
+              <div className={cx(styles.dataExternal, styles.loading)}>
+                <p className={styles.id}>{id}</p>
+                <Loading />
+              </div>
+            }
+          >
+            <DataExternal camera={camera} showExternalData={showExternalData} />
+          </Suspense>
           <DataInternal camera={camera} />
           <button
             type='button'

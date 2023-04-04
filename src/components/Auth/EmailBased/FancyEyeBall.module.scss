@@ -23,11 +23,11 @@
   }
 
   .eyeTemplate {
-    z-index: 2;
+    z-index: var(--z-2);
   }
 
   .eyeBall {
-    z-index: 1;
+    z-index: var(--z-1);
     transition: 100ms;
 
     &.top {

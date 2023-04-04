@@ -16,7 +16,7 @@
 
     &::after {
       @include m.absolute(-1px -1px -1px -1px);
-      z-index: 1;
+      z-index: var(--z-1);
       content: '';
       border: 2px solid var(--color-black);
     }
