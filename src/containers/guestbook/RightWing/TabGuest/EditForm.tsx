@@ -14,7 +14,7 @@ interface Props {
 const EditForm = ({ comment, setEditMode }: Props) => {
   const { user } = useAuth();
   const [body, setBody] = useState(comment.body);
-  const [hidden, setHidden] = useState(comment.hidden);
+  const [hidden, setHidden] = useState(comment.hidden ?? false);
 
   const onClickCancel: MouseEventHandler<HTMLButtonElement> = () => {
     setEditMode(false);

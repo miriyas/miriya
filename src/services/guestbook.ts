@@ -19,12 +19,12 @@ import { SetStateAction } from 'jotai';
 import { auth, db } from '@/utils/firebase';
 import { Comment, NewComment, TARGET_CATEGORY } from '@/types/comments.d';
 import { getTSBefore } from '@/utils/date';
+import { COLLECTION } from '@/types/firebase.d';
+import { getAdminUsers } from '@/services/auth';
 
-const ROOT = 'comments';
-
-const q = query(collection(db, ROOT), where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK));
+const q = query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK));
 const todayQ = query(
-  collection(db, ROOT),
+  collection(db, COLLECTION.COMMENTS),
   where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK),
   where('createdAt', '>=', getTSBefore(1, 'day')),
 );
@@ -65,14 +65,14 @@ export const getCommentsRealtime = (setComments: Dispatch<SetStateAction<Comment
 };
 
 export const createCommentDoc = async (comment: NewComment) => {
-  await addDoc(collection(db, ROOT), {
+  await addDoc(collection(db, COLLECTION.COMMENTS), {
     ...comment,
     createdAt: serverTimestamp(),
   });
 };
 
 export const editCommentDoc = async (comment: Comment) => {
-  const ref = doc(db, ROOT, comment.id);
+  const ref = doc(db, COLLECTION.COMMENTS, comment.id);
   await updateDoc(ref, {
     author: comment.author,
     body: comment.body,
@@ -82,9 +82,12 @@ export const editCommentDoc = async (comment: Comment) => {
 };
 
 export const markDeleteComment = async (commentId: string, authorId: string) => {
-  const uid = auth.currentUser?.uid;
-  if (uid !== authorId) return; // TODO: 서버로 기능을 넘겨야함
-  const ref = doc(db, ROOT, commentId);
+  const adminUsers = await getAdminUsers();
+  const currentUserId = auth.currentUser?.uid;
+  const isAdmin = adminUsers.filter((admin) => admin.uid === currentUserId);
+
+  if (!isAdmin && currentUserId !== authorId) return; // TODO: 서버로 기능을 넘겨야함
+  const ref = doc(db, COLLECTION.COMMENTS, commentId);
   await updateDoc(ref, {
     deletedAt: serverTimestamp(),
   });
@@ -93,5 +96,5 @@ export const markDeleteComment = async (commentId: string, authorId: string) => 
 export const deleteComment = async (commentId: string, authorId: string) => {
   const uid = auth.currentUser?.uid;
   if (uid !== authorId) return; // TODO: 서버로 기능을 넘겨야함
-  await deleteDoc(doc(db, ROOT, commentId));
+  await deleteDoc(doc(db, COLLECTION.COMMENTS, commentId));
 };

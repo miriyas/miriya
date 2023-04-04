@@ -17,7 +17,7 @@ interface Props {
 }
 
 const CommentItem = ({ comment, no }: Props) => {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
   const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
@@ -42,20 +42,25 @@ const CommentItem = ({ comment, no }: Props) => {
     });
   };
 
+  if (comment.deletedAt && !isAdmin) return null;
+
   return (
-    <li className={styles.commentItem}>
+    <li className={cx(styles.commentItem, { [styles.deleted]: comment.deletedAt })}>
       <div className={styles.upper}>
         <div className={styles.leftWing}>
           <p className={styles.number}>No.{no}</p>
           <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
             {comment.author.nickname}
           </p>
-          {comment.updatedAt?.seconds && <time>({getTimeDiffText(comment.updatedAt.seconds, true)} 수정됨)</time>}
-          {!comment.updatedAt && comment.createdAt?.seconds && (
+          {comment.deletedAt?.seconds && <time>({getTimeDiffText(comment.deletedAt.seconds, true)} 삭제됨)</time>}
+          {!comment.deletedAt && comment.updatedAt?.seconds && (
+            <time>({getTimeDiffText(comment.updatedAt.seconds, true)} 수정됨)</time>
+          )}
+          {!comment.deletedAt && !comment.updatedAt && comment.createdAt?.seconds && (
             <time>({getTimeDiffText(comment.createdAt.seconds, true)})</time>
           )}
         </div>
-        {!editMode && user && user.uid === comment.authorId && (
+        {!editMode && ((user && user.uid === comment.authorId) || isAdmin) && (
           <div className={styles.rightWing}>
             <button type='button' onClick={onClickEdit}>
               수정

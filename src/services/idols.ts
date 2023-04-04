@@ -2,9 +2,8 @@
 import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
 
 import { db } from '@/utils/firebase';
-import { IdolType, YearDescType } from '@/types/idols';
-
-const ROOT = 'idolsPage';
+import { IdolType, YearDescType } from '@/types/idols.d';
+import { COLLECTION } from '@/types/firebase.d';
 
 const COLLECTION_NAMES = {
   IDOLS: 'idols',
@@ -12,25 +11,25 @@ const COLLECTION_NAMES = {
 } as const;
 
 export const getIdols = async (): Promise<IdolType[]> => {
-  const idolsCol = collection(db, ROOT, 'data', COLLECTION_NAMES.IDOLS);
+  const idolsCol = collection(db, COLLECTION.IDOLS, 'data', COLLECTION_NAMES.IDOLS);
   const idolsSnapshot = await getDocs(idolsCol);
   const idolsList = idolsSnapshot.docs.map((item) => item.data() as IdolType);
   return idolsList;
 };
 
 export const getIdolYears = async (): Promise<YearDescType[]> => {
-  const idolYearsCol = collection(db, ROOT, 'data', COLLECTION_NAMES.IDOL_YEARS);
+  const idolYearsCol = collection(db, COLLECTION.IDOLS, 'data', COLLECTION_NAMES.IDOL_YEARS);
   const idolYearsSnapshot = await getDocs(idolYearsCol);
   const idolYearsList = idolYearsSnapshot.docs.map((item) => item.data() as YearDescType);
   return idolYearsList;
 };
 
 const getIdolDocRef = (name: string) => {
-  return doc(db, ROOT, 'data', COLLECTION_NAMES.IDOLS, name);
+  return doc(db, COLLECTION.IDOLS, 'data', COLLECTION_NAMES.IDOLS, name);
 };
 
 const getIdolYearDocRef = (year: string) => {
-  return doc(db, ROOT, 'data', COLLECTION_NAMES.IDOL_YEARS, year);
+  return doc(db, COLLECTION.IDOLS, 'data', COLLECTION_NAMES.IDOL_YEARS, year);
 };
 
 export const createIdolDoc = async (idol: IdolType) => {
