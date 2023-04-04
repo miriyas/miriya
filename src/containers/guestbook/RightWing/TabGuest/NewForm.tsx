@@ -38,17 +38,9 @@ const TabGuest = () => {
   if (!user) {
     return (
       <div className={styles.form}>
-        <div className={styles.leftWing}>
-          <div className={styles.profileBlank} />
-        </div>
         <div className={styles.rightWing}>
           <div className={styles.textareaBlank}>
             <PleaseLogin />
-          </div>
-          <div className={styles.buttonWrapper}>
-            <button type='button' disabled>
-              확인
-            </button>
           </div>
         </div>
       </div>

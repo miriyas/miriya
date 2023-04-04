@@ -5,7 +5,8 @@ import { MouseEventHandler } from 'react';
 import useAuthSocial from '@/hooks/useAuthSocial';
 import { SupportedProviders } from '@/types/index.d';
 
-import { IconProviderFacebook, IconProviderGithub, IconProviderGoogle } from 'public/svgs';
+// import { IconProviderFacebook, IconProviderGithub, IconProviderGoogle } from 'public/svgs';
+import { IconProviderGithub, IconProviderGoogle } from 'public/svgs';
 import authStyles from '../Auth.module.scss';
 import styles from './SocialBased.module.scss';
 
@@ -24,11 +25,11 @@ const Social = () => {
             <IconProviderGoogle />
           </button>
         </li>
-        <li>
+        {/* <li>
           <button type='button' onClick={socialLogin} data-provider='facebook'>
             <IconProviderFacebook />
           </button>
-        </li>
+        </li> */}
         <li>
           <button type='button' onClick={socialLogin} data-provider='github'>
             <IconProviderGithub />
