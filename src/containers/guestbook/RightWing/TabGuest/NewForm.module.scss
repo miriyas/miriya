@@ -52,9 +52,32 @@
     }
 
     .buttonWrapper {
-      @include m.flexbox(end, center);
+      @include m.flexbox(between, center);
       width: 100%;
       margin: 4px 0;
+
+      .checkboxWrapper {
+        @include m.flexbox;
+        position: relative;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--color-gray-4);
+        cursor: pointer;
+        user-select: none;
+
+        input[type='checkbox'] {
+          width: 14px;
+          height: 14px;
+          border: 1px solid var(--color-gray-a);
+          border-radius: 2px;
+
+          &:checked::before {
+            @include m.absolute(0 auto auto 2px);
+            font-size: 10px;
+            content: '✔';
+          }
+        }
+      }
 
       button {
         width: 40px;

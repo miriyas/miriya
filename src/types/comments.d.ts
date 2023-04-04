@@ -19,6 +19,7 @@ export interface NewComment {
     profileUrl?: string;
   };
   body: string;
+  hidden?: boolean;
   targetCategory: TargetCategoryTypes;
   targetId?: string;
 }

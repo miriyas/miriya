@@ -27,13 +27,6 @@ const useAuth = () => {
     return !!adminUsers.find((admin) => admin.uid === currentUserId);
   }, [adminUsers, currentUserId]);
 
-  const isAuthor = useCallback(
-    (uid: string) => {
-      return uid === currentUserId;
-    },
-    [currentUserId],
-  );
-
   const isMine = useCallback(
     (authorId: string) => {
       return currentUserId === authorId;
@@ -49,7 +42,6 @@ const useAuth = () => {
     user: currentUser,
     logOut,
     isAdmin,
-    isAuthor,
     isMine,
   };
 };

@@ -45,7 +45,7 @@ const EditForm = ({ comment, setEditMode }: Props) => {
     <form className={styles.form} onSubmit={onEditSubmit}>
       <textarea onChange={onChangeEdit} value={body} data-lpignore='true' autoComplete='off' />
       <div className={styles.buttonWrapper}>
-        <label className={styles.leftWing}>
+        <label className={styles.checkboxWrapper}>
           <input type='checkbox' checked={hidden} onClick={onClickHidden} />
           비밀로하기
         </label>

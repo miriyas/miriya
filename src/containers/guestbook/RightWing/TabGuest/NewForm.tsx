@@ -10,8 +10,13 @@ import styles from './NewForm.module.scss';
 
 const TabGuest = () => {
   const [body, setBody] = useState('');
+  const [hidden, setHidden] = useState(false);
 
   const { user } = useAuth();
+
+  const onChangeHidden: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setHidden(e.currentTarget.checked);
+  };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -25,6 +30,7 @@ const TabGuest = () => {
         profileUrl: user.photoURL ?? '',
       },
       body,
+      hidden,
       targetCategory: TARGET_CATEGORY.GUESTBOOK,
     }).then(() => {
       setBody('');
@@ -55,6 +61,10 @@ const TabGuest = () => {
       <div className={styles.rightWing}>
         <textarea onChange={onChange} value={body} data-lpignore='true' autoComplete='off' />
         <div className={styles.buttonWrapper}>
+          <label className={styles.checkboxWrapper}>
+            <input type='checkbox' checked={hidden} onChange={onChangeHidden} />
+            비밀로하기
+          </label>
           <button type='submit'>확인</button>
         </div>
       </div>
