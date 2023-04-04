@@ -13,6 +13,10 @@
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-c);
     border-radius: 2px;
+
+    &:focus {
+      border-color: var(--color-gray-4);
+    }
   }
 
   .buttonWrapper {
@@ -35,8 +39,12 @@
         border: 1px solid var(--color-gray-a);
         border-radius: 2px;
 
+        &:focus {
+          border-color: var(--color-gray-4);
+        }
+
         &:checked::before {
-          @include m.absolute(0 auto auto 2px);
+          @include m.absolute(1px auto auto 3px);
           font-size: 10px;
           content: '✔';
         }
@@ -55,6 +63,10 @@
       background-color: var(--color-white);
       border: 1px solid var(--color-gray-a);
       border-radius: 3px;
+
+      &:focus {
+        border-color: var(--color-gray-4);
+      }
 
       &:disabled {
         color: var(--color-gray-c);

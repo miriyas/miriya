@@ -45,6 +45,10 @@
       background-color: var(--color-white);
       border: 1px solid var(--color-gray-c);
       border-radius: 2px;
+
+      &:focus {
+        border-color: var(--color-gray-4);
+      }
     }
 
     .textareaBlank {
@@ -71,6 +75,10 @@
           border: 1px solid var(--color-gray-a);
           border-radius: 2px;
 
+          &:focus {
+            border-color: var(--color-gray-4);
+          }
+
           &:checked::before {
             @include m.absolute(0 auto auto 2px);
             font-size: 10px;
@@ -86,6 +94,10 @@
         background-color: var(--color-white);
         border: 1px solid var(--color-gray-a);
         border-radius: 3px;
+
+        &:focus {
+          border-color: var(--color-gray-4);
+        }
 
         &:disabled {
           color: var(--color-gray-c);

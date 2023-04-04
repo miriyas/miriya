@@ -21,7 +21,7 @@ const EditForm = ({ comment, setEditMode }: Props) => {
     setBody(comment.body);
   };
 
-  const onClickHidden: MouseEventHandler<HTMLInputElement> = (e) => {
+  const onChangeHidden: ChangeEventHandler<HTMLInputElement> = (e) => {
     setHidden(e.currentTarget.checked);
   };
 
@@ -46,7 +46,7 @@ const EditForm = ({ comment, setEditMode }: Props) => {
       <textarea onChange={onChangeEdit} value={body} data-lpignore='true' autoComplete='off' />
       <div className={styles.buttonWrapper}>
         <label className={styles.checkboxWrapper}>
-          <input type='checkbox' checked={hidden} onClick={onClickHidden} />
+          <input type='checkbox' checked={hidden} onChange={onChangeHidden} />
           비밀로하기
         </label>
         <div className={styles.rightWing}>
