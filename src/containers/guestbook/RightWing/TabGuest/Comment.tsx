@@ -17,7 +17,7 @@ interface Props {
 }
 
 const CommentItem = ({ comment, no }: Props) => {
-  const { user, isAdmin, isAuthor } = useAuth();
+  const { isMine, isAdmin, isAuthor } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
   const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
@@ -61,7 +61,7 @@ const CommentItem = ({ comment, no }: Props) => {
             <time>({getTimeDiffText(comment.createdAt.seconds, true)})</time>
           )}
         </div>
-        {!editMode && ((user && user.uid === comment.authorId) || isAdmin) && (
+        {!editMode && (isAdmin || isMine(comment.authorId)) && (
           <div className={styles.rightWing}>
             <button type='button' onClick={onClickEdit}>
               수정

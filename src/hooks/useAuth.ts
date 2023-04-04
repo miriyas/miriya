@@ -24,12 +24,19 @@ const useAuth = () => {
   const currentUserId = auth.currentUser?.uid;
 
   const isAdmin = useMemo(() => {
-    return adminUsers.filter((admin) => admin.uid === currentUserId);
+    return !!adminUsers.find((admin) => admin.uid === currentUserId);
   }, [adminUsers, currentUserId]);
 
   const isAuthor = useCallback(
     (uid: string) => {
       return uid === currentUserId;
+    },
+    [currentUserId],
+  );
+
+  const isMine = useCallback(
+    (authorId: string) => {
+      return currentUserId === authorId;
     },
     [currentUserId],
   );
@@ -43,6 +50,7 @@ const useAuth = () => {
     logOut,
     isAdmin,
     isAuthor,
+    isMine,
   };
 };
 
