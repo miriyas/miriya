@@ -4,10 +4,9 @@ import cx from 'clsx';
 
 import { useGA } from '@/hooks/useGA';
 import { IdolType } from '@/types/idols.d';
-import { prettyCategory } from '@/utils/idols';
 import { IDOL } from '@/constants/ga';
 
-import { IconDescMelon, IconDescNamu, IconDescVibe, IconSound } from '../../../../../public/svgs';
+import { IconDescMelon, IconDescNamu, IconDescVibe } from '../../../../../public/svgs';
 import Youtube from './Youtube';
 import IdolImage from './IdolImage';
 import styles from './Idol.module.scss';
@@ -21,7 +20,7 @@ interface Props {
 
 const Idol = (props: Props) => {
   const { idol, sort, i, yearLength } = props;
-  const { category, desc, name, youtube, debutYear, endYear } = idol;
+  const { category, desc, name, youtube, debutYear } = idol;
 
   const { gaEvent } = useGA();
   const idolRef = useRef<HTMLLIElement>(null);
@@ -55,15 +54,7 @@ const Idol = (props: Props) => {
       className={cx(styles.idol, `grid-item-${debutYear}`, `category-${category}`, { [styles.opened]: opened })}
     >
       <div className={styles.upper}>
-        <button type='button' onClick={onClickUpper} className={styles.leftWing}>
-          {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
-          <div className={styles.profileImg}>
-            <IdolImage year={Number(debutYear)} i={i} yearLength={yearLength} />
-          </div>
-          <p className={styles.name}>{name}</p>
-          <p className={styles.category}>{prettyCategory(category)}</p>
-          <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
-        </button>
+        <IdolImage onClickUpper={onClickUpper} i={i} yearLength={yearLength} idol={idol} />
         {opened && desc && (
           <div className={styles.rightWing}>
             {desc.title && <p className={styles.desc}>{desc.title}</p>}

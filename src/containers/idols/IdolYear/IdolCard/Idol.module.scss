@@ -31,31 +31,6 @@
     width: 100%;
     padding: 24px 14px 14px;
 
-    .leftWing {
-      @include m.flexbox;
-      flex: 1;
-      flex-direction: column;
-    }
-
-    .withSound {
-      @include m.absolute(8px 8px auto auto);
-      width: 14px;
-      height: 14px;
-      fill: var(--color-gray-8);
-    }
-
-    .name {
-      margin-top: 14px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .category,
-    .years {
-      margin-top: 8px;
-      font-size: 12px;
-    }
-
     .rightWing {
       @include m.flexbox;
       flex: 1;
