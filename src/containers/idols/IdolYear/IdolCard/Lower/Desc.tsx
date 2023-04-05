@@ -28,7 +28,7 @@ const Desc = ({ idol }: Props) => {
   return (
     <li className={cx(styles.commentItem, styles.desc)}>
       <div className={styles.upper}>
-        {desc.title && `${desc.title} /`}
+        <span>{desc.title && `${desc.title} /`}</span>
         {desc.namu && (
           <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키' rel='nofollow'>
             나무위키

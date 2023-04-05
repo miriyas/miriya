@@ -3,14 +3,14 @@
 import { useMemo, useRef } from 'react';
 import { groupBy } from 'lodash';
 
-import { IdolType, YearDescType, IsotopesType } from '@/types/idols.d';
+import { FBIdolType, YearDescType, IsotopesType } from '@/types/idols.d';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';
 import styles from './Idols.module.scss';
 
 interface Props {
-  idols: IdolType[];
+  idols: FBIdolType[];
   idolYears: YearDescType[];
 }
 

@@ -1,4 +1,4 @@
-import { IdolType } from '@/types/idols.d';
+import { FBIdolType } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 
 import ImageSprite from '@/components/ImageSprite';
@@ -8,7 +8,7 @@ interface Props {
   i: number;
   yearLength: number;
 
-  idol: IdolType;
+  idol: FBIdolType;
   onClickUpper: () => void;
 }
 

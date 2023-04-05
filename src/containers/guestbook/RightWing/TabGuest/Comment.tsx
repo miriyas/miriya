@@ -13,10 +13,9 @@ import styles from './Comment.module.scss';
 
 interface Props {
   comment: Comment;
-  no: number;
 }
 
-const CommentItem = ({ comment, no }: Props) => {
+const CommentItem = ({ comment }: Props) => {
   const { isMine, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -49,7 +48,7 @@ const CommentItem = ({ comment, no }: Props) => {
     <li className={cx(styles.commentItem, { [styles.deleted]: comment.deletedAt, [styles.hidden]: comment.hidden })}>
       <div className={styles.upper}>
         <div className={styles.leftWing}>
-          <p className={styles.number}>No.{no}</p>
+          <p className={styles.number}>No.{comment.commentNoInCategory}</p>
           <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
             {comment.author.nickname}
           </p>

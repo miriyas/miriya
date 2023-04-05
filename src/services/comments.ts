@@ -12,28 +12,40 @@ import {
   doc,
   updateDoc,
   getCountFromServer,
+  orderBy,
+  limit,
+  // getDoc,
+  increment,
 } from 'firebase/firestore';
 import { Dispatch } from 'react';
 import { SetStateAction } from 'jotai';
 
 import { auth, db } from '@/utils/firebase';
-import { Comment, NewComment, TargetCategoryTypes } from '@/types/comments.d';
+import { Comment, NewComment, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/auth';
 import { getTSBefore } from '@/utils/date';
+import { IDOL_COLLECTION_NAMES } from '@/services/idols';
 
-export const getComments = async (category: TargetCategoryTypes, limit: number) => {
-  const q = query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', category));
+const getCommentsSnapshot = async (category: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) => {
+  const q = query(
+    collection(db, COLLECTION.COMMENTS),
+    where('targetCategory', '==', category),
+    orderBy('createdAt', order),
+    limit(limitCount),
+  );
   const snapshot = await getDocs(q);
-  return snapshot.docs
-    .sort((a, b) => b.data().createdAt - a.data().createdAt)
-    .splice(0, limit)
-    .map((item) => {
-      return {
-        ...item.data(),
-        id: item.id,
-      } as Comment;
-    });
+  return snapshot;
+};
+
+export const getComments = async (category: TargetCategoryTypes, limitCount: number) => {
+  const snapshot = await getCommentsSnapshot(category, 'desc', limitCount);
+  return snapshot.docs.map((item) => {
+    return {
+      ...item.data(),
+      id: item.id,
+    } as Comment;
+  });
 };
 
 export const getCommentsRealtime = (
@@ -96,10 +108,19 @@ export const getCommentsCountInTarget = async (category: TargetCategoryTypes) =>
 };
 
 export const createCommentDoc = async (comment: NewComment) => {
+  const lastComment = await getCommentsSnapshot(comment.targetCategory, 'desc', 1);
   await addDoc(collection(db, COLLECTION.COMMENTS), {
     ...comment,
     createdAt: serverTimestamp(),
+    commentNoInCategory: lastComment.docs[0].data().commentNoInCategory + 1,
   });
+
+  if (comment.targetCategory === TARGET_CATEGORY.IDOLS) {
+    const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, comment.targetId!);
+    await updateDoc(parentRef, {
+      commentsLength: increment(1),
+    });
+  }
 };
 
 export const editCommentDoc = async (comment: Comment) => {
@@ -128,3 +149,27 @@ export const deleteComment = async (commentId: string, authorId: string) => {
   if (uid !== authorId) return; // TODO: 서버로 기능을 넘겨야함
   await deleteDoc(doc(db, COLLECTION.COMMENTS, commentId));
 };
+
+// 아래는 배치 업데이트용
+
+// export const batchUpdateCommentNoInCategory = async (category: TargetCategoryTypes) => {
+//   const list = await getCommentsSnapshot(category, 'asc', 999_999);
+//   let counter = 1;
+//   list.docs.forEach((commentDoc) => {
+//     updateDoc(commentDoc.ref, {
+//       commentNoInCategory: counter,
+//     });
+//     counter += 1;
+//   });
+// };
+
+// export const batchUpdateCommentLengthOfTarget = async () => {
+//   const list = await getCommentsSnapshot(TARGET_CATEGORY.IDOLS, 'asc', 10000);
+//   list.docs.forEach((commentDoc) => {
+//     const { targetId } = commentDoc.data();
+//     const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, targetId!);
+//     updateDoc(parentRef, {
+//       commentsLength: increment(1),
+//     });
+//   });
+// };

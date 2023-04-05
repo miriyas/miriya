@@ -26,7 +26,7 @@ const CommentItem = ({ comment }: Props) => {
     markDeleteComment(e.currentTarget.dataset.id!, e.currentTarget.dataset.authorId!);
   };
 
-  if (comment.deletedAt) return null;
+  if (comment.deletedAt) return <li className={cx(styles.commentItem, styles.deleted)}>삭제된 댓글</li>;
 
   return (
     <li className={styles.commentItem}>

@@ -1,4 +1,5 @@
 import IconSound from './sound.svg';
+import IconComment from './comment.svg';
 import IconGithub from './github.svg';
 import IconEyeTemplate from './eye-template.svg';
 import IconEyeBall from './eye-ball.svg';
@@ -11,6 +12,7 @@ import IconProviderGoogle from './provider-google.svg';
 
 export {
   IconSound,
+  IconComment,
   IconGithub,
   IconEyeTemplate,
   IconEyeBall,

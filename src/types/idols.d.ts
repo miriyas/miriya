@@ -30,6 +30,10 @@ export interface IdolType {
   youtube?: YoutubeType;
 }
 
+export interface FBIdolType extends IdolType {
+  commentsLength: number;
+}
+
 export interface YearDescType {
   year: number;
   desc: string;

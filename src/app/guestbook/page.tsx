@@ -1,4 +1,7 @@
 import GuestBook from '@/containers/guestbook';
+// import { batchUpdateCommentLengthOfTarget } from '@/services/comments';
+// import { batchUpdateCommentNoInCategory } from '@/services/comments';
+// import { TARGET_CATEGORY } from '@/types/comments.d';
 // import { getRecentGuestComments } from '@/services/guestbook';
 import { GADataRow } from '@/types/guestbook';
 
@@ -18,6 +21,9 @@ const GuestBookPage = async () => {
   const commitsData = await commitsRaw.json();
   // const recentComments = await getRecentGuestComments(4);
 
+  // batchUpdateCommentNoInCategory(TARGET_CATEGORY.GUESTBOOK);
+
+  // batchUpdateCommentLengthOfTarget();
   return (
     <GuestBook
       counterData={{

@@ -23,6 +23,20 @@
 
   &.desc {
     background-color: var(--color-gray-e);
+
+    .upper {
+      display: block;
+
+      a {
+        padding: 0 2px;
+      }
+    }
+  }
+
+  &.deleted {
+    padding: 4px;
+    font-size: 10px;
+    color: var(--color-gray-a);
   }
 
   .editor {

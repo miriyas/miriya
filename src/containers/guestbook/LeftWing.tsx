@@ -20,7 +20,7 @@ const LeftWing = () => {
             Loneley kNight..
             <br />
             <br />
-            나는 애송이에 밑바닥부터 기어오르는 도전자라는 사실을 항상 인지하고있어야한다. (실제로 싸이에 적었던 말)
+            나는 애송이에 밑바닥부터 기어오르는 도전자라는 사실을 항상 인지하고있어야한다.
           </p>
         </div>
         <div className={styles.lower}>

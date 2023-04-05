@@ -1,0 +1,90 @@
+@use 'src/styles/mixins' as m;
+
+.tabIdol {
+  .commentsWrapper {
+    margin-top: 14px;
+    font-size: 12px;
+
+    .desc {
+      margin-bottom: 8px;
+      font-family: var(--font-dunggeunmo);
+      font-size: 10px;
+      color: var(--color-gray-7);
+      text-align: right;
+      letter-spacing: -0.05em;
+
+      span {
+        font-family: var(--font-dunggeunmo);
+        color: #fe8c3f;
+      }
+    }
+
+    ul {
+      display: table;
+      width: 100%;
+    }
+
+    li {
+      display: table-row;
+      height: 24px;
+
+      > * {
+        display: table-cell;
+        height: 24px;
+        padding: 0 8px;
+        line-height: 24px;
+      }
+
+      &.header {
+        > * {
+          font-family: var(--font-dunggeunmo);
+          font-size: 11px;
+          font-weight: 600;
+          color: var(--color-gray-4);
+          border-top: 1px solid var(--color-gray-a);
+          border-bottom: 1px solid var(--color-gray-c);
+        }
+
+        .body {
+          text-align: center;
+        }
+      }
+    }
+
+    .no,
+    .createdAt {
+      font-size: 10px;
+      color: var(--color-gray-7);
+      white-space: nowrap;
+    }
+
+    .no {
+      font-family: var(--font-dunggeunmo);
+    }
+
+    .createdAt {
+      white-space: nowrap;
+    }
+
+    .idolName {
+      white-space: nowrap;
+    }
+
+    .body {
+      max-width: 200px; // CSS - 무제한 유연성
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      white-space: nowrap;
+    }
+
+    .name {
+      color: var(--color-cy-6);
+      white-space: nowrap;
+
+      &.isFake {
+        color: var(--color-gray-7);
+      }
+    }
+  }
+}

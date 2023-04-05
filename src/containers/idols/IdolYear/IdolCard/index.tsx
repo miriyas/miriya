@@ -3,7 +3,7 @@ import { useClickAway, useRafState } from 'react-use';
 import cx from 'clsx';
 
 import { useGA } from '@/hooks/useGA';
-import { IdolType } from '@/types/idols.d';
+import { FBIdolType } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
 
 import Upper from './Upper';
@@ -11,7 +11,7 @@ import Lower from './Lower';
 import styles from './Idol.module.scss';
 
 interface Props {
-  idol: IdolType;
+  idol: FBIdolType;
   sort: () => void;
   i: number;
   yearLength: number;

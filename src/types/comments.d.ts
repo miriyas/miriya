@@ -33,6 +33,7 @@ export interface Comment {
     profileUrl?: string;
   };
   body: string;
+  commentNoInCategory: number;
   targetCategory: TargetCategoryTypes;
   targetId?: string;
   hidden?: boolean;

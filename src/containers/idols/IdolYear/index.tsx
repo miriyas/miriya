@@ -4,7 +4,7 @@ import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
 import cx from 'clsx';
 
 import type { IsotopeOptions } from 'isotope-layout';
-import { IdolType, IsotopesType } from '@/types/idols.d';
+import { FBIdolType, IsotopesType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 
@@ -12,7 +12,7 @@ import IdolCard from './IdolCard';
 import styles from './IdolYear.module.scss';
 
 interface Props {
-  idols: IdolType[];
+  idols: FBIdolType[];
   year: number;
   isotopes: MutableRefObject<IsotopesType>;
   yearDesc: string;
