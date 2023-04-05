@@ -1,6 +1,7 @@
 import { IdolType } from '@/types/idols.d';
 
-import Desc from './Desc';
+import CommentList from './CommentList';
+import CommentForm from './CommentForm';
 import styles from './index.module.scss';
 
 interface Props {
@@ -10,7 +11,10 @@ interface Props {
 const Lower = ({ idol }: Props) => {
   return (
     <div className={styles.lower}>
-      <Desc idol={idol} />
+      <div className={styles.commentsWrapper}>
+        <CommentForm idolId={idol.name} />
+        <CommentList idol={idol} />
+      </div>
     </div>
   );
 };

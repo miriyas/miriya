@@ -1,6 +1,6 @@
 import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
 
-import { editCommentDoc } from '@/services/guestbook';
+import { editGuestCommentDoc } from '@/services/guestbook';
 import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
 
@@ -32,7 +32,7 @@ const EditForm = ({ comment, setEditMode }: Props) => {
   const onEditSubmit: FormEventHandler<HTMLFormElement> = () => {
     if (!user) return;
     setEditMode(false);
-    editCommentDoc({
+    editGuestCommentDoc({
       ...comment,
       body,
       hidden,

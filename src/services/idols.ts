@@ -11,9 +11,8 @@ const COLLECTION_NAMES = {
 
 export const getIdols = async (): Promise<IdolType[]> => {
   const idolsCol = collection(db, COLLECTION.IDOLS, 'data', COLLECTION_NAMES.IDOLS);
-  const idolsSnapshot = await getDocs(idolsCol);
-  const idolsList = idolsSnapshot.docs.map((item) => item.data() as IdolType);
-  return idolsList;
+  const snapshot = await getDocs(idolsCol);
+  return snapshot.docs.map((item) => item.data() as IdolType);
 };
 
 export const getIdolYears = async (): Promise<YearDescType[]> => {

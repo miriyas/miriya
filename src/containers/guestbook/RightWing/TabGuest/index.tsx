@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { getCommentsRealtime } from '@/services/guestbook';
+import { getGuestCommentsRealtime } from '@/services/guestbook';
 import { Comment } from '@/types/comments.d';
 import CommentItem from '@/containers/guestbook/RightWing/TabGuest/Comment';
 
@@ -10,7 +10,7 @@ const TabGuest = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    const unSubscribeComments = getCommentsRealtime(setComments);
+    const unSubscribeComments = getGuestCommentsRealtime(setComments);
     return () => unSubscribeComments();
   }, []);
 

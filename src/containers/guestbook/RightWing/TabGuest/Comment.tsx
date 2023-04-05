@@ -2,7 +2,7 @@ import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 import Image from 'next/image';
 
-import { editCommentDoc, markDeleteComment } from '@/services/guestbook';
+import { editGuestCommentDoc, markDeleteGuestComment } from '@/services/guestbook';
 import { Comment } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 import useAuth from '@/hooks/useAuth';
@@ -25,18 +25,18 @@ const CommentItem = ({ comment, no }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
-    markDeleteComment(e.currentTarget.dataset.id!, e.currentTarget.dataset.authorId!);
+    markDeleteGuestComment(e.currentTarget.dataset.id!, e.currentTarget.dataset.authorId!);
   };
 
   const onClickHide: MouseEventHandler<HTMLButtonElement> = () => {
-    editCommentDoc({
+    editGuestCommentDoc({
       ...comment,
       hidden: true,
     });
   };
 
   const onClickShow: MouseEventHandler<HTMLButtonElement> = () => {
-    editCommentDoc({
+    editGuestCommentDoc({
       ...comment,
       hidden: false,
     });

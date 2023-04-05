@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { GuestbookTabTypes } from '@/types/guestbook.d';
 import { tabAtom } from '@/containers/guestbook/states';
-import { getRecentComments } from '@/services/guestbook';
+import { getRecentGuestComments } from '@/services/guestbook';
 
 import styles from './CommentsRecent.module.scss';
 
@@ -24,11 +24,15 @@ const CommentsRecent = () => {
     setTab(e.currentTarget.dataset.tab as GuestbookTabTypes);
   };
 
-  const { data: recentComments } = useQuery(['getRecentComments'], () => getRecentComments(4).then((res) => res), {
-    suspense: true,
-    cacheTime: 6 * 1000,
-    refetchOnMount: false,
-  });
+  const { data: recentComments } = useQuery(
+    ['getRecentGuestComments'],
+    () => getRecentGuestComments(4).then((res) => res),
+    {
+      suspense: true,
+      cacheTime: 6 * 1000,
+      refetchOnMount: false,
+    },
+  );
 
   return (
     <ul className={styles.commentsRecent}>

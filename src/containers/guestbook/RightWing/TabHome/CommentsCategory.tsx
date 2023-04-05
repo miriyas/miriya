@@ -5,7 +5,7 @@ import { useMount } from 'react-use';
 
 import { GuestbookTabTypes, GUESTBOOK_TAB } from '@/types/guestbook.d';
 import { tabAtom } from '../../states';
-import { getCommentsCount } from '@/services/guestbook';
+import { getGuestCommentsCount } from '@/services/guestbook';
 
 import styles from './CommentsCategory.module.scss';
 
@@ -40,7 +40,7 @@ const CommentsCategory = () => {
   };
 
   useMount(async () => {
-    setGuestbookCount(await getCommentsCount());
+    setGuestbookCount(await getGuestCommentsCount());
   });
 
   return (

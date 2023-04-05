@@ -1,31 +1,19 @@
 @use 'src/styles/mixins' as m;
 
 .lower {
-  @include m.flexbox;
+  @include m.flexbox(start, center);
   flex: 1;
   flex-direction: column;
+  width: 100%;
+  padding: 8px;
+  overflow: hidden;
   font-size: 12px;
 
-  .desc {
-    margin: 8px 0 24px;
-    line-height: 1.4;
-
-    .outerLinks {
-      @include m.flexbox;
-      gap: 8px;
-
-      a {
-        width: 24px;
-        height: 24px;
-        overflow: hidden;
-        line-height: 20px;
-        border-radius: 2px;
-
-        svg {
-          width: 24px;
-          height: 24px;
-        }
-      }
-    }
+  .commentsWrapper {
+    @include m.flexbox;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
   }
 }

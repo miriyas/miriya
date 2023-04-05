@@ -1,6 +1,6 @@
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
-import { createCommentDoc } from '@/services/guestbook';
+import { createGuestCommentDoc } from '@/services/guestbook';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
 
@@ -22,7 +22,7 @@ const TabGuest = () => {
     e.preventDefault();
     if (!user) return;
 
-    createCommentDoc({
+    createGuestCommentDoc({
       authorId: user.uid,
       author: {
         nickname: user.displayName || `${user.email?.substring(0, 4)}**` || user.uid.substring(0, 8),

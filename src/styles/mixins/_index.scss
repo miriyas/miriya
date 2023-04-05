@@ -25,3 +25,23 @@
     border-radius: 0;
   }
 }
+
+@mixin tinyScrollBar {
+  scrollbar-width: 4px;
+  scrollbar-color: #dddddd #f1f1f1;
+
+  /* Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border: 1px solid #d6d6d6;
+    border-radius: 0;
+  }
+}

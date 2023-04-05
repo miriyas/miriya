@@ -1,7 +1,9 @@
 @use 'src/styles/mixins' as m;
 
 .idol {
+  @include m.flexbox;
   @include m.commonBoxShadow;
+  flex-direction: column;
   width: var(--w-idol-m);
   height: var(--h-idol);
   overflow: hidden;

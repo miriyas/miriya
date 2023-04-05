@@ -13,7 +13,7 @@ const RightDesc = (props: Props) => {
 
   return (
     <div className={styles.youtube}>
-      <iframe title={`youtube-${youtube.url}`} width='308' height='240' src={youtubeUrl} allow='autoplay' />
+      <iframe title={`youtube-${youtube.url}`} width='308' height='220' src={youtubeUrl} allow='autoplay' />
     </div>
   );
 };

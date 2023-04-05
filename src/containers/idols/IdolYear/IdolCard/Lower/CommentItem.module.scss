@@ -1,0 +1,67 @@
+@use 'src/styles/mixins' as m;
+
+.commentItem {
+  @include m.flexbox;
+  flex-direction: column;
+  width: 100%;
+  padding: 8px;
+  background-color: var(--color-gray-f);
+  border-radius: 4px;
+
+  + .commentItem {
+    margin-top: 8px;
+  }
+
+  &.desc,
+  &.blank {
+    padding: 4px 8px;
+
+    .upper {
+      margin-bottom: 0;
+    }
+  }
+
+  &.desc {
+    background-color: var(--color-gray-e);
+  }
+
+  .upper {
+    @include m.flexbox(start, start);
+    gap: 4px;
+    width: 100%;
+    margin-bottom: 8px;
+    line-height: 1.4;
+
+    .bodyWrapper {
+      flex: 1;
+
+      a {
+        margin: 0 2px;
+      }
+    }
+  }
+
+  .lower {
+    @include m.flexbox(between, center);
+    width: 100%;
+    height: var(--h-comment-form-mini);
+
+    .profile {
+      width: var(--h-comment-form-mini);
+      height: var(--h-comment-form-mini);
+      overflow: hidden;
+      border: 1px solid var(--color-gray-c);
+      border-radius: 50%;
+
+      img {
+        width: var(--h-comment-form-mini);
+        height: var(--h-comment-form-mini);
+      }
+    }
+
+    time {
+      font-size: 10px;
+      color: var(--color-gray-7);
+    }
+  }
+}

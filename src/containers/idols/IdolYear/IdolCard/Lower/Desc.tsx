@@ -1,11 +1,11 @@
 import { MouseEventHandler } from 'react';
+import cx from 'clsx';
 
 import { useGA } from '@/hooks/useGA';
 import { IdolType } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
 
-import { IconDescMelon, IconDescNamu, IconDescVibe } from 'public/svgs';
-import styles from './index.module.scss';
+import styles from './CommentItem.module.scss';
 
 interface Props {
   idol: IdolType;
@@ -16,6 +16,8 @@ const Desc = ({ idol }: Props) => {
 
   const { gaEvent } = useGA();
 
+  if (!desc) return null;
+
   const onClickDesc: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
     const { title: target, href } = e.currentTarget;
@@ -24,32 +26,26 @@ const Desc = ({ idol }: Props) => {
   };
 
   return (
-    <div className={styles.desc}>
-      <ul className={styles.outerLinks}>
-        {desc?.namu && (
-          <li>
-            <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키' rel='nofollow'>
-              <IconDescNamu />
-            </a>
-          </li>
+    <li className={cx(styles.commentItem, styles.desc)}>
+      <div className={styles.upper}>
+        {desc.title && `${desc.title} /`}
+        {desc.namu && (
+          <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키' rel='nofollow'>
+            나무위키
+          </a>
         )}
-        {desc?.melon && (
-          <li>
-            <a href={desc.melon} target='_blank' onClick={onClickDesc} title='멜론' rel='nofollow'>
-              <IconDescMelon />
-            </a>
-          </li>
+        {desc.melon && (
+          <a href={desc.melon} target='_blank' onClick={onClickDesc} title='멜론' rel='nofollow'>
+            멜론
+          </a>
         )}
-        {desc?.naver && (
-          <li>
-            <a href={desc.naver} target='_blank' onClick={onClickDesc} title='바이브' rel='nofollow'>
-              <IconDescVibe />
-            </a>
-          </li>
+        {desc.naver && (
+          <a href={desc.naver} target='_blank' onClick={onClickDesc} title='바이브' rel='nofollow'>
+            바이브
+          </a>
         )}
-      </ul>
-      {desc?.title && <p className={styles.desc}>{desc.title}</p>}
-    </div>
+      </div>
+    </li>
   );
 };
 
