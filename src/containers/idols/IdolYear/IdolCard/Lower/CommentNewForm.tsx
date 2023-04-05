@@ -7,13 +7,13 @@ import useAuth from '@/hooks/useAuth';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
-import styles from './CommentForm.module.scss';
+import styles from './CommentNewForm.module.scss';
 
 interface Props {
   idolId: string;
 }
 
-const CommentForm = ({ idolId }: Props) => {
+const CommentNewForm = ({ idolId }: Props) => {
   const [body, setBody] = useState('');
 
   const { user } = useAuth();
@@ -50,9 +50,9 @@ const CommentForm = ({ idolId }: Props) => {
   }
 
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className={styles.commentNewForm} onSubmit={onSubmit}>
       <div className={styles.profile}>
-        <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={24} />
+        <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={32} />
       </div>
       <input
         type='text'
@@ -67,4 +67,4 @@ const CommentForm = ({ idolId }: Props) => {
   );
 };
 
-export default CommentForm;
+export default CommentNewForm;
