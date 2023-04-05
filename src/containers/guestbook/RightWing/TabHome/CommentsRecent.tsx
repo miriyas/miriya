@@ -44,7 +44,7 @@ const CommentsRecent = () => {
               <div className={cx(styles.commentBadge, styles[recent.targetCategory.toLowerCase()])}>
                 {CategoryMap[recent.targetCategory]}
               </div>
-              <p className={styles.commentBody}>{recent.body.substring(0, 20)}</p>
+              <p className={styles.commentBody}>{recent.body.substring(0, 30)}</p>
             </button>
           </li>
         );

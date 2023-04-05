@@ -11,6 +11,7 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+  getCountFromServer,
 } from 'firebase/firestore';
 import { Dispatch } from 'react';
 import { SetStateAction } from 'jotai';
@@ -19,6 +20,7 @@ import { auth, db } from '@/utils/firebase';
 import { Comment, NewComment, TargetCategoryTypes } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/auth';
+import { getTSBefore } from '@/utils/date';
 
 export const getComments = async (category: TargetCategoryTypes, limit: number) => {
   const q = query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', category));
@@ -75,6 +77,22 @@ export const getCommentsInTargetRealtime = (
       });
     setComments(comments);
   });
+};
+
+export const getCommentsCountInTarget = async (category: TargetCategoryTypes) => {
+  const q = query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', category));
+  const todayQ = query(
+    collection(db, COLLECTION.COMMENTS),
+    where('targetCategory', '==', category),
+    where('createdAt', '>=', getTSBefore(1, 'day')),
+  );
+  const snapshotToday = await getCountFromServer(todayQ);
+  const snapshotTotal = await getCountFromServer(q);
+
+  return {
+    today: snapshotToday.data().count,
+    total: snapshotTotal.data().count,
+  };
 };
 
 export const createCommentDoc = async (comment: NewComment) => {

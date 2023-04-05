@@ -4,43 +4,33 @@ import { MouseEventHandler, useState } from 'react';
 import { useMount } from 'react-use';
 
 import { GuestbookTabTypes, GUESTBOOK_TAB } from '@/types/guestbook.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { tabAtom } from '../../states';
-import { getGuestCommentsCount } from '@/services/guestbook';
+import { getCommentsCountInTarget } from '@/services/comments';
 
 import styles from './CommentsCategory.module.scss';
 
-const CATEGORY_COMMENTS_TEMP = {
-  [GUESTBOOK_TAB.GUEST]: {
-    count: 12,
-    countTotal: 24,
-  },
-  [GUESTBOOK_TAB.IDOLS]: {
-    count: 0,
-    countTotal: 0,
-  },
-  [GUESTBOOK_TAB.CAMERA]: {
-    count: 0,
-    countTotal: 0,
-  },
-  [GUESTBOOK_TAB.PENTAX]: {
-    count: 0,
-    countTotal: 0,
-  },
+const INITIAL_COUNT = {
+  today: 0,
+  total: 0,
 };
 
 const CommentsCategory = () => {
   const setTab = useSetAtom(tabAtom);
-  const [guestbookCount, setGuestbookCount] = useState({
-    today: 0,
-    total: 0,
-  });
+  const [guestbookCount, setGuestbookCount] = useState(INITIAL_COUNT);
+  const [idolCount, setIdolCount] = useState(INITIAL_COUNT);
+  const [cameraCount, setCemeraCount] = useState(INITIAL_COUNT);
+  const [pentaxCount, setPentaxCount] = useState(INITIAL_COUNT);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     setTab(e.currentTarget.dataset.tab as GuestbookTabTypes);
   };
 
   useMount(async () => {
-    setGuestbookCount(await getGuestCommentsCount());
+    setGuestbookCount(await getCommentsCountInTarget(TARGET_CATEGORY.GUESTBOOK));
+    setIdolCount(await getCommentsCountInTarget(TARGET_CATEGORY.IDOLS));
+    setCemeraCount(await getCommentsCountInTarget(TARGET_CATEGORY.CAMERA));
+    setPentaxCount(await getCommentsCountInTarget(TARGET_CATEGORY.PENTAX));
   });
 
   return (
@@ -62,8 +52,10 @@ const CommentsCategory = () => {
             <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.IDOLS}>
               <p className={styles.category}>아이돌</p>
               <p className={styles.count}>
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.IDOLS].count}/
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.IDOLS].countTotal}
+                {idolCount.today}/{idolCount.total}
+                {idolCount.today > 0 && (
+                  <Image src='/images/guestbook/new.png' width={9} height={9} alt='' className={styles.new} />
+                )}
               </p>
             </button>
           </td>
@@ -73,8 +65,10 @@ const CommentsCategory = () => {
             <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.CAMERA}>
               <p className={styles.category}>카메라</p>
               <p className={styles.count}>
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.CAMERA].count}/
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.CAMERA].countTotal}
+                {cameraCount.today}/{cameraCount.total}
+                {cameraCount.today > 0 && (
+                  <Image src='/images/guestbook/new.png' width={9} height={9} alt='' className={styles.new} />
+                )}
               </p>
             </button>
           </td>
@@ -82,8 +76,10 @@ const CommentsCategory = () => {
             <button type='button' onClick={onClick} data-tab={GUESTBOOK_TAB.PENTAX}>
               <p className={styles.category}>펜탁스</p>
               <p className={styles.count}>
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.PENTAX].count}/
-                {CATEGORY_COMMENTS_TEMP[GUESTBOOK_TAB.PENTAX].countTotal}
+                {pentaxCount.today}/{pentaxCount.total}
+                {pentaxCount.today > 0 && (
+                  <Image src='/images/guestbook/new.png' width={9} height={9} alt='' className={styles.new} />
+                )}
               </p>
             </button>
           </td>
