@@ -90,5 +90,10 @@
   .lower {
     display: none;
     padding-top: 14px;
+
+    iframe {
+      width: 100% !important;
+      height: 240px !important;
+    }
   }
 }
