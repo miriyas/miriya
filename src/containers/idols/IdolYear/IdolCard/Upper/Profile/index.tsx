@@ -2,8 +2,7 @@ import { IdolType } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 
 import ImageSprite from '@/components/ImageSprite';
-import { IconSound } from 'public/svgs';
-import styles from './IdolImage.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   i: number;
@@ -13,12 +12,11 @@ interface Props {
   onClickUpper: () => void;
 }
 
-const IdolImage = ({ i, yearLength, idol, onClickUpper }: Props) => {
-  const { category, name, youtube, debutYear, endYear } = idol;
+const Profile = ({ i, yearLength, idol, onClickUpper }: Props) => {
+  const { category, name, debutYear, endYear } = idol;
 
   return (
-    <button type='button' onClick={onClickUpper} className={styles.idolImage}>
-      {youtube && youtube.url !== '' && <IconSound className={styles.withSound} />}
+    <button type='button' onClick={onClickUpper} className={styles.profile}>
       <div className={styles.profileImg}>
         <ImageSprite
           i={i}
@@ -36,4 +34,4 @@ const IdolImage = ({ i, yearLength, idol, onClickUpper }: Props) => {
   );
 };
 
-export default IdolImage;
+export default Profile;

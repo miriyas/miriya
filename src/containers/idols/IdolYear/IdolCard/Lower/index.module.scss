@@ -1,0 +1,31 @@
+@use 'src/styles/mixins' as m;
+
+.lower {
+  @include m.flexbox;
+  flex: 1;
+  flex-direction: column;
+  font-size: 12px;
+
+  .desc {
+    margin: 8px 0 24px;
+    line-height: 1.4;
+
+    .outerLinks {
+      @include m.flexbox;
+      gap: 8px;
+
+      a {
+        width: 24px;
+        height: 24px;
+        overflow: hidden;
+        line-height: 20px;
+        border-radius: 2px;
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}

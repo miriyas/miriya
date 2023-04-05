@@ -1,4 +1,4 @@
-import { MouseEventHandler, useRef } from 'react';
+import { useRef } from 'react';
 import { useClickAway, useRafState } from 'react-use';
 import cx from 'clsx';
 
@@ -6,9 +6,8 @@ import { useGA } from '@/hooks/useGA';
 import { IdolType } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
 
-import { IconDescMelon, IconDescNamu, IconDescVibe } from '../../../../../public/svgs';
-import Youtube from './Youtube';
-import IdolImage from './IdolImage';
+import Upper from './Upper';
+import Lower from './Lower';
 import styles from './Idol.module.scss';
 
 interface Props {
@@ -20,13 +19,11 @@ interface Props {
 
 const Idol = (props: Props) => {
   const { idol, sort, i, yearLength } = props;
-  const { category, desc, name, youtube, debutYear } = idol;
+  const { category, name, debutYear } = idol;
 
   const { gaEvent } = useGA();
   const idolRef = useRef<HTMLLIElement>(null);
   const [opened, setOpened] = useRafState(false);
-
-  const hasYoutube = youtube && youtube.startsAt >= 0 && youtube.url;
 
   useClickAway(idolRef, () => {
     if (!opened) return;
@@ -34,18 +31,10 @@ const Idol = (props: Props) => {
     sort();
   });
 
-  const onClickUpper = () => {
-    if (!hasYoutube) return;
+  const onClickOpen = () => {
     setOpened(true);
     sort();
     gaEvent(IDOL.IDOL_OPEN, { name });
-  };
-
-  const onClickDesc: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    e.preventDefault();
-    const { title: target, href } = e.currentTarget;
-    gaEvent(IDOL.IDOL_DESC_CLICK, { name, target });
-    window.open(href);
   };
 
   return (
@@ -53,32 +42,8 @@ const Idol = (props: Props) => {
       ref={idolRef}
       className={cx(styles.idol, `grid-item-${debutYear}`, `category-${category}`, { [styles.opened]: opened })}
     >
-      <div className={styles.upper}>
-        <IdolImage onClickUpper={onClickUpper} i={i} yearLength={yearLength} idol={idol} />
-        {opened && desc && (
-          <div className={styles.rightWing}>
-            {desc.title && <p className={styles.desc}>{desc.title}</p>}
-            <div className={styles.outerLinks}>
-              {desc.namu && (
-                <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키' rel='nofollow'>
-                  <IconDescNamu />
-                </a>
-              )}
-              {desc.melon && (
-                <a href={desc.melon} target='_blank' onClick={onClickDesc} title='멜론' rel='nofollow'>
-                  <IconDescMelon />
-                </a>
-              )}
-              {desc.naver && (
-                <a href={desc.naver} target='_blank' onClick={onClickDesc} title='바이브' rel='nofollow'>
-                  <IconDescVibe />
-                </a>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
-      {opened && <div className={styles.lower}>{hasYoutube && <Youtube youtube={youtube} />}</div>}
+      <Upper onClickOpen={onClickOpen} i={i} yearLength={yearLength} idol={idol} opened={opened} />
+      {opened && <Lower idol={idol} />}
     </li>
   );
 };

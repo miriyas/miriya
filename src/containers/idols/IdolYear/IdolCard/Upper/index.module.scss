@@ -1,0 +1,14 @@
+@use 'src/styles/mixins' as m;
+
+.upper {
+  @include m.flexbox(center, start);
+  position: relative;
+  width: 100%;
+
+  .withSound {
+    @include m.absolute(8px 8px auto auto);
+    width: 14px;
+    height: 14px;
+    fill: var(--color-gray-8);
+  }
+}

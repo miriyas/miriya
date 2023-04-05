@@ -1,0 +1,11 @@
+@use 'src/styles/mixins' as m;
+
+.youtube {
+  width: 100%;
+  height: var(--h-idol);
+
+  iframe {
+    width: 100%;
+    height: var(--h-idol);
+  }
+}
