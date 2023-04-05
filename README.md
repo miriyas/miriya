@@ -128,7 +128,9 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 <br />
 <br />
 
-# [Next.js 13.2.5-canary.18](https://github.com/vercel/next.js/releases) with Experimental appDir
+# [Next.js 13.2.5-canary](https://github.com/vercel/next.js/releases) with Experimental appDir
+
+- 현재 canary 30에서도 아래 문제들은 재현되고 있음.
 
 ## 현재까지 알아낸 Next.js 13 + appDir 관련 이슈 목록
 
@@ -246,4 +248,4 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 
 6. next super json 라이브러리 사용시 앱 구동 불가
 
-- [NEXT-939 SIGSEGV on next build with 13.2.4 #46989]: https://github.com/vercel/next.js/issues/46989
+- NEXT-939 SIGSEGV on next build with 13.2.4 [#46989]: https://github.com/vercel/next.js/issues/46989

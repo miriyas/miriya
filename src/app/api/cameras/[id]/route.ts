@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 import { trim } from 'lodash';
 
-export const getCameraDataFromURL = async (url: string) => {
+const getCameraDataFromURL = async (url: string) => {
   const fullUrl = `https://www.digicamdb.com/specs/${url}/`;
   const response = await fetch(fullUrl);
   const html = await response.text();
@@ -35,7 +35,7 @@ interface Props {
   };
 }
 
-export async function GET(_: NextRequest, { params }: Props) {
+export const GET = async (_: NextRequest, { params }: Props) => {
   const data = await getCameraDataFromURL(params.id);
   return NextResponse.json(data);
-}
+};
