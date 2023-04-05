@@ -39,6 +39,8 @@
 
     .upper {
       @include m.flexbox(between, center);
+      position: relative;
+      z-index: var(--z-global-header);
 
       .home {
         @include m.absolute(0 auto 0 0);
