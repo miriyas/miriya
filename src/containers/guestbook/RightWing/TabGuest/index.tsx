@@ -18,8 +18,8 @@ const TabGuest = () => {
     <div>
       <NewForm />
       <ul>
-        {comments.map((comment, i) => {
-          return <CommentItem key={comment.id} comment={comment} no={comments.length - i} />;
+        {comments.map((comment) => {
+          return <CommentItem key={comment.id} comment={comment} />;
         })}
       </ul>
     </div>

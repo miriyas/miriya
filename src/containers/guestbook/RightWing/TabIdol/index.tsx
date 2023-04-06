@@ -18,6 +18,7 @@ const TabIdol = () => {
       refetchOnMount: false,
     },
   );
+
   return (
     <div className={styles.tabIdol}>
       <p className={rightWingStyles.menu}>아이돌 페이지 댓글 목록</p>
