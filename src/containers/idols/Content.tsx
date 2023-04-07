@@ -1,21 +1,28 @@
 'use client';
 
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { groupBy } from 'lodash';
 
-import { FBIdolType, YearDescType, IsotopesType } from '@/types/idols.d';
+import { YearDescType, IsotopesType, FBIdolType } from '@/types/idols.d';
+import { getIdolsRealtime } from '@/services/idols';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';
 import styles from './Idols.module.scss';
 
 interface Props {
-  idols: FBIdolType[];
   idolYears: YearDescType[];
 }
 
-const IdolsContent = ({ idols, idolYears }: Props) => {
+const IdolsContent = ({ idolYears }: Props) => {
   const isotopes = useRef<IsotopesType>({});
+
+  const [idols, setIdols] = useState<FBIdolType[]>([]);
+
+  useEffect(() => {
+    const unSubscribeIdols = getIdolsRealtime(setIdols);
+    return () => unSubscribeIdols();
+  }, []);
 
   const years = useMemo(() => groupBy(idols, 'debutYear'), [idols]);
 
@@ -27,7 +34,9 @@ const IdolsContent = ({ idols, idolYears }: Props) => {
 
   return (
     <main className={styles.idols}>
-      <FilterBar isotopes={isotopes} idolsLength={idolsLength} yearStart={yearStart} yearEnd={yearEnd} />
+      {idols.length > 0 && (
+        <FilterBar isotopes={isotopes} idolsLength={idolsLength} yearStart={yearStart} yearEnd={yearEnd} />
+      )}
       <ul className={styles.idolYears}>
         {Object.keys(years).map((year) => {
           const yearIdols = years[year].sort((a, b) => a.name.localeCompare(b.name, 'ko'));

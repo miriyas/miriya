@@ -1,5 +1,18 @@
-import { collection, doc, getDoc, getDocs, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  limit,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+  setDoc,
+  updateDoc,
+} from 'firebase/firestore';
 import { User } from 'firebase/auth';
+import { Dispatch, SetStateAction } from 'react';
 
 import { db } from '@/utils/firebase';
 import { FBIdolType, IdolType, IDOL_COLLECTION_NAMES, YearDescType } from '@/types/idols.d';
@@ -8,10 +21,37 @@ import { COLLECTION } from '@/types/firebase.d';
 import { createCommentDoc } from '@/services/comments';
 import { getSystemAuthor, getUserName } from '@/utils';
 
+const getIdolsSnapshot = async (order: 'asc' | 'desc', limitCount: number) => {
+  const q = query(
+    collection(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS),
+    orderBy('debutYear', order),
+    orderBy('name', order),
+    limit(limitCount),
+  );
+  const snapshot = await getDocs(q);
+  return snapshot;
+};
+
 export const getIdols = async (): Promise<FBIdolType[]> => {
-  const idolsCol = collection(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS);
-  const snapshot = await getDocs(idolsCol);
+  const snapshot = await getIdolsSnapshot('asc', 1000);
   return snapshot.docs.map((item) => item.data() as FBIdolType);
+};
+
+export const getIdolsRealtime = (setIdols: Dispatch<SetStateAction<FBIdolType[]>>) => {
+  const q = query(
+    collection(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS),
+    orderBy('debutYear', 'asc'),
+    orderBy('name', 'asc'),
+    limit(1000),
+  );
+  return onSnapshot(q, (querySnapshot) => {
+    const idols = querySnapshot.docs
+      .sort((a, b) => b.data().debutYear - a.data().debutYear)
+      .map((item) => {
+        return item.data() as FBIdolType;
+      });
+    setIdols(idols);
+  });
 };
 
 export const getIdolYears = async (): Promise<YearDescType[]> => {
