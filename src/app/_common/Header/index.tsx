@@ -58,7 +58,7 @@ const Header = () => {
           <Link href={ROUTES[0].href} className={styles.home} onClick={onClickLink}>
             <span className={styles.mobileOnly}>{ROUTES[0].mobileTitle}</span>
           </Link>
-          <Link href='/guestbook' className={styles.guestbook}>
+          <Link href='/guestbook' className={cx(styles.guestbook, { [styles.active]: current === '/guestbook' })}>
             방명록
           </Link>
         </div>
@@ -114,7 +114,9 @@ const Header = () => {
           })}
         </ul>
         <div className={styles.outerLinks}>
-          <Link href='/guestbook'>방명록</Link>
+          <Link href='/guestbook' className={cx(styles.guestbook, { [styles.active]: current === '/guestbook' })}>
+            방명록
+          </Link>
           <a
             className={styles.github}
             onClick={onClickGithub}
