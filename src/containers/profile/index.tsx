@@ -10,7 +10,7 @@ const ProfilePage = () => {
     <main className={styles.profile}>
       <div className={styles.centering}>
         <div className={styles.profileImg}>
-          <Image src='/images/home/profile.jpg' fill alt='' />
+          <Image src='/images/home/profile.jpg' width={200} height={200} alt='' />
         </div>
         <h1 className={styles.name}>JunHyuk Lee</h1>
         <p className={styles.desc}>Senior Web Developer</p>

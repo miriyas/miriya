@@ -33,7 +33,7 @@ const TabHome = ({ commitsData }: Props) => {
       </div>
       <p className={rightWingStyles.menu}>미니룸</p>
       <div className={styles.miniRoom}>
-        <Image src='/images/guestbook/miniroom.png' fill alt='' className={styles.image} />
+        <Image src='/images/guestbook/miniroom.png' width={426} height={212} alt='' className={styles.image} priority />
       </div>
       <p className={rightWingStyles.menu}>최근 업데이트</p>
       <Commits data={commitsData} />
