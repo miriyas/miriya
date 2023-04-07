@@ -30,7 +30,7 @@ const DESC_ITEMS: Record<'title' | 'namu' | 'naver' | 'melon', Item> = {
     placeholder: 'https://namu.wiki/w/%EA%B9%80%EC%97%B0%EC%9A%B0',
   },
   naver: {
-    label: 'Vive URL',
+    label: 'Vibe URL',
     placeholder: 'https://vibe.naver.com/artist/30',
   },
 };
