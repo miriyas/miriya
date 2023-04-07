@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import { authModalAtom } from '@/components/Auth/states';
 import useAuth from '@/hooks/useAuth';
+import { getUserName } from '@/utils';
 
 import AuthModal from '@/components/Auth';
 import styles from './Footer.module.scss';
@@ -28,7 +29,7 @@ const Footer = () => {
       <div className={styles.wrapper}>
         {user ? (
           <div className={styles.auth}>
-            {user.displayName || user.email}
+            {getUserName(user)}
             <button type='button' onClick={logOut}>
               로그아웃
             </button>

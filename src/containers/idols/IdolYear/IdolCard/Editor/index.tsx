@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { FormEventHandler } from 'react';
 import { useResetAtom } from 'jotai/utils';
 import cx from 'clsx';
@@ -6,6 +7,7 @@ import useEditor from './useEditor';
 import { CATEGORIES, FBIdolType } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 import { editIdolAtom } from '@/containers/idols/states';
+import useAuth from '@/hooks/useAuth';
 
 import styles from './index.module.scss';
 
@@ -49,6 +51,7 @@ interface Props {
 }
 
 const Editor = ({ idol }: Props) => {
+  const { user, isSupporter } = useAuth();
   const resetEditIdol = useResetAtom(editIdolAtom);
 
   const { errors, dirtyFields, isDirty, register, submitIdol } = useEditor(idol);
@@ -59,6 +62,17 @@ const Editor = ({ idol }: Props) => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
+    if (!user) {
+      alert('미안, 구경 잘 했어? 로그인 하고 돌아오자.'); // 인터렉션 방해해서 얼럿 쓰면 안되는건 알지만, 범용 모달 만들기 전까지 쓴다
+      return;
+    }
+    if (!isSupporter) {
+      alert(
+        '진짜 미안, 아무나 수정할 수는 없어.. 무섭잖아.. \n이준혁에게 DM을 보내보자.\n나를 도와줘! 아이돌이 너무 많아..',
+      ); // 인터렉션 방해해서 얼럿 쓰면 안되는건 알지만, 범용 모달 만들기 전까지 쓴다
+      return;
+    }
     submitIdol();
   };
 

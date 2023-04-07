@@ -2,6 +2,7 @@ import { ValueOf } from '@/types';
 
 export const ROLE = {
   ADMIN: 'ADMIN',
+  SUPPORTER: 'SUPPORTER',
   USER: 'USER',
   BLOCKED: 'BLOCKED',
 } as const;

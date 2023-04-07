@@ -17,11 +17,15 @@ export const shrinkNumber = (value: number | string) => {
   return value;
 };
 
+export const getUserName = (user: User) => {
+  return user.displayName ?? `${user.email?.substring(0, 4)}**` ?? user.uid.substring(0, 8);
+};
+
 export const getAuthorData = (user: User) => {
   return {
     authorId: user.uid,
     author: {
-      nickname: user.displayName || `${user.email?.substring(0, 4)}**` || user.uid.substring(0, 8),
+      nickname: getUserName(user),
       nicknameIsFake: !user.displayName, // displayName이 없을 경우
       profileUrl: user.photoURL ?? '',
     },

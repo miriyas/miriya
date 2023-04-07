@@ -6,7 +6,7 @@ import { FBIdolType, IdolType, IDOL_COLLECTION_NAMES, YearDescType } from '@/typ
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { createCommentDoc } from '@/services/comments';
-import { getSystemAuthor } from '@/utils';
+import { getSystemAuthor, getUserName } from '@/utils';
 
 export const getIdols = async (): Promise<FBIdolType[]> => {
   const idolsCol = collection(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS);
@@ -33,7 +33,7 @@ export const editIdolDoc = async (newIdol: FBIdolType, changed: string[], user: 
   }).then(() => {
     createCommentDoc({
       ...getSystemAuthor(),
-      body: `${changed.join(', ')} 항목을 ${user.displayName} 님이 수정했습니다.`,
+      body: `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
       targetCategory: TARGET_CATEGORY.IDOLS,
       targetId: newIdol.name,
     });

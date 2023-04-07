@@ -10,3 +10,8 @@ export const getAdminUsers = async () => {
   const snapshot = await getDocs(query(collection(db, COLLECTION.USERS), where('role', '==', ROLE.ADMIN)));
   return snapshot.docs.map((item) => item.data() as UserWithRole);
 };
+
+export const getSupporters = async () => {
+  const snapshot = await getDocs(query(collection(db, COLLECTION.USERS), where('role', '==', ROLE.SUPPORTER)));
+  return snapshot.docs.map((item) => item.data() as UserWithRole);
+};
