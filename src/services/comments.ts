@@ -24,6 +24,7 @@ import { IDOL_COLLECTION_NAMES } from '@/types/idols.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/auth';
 import { getTSBefore } from '@/utils/date';
+import { getSystemAuthor } from '@/utils';
 
 // Query ============================
 
@@ -141,12 +142,25 @@ export const createCommentDoc = async (comment: NewComment) => {
     commentNoInCategory: lastComment.docs[0].data().commentNoInCategory + 1,
   });
 
+  // 타겟의 commentsLength 증가시키기
   if (comment.targetCategory === TARGET_CATEGORY.IDOLS) {
     const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, comment.targetId!);
     await updateDoc(parentRef, {
       commentsLength: increment(1),
     });
   }
+};
+
+/** 댓글 갯수에 영향을 주지 않는 특수 공지 댓글 */
+export const createSystemCommentDoc = async (body: string, targetCategory: TargetCategoryTypes, targetId: string) => {
+  await addDoc(collection(db, COLLECTION.COMMENTS), {
+    ...getSystemAuthor(),
+    body,
+    targetCategory,
+    targetId,
+    createdAt: serverTimestamp(),
+    deletedAt: initialTs,
+  });
 };
 
 // Ref ============================
@@ -163,22 +177,30 @@ export const editCommentDoc = async (comment: Comment) => {
 };
 
 /** 실제 삭제는 아니고 가짜 삭제 */
-export const markDeleteComment = async (commentId: string, authorId: string) => {
+export const markDeleteComment = async (comment: Comment, authorId: string) => {
   const adminUsers = await getAdminUsers();
   const currentUserId = auth.currentUser?.uid;
   const isAdmin = adminUsers.filter((admin) => admin.uid === currentUserId);
 
   if (!isAdmin && currentUserId !== authorId) return; // TODO: 서버로 기능을 넘겨야함
-  await updateDoc(getCommentRef(commentId), {
+  await updateDoc(getCommentRef(comment.id), {
     deletedAt: serverTimestamp(),
   });
+
+  // 타겟의 commentsLength 감소시키기
+  if (comment.targetCategory === TARGET_CATEGORY.IDOLS) {
+    const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, comment.targetId!);
+    await updateDoc(parentRef, {
+      commentsLength: increment(-1),
+    });
+  }
 };
 
 /** 진짜 삭제, 언제 쓸지는 모르겠음 */
-// export const deleteComment = async (commentId: string, authorId: string) => {
+// export const deleteComment = async (comment: Comment, authorId: string) => {
 //   const uid = auth.currentUser?.uid;
 //   if (uid !== authorId) return; // TODO: 서버로 기능을 넘겨야함
-//   await deleteDoc(doc(db, COLLECTION.COMMENTS, commentId));
+//   await deleteDoc(doc(db, COLLECTION.COMMENTS, comment.id));
 // };
 
 // 아래는 배치 업데이트용
@@ -215,5 +237,82 @@ export const markDeleteComment = async (commentId: string, authorId: string) => 
 //         deletedAt: new Date(0),
 //       });
 //     }
+//   });
+// };
+
+// 2. comments/idols 중 deleted 아닌것, 시스템 아닌것 전부 돌며 commentsLength 올리기
+// export const batchUpdateComments = async () => {
+//   const snapshot = await getDocs(
+//     query(
+//       collection(db, COLLECTION.COMMENTS),
+//       where('targetCategory', '==', TARGET_CATEGORY.IDOLS),
+//       where('deletedAt', '==', new Date(0)),
+//       where('authorId', '!=', 'fXruvSpnIcMp20gi6a6HhOdihli1'),
+//     ),
+//   );
+
+//   snapshot.docs.forEach((item) => {
+//     const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, item.data().targetId);
+//     updateDoc(parentRef, {
+//       commentsLength: increment(1),
+//     });
+//   });
+// };
+
+// 3. comment 다 돌며 commentNoInCategory 0으로 초기화
+// export const batchUpdateComments = async () => {
+//   const q = query(collection(db, COLLECTION.COMMENTS));
+//   const snapshot = await getDocs(q);
+
+//   snapshot.docs.forEach((commentDoc) => {
+//     updateDoc(commentDoc.ref, {
+//       commentNoInCategory: 0,
+//     });
+//   });
+// };
+
+// 4. 카테고리별 comment 중 system 아닌것 다 createdAt으로 정렬하고, 돌며 commentNoInCategory 올리기
+// export const batchUpdateComments = async () => {
+//   const snapshot = await getDocs(
+//     query(
+//       collection(db, COLLECTION.COMMENTS),
+//       where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK),
+//       where('createdAt', '>', new Date(0)),
+//       orderBy('createdAt', 'asc'), // inequality 오더는 항상 맨 위에 와야함
+//     ),
+//   );
+
+//   const humanComments = snapshot.docs.filter((commentDoc) => {
+//     return commentDoc.data().authorId !== 'fXruvSpnIcMp20gi6a6HhOdihli1';
+//   });
+
+//   let counter = 1;
+//   humanComments.forEach((commentDoc) => {
+//     updateDoc(commentDoc.ref, {
+//       commentNoInCategory: counter,
+//     });
+//     counter += 1;
+//   });
+// };
+// export const batchUpdateComments = async () => {
+//   const snapshot = await getDocs(
+//     query(
+//       collection(db, COLLECTION.COMMENTS),
+//       where('targetCategory', '==', TARGET_CATEGORY.IDOLS),
+//       where('createdAt', '>', new Date(0)),
+//       orderBy('createdAt', 'asc'),
+//     ),
+//   );
+
+//   const humanComments = snapshot.docs.filter((commentDoc) => {
+//     return commentDoc.data().authorId !== 'fXruvSpnIcMp20gi6a6HhOdihli1';
+//   });
+
+//   let counter = 1;
+//   humanComments.forEach((commentDoc) => {
+//     updateDoc(commentDoc.ref, {
+//       commentNoInCategory: counter,
+//     });
+//     counter += 1;
 //   });
 // };

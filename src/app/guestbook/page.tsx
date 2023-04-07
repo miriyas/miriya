@@ -1,4 +1,5 @@
 import GuestBook from '@/containers/guestbook';
+// import { batchUpdateIdols } from '@/services/idols';
 // import { batchUpdateComments } from '@/services/comments';
 // import { batchUpdateCommentLengthOfTarget } from '@/services/comments';
 // import { batchUpdateCommentNoInCategory } from '@/services/comments';
@@ -16,10 +17,19 @@ const GuestBookPage = async () => {
   const total = gaData[0].metricValues.map((v) => Number(v.value));
   const today = gaData[1].metricValues.map((v) => Number(v.value));
 
-  const commitsRaw = await fetch('https://api.github.com/repos/miriyas/miriya/commits', {
+  const commitsData = await fetch('https://api.github.com/repos/miriyas/miriya/commits', {
     next: { revalidate: 60 * 10 }, // 10분 캐시
-  });
-  const commitsData = await commitsRaw.json();
+  })
+    .then((res) => {
+      if (!res.ok) {
+        return Promise.reject();
+      }
+      return res.json();
+    })
+    .catch(() => {
+      return [];
+    });
+
   // const recentComments = await getRecentGuestComments(4);
 
   // batchUpdateCommentNoInCategory(TARGET_CATEGORY.GUESTBOOK);
@@ -27,6 +37,8 @@ const GuestBookPage = async () => {
   // batchUpdateCommentLengthOfTarget();
 
   // batchUpdateComments();
+
+  // batchUpdateIdols();
 
   return (
     <GuestBook

@@ -23,7 +23,7 @@ const CommentItem = ({ comment }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
-    markDeleteComment(e.currentTarget.dataset.id!, e.currentTarget.dataset.authorId!);
+    markDeleteComment(comment, e.currentTarget.dataset.authorId!);
   };
 
   const deleted = comment.deletedAt.seconds > 0;
