@@ -26,7 +26,9 @@ const CommentItem = ({ comment }: Props) => {
     markDeleteComment(e.currentTarget.dataset.id!, e.currentTarget.dataset.authorId!);
   };
 
-  if (comment.deletedAt) return <li className={cx(styles.commentItem, styles.deleted)}>삭제된 댓글</li>;
+  const deleted = comment.deletedAt.seconds > 0;
+
+  if (deleted) return null;
 
   return (
     <li className={styles.commentItem}>
@@ -52,7 +54,7 @@ const CommentItem = ({ comment }: Props) => {
                   <button type='button' onClick={onClickEdit}>
                     수정
                   </button>
-                  {!comment.deletedAt && (
+                  {!deleted && (
                     <button
                       type='button'
                       onClick={onClickDelete}

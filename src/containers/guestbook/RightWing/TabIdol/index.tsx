@@ -35,8 +35,6 @@ const TabIdol = () => {
             <p className={styles.createdAt}>작성일</p>
           </li>
           {comments.map((comment) => {
-            if (comment.deletedAt) return null;
-
             return (
               <li key={comment.id}>
                 <p className={styles.no}>{comment.commentNoInCategory}</p>

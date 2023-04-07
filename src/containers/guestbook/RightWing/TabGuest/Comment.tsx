@@ -41,22 +41,29 @@ const CommentItem = ({ comment }: Props) => {
     });
   };
 
+  const deleted = comment.deletedAt.seconds > 0;
+
   if (!isAdmin && comment.hidden && !isMine(comment.authorId)) return null;
-  if (!isAdmin && comment.deletedAt) return null;
+  if (!isAdmin && deleted) return null;
 
   return (
-    <li className={cx(styles.commentItem, { [styles.deleted]: comment.deletedAt, [styles.hidden]: comment.hidden })}>
+    <li
+      className={cx(styles.commentItem, {
+        [styles.deleted]: deleted,
+        [styles.hidden]: comment.hidden,
+      })}
+    >
       <div className={styles.upper}>
         <div className={styles.leftWing}>
           <p className={styles.number}>No.{comment.commentNoInCategory}</p>
           <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
             {comment.author.nickname}
           </p>
-          {comment.deletedAt?.seconds && <time>({getTimeDiffText(comment.deletedAt.seconds, true)} 삭제됨)</time>}
-          {!comment.deletedAt && comment.updatedAt?.seconds && (
+          {deleted && <time>({getTimeDiffText(comment.deletedAt.seconds, true)} 삭제됨)</time>}
+          {!deleted && comment.updatedAt?.seconds && (
             <time>({getTimeDiffText(comment.updatedAt.seconds, true)} 수정됨)</time>
           )}
-          {!comment.deletedAt && !comment.updatedAt && comment.createdAt?.seconds && (
+          {!deleted && !comment.updatedAt && comment.createdAt?.seconds && (
             <time>({getTimeDiffText(comment.createdAt.seconds, true)})</time>
           )}
         </div>
@@ -74,7 +81,7 @@ const CommentItem = ({ comment }: Props) => {
                 비밀로하기
               </button>
             )}
-            {!comment.deletedAt && (
+            {!deleted && (
               <button type='button' onClick={onClickDelete} data-id={comment.id} data-author-id={comment.authorId}>
                 삭제
               </button>

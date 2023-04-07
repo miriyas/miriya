@@ -31,7 +31,7 @@ export interface WithAuthorAndTS {
     nicknameIsFake?: boolean;
     profileUrl?: string;
   };
-  createdAt?: FbTimeStamp;
-  updatedAt?: FbTimeStamp;
-  deletedAt?: FbTimeStamp;
+  createdAt: FbTimeStamp;
+  updatedAt: FbTimeStamp;
+  deletedAt: FbTimeStamp;
 }

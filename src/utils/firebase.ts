@@ -23,3 +23,8 @@ export const PROVIDERS = {
   facebook: new FacebookAuthProvider(),
   github: new GithubAuthProvider(),
 };
+
+export const initialTs = {
+  seconds: 0,
+  nanoseconds: 0,
+};

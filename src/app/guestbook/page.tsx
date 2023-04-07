@@ -1,4 +1,5 @@
 import GuestBook from '@/containers/guestbook';
+// import { batchUpdateComments } from '@/services/comments';
 // import { batchUpdateCommentLengthOfTarget } from '@/services/comments';
 // import { batchUpdateCommentNoInCategory } from '@/services/comments';
 // import { TARGET_CATEGORY } from '@/types/comments.d';
@@ -24,6 +25,9 @@ const GuestBookPage = async () => {
   // batchUpdateCommentNoInCategory(TARGET_CATEGORY.GUESTBOOK);
 
   // batchUpdateCommentLengthOfTarget();
+
+  // batchUpdateComments();
+
   return (
     <GuestBook
       counterData={{
