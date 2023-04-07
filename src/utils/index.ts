@@ -1,3 +1,5 @@
+import { User } from 'firebase/auth';
+
 /** 숫자를 입력받아 갯수만큼 아이템을 가진 어레이 리턴 */
 export const getNumberArr = (length: number): number[] => {
   return [...Array(length).keys()];
@@ -13,4 +15,26 @@ export const shrinkNumber = (value: number | string) => {
     return `${parseInt(String(value / 1000), 10).toString()}K`;
   }
   return value;
+};
+
+export const getAuthorData = (user: User) => {
+  return {
+    authorId: user.uid,
+    author: {
+      nickname: user.displayName || `${user.email?.substring(0, 4)}**` || user.uid.substring(0, 8),
+      nicknameIsFake: !user.displayName, // displayName이 없을 경우
+      profileUrl: user.photoURL ?? '',
+    },
+  };
+};
+
+export const getSystemAuthor = () => {
+  return {
+    authorId: 'fXruvSpnIcMp20gi6a6HhOdihli1',
+    author: {
+      nickname: 'SYSTEM',
+      nicknameIsFake: true,
+      profileUrl: 'https://miriya.vercel.app/android-chrome-192x192.png',
+    },
+  };
 };

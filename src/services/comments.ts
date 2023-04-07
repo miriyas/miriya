@@ -22,10 +22,10 @@ import { SetStateAction } from 'jotai';
 
 import { auth, db } from '@/utils/firebase';
 import { Comment, NewComment, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
+import { IDOL_COLLECTION_NAMES } from '@/types/idols.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/auth';
 import { getTSBefore } from '@/utils/date';
-import { IDOL_COLLECTION_NAMES } from '@/services/idols';
 
 const getCommentsSnapshot = async (category: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) => {
   const q = query(

@@ -14,3 +14,24 @@ export const COLLECTION = {
 } as const;
 
 export type CollectionTypes = ValueOf<typeof COLLECTION>;
+
+export interface WithAuthor {
+  authorId: string;
+  author: {
+    nickname?: string;
+    nicknameIsFake?: boolean;
+    profileUrl?: string;
+  };
+}
+
+export interface WithAuthorAndTS {
+  authorId: string;
+  author: {
+    nickname?: string;
+    nicknameIsFake?: boolean;
+    profileUrl?: string;
+  };
+  createdAt?: FbTimeStamp;
+  updatedAt?: FbTimeStamp;
+  deletedAt?: FbTimeStamp;
+}

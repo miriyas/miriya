@@ -1,0 +1,86 @@
+@use 'src/styles/mixins' as m;
+
+.editor {
+  width: 100%;
+  padding: 0 14px;
+
+  .title {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    margin: 20px 0 8px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  label {
+    @include m.flexbox;
+    position: relative;
+    width: 100%;
+
+    > span {
+      flex: 1;
+      font-size: 12px;
+    }
+
+    + label {
+      margin-top: 8px;
+    }
+
+    &.error {
+      input,
+      select {
+        border-color: var(--color-red);
+      }
+    }
+
+    &.changed {
+      input,
+      select {
+        border-color: var(--color-orange);
+      }
+    }
+
+    input,
+    select {
+      width: 200px;
+      height: 28px;
+      padding: 0 8px;
+      font-size: 12px;
+      line-height: 28px;
+      border: 1px solid var(--color-gray-c);
+      border-radius: 4px;
+
+      &::placeholder {
+        color: var(--color-gray-a);
+      }
+
+      &:disabled {
+        background-color: var(--color-gray-e);
+      }
+    }
+  }
+
+  .buttonWrapper {
+    @include m.flexbox;
+    margin-top: 8px;
+
+    button {
+      flex: 1;
+      height: 28px;
+      border-radius: 4px;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
+    button[type='submit'] {
+      color: var(--color-white);
+      background-color: var(--color-blue);
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import { createGuestCommentDoc } from '@/services/guestbook';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
+import { getAuthorData } from '@/utils';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
@@ -23,12 +24,7 @@ const TabGuest = () => {
     if (!user) return;
 
     createGuestCommentDoc({
-      authorId: user.uid,
-      author: {
-        nickname: user.displayName || `${user.email?.substring(0, 4)}**` || user.uid.substring(0, 8),
-        nicknameIsFake: !user.displayName, // displayName이 없을 경우
-        profileUrl: user.photoURL ?? '',
-      },
+      ...getAuthorData(user),
       body,
       hidden,
       targetCategory: TARGET_CATEGORY.GUESTBOOK,

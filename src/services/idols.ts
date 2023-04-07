@@ -1,13 +1,12 @@
-import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
+import { User } from 'firebase/auth';
 
 import { db } from '@/utils/firebase';
-import { FBIdolType, IdolType, YearDescType } from '@/types/idols.d';
+import { FBIdolType, IdolType, IDOL_COLLECTION_NAMES, YearDescType } from '@/types/idols.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
-
-export const IDOL_COLLECTION_NAMES = {
-  IDOLS: 'idols',
-  IDOL_YEARS: 'idolYears',
-} as const;
+import { createCommentDoc } from '@/services/comments';
+import { getSystemAuthor } from '@/utils';
 
 export const getIdols = async (): Promise<FBIdolType[]> => {
   const idolsCol = collection(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS);
@@ -20,6 +19,25 @@ export const getIdolYears = async (): Promise<YearDescType[]> => {
   const idolYearsSnapshot = await getDocs(idolYearsCol);
   const idolYearsList = idolYearsSnapshot.docs.map((item) => item.data() as YearDescType);
   return idolYearsList;
+};
+
+export const editIdolDoc = async (newIdol: FBIdolType, changed: string[], user: User) => {
+  const ref = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, newIdol.name);
+  updateDoc(ref, {
+    category: newIdol.category,
+    debutYear: newIdol.debutYear,
+    desc: newIdol.desc,
+    endYear: newIdol.endYear,
+    youtube: newIdol.youtube,
+    updatedAt: serverTimestamp(),
+  }).then(() => {
+    createCommentDoc({
+      ...getSystemAuthor(),
+      body: `${changed.join(', ')} 항목을 ${user.displayName} 님이 수정했습니다.`,
+      targetCategory: TARGET_CATEGORY.IDOLS,
+      targetId: newIdol.name,
+    });
+  });
 };
 
 // 아래는 배치 업데이트용

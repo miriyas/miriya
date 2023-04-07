@@ -1,6 +1,9 @@
-import { FBIdolType } from '@/types/idols.d';
+import { useSetAtom } from 'jotai';
 
-import { IconSound, IconComment } from 'public/svgs';
+import { FBIdolType } from '@/types/idols.d';
+import { editIdolAtom } from '@/containers/idols/states';
+
+import { IconSound, IconComment, IconEdit } from 'public/svgs';
 import Profile from './Profile';
 import Youtube from './Youtube';
 import styles from './index.module.scss';
@@ -15,11 +18,20 @@ interface Props {
 
 const Upper = ({ idol, opened, i, yearLength, onClickOpen }: Props) => {
   const { commentsLength, youtube } = idol;
-
+  const setEditIdol = useSetAtom(editIdolAtom);
   const hasYoutube = youtube && youtube.url !== '';
+
+  const onClickEdit = () => {
+    setEditIdol(idol.name);
+  };
 
   return (
     <div className={styles.upper}>
+      {opened && (
+        <button type='button' className={styles.toEdit} onClick={onClickEdit}>
+          <IconEdit />
+        </button>
+      )}
       {!opened && hasYoutube && <IconSound className={styles.withSound} />}
       {!opened && commentsLength > 0 && (
         <div className={styles.withComment}>

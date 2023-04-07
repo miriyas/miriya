@@ -1,6 +1,6 @@
 @use 'src/styles/mixins' as m;
 
-.idol {
+.idolCard {
   @include m.flexbox;
   @include m.commonBoxShadow;
   flex-direction: column;

@@ -3,6 +3,7 @@ import cx from 'clsx';
 
 import { createCommentDoc } from '@/services/comments';
 import { TARGET_CATEGORY } from '@/types/comments.d';
+import { getAuthorData } from '@/utils';
 import useAuth from '@/hooks/useAuth';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
@@ -23,12 +24,7 @@ const CommentNewForm = ({ idolId }: Props) => {
     if (!user) return;
 
     createCommentDoc({
-      authorId: user.uid,
-      author: {
-        nickname: user.displayName || `${user.email?.substring(0, 4)}**` || user.uid.substring(0, 8),
-        nicknameIsFake: !user.displayName, // displayName이 없을 경우
-        profileUrl: user.photoURL ?? '',
-      },
+      ...getAuthorData(user),
       body,
       targetCategory: TARGET_CATEGORY.IDOLS,
       targetId: idolId,
