@@ -26,16 +26,16 @@ export const getTimeDiff = (_date?: dayjs.ConfigType) => {
 
 export const getTimeDiffText = (_date?: dayjs.ConfigType, preserveDay?: boolean) => {
   const diff = getTimeDiff(_date);
-
+  const date = typeof _date === 'number' ? dayjs.unix(_date) : dayjs(_date);
   switch (true) {
     case diff.year > 0:
-      return preserveDay ? dayjs(_date).format('YYYY.MM.DD') : `${diff.year}년 전`;
+      return preserveDay ? dayjs(date).format('YYYY.MM.DD') : `${diff.year}년 전`;
     case diff.month > 0:
-      return preserveDay ? dayjs(_date).format('YYYY.MM.DD') : `${diff.month}달 전`;
+      return preserveDay ? dayjs(date).format('YYYY.MM.DD') : `${diff.month}달 전`;
     case diff.week > 0:
-      return preserveDay ? dayjs(_date).format('YYYY.MM.DD') : `${diff.week}주 전`;
+      return preserveDay ? dayjs(date).format('YYYY.MM.DD') : `${diff.week}주 전`;
     case diff.day > 0:
-      return preserveDay ? dayjs(_date).format('YYYY.MM.DD') : `${diff.day}일 전`;
+      return preserveDay ? dayjs(date).format('YYYY.MM.DD') : `${diff.day}일 전`;
     case diff.hour > 0:
       return `${diff.hour}시간 전`;
     case diff.minute > 0:
