@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getRecentComments } from '@/services/firebase/comments';
 
-import styles from './CommentsRecent.module.scss';
+import styles from './LeftRecent.module.scss';
 
 const CategoryMap = {
   [TARGET_CATEGORY.GUESTBOOK]: '방명록',
@@ -15,7 +15,7 @@ const CategoryMap = {
   [TARGET_CATEGORY.PENTAX]: '펜탁스',
 };
 
-const CommentsRecent = () => {
+const LeftRecent = () => {
   const { data: recentComments } = useQuery(['getRecentGuestComments'], () => getRecentComments(4).then((res) => res), {
     suspense: true,
     cacheTime: 6 * 1000,
@@ -23,7 +23,7 @@ const CommentsRecent = () => {
   });
 
   return (
-    <ul className={styles.commentsRecent}>
+    <ul className={styles.leftRecent}>
       {recentComments?.map((recent, i) => {
         const key = `recent-${i}`;
         return (
@@ -41,4 +41,4 @@ const CommentsRecent = () => {
   );
 };
 
-export default CommentsRecent;
+export default LeftRecent;

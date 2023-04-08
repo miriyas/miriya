@@ -9,14 +9,14 @@ import { MINIHOME_TAB } from '@/types/minihome.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getCommentsCountInTarget } from '@/services/firebase/comments';
 
-import styles from './CommentsCategory.module.scss';
+import styles from './RightCategory.module.scss';
 
 const INITIAL_COUNT = {
   today: 0,
   total: 0,
 };
 
-const CommentsCategory = () => {
+const RightCategory = () => {
   const [guestbookCount, setGuestbookCount] = useState(INITIAL_COUNT);
   const [idolCount, setIdolCount] = useState(INITIAL_COUNT);
   const [cameraCount, setCemeraCount] = useState(INITIAL_COUNT);
@@ -30,7 +30,7 @@ const CommentsCategory = () => {
   });
 
   return (
-    <table className={styles.commentsCategory}>
+    <table className={styles.rightCategory}>
       <tbody>
         <tr>
           <td>
@@ -95,4 +95,4 @@ const CommentsCategory = () => {
   );
 };
 
-export default CommentsCategory;
+export default RightCategory;

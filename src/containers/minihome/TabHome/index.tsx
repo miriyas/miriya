@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 
 import { FullCommitData } from '@/types/github.d';
 
-import CommentsRecent from './CommentsRecent';
-import CommentsCategory from './CommentsCategory';
+import LeftRecent from './Top/LeftRecent';
+import RightCategory from './Top/RightCategory';
 import Commits from './Commits';
 import rightWingStyles from '@/app/minihome/layout.module.scss';
 import styles from './index.module.scss';
@@ -27,9 +27,9 @@ const TabHome = ({ commitsData }: Props) => {
             </div>
           }
         >
-          <CommentsRecent />
+          <LeftRecent />
         </Suspense>
-        <CommentsCategory />
+        <RightCategory />
       </div>
       <p className={rightWingStyles.menu}>미니룸</p>
       <div className={styles.miniRoom}>
