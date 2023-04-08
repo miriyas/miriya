@@ -3,7 +3,7 @@ import cx from 'clsx';
 
 import { IdolType } from '@/types/idols.d';
 import { TARGET_CATEGORY, Comment } from '@/types/comments.d';
-import { getCommentsInTargetRealtime } from '@/services/comments';
+import { getCommentsInTargetRealtime } from '@/services/firebase/comments';
 
 import ItemComment from './ItemComment';
 import itemStyles from './Item.module.scss';

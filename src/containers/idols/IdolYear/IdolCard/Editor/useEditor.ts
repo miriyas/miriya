@@ -8,7 +8,7 @@ import useAuth from '@/hooks/useAuth';
 import { FBIdolType } from '@/types/idols.d';
 import { UserWithRole } from '@/types/auth.d';
 import { IdolSchema, idolValidator } from '@/utils/validator';
-import { editIdolDoc } from '@/services/idols';
+import { editIdolDoc } from '@/services/firebase/idols';
 import { editIdolAtom } from '@/containers/idols/states';
 
 export const currentUserAtom = atom<User | null>(null);

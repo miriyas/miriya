@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { groupBy } from 'lodash';
 
 import { YearDescType, IsotopesType, FBIdolType } from '@/types/idols.d';
-import { getIdolsRealtime } from '@/services/idols';
+import { getIdolsRealtime } from '@/services/firebase/idols';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';

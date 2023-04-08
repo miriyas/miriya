@@ -1,0 +1,55 @@
+@use 'src/styles/mixins' as m;
+
+.commentsRecent {
+  padding-top: 2px;
+  border-top: 1px solid var(--color-gray-c);
+
+  li {
+    overflow: hidden;
+
+    a {
+      @include m.flexbox(start, center);
+      width: 100%;
+      height: 16px;
+      overflow: hidden;
+      color: initial;
+
+      .commentBadge {
+        @include m.flexbox;
+        flex-shrink: 0;
+        width: 44px;
+        height: 14px;
+        margin-right: 4px;
+        font-size: 10px;
+        color: var(--color-white);
+        text-align: center;
+        white-space: nowrap;
+        border-radius: 2px;
+
+        &.idols {
+          background-color: var(--color-cy-4);
+        }
+
+        &.camera {
+          background-color: var(--color-cy-2);
+        }
+
+        &.pentax {
+          background-color: var(--color-cy-3);
+        }
+
+        &.guestbook {
+          background-color: var(--color-cy-1);
+        }
+      }
+
+      .commentBody {
+        overflow: hidden;
+        font-size: 12px;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        white-space: nowrap;
+      }
+    }
+  }
+}

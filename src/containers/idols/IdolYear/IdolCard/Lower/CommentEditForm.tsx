@@ -3,7 +3,7 @@ import cx from 'clsx';
 
 import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
-import { editCommentDoc } from '@/services/comments';
+import { editCommentDoc } from '@/services/firebase/comments';
 
 import styles from './Item.module.scss';
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';

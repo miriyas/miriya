@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Idols from '@/containers/idols';
-import { getIdolYears } from '@/services/idols';
+import { getIdolYears } from '@/services/firebase/idols';
 
 const title = 'History of Idols';
 const description = '96년부터 2019년까지 활동한 아이돌들';

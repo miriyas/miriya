@@ -1,7 +1,7 @@
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import cx from 'clsx';
 
-import { createCommentDoc } from '@/services/comments';
+import { createCommentDoc } from '@/services/firebase/comments';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getAuthorData } from '@/utils';
 import useAuth from '@/hooks/useAuth';

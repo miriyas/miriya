@@ -1,0 +1,109 @@
+@use 'src/styles/mixins' as m;
+
+.minihome {
+  height: 680px;
+  background-color: var(--color-minihome-bg);
+  background-image: repeating-linear-gradient(90deg, var(--color-minihome-bg) 0 3px, transparent 1px 100%),
+    repeating-linear-gradient(var(--color-gray-8) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(var(--color-minihome-bg) 0 3px, transparent 1px 100%),
+    repeating-linear-gradient(90deg, var(--color-gray-8) 0 1px, transparent 1px 100%);
+  background-position: 0 0, 0 0, 0 0, -1px 0;
+  background-size: var(--x-minihome-grid-overlay) var(--x-minihome-grid-overlay),
+    var(--w-minihome-grid) var(--h-minihome-grid), var(--x-minihome-grid-overlay) var(--x-minihome-grid-overlay),
+    var(--w-minihome-grid) var(--h-minihome-grid);
+
+  @include m.mobileOnly {
+    display: block;
+    overflow: auto;
+  }
+
+  .centering {
+    position: relative;
+    width: 800px;
+    height: var(--h-cy);
+    padding: 28px;
+    background-color: var(--color-minihome-bg2);
+    border: 1px solid var(--color-minihome-bg2-border);
+    border-radius: 8px;
+
+    &::after {
+      @include m.absolute(16px 16px 16px 16px);
+      pointer-events: none;
+      content: '';
+      border: 1px dashed var(--color-white);
+      border-radius: 4px;
+    }
+  }
+
+  .outer {
+    @include m.flexbox;
+    flex-direction: column;
+    height: 100%;
+    padding: 8px;
+    background-color: var(--color-gray-e);
+    border: 1px solid var(--color-gray-c);
+    border-radius: 4px;
+  }
+
+  .inner {
+    @include m.flexbox(center, start);
+    flex: 1;
+    gap: 4px;
+    width: 100%;
+
+    .ring {
+      @include m.flexbox(around, center);
+      @include m.absolute(81px auto 0 259px);
+      flex-direction: column;
+      width: 20px;
+      height: 480px;
+
+      > div {
+        @include m.flexbox(between, start);
+        flex-direction: column;
+        width: 100%;
+        height: 50px;
+
+        > div {
+          flex-direction: column;
+          width: 100%;
+          height: 8px;
+          background-image: linear-gradient(
+            90deg,
+            var(--color-gray-8) 0%,
+            var(--color-gray-8) 20%,
+            var(--color-white) 80%,
+            var(--color-white) 100%
+          );
+          border: 1px solid var(--color-gray-8);
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .rightWing {
+      flex: 1;
+      width: 490px;
+      height: calc(var(--h-cy) - 120px);
+      padding: 14px;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-gray-8);
+      border-radius: 8px;
+
+      > div {
+        @include m.cyworldStyleScrollBar;
+        height: 100%;
+        padding-right: 14px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .menu {
+        margin-bottom: 2px;
+        font-family: var(--font-dunggeunmo);
+        font-size: 12px;
+        color: var(--color-minihome-bg2);
+      }
+    }
+  }
+}

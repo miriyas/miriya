@@ -3,7 +3,7 @@ import cx from 'clsx';
 
 import { IdolType } from '@/types/idols.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
-import { getHistoriesInTargetRealtime } from '@/services/histories';
+import { getHistoriesInTargetRealtime } from '@/services/firebase/histories';
 import { History } from '@/types/histories.d';
 import { getTimeDiffText } from '@/utils/date';
 

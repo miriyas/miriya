@@ -4,7 +4,7 @@ import cx from 'clsx';
 import useAuth from '@/hooks/useAuth';
 import { Comment } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
-import { markDeleteComment } from '@/services/comments';
+import { markDeleteComment } from '@/services/firebase/comments';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import CommentEditForm from './CommentEditForm';
