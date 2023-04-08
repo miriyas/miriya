@@ -2,15 +2,14 @@
 
 import React, { MouseEventHandler } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import cx from 'clsx';
-import { useRafState } from 'react-use';
 
 import { useGA } from '@/hooks/useGA';
 import { COMMON } from '@/constants/ga';
 
 import { IconGithub } from '../../../../public/svgs';
 import styles from './Header.module.scss';
+import NavLink from '@/components/NavLink';
 
 const ROUTES = [
   {
@@ -37,13 +36,6 @@ const ROUTES = [
 
 const Header = () => {
   const { gaEvent } = useGA();
-  const pathname = usePathname();
-
-  const [current, setCurrent] = useRafState(pathname); // NOTE: 로딩에 의한 탭 전환 딜레이 줄이기 위해 Request Animation Frame 사용
-
-  const onClickLink: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    setCurrent(e.currentTarget.pathname);
-  };
 
   const onClickGithub: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
@@ -55,15 +47,17 @@ const Header = () => {
     <header className={styles.appHeader}>
       <nav className={styles.mobileNav}>
         <div className={styles.upper}>
-          <Link href={ROUTES[0].href} className={styles.home} onClick={onClickLink}>
+          <Link href={ROUTES[0].href} className={styles.home}>
             <span className={styles.mobileOnly}>{ROUTES[0].mobileTitle}</span>
           </Link>
-          <Link
-            href='/minihome/home'
-            className={cx(styles.minihome, { [styles.active]: current === '/minihome/home' })}
+          <NavLink
+            href='/minihome'
+            hrefs={['/minihome/home', '/minihome']}
+            className={styles.minihome}
+            activeClassName={styles.active}
           >
             미니홈피
-          </Link>
+          </NavLink>
         </div>
         <details>
           <summary>
@@ -77,9 +71,9 @@ const Header = () => {
                 const { href, mobileTitle } = route;
                 return (
                   <li key={href}>
-                    <Link href={href} className={cx({ [styles.active]: current === href })} onClick={onClickLink}>
+                    <NavLink href={href} activeClassName={styles.active}>
                       {mobileTitle}
-                    </Link>
+                    </NavLink>
                   </li>
                 );
               })}
@@ -105,24 +99,22 @@ const Header = () => {
             const { href, title } = route;
             return (
               <li key={href}>
-                <Link
-                  href={href}
-                  className={cx({ [styles.active]: current === href, [styles.home]: i === 0 })}
-                  onClick={onClickLink}
-                >
+                <NavLink href={href} className={cx({ [styles.home]: i === 0 })} activeClassName={styles.active}>
                   {title}
-                </Link>
+                </NavLink>
               </li>
             );
           })}
         </ul>
         <div className={styles.outerLinks}>
-          <Link
-            href='/minihome/home'
-            className={cx(styles.minihome, { [styles.active]: current === '/minihome/home' })}
+          <NavLink
+            href='/minihome'
+            hrefs={['/minihome/home', '/minihome']}
+            className={styles.minihome}
+            activeClassName={styles.active}
           >
             미니홈피
-          </Link>
+          </NavLink>
           <a
             className={styles.github}
             onClick={onClickGithub}

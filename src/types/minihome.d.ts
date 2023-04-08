@@ -1,33 +1,14 @@
-export const MINIHOME_TAB = {
-  HOME: 'HOME',
-  IDOLS: 'IDOLS',
-  CAMERA: 'CAMERA',
-  PENTAX: 'PENTAX',
-  GUESTBOOK: 'GUESTBOOK',
+export const RECENT_CATEGORIES = {
+  IDOLS: '아이돌',
+  CAMERA: '카메라',
+  PENTAX: '펜탁스',
+  GUESTBOOK: '방명록',
 } as const;
 
-export const TABS = [
-  {
-    key: MINIHOME_TAB.HOME,
-    label: '홈',
-  },
-  {
-    key: MINIHOME_TAB.IDOLS,
-    label: '아이돌',
-  },
-  {
-    key: MINIHOME_TAB.CAMERA,
-    label: '카메라',
-  },
-  {
-    key: MINIHOME_TAB.PENTAX,
-    label: '펜탁스',
-  },
-  {
-    key: MINIHOME_TAB.GUESTBOOK,
-    label: '방명록',
-  },
-];
+export const MINIHOME_TAB = {
+  HOME: '홈',
+  ...RECENT_CATEGORIES,
+} as const;
 
 export interface GADataRow {
   dimensionValues: {

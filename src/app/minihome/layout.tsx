@@ -16,7 +16,7 @@ interface Props {
 
 const title = '미니홈피';
 const description = '싸이월드 스타일로 재구성한 미니홈피';
-const url = 'https://miriya.vercel.app/minihome';
+const url = 'https://miriya.vercel.app/minihome/home';
 const imageUrl = 'https://miriya.vercel.app/images/minihome/og.jpg';
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 'use client';
 
-import { TABS } from '@/types/minihome.d';
+import { MINIHOME_TAB } from '@/types/minihome.d';
 
 import styles from './RightNav.module.scss';
 import NavLink from '@/components/NavLink';
@@ -9,11 +9,15 @@ const RightNav = () => {
   return (
     <nav className={styles.rightNav}>
       <ul>
-        {TABS.map((t) => {
+        {(Object.keys(MINIHOME_TAB) as Array<keyof typeof MINIHOME_TAB>).map((key, i) => {
           return (
-            <li key={t.key}>
-              <NavLink href={`/minihome/${t.key.toLowerCase()}`} activeClassName={styles.current}>
-                {t.label}
+            <li key={key}>
+              <NavLink
+                href={`/minihome/${key.toLowerCase()}`}
+                hrefs={i === 0 ? ['/minihome/home', '/minihome'] : undefined}
+                activeClassName={styles.current}
+              >
+                {MINIHOME_TAB[key]}
               </NavLink>
             </li>
           );

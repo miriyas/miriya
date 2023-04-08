@@ -1,97 +1,61 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { useMount } from 'react-use';
 import Link from 'next/link';
+import { useQueries, UseQueryResult } from '@tanstack/react-query';
 
-import { MINIHOME_TAB } from '@/types/minihome.d';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { RECENT_CATEGORIES } from '@/types/minihome.d';
 import { getCommentsCountInTarget } from '@/services/firebase/comments';
 
 import styles from './RightCategory.module.scss';
 
-const INITIAL_COUNT = {
+interface CounterData {
+  today: number;
+  total: number;
+}
+
+const INITIAL_COUNT: CounterData = {
   today: 0,
   total: 0,
 };
 
 const RightCategory = () => {
-  const [guestbookCount, setGuestbookCount] = useState(INITIAL_COUNT);
-  const [idolCount, setIdolCount] = useState(INITIAL_COUNT);
-  const [cameraCount, setCemeraCount] = useState(INITIAL_COUNT);
-  const [pentaxCount, setPentaxCount] = useState(INITIAL_COUNT);
-
-  useMount(async () => {
-    setGuestbookCount(await getCommentsCountInTarget(TARGET_CATEGORY.GUESTBOOK));
-    setIdolCount(await getCommentsCountInTarget(TARGET_CATEGORY.IDOLS));
-    setCemeraCount(await getCommentsCountInTarget(TARGET_CATEGORY.CAMERA));
-    setPentaxCount(await getCommentsCountInTarget(TARGET_CATEGORY.PENTAX));
+  const keys = Object.keys(RECENT_CATEGORIES) as Array<keyof typeof RECENT_CATEGORIES>;
+  const data = useQueries<UseQueryResult<CounterData, unknown>[]>({
+    queries: keys.map((tc) => ({
+      queryKey: ['getCommentsCountInTarget', tc],
+      queryFn: () => getCommentsCountInTarget(tc),
+      placeholderData: INITIAL_COUNT,
+    })),
   });
 
   return (
-    <table className={styles.rightCategory}>
-      <tbody>
-        <tr>
-          <td>
-            <Link href={`/minihome/${MINIHOME_TAB.GUESTBOOK.toLowerCase()}`}>
-              <p className={styles.category}>방명록</p>
+    <ul className={styles.rightCategory}>
+      {keys.map((key, i) => {
+        const count = data[i].data as CounterData;
+        return (
+          <li key={key}>
+            <Link href={`/minihome/${key.toLowerCase()}`}>
+              <p className={styles.category}>{RECENT_CATEGORIES[key]}</p>
               <p className={styles.count}>
-                {guestbookCount.today}/{guestbookCount.total}
-                {guestbookCount.today > 0 && (
+                {count.today}/{count.total}
+                {count.today > 0 && (
                   <Image src='/images/minihome/new.png' width={9} height={9} alt='' className={styles.new} />
                 )}
               </p>
             </Link>
-          </td>
-          <td>
-            <Link href={`/minihome/${MINIHOME_TAB.IDOLS.toLowerCase()}`}>
-              <p className={styles.category}>아이돌</p>
-              <p className={styles.count}>
-                {idolCount.today}/{idolCount.total}
-                {idolCount.today > 0 && (
-                  <Image src='/images/minihome/new.png' width={9} height={9} alt='' className={styles.new} />
-                )}
-              </p>
-            </Link>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <Link href={`/minihome/${MINIHOME_TAB.CAMERA.toLowerCase()}`}>
-              <p className={styles.category}>카메라</p>
-              <p className={styles.count}>
-                {cameraCount.today}/{cameraCount.total}
-                {cameraCount.today > 0 && (
-                  <Image src='/images/minihome/new.png' width={9} height={9} alt='' className={styles.new} />
-                )}
-              </p>
-            </Link>
-          </td>
-          <td>
-            <Link href={`/minihome/${MINIHOME_TAB.PENTAX.toLowerCase()}`}>
-              <p className={styles.category}>펜탁스</p>
-              <p className={styles.count}>
-                {pentaxCount.today}/{pentaxCount.total}
-                {pentaxCount.today > 0 && (
-                  <Image src='/images/minihome/new.png' width={9} height={9} alt='' className={styles.new} />
-                )}
-              </p>
-            </Link>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p className={styles.category} />
-            <p className={styles.count} />
-          </td>
-          <td>
-            <p className={styles.category} />
-            <p className={styles.count} />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </li>
+        );
+      })}
+      <li>
+        <p className={styles.category} />
+        <p className={styles.count} />
+      </li>
+      <li>
+        <p className={styles.category} />
+        <p className={styles.count} />
+      </li>
+    </ul>
   );
 };
 
