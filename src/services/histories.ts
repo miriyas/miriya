@@ -50,7 +50,7 @@ const getHistoriesSnapshot = async (category: TargetCategoryTypes, order: 'asc' 
 };
 
 /** 방명록 - 아이돌 등 해당 카테고리 전체 기록을 가져올때 */
-export const getComments = async (category: TargetCategoryTypes, limitCount: number) => {
+export const getHistories = async (category: TargetCategoryTypes, limitCount: number) => {
   const snapshot = await getHistoriesSnapshot(category, 'desc', limitCount);
   return snapshot.docs.map((item) => {
     return {

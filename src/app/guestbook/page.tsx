@@ -1,5 +1,5 @@
 import GuestBook from '@/containers/guestbook';
-import { batchUpdate } from '@/services/batch';
+// import { batchUpdate } from '@/services/batch';
 // import { TARGET_CATEGORY } from '@/types/comments.d';
 // import { getRecentGuestComments } from '@/services/guestbook';
 import { GADataRow } from '@/types/guestbook';
