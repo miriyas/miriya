@@ -1,6 +1,6 @@
 @use 'src/styles/mixins' as m;
 
-.commentList {
+.list {
   @include m.tinyScrollBar;
   flex: 1;
   width: 100%;

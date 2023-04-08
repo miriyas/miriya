@@ -14,6 +14,7 @@ import {
   orderBy,
   limit,
   increment,
+  Timestamp,
 } from 'firebase/firestore';
 import { Dispatch } from 'react';
 import { SetStateAction } from 'jotai';
@@ -24,32 +25,44 @@ import { IDOL_COLLECTION_NAMES } from '@/types/idols.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/auth';
 import { getTSBefore } from '@/utils/date';
-import { getSystemAuthor } from '@/utils';
 
 // Query ============================
+
+/** 모든 댓글을 삭제된걸 제외하고 정렬해서 불러옴 */
+const allCommentsQuery = (order: 'asc' | 'desc', limitCount: number) =>
+  query(
+    collection(db, COLLECTION.COMMENTS),
+    where('deletedAt', '==', new Timestamp(0, 0)),
+    orderBy('createdAt', order), // inequality 오더는 항상 맨 위에 와야함
+    limit(limitCount),
+  );
 
 /** 카테고리 내 모든 댓글을 삭제된걸 제외하고 정렬해서 불러옴 */
 const commentsQuery = (category: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) =>
   query(
     collection(db, COLLECTION.COMMENTS),
     where('targetCategory', '==', category),
+    where('deletedAt', '==', new Timestamp(0, 0)),
     orderBy('createdAt', order), // inequality 오더는 항상 맨 위에 와야함
-    orderBy('deletedAt'),
     limit(limitCount),
   );
 
-/** 카테고리 내 모든 댓글을 삭제된걸 제외하고 불러옴 */
+/** 카테고리 내 모든 댓글을 삭제된걸 제외하고 정렬 없이 불러옴 */
 const commentsCounterQuery = (category: TargetCategoryTypes) =>
-  query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', category), orderBy('deletedAt'));
+  query(
+    collection(db, COLLECTION.COMMENTS),
+    where('targetCategory', '==', category),
+    where('deletedAt', '==', new Timestamp(0, 0)),
+  );
 
 /** 카테고리 내 모든 댓글을 삭제된걸 제외하고 24시간내 작성된 것만 불러옴 */
 const commentsCounterTodayQuery = (category: TargetCategoryTypes) =>
   query(
     collection(db, COLLECTION.COMMENTS),
     where('targetCategory', '==', category),
+    where('deletedAt', '==', new Timestamp(0, 0)),
     where('createdAt', '>=', getTSBefore(1, 'day')),
     orderBy('createdAt', 'desc'), // inequality 필터는 항상 맨 위에 와야함
-    orderBy('deletedAt'),
   );
 
 /** 카테고리 내 타겟 내 모든 댓글을 삭제된걸 제외하고 정렬해서 불러옴 */
@@ -63,10 +76,17 @@ const commentsInTargetQuery = (
     collection(db, COLLECTION.COMMENTS),
     where('targetCategory', '==', category),
     where('targetId', '==', targetId),
-    orderBy('deletedAt'),
+    where('deletedAt', '==', new Timestamp(0, 0)),
     orderBy('createdAt', order),
     limit(limitCount),
   );
+
+export const getRecentComments = async (limitCount: number) => {
+  const snapshot = await getDocs(allCommentsQuery('desc', limitCount));
+  return snapshot.docs.map((item) => {
+    return item.data() as Comment;
+  });
+};
 
 const getCommentsSnapshot = async (category: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) => {
   const snapshot = await getDocs(commentsQuery(category, order, limitCount));
@@ -151,18 +171,6 @@ export const createCommentDoc = async (comment: NewComment) => {
   }
 };
 
-/** 댓글 갯수에 영향을 주지 않는 특수 공지 댓글 */
-export const createSystemCommentDoc = async (body: string, targetCategory: TargetCategoryTypes, targetId: string) => {
-  await addDoc(collection(db, COLLECTION.COMMENTS), {
-    ...getSystemAuthor(),
-    body,
-    targetCategory,
-    targetId,
-    createdAt: serverTimestamp(),
-    deletedAt: initialTs,
-  });
-};
-
 // Ref ============================
 const getCommentRef = (commentId: string) => {
   return doc(db, COLLECTION.COMMENTS, commentId);
@@ -201,118 +209,4 @@ export const markDeleteComment = async (comment: Comment, authorId: string) => {
 //   const uid = auth.currentUser?.uid;
 //   if (uid !== authorId) return; // TODO: 서버로 기능을 넘겨야함
 //   await deleteDoc(doc(db, COLLECTION.COMMENTS, comment.id));
-// };
-
-// 아래는 배치 업데이트용
-
-// export const batchUpdateCommentNoInCategory = async (category: TargetCategoryTypes) => {
-//   const list = await getCommentsSnapshot(category, 'asc', 999_999);
-//   let counter = 1;
-//   list.docs.forEach((commentDoc) => {
-//     updateDoc(commentDoc.ref, {
-//       commentNoInCategory: counter,
-//     });
-//     counter += 1;
-//   });
-// };
-
-// export const batchUpdateCommentLengthOfTarget = async () => {
-//   const list = await getCommentsSnapshot(TARGET_CATEGORY.IDOLS, 'asc', 10000);
-//   list.docs.forEach((commentDoc) => {
-//     const { targetId } = commentDoc.data();
-//     const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, targetId!);
-//     updateDoc(parentRef, {
-//       commentsLength: increment(1),
-//     });
-//   });
-// };
-
-// export const batchUpdateComments = async () => {
-//   const q = query(collection(db, COLLECTION.COMMENTS));
-//   const snapshot = await getDocs(q);
-
-//   snapshot.docs.forEach((commentDoc) => {
-//     if (!commentDoc.data().deletedAt) {
-//       updateDoc(commentDoc.ref, {
-//         deletedAt: new Date(0),
-//       });
-//     }
-//   });
-// };
-
-// 2. comments/idols 중 deleted 아닌것, 시스템 아닌것 전부 돌며 commentsLength 올리기
-// export const batchUpdateComments = async () => {
-//   const snapshot = await getDocs(
-//     query(
-//       collection(db, COLLECTION.COMMENTS),
-//       where('targetCategory', '==', TARGET_CATEGORY.IDOLS),
-//       where('deletedAt', '==', new Date(0)),
-//       where('authorId', '!=', 'fXruvSpnIcMp20gi6a6HhOdihli1'),
-//     ),
-//   );
-
-//   snapshot.docs.forEach((item) => {
-//     const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, item.data().targetId);
-//     updateDoc(parentRef, {
-//       commentsLength: increment(1),
-//     });
-//   });
-// };
-
-// 3. comment 다 돌며 commentNoInCategory 0으로 초기화
-// export const batchUpdateComments = async () => {
-//   const q = query(collection(db, COLLECTION.COMMENTS));
-//   const snapshot = await getDocs(q);
-
-//   snapshot.docs.forEach((commentDoc) => {
-//     updateDoc(commentDoc.ref, {
-//       commentNoInCategory: 0,
-//     });
-//   });
-// };
-
-// 4. 카테고리별 comment 중 system 아닌것 다 createdAt으로 정렬하고, 돌며 commentNoInCategory 올리기
-// export const batchUpdateComments = async () => {
-//   const snapshot = await getDocs(
-//     query(
-//       collection(db, COLLECTION.COMMENTS),
-//       where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK),
-//       where('createdAt', '>', new Date(0)),
-//       orderBy('createdAt', 'asc'), // inequality 오더는 항상 맨 위에 와야함
-//     ),
-//   );
-
-//   const humanComments = snapshot.docs.filter((commentDoc) => {
-//     return commentDoc.data().authorId !== 'fXruvSpnIcMp20gi6a6HhOdihli1';
-//   });
-
-//   let counter = 1;
-//   humanComments.forEach((commentDoc) => {
-//     updateDoc(commentDoc.ref, {
-//       commentNoInCategory: counter,
-//     });
-//     counter += 1;
-//   });
-// };
-// export const batchUpdateComments = async () => {
-//   const snapshot = await getDocs(
-//     query(
-//       collection(db, COLLECTION.COMMENTS),
-//       where('targetCategory', '==', TARGET_CATEGORY.IDOLS),
-//       where('createdAt', '>', new Date(0)),
-//       orderBy('createdAt', 'asc'),
-//     ),
-//   );
-
-//   const humanComments = snapshot.docs.filter((commentDoc) => {
-//     return commentDoc.data().authorId !== 'fXruvSpnIcMp20gi6a6HhOdihli1';
-//   });
-
-//   let counter = 1;
-//   humanComments.forEach((commentDoc) => {
-//     updateDoc(commentDoc.ref, {
-//       commentNoInCategory: counter,
-//     });
-//     counter += 1;
-//   });
 // };

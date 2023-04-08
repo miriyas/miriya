@@ -6,11 +6,13 @@ export interface FbTimeStamp {
 }
 
 export const COLLECTION = {
+  COMMENTS: 'comments',
+  HISTORIES: 'histories',
+  USERS: 'users',
+  //
   IDOLS: 'idolsPage',
   CAMERAS: 'camerasPage',
   PENTAXES: 'pentaxesPage',
-  COMMENTS: 'comments',
-  USERS: 'users',
 } as const;
 
 export type CollectionTypes = ValueOf<typeof COLLECTION>;

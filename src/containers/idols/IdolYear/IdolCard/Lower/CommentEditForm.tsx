@@ -5,7 +5,7 @@ import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
 import { editCommentDoc } from '@/services/comments';
 
-import styles from './CommentItem.module.scss';
+import styles from './Item.module.scss';
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 
 interface Props {

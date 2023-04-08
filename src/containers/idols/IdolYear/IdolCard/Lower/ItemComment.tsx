@@ -8,13 +8,13 @@ import { markDeleteComment } from '@/services/comments';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import CommentEditForm from './CommentEditForm';
-import styles from './CommentItem.module.scss';
+import styles from './Item.module.scss';
 
 interface Props {
   comment: Comment;
 }
 
-const CommentItem = ({ comment }: Props) => {
+const ItemComment = ({ comment }: Props) => {
   const { isMine, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -31,7 +31,7 @@ const CommentItem = ({ comment }: Props) => {
   if (deleted) return null;
 
   return (
-    <li className={styles.commentItem}>
+    <li className={styles.item} title={comment.id}>
       {editMode ? (
         <CommentEditForm comment={comment} setEditMode={setEditMode} />
       ) : (
@@ -75,4 +75,4 @@ const CommentItem = ({ comment }: Props) => {
   );
 };
 
-export default CommentItem;
+export default ItemComment;

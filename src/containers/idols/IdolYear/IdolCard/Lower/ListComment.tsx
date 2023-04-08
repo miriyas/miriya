@@ -5,10 +5,9 @@ import { IdolType } from '@/types/idols.d';
 import { TARGET_CATEGORY, Comment } from '@/types/comments.d';
 import { getCommentsInTargetRealtime } from '@/services/comments';
 
-import Desc from './Desc';
-import CommentItem from './CommentItem';
-import commentItemStyles from './CommentItem.module.scss';
-import styles from './CommentList.module.scss';
+import ItemComment from './ItemComment';
+import itemStyles from './Item.module.scss';
+import styles from './List.module.scss';
 
 interface Props {
   idol: IdolType;
@@ -24,14 +23,13 @@ const Comments = ({ idol }: Props) => {
   }, [name]);
 
   return (
-    <ul className={styles.commentList}>
-      <Desc idol={idol} />
+    <ul className={styles.list}>
       {comments.map((comment) => (
-        <CommentItem key={comment.id} comment={comment} />
+        <ItemComment key={comment.id} comment={comment} />
       ))}
       {comments.length === 0 && (
-        <li className={cx(commentItemStyles.commentItem, commentItemStyles.blank)}>
-          <div className={commentItemStyles.upper}>가장 먼저 댓글을 달아주세요!</div>
+        <li className={cx(itemStyles.item, itemStyles.blank)}>
+          <div className={itemStyles.upper}>가장 먼저 댓글을 달아주세요!</div>
         </li>
       )}
     </ul>

@@ -1,8 +1,5 @@
 import GuestBook from '@/containers/guestbook';
-// import { batchUpdateIdols } from '@/services/idols';
-// import { batchUpdateComments } from '@/services/comments';
-// import { batchUpdateCommentLengthOfTarget } from '@/services/comments';
-// import { batchUpdateCommentNoInCategory } from '@/services/comments';
+import { batchUpdate } from '@/services/batch';
 // import { TARGET_CATEGORY } from '@/types/comments.d';
 // import { getRecentGuestComments } from '@/services/guestbook';
 import { GADataRow } from '@/types/guestbook';
@@ -32,13 +29,7 @@ const GuestBookPage = async () => {
 
   // const recentComments = await getRecentGuestComments(4);
 
-  // batchUpdateCommentNoInCategory(TARGET_CATEGORY.GUESTBOOK);
-
-  // batchUpdateCommentLengthOfTarget();
-
-  // batchUpdateComments();
-
-  // batchUpdateIdols();
+  // batchUpdate();
 
   return (
     <GuestBook

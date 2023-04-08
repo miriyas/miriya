@@ -1,6 +1,6 @@
 @use 'src/styles/mixins' as m;
 
-.commentItem {
+.item {
   @include m.flexbox;
   flex-direction: column;
   width: 100%;
@@ -8,28 +8,15 @@
   background-color: var(--color-gray-f);
   border-radius: 4px;
 
-  + .commentItem {
+  + .item {
     margin-top: 8px;
   }
 
-  &.desc,
   &.blank {
     padding: 4px 8px;
 
     .upper {
       margin-bottom: 0;
-    }
-  }
-
-  &.desc {
-    background-color: var(--color-gray-e);
-
-    .upper {
-      display: block;
-
-      a {
-        padding: 0 2px;
-      }
     }
   }
 

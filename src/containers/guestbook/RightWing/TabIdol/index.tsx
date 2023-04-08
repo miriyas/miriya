@@ -10,8 +10,8 @@ import rightWingStyles from '../RightWing.module.scss';
 
 const TabIdol = () => {
   const { data: comments = [] } = useQuery(
-    ['getComments', TARGET_CATEGORY.IDOLS, 20],
-    () => getComments(TARGET_CATEGORY.IDOLS, 20).then((res) => res),
+    ['getComments', TARGET_CATEGORY.IDOLS, 1000],
+    () => getComments(TARGET_CATEGORY.IDOLS, 1000).then((res) => res),
     {
       suspense: true,
       cacheTime: 6 * 1000,
