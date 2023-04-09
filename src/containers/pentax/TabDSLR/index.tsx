@@ -11,6 +11,7 @@ import { selectedCameraAtom } from './states';
 import Picture from '../_common/Picture';
 import ViewMoreButton from '../_common/ViewMoreButton';
 import Camera from './Camera';
+import Comments from './Comments';
 import Data from './Data';
 import styles from './TabDSLR.module.scss';
 
@@ -54,7 +55,10 @@ const PentaxDSLRPage = () => {
         </div>
         {showArrow && <ViewMoreButton wrapperRef={wrapperRef} />}
       </div>
-      <Data />
+      <div className={styles.bottomWrapper}>
+        <Comments />
+        <Data />
+      </div>
     </section>
   );
 };

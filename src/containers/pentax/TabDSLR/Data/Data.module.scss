@@ -1,28 +1,56 @@
 @use 'src/styles/mixins' as m;
 
 .data {
-  display: table;
-  width: 100%;
+  @include m.flexbox(center, start);
+  flex: 1;
+  gap: 14px;
   height: var(--h-pentax-data);
+  line-height: 1.6;
   border-top: 0;
 
   .column {
+    @include m.flexbox(between, center);
     position: relative;
-    display: table-cell;
-    width: 33.33%;
-    padding: 14px;
+    flex-direction: column;
+    height: 100%;
+    padding: 14px 0;
+
+    &:nth-child(1) {
+      flex: 10;
+    }
+
+    &:nth-child(2) {
+      flex: 10;
+    }
+
+    &:nth-child(3) {
+      flex: 10;
+    }
   }
 
   table {
+    width: 100%;
+
+    tr.blank {
+      th,
+      td {
+        height: 14px;
+      }
+
+      th::after {
+        display: none;
+      }
+    }
+
     th,
     td {
-      height: 22px;
-      font-size: 13px;
+      height: 18px;
+      font-size: 12px;
     }
 
     th {
       position: relative;
-      width: 100px;
+      width: 80px;
       padding-right: 8px;
       color: var(--color-gray-7);
       text-align: right;
@@ -30,10 +58,6 @@
       &::after {
         @include m.absolute(0 0 0 auto);
         content: ':';
-      }
-
-      &.blank::after {
-        display: none;
       }
     }
 
@@ -43,9 +67,11 @@
   }
 
   .comment {
-    @include m.absolute(auto auto 14px 14px);
-    font-size: 13px;
-    line-height: 1.6;
+    padding: 8px;
+    margin-right: 14px;
+    font-size: 12px;
     color: var(--color-gray-4);
+    background-color: var(--color-gray-e);
+    border-radius: 4px;
   }
 }

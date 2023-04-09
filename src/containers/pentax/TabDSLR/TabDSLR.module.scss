@@ -91,4 +91,10 @@
       }
     }
   }
+
+  .bottomWrapper {
+    @include m.flexbox;
+    width: 100%;
+    height: var(--h-pentax-data);
+  }
 }
