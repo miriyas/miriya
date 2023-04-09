@@ -11,57 +11,15 @@ interface Props {
 const DataColumn2 = ({ camera }: Props) => {
   const { data } = camera;
 
-  const { asa, modes, metering, exposure, panorama, shutter, winder } = data;
+  const { focus, viewFinder, shutter, winder } = data;
 
-  let panoramaData = typeof panorama === 'string' ? panorama : '가능';
-  if (!panorama) panoramaData = '-';
+  const magnificationData =
+    typeof viewFinder.magnification === 'string' ? viewFinder.magnification : `${viewFinder.magnification}x`;
 
   return (
     <div className={styles.column}>
       <table>
         <tbody>
-          <tr>
-            <th>촬영모드</th>
-            <td>{modes}</td>
-          </tr>
-          <tr>
-            <th>K/M 측광</th>
-            <td>{metering.k ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>A/F/FA 측광</th>
-            <td>{metering.a ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>측광범위</th>
-            <td>{metering.range}</td>
-          </tr>
-          <tr>
-            <th>노출보정</th>
-            <td>{exposure?.range ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>DX ASA</th>
-            <td>{asa.dx ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>매뉴얼 ASA</th>
-            <td>{asa.manual ?? '-'}</td>
-          </tr>
-          <tr>
-            <th>노출고정</th>
-            <td>{exposure?.fix ? '가능' : '-'}</td>
-          </tr>
-          <tr>
-            <th>파노라마포멧</th>
-            <td>{panoramaData}</td>
-          </tr>
-
-          <tr>
-            <th className={styles.blank} />
-            <td />
-          </tr>
-
           <tr>
             <th>셔터구조</th>
             <td>{shutter.build}</td>
@@ -97,6 +55,40 @@ const DataColumn2 = ({ camera }: Props) => {
           <tr>
             <th>모터드라이브</th>
             <td>{winder.motorDrive ?? '-'}</td>
+          </tr>
+
+          <tr>
+            <th className={styles.blank} />
+            <td />
+          </tr>
+
+          <tr>
+            <th>시야율</th>
+            <td>{viewFinder.coverage ? `${viewFinder.coverage}%` : '?'}</td>
+          </tr>
+          <tr>
+            <th>배율</th>
+            <td>{magnificationData ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>셔터속도보기</th>
+            <td>{viewFinder.seeShutterSpeed ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>조리개값보기</th>
+            <td>{viewFinder.seeAperture ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>스크린교환</th>
+            <td>{viewFinder.screenReplace ? '가능' : '-'}</td>
+          </tr>
+          <tr>
+            <th>파인더교환</th>
+            <td>{viewFinder.finderReplace ? '가능' : '-'}</td>
+          </tr>
+          <tr>
+            <th>파워줌</th>
+            <td>{focus?.powerZoom ?? '-'}</td>
           </tr>
         </tbody>
       </table>

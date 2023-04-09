@@ -45,7 +45,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/8000, B',
+        speed: '30 ~ 1/8000, B',
         timer: '2초, 12초',
         release: '케이블릴리즈 F',
       },
@@ -62,12 +62,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/250sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn14, 35mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
@@ -83,7 +83,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
     af: true,
     data: {
       comment:
-        'Z-1의 후속 기종. PZ-1p는 Z-1p의 미주지역 모델명이다. Z-1p은 초당 4매의 내장 모터드라이브, 교환 가능한 포커싱스크린, 넓은 측광범위와 1/8000의 고속셔터, 간이 미러업, 다양한 노출모드와 뛰어난 사용자 환경, 현재까지 모든 렌즈와의 완벽한 호환, 방진방습 구조등 타 메이커에 빠지지 않는 기능을 가지고 있어서 최근까지 펜탁스  AF기종의 최고급기종으로 역할을 하였다. 안정적이고 우수한 성능, 가벼운 무게, 작은 몸체, 사용자 우선의 환경, 타 메이커에 비하여 저렴한 가격등 펜탁스만의 특징이 여실히 드러난 고급기종.',
+        'Z-1의 후속 기종. Z-1p는 초당 4매의 내장 모터드라이브, 교환 가능한 포커싱스크린, 넓은 측광범위와 1/8000의 고속셔터, 간이 미러업, 다양한 노출모드와 뛰어난 사용자 환경, 현재까지 모든 렌즈와의 완벽한 호환, 방진방습 구조등 타 메이커에 빠지지 않는 기능을 가지고 있어 펜탁스 AF 최고급 기종 역할을 하였다. 안정적이고 우수한 성능, 가벼운 무게, 작은 몸체, 사용자 우선의 환경, 타 메이커에 비하여 저렴한 가격등 펜탁스만의 특징이 여실히 드러난 고급기종. PZ-1p는 Z-1p의 미주지역 모델명이다.',
       body: {
         width: 152,
         height: 95.5,
@@ -109,7 +109,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/8000, B',
+        speed: '30 ~ 1/8000, B',
         timer: '2초, 12초',
         release: '케이블릴리즈 F',
       },
@@ -126,12 +126,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/250sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn14, 28mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
@@ -173,7 +173,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/6000, B',
+        speed: '30 ~ 1/6000, B',
         timer: '2초, 12초',
         release: '케이블릴리즈 CS105/CS130',
       },
@@ -191,12 +191,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/180sec',
-        modes: ['W', 'HS', 'P-TTL', 'TTL', 'P', 'S'],
+        modes: 'W, HS, P-TTL, TTL, P, S',
         internal: 'Gn12, 24mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
@@ -235,7 +235,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/8000, B',
+        speed: '30 ~ 1/8000, B',
         timer: '?',
         release: '케이블릴리즈 F',
       },
@@ -252,12 +252,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/250sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn14, 35mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
@@ -296,7 +296,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/8000, B',
+        speed: '30 ~ 1/8000, B',
         timer: '?',
         release: '케이블릴리즈 F',
       },
@@ -313,12 +313,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/250sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn14, 28mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
@@ -356,9 +356,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '하이브리드 전자식 횡주행, 티타늄',
-        speed: '125-1/2000, B',
-        emergency: 'X-1/2000',
-        timer: '4~10초',
+        speed: '125 ~ 1/2000, B',
+        emergency: 'X ~ 1/2000',
+        timer: '4 ~ 10초',
         release: '표준 기계식',
       },
       winder: {
@@ -378,7 +378,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/75sec',
-        modes: ['TTL', 'S'],
+        modes: 'TTL, S',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=11'],
     },
@@ -410,9 +410,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '기계식 횡주행, 실크',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         emergency: '모두',
-        timer: '4~12초',
+        timer: '4 ~ 12초',
         release: '표준 기계식',
       },
       winder: {
@@ -431,7 +431,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/60sec',
-        modes: ['S'],
+        modes: 'S',
       },
     },
   },
@@ -466,9 +466,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '8-1/1000, B',
+        speed: '8 ~ 1/1000, B',
         emergency: '1/1000, X, B',
-        timer: '5~9초',
+        timer: '5 ~ 9초',
         release: '표준 기계식',
       },
       winder: {
@@ -518,9 +518,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '8-1/1000, B',
+        speed: '8 ~ 1/1000, B',
         emergency: '1/1000, X, B',
-        timer: '5~9초',
+        timer: '5 ~ 9초',
         release: '표준 기계식',
       },
       winder: {
@@ -572,7 +572,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -587,12 +587,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn14, 35mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX,
-        sensitivity: '2-18ev',
+        sensitivity: '2 ~ 18ev',
         support: true,
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=18'],
@@ -630,7 +630,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/4000, B',
+        speed: '30 ~ 1/4000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -645,12 +645,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/125sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn12, 35mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX,
-        sensitivity: '2-18ev',
+        sensitivity: '2 ~ 18ev',
         support: true,
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=18'],
@@ -691,7 +691,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/4000, B',
+        speed: '30 ~ 1/4000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -708,12 +708,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/125sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX4,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
@@ -753,7 +753,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -769,12 +769,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX4,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
@@ -811,7 +811,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         release: '표준 기계식',
         timer: '12초',
       },
@@ -829,12 +829,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['P', 'S'],
+        modes: 'P, S',
       },
     },
   },
   {
-    name: 'MZ-5\n(ZX-5)',
+    name: 'MZ-5 (ZX-5)',
     line: 8,
     startYear: 1995,
     endYear: 1996,
@@ -868,7 +868,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -884,12 +884,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX4,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
@@ -932,7 +932,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -949,13 +949,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX4,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=31'],
@@ -991,7 +991,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '15-1/2000, B',
+        speed: '15 ~ 1/2000, B',
         release: '표준 기계식',
         timer: '12초',
       },
@@ -1010,7 +1010,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/125sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
       },
     },
   },
@@ -1047,7 +1047,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1064,13 +1064,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn13, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '1-18ev',
+        sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
       refs: ['https://www.pentaxforums.com/camerareviews/pentax-z-20p.html'],
@@ -1085,7 +1085,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
     af: true,
     data: {
       comment:
-        'MZ-7은 펜탁스의 간판격인 보급형 기종이다. 초보자들이 가정에서 쉽게 촬영이 가능하도록 그림으로 선택이 가능한 여러가지 프로그램 모드, 오토프로그램(적절한 프로그램을 카메라가 자동으로 선택)을 갖추고 있다. 또한 보다 고급 사용자를 위한 조리개우선, 셔터우선, 매뉴얼 우선기능을 갖추고 있다. 보다 고급 기종에서 제외 되었던 다중노출기능이 추가되어 있다. MZ-7은 가정용 카메라를 지향하면서도 원가를 높이는 금속 렌즈마운트를 채택하여 내구성을 높이고 있다. 단점은 심도 미리보기 기능이 제외되었다는 점. 미주지역에서는 ZX-7이라는 이름으로 발매가 되었다.',
+        'MZ-7은 펜탁스의 간판격인 보급형 기종. 초보자들이 가정에서 쉽게 촬영이 가능하도록 그림으로 선택이 가능한 여러가지 프로그램 모드, 오토프로그램을 갖추고 있다. 또한 보다 고급 사용자를 위한 조리개우선, 셔터우선, 매뉴얼 우선기능을 갖추고 있다. 고급 기종에서 제외 되었던 다중노출기능이 추가되어 있다. 가정용 카메라를 지향하면서도 원가를 높이는 금속 렌즈마운트를 채택하여 내구성을 높이고 있다. 단점은 심도 미리보기 기능 제외. 미주지역에서는 ZX-7이라는 이름으로 발매가 되었다.',
       body: {
         width: 135.5,
         height: 92,
@@ -1112,7 +1112,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
         releaseW: '지원',
@@ -1129,14 +1129,14 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX4,
         support: true,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=35'],
     },
@@ -1171,7 +1171,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '15-1/1000, B',
+        speed: '15 ~ 1/1000, B',
         release: '표준 기계식',
         timer: '12초',
       },
@@ -1190,7 +1190,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['P', 'S'],
+        modes: 'P, S',
       },
     },
   },
@@ -1226,7 +1226,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1242,13 +1242,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn13, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '1-18ev',
+        sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip',
       },
       refs: [
@@ -1290,7 +1290,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1306,13 +1306,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX5,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
       },
       refs: [
         'https://www.pentaxclub.com/product/view?productKey=23',
@@ -1321,7 +1321,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
     },
   },
   {
-    name: 'MZ-30\n(ZX-30)',
+    name: 'MZ-30 (ZX-30)',
     line: 10,
     startYear: 2000,
     endYear: 2001,
@@ -1355,7 +1355,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1372,14 +1372,14 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX6,
         support: true,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=36'],
     },
@@ -1418,7 +1418,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1434,13 +1434,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX5,
-        sensitivity: '0-18ev',
+        sensitivity: '0 ~ 18ev',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=39'],
     },
@@ -1472,9 +1472,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '기계식 횡주행, 실크',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         emergency: '모두',
-        timer: '5~9초',
+        timer: '5 ~ 9초',
         release: '표준 기계식',
       },
       winder: {
@@ -1523,10 +1523,10 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '4-1/2000, B',
+        speed: '4 ~ 1/2000, B',
         emergency: 'X, B',
         release: '표준 기계식',
-        timer: '4~10초',
+        timer: '4 ~ 10초',
       },
       winder: {
         internal: '수동',
@@ -1540,11 +1540,11 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/125sec',
-        modes: ['S'],
+        modes: 'S',
       },
       focus: {
         name: 'TTL-EFC',
-        sensitivity: '4-16ev',
+        sensitivity: '4 ~ 16ev',
       },
     },
   },
@@ -1582,7 +1582,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       panorama: true,
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1598,13 +1598,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn13, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '0-18ev',
+        sensitivity: '0 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=27'],
@@ -1640,9 +1640,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '8-1/1000, B',
+        speed: '8 ~ 1/1000, B',
         emergency: 'X, B',
-        timer: '4~12초',
+        timer: '4 ~ 12초',
         release: '표준 기계식',
       },
       winder: {
@@ -1690,9 +1690,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '4-1/2000, B',
+        speed: '4 ~ 1/2000, B',
         emergency: 'X, B',
-        timer: '4~10초',
+        timer: '4 ~ 10초',
         release: '표준 기계식',
       },
       winder: {
@@ -1707,7 +1707,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/125sec',
-        modes: ['S'],
+        modes: 'S',
       },
     },
   },
@@ -1743,7 +1743,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1758,12 +1758,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn12, 35mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX,
-        sensitivity: '2-18ev',
+        sensitivity: '2 ~ 18ev',
         support: true,
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=19'],
@@ -1802,7 +1802,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       panorama: 'MZ-10 Date에서만 사용 가능',
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1818,13 +1818,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn11, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX4,
-        sensitivity: '0-18ev',
+        sensitivity: '0 ~ 18ev',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=29'],
     },
@@ -1861,7 +1861,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/4000, B',
+        speed: '30 ~ 1/4000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
         releaseW: '지원',
@@ -1879,14 +1879,14 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/125sec',
-        modes: ['W', 'HS', 'P-TTL', 'TTL', 'P', 'S'],
+        modes: 'W, HS, P-TTL, TTL, P, S',
         internal: 'Gn11, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
         support: true,
-        sensitivity: '-1-18ev',
+        sensitivity: '-1 ~ 18ev',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=29'],
     },
@@ -1924,7 +1924,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -1941,13 +1941,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn13, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '1-18ev',
+        sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
       refs: ['https://www.pentaxforums.com/camerareviews/pentax-z-20-pz-20.html'],
@@ -1986,7 +1986,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -2002,13 +2002,13 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn13, 28mm',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '0-18ev',
+        sensitivity: '0 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=27'],
@@ -2047,7 +2047,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -2063,12 +2063,12 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그, 디지털',
         syncSpeed: '1/100sec',
-        modes: ['TTL', 'P', 'S'],
+        modes: 'TTL, P, S',
         internal: 'Gn12, 35mm',
       },
       focus: {
         name: FOCUS_NAME.SAFOX2,
-        sensitivity: '1-18ev',
+        sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=21'],
@@ -2104,7 +2104,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         timer: '12초',
       },
       winder: {
@@ -2119,7 +2119,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['P', 'S'],
+        modes: 'P, S',
       },
     },
   },
@@ -2153,7 +2153,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         timer: '12초',
         release: '표준 기계식',
       },
@@ -2169,7 +2169,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['P', 'S'],
+        modes: 'P, S',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=16'],
     },
@@ -2204,7 +2204,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         timer: '12초',
         release: '표준 기계식',
       },
@@ -2220,7 +2220,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['P', 'S'],
+        modes: 'P, S',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=16'],
     },
@@ -2252,9 +2252,9 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '기계식 횡주행, 실크',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         emergency: '모두',
-        timer: '5~13초',
+        timer: '5 ~ 13초',
         release: '표준 기계식',
       },
       winder: {
@@ -2299,7 +2299,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         emergency: 'X, B',
         release: '표준 기계식',
       },
@@ -2313,7 +2313,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['S'],
+        modes: 'S',
       },
     },
   },
@@ -2343,10 +2343,10 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         emergency: 'X, B',
         release: '표준 기계식',
-        timer: '4~10초',
+        timer: '4 ~ 10초',
       },
       winder: {
         internal: '수동',
@@ -2359,7 +2359,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['S'],
+        modes: 'S',
       },
     },
   },
@@ -2392,10 +2392,10 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         emergency: 'X, B',
         release: '표준 기계식',
-        timer: '4~10초',
+        timer: '4 ~ 10초',
       },
       winder: {
         internal: '수동',
@@ -2409,7 +2409,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['S'],
+        modes: 'S',
       },
     },
   },
@@ -2443,7 +2443,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '2-1/1000, B',
+        speed: '2 ~ 1/1000, B',
         timer: '12초',
         release: '표준 기계식',
       },
@@ -2460,7 +2460,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/60sec',
-        modes: ['P', 'S'],
+        modes: 'P, S',
       },
     },
   },
@@ -2491,7 +2491,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '기계식 횡주행, 실크',
-        speed: '1-1/1000, B',
+        speed: '1 ~ 1/1000, B',
         emergency: '모두',
         release: '표준 기계식',
       },
@@ -2543,7 +2543,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       },
       shutter: {
         build: '전자식 종주행, 금속',
-        speed: '30-1/2000, B',
+        speed: '30 ~ 1/2000, B',
         timer: '12초',
         release: '케이블릴리즈 F',
       },
@@ -2559,7 +2559,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       flash: {
         sync: '아날로그',
         syncSpeed: '1/100sec',
-        modes: ['P', 'S'],
+        modes: 'P, S',
       },
       refs: ['https://www.pentaxclub.com/product/view?productKey=34'],
     },

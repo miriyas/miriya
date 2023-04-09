@@ -8,6 +8,7 @@ import { selectedCameraAtom } from './states';
 
 import Picture from '../_common/Picture';
 import Camera from './Camera';
+import Comments from './Comments';
 import Data from './Data';
 import styles from './TabSLR.module.scss';
 
@@ -42,7 +43,10 @@ const PentaxSLRPage = () => {
           </div>
         </div>
       </div>
-      <Data />
+      <div className={styles.bottomWrapper}>
+        <Comments />
+        <Data />
+      </div>
     </section>
   );
 };

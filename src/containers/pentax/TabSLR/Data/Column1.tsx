@@ -10,8 +10,10 @@ interface Props {
 
 const DataColumn1 = ({ camera }: Props) => {
   const { startYear, endYear, mount, data } = camera;
+  const { asa, body, etc, exposure, metering, modes, panorama, power, refs } = data;
 
-  const { body, power, comment, etc, refs } = data;
+  let panoramaData = typeof panorama === 'string' ? panorama : '가능';
+  if (!panorama) panoramaData = '-';
 
   const endYearData = endYear ? `${endYear}년` : '생산중';
 
@@ -27,7 +29,7 @@ const DataColumn1 = ({ camera }: Props) => {
           </tr>
           <tr>
             <th>마운트</th>
-            <td>{mount ?? '-'}</td>
+            <td>{mount}</td>
           </tr>
           <tr>
             <th>규격</th>
@@ -70,9 +72,50 @@ const DataColumn1 = ({ camera }: Props) => {
                 : '-'}
             </td>
           </tr>
+
+          <tr>
+            <th className={styles.blank} />
+            <td />
+          </tr>
+
+          <tr>
+            <th>촬영모드</th>
+            <td>{modes}</td>
+          </tr>
+          <tr>
+            <th>K/M 측광</th>
+            <td>{metering.k ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>A/F/FA 측광</th>
+            <td>{metering.a ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>측광범위</th>
+            <td>{metering.range}</td>
+          </tr>
+          <tr>
+            <th>노출보정</th>
+            <td>{exposure?.range ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>DX ASA</th>
+            <td>{asa.dx ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>매뉴얼 ASA</th>
+            <td>{asa.manual ?? '-'}</td>
+          </tr>
+          <tr>
+            <th>노출고정</th>
+            <td>{exposure?.fix ? '가능' : '-'}</td>
+          </tr>
+          <tr>
+            <th>파노라마포멧</th>
+            <td>{panoramaData}</td>
+          </tr>
         </tbody>
       </table>
-      <p className={styles.comment}>{comment}</p>
     </div>
   );
 };

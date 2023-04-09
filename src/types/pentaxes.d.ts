@@ -177,7 +177,7 @@ export interface PentaxSlr {
     };
     flash: {
       sync: string;
-      modes?: string[];
+      modes?: string;
       syncSpeed: string;
       internal?: string;
       redEye?: boolean;

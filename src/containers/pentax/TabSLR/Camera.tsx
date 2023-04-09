@@ -53,7 +53,7 @@ const Camera = ({ camera }: Props) => {
 
   return (
     <li key={name} className={className} style={getPosition(camera)} onMouseOver={onMouseOver} onFocus={onFocus}>
-      {name}
+      {name.split(' ')[0]}
       <div className={styles.badge} />
     </li>
   );

@@ -1,30 +1,45 @@
 @use 'src/styles/mixins' as m;
 
 .data {
-  display: table;
-  width: 100%;
+  @include m.flexbox(center, start);
+  flex: 1;
   height: var(--h-pentax-data);
   font-size: 13px;
   line-height: 1.6;
   border-top: 0;
 
   .column {
+    @include m.flexbox(between, center);
     position: relative;
-    display: table-cell;
-    width: 33.33%;
+    flex-direction: column;
+    height: 100%;
     padding: 14px;
+
+    &:nth-child(1) {
+      flex: 10;
+    }
+
+    &:nth-child(2) {
+      flex: 10;
+    }
+
+    &:nth-child(3) {
+      flex: 10;
+    }
   }
 
   table {
+    width: 100%;
+
     th,
     td {
       height: 22px;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     th {
       position: relative;
-      width: 100px;
+      width: 80px;
       padding-right: 8px;
       color: var(--color-gray-7);
       text-align: right;
@@ -45,7 +60,10 @@
   }
 
   .comment {
-    @include m.absolute(auto auto 14px 14px);
+    padding: 8px;
+    font-size: 12px;
     color: var(--color-gray-4);
+    background-color: var(--color-gray-e);
+    border-radius: 4px;
   }
 }
