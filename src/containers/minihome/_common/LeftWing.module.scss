@@ -51,8 +51,12 @@
     .imageWrapper {
       position: relative;
       width: 100%;
-      height: 140px;
-      margin-bottom: 8px;
+      height: 135px;
+
+      img {
+        display: block;
+        width: 180px;
+      }
     }
 
     .message {

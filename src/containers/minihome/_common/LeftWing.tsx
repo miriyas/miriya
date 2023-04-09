@@ -14,7 +14,7 @@ const LeftWing = () => {
             <span>행복</span>
           </div>
           <div className={styles.imageWrapper}>
-            <Image src='/images/minihome/profile.jpg' width={180} height={140} alt='' className={styles.image} />
+            <Image src='/images/minihome/profile.jpg' width={180} height={135} alt='' className={styles.image} />
           </div>
           <p className={styles.message}>
             Loneley kNight..
