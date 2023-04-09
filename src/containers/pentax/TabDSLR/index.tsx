@@ -2,8 +2,9 @@
 
 import cx from 'clsx';
 import { useAtomValue } from 'jotai';
+import { useMemo } from 'react';
 
-import { PENTAX_DSLRS, PENTAX_DSLRS_YEAR_INFO, X_CELL_DSLR } from '@/constants/pentaxes';
+import { PENTAX_DSLRS, X_CELL_DSLR } from '@/constants/pentaxes';
 import { useDraggable } from '@/hooks/useDraggable';
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
@@ -15,14 +16,15 @@ import Comments from './Comments';
 import Data from './Data';
 import styles from './TabDSLR.module.scss';
 
-const { start: yearStart, end: yearEnd } = PENTAX_DSLRS_YEAR_INFO;
-
 const PentaxDSLRPage = () => {
   const selectedCameraName = useAtomValue(selectedCameraAtom);
 
   const { draggableRef, wrapperRef, handlers, isMouseDown, showArrow } = useDraggable({
     noArrowAbove: 2400,
   });
+
+  const yearStart = useMemo(() => Math.min(...PENTAX_DSLRS.map((camera) => camera.startYear)), []);
+  const yearEnd = useMemo(() => Math.max(...PENTAX_DSLRS.map((camera) => camera.endYear ?? camera.startYear)), []) + 1;
 
   return (
     <section className={styles.wrapper}>
@@ -47,7 +49,7 @@ const PentaxDSLRPage = () => {
             </div>
             <ul className={styles.cameras}>
               {PENTAX_DSLRS.map((camera) => {
-                return <Camera key={camera.name} camera={camera} />;
+                return <Camera key={camera.name} camera={camera} yearStart={yearStart} yearEnd={yearEnd} />;
               })}
             </ul>
             <div className={`${styles.endOfScroll} lastItem`} />

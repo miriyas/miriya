@@ -33,5 +33,5 @@ export const MENUS = [
   },
 ];
 
-export { PENTAX_DSLRS, PENTAX_DSLRS_YEAR_INFO, X_CELL_DSLR } from './dslr';
-export { PENTAX_SLRS, PENTAX_SLRS_YEAR_INFO } from './slr';
+export { PENTAX_DSLRS, X_CELL_DSLR } from './dslr';
+export { PENTAX_SLRS } from './slr';

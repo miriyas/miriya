@@ -2,7 +2,7 @@ import { User } from 'firebase/auth';
 
 /** 숫자를 입력받아 갯수만큼 아이템을 가진 어레이 리턴 */
 export const getNumberArr = (length: number): number[] => {
-  return [...Array(length).keys()];
+  return [...Array(parseInt(String(length), 10)).keys()];
 };
 
 /** 숫자를 M, K 등으로 단위 묶음 리턴 */

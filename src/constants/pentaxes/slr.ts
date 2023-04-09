@@ -4,11 +4,6 @@ import { PentaxSlr, PENTAX_SLR_MOUNT } from '@/types/pentaxes.d';
 export const W_CELL_SLR = 22;
 export const H_CELL_SLR = 22;
 
-export const PENTAX_SLRS_YEAR_INFO = {
-  start: 1975,
-  end: 2004,
-};
-
 export const PENTAX_SLRS: PentaxSlr[] = [
   // Line 1 ==============================
   {

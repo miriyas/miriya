@@ -1,21 +1,23 @@
 'use client';
 
+import { useMemo } from 'react';
 import { useAtomValue } from 'jotai';
 
-import { PENTAX_SLRS, PENTAX_SLRS_YEAR_INFO } from '@/constants/pentaxes';
+import { PENTAX_SLRS } from '@/constants/pentaxes';
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
 
 import Picture from '../_common/Picture';
 import Camera from './Camera';
-import Comments from './Comments';
 import Data from './Data';
+import Comments from './Comments';
 import styles from './TabSLR.module.scss';
-
-const { start: yearStart, end: yearEnd } = PENTAX_SLRS_YEAR_INFO;
 
 const PentaxSLRPage = () => {
   const selectedCameraName = useAtomValue(selectedCameraAtom);
+
+  const yearStart = useMemo(() => Math.min(...PENTAX_SLRS.map((camera) => camera.startYear)), []);
+  const yearEnd = useMemo(() => Math.max(...PENTAX_SLRS.map((camera) => camera.endYear)), []);
 
   return (
     <section className={styles.wrapper}>
@@ -36,7 +38,7 @@ const PentaxSLRPage = () => {
             </div>
             <ul className={styles.cameras}>
               {PENTAX_SLRS.map((camera) => {
-                return <Camera key={camera.name} camera={camera} />;
+                return <Camera key={camera.name} camera={camera} yearStart={yearStart} />;
               })}
             </ul>
             <div className={`${styles.endOfScroll} lastItem`} />
