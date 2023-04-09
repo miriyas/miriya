@@ -3,6 +3,7 @@
 .data {
   @include m.flexbox(center, start);
   flex: 1;
+  gap: 14px;
   height: var(--h-pentax-data);
   line-height: 1.6;
   border-top: 0;
@@ -12,7 +13,7 @@
     position: relative;
     flex-direction: column;
     height: 100%;
-    padding: 14px;
+    padding: 14px 0;
 
     &:nth-child(1) {
       flex: 10;
@@ -38,7 +39,7 @@
 
     th {
       position: relative;
-      width: 80px;
+      width: 90px;
       padding-right: 8px;
       color: var(--color-gray-7);
       text-align: right;
@@ -59,7 +60,9 @@
   }
 
   .comment {
+    width: calc(100% - 14px);
     padding: 8px;
+    margin-right: 14px;
     font-size: 12px;
     color: var(--color-gray-4);
     background-color: var(--color-gray-e);

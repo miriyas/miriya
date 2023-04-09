@@ -84,12 +84,11 @@ export interface PentaxDslr {
       type: OpticsTypes | undefined;
       coverage: number | undefined;
       magnification: string | undefined;
-      magnification2?: string | undefined;
       screenReplace?: boolean | undefined;
     };
     flash: {
       interlock: string | undefined;
-      modes: string[];
+      modes: string | undefined;
       syncSpeed: string | undefined;
       redEye: boolean | undefined;
       internal?: string | undefined;
@@ -98,7 +97,7 @@ export interface PentaxDslr {
     };
     focus: {
       name: FocusNameTypes | undefined;
-      points: number | string | undefined;
+      points: string | undefined;
       sensitivity?: string | undefined;
       superImpose?: boolean | undefined;
       supersonicMotor?: boolean | undefined;

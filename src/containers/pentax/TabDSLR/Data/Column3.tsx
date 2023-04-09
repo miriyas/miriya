@@ -13,8 +13,6 @@ const DataColumn3 = ({ camera }: Props) => {
 
   const { comment, focus, refs } = data;
 
-  const focusPointsData = typeof focus.points === 'string' ? focus.points : `${focus.points}측거점`;
-
   return (
     <div className={styles.column}>
       <table>
@@ -25,7 +23,7 @@ const DataColumn3 = ({ camera }: Props) => {
           </tr>
           <tr>
             <th>측거점</th>
-            <td>{focusPointsData}</td>
+            <td>{focus.points}</td>
           </tr>
           <tr>
             <th>AF감도</th>

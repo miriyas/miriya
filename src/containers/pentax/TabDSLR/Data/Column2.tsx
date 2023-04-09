@@ -33,8 +33,7 @@ const DataColumn2 = ({ camera }: Props) => {
   let continuousLengthData = continuousLength ? `${continuousLength}장` : '-';
   if (typeof continuousLength === 'string') continuousLengthData = continuousLength;
 
-  let screenData = viewFinder.magnification2;
-  if (viewFinder.screenReplace) screenData = viewFinder.screenReplace ? '가능' : '-';
+  const screenData = viewFinder.screenReplace ? '가능' : '-';
 
   const magnificationData =
     typeof viewFinder.magnification === 'string' ? viewFinder.magnification : `${viewFinder.magnification}x`;
@@ -96,7 +95,7 @@ const DataColumn2 = ({ camera }: Props) => {
             <td>{magnificationData ?? '-'}</td>
           </tr>
           <tr>
-            <th>{viewFinder.magnification2 ? '' : '스크린교환'}</th>
+            <th>스크린교환</th>
             <td>{screenData}</td>
           </tr>
 
@@ -110,7 +109,7 @@ const DataColumn2 = ({ camera }: Props) => {
           </tr>
           <tr>
             <th>플래시작동</th>
-            <td>{flash.modes.join(', ')}</td>
+            <td>{flash.modes ?? '-'}</td>
           </tr>
           <tr>
             <th>동조속도</th>

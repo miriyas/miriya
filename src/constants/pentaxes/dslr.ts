@@ -57,18 +57,17 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
         coverage: 98,
-        magnification: '0.62x(DFA55)',
-        magnification2: '0.85x(FA75)',
+        magnification: '0.62x (DFA55), 0.85x (FA75)',
       },
       flash: {
         interlock: '디지털, X-Sync',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/125sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/125sec, B',
         redEye: true,
       },
       focus: {
         name: FOCUS_NAME.SAFOX9P,
-        points: 11,
+        points: '11포인트',
         superImpose: true,
         supersonicMotor: true,
       },
@@ -130,7 +129,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -206,7 +205,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -279,7 +278,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -355,8 +354,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn13, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -434,7 +433,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -507,7 +506,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -583,8 +582,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn13, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -592,7 +591,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7P,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
         supersonicMotor: true,
@@ -656,8 +655,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn13, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -665,7 +664,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX9P,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
         supersonicMotor: true,
@@ -731,8 +730,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn13, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -800,8 +799,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '아날로그, 디지털',
-        modes: ['W', 'HS', 'P-TTL', 'TTL'],
-        syncSpeed: '30-1/150sec, B',
+        modes: 'W, HS, P-TTL, TTL',
+        syncSpeed: '30 ~ 1/150sec, B',
         internal: 'Gn11, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -809,7 +808,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '0 ~ 19ev',
         superImpose: true,
       },
@@ -870,8 +869,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn11, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -879,7 +878,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
         supersonicMotor: true,
@@ -943,8 +942,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn13, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -952,7 +951,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
         supersonicMotor: true,
@@ -1017,7 +1016,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1084,8 +1083,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn15.6, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -1093,7 +1092,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '0 ~ 19ev',
         superImpose: true,
       },
@@ -1149,8 +1148,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn15.6, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -1158,7 +1157,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '0 ~ 19ev',
         superImpose: true,
       },
@@ -1217,8 +1216,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn13, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -1226,7 +1225,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
         supersonicMotor: true,
@@ -1291,7 +1290,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1366,7 +1365,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1441,7 +1440,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1514,7 +1513,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1579,8 +1578,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL', 'TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL, TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn15.6, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -1588,7 +1587,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
       },
@@ -1641,8 +1640,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn15.6, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -1650,7 +1649,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
       },
@@ -1715,7 +1714,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1790,7 +1789,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1865,7 +1864,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -1929,8 +1928,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn15.6, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -1938,7 +1937,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 3,
+        points: '3포인트',
         sensitivity: '-1 ~ 18ev',
       },
     },
@@ -1989,8 +1988,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn15.6, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -1998,7 +1997,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 5,
+        points: '5포인트',
         sensitivity: '-1 ~ 18ev',
       },
     },
@@ -2048,8 +2047,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn15.6, 28mm',
         redEye: true,
         release: '케이블릴리즈 CS205',
@@ -2057,7 +2056,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '0 ~ 19ev',
         superImpose: true,
       },
@@ -2113,15 +2112,15 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn11, 28mm',
         redEye: true,
         releaseW: '리모트릴리즈 F',
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         superImpose: true,
         supersonicMotor: true,
@@ -2184,15 +2183,15 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: '디지털',
-        modes: ['W', 'HS', 'P-TTL'],
-        syncSpeed: '30-1/180sec, B',
+        modes: 'W, HS, P-TTL',
+        syncSpeed: '30 ~ 1/180sec, B',
         internal: 'Gn16, 28mm',
         redEye: true,
         releaseW: '리모트릴리즈 F',
       },
       focus: {
         name: FOCUS_NAME.SAFOX7,
-        points: 11,
+        points: '11포인트',
         sensitivity: '-1 ~ 18ev',
         supersonicMotor: true,
       },
@@ -2256,7 +2255,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -2332,7 +2331,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -2408,7 +2407,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -2484,7 +2483,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -2560,7 +2559,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,
@@ -2635,7 +2634,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       },
       flash: {
         interlock: undefined,
-        modes: [],
+        modes: '',
         syncSpeed: undefined,
         internal: undefined,
         redEye: undefined,

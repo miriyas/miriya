@@ -47,4 +47,8 @@
   @include m.flexbox;
   width: 100%;
   min-height: 100vh;
+
+  &.inComponent {
+    min-height: initial;
+  }
 }
