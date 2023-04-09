@@ -33,5 +33,5 @@ export const MENUS = [
   },
 ];
 
-export { PENTAX_DSLRS, X_CELL_DSLR } from './dslr';
-export { PENTAX_SLRS } from './slr';
+// NOTE: src/styles/_variable.scss 와 싱크 맞춰야함
+export const X_CELL_DSLR = 22;

@@ -21,7 +21,6 @@ interface Props {
 
 const Camera = ({ camera, yearStart, yearEnd }: Props) => {
   const { data, line, name, type, startYear, endYear, startQuarter, endQuarter } = camera;
-  const { bonus } = data;
 
   const position = useMemo(() => {
     return {
@@ -38,10 +37,10 @@ const Camera = ({ camera, yearStart, yearEnd }: Props) => {
     return cx(styles.camera, styles[type.toLowerCase()], {
       [styles.current]: name === selectedCamera,
       [styles.inProduction]: !endYear,
-      [styles.wr]: bonus?.wr,
-      [styles.sr]: bonus?.sr,
+      [styles.wr]: data?.bonus?.wr,
+      [styles.sr]: data?.bonus?.sr,
     });
-  }, [bonus?.sr, bonus?.wr, endYear, name, selectedCamera, type]);
+  }, [data?.bonus?.sr, data?.bonus?.wr, endYear, name, selectedCamera, type]);
 
   const onMouseOver: MouseEventHandler<HTMLLIElement> = () => {
     setSelectedCamera(name);

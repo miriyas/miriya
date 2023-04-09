@@ -1,10 +1,23 @@
-import { collection, getDocs, orderBy, query, updateDoc, where } from 'firebase/firestore';
+// import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
-import { db } from '@/utils/firebase';
-import { COLLECTION } from '@/types/firebase.d';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+// import { db, initialTs } from '@/utils/firebase';
+// import { COLLECTION, PENTAX_COLLECTION_NAMES } from '@/types/firebase.d';
 
+export {};
 // 아래는 배치 업데이트용
+
+// 펜탁스 DSLR 콘스탄트 업로드
+// export const batchUpdate = async () => {
+//   PENTAX_DSLRS.forEach((camera, i) => {
+//     console.log(1111, i);
+
+//     addDoc(collection(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES.DSLR), {
+//       ...camera,
+//       createdAt: serverTimestamp(),
+//       deletedAt: initialTs,
+//     });
+//   });
+// };
 
 // export const getIdolDocRef = (name: string) => {
 //   return doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, name);
@@ -128,24 +141,24 @@ import { TARGET_CATEGORY } from '@/types/comments.d';
 //     counter += 1;
 //   });
 // };
-export const batchUpdate = async () => {
-  const snapshot = await getDocs(
-    query(
-      collection(db, COLLECTION.COMMENTS),
-      where('targetCategory', '==', TARGET_CATEGORY.IDOLS),
-      where('createdAt', '>', new Date(0)),
-      orderBy('createdAt', 'asc'),
-    ),
-  );
+// export const batchUpdate = async () => {
+//   const snapshot = await getDocs(
+//     query(
+//       collection(db, COLLECTION.COMMENTS),
+//       where('targetCategory', '==', TARGET_CATEGORY.IDOLS),
+//       where('createdAt', '>', new Date(0)),
+//       orderBy('createdAt', 'asc'),
+//     ),
+//   );
 
-  let counter = 1;
-  snapshot.docs.forEach((commentDoc) => {
-    updateDoc(commentDoc.ref, {
-      commentNoInCategory: counter,
-    });
-    counter += 1;
-  });
-};
+//   let counter = 1;
+//   snapshot.docs.forEach((commentDoc) => {
+//     updateDoc(commentDoc.ref, {
+//       commentNoInCategory: counter,
+//     });
+//     counter += 1;
+//   });
+// };
 
 // export const batchUpdateComments = async () => {
 //   const snapshot = await getDocs(query(collection(db, COLLECTION.COMMENTS)));
@@ -204,4 +217,4 @@ export const batchUpdate = async () => {
 //   snapshot.docs.forEach((d) => {
 //     console.log(d.data());
 //   });
-// };
+// }

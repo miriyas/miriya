@@ -1,5 +1,6 @@
 import { ValueOf } from '@/types';
 import { EngineTypes, FocusNameTypes, OpticsTypes } from '@/types/cameras';
+import { WithTS } from '@/types/firebase';
 
 export const PENTAX_DSLR_TYPE = {
   IST: 'IST',
@@ -38,69 +39,69 @@ export interface PentaxDslr {
   startQuarter: number;
   endYear?: number;
   endQuarter?: number;
-  data: {
+  data?: {
     body: {
-      material: PentaxDslrMaterialTypes | undefined;
+      material?: PentaxDslrMaterialTypes;
       width: number;
       height: number;
       depth: number;
       weight: {
         base: number;
-        extra: string | undefined;
+        extra: string;
       };
-      verticalGrip?: string | undefined;
+      verticalGrip?: string;
     };
-    mount: string | undefined;
-    power: string | undefined;
-    memory: string | undefined;
-    etc?: string | undefined;
-    comment: string | undefined;
+    mount: string;
+    power: string;
+    memory: string;
+    etc?: string;
+    comment: string;
     bonus?: {
-      wr?: boolean | undefined;
-      sr?: string | undefined;
-      dustRemove?: string | undefined;
+      wr?: boolean;
+      sr?: string;
+      dustRemove?: string;
     };
     sensor: {
-      pixels: string | undefined;
-      size: PentaxDslrSensorSizeTypes | undefined;
-      iso: string | undefined;
-      engine?: EngineTypes | undefined;
+      pixels: string;
+      size: PentaxDslrSensorSizeTypes;
+      iso: string;
+      engine?: EngineTypes;
     };
-    display: string | undefined;
-    liveView?: boolean | undefined;
-    liveViewAF?: string | undefined;
-    movie?: string | undefined;
-    movieType?: string | undefined;
-    imageType: string | undefined;
-    modes: string | undefined;
-    meteringK?: string | undefined;
-    meteringA: string | undefined;
-    meteringRange: string | undefined;
-    exposureRange: string | undefined;
-    shutter: string | undefined;
-    continuous: number | string | undefined;
-    continuousLength?: number | string | undefined;
+    display: string;
+    liveView?: boolean;
+    liveViewAF?: string;
+    movie?: string;
+    movieType?: string;
+    imageType: string;
+    modes: string;
+    meteringK?: string;
+    meteringA: string;
+    meteringRange: string;
+    exposureRange: string;
+    shutter: string;
+    continuous: number | string;
+    continuousLength?: number | string;
     viewFinder: {
-      type: OpticsTypes | undefined;
-      coverage: number | undefined;
-      magnification: string | undefined;
-      screenReplace?: boolean | undefined;
+      type: OpticsTypes;
+      coverage: number;
+      magnification: string;
+      screenReplace?: boolean;
     };
     flash: {
-      interlock: string | undefined;
-      modes: string | undefined;
-      syncSpeed: string | undefined;
-      redEye: boolean | undefined;
-      internal?: string | undefined;
-      release?: string | undefined;
-      releaseW?: string | undefined;
+      interlock: string;
+      modes: string;
+      syncSpeed: string;
+      redEye: boolean;
+      internal?: string;
+      release?: string;
+      releaseW?: string;
     };
     focus: {
-      name: FocusNameTypes | undefined;
-      points: string | undefined;
-      sensitivity?: string | undefined;
-      superImpose?: boolean | undefined;
-      supersonicMotor?: boolean | undefined;
+      name: FocusNameTypes;
+      points: string;
+      sensitivity?: string;
+      superImpose?: boolean;
+      supersonicMotor?: boolean;
     };
     refs?: string[];
   };
@@ -189,4 +190,12 @@ export interface PentaxSlr {
     };
     refs?: string[];
   };
+}
+
+export interface FBPentaxSlr extends PentaxSlr, WithTS {
+  commentsLength: number;
+}
+
+export interface FBPentaxDslr extends PentaxDslr, WithTS {
+  commentsLength: number;
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Profile from '@/containers/profile';
+// import { batchUpdate } from '@/services/firebase/batch';
 
 const title = 'MIRIYA';
 const description = '프론트엔드 웹 개발자로 일하고 있는 miriya의 개인 작업 목록';
@@ -34,6 +35,10 @@ export const metadata: Metadata = {
   },
 };
 
-const ProfilePage = async () => <Profile />;
+const ProfilePage = async () => {
+  // batchUpdate();
+
+  return <Profile />;
+};
 
 export default ProfilePage;

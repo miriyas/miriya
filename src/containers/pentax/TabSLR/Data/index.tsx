@@ -1,25 +1,24 @@
 'use client';
 
-import { useAtomValue } from 'jotai';
-
-import { PENTAX_SLRS } from '@/constants/pentaxes';
-import { selectedCameraAtom } from '../states';
+import { PentaxSlr } from '@/types/pentaxes';
 
 import DataColumn1 from './Column1';
 import DataColumn2 from './Column2';
 import DataColumn3 from './Column3';
 import styles from './Data.module.scss';
 
-const Data = () => {
-  const selectedCameraName = useAtomValue(selectedCameraAtom);
+interface Props {
+  selectedCamera?: PentaxSlr;
+}
 
-  const camera = PENTAX_SLRS.find((c) => c.name === selectedCameraName) || PENTAX_SLRS[0];
+const Data = ({ selectedCamera }: Props) => {
+  if (!selectedCamera) return null;
 
   return (
     <div className={styles.data}>
-      <DataColumn1 camera={camera} />
-      <DataColumn2 camera={camera} />
-      <DataColumn3 camera={camera} />
+      <DataColumn1 camera={selectedCamera} />
+      <DataColumn2 camera={selectedCamera} />
+      <DataColumn3 camera={selectedCamera} />
     </div>
   );
 };

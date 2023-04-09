@@ -13,9 +13,9 @@ import { User } from 'firebase/auth';
 import { Dispatch, SetStateAction } from 'react';
 
 import { db } from '@/utils/firebase';
-import { FBIdolType, IDOL_COLLECTION_NAMES, YearDescType } from '@/types/idols.d';
+import { FBIdolType, YearDescType } from '@/types/idols.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
-import { COLLECTION } from '@/types/firebase.d';
+import { COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';
 import { getUserName } from '@/utils';
 import { createHistoryDoc } from '@/services/firebase/histories';
 

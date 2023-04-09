@@ -11,9 +11,6 @@ interface Props {
 const DataColumn1 = ({ camera }: Props) => {
   const { startYear, endYear, data } = camera;
 
-  const { body, bonus, display, etc, imageType, liveView, liveViewAF, memory, mount, movie, movieType, power, sensor } =
-    data;
-
   const endYearData = endYear ? `${endYear}년` : '생산중';
 
   return (
@@ -29,49 +26,49 @@ const DataColumn1 = ({ camera }: Props) => {
           <tr>
             <th>규격</th>
             <td>
-              {body.width} x {body.height} x {body.depth}mm
+              {data?.body.width} x {data?.body.height} x {data?.body.depth}mm
             </td>
           </tr>
           <tr>
             <th>재질</th>
-            <td>{body.material ?? '-'}</td>
+            <td>{data?.body.material ?? '-'}</td>
           </tr>
           <tr>
             <th>방진방습</th>
-            <td>{bonus?.wr ? '지원' : '-'}</td>
+            <td>{data?.bonus?.wr ? '지원' : '-'}</td>
           </tr>
           <tr>
             <th>손떨림보정</th>
-            <td>{bonus?.sr ? bonus.sr : '-'}</td>
+            <td>{data?.bonus?.sr ? data?.bonus.sr : '-'}</td>
           </tr>
 
           <tr>
             <th>먼지제거</th>
-            <td>{bonus?.dustRemove ? bonus.dustRemove : '-'}</td>
+            <td>{data?.bonus?.dustRemove ? data?.bonus.dustRemove : '-'}</td>
           </tr>
 
           <tr>
             <th>마운트</th>
-            <td>{mount ?? '-'}</td>
+            <td>{data?.mount ?? '-'}</td>
           </tr>
 
           <tr>
             <th>세로그립</th>
-            <td>{body.verticalGrip ?? '-'}</td>
+            <td>{data?.body.verticalGrip ?? '-'}</td>
           </tr>
 
           <tr>
             <th>전원</th>
-            <td>{power ?? '-'}</td>
+            <td>{data?.power ?? '-'}</td>
           </tr>
 
           <tr>
             <th>메모리</th>
-            <td>{memory ?? '-'}</td>
+            <td>{data?.memory ?? '-'}</td>
           </tr>
           <tr>
             <th>기타</th>
-            <td>{etc ?? '-'}</td>
+            <td>{data?.etc ?? '-'}</td>
           </tr>
 
           <tr className={styles.blank}>
@@ -81,19 +78,19 @@ const DataColumn1 = ({ camera }: Props) => {
 
           <tr>
             <th>센서화소</th>
-            <td>{sensor.pixels}</td>
+            <td>{data?.sensor.pixels}</td>
           </tr>
           <tr>
             <th>센서크기</th>
-            <td>{sensor.size}</td>
+            <td>{data?.sensor.size}</td>
           </tr>
           <tr>
             <th>지원감도</th>
-            <td>{sensor.iso}</td>
+            <td>{data?.sensor.iso}</td>
           </tr>
           <tr>
             <th>프로세서</th>
-            <td>{sensor.engine ?? '-'}</td>
+            <td>{data?.sensor.engine ?? '-'}</td>
           </tr>
 
           <tr className={styles.blank}>
@@ -103,27 +100,27 @@ const DataColumn1 = ({ camera }: Props) => {
 
           <tr>
             <th>LCD</th>
-            <td>{display}</td>
+            <td>{data?.display}</td>
           </tr>
           <tr>
             <th>라이브뷰</th>
-            <td>{liveView ? '가능' : '-'}</td>
+            <td>{data?.liveView ? '가능' : '-'}</td>
           </tr>
           <tr>
             <th>라이브뷰AF</th>
-            <td>{liveViewAF ?? '-'}</td>
+            <td>{data?.liveViewAF ?? '-'}</td>
           </tr>
           <tr>
             <th>동영상</th>
-            <td>{movie ?? '-'}</td>
+            <td>{data?.movie ?? '-'}</td>
           </tr>
           <tr>
             <th>동영상형식</th>
-            <td>{movieType ?? '-'}</td>
+            <td>{data?.movieType ?? '-'}</td>
           </tr>
           <tr>
             <th>이미지형식</th>
-            <td>{imageType}</td>
+            <td>{data?.imageType}</td>
           </tr>
         </tbody>
       </table>

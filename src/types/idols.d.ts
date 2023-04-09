@@ -1,10 +1,5 @@
 import Isotope from '@/libs/isotope-layout';
-import { WithAuthorAndTS } from '@/types/firebase';
-
-export const IDOL_COLLECTION_NAMES = {
-  IDOLS: 'idols',
-  IDOL_YEARS: 'idolYears',
-} as const;
+import { WithAuthor, WithTS } from '@/types/firebase';
 
 export type Category = 'total' | 'mixed-group' | 'girl-group' | 'boy-group' | 'girl-solo' | 'boy-solo';
 
@@ -36,7 +31,7 @@ export interface IdolType {
   youtube?: YoutubeType;
 }
 
-export interface FBIdolType extends IdolType, WithAuthorAndTS {
+export interface FBIdolType extends IdolType, WithAuthor, WithTS {
   commentsLength: number;
 }
 
