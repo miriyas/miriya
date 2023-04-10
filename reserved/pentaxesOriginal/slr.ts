@@ -66,7 +66,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=22'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=22',
     },
   },
   {
@@ -130,7 +130,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=28'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=28',
     },
   },
   {
@@ -195,7 +195,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=37'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=37',
     },
   },
   // Line 2 ==============================
@@ -256,7 +256,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=25'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=25',
     },
   },
   {
@@ -317,7 +317,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=26'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=26',
     },
   },
   // Line 3 ==============================
@@ -364,7 +364,6 @@ export const PENTAX_SLRS: PentaxSlr[] = [
       etc: '심도미리보기, 다중노출, 방진방습',
       viewFinder: {
         coverage: 98,
-        magnification: '?',
         seeShutterSpeed: 'LED',
         seeAperture: '광학식',
         screenReplace: true,
@@ -375,7 +374,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         syncSpeed: '1/75sec',
         modes: 'TTL, S',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=11'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=11',
     },
   },
   // // Line 4 ==============================
@@ -590,7 +589,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '2 ~ 18ev',
         support: true,
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=18'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=18',
     },
   },
   {
@@ -648,7 +647,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '2 ~ 18ev',
         support: true,
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=18'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=18',
     },
   },
   {
@@ -712,7 +711,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=33'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=33',
     },
   },
   {
@@ -888,7 +887,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=30'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=30',
     },
   },
   {
@@ -953,7 +952,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '-1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=31'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=31',
     },
   },
   // Line 9 ==============================
@@ -1068,7 +1067,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
-      refs: ['https://www.pentaxforums.com/camerareviews/pentax-z-20p.html'],
+      refs: 'https://www.pentaxforums.com/camerareviews/pentax-z-20p.html',
     },
   },
   {
@@ -1133,7 +1132,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         sensitivity: '-1 ~ 18ev',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=35'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=35',
     },
   },
   // Line 10 =============================
@@ -1246,10 +1245,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip',
       },
-      refs: [
-        'https://www.pentaxclub.com/product/view?productKey=23',
-        'https://www.pentaxforums.com/camerareviews/pentax-z-50p.html',
-      ],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=23, https://www.pentaxforums.com/camerareviews/pentax-z-50p.html',
     },
   },
   {
@@ -1309,10 +1305,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         name: FOCUS_NAME.SAFOX5,
         sensitivity: '-1 ~ 18ev',
       },
-      refs: [
-        'https://www.pentaxclub.com/product/view?productKey=23',
-        'https://www.pentaxforums.com/camerareviews/pentax-z-50p.html',
-      ],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=23, https://www.pentaxforums.com/camerareviews/pentax-z-50p.html',
     },
   },
   {
@@ -1376,7 +1369,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         sensitivity: '-1 ~ 18ev',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=36'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=36',
     },
   },
   {
@@ -1437,7 +1430,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         name: FOCUS_NAME.SAFOX5,
         sensitivity: '0 ~ 18ev',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=39'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=39',
     },
   },
   // Line 11 =============================
@@ -1602,7 +1595,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '0 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=27'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=27',
     },
   },
   // // Line 12 =============================
@@ -1761,7 +1754,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '2 ~ 18ev',
         support: true,
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=19'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=19',
     },
   },
   {
@@ -1794,7 +1787,6 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         dx: '25-5000ASA',
         manual: '6-6400ASA',
       },
-      panorama: 'MZ-10 Date에서만 사용 가능',
       shutter: {
         build: '전자식 종주행, 금속',
         speed: '30 ~ 1/2000, B',
@@ -1821,7 +1813,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         name: FOCUS_NAME.SAFOX4,
         sensitivity: '0 ~ 18ev',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=29'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=29',
     },
   },
   {
@@ -1883,7 +1875,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         support: true,
         sensitivity: '-1 ~ 18ev',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=29'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=29',
     },
   },
   // Line 14 =============================
@@ -1945,7 +1937,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip, Zoom Effect',
       },
-      refs: ['https://www.pentaxforums.com/camerareviews/pentax-z-20-pz-20.html'],
+      refs: 'https://www.pentaxforums.com/camerareviews/pentax-z-20-pz-20.html',
     },
   },
   {
@@ -2006,7 +1998,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '0 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=27'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=27',
     },
   },
   // // Line 15 =============================
@@ -2066,7 +2058,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         sensitivity: '1 ~ 18ev',
         powerZoom: 'Auto Lens Retract, Power Zoom, Image Size Tracking, Zoom Clip',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=21'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=21',
     },
   },
   // Line 16 =============================
@@ -2166,7 +2158,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         syncSpeed: '1/100sec',
         modes: 'P, S',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=16'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=16',
     },
   },
   {
@@ -2217,7 +2209,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         syncSpeed: '1/100sec',
         modes: 'P, S',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=16'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=16',
     },
   },
   // // Line 17 =============================
@@ -2556,7 +2548,7 @@ export const PENTAX_SLRS: PentaxSlr[] = [
         syncSpeed: '1/100sec',
         modes: 'P, S',
       },
-      refs: ['https://www.pentaxclub.com/product/view?productKey=34'],
+      refs: 'https://www.pentaxclub.com/product/view?productKey=34',
     },
   },
 ];

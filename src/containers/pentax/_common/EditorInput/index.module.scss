@@ -1,0 +1,108 @@
+@use 'src/styles/mixins' as m;
+
+.inputWrapper {
+  @include m.flexbox(start, center);
+  position: relative;
+  width: 100%;
+
+  .fieldName {
+    width: 90px;
+    padding-right: 8px;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .deco {
+    margin: 0 4px;
+    font-size: 12px;
+  }
+
+  + label {
+    margin-top: 2px;
+  }
+
+  &.error {
+    input,
+    select,
+    textarea {
+      border-color: var(--color-red) !important;
+    }
+  }
+
+  &.changed {
+    input,
+    select,
+    textarea {
+      border-color: var(--color-orange) !important;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0 4px;
+    font-size: 12px;
+    border: 1px solid var(--color-gray-c);
+    border-radius: 2px;
+
+    &::placeholder {
+      color: var(--color-gray-a);
+    }
+
+    &:disabled {
+      background-color: var(--color-gray-e);
+    }
+
+    &.error {
+      border-color: var(--color-red) !important;
+    }
+
+    &.changed {
+      border-color: var(--color-orange) !important;
+    }
+  }
+
+  input,
+  select {
+    height: 20px;
+  }
+
+  input {
+    &[type='text'],
+    &[type='number'] {
+      flex: 1;
+    }
+
+    &.mini {
+      width: 80px;
+    }
+
+    &.tiny {
+      width: 60px;
+    }
+  }
+
+  input[type='checkbox'] {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--color-gray-a);
+    border-radius: 2px;
+
+    &:focus {
+      border-color: var(--color-gray-4);
+    }
+
+    &:checked::before {
+      @include m.absolute(0 auto auto 2px);
+      font-size: 10px;
+      content: '✔';
+    }
+  }
+
+  textarea {
+    flex: 1;
+    height: 160px;
+    line-height: 1.4;
+  }
+}

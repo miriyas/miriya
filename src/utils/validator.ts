@@ -1,10 +1,12 @@
-import { InferType, mixed, number, object, ref, string } from 'yup';
+import { InferType, bool, mixed, number, object, ref, string } from 'yup';
 
 import { CATEGORIES, Year } from '@/types/idols.d';
 
-export const stringTest = string().trim();
+export const stringTest = string();
 
 export const numberTest = number();
+
+export const booleanTest = bool();
 
 // 로그인 관련 ===================================
 
@@ -62,3 +64,82 @@ export const idolValidator = object({
 }).required();
 
 export type IdolSchema = InferType<typeof idolValidator>;
+
+// 펜탁스 관련 ===================================
+
+export const pentaxSlrValidator = object({
+  startYear: numberTest.required(),
+  endYear: numberTest.required(),
+  mount: stringTest.required(),
+  data: object({
+    body: object({
+      width: numberTest,
+      height: numberTest,
+      depth: numberTest,
+      weight: numberTest,
+      color: stringTest,
+      verticalGrip: stringTest,
+    }),
+    power: stringTest,
+    width: stringTest,
+    etc: stringTest,
+    refs: stringTest,
+    modes: stringTest,
+    metering: object({
+      k: stringTest,
+      a: stringTest,
+      range: stringTest,
+    }).optional(),
+    exposure: object({
+      range: stringTest,
+      fix: booleanTest,
+    }).optional(),
+    asa: object({
+      dx: stringTest,
+      manual: stringTest,
+    }).optional(),
+    panorama: booleanTest,
+    shutter: object({
+      build: stringTest,
+      speed: stringTest,
+      emergency: stringTest,
+      timer: stringTest,
+      release: stringTest,
+      releaseW: stringTest,
+    }).optional(),
+    winder: object({
+      internal: stringTest,
+      external: stringTest,
+      motorDrive: stringTest,
+    }).optional(),
+    viewFinder: object({
+      coverage: numberTest,
+      magnification: numberTest,
+      seeShutterSpeed: stringTest,
+      seeAperture: stringTest,
+      screenReplace: booleanTest,
+      finderReplace: booleanTest,
+    }).optional(),
+    focus: object({
+      name: stringTest,
+      sensitivity: stringTest,
+      support: booleanTest,
+      powerZoom: stringTest,
+    }).optional(),
+    flash: object({
+      sync: stringTest,
+      modes: stringTest,
+      syncSpeed: stringTest,
+      internal: stringTest,
+      redEye: booleanTest,
+    }).optional(),
+    comment: stringTest,
+  }),
+}).required();
+
+export type PentaxSLRSchema = InferType<typeof pentaxSlrValidator>;
+
+export interface FBPentaxSLRSchema extends PentaxSLRSchema {
+  id: string;
+  name: string;
+}

@@ -127,24 +127,24 @@ export interface PentaxSlr {
   crippled?: boolean;
   af?: boolean;
   data: {
-    comment: string;
+    comment?: string;
     body: {
       width?: number;
       height?: number;
       depth?: number;
-      weight: number;
+      weight?: number;
       verticalGrip?: string;
       color?: string;
     };
-    power: string;
+    power?: string;
     etc?: string;
-    modes: string;
-    metering: {
+    modes?: string;
+    metering?: {
       k?: string;
       a?: string;
       range?: string;
     };
-    asa: {
+    asa?: {
       dx?: string;
       manual?: string;
     };
@@ -152,43 +152,43 @@ export interface PentaxSlr {
       range?: string;
       fix?: boolean;
     };
-    panorama?: boolean | string;
-    shutter: {
-      build: string;
-      speed: string;
+    panorama?: boolean;
+    shutter?: {
+      build?: string;
+      speed?: string;
       emergency?: string;
       timer?: string;
       release?: string;
       releaseW?: string;
     };
-    winder: {
-      internal: string;
+    winder?: {
+      internal?: string;
       external?: string;
       motorDrive?: string;
     };
-    etc: string;
-    viewFinder: {
+    etc?: string;
+    viewFinder?: {
       coverage?: number;
-      magnification: string | number;
+      magnification?: number;
       seeShutterSpeed?: string;
       seeAperture?: string;
       screenReplace?: boolean;
       finderReplace?: boolean;
     };
-    flash: {
-      sync: string;
+    flash?: {
+      sync?: string;
       modes?: string;
-      syncSpeed: string;
+      syncSpeed?: string;
       internal?: string;
       redEye?: boolean;
     };
     focus?: {
-      name: FocusNameTypes;
+      name?: FocusNameTypes;
       sensitivity?: string;
       support?: boolean;
       powerZoom?: string;
     };
-    refs?: string[];
+    refs?: string;
   };
 }
 

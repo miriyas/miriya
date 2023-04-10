@@ -32,6 +32,14 @@ export const getAuthorData = (user: User) => {
   };
 };
 
+export const valueOr = (value: string | boolean | undefined, _placeholder?: string, ifTrue?: string) => {
+  const placeholder = _placeholder ?? '-';
+  if (typeof value === 'undefined') return placeholder;
+  if (typeof value === 'boolean') return value ? ifTrue : placeholder;
+  if (value === '') return placeholder;
+  return ifTrue ?? value;
+};
+
 // export const getSystemAuthor = () => {
 //   return {
 //     authorId: 'fXruvSpnIcMp20gi6a6HhOdihli1',

@@ -1,6 +1,7 @@
 'use client';
 
 import { PentaxSlr } from '@/types/pentaxes.d';
+import { valueOr } from '@/utils';
 
 import styles from './Data.module.scss';
 
@@ -11,9 +12,6 @@ interface Props {
 const DataColumn1 = ({ camera }: Props) => {
   const { startYear, endYear, mount, data } = camera;
   const { asa, body, etc, exposure, metering, modes, panorama, power, refs } = data;
-
-  let panoramaData = typeof panorama === 'string' ? panorama : '가능';
-  if (!panorama) panoramaData = '-';
 
   const endYearData = endYear ? `${endYear}년` : '생산중';
 
@@ -29,7 +27,7 @@ const DataColumn1 = ({ camera }: Props) => {
           </tr>
           <tr>
             <th>마운트</th>
-            <td>{mount}</td>
+            <td>{valueOr(mount)}</td>
           </tr>
           <tr>
             <th>규격</th>
@@ -43,25 +41,25 @@ const DataColumn1 = ({ camera }: Props) => {
           </tr>
           <tr>
             <th>색상</th>
-            <td>{body.color ?? '-'}</td>
+            <td>{valueOr(body.color)}</td>
           </tr>
           <tr>
             <th>세로그립</th>
-            <td>{body.verticalGrip ?? '-'}</td>
+            <td>{valueOr(body.verticalGrip)}</td>
           </tr>
           <tr>
             <th>전원</th>
-            <td>{power ?? '-'}</td>
+            <td>{valueOr(power)}</td>
           </tr>
           <tr>
             <th>기타</th>
-            <td>{etc ?? '-'}</td>
+            <td>{valueOr(etc)}</td>
           </tr>
           <tr>
             <th>레퍼런스</th>
             <td>
               {refs
-                ? refs?.map((ref, i) => {
+                ? refs.split(',').map((ref, i) => {
                     const key = `${ref}-${i}`;
                     return (
                       <a key={key} href={ref} target='_blank' rel='nofollow'>
@@ -80,39 +78,39 @@ const DataColumn1 = ({ camera }: Props) => {
 
           <tr>
             <th>촬영모드</th>
-            <td>{modes}</td>
+            <td>{valueOr(modes)}</td>
           </tr>
           <tr>
             <th>K/M 측광</th>
-            <td>{metering.k ?? '-'}</td>
+            <td>{valueOr(metering?.k)}</td>
           </tr>
           <tr>
             <th>A/F/FA 측광</th>
-            <td>{metering.a ?? '-'}</td>
+            <td>{valueOr(metering?.a)}</td>
           </tr>
           <tr>
             <th>측광범위</th>
-            <td>{metering.range}</td>
+            <td>{valueOr(metering?.range)}</td>
           </tr>
           <tr>
             <th>노출보정</th>
-            <td>{exposure?.range ?? '-'}</td>
+            <td>{valueOr(exposure?.range)}</td>
           </tr>
           <tr>
             <th>DX ASA</th>
-            <td>{asa.dx ?? '-'}</td>
+            <td>{valueOr(asa?.dx)}</td>
           </tr>
           <tr>
             <th>매뉴얼 ASA</th>
-            <td>{asa.manual ?? '-'}</td>
+            <td>{valueOr(asa?.manual)}</td>
           </tr>
           <tr>
             <th>노출고정</th>
-            <td>{exposure?.fix ? '가능' : '-'}</td>
+            <td>{valueOr(exposure?.fix, '-', '가능')}</td>
           </tr>
           <tr>
             <th>파노라마포멧</th>
-            <td>{panoramaData}</td>
+            <td>{valueOr(panorama, '-', '가능')}</td>
           </tr>
         </tbody>
       </table>

@@ -3,12 +3,12 @@
 import Image from 'next/image';
 
 import { cameraId } from '@/utils/cameras';
-import { PentaxDslr, PentaxSlr } from '@/types/pentaxes';
+import { FBPentaxSlr, FBPentaxDslr } from '@/types/pentaxes';
 
 import styles from './Picture.module.scss';
 
 interface Props {
-  selectedCamera?: PentaxSlr | PentaxDslr;
+  selectedCamera?: FBPentaxSlr | FBPentaxDslr;
   baseUrl: 'dslr' | 'slr';
 }
 
@@ -35,7 +35,9 @@ const Picture = ({ selectedCamera, baseUrl }: Props) => {
           placeholder='blur'
         />
       </div>
-      <p className={styles.name}>{selectedCamera.name}</p>
+      <p className={styles.name} title={selectedCamera.id}>
+        {selectedCamera.name}
+      </p>
     </div>
   );
 };

@@ -1,0 +1,55 @@
+@use 'src/styles/mixins' as m;
+
+.editor {
+  @include m.flexbox(center, start);
+  position: relative;
+  flex: 1;
+  gap: 14px;
+  height: var(--h-pentax-data);
+  padding-right: 14px;
+  line-height: 1.6;
+  border-top: 0;
+
+  .blank {
+    height: 14px;
+  }
+
+  textarea {
+    flex: 1;
+    height: 160px;
+    line-height: 1.4;
+  }
+
+  .column {
+    @include m.flexbox(start, center);
+    position: relative;
+    flex: 1;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 1px;
+    height: 100%;
+    padding: 14px 0;
+  }
+
+  .buttonWrapper {
+    @include m.absolute(auto 0 14px auto);
+    @include m.flexbox;
+    width: 200px;
+    margin-top: 8px;
+
+    button {
+      flex: 1;
+      height: 28px;
+      border-radius: 4px;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
+    button[type='submit'] {
+      color: var(--color-white);
+      background-color: var(--color-blue);
+    }
+  }
+}

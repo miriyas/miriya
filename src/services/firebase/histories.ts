@@ -21,24 +21,24 @@ import { History } from '@/types/histories.d';
 // Query ============================
 
 /** 카테고리 내 모든 기록을 정렬해서 불러옴 */
-const historiesQuery = (category: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) =>
+const historiesQuery = (targetCategory: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) =>
   query(
     collection(db, COLLECTION.HISTORIES),
-    where('targetCategory', '==', category),
+    where('targetCategory', '==', targetCategory),
     orderBy('createdAt', order),
     limit(limitCount),
   );
 
 /** 카테고리 내 타겟 내 모든 기록을 정렬해서 불러옴 */
 const historiesInTargetQuery = (
-  category: TargetCategoryTypes,
+  targetCategory: TargetCategoryTypes,
   targetId: string,
   order: 'asc' | 'desc',
   limitCount: number,
 ) =>
   query(
     collection(db, COLLECTION.HISTORIES),
-    where('targetCategory', '==', category),
+    where('targetCategory', '==', targetCategory),
     where('targetId', '==', targetId),
     orderBy('createdAt', order),
     limit(limitCount),
@@ -47,29 +47,29 @@ const historiesInTargetQuery = (
 /** 카테고리 내 서브 카테고리 내 타겟 내 모든 기록을 정렬해서 불러옴
  * 펜탁스에서 사용 */
 const historiesInTargetQueryWithSubCategory = (
-  category: TargetCategoryTypes,
-  subCategory: SubTargetCategoryTypes,
+  targetCategory: TargetCategoryTypes,
+  targetSubCategory: SubTargetCategoryTypes,
   targetId: string,
   order: 'asc' | 'desc',
   limitCount: number,
 ) =>
   query(
     collection(db, COLLECTION.HISTORIES),
-    where('targetCategory', '==', category),
-    where('targetSubCategory', '==', subCategory),
+    where('targetCategory', '==', targetCategory),
+    where('targetSubCategory', '==', targetSubCategory),
     where('targetId', '==', targetId),
     orderBy('createdAt', order),
     limit(limitCount),
   );
 
-const getHistoriesSnapshot = async (category: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) => {
-  const snapshot = await getDocs(historiesQuery(category, order, limitCount));
+const getHistoriesSnapshot = async (targetCategory: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) => {
+  const snapshot = await getDocs(historiesQuery(targetCategory, order, limitCount));
   return snapshot;
 };
 
 /** 방명록 - 아이돌 등 해당 카테고리 전체 기록을 가져올때 */
-export const getHistories = async (category: TargetCategoryTypes, limitCount: number) => {
-  const snapshot = await getHistoriesSnapshot(category, 'desc', limitCount);
+export const getHistories = async (targetCategory: TargetCategoryTypes, limitCount: number) => {
+  const snapshot = await getHistoriesSnapshot(targetCategory, 'desc', limitCount);
   return snapshot.docs.map((item) => {
     return {
       ...item.data(),
@@ -79,14 +79,14 @@ export const getHistories = async (category: TargetCategoryTypes, limitCount: nu
 };
 
 export const getHistoriesInTargetRealtime = (
-  category: TargetCategoryTypes,
+  targetCategory: TargetCategoryTypes,
   targetId: string,
   setHistories: Dispatch<SetStateAction<History[]>>,
-  subCategory?: SubTargetCategoryTypes,
+  targetSubCategory?: SubTargetCategoryTypes,
 ) => {
-  const q = subCategory
-    ? historiesInTargetQueryWithSubCategory(category, subCategory, targetId, 'desc', 1000)
-    : historiesInTargetQuery(category, targetId, 'desc', 1000);
+  const q = targetSubCategory
+    ? historiesInTargetQueryWithSubCategory(targetCategory, targetSubCategory, targetId, 'desc', 1000)
+    : historiesInTargetQuery(targetCategory, targetId, 'desc', 1000);
   return onSnapshot(q, (querySnapshot) => {
     const histories = querySnapshot.docs
       .filter((item) => !item.metadata.hasPendingWrites)
@@ -106,12 +106,24 @@ export const createHistoryDoc = async (
   targetCategory: TargetCategoryTypes,
   targetId: string,
   targetName: string,
+  targetSubCategory?: SubTargetCategoryTypes,
 ) => {
-  await addDoc(collection(db, COLLECTION.HISTORIES), {
-    body,
-    targetCategory,
-    targetId,
-    targetName,
-    createdAt: serverTimestamp(),
-  });
+  if (targetSubCategory) {
+    await addDoc(collection(db, COLLECTION.HISTORIES), {
+      body,
+      targetCategory,
+      targetSubCategory,
+      targetId,
+      targetName,
+      createdAt: serverTimestamp(),
+    });
+  } else {
+    await addDoc(collection(db, COLLECTION.HISTORIES), {
+      body,
+      targetCategory,
+      targetId,
+      targetName,
+      createdAt: serverTimestamp(),
+    });
+  }
 };
