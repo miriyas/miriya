@@ -9,6 +9,35 @@
   line-height: 1.6;
   border-top: 0;
 
+  &.dslr {
+    th,
+    td {
+      height: 18px;
+    }
+
+    th {
+      width: 80px;
+    }
+
+    .blank {
+      th,
+      td {
+        height: 10px;
+      }
+    }
+  }
+
+  &.slr {
+    th,
+    td {
+      height: 22px;
+    }
+
+    th {
+      width: 90px;
+    }
+  }
+
   .toEdit {
     @include m.absolute(0 0 auto auto);
     @include m.flexbox;
@@ -42,9 +71,14 @@
   table {
     width: 100%;
 
+    .blank {
+      th::after {
+        display: none;
+      }
+    }
+
     th,
     td {
-      height: 22px;
       font-size: 12px;
     }
 
@@ -59,14 +93,14 @@
         @include m.absolute(0 0 0 auto);
         content: ':';
       }
-
-      &.blank::after {
-        display: none;
-      }
     }
 
     td {
       padding-left: 8px;
+
+      a {
+        margin-right: 8px;
+      }
     }
   }
 

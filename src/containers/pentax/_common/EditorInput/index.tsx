@@ -27,9 +27,10 @@ interface Props {
   register: UseFormRegister<any>;
   errors: FieldErrors;
   dirtyFields: Partial<Readonly<any>>;
+  category: string;
 }
 
-const EditorInputs = ({ fields, register, errors, dirtyFields }: Props) => {
+const EditorInputs = ({ fields, register, errors, dirtyFields, category }: Props) => {
   return (
     <>
       {Object.keys(fields).map((fieldsKey) => {
@@ -38,7 +39,7 @@ const EditorInputs = ({ fields, register, errors, dirtyFields }: Props) => {
         return (
           <label
             key={fieldsKey}
-            className={cx(styles.inputWrapper, {
+            className={cx(styles.inputWrapper, styles[category], {
               [styles.error]: getBooleanFromObjectViaKeys(errors, fieldsKey),
               [styles.changed]: getBooleanFromObjectViaKeys(dirtyFields, fieldsKey),
             })}

@@ -17,10 +17,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 156,
         height: 117,
         depth: 119,
-        weight: {
-          base: 1400,
-          extra: '배터리, SD카드 2장 포함 1480g',
-        },
+        weight: '1400g, 배터리, SD카드 2장 포함 1480g',
       },
       mount: 'Pentax 645AF2, 645AF, 645A',
       power: 'D-LI90 리튬이온, AC전원',
@@ -45,11 +42,11 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '2 ~ 21ev',
       exposureRange: '±5ev',
       shutter: '30-1/4000sec, B',
-      continuous: 1.1,
+      continuous: '1.1fps',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 98,
-        magnification: '0.62x (DFA55), 0.85x (FA75)',
+        coverage: '98%',
+        magnification: '0.62x (DFA55), 0.85x (FA75)x',
       },
       flash: {
         interlock: '디지털, X-Sync',
@@ -71,6 +68,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     line: 1,
     startYear: 2014,
     startQuarter: 2,
+    data: {},
   },
   // Line 2 ==============================
   {
@@ -81,6 +79,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 2,
     endYear: 2018,
     endQuarter: 1,
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.NEW_K,
@@ -88,6 +87,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     line: 2,
     startYear: 2018,
     startQuarter: 2,
+    data: {},
   },
   // Line 3 / 4 ==============================
   {
@@ -104,10 +104,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 131.5,
         height: 100,
         depth: 77.5,
-        weight: {
-          base: 720,
-          extra: '배터리 포함 800g',
-        },
+        weight: '720g, 배터리 포함 800g',
         verticalGrip: 'D-BG4',
       },
       mount: 'KAF3',
@@ -142,8 +139,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       continuousLength: '3.3fps에서 JPEG 무한, RAW 17장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 100,
-        magnification: '0.95',
+        coverage: '100%',
+        magnification: '0.95x',
         screenReplace: true,
       },
       flash: {
@@ -162,11 +159,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         superImpose: true,
         supersonicMotor: true,
       },
-      refs: [
-        // 'https://www.dpreview.com/products/pentax/slrs/pentax_k5ii',
-        'https://m.popco.net/reviewView.php?IDX=899&BID=dica_review&SUB_CAT=1',
-        'https://www.popco.net/zboard/view.php?id=dica_brandlist&page=1&sn1=&divpage=1&category=14&sn=off&ss=on&sc=on&select_arrange=headnum&desc=asc&no=2028&category=14&category_name=%C6%E6%C5%B9%BD%BA%27#specfication',
-      ],
+      refs: 'https://m.popco.net/reviewView.php?IDX=899&BID=dica_review&SUB_CAT=1, https://www.popco.net/zboard/view.php?id=dica_brandlist&page=1&sn1=&divpage=1&category=14&sn=off&ss=on&sc=on&select_arrange=headnum&desc=asc&no=2028&category=14&category_name=%C6%E6%C5%B9%BD%BA%27#specfication',
     },
   },
   {
@@ -177,6 +170,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 3,
     endYear: 2018,
     endQuarter: 1,
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.NEW_K,
@@ -184,6 +178,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     line: 3,
     startYear: 2021,
     startQuarter: 2,
+    data: {},
   },
   // Line 5 ==============================
   {
@@ -200,10 +195,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 131,
         height: 97,
         depth: 73,
-        weight: {
-          base: 670,
-          extra: '배터리 포함 750g',
-        },
+        weight: '670g, 배터리 포함 750g',
         verticalGrip: 'D-BG4',
       },
       mount: 'KAF3',
@@ -239,8 +231,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       continuousLength: '3.3fps에서 JPEG 무한, PEF 17장, DNG 17장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 100,
-        magnification: '0.92',
+        coverage: '100%',
+        magnification: '0.92x',
       },
       flash: {
         interlock: '디지털',
@@ -274,10 +266,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 131,
         height: 97,
         depth: 73,
-        weight: {
-          base: 670,
-          extra: '배터리 포함 750g',
-        },
+        weight: '670g, 배터리 포함 750g',
         verticalGrip: 'D-BG4',
       },
       mount: 'KAF3',
@@ -312,8 +301,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       continuousLength: '3.3fps에서 JPEG 무한, RAW 17장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 100,
-        magnification: '0.92',
+        coverage: '100%',
+        magnification: '0.92x',
       },
       flash: {
         interlock: '디지털',
@@ -331,7 +320,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         superImpose: true,
         supersonicMotor: true,
       },
-      refs: ['https://www.dpreview.com/reviews/pentaxk5/2'],
+      refs: 'https://www.dpreview.com/reviews/pentaxk5/2',
     },
   },
   {
@@ -348,10 +337,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 131,
         height: 97,
         depth: 73,
-        weight: {
-          base: 680,
-          extra: '배터리 포함 760g',
-        },
+        weight: '680g, 배터리 포함 760g',
         verticalGrip: 'D-BG4',
       },
       mount: 'KAF3',
@@ -386,8 +372,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       continuousLength: '3.3fps에서 JPEG 무한, RAW 17장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 100,
-        magnification: '0.92',
+        coverage: '100%',
+        magnification: '0.92x',
         screenReplace: true,
       },
       flash: {
@@ -406,10 +392,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         superImpose: true,
         supersonicMotor: true,
       },
-      refs: [
-        'https://www.dpreview.com/products/pentax/slrs/pentax_k5ii',
-        'https://m.popco.net/reviewView.php?IDX=846&SUB_CAT=1&BID=dica_review',
-      ],
+      refs: 'https://www.dpreview.com/products/pentax/slrs/pentax_k5ii, https://m.popco.net/reviewView.php?IDX=846&SUB_CAT=1&BID=dica_review',
     },
   },
   // Line 6 ==============================
@@ -427,10 +410,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 129,
         height: 95,
         depth: 60,
-        weight: {
-          base: 510,
-          extra: '배터리 포함 650g',
-        },
+        weight: '510g, 배터리 포함 650g',
         verticalGrip: 'D-BG1',
       },
       mount: 'KAF2',
@@ -452,12 +432,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±3ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.7,
+      continuous: '2.7fps',
       continuousLength: '5장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 95,
-        magnification: '0.95',
+        coverage: '95%',
+        magnification: '0.95x',
       },
       flash: {
         interlock: '아날로그, 디지털',
@@ -490,10 +470,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 142,
         height: 101,
         depth: 70,
-        weight: {
-          base: 710,
-          extra: '배터리 포함 790g',
-        },
+        weight: '710g, 배터리 포함 790g',
         verticalGrip: 'D-BG2',
       },
       mount: 'KAF2',
@@ -521,12 +498,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '0 ~ 21ev',
       exposureRange: '±3ev',
       shutter: '30-1/4000sec, B',
-      continuous: 3,
+      continuous: '3fps',
       continuousLength: 'JPEG 무한, RAW 9장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 95,
-        magnification: '0.95',
+        coverage: '95%',
+        magnification: '0.95x',
         screenReplace: true,
       },
       flash: {
@@ -561,10 +538,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 141.5,
         height: 101,
         depth: 70,
-        weight: {
-          base: 715,
-          extra: '배터리 포함 800g',
-        },
+        weight: '715g, 배터리 포함 800g',
         verticalGrip: 'D-BG2',
       },
       mount: 'KAF2',
@@ -598,8 +572,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       continuousLength: 'JPEG 38장, 이후로 2.3fps, RAW PEF 14장, DNG 16장까지',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 95,
-        magnification: '0.95',
+        coverage: '95%',
+        magnification: '0.95x',
         screenReplace: true,
       },
       flash: {
@@ -628,6 +602,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 1,
     endYear: 2021,
     endQuarter: 1,
+    data: {},
   },
   // Line 7 ==============================
   {
@@ -644,10 +619,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 129.5,
         height: 92.5,
         depth: 70,
-        weight: {
-          base: 560,
-          extra: '배터리 포함 660g',
-        },
+        weight: '560g, 배터리 포함 660g',
       },
       mount: 'KAF2',
       power: 'AAx4, CR-V3x2, AC전원',
@@ -670,12 +642,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
+      continuous: '2.8fps',
       continuousLength: 'JPEG 5장, RAW 3장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 96,
-        magnification: '0.85',
+        coverage: '96%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -708,10 +680,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 129.5,
         height: 92.5,
         depth: 70,
-        weight: {
-          base: 570,
-          extra: '배터리 포함 670g',
-        },
+        weight: '570g, 배터리 포함 670g',
       },
       mount: 'KAF2',
       power: 'AAx4, CR-V3x2, AC전원',
@@ -735,12 +704,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
+      continuous: '2.8fps',
       continuousLength: 'JPEG 5장, RAW 3장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 96,
-        magnification: '0.85',
+        coverage: '96%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -773,10 +742,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 133,
         height: 95,
         depth: 74,
-        weight: {
-          base: 630,
-          extra: '배터리 포함 690g',
-        },
+        weight: '630g, 배터리 포함 690g',
         verticalGrip: 'D-BG3',
       },
       mount: 'KAF2',
@@ -803,12 +769,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '0 ~ 21ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
+      continuous: '2.8fps',
       continuousLength: 'JPEG 4장, 이후로 1.1fps, RAW 4장까지',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 96,
-        magnification: '0.85',
+        coverage: '96%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -836,6 +802,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 2,
     endYear: 2013,
     endQuarter: 2,
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.NEW_K,
@@ -845,6 +812,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 3,
     endYear: 2016,
     endQuarter: 2,
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.NEW_K,
@@ -854,6 +822,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 3,
     endYear: 2022,
     endQuarter: 3,
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.NEW_K,
@@ -861,6 +830,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     line: 7,
     startYear: 2022,
     startQuarter: 4,
+    data: {},
   },
   // Line 8 ==============================
   {
@@ -877,10 +847,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 125,
         height: 92.5,
         depth: 66,
-        weight: {
-          base: 505,
-          extra: '배터리 포함 605g',
-        },
+        weight: '505g, 배터리 포함 605g',
       },
       mount: 'KAF2',
       power: 'AAx4, CR-V3x2, AC전원',
@@ -900,12 +867,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
-      continuousLength: 8,
+      continuous: '2.8fps',
+      continuousLength: '8장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 95,
-        magnification: '0.95',
+        coverage: '95%',
+        magnification: '0.95x',
         screenReplace: true,
       },
       flash: {
@@ -939,10 +906,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 125,
         height: 92.5,
         depth: 66,
-        weight: {
-          base: 505,
-          extra: '배터리 포함 605g',
-        },
+        weight: '505g, 배터리 포함 605g',
       },
       mount: 'KAF2',
       power: 'AAx4, CR-V3x2, AC전원',
@@ -962,12 +926,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
-      continuousLength: 8,
+      continuous: '2.8fps',
+      continuousLength: '8장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_PRISM,
-        coverage: 95,
-        magnification: '0.95',
+        coverage: '95%',
+        magnification: '0.95x',
         screenReplace: true,
       },
       flash: {
@@ -996,6 +960,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     endYear: 2012,
     endQuarter: 2,
     // safox9
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.NEW_K,
@@ -1005,6 +970,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 3,
     endYear: 2014,
     endQuarter: 4,
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.NEW_K,
@@ -1014,6 +980,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 1,
     endYear: 2018,
     endQuarter: 1,
+    data: {},
   },
   // Line 9 ==============================
   {
@@ -1030,10 +997,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 125,
         height: 92.5,
         depth: 66,
-        weight: {
-          base: 470,
-          extra: '배터리 포함 565g',
-        },
+        weight: '470g, 배터리 포함 565g',
       },
       mount: 'KAF2',
       power: 'AAx4, CR-V3x2, AC전원',
@@ -1053,12 +1017,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
+      continuous: '2.8fps',
       continuousLength: 'JPEG 5장, RAW 3장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 95,
-        magnification: '0.85',
+        coverage: '95%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -1090,10 +1054,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 125,
         height: 92.5,
         depth: 66,
-        weight: {
-          base: 470,
-          extra: '배터리 포함 565g',
-        },
+        weight: '470g, 배터리 포함 565g',
       },
       mount: 'KAF2',
       power: 'AAx4, CR-V3x2, AC전원',
@@ -1113,12 +1074,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
+      continuous: '2.8fps',
       continuousLength: 'JPEG 5장, RAW 3장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 95,
-        magnification: '0.85',
+        coverage: '95%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -1150,10 +1111,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 129.5,
         height: 92.5,
         depth: 70,
-        weight: {
-          base: 485,
-          extra: '배터리 포함 585g',
-        },
+        weight: '485g, 배터리 포함 585g',
       },
       mount: 'KAF2',
       power: 'AAx4, CR-V3x2, AC전원',
@@ -1172,12 +1130,12 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       meteringRange: '1 ~ 21.5ev',
       exposureRange: '±2ev',
       shutter: '30-1/4000sec, B',
-      continuous: 2.8,
+      continuous: '2.8fps',
       continuousLength: 'JPEG 5장, RAW 3장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 96,
-        magnification: '0.85',
+        coverage: '96%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -1210,10 +1168,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 122.5,
         height: 91.5,
         depth: 67.5,
-        weight: {
-          base: 525,
-          extra: '배터리 포함 590g',
-        },
+        weight: '525g, 배터리 포함 590g',
       },
       mount: 'KAF3',
       power: 'AAx4(리튬, Ni-MH 포함), AC전원',
@@ -1241,8 +1196,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       continuousLength: '1.1fps에서 JPEG 무한, RAW 7장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 96,
-        magnification: '0.85',
+        coverage: '96%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -1275,10 +1230,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
         width: 122.5,
         height: 91.5,
         depth: 67.5,
-        weight: {
-          base: 515,
-          extra: '배터리 포함 580g',
-        },
+        weight: '515g, 배터리 포함 580g',
       },
       mount: 'KAF3',
       power: 'AAx4(리튬, Ni-MH 포함), AC전원',
@@ -1312,8 +1264,8 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
       continuousLength: '2fps에서 JPEG 무한, RAW 11장',
       viewFinder: {
         type: OPTICS_TYPE.PENTA_MIRROR,
-        coverage: 96,
-        magnification: '0.85',
+        coverage: '96%',
+        magnification: '0.85x',
       },
       flash: {
         interlock: '디지털',
@@ -1339,6 +1291,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 2,
     endYear: 2016,
     endQuarter: 2,
+    data: {},
   },
   // Line 10 =============================
   {
@@ -1349,6 +1302,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 1,
     endYear: 2013,
     endQuarter: 1,
+    data: {},
   },
   // Line 11 =============================
   {
@@ -1359,6 +1313,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 2,
     endYear: 2015,
     endQuarter: 2,
+    data: {},
   },
   // Line 12 =============================
   {
@@ -1369,6 +1324,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 3,
     endYear: 2020,
     endQuarter: 1,
+    data: {},
   },
   // Line 13 =============================
   {
@@ -1379,6 +1335,7 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 2,
     endYear: 2012,
     endQuarter: 2,
+    data: {},
   },
   {
     type: PENTAX_DSLR_TYPE.Q,
@@ -1388,5 +1345,6 @@ export const PENTAX_DSLRS: PentaxDslr[] = [
     startQuarter: 3,
     endYear: 2014,
     endQuarter: 3,
+    data: {},
   },
 ];

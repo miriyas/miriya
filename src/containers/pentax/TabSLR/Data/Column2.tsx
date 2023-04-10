@@ -3,7 +3,7 @@
 import { PentaxSlr } from '@/types/pentaxes.d';
 import { valueOr } from '@/utils';
 
-import styles from './Data.module.scss';
+import styles from '../../_common/CommonData.module.scss';
 
 interface Props {
   camera: PentaxSlr;
@@ -55,8 +55,8 @@ const DataColumn2 = ({ camera }: Props) => {
             <td>{valueOr(winder?.motorDrive)}</td>
           </tr>
 
-          <tr>
-            <th className={styles.blank} />
+          <tr className={styles.blank}>
+            <th />
             <td />
           </tr>
 

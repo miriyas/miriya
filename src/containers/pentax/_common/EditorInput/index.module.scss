@@ -5,6 +5,30 @@
   position: relative;
   width: 100%;
 
+  &.slr {
+    + label {
+      margin-top: 2px;
+    }
+
+    input,
+    select {
+      height: 20px;
+    }
+  }
+
+  &.dslr {
+    height: 18px;
+
+    + label {
+      margin-top: 1px;
+    }
+
+    input,
+    select {
+      height: 18px;
+    }
+  }
+
   .fieldName {
     width: 90px;
     padding-right: 8px;
@@ -15,10 +39,6 @@
   .deco {
     margin: 0 4px;
     font-size: 12px;
-  }
-
-  + label {
-    margin-top: 2px;
   }
 
   &.error {
@@ -60,11 +80,6 @@
     &.changed {
       border-color: var(--color-orange) !important;
     }
-  }
-
-  input,
-  select {
-    height: 20px;
   }
 
   input {

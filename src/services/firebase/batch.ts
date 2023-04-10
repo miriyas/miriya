@@ -1,11 +1,30 @@
-// import { addDoc, collection, getDocs, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
+// import { addDoc, collection, deleteField, getDocs, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
 
 // import { db, initialTs } from '@/utils/firebase';
 // import { COLLECTION, PENTAX_COLLECTION_NAMES } from '@/types/firebase.d';
-// import { TARGET_CATEGORY } from '@/types/comments.d';
+// import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
 
 export {};
 // 아래는 배치 업데이트용
+
+// 모든 펜탁스 DSLR 무게 정보 업데이트
+// export const batchUpdate = async () => {
+//   const snapshot = await getDocs(query(collection(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES.DSLR)));
+
+//   snapshot.docs.forEach((d) => {
+//     const { name, data } = d.data();
+//     console.log(name, data?.body?.weight);
+
+//     if (data?.body && data?.body?.weight) {
+//       // updateDoc(d.ref, {
+//       //   'data.body.weight': deleteField(),
+//       // });
+//       updateDoc(d.ref, {
+//         'data.body.weight': `${data.body.weight.base}g, ${data.body.weight.extra}`,
+//       });
+//     }
+//   });
+// };
 
 // 모든 댓글 중 방명록을 제외하고 타겟 네임 업데이트
 // export const batchUpdate = async () => {

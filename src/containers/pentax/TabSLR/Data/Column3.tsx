@@ -3,7 +3,7 @@
 import { PentaxSlr } from '@/types/pentaxes.d';
 import { valueOr } from '@/utils';
 
-import styles from './Data.module.scss';
+import styles from '../../_common/CommonData.module.scss';
 
 interface Props {
   camera: PentaxSlr;
@@ -39,8 +39,8 @@ const DataColumn3 = ({ camera }: Props) => {
             <td>{valueOr(flash?.redEye, '-', '지원')}</td>
           </tr>
 
-          <tr>
-            <th className={styles.blank} />
+          <tr className={styles.blank}>
+            <th />
             <td />
           </tr>
 

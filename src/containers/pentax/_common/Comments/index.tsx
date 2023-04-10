@@ -3,7 +3,7 @@
 import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 
-import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
+import { SubTargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
 
 import { ListComment, ListHistory } from '@/components/CommentAndHistory';
 import styles from './index.module.scss';
@@ -12,9 +12,10 @@ import CommentForm from '@/components/CommentForm';
 interface Props {
   selectedCameraId?: string;
   selectedCameraName?: string;
+  subTargetCategory: SubTargetCategoryTypes;
 }
 
-const Comments = ({ selectedCameraId, selectedCameraName }: Props) => {
+const Comments = ({ selectedCameraId, selectedCameraName, subTargetCategory }: Props) => {
   const [showHistory, setShowHistory] = useState<'comments' | 'history'>('comments');
 
   if (!selectedCameraId || !selectedCameraName) return null;
@@ -41,21 +42,21 @@ const Comments = ({ selectedCameraId, selectedCameraName }: Props) => {
       </nav>
       <CommentForm
         targetCategory={TARGET_CATEGORY.PENTAX}
-        targetSubCategory={SUB_TARGET_CATEGORY.SLR}
+        targetSubCategory={subTargetCategory}
         targetId={selectedCameraId}
         targetName={selectedCameraName}
       />
       {showHistory === 'comments' && (
         <ListComment
           targetCategory={TARGET_CATEGORY.PENTAX}
-          targetSubCategory={SUB_TARGET_CATEGORY.SLR}
+          targetSubCategory={subTargetCategory}
           targetId={selectedCameraId}
         />
       )}
       {showHistory === 'history' && (
         <ListHistory
           targetCategory={TARGET_CATEGORY.PENTAX}
-          targetSubCategory={SUB_TARGET_CATEGORY.SLR}
+          targetSubCategory={subTargetCategory}
           targetId={selectedCameraId}
         />
       )}

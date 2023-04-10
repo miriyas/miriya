@@ -39,71 +39,68 @@ export interface PentaxDslr {
   startQuarter: number;
   endYear?: number;
   endQuarter?: number;
-  data?: {
-    body: {
+  data: {
+    body?: {
       material?: PentaxDslrMaterialTypes;
-      width: number;
-      height: number;
-      depth: number;
-      weight: {
-        base: number;
-        extra: string;
-      };
+      width?: number;
+      height?: number;
+      depth?: number;
+      weight?: string;
       verticalGrip?: string;
     };
-    mount: string;
-    power: string;
-    memory: string;
+    mount?: string;
+    power?: string;
+    memory?: string;
     etc?: string;
-    comment: string;
+    comment?: string;
     bonus?: {
       wr?: boolean;
       sr?: string;
       dustRemove?: string;
     };
-    sensor: {
-      pixels: string;
-      size: PentaxDslrSensorSizeTypes;
-      iso: string;
+    sensor?: {
+      pixels?: string;
+      size?: PentaxDslrSensorSizeTypes;
+      iso?: string;
       engine?: EngineTypes;
     };
-    display: string;
+    display?: string;
     liveView?: boolean;
     liveViewAF?: string;
     movie?: string;
     movieType?: string;
-    imageType: string;
-    modes: string;
+    imageType?: string;
+    modes?: string;
     meteringK?: string;
-    meteringA: string;
-    meteringRange: string;
-    exposureRange: string;
-    shutter: string;
-    continuous: number | string;
-    continuousLength?: number | string;
-    viewFinder: {
-      type: OpticsTypes;
-      coverage: number;
-      magnification: string;
+    meteringA?: string;
+    meteringRange?: string;
+    exposureRange?: string;
+    shutter?: string;
+    continuous?: string;
+    continuousLength?: string;
+    viewFinder?: {
+      type?: OpticsTypes;
+      coverage?: string;
+      magnification?: string;
       screenReplace?: boolean;
     };
-    flash: {
-      interlock: string;
-      modes: string;
-      syncSpeed: string;
-      redEye: boolean;
+    flash?: {
+      interlock?: string;
+      modes?: string;
+      syncSpeed?: string;
+      redEye?: boolean;
       internal?: string;
       release?: string;
       releaseW?: string;
     };
-    focus: {
-      name: FocusNameTypes;
-      points: string;
+    focus?: {
+      name?: FocusNameTypes;
+      points?: string;
       sensitivity?: string;
       superImpose?: boolean;
       supersonicMotor?: boolean;
     };
-    refs?: string[];
+    refs?: string;
   };
 }
 

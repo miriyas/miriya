@@ -84,7 +84,7 @@ const commentsInTargetQuery = (
  *  펜탁스에서 사용 */
 const commentsInTargetQueryWithSubCategory = (
   category: TargetCategoryTypes,
-  subCategory: SubTargetCategoryTypes,
+  targetSubCategory: SubTargetCategoryTypes,
   targetId: string,
   order: 'asc' | 'desc',
   limitCount: number,
@@ -92,7 +92,7 @@ const commentsInTargetQueryWithSubCategory = (
   query(
     collection(db, COLLECTION.COMMENTS),
     where('targetCategory', '==', category),
-    where('targetSubCategory', '==', subCategory),
+    where('targetSubCategory', '==', targetSubCategory),
     where('targetId', '==', targetId),
     where('deletedAt', '==', new Timestamp(0, 0)),
     orderBy('createdAt', order),
@@ -146,10 +146,10 @@ export const getCommentsInTargetRealtime = (
   category: TargetCategoryTypes,
   targetId: string,
   setComments: Dispatch<SetStateAction<Comment[]>>,
-  subCategory?: SubTargetCategoryTypes,
+  targetSubCategory?: SubTargetCategoryTypes,
 ) => {
-  const q = subCategory
-    ? commentsInTargetQueryWithSubCategory(category, subCategory, targetId, 'desc', 1000)
+  const q = targetSubCategory
+    ? commentsInTargetQueryWithSubCategory(category, targetSubCategory, targetId, 'desc', 1000)
     : commentsInTargetQuery(category, targetId, 'desc', 1000);
   return onSnapshot(q, (querySnapshot) => {
     const comments = querySnapshot.docs

@@ -10,13 +10,24 @@
   line-height: 1.6;
   border-top: 0;
 
+  &.slr {
+    textarea {
+      height: 160px;
+    }
+  }
+
+  &.dslr {
+    textarea {
+      height: 120px;
+    }
+  }
+
   .blank {
     height: 14px;
   }
 
   textarea {
     flex: 1;
-    height: 160px;
     line-height: 1.4;
   }
 

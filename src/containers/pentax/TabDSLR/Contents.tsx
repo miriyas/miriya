@@ -10,6 +10,7 @@ import { useDraggable } from '@/hooks/useDraggable';
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
 import { FBPentaxDslr } from '@/types/pentaxes';
+import { SUB_TARGET_CATEGORY } from '@/types/comments.d';
 
 import Picture from '../_common/Picture';
 import Comments from '../_common/Comments';
@@ -69,7 +70,11 @@ const Contents = ({ data }: Props) => {
         {showArrow && <ViewMoreButton wrapperRef={wrapperRef} />}
       </div>
       <div className={styles.bottomWrapper}>
-        <Comments selectedCameraId={selectedCamera?.id} selectedCameraName={selectedCamera?.name} />
+        <Comments
+          selectedCameraId={selectedCamera?.id}
+          selectedCameraName={selectedCamera?.name}
+          subTargetCategory={SUB_TARGET_CATEGORY.DSLR}
+        />
         <Data selectedCamera={selectedCamera} />
       </div>
     </section>

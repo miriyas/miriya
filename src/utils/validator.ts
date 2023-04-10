@@ -143,3 +143,78 @@ export interface FBPentaxSLRSchema extends PentaxSLRSchema {
   id: string;
   name: string;
 }
+
+export const pentaxDslrValidator = object({
+  startYear: numberTest.required(),
+  endYear: numberTest.required(),
+  data: object({
+    mount: stringTest.required(),
+    body: object({
+      width: numberTest,
+      height: numberTest,
+      depth: numberTest,
+      weight: stringTest,
+      material: stringTest,
+      verticalGrip: stringTest,
+    }),
+    power: stringTest,
+    bonus: object({
+      wr: booleanTest,
+      sr: stringTest,
+      dustRemove: stringTest,
+    }).optional(),
+    memory: stringTest,
+    etc: stringTest,
+    sensor: object({
+      pixels: stringTest,
+      size: stringTest,
+      iso: stringTest,
+      engine: stringTest,
+    }),
+    modes: stringTest,
+    meteringK: stringTest,
+    meteringA: stringTest,
+    meteringRange: stringTest,
+    exposureRange: stringTest,
+    shutter: stringTest,
+    continuous: stringTest,
+    continuousLength: stringTest,
+    viewFinder: object({
+      type: stringTest,
+      coverage: stringTest,
+      magnification: stringTest,
+      screenReplace: booleanTest,
+    }),
+    flash: object({
+      interlock: stringTest,
+      modes: stringTest,
+      syncSpeed: stringTest,
+      redEye: booleanTest,
+      internal: stringTest,
+      release: stringTest,
+      releaseW: stringTest,
+    }),
+    focus: object({
+      name: stringTest,
+      points: stringTest,
+      sensitivity: stringTest,
+      superImpose: booleanTest,
+      supersonicMotor: booleanTest,
+    }),
+    display: stringTest,
+    liveView: booleanTest,
+    liveViewAF: stringTest,
+    movie: stringTest,
+    movieType: stringTest,
+    imageType: stringTest,
+    refs: stringTest,
+    comment: stringTest,
+  }),
+}).required();
+
+export type PentaxDSLRSchema = InferType<typeof pentaxDslrValidator>;
+
+export interface FBPentaxDSLRSchema extends PentaxDSLRSchema {
+  id: string;
+  name: string;
+}

@@ -8,7 +8,7 @@ import { SubTargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
 import { createHistoryDoc } from '@/services/firebase/histories';
 import { db } from '@/utils/firebase';
 import { getUserName } from '@/utils';
-import { FBPentaxSLRSchema } from '@/utils/validator';
+import { FBPentaxDSLRSchema, FBPentaxSLRSchema } from '@/utils/validator';
 
 /** 펜탁스 SLR 목록을 순서 없이 다 가져온다 */
 export const getPentaxSlrsRealtime = (setSlrs: Dispatch<SetStateAction<FBPentaxSlr[]>>) => {
@@ -43,12 +43,12 @@ export const getPentaxDslrsRealtime = (setDslrs: Dispatch<SetStateAction<FBPenta
 };
 
 export const editPentaxDoc = async (
-  newCamera: FBPentaxSLRSchema,
+  newCamera: FBPentaxSLRSchema | FBPentaxDSLRSchema,
   changed: string[],
   user: User,
   subTargetCategory: SubTargetCategoryTypes,
 ) => {
-  const ref = doc(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES.SLR, newCamera.id);
+  const ref = doc(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES[subTargetCategory], newCamera.id);
   updateDoc(ref, {
     ...newCamera,
     updatedAt: serverTimestamp(),

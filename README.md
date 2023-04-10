@@ -181,6 +181,7 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 - 아주 조용히 문제가 생겨서 실무에 쓰기엔 너무 위험해보임
 - https://beta.nextjs.org/docs/rendering/static-and-dynamic-rendering#using-dynamic-functions
 - 다음 넥스트 버전에선 해당 훅 사용시 뭔가 경고라도 띄웠으면 좋겠다. 거의 소리없는 암살자 수준
+- 업데이트 : https://nextjs.org/docs/messages/deopted-into-client-rendering 공식 문서가 추가되었다.
 
 <br />
 <br />
