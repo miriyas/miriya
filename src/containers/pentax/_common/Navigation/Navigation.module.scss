@@ -35,6 +35,11 @@
   .desc {
     margin-right: 8px;
 
+    a {
+      color: initial;
+      text-decoration: underline;
+    }
+
     span {
       color: var(--color-pentax-limit);
     }

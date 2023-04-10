@@ -1,9 +1,8 @@
 import React from 'react';
 
 import type { Metadata } from 'next';
-import Navigation from '@/containers/pentax/_common/Navigation';
 
-import styles from './layout.module.scss';
+import Wrapper from '@/app/pentax/wrapper';
 
 interface Props {
   children: React.ReactNode;
@@ -43,14 +42,7 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = ({ children }: Props) => {
-  return (
-    <main className={styles.pentaxes}>
-      <div className={styles.centering}>
-        <Navigation />
-        {children}
-      </div>
-    </main>
-  );
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export default RootLayout;

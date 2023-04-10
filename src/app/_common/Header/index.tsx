@@ -3,6 +3,7 @@
 import React, { MouseEventHandler } from 'react';
 import Link from 'next/link';
 import cx from 'clsx';
+import { useSearchParams } from 'next/navigation';
 
 import { useGA } from '@/hooks/useGA';
 import { COMMON } from '@/constants/ga';
@@ -36,12 +37,17 @@ const ROUTES = [
 
 const Header = () => {
   const { gaEvent } = useGA();
+  const searchParams = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
+  const layout = searchParams.get('layout');
+  const fullLayout = layout === 'full';
 
   const onClickGithub: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
     window.open(e.currentTarget.href);
     gaEvent(COMMON.COMMON_GITHUB_CLICK, {});
   };
+
+  if (fullLayout) return null;
 
   return (
     <header className={styles.appHeader}>

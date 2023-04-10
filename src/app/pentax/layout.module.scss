@@ -3,6 +3,12 @@
 .pentaxes {
   margin-top: 24px;
 
+  &.full {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
   @include m.mobileOnly {
     display: block;
     overflow: auto;

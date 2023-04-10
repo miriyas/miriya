@@ -3,6 +3,7 @@
 import React from 'react';
 import { useSetAtom } from 'jotai';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 import { authModalAtom } from '@/components/Auth/states';
 import useAuth from '@/hooks/useAuth';
@@ -13,8 +14,13 @@ import styles from './Footer.module.scss';
 
 const Footer = () => {
   const { user, logOut } = useAuth();
+  const searchParams = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
+  const layout = searchParams.get('layout');
+  const fullLayout = layout === 'full';
 
   const setAuthModal = useSetAtom(authModalAtom);
+
+  if (fullLayout) return null;
 
   const onClickLogin = () => {
     setAuthModal('login');
