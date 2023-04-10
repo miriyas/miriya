@@ -3,7 +3,8 @@
 .desc {
   @include m.flexbox(between, center);
   gap: 8px;
-  width: 100%;
+  width: calc(100% - 16px);
+  margin: 0 8px 8px;
 
   .leftWing,
   .rightWing {

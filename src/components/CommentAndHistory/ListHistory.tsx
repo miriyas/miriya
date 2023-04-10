@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react';
 import cx from 'clsx';
 
-import { IdolType } from '@/types/idols.d';
-import { TARGET_CATEGORY } from '@/types/comments.d';
-import { getHistoriesInTargetRealtime } from '@/services/firebase/histories';
+import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 import { History } from '@/types/histories.d';
 import { getTimeDiffText } from '@/utils/date';
+import { getHistoriesInTargetRealtime } from '@/services/firebase/histories';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import liststyles from './List.module.scss';
 import styles from './Item.module.scss';
 
 interface Props {
-  idol: IdolType;
+  targetCategory: TargetCategoryTypes;
+  targetSubCategory?: SubTargetCategoryTypes;
+  targetId: string;
 }
 
-const ChangeHistory = ({ idol }: Props) => {
-  const { name } = idol;
+export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Props) => {
   const [histories, setHistories] = useState<History[]>([]);
 
   useEffect(() => {
-    const unSubscribeComments = getHistoriesInTargetRealtime(TARGET_CATEGORY.IDOLS, name, setHistories);
+    const unSubscribeComments = getHistoriesInTargetRealtime(targetCategory, targetId, setHistories, targetSubCategory);
     return () => unSubscribeComments();
-  }, [name]);
+  }, [targetCategory, targetSubCategory, targetId]);
 
   return (
     <ul className={liststyles.list}>
@@ -61,5 +61,3 @@ const ChangeHistory = ({ idol }: Props) => {
     </ul>
   );
 };
-
-export default ChangeHistory;

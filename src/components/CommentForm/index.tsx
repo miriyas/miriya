@@ -2,19 +2,21 @@ import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import cx from 'clsx';
 
 import { createCommentDoc } from '@/services/firebase/comments';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 import { getAuthorData } from '@/utils';
 import useAuth from '@/hooks/useAuth';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
-import styles from './CommentNewForm.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
-  idolId: string;
+  targetCategory: TargetCategoryTypes;
+  targetSubCategory?: SubTargetCategoryTypes;
+  targetId: string;
 }
 
-const CommentNewForm = ({ idolId }: Props) => {
+const CommentForm = ({ targetCategory, targetSubCategory, targetId }: Props) => {
   const [body, setBody] = useState('');
 
   const { user } = useAuth();
@@ -26,8 +28,9 @@ const CommentNewForm = ({ idolId }: Props) => {
     createCommentDoc({
       ...getAuthorData(user),
       body,
-      targetCategory: TARGET_CATEGORY.IDOLS,
-      targetId: idolId,
+      targetCategory,
+      targetSubCategory,
+      targetId,
     }).then(() => {
       setBody('');
     });
@@ -63,4 +66,4 @@ const CommentNewForm = ({ idolId }: Props) => {
   );
 };
 
-export default CommentNewForm;
+export default CommentForm;

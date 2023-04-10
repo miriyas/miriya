@@ -20,7 +20,7 @@ import { Dispatch } from 'react';
 import { SetStateAction } from 'jotai';
 
 import { auth, db, initialTs } from '@/utils/firebase';
-import { Comment, NewComment, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
+import { Comment, NewComment, SubTargetCategoryTypes, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/firebase/auth';
 import { getTSBefore } from '@/utils/date';
@@ -80,6 +80,25 @@ const commentsInTargetQuery = (
     limit(limitCount),
   );
 
+/** 카테고리 내, 서브 카테고리 내 타겟 내 모든 댓글을 삭제된걸 제외하고 정렬해서 불러옴
+ *  펜탁스에서 사용 */
+const commentsInTargetQueryWithSubCategory = (
+  category: TargetCategoryTypes,
+  subCategory: SubTargetCategoryTypes,
+  targetId: string,
+  order: 'asc' | 'desc',
+  limitCount: number,
+) =>
+  query(
+    collection(db, COLLECTION.COMMENTS),
+    where('targetCategory', '==', category),
+    where('targetSubCategory', '==', subCategory),
+    where('targetId', '==', targetId),
+    where('deletedAt', '==', new Timestamp(0, 0)),
+    orderBy('createdAt', order),
+    limit(limitCount),
+  );
+
 export const getRecentComments = async (limitCount: number) => {
   const snapshot = await getDocs(allCommentsQuery('desc', limitCount));
   return snapshot.docs.map((item) => {
@@ -127,8 +146,12 @@ export const getCommentsInTargetRealtime = (
   category: TargetCategoryTypes,
   targetId: string,
   setComments: Dispatch<SetStateAction<Comment[]>>,
+  subCategory?: SubTargetCategoryTypes,
 ) => {
-  return onSnapshot(commentsInTargetQuery(category, targetId, 'desc', 1000), (querySnapshot) => {
+  const q = subCategory
+    ? commentsInTargetQueryWithSubCategory(category, subCategory, targetId, 'desc', 1000)
+    : commentsInTargetQuery(category, targetId, 'desc', 1000);
+  return onSnapshot(q, (querySnapshot) => {
     const comments = querySnapshot.docs
       .filter((item) => !item.metadata.hasPendingWrites)
       .sort((a, b) => b.data().createdAt - a.data().createdAt)
@@ -153,12 +176,13 @@ export const getCommentsCountInTarget = async (category: TargetCategoryTypes) =>
 };
 
 export const createCommentDoc = async (comment: NewComment) => {
-  const lastComment = await getCommentsSnapshot(comment.targetCategory, 'desc', 1);
+  const lastCommentSnapshot = await getCommentsSnapshot(comment.targetCategory, 'desc', 1);
+  const lastCommentCount = lastCommentSnapshot.docs[0] ? lastCommentSnapshot.docs[0].data().commentNoInCategory : 0;
   await addDoc(collection(db, COLLECTION.COMMENTS), {
     ...comment,
     createdAt: serverTimestamp(),
     deletedAt: initialTs,
-    commentNoInCategory: lastComment.docs[0].data().commentNoInCategory + 1,
+    commentNoInCategory: lastCommentCount + 1,
   });
 
   // 타겟의 commentsLength 증가시키기

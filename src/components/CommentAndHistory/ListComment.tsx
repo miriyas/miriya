@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import cx from 'clsx';
 
-import { IdolType } from '@/types/idols.d';
-import { TARGET_CATEGORY, Comment } from '@/types/comments.d';
+import { Comment, SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 import { getCommentsInTargetRealtime } from '@/services/firebase/comments';
 
 import ItemComment from './ItemComment';
@@ -10,17 +9,18 @@ import itemStyles from './Item.module.scss';
 import styles from './List.module.scss';
 
 interface Props {
-  idol: IdolType;
+  targetCategory: TargetCategoryTypes;
+  targetSubCategory?: SubTargetCategoryTypes;
+  targetId: string;
 }
 
-const Comments = ({ idol }: Props) => {
-  const { name } = idol;
+export const ListComment = ({ targetCategory, targetSubCategory, targetId }: Props) => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    const unSubscribeComments = getCommentsInTargetRealtime(TARGET_CATEGORY.IDOLS, name, setComments);
+    const unSubscribeComments = getCommentsInTargetRealtime(targetCategory, targetId, setComments, targetSubCategory);
     return () => unSubscribeComments();
-  }, [name]);
+  }, [targetCategory, targetSubCategory, targetId]);
 
   return (
     <ul className={styles.list}>
@@ -35,5 +35,3 @@ const Comments = ({ idol }: Props) => {
     </ul>
   );
 };
-
-export default Comments;

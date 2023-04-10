@@ -4,6 +4,6 @@
   @include m.tinyScrollBar;
   flex: 1;
   width: 100%;
-  padding-right: 4px;
+  padding: 0 8px 8px;
   overflow-y: auto;
 }

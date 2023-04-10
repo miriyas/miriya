@@ -24,6 +24,7 @@ export interface NewComment extends WithAuthor {
   body: string;
   hidden?: boolean; // 방명록 전용
   targetCategory: TargetCategoryTypes;
+  targetSubCategory?: SubTargetCategoryTypes;
   targetId?: string; // 방명록일 때는 타겟 없음
 }
 

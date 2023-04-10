@@ -1,9 +1,0 @@
-@use 'src/styles/mixins' as m;
-
-.comments {
-  @include m.flexbox;
-  flex-shrink: 0;
-  width: var(--h-pentax-picture);
-  height: 100%;
-  border-right: 1px solid var(--color-gray-8);
-}

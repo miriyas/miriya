@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { PentaxSlr } from '@/types/pentaxes.d';
+import { FBPentaxSlr } from '@/types/pentaxes.d';
 import { getPentaxSlrsRealtime } from '@/services/firebase/pentaxes';
 
 import Contents from './Contents';
@@ -10,7 +10,7 @@ import Loading from '@/components/Loading';
 import styles from './TabSLR.module.scss';
 
 const PentaxSLRPage = () => {
-  const [slrs, setSlrs] = useState<PentaxSlr[]>([]);
+  const [slrs, setSlrs] = useState<FBPentaxSlr[]>([]);
 
   useEffect(() => {
     const unSubscribeIdols = getPentaxSlrsRealtime(setSlrs);

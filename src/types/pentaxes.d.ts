@@ -193,9 +193,11 @@ export interface PentaxSlr {
 }
 
 export interface FBPentaxSlr extends PentaxSlr, WithTS {
+  id: string;
   commentsLength: number;
 }
 
 export interface FBPentaxDslr extends PentaxDslr, WithTS {
+  id: string;
   commentsLength: number;
 }

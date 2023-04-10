@@ -14,7 +14,7 @@ import {
 import { Dispatch, SetStateAction } from 'react';
 
 import { db } from '@/utils/firebase';
-import { TargetCategoryTypes } from '@/types/comments.d';
+import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { History } from '@/types/histories.d';
 
@@ -44,6 +44,24 @@ const historiesInTargetQuery = (
     limit(limitCount),
   );
 
+/** 카테고리 내 서브 카테고리 내 타겟 내 모든 기록을 정렬해서 불러옴
+ * 펜탁스에서 사용 */
+const historiesInTargetQueryWithSubCategory = (
+  category: TargetCategoryTypes,
+  subCategory: SubTargetCategoryTypes,
+  targetId: string,
+  order: 'asc' | 'desc',
+  limitCount: number,
+) =>
+  query(
+    collection(db, COLLECTION.HISTORIES),
+    where('targetCategory', '==', category),
+    where('targetSubCategory', '==', subCategory),
+    where('targetId', '==', targetId),
+    orderBy('createdAt', order),
+    limit(limitCount),
+  );
+
 const getHistoriesSnapshot = async (category: TargetCategoryTypes, order: 'asc' | 'desc', limitCount: number) => {
   const snapshot = await getDocs(historiesQuery(category, order, limitCount));
   return snapshot;
@@ -64,8 +82,12 @@ export const getHistoriesInTargetRealtime = (
   category: TargetCategoryTypes,
   targetId: string,
   setHistories: Dispatch<SetStateAction<History[]>>,
+  subCategory?: SubTargetCategoryTypes,
 ) => {
-  return onSnapshot(historiesInTargetQuery(category, targetId, 'desc', 1000), (querySnapshot) => {
+  const q = subCategory
+    ? historiesInTargetQueryWithSubCategory(category, subCategory, targetId, 'desc', 1000)
+    : historiesInTargetQuery(category, targetId, 'desc', 1000);
+  return onSnapshot(q, (querySnapshot) => {
     const histories = querySnapshot.docs
       .filter((item) => !item.metadata.hasPendingWrites)
       .sort((a, b) => b.data().createdAt - a.data().createdAt)

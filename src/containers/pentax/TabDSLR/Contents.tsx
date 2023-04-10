@@ -9,17 +9,17 @@ import { X_CELL_DSLR } from '@/constants/pentaxes';
 import { useDraggable } from '@/hooks/useDraggable';
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
-import { PentaxDslr } from '@/types/pentaxes';
+import { FBPentaxDslr } from '@/types/pentaxes';
 
 import Picture from '../_common/Picture';
+import Comments from '../_common/Comments';
 import ViewMoreButton from '../_common/ViewMoreButton';
 import Camera from './Camera';
-import Comments from './Comments';
 import Data from './Data';
 import styles from './TabDSLR.module.scss';
 
 interface Props {
-  data: PentaxDslr[];
+  data: FBPentaxDslr[];
 }
 
 const Contents = ({ data }: Props) => {
@@ -69,7 +69,7 @@ const Contents = ({ data }: Props) => {
         {showArrow && <ViewMoreButton wrapperRef={wrapperRef} />}
       </div>
       <div className={styles.bottomWrapper}>
-        <Comments />
+        <Comments selectedCameraId={selectedCamera?.id} />
         <Data selectedCamera={selectedCamera} />
       </div>
     </section>

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 import { IdolType } from '@/types/idols.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 
 import Desc from './Desc';
-import ListHistory from './ListHistory';
-import ListComment from './ListComment';
-import CommentNewForm from './CommentNewForm';
+import { ListHistory, ListComment } from '@/components/CommentAndHistory';
+import CommentNewForm from '@/components/CommentForm';
 import styles from './index.module.scss';
 
 interface Props {
@@ -17,11 +17,13 @@ const Lower = ({ idol }: Props) => {
 
   return (
     <div className={styles.lower}>
-      <div className={styles.commentsWrapper}>
-        <CommentNewForm idolId={idol.name} />
-        <Desc idol={idol} showHistory={showHistory} setShowHistory={setShowHistory} />
-        {showHistory ? <ListHistory idol={idol} /> : <ListComment idol={idol} />}
-      </div>
+      <CommentNewForm targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} />
+      <Desc idol={idol} showHistory={showHistory} setShowHistory={setShowHistory} />
+      {showHistory ? (
+        <ListHistory targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} />
+      ) : (
+        <ListComment targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} />
+      )}
     </div>
   );
 };

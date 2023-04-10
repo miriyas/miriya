@@ -2,7 +2,8 @@
 
 .commentNewForm {
   @include m.flexbox;
-  width: 100%;
+  width: calc(100% - 16px);
+  margin: 8px;
 
   .profile {
     width: var(--h-comment-form);

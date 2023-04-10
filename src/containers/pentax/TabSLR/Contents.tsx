@@ -6,16 +6,16 @@ import { useMount } from 'react-use';
 
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
-import { PentaxSlr } from '@/types/pentaxes.d';
+import { FBPentaxSlr } from '@/types/pentaxes.d';
 
 import Picture from '../_common/Picture';
+import Comments from '../_common/Comments';
 import Camera from './Camera';
 import Data from './Data';
-import Comments from './Comments';
 import styles from './TabSLR.module.scss';
 
 interface Props {
-  data: PentaxSlr[];
+  data: FBPentaxSlr[];
 }
 
 const Contents = ({ data }: Props) => {
@@ -26,7 +26,7 @@ const Contents = ({ data }: Props) => {
   const yearEnd = useMemo(() => Math.max(...data.map((camera) => camera.endYear)), [data]);
 
   useMount(() => {
-    setSelectedCameraName(data[0].name);
+    setSelectedCameraName('LX');
   });
 
   return (
@@ -56,7 +56,7 @@ const Contents = ({ data }: Props) => {
         </div>
       </div>
       <div className={styles.bottomWrapper}>
-        <Comments />
+        <Comments selectedCameraId={selectedCamera?.id} />
         <Data selectedCamera={selectedCamera} />
       </div>
     </section>

@@ -26,7 +26,8 @@ const CommentEditForm = ({ comment, setEditMode }: Props) => {
     setBody(e.currentTarget.value);
   };
 
-  const onEditSubmit: FormEventHandler<HTMLFormElement> = () => {
+  const onEditSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
     if (!user) return;
     setEditMode(false);
     editCommentDoc({
