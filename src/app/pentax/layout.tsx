@@ -11,7 +11,7 @@ interface Props {
 const title = 'Pentaxian Encyclopedia';
 const description = '펜탁스 대백과사전';
 const url = 'https://miriya.vercel.app/pentax';
-const imageUrl = 'https://miriya.vercel.app/images/pentax/og.jpg';
+const imageUrl = 'https://miriya.vercel.app/images/pentaxes/og.jpg';
 
 export const metadata: Metadata = {
   title,
