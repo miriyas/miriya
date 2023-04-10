@@ -25,10 +25,16 @@ const RootLayout = ({ children }: Props) => {
           <Additional />
         </Suspense>
         <Providers>
-          <Header />
+          <Suspense fallback={null}>
+            <Header />
+          </Suspense>
           {children}
-          <ToTop />
-          <Footer />
+          <Suspense fallback={null}>
+            <ToTop />
+          </Suspense>
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
         </Providers>
         <div id='modal' />
       </body>
