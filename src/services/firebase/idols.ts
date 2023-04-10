@@ -73,6 +73,7 @@ export const editIdolDoc = async (newIdol: FBIdolType, changed: string[], user: 
       `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
       TARGET_CATEGORY.IDOLS,
       newIdol.name,
+      newIdol.name,
     );
   });
 };

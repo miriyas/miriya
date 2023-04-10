@@ -11,12 +11,13 @@ import CommentForm from '@/components/CommentForm';
 
 interface Props {
   selectedCameraId?: string;
+  selectedCameraName?: string;
 }
 
-const Comments = ({ selectedCameraId }: Props) => {
+const Comments = ({ selectedCameraId, selectedCameraName }: Props) => {
   const [showHistory, setShowHistory] = useState<'comments' | 'history'>('comments');
 
-  if (!selectedCameraId) return null;
+  if (!selectedCameraId || !selectedCameraName) return null;
 
   const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     setShowHistory(e.currentTarget.dataset.target as 'comments' | 'history');
@@ -42,6 +43,7 @@ const Comments = ({ selectedCameraId }: Props) => {
         targetCategory={TARGET_CATEGORY.PENTAX}
         targetSubCategory={SUB_TARGET_CATEGORY.SLR}
         targetId={selectedCameraId}
+        targetName={selectedCameraName}
       />
       {showHistory === 'comments' && (
         <ListComment

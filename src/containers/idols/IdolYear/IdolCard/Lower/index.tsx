@@ -17,7 +17,7 @@ const Lower = ({ idol }: Props) => {
 
   return (
     <div className={styles.lower}>
-      <CommentNewForm targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} />
+      <CommentNewForm targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} targetName={idol.name} />
       <Desc idol={idol} showHistory={showHistory} setShowHistory={setShowHistory} />
       {showHistory ? (
         <ListHistory targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} />

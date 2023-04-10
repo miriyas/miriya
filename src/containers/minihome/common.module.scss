@@ -1,6 +1,13 @@
 @use 'src/styles/mixins' as m;
 
-.tabIdol {
+.commonTab {
+  .menu {
+    margin-bottom: 2px;
+    font-family: var(--font-dunggeunmo);
+    font-size: 12px;
+    color: var(--color-minihome-bg2);
+  }
+
   .commentsWrapper {
     margin-top: 14px;
     font-size: 12px;
@@ -93,7 +100,7 @@
       white-space: nowrap;
     }
 
-    .idolName {
+    .targetName {
       width: 80px;
       overflow: hidden;
       text-overflow: ellipsis;

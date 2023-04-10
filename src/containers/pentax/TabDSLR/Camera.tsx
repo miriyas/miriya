@@ -42,18 +42,20 @@ const Camera = ({ camera, yearStart, yearEnd }: Props) => {
     });
   }, [data?.bonus?.sr, data?.bonus?.wr, endYear, name, selectedCamera, type]);
 
-  const onMouseOver: MouseEventHandler<HTMLLIElement> = () => {
+  const onClick: MouseEventHandler<HTMLButtonElement> = () => {
     setSelectedCamera(name);
   };
 
-  const onFocus: FocusEventHandler<HTMLLIElement> = () => {
+  const onFocus: FocusEventHandler<HTMLButtonElement> = () => {
     setSelectedCamera(name);
   };
 
   return (
-    <li key={name} className={className} style={position} onMouseOver={onMouseOver} onFocus={onFocus}>
-      {name}
-      <div className={styles.badge} />
+    <li key={name} className={className} style={position}>
+      <button type='button' onClick={onClick} onFocus={onFocus}>
+        {name}
+        <div className={styles.badge} />
+      </button>
     </li>
   );
 };

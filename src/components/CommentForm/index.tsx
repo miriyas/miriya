@@ -14,9 +14,10 @@ interface Props {
   targetCategory: TargetCategoryTypes;
   targetSubCategory?: SubTargetCategoryTypes;
   targetId: string;
+  targetName: string;
 }
 
-const CommentForm = ({ targetCategory, targetSubCategory, targetId }: Props) => {
+const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }: Props) => {
   const [body, setBody] = useState('');
 
   const { user } = useAuth();
@@ -31,6 +32,7 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId }: Props) => 
       targetCategory,
       targetSubCategory,
       targetId,
+      targetName,
     }).then(() => {
       setBody('');
     });

@@ -6,6 +6,7 @@ export interface NewHistory {
   body: string;
   targetCategory: TargetCategoryTypes;
   targetId?: string;
+  targetName?: string;
 }
 
 export interface History {
@@ -13,5 +14,6 @@ export interface History {
   body: string;
   targetCategory: TargetCategoryTypes;
   targetId?: string;
+  targetName?: string;
   createdAt: FbTimeStamp;
 }

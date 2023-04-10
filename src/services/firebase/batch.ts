@@ -1,10 +1,37 @@
-// import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+// import { addDoc, collection, getDocs, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
 
 // import { db, initialTs } from '@/utils/firebase';
 // import { COLLECTION, PENTAX_COLLECTION_NAMES } from '@/types/firebase.d';
+// import { TARGET_CATEGORY } from '@/types/comments.d';
 
 export {};
 // 아래는 배치 업데이트용
+
+// 모든 댓글 중 방명록을 제외하고 타겟 네임 업데이트
+// export const batchUpdate = async () => {
+//   const snapshot = await getDocs(
+//     query(collection(db, COLLECTION.HISTORIES), where('targetCategory', '==', TARGET_CATEGORY.IDOLS)),
+//   );
+
+//   snapshot.docs.forEach((commentDoc) => {
+//     updateDoc(commentDoc.ref, {
+//       targetName: commentDoc.data().targetId,
+//     });
+//   });
+// };
+
+// 모든 댓글 중 방명록을 제외하고 타겟 네임 업데이트
+// export const batchUpdate = async () => {
+//   const snapshot = await getDocs(
+//     query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', TARGET_CATEGORY.IDOLS)),
+//   );
+
+//   snapshot.docs.forEach((commentDoc) => {
+//     updateDoc(commentDoc.ref, {
+//       targetName: commentDoc.data().targetId,
+//     });
+//   });
+// };
 
 // 펜탁스 DSLR 콘스탄트 업로드
 // export const batchUpdate = async () => {

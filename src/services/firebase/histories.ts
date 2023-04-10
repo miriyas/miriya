@@ -101,11 +101,17 @@ export const getHistoriesInTargetRealtime = (
   });
 };
 
-export const createHistoryDoc = async (body: string, targetCategory: TargetCategoryTypes, targetId: string) => {
+export const createHistoryDoc = async (
+  body: string,
+  targetCategory: TargetCategoryTypes,
+  targetId: string,
+  targetName: string,
+) => {
   await addDoc(collection(db, COLLECTION.HISTORIES), {
     body,
     targetCategory,
     targetId,
+    targetName,
     createdAt: serverTimestamp(),
   });
 };

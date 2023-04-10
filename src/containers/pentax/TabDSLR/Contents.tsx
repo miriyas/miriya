@@ -69,7 +69,7 @@ const Contents = ({ data }: Props) => {
         {showArrow && <ViewMoreButton wrapperRef={wrapperRef} />}
       </div>
       <div className={styles.bottomWrapper}>
-        <Comments selectedCameraId={selectedCamera?.id} />
+        <Comments selectedCameraId={selectedCamera?.id} selectedCameraName={selectedCamera?.name} />
         <Data selectedCamera={selectedCamera} />
       </div>
     </section>

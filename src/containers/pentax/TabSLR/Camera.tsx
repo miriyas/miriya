@@ -39,18 +39,20 @@ const Camera = ({ camera, yearStart }: Props) => {
     });
   }, [af, crippled, mount, name, selectedCamera]);
 
-  const onMouseOver: MouseEventHandler<HTMLLIElement> = () => {
+  const onClick: MouseEventHandler<HTMLButtonElement> = () => {
     setSelectedCamera(name);
   };
 
-  const onFocus: FocusEventHandler<HTMLLIElement> = () => {
+  const onFocus: FocusEventHandler<HTMLButtonElement> = () => {
     setSelectedCamera(name);
   };
 
   return (
-    <li key={name} className={className} style={postion} onMouseOver={onMouseOver} onFocus={onFocus}>
-      {name.split(' ')[0]}
-      <div className={styles.badge} />
+    <li key={name} className={className} style={postion}>
+      <button type='button' onClick={onClick} onFocus={onFocus}>
+        {name.split(' ')[1]?.startsWith('(') ? name.split(' ')[0] : name}
+        <div className={styles.badge} />
+      </button>
     </li>
   );
 };
