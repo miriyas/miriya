@@ -1,25 +1,4 @@
-import { CameraType, FocusType } from '@/types/cameras.d';
-
-const extractAFData = (focus?: FocusType) => {
-  if (!focus) return '?';
-
-  const pointData = focus?.points ? `${focus?.points}point` : '';
-  const pointCrossData = focus?.pointsCross ? `${focus?.pointsCross}cross` : '';
-  const pointsData = [pointData, pointCrossData].filter((item) => !!item).join('/');
-
-  if (focus.name) {
-    // CAM1000, SAFOX VII
-    return (
-      <>
-        {focus.name}
-        <br />
-        {pointsData}
-      </>
-    );
-  }
-
-  return pointsData;
-};
+import { CameraType } from '@/types/cameras.d';
 
 interface Props {
   camera: CameraType;
@@ -31,21 +10,28 @@ const DataShutter = (props: Props) => {
 
   if (!shutter) return null;
 
-  const shutterCont = shutter?.fps ? `${shutter?.fps}fps` : '';
   const shutterSpeed = shutter?.speed ? `1/${shutter?.speed}sec` : '';
-  const shutterData = [shutterCont, shutterSpeed].join(' ');
-
-  const afData = extractAFData(focus);
+  const shutterData = [shutter?.fps, shutterSpeed].join(' ');
 
   return (
     <>
       <tr>
-        <th>Shutter</th>
+        <th>셔터</th>
         <td>{shutterData}</td>
       </tr>
       <tr>
         <th>AF</th>
-        <td>{afData}</td>
+        <td>
+          {focus?.name && (
+            <>
+              {focus?.name}
+              <br />
+            </>
+          )}
+          {focus?.desc}
+          {focus?.contrast && ' + 컨트라스트'}
+          {focus?.phaseDetection && ' + 페이즈'}
+        </td>
       </tr>
     </>
   );

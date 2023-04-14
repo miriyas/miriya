@@ -154,7 +154,7 @@ export const FUJIFILM: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 49,
+      desc: '49포인트',
       contrast: true,
     },
     viewfinder: {
@@ -192,7 +192,7 @@ export const FUJIFILM: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 49,
+      desc: '49포인트',
       contrast: true,
     },
     viewfinder: {
@@ -236,7 +236,7 @@ export const FUJIFILM: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 77,
+      desc: '77포인트',
       contrast: true,
       phaseDetection: true,
     },
@@ -386,7 +386,7 @@ export const FUJIFILM: CameraType[] = [
       speed: 32000,
     },
     focus: {
-      points: 77,
+      desc: '77포인트',
       contrast: true,
       phaseDetection: true,
     },

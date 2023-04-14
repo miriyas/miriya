@@ -1,14 +1,14 @@
 'use client';
 
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 interface Props {
   hash: string;
-  name: string;
+  children: ReactNode;
 }
 
 const SiblingLink = (props: Props) => {
-  const { hash, name } = props;
+  const { hash, children } = props;
 
   const onClickSiblings: MouseEventHandler<HTMLAnchorElement> = (e) => {
     // NOTE: 형제 기종을 클릭하면 해당 위치로 스무스하게 스크롤해준다.
@@ -27,7 +27,7 @@ const SiblingLink = (props: Props) => {
 
   return (
     <a href={`#${hash}`} data-target={hash} onClick={onClickSiblings} rel='nofollow'>
-      {name}
+      {children}
     </a>
   );
 };

@@ -43,8 +43,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -79,8 +78,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -115,8 +113,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -151,8 +148,7 @@ export const SONYS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -188,8 +184,7 @@ export const SONYS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -223,8 +218,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -259,8 +253,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -295,8 +288,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -331,8 +323,7 @@ export const SONYS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -367,8 +358,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -402,8 +392,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -438,8 +427,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -474,8 +462,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -511,8 +498,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -549,8 +535,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 15,
-      pointsCross: 3,
+      desc: '15포인트 3크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -586,8 +571,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 15,
-      pointsCross: 3,
+      desc: '15포인트 3크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -622,8 +606,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -657,8 +640,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -693,8 +675,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -728,8 +709,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 15,
-      pointsCross: 3,
+      desc: '15포인트 3크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.ELECTRIC,
@@ -769,8 +749,7 @@ export const SONYS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 15,
-      pointsCross: 3,
+      desc: '15포인트 3크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.ELECTRIC,

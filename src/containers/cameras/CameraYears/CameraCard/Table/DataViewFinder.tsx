@@ -21,7 +21,7 @@ const DataViewFinder = (props: Props) => {
 
   return (
     <tr>
-      <th>Viewfinder</th>
+      <th>파인더</th>
       <td className={styles.dataViewFinder}>
         {prettyOpticsType(viewfinder.type)}&nbsp;
         {magnification}

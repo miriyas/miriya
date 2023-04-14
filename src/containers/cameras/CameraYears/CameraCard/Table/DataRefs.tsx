@@ -13,7 +13,7 @@ const DataRefs = (props: Props) => {
 
   return (
     <tr>
-      <th>Ref.</th>
+      <th>근거자료</th>
       <td>
         {refs.split(',').map((ref, i) => {
           const key = `${nameLine}-${i}`;

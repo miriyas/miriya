@@ -35,7 +35,7 @@ export const KODAKS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM274,
-      points: 3,
+      desc: '3포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -71,7 +71,7 @@ export const KODAKS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM274,
-      points: 3,
+      desc: '3포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -109,8 +109,7 @@ export const KODAKS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM900,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -141,8 +140,7 @@ export const KODAKS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM900,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     display: {
       desc: '2.0" 130K',
@@ -205,7 +203,7 @@ export const KODAKS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 25,
+      desc: '25포인트',
     },
     display: {
       desc: '3.0" 920K',

@@ -14,7 +14,7 @@ const DataDisplay = (props: Props) => {
 
   return (
     <tr className={styles.dataDisplay}>
-      <th>Display{display.liveview ? 1 : 2}</th>
+      <th>화면</th>
       <td>
         {display.desc}
         {display.liveview && <span className='green'>LiveView</span>}

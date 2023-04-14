@@ -179,10 +179,8 @@ export type EngineTypes = ValueOf<typeof ENGINE_TYPE>;
 
 export interface FocusType {
   name?: FocusNameTypes;
+  desc?: string;
   contrast?: boolean;
-  points?: number;
-  pointsCross?: number;
-  pointsDouble?: number;
   phaseDetection?: boolean;
 }
 

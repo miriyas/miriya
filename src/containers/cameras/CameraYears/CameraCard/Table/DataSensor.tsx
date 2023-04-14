@@ -32,7 +32,7 @@ const DataSensor = (props: Props) => {
   return (
     <>
       <tr>
-        <th>Sensor</th>
+        <th>센서</th>
         <td className={styles.dataSensor}>
           {prettySensorSize(sensor.size)}
           {sensorData}
@@ -40,12 +40,12 @@ const DataSensor = (props: Props) => {
       </tr>
       {sensor.engine && (
         <tr>
-          <th>Engine</th>
+          <th>엔진</th>
           <td>{sensor.engine}</td>
         </tr>
       )}
       <tr>
-        <th>ISO</th>
+        <th>감도</th>
         <td>{isoData}</td>
       </tr>
     </>

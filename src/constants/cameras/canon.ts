@@ -37,7 +37,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 5,
+      desc: '5포인트',
     },
     refs: 'https://en.wikipedia.org/wiki/Canon_EOS_DCS_5',
   },
@@ -63,7 +63,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 5,
+      desc: '5포인트',
     },
     refs: 'https://en.wikipedia.org/wiki/Canon_EOS_DCS_3',
   },
@@ -89,8 +89,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -127,7 +126,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 5,
+      desc: '5포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -162,7 +161,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 5,
+      desc: '5포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -197,7 +196,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 3,
+      desc: '3포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -230,7 +229,7 @@ export const CANONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -264,7 +263,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -297,7 +296,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 3,
+      desc: '3포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -330,7 +329,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 7,
+      desc: '7포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -364,7 +363,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 7,
+      desc: '7포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -401,7 +400,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -436,7 +435,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -470,7 +469,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -507,7 +506,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -541,7 +540,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -575,7 +574,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -611,7 +610,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 7,
+      desc: '7포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -647,7 +646,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -682,7 +681,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -719,7 +718,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -754,7 +753,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -788,7 +787,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -825,7 +824,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -863,7 +862,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -898,7 +897,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -932,7 +931,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 7,
+      desc: '7포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -969,7 +968,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 45,
+      desc: '45포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1006,7 +1005,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 19,
+      desc: '19포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1045,7 +1044,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1085,7 +1084,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1127,7 +1126,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1169,7 +1168,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 61,
+      desc: '61포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1209,7 +1208,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1250,7 +1249,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1290,7 +1289,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 61,
+      desc: '61포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1353,7 +1352,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1395,8 +1394,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 9,
+      desc: '9포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1437,8 +1435,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 9,
+      desc: '9포인트 9크로스',
     },
     display: {
       desc: '3.0" 1040K',
@@ -1483,9 +1480,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 9,
-      pointsDouble: 1,
+      desc: '9포인트 9크로스 1더블',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1526,8 +1521,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1614,7 +1608,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1731,8 +1725,7 @@ export const CANONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 61,
-      pointsCross: 41,
+      desc: '61포인트 41크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1848,8 +1841,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
       contrast: true,
     },
     viewfinder: {
@@ -1991,8 +1983,7 @@ export const CANONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
-      pointsCross: 1,
+      desc: '9포인트 1크로스',
       contrast: true,
     },
     viewfinder: {

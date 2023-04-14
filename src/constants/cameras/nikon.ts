@@ -37,8 +37,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.AM200,
-      points: 1,
-      pointsCross: 1,
+      desc: '1포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -74,8 +73,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.AM200,
-      points: 1,
-      pointsCross: 1,
+      desc: '1포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -115,8 +113,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.AM200,
-      points: 1,
-      pointsCross: 1,
+      desc: '1포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -154,8 +151,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.AM200,
-      points: 1,
-      pointsCross: 1,
+      desc: '1포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -196,8 +192,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.AM200,
-      points: 1,
-      pointsCross: 1,
+      desc: '1포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -234,8 +229,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.AM200,
-      points: 1,
-      pointsCross: 1,
+      desc: '1포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -271,8 +265,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1300,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -309,8 +302,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1300,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -344,8 +336,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1300,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -380,8 +371,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM900,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -417,8 +407,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM2000,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -454,8 +443,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM2000,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -488,8 +476,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM900,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -525,8 +512,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM2000,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -560,8 +546,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1000,
-      points: 11,
-      pointsCross: 1,
+      desc: '11포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -595,8 +580,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM900,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -629,8 +613,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM900,
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -666,8 +649,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM2000,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -701,8 +683,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1000,
-      points: 11,
-      pointsCross: 1,
+      desc: '11포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -735,8 +716,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM530,
-      points: 3,
-      pointsCross: 1,
+      desc: '3포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -774,8 +754,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM3500FX,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -811,8 +790,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM3500DX,
-      points: 51,
-      pointsCross: 15,
+      desc: '51포인트 15크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -846,8 +824,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM530,
-      points: 3,
-      pointsCross: 1,
+      desc: '3포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -883,8 +860,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM3500FX,
-      points: 51,
-      pointsCross: 15,
+      desc: '51포인트 15크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -919,8 +895,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM3500FX,
-      points: 51,
-      pointsCross: 15,
+      desc: '51포인트 15크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -955,8 +930,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1000,
-      points: 11,
-      pointsCross: 1,
+      desc: '11포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -995,8 +969,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM530,
-      points: 3,
-      pointsCross: 1,
+      desc: '3포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1034,8 +1007,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM3500FX,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1075,8 +1047,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM3500DX,
-      points: 51,
-      pointsCross: 15,
+      desc: '51포인트 15크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -1115,8 +1086,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1000,
-      points: 11,
-      pointsCross: 1,
+      desc: '11포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1152,8 +1122,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1000,
-      points: 11,
-      pointsCross: 1,
+      desc: '11포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1207,8 +1176,7 @@ export const NIKONS: CameraType[] = [
     },
     focus: {
       name: FOCUS_NAME.CAM1000,
-      points: 11,
-      pointsCross: 1,
+      desc: '11포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -1268,7 +1236,7 @@ export const NIKONS: CameraType[] = [
       type: OPTICS_TYPE.ELECTRIC,
     },
     focus: {
-      points: 135,
+      desc: '135포인트',
       contrast: true,
     },
     display: {
@@ -1300,7 +1268,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 135,
+      desc: '135포인트',
       contrast: true,
     },
     display: {
@@ -1435,7 +1403,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 73,
+      desc: '73포인트',
       contrast: true,
     },
     display: {
@@ -1468,7 +1436,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 135,
+      desc: '135포인트',
       contrast: true,
     },
     display: {
@@ -1568,7 +1536,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 135,
+      desc: '135포인트',
       contrast: true,
     },
     display: {
@@ -1600,7 +1568,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 135,
+      desc: '135포인트',
       contrast: true,
     },
     display: {
@@ -1702,7 +1670,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 171,
+      desc: '171포인트',
       contrast: true,
     },
     viewfinder: {
@@ -1741,7 +1709,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 171,
+      desc: '171포인트',
       contrast: true,
     },
     display: {
@@ -1774,7 +1742,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 171,
+      desc: '171포인트',
       contrast: true,
     },
     display: {
@@ -1806,7 +1774,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 135,
+      desc: '135포인트',
       contrast: true,
     },
     display: {
@@ -1894,7 +1862,7 @@ export const NIKONS: CameraType[] = [
       speed: 16000,
     },
     focus: {
-      points: 171,
+      desc: '171포인트',
       contrast: true,
     },
     display: {
@@ -2034,7 +2002,7 @@ export const NIKONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 493,
+      desc: '493포인트',
       contrast: true,
       phaseDetection: true,
     },
@@ -2075,9 +2043,9 @@ export const NIKONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 273,
-      contrast: true,
+      desc: '273포인트',
       phaseDetection: true,
+      contrast: true,
     },
     viewfinder: {
       type: OPTICS_TYPE.ELECTRIC,
@@ -2132,9 +2100,9 @@ export const NIKONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 209,
-      contrast: true,
+      desc: '209포인트',
       phaseDetection: true,
+      contrast: true,
     },
     viewfinder: {
       type: OPTICS_TYPE.ELECTRIC,
@@ -2191,7 +2159,7 @@ export const NIKONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 493,
+      desc: '493포인트',
       contrast: true,
       phaseDetection: true,
     },
@@ -2232,7 +2200,7 @@ export const NIKONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 273,
+      desc: '273포인트',
       contrast: true,
       phaseDetection: true,
     },
@@ -2272,7 +2240,7 @@ export const NIKONS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 273,
+      desc: '273포인트',
       contrast: true,
       phaseDetection: true,
     },
@@ -2331,7 +2299,7 @@ export const NIKONS: CameraType[] = [
       speed: 32000,
     },
     focus: {
-      points: 493,
+      desc: '493포인트',
       contrast: true,
       phaseDetection: true,
     },
@@ -2370,7 +2338,7 @@ export const NIKONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 209,
+      desc: '209포인트',
       contrast: true,
       phaseDetection: true,
     },
@@ -2412,7 +2380,7 @@ export const NIKONS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 209,
+      desc: '209포인트',
       contrast: true,
       phaseDetection: true,
     },

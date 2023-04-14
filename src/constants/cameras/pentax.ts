@@ -38,13 +38,12 @@ export const PENTAXS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 2.7,
+      fps: '2.7fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -52,8 +51,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 118_000,
+      desc: '1.8" 118K',
     },
     metering: {
       desc: '16분할측광',
@@ -75,13 +73,12 @@ export const PENTAXS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -89,8 +86,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.0,
-      pixels: 210_000,
+      desc: '2.0" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -115,13 +111,12 @@ export const PENTAXS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -129,8 +124,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 210_000,
+      desc: '2.5" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -150,13 +144,12 @@ export const PENTAXS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 3,
-      pointsCross: 3,
+      desc: '3포인트 3크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -164,8 +157,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 210_000,
+      desc: '2.5" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -191,13 +183,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -205,8 +196,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.5,
-      pixels: 210_000,
+      desc: '2.5" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -229,13 +219,12 @@ export const PENTAXS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 5,
-      pointsCross: 5,
+      desc: '5포인트 5크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -243,8 +232,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.5,
-      pixels: 210_000,
+      desc: '2.5" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -265,13 +253,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -279,8 +266,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.5,
-      pixels: 210_000,
+      desc: '2.5" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -301,13 +287,12 @@ export const PENTAXS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -315,8 +300,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.5,
-      pixels: 210_000,
+      desc: '2.5" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -340,13 +324,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -354,8 +337,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.5,
-      pixels: 210_000,
+      desc: '2.5" 210K',
     },
     metering: {
       desc: '16분할측광',
@@ -381,13 +363,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -395,8 +376,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '16분할측광',
@@ -418,13 +398,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 2.8,
+      fps: '2.8fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -432,8 +411,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '16분할측광',
@@ -456,13 +434,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3.5,
+      fps: '3.5fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7,
-      points: 5,
-      pointsCross: 5,
+      desc: '5포인트 5크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -470,8 +447,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '16분할측광',
@@ -495,13 +471,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 5.2,
+      fps: '5.2fps',
       speed: 8000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7P,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -509,8 +484,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     metering: {
       desc: '77분할측광',
@@ -532,13 +506,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 4.7,
+      fps: '4.7fps',
       speed: 6000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX7P,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -546,8 +519,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '16분할측광',
@@ -571,13 +543,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 1.1,
+      fps: '1.1fps',
       speed: 4000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX9P,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -585,8 +556,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     metering: {
       desc: '77분할측광',
@@ -608,13 +578,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 8000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX9P,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -622,8 +591,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     metering: {
       desc: '77분할측광',
@@ -645,13 +613,12 @@ export const PENTAXS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 5.6,
+      fps: '5.6fps',
       speed: 6000,
     },
     focus: {
       name: FOCUS_NAME.SAFOX9,
-      points: 11,
-      pointsCross: 9,
+      desc: '11포인트 9크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_MIRROR,
@@ -659,8 +626,7 @@ export const PENTAXS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     metering: {
       desc: '16분할측광',

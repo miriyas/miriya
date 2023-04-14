@@ -3,6 +3,7 @@ import { CameraType } from '@/types/cameras.d';
 import Badges from './Badges';
 import DataImage from './Image';
 import Table from './Table';
+import Siblings from './Siblings';
 import styles from './Camera.module.scss';
 
 interface Props {
@@ -23,6 +24,7 @@ const Data = (props: Props) => {
       <div className={styles.top}>
         <p className={styles.name}>{nameLine}</p>
         {desc && <p className={styles.desc}>{desc}</p>}
+        <Siblings camera={camera} />
       </div>
       <Table camera={camera} />
     </div>

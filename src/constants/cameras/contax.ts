@@ -40,7 +40,7 @@ export const CONTAXES: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 5,
+      desc: '5포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,

@@ -3,7 +3,6 @@ import { CameraType } from '@/types/cameras.d';
 import DataRefs from './DataRefs';
 import DataSensor from './DataSensor';
 import DataViewFinder from './DataViewFinder';
-import DataSiblings from './DataSiblings';
 import DataShutter from './DataShutter';
 import DataDisplay from './DataDisplay';
 import styles from './Table.module.scss';
@@ -14,7 +13,7 @@ interface Props {
 
 const Data = (props: Props) => {
   const { camera } = props;
-  const { name, maker2, name2, otherNames, metering } = camera;
+  const { name, maker2, name2, otherNames, metering, video } = camera;
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
   const nameLine = [name, name2data, otherNames].filter((item) => !!item).join(' / ');
@@ -26,14 +25,23 @@ const Data = (props: Props) => {
       <tbody>
         <DataSensor camera={camera} />
         <DataShutter camera={camera} />
-        <tr>
-          <th>Metering</th>
-          <td>{meteringData}</td>
-        </tr>
+        {metering && (
+          <tr>
+            <th>측광</th>
+            <td>{meteringData}</td>
+          </tr>
+        )}
         <DataViewFinder camera={camera} />
         <DataDisplay camera={camera} />
+        {video && (
+          <tr>
+            <th>비디오</th>
+            <td>
+              {video.format}, {video.modes}
+            </td>
+          </tr>
+        )}
         <DataRefs nameLine={nameLine} camera={camera} />
-        <DataSiblings camera={camera} />
       </tbody>
     </table>
   );

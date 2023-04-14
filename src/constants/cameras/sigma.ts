@@ -38,7 +38,7 @@ export const SIGMAS: CameraType[] = [
       speed: 6000,
     },
     focus: {
-      points: 1,
+      desc: '1포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -76,7 +76,7 @@ export const SIGMAS: CameraType[] = [
       speed: 6000,
     },
     focus: {
-      points: 1,
+      desc: '1포인트',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -117,8 +117,7 @@ export const SIGMAS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -158,8 +157,7 @@ export const SIGMAS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 5,
-      pointsCross: 1,
+      desc: '5포인트 1크로스',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -197,9 +195,7 @@ export const SIGMAS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 11,
-      pointsCross: 11,
-      pointsDouble: 11,
+      desc: '11포인트 11크로스 11더블',
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
@@ -240,7 +236,7 @@ export const SIGMAS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
       contrast: true,
     },
     display: {
@@ -268,7 +264,7 @@ export const SIGMAS: CameraType[] = [
       speed: 4000,
     },
     focus: {
-      points: 9,
+      desc: '9포인트',
       contrast: true,
     },
     display: {
@@ -300,7 +296,7 @@ export const SIGMAS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 49,
+      desc: '49포인트',
       contrast: true,
     },
     display: {
@@ -335,7 +331,7 @@ export const SIGMAS: CameraType[] = [
       speed: 8000,
     },
     focus: {
-      points: 49,
+      desc: '49포인트',
       contrast: true,
     },
     display: {
