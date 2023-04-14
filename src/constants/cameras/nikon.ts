@@ -987,7 +987,7 @@ export const NIKONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: ['M-JPEG'],
+      format: 'M-JPEG',
       modes: '720@24p',
     },
     metering: {
@@ -1068,7 +1068,7 @@ export const NIKONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: ['M-JPEG'],
+      format: 'M-JPEG',
       modes: '720@24p',
     },
     metering: {
@@ -1110,7 +1110,7 @@ export const NIKONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: ['M-JPEG'],
+      format: 'M-JPEG',
       modes: '720@24p',
     },
     metering: {
@@ -1245,7 +1245,7 @@ export const NIKONS: CameraType[] = [
       pixels: 230_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@24p, 720@30p',
     },
     metering: {
@@ -1302,7 +1302,7 @@ export const NIKONS: CameraType[] = [
       pixels: 921_000,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v1/specifications',
@@ -1335,7 +1335,7 @@ export const NIKONS: CameraType[] = [
       pixels: 460_000,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j1/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j1',
@@ -1471,7 +1471,7 @@ export const NIKONS: CameraType[] = [
       pixels: 921_000,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v2/specifications',
@@ -1505,7 +1505,7 @@ export const NIKONS: CameraType[] = [
       pixels: 921_000,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j2/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j2',
@@ -1606,7 +1606,7 @@ export const NIKONS: CameraType[] = [
       pixels: 921_000,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j3/specifications',
@@ -1639,7 +1639,7 @@ export const NIKONS: CameraType[] = [
       pixels: 460_000,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080p@60, 720p@60',
     },
     refs: 'https://en.wikipedia.org/wiki/Nikon_1_S1, https://www.dpreview.com/products/nikon/slrs/nikon_s1/specifications, https://www.photographyblog.com/reviews/nikon_1_s1_review',
@@ -1748,7 +1748,7 @@ export const NIKONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60p, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v3/specifications',
@@ -1783,7 +1783,7 @@ export const NIKONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60p, 984@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j4/specifications',
@@ -1816,7 +1816,7 @@ export const NIKONS: CameraType[] = [
       pixels: 460_000,
     },
     video: {
-      format: ['MPEG-4'],
+      format: 'MPEG-4',
       modes: '1080@60p, 720@60p',
     },
     refs: 'https://en.wikipedia.org/wiki/Nikon_1_S2, https://www.dpreview.com/products/nikon/slrs/nikon_s2/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20s2',
@@ -1849,7 +1849,7 @@ export const NIKONS: CameraType[] = [
       pixels: 921_000,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '1080@60i, 720@60p',
     },
     refs: 'https://en.wikipedia.org/wiki/Nikon_1_S2, https://www.dpreview.com/products/nikon/slrs/nikon_aw1/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20aw1',
@@ -1940,7 +1940,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@15p, 1080@60p, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j5/specifications',
@@ -2087,7 +2087,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z7/13',
@@ -2129,7 +2129,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z6/11',
@@ -2187,7 +2187,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z50-review/10',
@@ -2247,7 +2247,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@60p, 1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z7-ii-review/2',
@@ -2289,7 +2289,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z6-ii-review/2',
@@ -2330,7 +2330,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@30p, 1080@60p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z5-review/9',
@@ -2390,7 +2390,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['H.265', 'H.264'],
+      format: 'H.265, H.264',
       modes: '8K@30p, 4K@120p, 1080@120p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_z9/specifications',
@@ -2431,7 +2431,7 @@ export const NIKONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z-fc-review/2',
@@ -2468,7 +2468,7 @@ export const NIKONS: CameraType[] = [
       tilt: true,
     },
     video: {
-      format: ['MPEG-4', 'H.264'],
+      format: 'MPEG-4, H.264',
       modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z50-review/10',

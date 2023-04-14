@@ -315,7 +315,7 @@ export const SIGMAS: CameraType[] = [
       pixels: 2_100_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '4K@24p, 1080@60p',
     },
     refs: 'https://www.sigma-global.com/en/cameras/fp/',
@@ -351,7 +351,7 @@ export const SIGMAS: CameraType[] = [
       pixels: 2_100_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '4K@24p, 1080@60p',
     },
     refs: 'https://www.sigma-global.com/en/cameras/fpl/',

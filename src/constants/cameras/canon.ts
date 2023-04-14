@@ -855,7 +855,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p',
     },
     metering: {
@@ -1003,7 +1003,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1041,7 +1041,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1081,7 +1081,7 @@ export const CANONS: CameraType[] = [
       pixels: 920_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@20p, 720@30p',
     },
     metering: {
@@ -1124,7 +1124,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1165,7 +1165,7 @@ export const CANONS: CameraType[] = [
       pixels: 1040_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1208,7 +1208,7 @@ export const CANONS: CameraType[] = [
       pixels: 1040_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1251,7 +1251,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1291,7 +1291,7 @@ export const CANONS: CameraType[] = [
       pixels: 230_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '720@30p',
     },
     metering: {
@@ -1332,7 +1332,7 @@ export const CANONS: CameraType[] = [
       pixels: 1040_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '4K@25p',
     },
     metering: {
@@ -1398,7 +1398,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1443,7 +1443,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1481,7 +1481,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
   },
@@ -1534,7 +1534,7 @@ export const CANONS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1575,7 +1575,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
     metering: {
@@ -1611,7 +1611,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@30p, 720@60p',
     },
   },
@@ -1663,7 +1663,7 @@ export const CANONS: CameraType[] = [
       pixels: 460_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '720@30p',
     },
     metering: {
@@ -1782,7 +1782,7 @@ export const CANONS: CameraType[] = [
       pixels: 1620_000,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '4K@60p, 1080@30p, 720@60p',
     },
     metering: {
@@ -1904,7 +1904,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@60p, 720@60p',
     },
     metering: {
@@ -2048,7 +2048,7 @@ export const CANONS: CameraType[] = [
       touch: true,
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@60p, 720@60p',
     },
     metering: {

@@ -762,7 +762,7 @@ export const SONYS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: ['AVCHD'],
+      format: 'AVCHD',
       modes: '1080@60i',
     },
     metering: {
@@ -804,7 +804,7 @@ export const SONYS: CameraType[] = [
       swivel: true,
     },
     video: {
-      format: ['AVCHD'],
+      format: 'AVCHD',
       modes: '1080@60i',
     },
     metering: {
@@ -845,7 +845,7 @@ export const SONYS: CameraType[] = [
       trueblack: true,
     },
     video: {
-      format: ['AVCHD'],
+      format: 'AVCHD',
       modes: '1080@60i',
     },
     metering: {

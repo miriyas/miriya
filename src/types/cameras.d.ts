@@ -240,7 +240,7 @@ export interface CameraType {
   display?: DisplayType;
   viewfinder?: ViewFinderType;
   video?: {
-    format: string[];
+    format: string;
     modes: string;
   };
   metering?: {

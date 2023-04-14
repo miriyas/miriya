@@ -208,7 +208,7 @@ export const FUJIFILM: CameraType[] = [
       desc: '256존측광',
     },
     video: {
-      format: ['H.264'],
+      format: 'H.264',
       modes: '1080@24p, 720@24p',
     },
     refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe1/specifications',
@@ -254,7 +254,7 @@ export const FUJIFILM: CameraType[] = [
       desc: '256존측광',
     },
     video: {
-      format: ['H.264', 'MPEG-4'],
+      format: 'H.264, MPEG-4',
       modes: '1080@60p, 720@24p',
     },
     refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2/specifications',
@@ -405,7 +405,7 @@ export const FUJIFILM: CameraType[] = [
       desc: '256존측광',
     },
     video: {
-      format: ['H.264', 'MPEG-4'],
+      format: 'H.264, MPEG-4',
       modes: '1080@60p, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2s/specifications',
