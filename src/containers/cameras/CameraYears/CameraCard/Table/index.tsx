@@ -17,8 +17,7 @@ const Data = (props: Props) => {
   const { name, maker2, name2, otherNames, metering } = camera;
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
-  const nameOtherData = otherNames?.join(' / ');
-  const nameLine = [name, name2data, nameOtherData].filter((item) => !!item).join(' / ');
+  const nameLine = [name, name2data, otherNames].filter((item) => !!item).join(' / ');
 
   const meteringData = metering ? [metering.engine, metering.desc].filter((item) => !!item).join('/') : '?';
 

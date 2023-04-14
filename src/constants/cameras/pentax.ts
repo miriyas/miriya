@@ -449,7 +449,7 @@ export const PENTAXS: CameraType[] = [
     mount: MOUNT.PentaxK,
     grade: GRADE.ENTRY,
     name: 'K-m',
-    otherNames: ['K2000'],
+    otherNames: 'K2000',
     predecessor: ['K110D'],
     successor: ['K-x'],
     sensor: {

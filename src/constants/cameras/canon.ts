@@ -230,7 +230,7 @@ export const CANONS: CameraType[] = [
     grade: GRADE.FLAGSHIP,
     name: '1D',
     predecessor: [],
-    successor: ['1D markII', '1Ds'],
+    successor: ['1D markII, 1Ds'],
     sensor: {
       engine: ENGINE_TYPE.DIGIC1,
       pixelsFamiliar: '4.1M',
@@ -368,7 +368,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEF,
     grade: GRADE.ENTRY,
     name: '300D',
-    otherNames: ['Rebel', 'Kiss Digital'],
+    otherNames: 'Rebel, Kiss Digital',
     predecessor: [],
     successor: ['350D'],
     sensor: {
@@ -624,7 +624,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '350D',
-    otherNames: ['Rebel XT', 'Kiss Digital N'],
+    otherNames: 'Rebel XT, Kiss Digital N',
     predecessor: ['300D'],
     successor: ['400D'],
     sensor: {
@@ -697,7 +697,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '400D',
-    otherNames: ['Rebel XTi', 'Kiss Digital X'],
+    otherNames: 'Rebel XTi, Kiss Digital X',
     predecessor: ['350D'],
     successor: ['450D'],
     sensor: {
@@ -925,7 +925,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '450D',
-    otherNames: ['Rebel XSi', 'Kiss Digital X2'],
+    otherNames: 'Rebel XSi, Kiss Digital X2',
     predecessor: ['400D'],
     successor: ['500D'],
     sensor: {
@@ -961,7 +961,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '1000D',
-    otherNames: ['Rebel XS', 'Kiss Digital F'],
+    otherNames: 'Rebel XS, Kiss Digital F',
     predecessor: [],
     successor: ['1100D'],
     sensor: {
@@ -1100,7 +1100,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '500D',
-    otherNames: ['Rebel T1i', 'Kiss Digital X3'],
+    otherNames: 'Rebel T1i, Kiss Digital X3',
     predecessor: ['450D'],
     successor: ['550D'],
     sensor: {
@@ -1206,7 +1206,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '550D',
-    otherNames: ['Rebel T2i', 'Kiss Digital X4'],
+    otherNames: 'Rebel T2i, Kiss Digital X4',
     predecessor: ['500D'],
     successor: ['600D'],
     sensor: {
@@ -1259,8 +1259,8 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEF,
     grade: GRADE.FLAGSHIP,
     name: '1D X',
-    predecessor: ['1D markIV', '1Ds markIII'],
-    successor: ['1D X markII', '1D C'],
+    predecessor: ['1D markIV, 1Ds markIII'],
+    successor: ['1D X markII, 1D C'],
     // desc: '',
     sensor: {
       engine: ENGINE_TYPE.DDIGIC5P,
@@ -1312,7 +1312,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '600D',
-    otherNames: ['Rebel T3i', 'Kiss Digital X5'],
+    otherNames: 'Rebel T3i, Kiss Digital X5',
     predecessor: ['550D'],
     successor: ['650D'],
     sensor: {
@@ -1365,7 +1365,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '1100D',
-    otherNames: ['Rebel T3', 'Kiss Digital X50'],
+    otherNames: 'Rebel T3, Kiss Digital X50',
     predecessor: ['1000D'],
     successor: ['1200D'],
     sensor: {
@@ -1460,7 +1460,7 @@ export const CANONS: CameraType[] = [
     grade: GRADE.PROFESSIONAL,
     name: '5D markIII',
     predecessor: ['5D markII'],
-    successor: ['5D markIV', '5Ds'],
+    successor: ['5D markIV, 5Ds'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC5P,
     // }
@@ -1538,7 +1538,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '650D',
-    otherNames: ['Rebel T4i', 'Kiss Digital X6i'],
+    otherNames: 'Rebel T4i, Kiss Digital X6i',
     predecessor: ['600D'],
     successor: ['700D'],
     sensor: {
@@ -1651,7 +1651,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '700D',
-    otherNames: ['Rebel T5i', 'Kiss Digital X7i'],
+    otherNames: 'Rebel T5i, Kiss Digital X7i',
     predecessor: ['650D'],
     successor: ['750D'],
     sensor: {
@@ -1707,7 +1707,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '100D',
-    otherNames: ['Rebel SL1', 'Kiss Digital X7'],
+    otherNames: 'Rebel SL1, Kiss Digital X7',
     predecessor: [],
     successor: ['200D'],
     sensor: {
@@ -1818,7 +1818,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEF,
     grade: GRADE.ENTRY,
     name: '1200D',
-    otherNames: ['Rebel T5', 'Kiss Digital X70', 'EOS Hi'],
+    otherNames: 'Rebel T5, Kiss Digital X70, EOS Hi',
     predecessor: ['1100D'],
     successor: ['1300D'],
     desc: '캐논의 1080p 엔트리 기종',
@@ -1892,7 +1892,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '750D',
-    otherNames: ['Rebel T6i', 'Kiss Digital X8i'],
+    otherNames: 'Rebel T6i, Kiss Digital X8i',
     predecessor: ['700D'],
     successor: ['800D'],
     // sensor: {
@@ -1905,7 +1905,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '760D',
-    otherNames: ['Rebel T6s', '8000D'],
+    otherNames: 'Rebel T6s, 8000D',
     predecessor: ['700D'],
     successor: ['77D'],
     // sensor: {
@@ -2028,9 +2028,9 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '1300D',
-    otherNames: ['Rebel T6', 'Kiss Digital X80'],
+    otherNames: 'Rebel T6, Kiss Digital X80',
     predecessor: ['1200D'],
-    successor: ['2000D', '4000D'],
+    successor: ['2000D, 4000D'],
     // sensor: {
     //   engine: ENGINE_TYPE.DIGIC4P,
     // },
@@ -2067,7 +2067,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '800D',
-    otherNames: ['Rebel T7i', 'Kiss Digital X9i'],
+    otherNames: 'Rebel T7i, Kiss Digital X9i',
     predecessor: ['750D'],
     successor: ['850D'],
     // sensor: {
@@ -2080,7 +2080,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '200D',
-    otherNames: ['Rebel SL2', 'Kiss Digital X9'],
+    otherNames: 'Rebel SL2, Kiss Digital X9',
     predecessor: ['100D'],
     successor: ['250D'],
     sensor: {
@@ -2136,7 +2136,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.MIDRANGE,
     name: '77D',
-    otherNames: ['770D', '9000D'],
+    otherNames: '770D, 9000D',
     predecessor: ['760D'],
     successor: ['90D'],
     // sensor: {
@@ -2175,7 +2175,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '2000D',
-    otherNames: ['Rebel T7', 'Kiss Digital X90', '1500D'],
+    otherNames: 'Rebel T7, Kiss Digital X90, 1500D',
     predecessor: ['1300D'],
     successor: [],
     // sensor: {
@@ -2188,7 +2188,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.VALUE,
     name: '4000D',
-    otherNames: ['Rebel T100', '3000D'],
+    otherNames: 'Rebel T100, 3000D',
     predecessor: ['1300D'],
     successor: [],
     // sensor: {
@@ -2239,7 +2239,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '250D',
-    otherNames: ['Rebel SL3', 'Kiss Digital X10', '200D markII'],
+    otherNames: 'Rebel SL3, Kiss Digital X10, 200D markII',
     predecessor: ['200D'],
     successor: ['R10'],
     sensor: {
@@ -2358,7 +2358,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonEFS,
     grade: GRADE.ENTRY,
     name: '850D',
-    otherNames: ['Rebel T8i', 'Kiss Digital X10i'],
+    otherNames: 'Rebel T8i, Kiss Digital X10i',
     predecessor: ['800D'],
     successor: ['R10'],
     // sensor: {
@@ -2444,7 +2444,7 @@ export const CANONS: CameraType[] = [
     mount: MOUNT.CanonRFS,
     grade: GRADE.ADVANCED,
     name: 'R7',
-    predecessor: ['7D markII', '90D'],
+    predecessor: ['7D markII, 90D'],
     successor: [],
   },
   {

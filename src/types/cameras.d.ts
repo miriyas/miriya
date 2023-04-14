@@ -223,7 +223,7 @@ export interface CameraType {
   grade: GradeTypes;
   mount: MountTypes;
   name: string;
-  otherNames?: string[];
+  otherNames?: string;
   maker: CameraMakerTypes;
   name2?: string;
   maker2?: CameraMakerTypes;

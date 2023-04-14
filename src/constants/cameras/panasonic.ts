@@ -430,7 +430,7 @@ export const PANASONICS: CameraType[] = [
     mount: MOUNT.MFourThird,
     grade: GRADE.MIDRANGE,
     name: 'G80',
-    otherNames: ['G85'],
+    otherNames: 'G85',
     predecessor: ['G7'],
     successor: ['G90'],
     // sensor: {
@@ -450,7 +450,7 @@ export const PANASONICS: CameraType[] = [
     name: 'GX80',
     predecessor: ['GM5'],
     successor: [],
-    otherNames: ['GX85'],
+    otherNames: 'GX85',
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,
@@ -487,7 +487,7 @@ export const PANASONICS: CameraType[] = [
     mount: MOUNT.MFourThird,
     grade: GRADE.PROFESSIONAL,
     name: 'G9',
-    otherNames: [],
+    otherNames: '',
     predecessor: [],
     successor: [],
     // sensor: {
@@ -524,7 +524,7 @@ export const PANASONICS: CameraType[] = [
     name: 'GF9',
     predecessor: ['GF8'],
     successor: ['GF10'],
-    otherNames: ['GX500', 'GX800'],
+    otherNames: 'GX500, GX800',
 
     // sensor: {
     //   size: SENSOR_SIZE.FF,
@@ -543,7 +543,7 @@ export const PANASONICS: CameraType[] = [
     mount: MOUNT.MFourThird,
     grade: GRADE.PROFESSIONAL,
     name: 'GH5S',
-    otherNames: [],
+    otherNames: '',
     predecessor: [],
     successor: ['GH6'],
     // sensor: {
@@ -634,7 +634,7 @@ export const PANASONICS: CameraType[] = [
     mount: MOUNT.MFourThird,
     grade: GRADE.MIDRANGE,
     name: 'G90',
-    otherNames: ['G95'],
+    otherNames: 'G95',
     predecessor: ['G80'],
     successor: [],
     // sensor: {
@@ -654,7 +654,7 @@ export const PANASONICS: CameraType[] = [
     name: 'GF10',
     predecessor: ['GF9'],
     successor: [],
-    otherNames: ['GF90'],
+    otherNames: 'GF90',
     // sensor: {
     //   size: SENSOR_SIZE.FF,
     //   engine: ENGINE_TYPE.EXPEED4,

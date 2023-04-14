@@ -31,7 +31,7 @@ export const SONYS: CameraType[] = [
     mount: MOUNT.SonyA,
     grade: GRADE.ADVANCED,
     name: 'DG-7D',
-    otherNames: ['Dynax 7D', 'Maxxum 7D', 'α-7 Digital'],
+    otherNames: 'Dynax 7D, Maxxum 7D, α-7 Digital',
     predecessor: [],
     successor: [],
     sensor: {
@@ -70,7 +70,7 @@ export const SONYS: CameraType[] = [
     mount: MOUNT.SonyA,
     grade: GRADE.ENTRYMID,
     name: 'DG-5D',
-    otherNames: ['Dynax 5D', 'Maxxum 5D', 'α-5 Digital', 'α Sweet Digital'],
+    otherNames: 'Dynax 5D, Maxxum 5D, α-5 Digital, α Sweet Digital',
     predecessor: [],
     successor: [],
     sensor: {

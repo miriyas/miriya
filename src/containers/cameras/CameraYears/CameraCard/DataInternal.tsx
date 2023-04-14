@@ -14,8 +14,7 @@ const Data = (props: Props) => {
   const { desc, name, maker2, name2, otherNames } = camera;
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
-  const nameOtherData = otherNames?.join(' / ');
-  const nameLine = [name, name2data, nameOtherData].filter((item) => !!item).join(' / ');
+  const nameLine = [name, name2data, otherNames].filter((item) => !!item).join(' / ');
 
   return (
     <div className={styles.dataInternal}>

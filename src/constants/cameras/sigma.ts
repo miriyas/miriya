@@ -190,7 +190,7 @@ export const SIGMAS: CameraType[] = [
     name: 'SD1',
     predecessor: ['SD15'],
     successor: [],
-    otherNames: ['SD1 Merrill'],
+    otherNames: 'SD1 Merrill',
     sensor: {
       name: 'Foveon X3',
       size: SENSOR_SIZE.APSC,
