@@ -209,9 +209,8 @@ export interface Sensor {
 }
 
 export interface DisplayType {
-  inches: number | '?';
-  pixels?: number | '?';
-  liveview?: true;
+  desc: string;
+  liveview?: boolean;
   tilt?: boolean;
   swivel?: boolean;
   trueblack?: boolean;

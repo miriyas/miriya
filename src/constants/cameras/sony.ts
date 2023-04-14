@@ -52,8 +52,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 207_000,
+      desc: '2.5" 207K',
     },
     metering: {
       desc: '14분할측광',
@@ -89,8 +88,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 115_000,
+      desc: '2.5" 115K',
     },
     metering: {
       desc: '14분할측광',
@@ -126,8 +124,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '40분할측광',
@@ -163,8 +160,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '40분할측광',
@@ -201,8 +197,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '40분할측광',
@@ -237,8 +232,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
       tilt: true,
     },
     metering: {
@@ -274,8 +268,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
       tilt: true,
     },
     metering: {
@@ -311,8 +304,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '40분할측광',
@@ -348,8 +340,7 @@ export const SONYS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '40분할측광',
@@ -385,8 +376,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '40분할측광',
@@ -421,8 +411,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '40분할측광',
@@ -458,8 +447,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
       tilt: true,
     },
     metering: {
@@ -495,8 +483,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
       tilt: true,
     },
     metering: {
@@ -533,8 +520,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '40분할측광',
@@ -572,8 +558,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
       tilt: true,
       swivel: true,
     },
@@ -610,8 +595,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
       tilt: true,
       swivel: true,
     },
@@ -647,8 +631,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '40분할측광',
@@ -683,8 +666,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
       tilt: true,
     },
     metering: {
@@ -720,8 +702,7 @@ export const SONYS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     metering: {
       desc: '40분할측광',
@@ -756,8 +737,7 @@ export const SONYS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
       tilt: true,
       swivel: true,
     },
@@ -798,8 +778,7 @@ export const SONYS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
       tilt: true,
       swivel: true,
     },
@@ -839,8 +818,7 @@ export const SONYS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
       tilt: true,
       trueblack: true,
     },
@@ -880,8 +858,7 @@ export const SONYS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
       tilt: true,
       trueblack: true,
     },

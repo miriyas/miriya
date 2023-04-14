@@ -46,7 +46,7 @@ export const NIKONS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '5분할측광',
@@ -83,7 +83,7 @@ export const NIKONS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '5분할측광',
@@ -124,7 +124,7 @@ export const NIKONS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '5분할측광',
@@ -163,7 +163,7 @@ export const NIKONS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '5분할측광',
@@ -205,7 +205,7 @@ export const NIKONS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '5분할측광',
@@ -243,7 +243,7 @@ export const NIKONS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '5분할측광',
@@ -280,8 +280,7 @@ export const NIKONS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.0,
-      pixels: 120_000,
+      desc: '2.0" 120K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -319,8 +318,7 @@ export const NIKONS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.0,
-      pixels: 120_000,
+      desc: '2.0" 120K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -355,8 +353,7 @@ export const NIKONS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 2.0,
-      pixels: 120_000,
+      desc: '2.0" 120K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -392,8 +389,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 118_000,
+      desc: '1.8" 118K',
     },
     metering: {
       desc: '10분할측광',
@@ -430,8 +426,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.5,
-      pixels: 211_000,
+      desc: '2.5" 211K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -468,8 +463,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -503,8 +497,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 130_000,
+      desc: '1.8" 130K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -541,8 +534,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -577,8 +569,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -613,8 +604,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.1,
-      pixels: 130_000,
+      desc: '2.1" 130K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -648,8 +638,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.0,
-      pixels: 130_000,
+      desc: '2.0" 130K',
     },
     metering: {
       desc: '420 RGB측광',
@@ -686,8 +675,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -722,8 +710,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '420 RGB측광',
@@ -757,8 +744,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '420 RGB측광',
@@ -797,8 +783,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -835,8 +820,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -871,8 +855,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '420 RGB측광',
@@ -909,8 +892,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -946,8 +928,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -983,8 +964,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     video: {
       format: 'M-JPEG',
@@ -1024,8 +1004,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '420 RGB측광',
@@ -1064,8 +1043,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     video: {
       format: 'M-JPEG',
@@ -1106,8 +1084,7 @@ export const NIKONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     video: {
       format: 'M-JPEG',
@@ -1147,8 +1124,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
       tilt: true,
     },
     metering: {
@@ -1185,8 +1161,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 230_000,
+      desc: '3.0" 230K',
     },
     metering: {
       desc: '420 RGB측광',
@@ -1241,8 +1216,7 @@ export const NIKONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 230_000,
+      desc: '3.0" 230K',
     },
     video: {
       format: 'H.264',
@@ -1298,8 +1272,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     video: {
       format: 'MPEG-4, H.264',
@@ -1331,8 +1304,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 460_000,
+      desc: '3.0" 460K',
     },
     video: {
       format: 'MPEG-4, H.264',
@@ -1467,8 +1439,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     video: {
       format: 'MPEG-4, H.264',
@@ -1501,8 +1472,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     video: {
       format: 'MPEG-4, H.264',
@@ -1602,8 +1572,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     video: {
       format: 'MPEG-4, H.264',
@@ -1635,8 +1604,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 460_000,
+      desc: '3.0" 460K',
     },
     video: {
       format: 'MPEG-4, H.264',
@@ -1742,8 +1710,7 @@ export const NIKONS: CameraType[] = [
       resolution: 2359000,
     },
     display: {
-      inches: 3.0,
-      pixels: 1037_000,
+      desc: '3.0" 1037K',
       tilt: true,
       touch: true,
     },
@@ -1778,8 +1745,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 1037_000,
+      desc: '3.0" 1037K',
       touch: true,
     },
     video: {
@@ -1812,8 +1778,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 460_000,
+      desc: '3.0" 460K',
     },
     video: {
       format: 'MPEG-4',
@@ -1845,8 +1810,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 921_000,
+      desc: '3.0" 921K',
     },
     video: {
       format: 'MPEG-4, H.264',
@@ -1934,8 +1898,7 @@ export const NIKONS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 1037_000,
+      desc: '3.0" 1037K',
       touch: true,
       tilt: true,
     },
@@ -2081,8 +2044,7 @@ export const NIKONS: CameraType[] = [
       magnification: 0.8,
     },
     display: {
-      inches: 3.2,
-      pixels: 2100_000,
+      desc: '3.2" 2100K',
       touch: true,
       tilt: true,
     },
@@ -2123,8 +2085,7 @@ export const NIKONS: CameraType[] = [
       magnification: 0.8,
     },
     display: {
-      inches: 3.2,
-      pixels: 2100_000,
+      desc: '3.2" 2100K',
       touch: true,
       tilt: true,
     },
@@ -2181,8 +2142,7 @@ export const NIKONS: CameraType[] = [
       magnification: 1.02,
     },
     display: {
-      inches: 3.2,
-      pixels: 1040_000,
+      desc: '3.2" 1040K',
       touch: true,
       tilt: true,
     },
@@ -2241,8 +2201,7 @@ export const NIKONS: CameraType[] = [
       magnification: 0.8,
     },
     display: {
-      inches: 3.2,
-      pixels: 2100_000,
+      desc: '3.2" 2100K',
       touch: true,
       tilt: true,
     },
@@ -2283,8 +2242,7 @@ export const NIKONS: CameraType[] = [
       magnification: 0.8,
     },
     display: {
-      inches: 3.2,
-      pixels: 2100_000,
+      desc: '3.2" 2100K',
       touch: true,
       tilt: true,
     },
@@ -2324,8 +2282,7 @@ export const NIKONS: CameraType[] = [
       magnification: 0.8,
     },
     display: {
-      inches: 3.2,
-      pixels: 1040_000,
+      desc: '3.2" 1040K',
       touch: true,
       tilt: true,
     },
@@ -2384,8 +2341,7 @@ export const NIKONS: CameraType[] = [
       magnification: 0.8,
     },
     display: {
-      inches: 3.2,
-      pixels: 2100_000,
+      desc: '3.2" 2100K',
       touch: true,
       tilt: true,
     },
@@ -2424,8 +2380,7 @@ export const NIKONS: CameraType[] = [
       magnification: 1.02,
     },
     display: {
-      inches: 3,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       touch: true,
       tilt: true,
       swivel: true,
@@ -2462,8 +2417,7 @@ export const NIKONS: CameraType[] = [
       phaseDetection: true,
     },
     display: {
-      inches: 3,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       touch: true,
       tilt: true,
     },

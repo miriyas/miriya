@@ -46,8 +46,7 @@ export const SIGMAS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
-      pixels: 130_000,
+      desc: '1.8" 130K',
     },
     metering: {
       desc: '8분할측광',
@@ -85,8 +84,7 @@ export const SIGMAS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 1.8,
-      pixels: 150_000,
+      desc: '1.8" 150K',
     },
     metering: {
       desc: '8분할측광',
@@ -128,8 +126,7 @@ export const SIGMAS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 2.5,
-      pixels: 150_000,
+      desc: '2.5" 150K',
     },
     metering: {
       desc: '8분할측광',
@@ -170,8 +167,7 @@ export const SIGMAS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 3.0,
-      pixels: 460_000,
+      desc: '3.0" 460K',
     },
     metering: {
       desc: '77분할측광',
@@ -211,8 +207,7 @@ export const SIGMAS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 3.0,
-      pixels: 460_000,
+      desc: '3.0" 460K',
     },
     metering: {
       desc: '77분할측광',
@@ -249,8 +244,7 @@ export const SIGMAS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 1620_000,
+      desc: '3.0" 1620K',
     },
     refs: 'https://www.dpreview.com/products/sigma/slrs/sigma_sdquattro/specifications',
   },
@@ -278,8 +272,7 @@ export const SIGMAS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 1620_000,
+      desc: '3.0" 1620K',
     },
     refs: 'https://www.dpreview.com/reviews/sigma-sd-quattro-h/7',
   },
@@ -311,8 +304,7 @@ export const SIGMAS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.15,
-      pixels: 2_100_000,
+      desc: '3.15" 2100K',
     },
     video: {
       format: 'H.264',
@@ -347,8 +339,7 @@ export const SIGMAS: CameraType[] = [
       contrast: true,
     },
     display: {
-      inches: 3.15,
-      pixels: 2_100_000,
+      desc: '3.15" 2100K',
     },
     video: {
       format: 'H.264',

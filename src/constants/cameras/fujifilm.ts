@@ -163,8 +163,7 @@ export const FUJIFILM: CameraType[] = [
       magnification: 0.6,
     },
     display: {
-      inches: 3.0,
-      pixels: 1230_000,
+      desc: '3.0" 1230K',
     },
     metering: {
       desc: '256존측광',
@@ -201,8 +200,7 @@ export const FUJIFILM: CameraType[] = [
       resolution: 2360_000,
     },
     display: {
-      inches: 2.8,
-      pixels: 460_000,
+      desc: '2.8" 460K',
     },
     metering: {
       desc: '256존측광',
@@ -247,8 +245,7 @@ export const FUJIFILM: CameraType[] = [
       resolution: 2360_000,
     },
     display: {
-      inches: 3.0,
-      pixels: 1230_000,
+      desc: '3.0" 1230K',
     },
     metering: {
       desc: '256존측광',
@@ -398,8 +395,7 @@ export const FUJIFILM: CameraType[] = [
       resolution: 2360_000,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
     },
     metering: {
       desc: '256존측광',

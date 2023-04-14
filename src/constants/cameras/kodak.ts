@@ -43,7 +43,7 @@ export const KODAKS: CameraType[] = [
       coverage: 97,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '8분할측광',
@@ -79,7 +79,7 @@ export const KODAKS: CameraType[] = [
       coverage: 97,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '8분할측광',
@@ -145,8 +145,7 @@ export const KODAKS: CameraType[] = [
       pointsCross: 1,
     },
     display: {
-      inches: 2.0,
-      pixels: 130_000,
+      desc: '2.0" 130K',
     },
     refs: 'https://en.wikipedia.org/wiki/Kodak_DCS_Pro_SLR/n',
   },
@@ -173,8 +172,7 @@ export const KODAKS: CameraType[] = [
       coverage: 92,
     },
     display: {
-      inches: 1.8,
-      pixels: '?',
+      desc: '1.8"',
     },
     refs: 'https://en.wikipedia.org/wiki/Kodak_DCS_Pro_SLR/c, https://www.dpreview.com/products/kodak/slrs/kodak_dcsslrc/specifications',
   },
@@ -210,8 +208,7 @@ export const KODAKS: CameraType[] = [
       points: 25,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
       tilt: true,
     },
     video: {

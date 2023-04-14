@@ -135,7 +135,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '12분할측광',
@@ -170,7 +170,7 @@ export const CANONS: CameraType[] = [
       coverage: 97,
     },
     display: {
-      inches: 1.8,
+      desc: '1.8"',
     },
     metering: {
       desc: '12분할측광',
@@ -205,8 +205,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 114_000,
+      desc: '1.8" 114K',
     },
   },
 
@@ -239,8 +238,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.0,
-      pixels: 120_000,
+      desc: '2.0" 120K',
     },
   },
 
@@ -274,8 +272,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.0,
-      pixels: 120_000,
+      desc: '2.0" 120K',
     },
     metering: {
       desc: '21분할측광',
@@ -308,8 +305,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 114_000,
+      desc: '1.8" 114K',
     },
   },
 
@@ -342,8 +338,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 118_000,
+      desc: '1.8" 118K',
     },
     metering: {
       desc: '35분할측광',
@@ -377,8 +372,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 118_000,
+      desc: '1.8" 118K',
     },
     metering: {
       desc: '35분할측광',
@@ -415,8 +409,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.0,
-      pixels: 230_000,
+      desc: '2.0" 230K',
     },
     metering: {
       desc: '21분할측광',
@@ -451,8 +444,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.0,
-      pixels: 230_000,
+      desc: '2.0" 230K',
     },
     metering: {
       desc: '21분할측광',
@@ -486,8 +478,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 118_000,
+      desc: '1.8" 118K',
     },
     metering: {
       desc: '35분할측광',
@@ -524,8 +515,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '21분할측광',
@@ -559,8 +549,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '21분할측광',
@@ -594,8 +583,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 118_000,
+      desc: '1.8" 118K',
       liveview: true,
     },
     metering: {
@@ -631,8 +619,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 1.8,
-      pixels: 115_000,
+      desc: '1.8" 115K',
     },
     metering: {
       desc: '35분할측광',
@@ -668,8 +655,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '35분할측광',
@@ -704,8 +690,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '35분할측광',
@@ -742,8 +727,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 230_000,
+      desc: '3.0" 230K',
     },
     metering: {
       desc: '63분할측광',
@@ -778,8 +762,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 230_000,
+      desc: '3.0" 230K',
     },
     metering: {
       desc: '63분할측광',
@@ -813,8 +796,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 230_000,
+      desc: '3.0" 230K',
     },
     metering: {
       desc: '35분할측광',
@@ -851,8 +833,7 @@ export const CANONS: CameraType[] = [
       coverage: 98,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     video: {
       format: 'H.264',
@@ -890,8 +871,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     metering: {
       desc: '35분할측광',
@@ -926,8 +906,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 230_000,
+      desc: '3.0" 230K',
     },
     metering: {
       desc: '35분할측광',
@@ -961,8 +940,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.5,
-      pixels: 230_000,
+      desc: '2.5" 230K',
     },
     metering: {
       desc: '35분할측광',
@@ -999,8 +977,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     video: {
       format: 'H.264',
@@ -1037,8 +1014,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     video: {
       format: 'H.264',
@@ -1077,8 +1053,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 920_000,
+      desc: '3.0" 920K',
     },
     video: {
       format: 'H.264',
@@ -1118,8 +1093,7 @@ export const CANONS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       tilt: true,
       swivel: true,
     },
@@ -1161,8 +1135,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
     },
     video: {
       format: 'H.264',
@@ -1204,8 +1177,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.2,
-      pixels: 1040_000,
+      desc: '3.2" 1040K',
     },
     video: {
       format: 'H.264',
@@ -1245,8 +1217,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       tilt: true,
       swivel: true,
     },
@@ -1287,8 +1258,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.7,
-      pixels: 230_000,
+      desc: '2.7" 230K',
     },
     video: {
       format: 'H.264',
@@ -1328,8 +1298,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.2,
-      pixels: 1040_000,
+      desc: '3.2" 1040K',
     },
     video: {
       format: 'H.264',
@@ -1392,8 +1361,7 @@ export const CANONS: CameraType[] = [
       coverage: 96,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       tilt: true,
       swivel: true,
     },
@@ -1436,8 +1404,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       tilt: true,
       swivel: true,
       touch: true,
@@ -1474,8 +1441,7 @@ export const CANONS: CameraType[] = [
       pointsCross: 9,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       tilt: true,
       swivel: true,
       touch: true,
@@ -1527,8 +1493,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       touch: true,
       tilt: true,
       swivel: true,
@@ -1570,8 +1535,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       touch: true,
     },
     video: {
@@ -1606,8 +1570,7 @@ export const CANONS: CameraType[] = [
       phaseDetection: true,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       touch: true,
     },
     video: {
@@ -1659,8 +1622,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 460_000,
+      desc: '3.0" 460K',
     },
     video: {
       format: 'H.264',
@@ -1778,8 +1740,7 @@ export const CANONS: CameraType[] = [
       coverage: 100,
     },
     display: {
-      inches: 3.2,
-      pixels: 1620_000,
+      desc: '3.2" 1620K',
     },
     video: {
       format: 'H.264',
@@ -1897,8 +1858,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       tilt: true,
       swivel: true,
       touch: true,
@@ -2041,8 +2001,7 @@ export const CANONS: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 3.0,
-      pixels: 1040_000,
+      desc: '3.0" 1040K',
       tilt: true,
       swivel: true,
       touch: true,

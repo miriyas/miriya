@@ -1,13 +1,6 @@
-import { DisplayType, CameraType } from '@/types/cameras.d';
-import { shrinkNumber } from '@/utils';
+import { CameraType } from '@/types/cameras.d';
 
-const extractDisplayData = (display?: DisplayType) => {
-  if (!display) return '?';
-
-  const displaySize = display?.inches ? `${display?.inches}"` : '';
-  const displayRes = display?.pixels ? shrinkNumber(display?.pixels) : '';
-  return displaySize ? [displaySize, displayRes, 'LCD'].filter((item) => !!item).join(' ') : '?';
-};
+import styles from './Table.module.scss';
 
 interface Props {
   camera: CameraType;
@@ -19,12 +12,17 @@ const DataDisplay = (props: Props) => {
 
   if (!display) return null;
 
-  const displayData = extractDisplayData(display);
-
   return (
-    <tr>
-      <th>Display</th>
-      <td>{displayData}</td>
+    <tr className={styles.dataDisplay}>
+      <th>Display{display.liveview ? 1 : 2}</th>
+      <td>
+        {display.desc}
+        {display.liveview && <span className='green'>LiveView</span>}
+        {display.trueblack && <span className='red'>TB</span>}
+        {display.tilt && <span className='indigo'>Tilt</span>}
+        {display.swivel && <span className='orange'>Swivel</span>}
+        {display.touch && <span className='pink'>Touch</span>}
+      </td>
     </tr>
   );
 };

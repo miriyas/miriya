@@ -48,8 +48,7 @@ export const CONTAXES: CameraType[] = [
       coverage: 95,
     },
     display: {
-      inches: 2.0,
-      pixels: 200_000,
+      desc: '2.0" 200K',
     },
     metering: {
       desc: '5분할측광',

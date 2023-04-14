@@ -62,5 +62,41 @@
   background-color: var(--color-blue);
 }
 
+.purple {
+  color: var(--color-purple);
+}
+
+.purpleBg {
+  color: var(--color-white);
+  background-color: var(--color-purple);
+}
+
+.indigo {
+  color: var(--color-indigo);
+}
+
+.indigoBg {
+  color: var(--color-white);
+  background-color: var(--color-indigo);
+}
+
+.teal {
+  color: var(--color-teal);
+}
+
+.tealBg {
+  color: var(--color-white);
+  background-color: var(--color-teal);
+}
+
+.pink {
+  color: var(--color-pink);
+}
+
+.pinkBg {
+  color: var(--color-white);
+  background-color: var(--color-pink);
+}
+
 // Libraries
 @import '//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css';
