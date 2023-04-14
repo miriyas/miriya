@@ -30,7 +30,7 @@ export const KODAKS: CameraType[] = [
       isoMax: 400,
     },
     shutter: {
-      fps: 2,
+      fps: '2fps',
       speed: 4000,
     },
     focus: {
@@ -66,7 +66,7 @@ export const KODAKS: CameraType[] = [
       isoMax: 400,
     },
     shutter: {
-      fps: 1,
+      fps: '1fps',
       speed: 4000,
     },
     focus: {
@@ -104,7 +104,7 @@ export const KODAKS: CameraType[] = [
       isoMax: 800,
     },
     shutter: {
-      fps: 1.7,
+      fps: '1.7fps',
       speed: 4000,
     },
     focus: {
@@ -136,7 +136,7 @@ export const KODAKS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 1.7,
+      fps: '1.7fps',
       speed: 4000,
     },
     focus: {
@@ -203,7 +203,7 @@ export const KODAKS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 4,
+      fps: '4fps',
       speed: 4000,
     },
     focus: {

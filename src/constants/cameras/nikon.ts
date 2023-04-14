@@ -33,7 +33,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 1,
+      fps: '1fps',
     },
     focus: {
       name: FOCUS_NAME.AM200,
@@ -70,7 +70,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
     },
     focus: {
       name: FOCUS_NAME.AM200,
@@ -110,7 +110,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 1,
+      fps: '1fps',
       speed: 2000,
     },
     focus: {
@@ -149,7 +149,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 2000,
     },
     focus: {
@@ -191,7 +191,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 1,
+      fps: '1fps',
       speed: 2000,
     },
     focus: {
@@ -229,7 +229,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 2000,
     },
     focus: {
@@ -266,7 +266,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 4.5,
+      fps: '4.5fps',
       speed: 16000,
     },
     focus: {
@@ -305,7 +305,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 16000,
     },
     focus: {
@@ -341,7 +341,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 16000,
     },
     focus: {
@@ -378,7 +378,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -416,7 +416,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 8,
+      fps: '8fps',
       speed: 8000,
     },
     focus: {
@@ -454,7 +454,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 800,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -489,7 +489,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 8000,
     },
     focus: {
@@ -527,7 +527,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 8,
+      fps: '8fps',
       speed: 8000,
     },
     focus: {
@@ -563,7 +563,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -599,7 +599,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 8000,
     },
     focus: {
@@ -634,7 +634,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 4000,
     },
     focus: {
@@ -672,7 +672,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -708,7 +708,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -743,7 +743,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 4000,
     },
     focus: {
@@ -783,7 +783,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 9,
+      fps: '9fps',
       speed: 8000,
     },
     focus: {
@@ -821,7 +821,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 8,
+      fps: '8fps',
       speed: 8000,
     },
     focus: {
@@ -857,7 +857,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -895,7 +895,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -932,7 +932,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 8,
+      fps: '8fps',
       speed: 8000,
     },
     focus: {
@@ -969,7 +969,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 4.5,
+      fps: '4.5fps',
       speed: 4000,
     },
     focus: {
@@ -1010,7 +1010,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -1050,7 +1050,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 102400,
     },
     shutter: {
-      fps: 9,
+      fps: '9fps',
       speed: 8000,
     },
     focus: {
@@ -1092,7 +1092,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 8,
+      fps: '8fps',
       speed: 8000,
     },
     focus: {
@@ -1133,7 +1133,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 4,
+      fps: '4fps',
       speed: 4000,
     },
     focus: {
@@ -1171,7 +1171,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -1227,7 +1227,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -1287,7 +1287,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 19,
+      fps: '19fps',
       speed: 16000,
     },
     viewfinder: {
@@ -1323,7 +1323,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 10,
+      fps: '10fps',
       speed: 16000,
     },
     focus: {
@@ -1459,7 +1459,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 15,
+      fps: '15fps',
       speed: 16000,
     },
     focus: {
@@ -1493,7 +1493,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 10,
+      fps: '10fps',
       speed: 16000,
     },
     focus: {
@@ -1594,7 +1594,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 15,
+      fps: '15fps',
       speed: 16000,
     },
     focus: {
@@ -1627,7 +1627,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 15,
+      fps: '15fps',
       speed: 16000,
     },
     focus: {
@@ -1730,7 +1730,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 60,
+      fps: '60fps',
       speed: 16000,
     },
     focus: {
@@ -1770,7 +1770,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 60,
+      fps: '60fps',
       speed: 16000,
     },
     focus: {
@@ -1804,7 +1804,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 60,
+      fps: '60fps',
       speed: 16000,
     },
     focus: {
@@ -1837,7 +1837,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 60,
+      fps: '60fps',
       speed: 16000,
     },
     focus: {
@@ -1926,7 +1926,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 60,
+      fps: '60fps',
       speed: 16000,
     },
     focus: {
@@ -2067,7 +2067,7 @@ export const NIKONS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 9,
+      fps: '9fps',
       speed: 8000,
     },
     focus: {
@@ -2109,7 +2109,7 @@ export const NIKONS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 12,
+      fps: '12fps',
       speed: 8000,
     },
     focus: {
@@ -2167,7 +2167,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 204800,
     },
     shutter: {
-      fps: 11,
+      fps: '11fps',
       speed: 4000,
     },
     focus: {
@@ -2227,7 +2227,7 @@ export const NIKONS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 10,
+      fps: '10fps',
       speed: 8000,
     },
     focus: {
@@ -2269,7 +2269,7 @@ export const NIKONS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 14,
+      fps: '14fps',
       speed: 8000,
     },
     focus: {
@@ -2310,7 +2310,7 @@ export const NIKONS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 4.5,
+      fps: '4.5fps',
       speed: 8000,
     },
     focus: {
@@ -2370,7 +2370,7 @@ export const NIKONS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 30,
+      fps: '30fps',
       speed: 32000,
     },
     focus: {
@@ -2410,7 +2410,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 204800,
     },
     shutter: {
-      fps: 11,
+      fps: '11fps',
       speed: 4000,
     },
     focus: {
@@ -2453,7 +2453,7 @@ export const NIKONS: CameraType[] = [
       isoMax: 204800,
     },
     shutter: {
-      fps: 11,
+      fps: '11fps',
       speed: 4000,
     },
     focus: {

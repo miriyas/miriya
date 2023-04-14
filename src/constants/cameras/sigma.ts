@@ -34,7 +34,7 @@ export const SIGMAS: CameraType[] = [
       isoMax: 400,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 6000,
     },
     focus: {
@@ -73,7 +73,7 @@ export const SIGMAS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 6000,
     },
     focus: {
@@ -115,7 +115,7 @@ export const SIGMAS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -157,7 +157,7 @@ export const SIGMAS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -197,7 +197,7 @@ export const SIGMAS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -241,7 +241,7 @@ export const SIGMAS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 3.6,
+      fps: '3.6fps',
       speed: 4000,
     },
     focus: {
@@ -270,7 +270,7 @@ export const SIGMAS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 3.8,
+      fps: '3.8fps',
       speed: 4000,
     },
     focus: {
@@ -303,7 +303,7 @@ export const SIGMAS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 18,
+      fps: '18fps',
       speed: 8000,
     },
     focus: {
@@ -339,7 +339,7 @@ export const SIGMAS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 10,
+      fps: '10fps',
       speed: 8000,
     },
     focus: {

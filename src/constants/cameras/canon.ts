@@ -33,7 +33,7 @@ export const CANONS: CameraType[] = [
       isoMax: 800,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 8000,
     },
     focus: {
@@ -59,7 +59,7 @@ export const CANONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 2.7,
+      fps: '2.7fps',
       speed: 8000,
     },
     focus: {
@@ -85,7 +85,7 @@ export const CANONS: CameraType[] = [
       isoMax: 200,
     },
     shutter: {
-      fps: 0.6,
+      fps: '0.6fps',
       speed: 8000,
     },
     focus: {
@@ -123,7 +123,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3.6,
+      fps: '3.6fps',
       speed: 8000,
     },
     focus: {
@@ -158,7 +158,7 @@ export const CANONS: CameraType[] = [
       isoMax: 200,
     },
     shutter: {
-      fps: 1,
+      fps: '1fps',
       speed: 8000,
     },
     focus: {
@@ -193,7 +193,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -227,7 +227,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 8,
+      fps: '8fps',
       speed: 16000,
     },
     focus: {
@@ -262,7 +262,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1250,
     },
     shutter: {
-      fps: 4,
+      fps: '4fps',
       speed: 8000,
     },
     focus: {
@@ -296,7 +296,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1000,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -330,7 +330,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -365,7 +365,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 4000,
     },
     focus: {
@@ -403,7 +403,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 4.5,
+      fps: '4.5fps',
       speed: 8000,
     },
     focus: {
@@ -439,7 +439,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 8.5,
+      fps: '8.5fps',
       speed: 8000,
     },
     focus: {
@@ -474,7 +474,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -512,7 +512,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 8.5,
+      fps: '8.5fps',
       speed: 8000,
     },
     focus: {
@@ -547,7 +547,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 8.5,
+      fps: '8.5fps',
       speed: 8000,
     },
     focus: {
@@ -582,7 +582,7 @@ export const CANONS: CameraType[] = [
       astro: true,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -619,7 +619,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -656,7 +656,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -692,7 +692,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -730,7 +730,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -766,7 +766,7 @@ export const CANONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 10,
+      fps: '10fps',
       speed: 8000,
     },
     focus: {
@@ -801,7 +801,7 @@ export const CANONS: CameraType[] = [
       isoMax: 3200,
     },
     shutter: {
-      fps: 6.5,
+      fps: '6.5fps',
       speed: 8000,
     },
     focus: {
@@ -839,7 +839,7 @@ export const CANONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 3.9,
+      fps: '3.9fps',
       speed: 8000,
     },
     focus: {
@@ -878,7 +878,7 @@ export const CANONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 6.3,
+      fps: '6.3fps',
       speed: 8000,
     },
     focus: {
@@ -914,7 +914,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3.5,
+      fps: '3.5fps',
       speed: 4000,
     },
     focus: {
@@ -949,7 +949,7 @@ export const CANONS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -987,7 +987,7 @@ export const CANONS: CameraType[] = [
       isoMax: 102400,
     },
     shutter: {
-      fps: 10,
+      fps: '10fps',
       speed: 8000,
     },
     focus: {
@@ -1025,7 +1025,7 @@ export const CANONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 8,
+      fps: '8fps',
       speed: 8000,
     },
     focus: {
@@ -1065,7 +1065,7 @@ export const CANONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 3.4,
+      fps: '3.4fps',
       speed: 4000,
     },
     focus: {
@@ -1106,7 +1106,7 @@ export const CANONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 5.3,
+      fps: '5.3fps',
       speed: 8000,
     },
     focus: {
@@ -1149,7 +1149,7 @@ export const CANONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 3.7,
+      fps: '3.7fps',
       speed: 4000,
     },
     focus: {
@@ -1192,7 +1192,7 @@ export const CANONS: CameraType[] = [
       isoMax: 204800,
     },
     shutter: {
-      fps: 14,
+      fps: '14fps',
       speed: 8000,
     },
     focus: {
@@ -1233,7 +1233,7 @@ export const CANONS: CameraType[] = [
       isoMax: 12800,
     },
     shutter: {
-      fps: 3.7,
+      fps: '3.7fps',
       speed: 4000,
     },
     focus: {
@@ -1275,7 +1275,7 @@ export const CANONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -1316,7 +1316,7 @@ export const CANONS: CameraType[] = [
       isoMax: 204800,
     },
     shutter: {
-      fps: 14,
+      fps: '14fps',
       speed: 8000,
     },
     focus: {
@@ -1380,7 +1380,7 @@ export const CANONS: CameraType[] = [
       astro: true,
     },
     shutter: {
-      fps: 5.3,
+      fps: '5.3fps',
       speed: 8000,
     },
     focus: {
@@ -1423,7 +1423,7 @@ export const CANONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 4000,
     },
     focus: {
@@ -1466,7 +1466,7 @@ export const CANONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 4.3,
+      fps: '4.3fps',
       speed: 4000,
     },
     focus: {
@@ -1513,7 +1513,7 @@ export const CANONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 4000,
     },
     focus: {
@@ -1557,7 +1557,7 @@ export const CANONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 4,
+      fps: '4fps',
       speed: 4000,
     },
     focus: {
@@ -1599,7 +1599,7 @@ export const CANONS: CameraType[] = [
       isoMax: 25600,
     },
     shutter: {
-      fps: 3.4,
+      fps: '3.4fps',
       speed: 4000,
     },
     focus: {
@@ -1647,7 +1647,7 @@ export const CANONS: CameraType[] = [
       isoMax: 6400,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -1765,7 +1765,7 @@ export const CANONS: CameraType[] = [
       isoMax: 409600,
     },
     shutter: {
-      fps: 14,
+      fps: '14fps',
       speed: 8000,
     },
     focus: {
@@ -1883,7 +1883,7 @@ export const CANONS: CameraType[] = [
       isoMax: 51200,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 4000,
     },
     focus: {
@@ -2027,7 +2027,7 @@ export const CANONS: CameraType[] = [
       isoMax: 51200,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 4000,
     },
     focus: {

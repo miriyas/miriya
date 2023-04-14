@@ -36,7 +36,7 @@ export const CONTAXES: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: 4,
+      fps: '4fps',
       speed: 8000,
     },
     focus: {

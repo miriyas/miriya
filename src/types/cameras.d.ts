@@ -233,7 +233,7 @@ export interface CameraType {
   desc?: string;
   sensor?: Sensor;
   shutter?: {
-    fps: number | '?';
+    fps: string;
     speed?: number;
   };
   focus?: FocusType;

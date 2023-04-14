@@ -39,7 +39,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -76,7 +76,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -113,7 +113,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -150,7 +150,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -188,7 +188,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 8000,
     },
     focus: {
@@ -224,7 +224,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 4000,
     },
     focus: {
@@ -261,7 +261,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -298,7 +298,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -335,7 +335,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 8000,
     },
     focus: {
@@ -372,7 +372,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {
@@ -408,7 +408,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 5,
+      fps: '5fps',
       speed: 4000,
     },
     focus: {
@@ -445,7 +445,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 4000,
     },
     focus: {
@@ -482,7 +482,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -520,7 +520,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 3,
+      fps: '3fps',
       speed: 4000,
     },
     focus: {
@@ -559,7 +559,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {
@@ -597,7 +597,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {
@@ -634,7 +634,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {
@@ -670,7 +670,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 4000,
     },
     focus: {
@@ -707,7 +707,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 2.5,
+      fps: '2.5fps',
       speed: 4000,
     },
     focus: {
@@ -743,7 +743,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 10,
+      fps: '10fps',
       speed: 4000,
     },
     focus: {
@@ -785,7 +785,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {
@@ -827,7 +827,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {
@@ -868,7 +868,7 @@ export const SONYS: CameraType[] = [
       vr: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {

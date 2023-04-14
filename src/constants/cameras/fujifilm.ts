@@ -150,7 +150,7 @@ export const FUJIFILM: CameraType[] = [
       cleaning: true,
     },
     shutter: {
-      fps: 6,
+      fps: '6fps',
       speed: 4000,
     },
     focus: {
@@ -189,7 +189,7 @@ export const FUJIFILM: CameraType[] = [
       cleaning: true,
     },
     shutter: {
-      fps: 6,
+      fps: '6fps',
       speed: 4000,
     },
     focus: {
@@ -234,7 +234,7 @@ export const FUJIFILM: CameraType[] = [
       cleaning: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 4000,
     },
     focus: {
@@ -385,7 +385,7 @@ export const FUJIFILM: CameraType[] = [
       cleaning: true,
     },
     shutter: {
-      fps: 7,
+      fps: '7fps',
       speed: 32000,
     },
     focus: {
