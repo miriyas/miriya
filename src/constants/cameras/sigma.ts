@@ -25,8 +25,7 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.SigmaSA,
     grade: GRADE.ADVANCED,
     name: 'SD9',
-    predecessor: [],
-    successor: ['SD10'],
+    successor: 'SD10',
     sensor: {
       name: 'Foveon X3',
       size: SENSOR_SIZE.APSC,
@@ -64,8 +63,8 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.SigmaSA,
     grade: GRADE.ADVANCED,
     name: 'SD10',
-    predecessor: ['SD9'],
-    successor: ['SD14'],
+    predecessor: 'SD9',
+    successor: 'SD14',
     sensor: {
       name: 'Foveon X3',
       size: SENSOR_SIZE.APSC,
@@ -106,8 +105,8 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.SigmaSA,
     grade: GRADE.ADVANCED,
     name: 'SD14',
-    predecessor: ['SD10'],
-    successor: ['SD15'],
+    predecessor: 'SD10',
+    successor: 'SD15',
     sensor: {
       name: 'Foveon X3',
       size: SENSOR_SIZE.APSC,
@@ -148,8 +147,8 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.SigmaSA,
     grade: GRADE.ADVANCED,
     name: 'SD15',
-    predecessor: ['SD14'],
-    successor: ['SD1'],
+    predecessor: 'SD14',
+    successor: 'SD1',
     sensor: {
       name: 'Foveon X3',
       size: SENSOR_SIZE.APSC,
@@ -188,8 +187,7 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.SigmaSA,
     grade: GRADE.ADVANCED,
     name: 'SD1',
-    predecessor: ['SD15'],
-    successor: [],
+    predecessor: 'SD15',
     otherNames: 'SD1 Merrill',
     sensor: {
       name: 'Foveon X3',
@@ -234,8 +232,6 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.SigmaSA,
     grade: GRADE.ADVANCED,
     name: 'sd Quattro',
-    predecessor: [],
-    successor: [],
     sensor: {
       name: 'Foveon X3',
       engine: ENGINE_TYPE.DTRUE3,
@@ -265,8 +261,6 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.SigmaSA,
     grade: GRADE.ADVANCED,
     name: 'sd Quattro H',
-    predecessor: [],
-    successor: [],
     sensor: {
       name: 'Foveon X3',
       engine: ENGINE_TYPE.DTRUE3,
@@ -300,8 +294,7 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.LeicaL,
     grade: GRADE.ADVANCED,
     name: 'fp',
-    predecessor: [],
-    successor: ['fp L'],
+    successor: 'fp L',
     sensor: {
       size: SENSOR_SIZE.FF,
       pixelsFamiliar: '24.6M',
@@ -348,8 +341,7 @@ export const SIGMAS: CameraType[] = [
     mount: MOUNT.LeicaL,
     grade: GRADE.ADVANCED,
     name: 'fp L',
-    predecessor: ['fp'],
-    successor: [],
+    predecessor: 'fp',
     sensor: {
       size: SENSOR_SIZE.FF,
       pixelsFamiliar: '62.4M',

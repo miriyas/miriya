@@ -25,8 +25,6 @@ export const CONTAXES: CameraType[] = [
     maker: CAMERA_MAKER.CONTAX,
     mount: MOUNT.ContaxN,
     grade: GRADE.FLAGSHIP,
-    predecessor: [],
-    successor: [],
     name: 'N Digital',
     desc: '최초의 풀프레임 DSLR',
     sensor: {

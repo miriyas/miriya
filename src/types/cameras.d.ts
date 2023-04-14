@@ -227,8 +227,8 @@ export interface CameraType {
   maker: CameraMakerTypes;
   name2?: string;
   maker2?: CameraMakerTypes;
-  predecessor: string[];
-  successor: string[];
+  predecessor?: string;
+  successor?: string;
   rugged?: boolean;
   desc?: string;
   sensor?: Sensor;

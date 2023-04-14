@@ -23,8 +23,6 @@ export const KODAKS: CameraType[] = [
     mount: MOUNT.NikonF,
     grade: GRADE.PROFESSIONAL,
     name: 'DCS315',
-    predecessor: [],
-    successor: [],
     sensor: {
       pixelsFamiliar: '1.5M',
       size: SENSOR_SIZE.C26,
@@ -65,8 +63,6 @@ export const KODAKS: CameraType[] = [
     mount: MOUNT.NikonF,
     grade: GRADE.PROFESSIONAL,
     name: 'DCS330',
-    predecessor: [],
-    successor: [],
     sensor: {
       pixelsFamiliar: '3M',
       size: SENSOR_SIZE.C19,
@@ -109,8 +105,6 @@ export const KODAKS: CameraType[] = [
     mount: MOUNT.NikonF,
     grade: GRADE.PROFESSIONAL,
     name: 'DCS Pro 14n',
-    predecessor: [],
-    successor: [],
     sensor: {
       pixelsFamiliar: '13.9M',
       size: SENSOR_SIZE.FF,
@@ -143,8 +137,6 @@ export const KODAKS: CameraType[] = [
     mount: MOUNT.NikonF,
     grade: GRADE.PROFESSIONAL,
     name: 'DCS Pro SLR/n',
-    predecessor: [],
-    successor: [],
     sensor: {
       pixelsFamiliar: '13.5M',
       size: SENSOR_SIZE.FF,
@@ -173,8 +165,6 @@ export const KODAKS: CameraType[] = [
     mount: MOUNT.CanonEF,
     grade: GRADE.PROFESSIONAL,
     name: 'DCS Pro SLR/c',
-    predecessor: [],
-    successor: [],
     sensor: {
       pixelsFamiliar: '14M',
       size: SENSOR_SIZE.FF,
@@ -216,8 +206,6 @@ export const KODAKS: CameraType[] = [
     mount: MOUNT.MFourThird,
     grade: GRADE.ENTRY,
     name: 'Pixpro S-1',
-    predecessor: [],
-    successor: [],
     sensor: {
       pixelsFamiliar: '16.83M',
       size: SENSOR_SIZE.FT,
