@@ -7,7 +7,6 @@ import {
   FOCUS_NAME,
   MOUNT,
   GRADE,
-  VIDEO_SCAN_TYPE,
 } from '@/types/cameras.d';
 
 // https://en.wikipedia.org/wiki/Kodak_DCS
@@ -217,18 +216,7 @@ export const KODAKS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
 
     metering: {

@@ -186,12 +186,12 @@ export interface FocusType {
   phaseDetection?: boolean;
 }
 
-export const VIDEO_SCAN_TYPE = {
-  PROGRESSIVE: 'Progressive',
-  INTERLACED: 'Interlaced',
-};
+// export const VIDEO_SCAN_TYPE = {
+//   PROGRESSIVE: 'Progressive',
+//   INTERLACED: 'Interlaced',
+// };
 
-export type VideoScanTypes = ValueOf<typeof VIDEO_SCAN_TYPE>;
+// export type VideoScanTypes = ValueOf<typeof VIDEO_SCAN_TYPE>;
 
 export interface Sensor {
   name?: string;
@@ -241,11 +241,7 @@ export interface CameraType {
   viewfinder?: ViewFinderType;
   video?: {
     format: string[];
-    modes: {
-      resolution: number | '8K' | '4K';
-      scan: VideoScanTypes;
-      fps: number;
-    }[];
+    modes: string;
   };
   metering?: {
     engine?: EngineTypes;

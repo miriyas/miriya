@@ -5,7 +5,6 @@ import {
   SENSOR_TYPE,
   SENSOR_SIZE,
   // FOCUS_NAME,
-  VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
   MOUNT,
   GRADE,
@@ -764,13 +763,7 @@ export const SONYS: CameraType[] = [
     },
     video: {
       format: ['AVCHD'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i',
     },
     metering: {
       desc: '1200존측광',
@@ -812,13 +805,7 @@ export const SONYS: CameraType[] = [
     },
     video: {
       format: ['AVCHD'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i',
     },
     metering: {
       desc: '1200존측광',
@@ -859,13 +846,7 @@ export const SONYS: CameraType[] = [
     },
     video: {
       format: ['AVCHD'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i',
     },
     metering: {
       desc: '40분할측광',

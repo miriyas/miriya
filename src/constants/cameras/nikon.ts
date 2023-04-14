@@ -5,7 +5,6 @@ import {
   SENSOR_TYPE,
   SENSOR_SIZE,
   FOCUS_NAME,
-  VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
   MOUNT,
   GRADE,
@@ -989,13 +988,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['M-JPEG'],
-      modes: [
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-      ],
+      modes: '720@24p',
     },
     metering: {
       desc: '420 RGB측광',
@@ -1076,13 +1069,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['M-JPEG'],
-      modes: [
-        {
-          resolution: 720,
-          fps: 24,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '720@24p',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -1124,13 +1111,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['M-JPEG'],
-      modes: [
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-      ],
+      modes: '720@24p',
     },
     metering: {
       desc: '1005 RGB측광',
@@ -1265,18 +1246,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-      ],
+      modes: '1080@24p, 720@30p',
     },
     metering: {
       desc: '420 RGB측광',
@@ -1333,18 +1303,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v1/specifications',
   },
@@ -1377,18 +1336,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j1/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j1',
   },
@@ -1524,18 +1472,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v2/specifications',
   },
@@ -1569,18 +1506,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j2/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j2',
   },
@@ -1681,18 +1607,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j3/specifications',
   },
@@ -1725,18 +1640,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080p@60, 720p@60',
     },
     refs: 'https://en.wikipedia.org/wiki/Nikon_1_S1, https://www.dpreview.com/products/nikon/slrs/nikon_s1/specifications, https://www.photographyblog.com/reviews/nikon_1_s1_review',
   },
@@ -1845,18 +1749,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60p, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v3/specifications',
   },
@@ -1891,18 +1784,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 984,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60p, 984@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j4/specifications',
   },
@@ -1935,18 +1817,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60p, 720@60p',
     },
     refs: 'https://en.wikipedia.org/wiki/Nikon_1_S2, https://www.dpreview.com/products/nikon/slrs/nikon_s2/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20s2',
   },
@@ -1979,18 +1850,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.INTERLACED,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60i, 720@60p',
     },
     refs: 'https://en.wikipedia.org/wiki/Nikon_1_S2, https://www.dpreview.com/products/nikon/slrs/nikon_aw1/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20aw1',
   },
@@ -2081,23 +1941,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 15,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '4K@15p, 1080@60p, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j5/specifications',
   },
@@ -2244,18 +2088,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z7/13',
   },
@@ -2297,18 +2130,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z6/11',
   },
@@ -2366,18 +2188,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z50-review/10',
   },
@@ -2437,18 +2248,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '4K@60p, 1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z7-ii-review/2',
   },
@@ -2490,18 +2290,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z6-ii-review/2',
   },
@@ -2542,18 +2331,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '4K@30p, 1080@60p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z5-review/9',
   },
@@ -2613,23 +2391,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['H.265', 'H.264'],
-      modes: [
-        {
-          resolution: '8K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '8K@30p, 4K@120p, 1080@120p',
     },
     refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_z9/specifications',
   },
@@ -2670,18 +2432,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z-fc-review/2',
   },
@@ -2718,18 +2469,7 @@ export const NIKONS: CameraType[] = [
     },
     video: {
       format: ['MPEG-4', 'H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 120,
-        },
-      ],
+      modes: '4K@30p ,1080@120p',
     },
     refs: 'https://www.dpreview.com/reviews/nikon-z50-review/10',
   },

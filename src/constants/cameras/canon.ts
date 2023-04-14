@@ -4,7 +4,6 @@ import {
   OPTICS_TYPE,
   SENSOR_TYPE,
   SENSOR_SIZE,
-  VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
   GRADE,
   MOUNT,
@@ -857,13 +856,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-      ],
+      modes: '1080@30p',
     },
     metering: {
       desc: '35분할측광',
@@ -1011,18 +1004,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1060,18 +1042,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1111,18 +1082,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 20,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@20p, 720@30p',
     },
     metering: {
       desc: '35분할측광',
@@ -1165,18 +1125,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1217,18 +1166,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1271,18 +1209,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1920,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '10만 RGB측광',
@@ -1325,18 +1252,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1376,13 +1292,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 720,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '720@30p',
     },
     metering: {
       desc: '63분할측광',
@@ -1423,13 +1333,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 25,
-        },
-      ],
+      modes: '4K@25p',
     },
     metering: {
       desc: '10만 RGB측광',
@@ -1495,18 +1399,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1551,18 +1444,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1600,18 +1482,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
   },
 
@@ -1664,18 +1535,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1716,18 +1576,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -1763,18 +1612,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@30p, 720@60p',
     },
   },
 
@@ -1826,13 +1664,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 720,
-          fps: 30,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '720@30p',
     },
     metering: {
       desc: '63분할측광',
@@ -1951,23 +1783,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 1920,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 30,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '4K@60p, 1080@30p, 720@60p',
     },
     metering: {
       desc: '36만 RGB측광',
@@ -2089,18 +1905,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@60p, 720@60p',
     },
     metering: {
       desc: '63분할측광',
@@ -2244,18 +2049,7 @@ export const CANONS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-        {
-          resolution: 720,
-          fps: 60,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-        },
-      ],
+      modes: '1080@60p, 720@60p',
     },
     metering: {
       desc: '63분할측광',

@@ -4,7 +4,6 @@ import {
   OPTICS_TYPE,
   SENSOR_TYPE,
   SENSOR_SIZE,
-  VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
   MOUNT,
   GRADE,
@@ -317,18 +316,7 @@ export const SIGMAS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '4K@24p, 1080@60p',
     },
     refs: 'https://www.sigma-global.com/en/cameras/fp/',
   },
@@ -364,18 +352,7 @@ export const SIGMAS: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: '4K',
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '4K@24p, 1080@60p',
     },
     refs: 'https://www.sigma-global.com/en/cameras/fpl/',
   },

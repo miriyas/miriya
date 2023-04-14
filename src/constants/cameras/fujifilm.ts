@@ -3,7 +3,6 @@ import {
   OPTICS_TYPE,
   SENSOR_TYPE,
   SENSOR_SIZE,
-  VIDEO_SCAN_TYPE,
   ENGINE_TYPE,
   CAMERA_MAKER,
   GRADE,
@@ -210,18 +209,7 @@ export const FUJIFILM: CameraType[] = [
     },
     video: {
       format: ['H.264'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-      ],
+      modes: '1080@24p, 720@24p',
     },
     refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe1/specifications',
   },
@@ -267,18 +255,7 @@ export const FUJIFILM: CameraType[] = [
     },
     video: {
       format: ['H.264', 'MPEG-4'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 24,
-        },
-      ],
+      modes: '1080@60p, 720@24p',
     },
     refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2/specifications',
   },
@@ -429,18 +406,7 @@ export const FUJIFILM: CameraType[] = [
     },
     video: {
       format: ['H.264', 'MPEG-4'],
-      modes: [
-        {
-          resolution: 1080,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-        {
-          resolution: 720,
-          scan: VIDEO_SCAN_TYPE.PROGRESSIVE,
-          fps: 60,
-        },
-      ],
+      modes: '1080@60p, 720@60p',
     },
     refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2s/specifications',
   },
