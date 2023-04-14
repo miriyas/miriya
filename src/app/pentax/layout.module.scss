@@ -25,5 +25,31 @@
       border: 1px solid var(--color-black);
       border-top: 0;
     }
+
+    .share {
+      @include m.commonBoxShadow;
+      padding: 8px 14px;
+      margin-top: 24px;
+      background-color: var(--color-white);
+      border-radius: 4px;
+
+      .title {
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .desc {
+        margin-bottom: 8px;
+        font-size: 12px;
+      }
+
+      pre {
+        padding: 8px 14px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        background-color: var(--color-bg);
+      }
+    }
   }
 }
