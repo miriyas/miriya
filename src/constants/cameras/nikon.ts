@@ -52,7 +52,7 @@ export const NIKONS: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: ['http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2E2s/index.htm'],
+    refs: 'http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2E2s/index.htm',
   },
   {
     year: 1995,
@@ -89,7 +89,7 @@ export const NIKONS: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: ['http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2E2s/index.htm'],
+    refs: 'http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2E2s/index.htm',
   },
 
   // 1996 =============================================
@@ -130,7 +130,7 @@ export const NIKONS: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: ['http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2NE2Ns/index.htm'],
+    refs: 'http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2NE2Ns/index.htm',
   },
   {
     year: 1996,
@@ -169,7 +169,7 @@ export const NIKONS: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: ['http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2NE2Ns/index.htm'],
+    refs: 'http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E2NE2Ns/index.htm',
   },
 
   // 1997 =============================================
@@ -211,11 +211,7 @@ export const NIKONS: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: [
-      'https://imaging.nikon.com/lineup/dslr/e3_e3s/index.htm',
-      'http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E3E3s/specE3E3s.htm',
-      'https://www.digitalkameramuseum.de/en/cameras/item/nikon-e3',
-    ],
+    refs: 'https://imaging.nikon.com/lineup/dslr/e3_e3s/index.htm, http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E3E3s/specE3E3s.htm, https://www.digitalkameramuseum.de/en/cameras/item/nikon-e3',
   },
   {
     year: 1998,
@@ -253,11 +249,7 @@ export const NIKONS: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: [
-      'https://imaging.nikon.com/lineup/dslr/e3_e3s/index.htm',
-      'http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E3E3s/specE3E3s.htm',
-      'https://www.digitalkameramuseum.de/en/cameras/item/nikon-e3s',
-    ],
+    refs: 'https://imaging.nikon.com/lineup/dslr/e3_e3s/index.htm, http://www.mir.com.my/rb/photography/companies/nikon/htmls/models/digitalSLRs/E3E3s/specE3E3s.htm, https://www.digitalkameramuseum.de/en/cameras/item/nikon-e3s',
   },
 
   // 1999 =============================================
@@ -1354,7 +1346,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_v1/specifications'],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v1/specifications',
   },
   {
     year: 2011,
@@ -1398,10 +1390,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: [
-      'https://www.dpreview.com/products/nikon/slrs/nikon_j1/specifications',
-      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j1',
-    ],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j1/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j1',
   },
 
   // 2012 =============================================
@@ -1548,7 +1537,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_v2/specifications'],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v2/specifications',
   },
   {
     year: 2012,
@@ -1593,10 +1582,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: [
-      'https://www.dpreview.com/products/nikon/slrs/nikon_j2/specifications',
-      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j2',
-    ],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j2/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20j2',
   },
 
   // 2013 =============================================
@@ -1708,7 +1694,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_j3/specifications'],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j3/specifications',
   },
   {
     year: 2013,
@@ -1752,11 +1738,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: [
-      'https://en.wikipedia.org/wiki/Nikon_1_S1',
-      'https://www.dpreview.com/products/nikon/slrs/nikon_s1/specifications',
-      'https://www.photographyblog.com/reviews/nikon_1_s1_review',
-    ],
+    refs: 'https://en.wikipedia.org/wiki/Nikon_1_S1, https://www.dpreview.com/products/nikon/slrs/nikon_s1/specifications, https://www.photographyblog.com/reviews/nikon_1_s1_review',
   },
 
   // 2014 =============================================
@@ -1876,7 +1858,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_v3/specifications'],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_v3/specifications',
   },
   {
     year: 2014,
@@ -1922,7 +1904,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_j4/specifications'],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j4/specifications',
   },
   {
     year: 2014,
@@ -1966,11 +1948,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: [
-      'https://en.wikipedia.org/wiki/Nikon_1_S2',
-      'https://www.dpreview.com/products/nikon/slrs/nikon_s2/specifications',
-      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20s2',
-    ],
+    refs: 'https://en.wikipedia.org/wiki/Nikon_1_S2, https://www.dpreview.com/products/nikon/slrs/nikon_s2/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20s2',
   },
   {
     year: 2014,
@@ -2014,11 +1992,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: [
-      'https://en.wikipedia.org/wiki/Nikon_1_S2',
-      'https://www.dpreview.com/products/nikon/slrs/nikon_aw1/specifications',
-      'https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20aw1',
-    ],
+    refs: 'https://en.wikipedia.org/wiki/Nikon_1_S2, https://www.dpreview.com/products/nikon/slrs/nikon_aw1/specifications, https://www.nikon-image.co.kr/product/mirrorless/nikon%201%20aw1',
   },
 
   // 2015 =============================================
@@ -2125,7 +2099,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_j5/specifications'],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_j5/specifications',
   },
 
   // 2016 =============================================
@@ -2283,7 +2257,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z7/13'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z7/13',
   },
   {
     year: 2018,
@@ -2336,7 +2310,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z6/11'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z6/11',
   },
   {
     year: 2018,
@@ -2405,7 +2379,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z50-review/10'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z50-review/10',
   },
 
   // 2020 =============================================
@@ -2476,7 +2450,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z7-ii-review/2'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z7-ii-review/2',
   },
   {
     year: 2020,
@@ -2529,7 +2503,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z6-ii-review/2'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z6-ii-review/2',
   },
   {
     year: 2020,
@@ -2581,7 +2555,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z5-review/9'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z5-review/9',
   },
 
   {
@@ -2657,7 +2631,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/nikon/slrs/nikon_z9/specifications'],
+    refs: 'https://www.dpreview.com/products/nikon/slrs/nikon_z9/specifications',
   },
   {
     year: 2019,
@@ -2709,7 +2683,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z-fc-review/2'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z-fc-review/2',
   },
 
   // 2022 =============================================
@@ -2757,7 +2731,7 @@ export const NIKONS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/reviews/nikon-z50-review/10'],
+    refs: 'https://www.dpreview.com/reviews/nikon-z50-review/10',
   },
 
   // 2023 =============================================

@@ -54,12 +54,7 @@ export const CONTAXES: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: [
-      'https://www.dpreview.com/articles/3315211933/contaxn1digital',
-      'https://www.dpreview.com/products/contax/slrs/contax_ndigital/specifications',
-      'https://www.juzaphoto.com/recensione.php?l=en&t=contax_n_digital',
-      'https://cameramanuals.org/contax/contax_n_digital-02.pdf',
-    ],
+    refs: 'https://www.dpreview.com/articles/3315211933/contaxn1digital, https://www.dpreview.com/products/contax/slrs/contax_ndigital/specifications, https://www.juzaphoto.com/recensione.php?l=en&t=contax_n_digital, https://cameramanuals.org/contax/contax_n_digital-02.pdf',
   },
 
   // 2001 =============================================

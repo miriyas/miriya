@@ -40,7 +40,7 @@ export const CANONS: CameraType[] = [
     focus: {
       points: 5,
     },
-    refs: ['https://en.wikipedia.org/wiki/Canon_EOS_DCS_5'],
+    refs: 'https://en.wikipedia.org/wiki/Canon_EOS_DCS_5',
   },
   {
     year: 1995,
@@ -66,7 +66,7 @@ export const CANONS: CameraType[] = [
     focus: {
       points: 5,
     },
-    refs: ['https://en.wikipedia.org/wiki/Canon_EOS_DCS_3'],
+    refs: 'https://en.wikipedia.org/wiki/Canon_EOS_DCS_3',
   },
   {
     year: 1995,
@@ -101,11 +101,7 @@ export const CANONS: CameraType[] = [
     metering: {
       desc: '16분할측광',
     },
-    refs: [
-      'https://en.wikipedia.org/wiki/Canon_EOS_DCS_1',
-      'https://global.canon/en/c-museum/product/dslr776.html',
-      'http://www.mir.com.my/rb/photography/companies/Kodak/index2.htm',
-    ],
+    refs: 'https://en.wikipedia.org/wiki/Canon_EOS_DCS_1, https://global.canon/en/c-museum/product/dslr776.html, http://www.mir.com.my/rb/photography/companies/Kodak/index2.htm',
   },
 
   // 1996 =============================================
@@ -1185,7 +1181,7 @@ export const CANONS: CameraType[] = [
     metering: {
       desc: '63분할측광',
     },
-    refs: ['https://en.wikipedia.org/wiki/Canon_EOS_60D'],
+    refs: 'https://en.wikipedia.org/wiki/Canon_EOS_60D',
   },
   {
     year: 2010,
@@ -1515,7 +1511,7 @@ export const CANONS: CameraType[] = [
     metering: {
       desc: '63분할측광',
     },
-    refs: ['https://en.wikipedia.org/wiki/Canon_EOS_60D'],
+    refs: 'https://en.wikipedia.org/wiki/Canon_EOS_60D',
   },
   {
     year: 2012,

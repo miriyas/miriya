@@ -53,7 +53,7 @@ export const SIGMAS: CameraType[] = [
     metering: {
       desc: '8분할측광',
     },
-    refs: ['https://www.dpreview.com/reviews/sigmasd9'],
+    refs: 'https://www.dpreview.com/reviews/sigmasd9',
   },
 
   // 2003 =============================================
@@ -92,7 +92,7 @@ export const SIGMAS: CameraType[] = [
     metering: {
       desc: '8분할측광',
     },
-    refs: ['https://en.wikipedia.org/wiki/Sigma_SD10', 'https://www.dpreview.com/reviews/sigmasd10/'],
+    refs: 'https://en.wikipedia.org/wiki/Sigma_SD10, https://www.dpreview.com/reviews/sigmasd10/',
   },
 
   // 2004 =============================================
@@ -135,7 +135,7 @@ export const SIGMAS: CameraType[] = [
     metering: {
       desc: '8분할측광',
     },
-    refs: ['https://www.bhphotovideo.com/lit_files/924.pdf'],
+    refs: 'https://www.bhphotovideo.com/lit_files/924.pdf',
   },
 
   // 2008 =============================================
@@ -177,7 +177,7 @@ export const SIGMAS: CameraType[] = [
     metering: {
       desc: '77분할측광',
     },
-    refs: ['https://www.bhphotovideo.com/lit_files/924.pdf'],
+    refs: 'https://www.bhphotovideo.com/lit_files/924.pdf',
   },
 
   // 2011 =============================================
@@ -218,7 +218,7 @@ export const SIGMAS: CameraType[] = [
     metering: {
       desc: '77분할측광',
     },
-    refs: ['https://www.dpreview.com/reviews/sigmasd1/2'],
+    refs: 'https://www.dpreview.com/reviews/sigmasd1/2',
   },
 
   // 2012 =============================================
@@ -253,7 +253,7 @@ export const SIGMAS: CameraType[] = [
       inches: 3.0,
       pixels: 1620_000,
     },
-    refs: ['https://www.dpreview.com/products/sigma/slrs/sigma_sdquattro/specifications'],
+    refs: 'https://www.dpreview.com/products/sigma/slrs/sigma_sdquattro/specifications',
   },
   {
     year: 2016,
@@ -282,7 +282,7 @@ export const SIGMAS: CameraType[] = [
       inches: 3.0,
       pixels: 1620_000,
     },
-    refs: ['https://www.dpreview.com/reviews/sigma-sd-quattro-h/7'],
+    refs: 'https://www.dpreview.com/reviews/sigma-sd-quattro-h/7',
   },
 
   // 2017 =============================================
@@ -330,7 +330,7 @@ export const SIGMAS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.sigma-global.com/en/cameras/fp/'],
+    refs: 'https://www.sigma-global.com/en/cameras/fp/',
   },
 
   // 2020 =============================================
@@ -377,7 +377,7 @@ export const SIGMAS: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.sigma-global.com/en/cameras/fpl/'],
+    refs: 'https://www.sigma-global.com/en/cameras/fpl/',
   },
 
   // 2022 =============================================

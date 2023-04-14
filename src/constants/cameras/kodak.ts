@@ -49,11 +49,7 @@ export const KODAKS: CameraType[] = [
     metering: {
       desc: '8분할측광',
     },
-    refs: [
-      'https://www.kodak.com/global/plugins/acrobat/en/professional/manuals/dcs/DCS300/6b0935.pdf',
-      'http://camera-wiki.org/wiki/Kodak_DCS_300_series',
-      'https://en.wikipedia.org/wiki/Kodak_DCS_300_series',
-    ],
+    refs: 'https://www.kodak.com/global/plugins/acrobat/en/professional/manuals/dcs/DCS300/6b0935.pdf, http://camera-wiki.org/wiki/Kodak_DCS_300_series, https://en.wikipedia.org/wiki/Kodak_DCS_300_series',
   },
 
   // 1999 =============================================
@@ -89,11 +85,7 @@ export const KODAKS: CameraType[] = [
     metering: {
       desc: '8분할측광',
     },
-    refs: [
-      'https://www.kodak.com/global/plugins/acrobat/en/professional/manuals/dcs/DCS300/6b0935.pdf',
-      'http://camera-wiki.org/wiki/Kodak_DCS_300_series',
-      'https://en.wikipedia.org/wiki/Kodak_DCS_300_series',
-    ],
+    refs: 'https://www.kodak.com/global/plugins/acrobat/en/professional/manuals/dcs/DCS300/6b0935.pdf, http://camera-wiki.org/wiki/Kodak_DCS_300_series, https://en.wikipedia.org/wiki/Kodak_DCS_300_series',
   },
 
   // 2000 =============================================
@@ -126,7 +118,7 @@ export const KODAKS: CameraType[] = [
       magnification: '?',
       coverage: 95,
     },
-    refs: ['https://www.dpreview.com/reviews/kodakdcs14n/'],
+    refs: 'https://www.dpreview.com/reviews/kodakdcs14n/',
   },
 
   // 2003 =============================================
@@ -157,7 +149,7 @@ export const KODAKS: CameraType[] = [
       inches: 2.0,
       pixels: 130_000,
     },
-    refs: ['https://en.wikipedia.org/wiki/Kodak_DCS_Pro_SLR/n'],
+    refs: 'https://en.wikipedia.org/wiki/Kodak_DCS_Pro_SLR/n',
   },
   {
     year: 2004,
@@ -185,10 +177,7 @@ export const KODAKS: CameraType[] = [
       inches: 1.8,
       pixels: '?',
     },
-    refs: [
-      'https://en.wikipedia.org/wiki/Kodak_DCS_Pro_SLR/c',
-      'https://www.dpreview.com/products/kodak/slrs/kodak_dcsslrc/specifications',
-    ],
+    refs: 'https://en.wikipedia.org/wiki/Kodak_DCS_Pro_SLR/c, https://www.dpreview.com/products/kodak/slrs/kodak_dcsslrc/specifications',
   },
 
   // 2005 =============================================
@@ -245,7 +234,7 @@ export const KODAKS: CameraType[] = [
     metering: {
       desc: '5분할측광',
     },
-    refs: ['https://kodakpixpro.com/cameras/mirrorless/s-1/'],
+    refs: 'https://kodakpixpro.com/cameras/mirrorless/s-1/',
   },
 
   // 2015 =============================================

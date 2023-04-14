@@ -251,5 +251,5 @@ export interface CameraType {
     engine?: EngineTypes;
     desc: string;
   };
-  refs?: string[];
+  refs?: string;
 }

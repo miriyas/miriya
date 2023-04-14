@@ -12,12 +12,8 @@
     text-align: center;
   }
 
-  td {
-    @include m.flexbox(start, center);
-  }
-
   p {
-    @include m.flexbox;
+    @include m.inlineFlexbox;
     padding: 0 4px;
     margin-right: 4px;
     border-radius: 2px;

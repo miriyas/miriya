@@ -15,7 +15,7 @@ const DataRefs = (props: Props) => {
     <tr>
       <th>Ref.</th>
       <td>
-        {refs.map((ref, i) => {
+        {refs.split(',').map((ref, i) => {
           const key = `${nameLine}-${i}`;
           return (
             <a key={key} href={ref} target='_blank' rel='nofollow'>

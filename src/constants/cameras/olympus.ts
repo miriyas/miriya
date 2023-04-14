@@ -747,7 +747,7 @@ export const OLYMPUSES: CameraType[] = [
     //   isoMin: 100,
     //   isoMax: 409600,
     // },
-    refs: ['https://www.dpreview.com/products/olympus/slrs/olympus_em10iiis'],
+    refs: 'https://www.dpreview.com/products/olympus/slrs/olympus_em10iiis',
   },
   {
     year: 2020,

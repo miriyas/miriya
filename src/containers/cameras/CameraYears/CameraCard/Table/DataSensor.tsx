@@ -5,7 +5,7 @@ import { SENSOR_SIZE, SensorSizeTypes, CameraType } from '@/types/cameras.d';
 import styles from './Table.module.scss';
 
 const prettySensorSize = (sensorSize?: SensorSizeTypes) => {
-  if (!sensorSize) return <p className='grayBg'>APS-C</p>;
+  if (!sensorSize) return <p className={cx(styles.sensor, 'grayBg')}>APS-C</p>;
   return {
     [SENSOR_SIZE.FF]: <p className={cx(styles.sensor, 'redBg')}>FullFrame</p>,
     [SENSOR_SIZE.APSH]: <p className={cx(styles.sensor, 'orangeBg')}>APS-H</p>,

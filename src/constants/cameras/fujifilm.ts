@@ -170,7 +170,7 @@ export const FUJIFILM: CameraType[] = [
     metering: {
       desc: '256존측광',
     },
-    refs: ['https://www.dpreview.com/reviews/fujifilm-x-pro1/2'],
+    refs: 'https://www.dpreview.com/reviews/fujifilm-x-pro1/2',
   },
   {
     year: 2012,
@@ -223,7 +223,7 @@ export const FUJIFILM: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe1/specifications'],
+    refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe1/specifications',
   },
 
   // 2013 =============================================
@@ -280,7 +280,7 @@ export const FUJIFILM: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2/specifications'],
+    refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2/specifications',
   },
   {
     year: 2013,
@@ -442,7 +442,7 @@ export const FUJIFILM: CameraType[] = [
         },
       ],
     },
-    refs: ['https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2s/specifications'],
+    refs: 'https://www.dpreview.com/products/fujifilm/slrs/fujifilm_xe2s/specifications',
   },
   {
     year: 2016,

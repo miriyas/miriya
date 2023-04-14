@@ -1,3 +1,5 @@
+import cx from 'clsx';
+
 import { CameraType } from '@/types/cameras.d';
 import { prettyOpticsType } from './utils';
 
@@ -23,10 +25,8 @@ const DataViewFinder = (props: Props) => {
       <td className={styles.dataViewFinder}>
         {prettyOpticsType(viewfinder.type)}&nbsp;
         {magnification}
-        {viewfinder.coverage === 100 ? (
-          <span className={styles.green}>{viewfinder.coverage}%</span>
-        ) : (
-          `${viewfinder.coverage}%`
+        {viewfinder.coverage && (
+          <span className={cx({ [styles.green]: viewfinder.coverage === 100 })}>{viewfinder.coverage}%</span>
         )}
       </td>
     </tr>
