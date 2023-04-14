@@ -246,3 +246,10 @@ export interface CameraType {
   };
   refs?: string;
 }
+
+export type DigicamDB = Record<string, string>;
+
+export interface DpreviewNews {
+  link: string;
+  title: string;
+}

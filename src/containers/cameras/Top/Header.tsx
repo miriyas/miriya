@@ -1,6 +1,8 @@
+import cx from 'clsx';
+
 import { CAMERAS, YEAR_INFO } from '@/constants/cameras';
 
-import styles from './FilterBar.module.scss';
+import styles from './index.module.scss';
 
 const Header = () => {
   return (
@@ -13,7 +15,7 @@ const Header = () => {
           </span>
         </h1>
       </div>
-      <div className={styles.notice}>
+      <div className={cx(styles.commonBox, styles.notice)}>
         출시일 기준, 95년부터 현재까지 출시된 DSLR/DSLT를 정리중입니다.
         <br />
         {CAMERAS.length}개 카메라를 여러 소스에서 교차 검증하다보니 틀린 내용, 추가할 부분이 있을 수 있습니다.

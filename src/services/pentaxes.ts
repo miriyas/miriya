@@ -1,3 +1,5 @@
-export const getReadMeMarkdownApi = () => fetch('/api/pentaxes/markdown/readme');
+import apiClient from '@/services/apiClient';
 
-export const getDescMarkdownApi = () => fetch('/api/pentaxes/markdown/desc');
+export const getReadMeMarkdownApi = () => apiClient('/pentaxes/markdown/readme');
+
+export const getDescMarkdownApi = () => apiClient('/pentaxes/markdown/desc');

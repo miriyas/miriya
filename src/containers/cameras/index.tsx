@@ -1,14 +1,14 @@
 'use client';
 
-import { Suspense } from 'react';
 // import dynamic from 'next/dynamic';
 import { groupBy } from 'lodash';
 
 import { CAMERAS } from '@/constants/cameras';
 
-import FilterBar from './FilterBar';
+import Top from './Top';
 // import CameraYearPlaceholder from './CameraYears/Placeholder';
 import CameraYears from './CameraYears';
+
 // const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 const CamerasPage = () => {
@@ -16,9 +16,7 @@ const CamerasPage = () => {
 
   return (
     <main>
-      <Suspense fallback={null}>
-        <FilterBar years={years} />
-      </Suspense>
+      <Top />
       <CameraYears years={years} />
     </main>
   );

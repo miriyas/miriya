@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
 // 서버 주소 입력
-export const baseURL = '/api';
+export const baseURL = `${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api`;
 
 const apiClient = axios.create({
   baseURL,

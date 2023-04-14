@@ -21,9 +21,13 @@ const DataExternal = (props: Props) => {
   const id = cameraId(maker, name);
   const externalId = externalCameraId(maker, name);
 
-  const { data, isLoading, isError } = useQuery(
+  const {
+    data = {},
+    isLoading,
+    isError,
+  } = useQuery(
     ['getExternalCameraDataApi', externalId],
-    () => getExternalCameraDataApi(externalId).then((res) => res.json()),
+    () => getExternalCameraDataApi(externalId).then((res) => res.data),
     {
       suspense: true,
       enabled: showExternalData,

@@ -1,1 +1,3 @@
-export const getPrivacyMarkdownApi = () => fetch('/api/privacy/markdown');
+import apiClient from '@/services/apiClient';
+
+export const getPrivacyMarkdownApi = () => apiClient('/privacy/markdown');

@@ -11,7 +11,7 @@ const nextConfig = {
   images: {
     imageSizes: [100, 200, 280],
     minimumCacheTTL: 86400,
-    domains: ['https://www.digicamdb.com', 'miriya.sgp1.cdn.digitaloceanspaces.com'],
+    domains: ['miriya.sgp1.cdn.digitaloceanspaces.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,6 +20,7 @@ const nextConfig = {
     ],
   },
   env: {
+    NEXT_PUBLIC_BASE_FETCH_URL: 'http://localhost:3000',
     NEXT_PUBLIC_GA_ID: 'G-BCXXRGTY78',
     NEXT_PUBLIC_CDN_URL: 'https://miriya.sgp1.cdn.digitaloceanspaces.com',
     NEXT_FIREBASE_API_KEY: 'AIzaSyBA-Zq6nUqit0bxiPQCkOYuyofaGs3Tmkw',

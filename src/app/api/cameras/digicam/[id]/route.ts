@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 import { trim } from 'lodash';
 
+import { DigicamDB } from '@/types/cameras.d';
+
 const getCameraDataFromURL = async (url: string) => {
   const fullUrl = `https://www.digicamdb.com/specs/${url}/`;
   const response = await fetch(fullUrl);
@@ -18,7 +20,7 @@ const getCameraDataFromURL = async (url: string) => {
     };
   }
 
-  const table: Record<string, string> = {};
+  const table: DigicamDB = {};
   $('.table_specs tr').each((_tri, tr) => {
     const rows: string[] = [];
     $(tr)

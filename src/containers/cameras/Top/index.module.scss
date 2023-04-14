@@ -1,11 +1,19 @@
 @use 'src/styles/mixins' as m;
 
-.filterBar {
+.top {
   width: 100%;
   max-width: 1002px;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   overflow: hidden;
   font-size: 14px;
+
+  .commonBox {
+    width: 100%;
+    padding: 8px 14px;
+    margin-top: 14px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+  }
 
   .header {
     .upper {
@@ -22,15 +30,38 @@
         }
       }
     }
+
+    .notice {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--color-gray-4);
+    }
   }
 
-  .notice,
-  .categories,
-  .years {
-    width: 100%;
-    margin-top: 14px;
-    background-color: var(--color-white);
-    border-radius: 8px;
+  .news {
+    @include m.flexbox(center, start);
+    flex-wrap: wrap;
+
+    li {
+      @include m.flexbox(start, center);
+      position: relative;
+      width: 50%;
+      height: 20px;
+      padding-left: 8px;
+
+      &::before {
+        @include m.absolute(8px auto auto -2px);
+        width: 3px;
+        height: 3px;
+        content: '';
+        background-color: var(--color-gray-7);
+        border-radius: 50%;
+      }
+
+      a {
+        color: var(--color-gray-4);
+      }
+    }
   }
 
   .categories,
@@ -61,21 +92,12 @@
     }
   }
 
-  .notice {
-    padding: 8px 16px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--color-gray-4);
-  }
-
   .categories {
     min-height: 44px;
-    padding: 0 14px;
     line-height: 44px;
   }
 
   .years {
-    padding: 8px;
     line-height: 32px;
   }
 }
