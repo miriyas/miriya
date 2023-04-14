@@ -41,7 +41,14 @@ const AuthModal = () => {
       <div className={styles.authModal}>
         <div className={styles.head}>
           <div className={cx(styles.imageWrapper, { [styles.hidePassword]: !showPassword })}>
-            <Image src='/images/home/profile.jpg' fill alt='' title='AI가 그린 그림이지롱' className={styles.image} />
+            <Image
+              src='/images/home/profile.jpg'
+              width={100}
+              height={100}
+              alt=''
+              title='AI가 그린 그림이지롱'
+              className={styles.image}
+            />
           </div>
           <p className={styles.desc}>환영합니다. 댓글좀 달아주세요.</p>
         </div>

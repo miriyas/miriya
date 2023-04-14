@@ -44,7 +44,7 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
 
   if (!user) {
     return (
-      <div className={cx(styles.form, styles.blank)}>
+      <div className={cx(styles.commentNewForm, styles.blank)}>
         <PleaseLogin />
       </div>
     );
