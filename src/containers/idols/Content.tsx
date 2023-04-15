@@ -20,8 +20,8 @@ const IdolsContent = ({ idolYears }: Props) => {
   const [idols, setIdols] = useState<FBIdolType[]>([]);
 
   useEffect(() => {
-    const unSubscribeIdols = getIdolsRealtime(setIdols);
-    return () => unSubscribeIdols();
+    const unSubscribe = getIdolsRealtime(setIdols);
+    return () => unSubscribe();
   }, []);
 
   const years = useMemo(() => groupBy(idols, 'debutYear'), [idols]);

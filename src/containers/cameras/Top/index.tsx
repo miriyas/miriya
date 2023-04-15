@@ -1,10 +1,10 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useMemo } from 'react';
 // import dynamic from 'next/dynamic';
-import { groupBy } from 'lodash';
+import { Dictionary } from 'lodash';
 
-import { CAMERAS } from '@/constants/cameras';
+import { FBCameraType } from '@/types/cameras.d';
 
 import Header from './Header';
 import News from './News';
@@ -15,16 +15,22 @@ import styles from './index.module.scss';
 
 // const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
-const Top = () => {
-  const years = groupBy(CAMERAS, 'year');
+interface Props {
+  cameras: FBCameraType[];
+  years: Dictionary<FBCameraType[]>;
+}
+
+const Top = ({ cameras, years }: Props) => {
+  const yearStart = useMemo(() => Math.min(...cameras.map((camera) => camera.year ?? 0)), [cameras]);
+  const yearEnd = useMemo(() => Math.max(...cameras.map((camera) => camera.year ?? 0)), [cameras]);
 
   return (
     <div className={styles.top}>
-      <Header />
+      <Header yearStart={yearStart} yearEnd={yearEnd} length={cameras.length} />
       <News />
       <Categories />
       <Suspense fallback={null}>
-        <Years years={years} />
+        <Years yearStart={yearStart} yearEnd={yearEnd} years={years} />
       </Suspense>
     </div>
   );

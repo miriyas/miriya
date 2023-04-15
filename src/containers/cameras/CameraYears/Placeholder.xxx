@@ -4,14 +4,11 @@ import cx from 'clsx';
 import { groupBy } from 'lodash';
 
 import { getNumberArr } from '@/utils';
-import { CAMERAS } from '@/constants/cameras';
 
 import CameraPlaceholder from './CameraCard/Placeholder';
 import styles from './CameraYears.module.scss';
 
 const CameraYearPlaceholder = () => {
-  const years = groupBy(CAMERAS, 'year');
-
   return (
     <ul className={styles.cameraYears}>
       {Object.keys(years).map((year) => {

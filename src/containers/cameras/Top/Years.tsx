@@ -6,17 +6,18 @@ import { Dictionary } from 'lodash';
 
 import { useGA } from '@/hooks/useGA';
 import { CAMERA } from '@/constants/ga';
-import { YEAR_INFO } from '@/constants/cameras';
 import { CameraType } from '@/types/cameras.d';
 import { getNumberArr } from '@/utils';
 
 import styles from './index.module.scss';
 
 interface Props {
+  yearStart: number;
+  yearEnd: number;
   years: Dictionary<CameraType[]>;
 }
 
-const FilterBar = ({ years }: Props) => {
+const Top = ({ yearStart, yearEnd, years }: Props) => {
   const { gaEvent } = useGA();
   const [, startTransition] = useTransition();
 
@@ -33,8 +34,8 @@ const FilterBar = ({ years }: Props) => {
 
   return (
     <ul className={cx(styles.commonBox, styles.years)}>
-      {getNumberArr(YEAR_INFO.end - YEAR_INFO.start + 1).map((n) => {
-        const year = YEAR_INFO.start + n;
+      {getNumberArr(yearEnd - yearStart + 1).map((n) => {
+        const year = yearStart + n;
         return (
           <li key={year} className={cx({ [styles.current]: year === currentYear })}>
             <button
@@ -52,4 +53,4 @@ const FilterBar = ({ years }: Props) => {
   );
 };
 
-export default FilterBar;
+export default Top;

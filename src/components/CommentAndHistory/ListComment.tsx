@@ -18,8 +18,8 @@ export const ListComment = ({ targetCategory, targetSubCategory, targetId }: Pro
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    const unSubscribeComments = getCommentsInTargetRealtime(targetCategory, targetId, setComments, targetSubCategory);
-    return () => unSubscribeComments();
+    const unSubscribe = getCommentsInTargetRealtime(targetCategory, targetId, setComments, targetSubCategory);
+    return () => unSubscribe();
   }, [targetCategory, targetSubCategory, targetId]);
 
   return (

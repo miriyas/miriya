@@ -1,4 +1,5 @@
-import { ValueOf } from '@/types';
+import { ValueOf } from '@/types.d';
+import { WithTS } from '@/types/firebase';
 
 export const MOUNT = {
   CanonEF: 'Canon EF',
@@ -252,4 +253,9 @@ export type DigicamDB = Record<string, string>;
 export interface DpreviewNews {
   link: string;
   title: string;
+}
+
+export interface FBCameraType extends CameraType, WithTS {
+  id: string;
+  commentsLength: number;
 }

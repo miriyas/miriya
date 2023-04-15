@@ -20,8 +20,8 @@ export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Pro
   const [histories, setHistories] = useState<History[]>([]);
 
   useEffect(() => {
-    const unSubscribeComments = getHistoriesInTargetRealtime(targetCategory, targetId, setHistories, targetSubCategory);
-    return () => unSubscribeComments();
+    const unSubscribe = getHistoriesInTargetRealtime(targetCategory, targetId, setHistories, targetSubCategory);
+    return () => unSubscribe();
   }, [targetCategory, targetSubCategory, targetId]);
 
   return (

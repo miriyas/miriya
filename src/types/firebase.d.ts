@@ -17,6 +17,10 @@ export const COLLECTION = {
 
 export type CollectionTypes = ValueOf<typeof COLLECTION>;
 
+export const CAMERA_COLLECTION_NAMES = {
+  CAMERA: 'camera',
+} as const;
+
 export const IDOL_COLLECTION_NAMES = {
   IDOLS: 'idols',
   IDOL_YEARS: 'idolYears',

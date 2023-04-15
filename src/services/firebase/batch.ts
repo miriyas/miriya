@@ -1,11 +1,25 @@
 // import { addDoc, collection, deleteField, getDocs, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
 
+// import { CAMERAS } from '@/constants/cameras';
 // import { db, initialTs } from '@/utils/firebase';
-// import { COLLECTION, PENTAX_COLLECTION_NAMES } from '@/types/firebase.d';
+// import { COLLECTION, CAMERA_COLLECTION_NAMES } from '@/types/firebase.d';
 // import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
 
 export {};
 // 아래는 배치 업데이트용
+
+// DSLR 콘스탄트 업로드
+// export const batchUpdate = async () => {
+//   CAMERAS.forEach((camera, i) => {
+//     console.log(1111, i);
+
+//     addDoc(collection(db, COLLECTION.CAMERAS, 'data', CAMERA_COLLECTION_NAMES.CAMERA), {
+//       ...camera,
+//       createdAt: serverTimestamp(),
+//       deletedAt: initialTs,
+//     });
+//   });
+// };
 
 // 모든 펜탁스 DSLR 무게 정보 업데이트
 // export const batchUpdate = async () => {

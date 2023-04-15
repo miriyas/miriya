@@ -13,8 +13,8 @@ const PentaxDSLRPage = () => {
   const [dslrs, setDslrs] = useState<FBPentaxDslr[]>([]);
 
   useEffect(() => {
-    const unSubscribePentaxDslrs = getPentaxDslrsRealtime(setDslrs);
-    return () => unSubscribePentaxDslrs();
+    const unSubscribe = getPentaxDslrsRealtime(setDslrs);
+    return () => unSubscribe();
   }, []);
 
   if (dslrs.length === 0) {

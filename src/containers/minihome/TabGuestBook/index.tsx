@@ -12,8 +12,8 @@ const TabGuestBook = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    const unSubscribeComments = getGuestCommentsRealtime(setComments);
-    return () => unSubscribeComments();
+    const unSubscribe = getGuestCommentsRealtime(setComments);
+    return () => unSubscribe();
   }, []);
 
   return (

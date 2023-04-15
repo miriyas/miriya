@@ -1,11 +1,11 @@
 import cx from 'clsx';
 import Image from 'next/image';
 
-import { CameraType, CAMERA_MAKER, GRADE } from '@/types/cameras.d';
+import { CameraType, CAMERA_MAKER, GRADE, GradeTypes } from '@/types/cameras.d';
 
 import styles from './Badges.module.scss';
 
-const GRADES = {
+const GRADES: Record<GradeTypes, string> = {
   [GRADE.FLAGSHIP]: '플래그십',
   [GRADE.PROFESSIONAL]: '프로',
   [GRADE.ADVANCED]: '상급기',
