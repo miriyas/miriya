@@ -107,7 +107,7 @@ export type OpticsTypes = ValueOf<typeof OPTICS_TYPE>;
 
 export interface ViewFinderType {
   type: OpticsTypes;
-  magnification?: number | '?';
+  magnification?: number;
   coverage?: number;
   resolution?: number;
 }
@@ -230,19 +230,19 @@ export interface CameraType {
   desc?: string;
   sensor?: Sensor;
   shutter?: {
-    fps: string;
+    fps?: string;
     speed?: number;
   };
   focus?: FocusType;
   display?: DisplayType;
   viewfinder?: ViewFinderType;
   video?: {
-    format: string;
-    modes: string;
+    format?: string;
+    modes?: string;
   };
   metering?: {
     engine?: EngineTypes;
-    desc: string;
+    desc?: string;
   };
   refs?: string;
 }

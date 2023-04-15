@@ -113,7 +113,6 @@ export const KODAKS: CameraType[] = [
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
-      magnification: '?',
       coverage: 95,
     },
     refs: 'https://www.dpreview.com/reviews/kodakdcs14n/',
@@ -161,12 +160,10 @@ export const KODAKS: CameraType[] = [
       isoMax: 1600,
     },
     shutter: {
-      fps: '?',
       speed: 6000,
     },
     viewfinder: {
       type: OPTICS_TYPE.PENTA_PRISM,
-      magnification: '?',
       coverage: 92,
     },
     display: {
