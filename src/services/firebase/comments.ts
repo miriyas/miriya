@@ -21,7 +21,7 @@ import { SetStateAction } from 'jotai';
 
 import { auth, db, initialTs } from '@/utils/firebase';
 import { Comment, NewComment, SubTargetCategoryTypes, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
-import { COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';
+import { CAMERA_COLLECTION_NAMES, COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';
 import { getAdminUsers } from '@/services/firebase/auth';
 import { getTSBefore } from '@/utils/date';
 
@@ -188,6 +188,12 @@ export const createCommentDoc = async (comment: NewComment) => {
   // 타겟의 commentsLength 증가시키기
   if (comment.targetCategory === TARGET_CATEGORY.IDOLS) {
     const parentRef = doc(db, COLLECTION.IDOLS, 'data', IDOL_COLLECTION_NAMES.IDOLS, comment.targetId!);
+    await updateDoc(parentRef, {
+      commentsLength: increment(1),
+    });
+  }
+  if (comment.targetCategory === TARGET_CATEGORY.CAMERA) {
+    const parentRef = doc(db, COLLECTION.CAMERAS, 'data', CAMERA_COLLECTION_NAMES.CAMERA, comment.targetId!);
     await updateDoc(parentRef, {
       commentsLength: increment(1),
     });

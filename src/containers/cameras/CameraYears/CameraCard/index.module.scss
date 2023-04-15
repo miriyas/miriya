@@ -88,6 +88,7 @@
   .tabs {
     @include m.absolute(auto 0 0 0);
     @include m.flexbox;
+    z-index: var(--z-3);
     height: var(--h-camera-data-source-btn);
 
     button {
@@ -99,25 +100,10 @@
       &.current {
         background-color: var(--color-white);
       }
-    }
 
-    &.external {
       span {
-        &.here {
-          font-weight: 400;
-        }
-
-        &.cameraDb {
-          font-weight: 700;
-        }
-      }
-    }
-
-    span {
-      padding: 0 8px;
-
-      &.here {
-        font-weight: 700;
+        margin-left: 4px;
+        color: var(--color-pink);
       }
     }
   }

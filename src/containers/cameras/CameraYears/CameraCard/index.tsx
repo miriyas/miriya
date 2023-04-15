@@ -6,11 +6,12 @@ import { useRafState } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
 import { useAtomValue } from 'jotai';
 
-import { CameraType } from '@/types/cameras.d';
+import { FBCameraType } from '@/types/cameras.d';
 import { cameraId } from '@/utils/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
 import Loading from '@/components/Loading';
+import Comments from './Comments';
 import DataInternal from './DataInternal';
 import DataExternal from './DataExternal';
 import styles from './index.module.scss';
@@ -30,13 +31,13 @@ const TABS = [
     label: 'CameraDB',
   },
   {
-    key: 'comment',
+    key: 'comments',
     label: 'Comment',
   },
 ];
 
 interface Props {
-  camera: CameraType;
+  camera: FBCameraType;
 }
 
 const Camera = (props: Props) => {
@@ -89,7 +90,7 @@ const Camera = (props: Props) => {
         className={cx(styles.camera, `grid-item-${year}`, `maker-${maker.toLowerCase()}`, {
           [styles.isHidden]: !isShow,
           [styles.selected]: selected,
-          [styles.showExternalData]: tab !== 'internal',
+          [styles.showExternalData]: tab === 'external',
         })}
       >
         <div className={styles.wrapper}>
@@ -106,6 +107,7 @@ const Camera = (props: Props) => {
             <DataExternal camera={camera} showExternalData={tab === 'external'} />
           </Suspense>
           <DataInternal camera={camera} />
+          {tab === 'comments' && <Comments targetId={camera.id} targetName={camera.name} />}
           <div className={styles.tabs}>
             {TABS.map((item) => (
               <button
@@ -116,6 +118,7 @@ const Camera = (props: Props) => {
                 data-tab={item.key}
               >
                 {item.label}
+                {item.key === 'comments' && camera.commentsLength > 0 && <span>{camera.commentsLength}</span>}
               </button>
             ))}
           </div>

@@ -26,11 +26,24 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
     e.preventDefault();
     if (!user) return;
 
+    if (targetSubCategory) {
+      createCommentDoc({
+        ...getAuthorData(user),
+        body,
+        targetCategory,
+        targetSubCategory,
+        targetId,
+        targetName,
+      }).then(() => {
+        setBody('');
+      });
+      return;
+    }
+
     createCommentDoc({
       ...getAuthorData(user),
       body,
       targetCategory,
-      targetSubCategory,
       targetId,
       targetName,
     }).then(() => {
