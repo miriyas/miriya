@@ -1,7 +1,7 @@
 import { cameraId } from '@/utils/cameras';
 
 import SiblingLink from './SiblingLink';
-import styles from '../Camera.module.scss';
+import styles from '../index.module.scss';
 
 interface Props {
   maker: string;

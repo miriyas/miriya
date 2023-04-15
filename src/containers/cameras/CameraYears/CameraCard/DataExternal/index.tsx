@@ -6,8 +6,10 @@ import { externalCameraId } from '@/utils/digicam';
 import { cameraId } from '@/utils/cameras';
 import { getExternalCameraDataApi } from '@/services/cameras';
 
-import styles from './Camera.module.scss';
-import tableStyles from './Table/Table.module.scss';
+import commonStyles from '../index.module.scss';
+import styles from './index.module.scss';
+import tableStyles from '../DataInternal/Table/Table.module.scss';
+import ExternalLink from '@/components/ExternalLink';
 
 interface Props {
   camera: CameraType;
@@ -42,7 +44,7 @@ const DataExternal = (props: Props) => {
 
   if (isError || hasError) {
     return (
-      <div className={cx(styles.dataExternal, styles.error)}>
+      <div className={cx(commonStyles.dataSet, commonStyles.dataExternal, styles.dataExternal, styles.error)}>
         <p className={styles.id}>{id}</p>
         <p>{data.error}</p>
       </div>
@@ -50,7 +52,7 @@ const DataExternal = (props: Props) => {
   }
 
   return (
-    <div className={styles.dataExternal}>
+    <div className={cx(commonStyles.dataSet, commonStyles.dataExternal, styles.dataExternal)}>
       <table className={tableStyles.dataTable}>
         <tbody>
           {Object.keys(data).map((label) => {
@@ -63,14 +65,9 @@ const DataExternal = (props: Props) => {
           })}
         </tbody>
       </table>
-      <a
-        href={`https://www.digicamdb.com/specs/${externalId}`}
-        target='_blank'
-        className={styles.outerLink}
-        rel='nofollow'
-      >
+      <ExternalLink href={`https://www.digicamdb.com/specs/${externalId}`} className={styles.outerLink}>
         See full DB © digicamdb.com
-      </a>
+      </ExternalLink>
     </div>
   );
 };

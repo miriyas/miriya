@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import styles from './Camera.module.scss';
+import styles from './index.module.scss';
 
 const CameraPlaceholder = () => <li className={cx(styles.camera, styles.placeholder)} />;
 

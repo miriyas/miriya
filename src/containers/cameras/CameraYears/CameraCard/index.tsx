@@ -1,7 +1,7 @@
 'use client';
 
 import cx from 'clsx';
-import { Suspense, useEffect, useState } from 'react';
+import { MouseEventHandler, Suspense, useEffect, useState } from 'react';
 import { useRafState } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
 import { useAtomValue } from 'jotai';
@@ -10,14 +10,30 @@ import { CameraType } from '@/types/cameras.d';
 import { cameraId } from '@/utils/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
+import Loading from '@/components/Loading';
 import DataInternal from './DataInternal';
 import DataExternal from './DataExternal';
-import styles from './Camera.module.scss';
-import Loading from '@/components/Loading';
+import styles from './index.module.scss';
+import externalStyles from './DataExternal/index.module.scss';
 
 const getIsSelected = (id: string) => {
   return typeof window !== 'undefined' ? window.location.hash.replace('#', '') === id : false;
 };
+
+const TABS = [
+  {
+    key: 'internal',
+    label: 'Original',
+  },
+  {
+    key: 'external',
+    label: 'CameraDB',
+  },
+  {
+    key: 'comment',
+    label: 'Comment',
+  },
+];
 
 interface Props {
   camera: CameraType;
@@ -32,10 +48,10 @@ const Camera = (props: Props) => {
   const [isShow, setIsShow] = useRafState(selectedMaker === 'ALL' ? true : maker === selectedMaker);
 
   const [selected, setSelected] = useState(getIsSelected(id));
-  const [showExternalData, setShowExternalData] = useState(false);
+  const [tab, setTab] = useState('internal');
 
-  const onClickExternal = () => {
-    setShowExternalData((prev) => !prev);
+  const onClickTab: MouseEventHandler<HTMLButtonElement> = (e) => {
+    setTab(e.currentTarget.dataset.tab ?? 'internal');
   };
 
   useEffect(() => {
@@ -73,29 +89,36 @@ const Camera = (props: Props) => {
         className={cx(styles.camera, `grid-item-${year}`, `maker-${maker.toLowerCase()}`, {
           [styles.isHidden]: !isShow,
           [styles.selected]: selected,
-          [styles.showExternalData]: showExternalData,
+          [styles.showExternalData]: tab !== 'internal',
         })}
       >
         <div className={styles.wrapper}>
           <Suspense
             fallback={
-              <div className={cx(styles.dataExternal, styles.loading)}>
-                <p className={styles.id}>{id}</p>
+              <div
+                className={cx(styles.dataSet, styles.dataExternal, externalStyles.dataExternal, externalStyles.loading)}
+              >
+                <p className={externalStyles.id}>{id}</p>
                 <Loading />
               </div>
             }
           >
-            <DataExternal camera={camera} showExternalData={showExternalData} />
+            <DataExternal camera={camera} showExternalData={tab === 'external'} />
           </Suspense>
           <DataInternal camera={camera} />
-          <button
-            type='button'
-            onClick={onClickExternal}
-            className={cx(styles.sourceBtn, { [styles.external]: showExternalData })}
-          >
-            <span className={styles.here}>Original</span>
-            <span className={styles.cameraDb}>CameraDB</span>
-          </button>
+          <div className={styles.tabs}>
+            {TABS.map((item) => (
+              <button
+                key={item.key}
+                type='button'
+                onClick={onClickTab}
+                className={cx(styles.tab, { [styles.current]: tab === item.key })}
+                data-tab={item.key}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
       </li>
     </CSSTransition>

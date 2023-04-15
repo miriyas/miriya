@@ -1,0 +1,26 @@
+@use 'src/styles/mixins' as m;
+
+.dataExternal {
+  height: 100%;
+  margin-bottom: 12px;
+  transform: rotateY(180deg);
+
+  &.loading,
+  &.error {
+    @include m.flexbox;
+    flex-direction: column;
+    font-size: 10px;
+    line-height: 20px;
+
+    .id {
+      font-weight: 700;
+    }
+  }
+
+  .outerLink {
+    display: block;
+    margin: 8px 0;
+    font-size: 10px;
+    text-align: center;
+  }
+}

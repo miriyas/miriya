@@ -1,16 +1,19 @@
+import cx from 'clsx';
+
 import { CameraType } from '@/types/cameras.d';
 
 import Badges from './Badges';
 import DataImage from './Image';
 import Table from './Table';
 import Siblings from './Siblings';
-import styles from './Camera.module.scss';
+import commonStyles from '../index.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   camera: CameraType;
 }
 
-const Data = (props: Props) => {
+const DataInternal = (props: Props) => {
   const { camera } = props;
   const { desc, name, maker2, name2, otherNames } = camera;
 
@@ -18,7 +21,7 @@ const Data = (props: Props) => {
   const nameLine = [name, name2data, otherNames].filter((item) => !!item).join(' / ');
 
   return (
-    <div className={styles.dataInternal}>
+    <div className={cx(commonStyles.dataSet, commonStyles.dataInternal, styles.dataInternal)}>
       <Badges camera={camera} />
       <DataImage camera={camera} />
       <div className={styles.top}>
@@ -31,4 +34,4 @@ const Data = (props: Props) => {
   );
 };
 
-export default Data;
+export default DataInternal;
