@@ -3,7 +3,7 @@
 .comments {
   @include m.flexbox;
   position: relative;
-  z-index: var(--z-2);
+  z-index: var(--z-3);
   flex-direction: column;
   flex-shrink: 0;
   width: 100%;

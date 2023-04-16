@@ -6,9 +6,12 @@
 
     .makerLogo {
       width: 40px;
-      height: 20px;
+      height: 10px;
+      margin-bottom: 4px;
 
       &.olympus {
+        height: 14px;
+
         img {
           height: 14px;
           margin-left: -4px;

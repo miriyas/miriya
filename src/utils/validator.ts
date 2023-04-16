@@ -65,6 +65,61 @@ export const idolValidator = object({
 
 export type IdolSchema = InferType<typeof idolValidator>;
 
+// 카메라 관련 ===================================
+
+export const cameraValidator = object({
+  year: numberTest.required(),
+  name: stringTest.required(),
+  name2: stringTest,
+  maker: stringTest.required(),
+  maker2: stringTest,
+  mount: stringTest,
+  grade: stringTest,
+  desc: stringTest,
+  predecessor: stringTest,
+  successor: stringTest,
+  refs: stringTest,
+  sensor: object({
+    name: stringTest,
+    engine: stringTest,
+    pixelsFamiliar: stringTest,
+    size: stringTest,
+    type: stringTest,
+    isoMin: numberTest,
+    isoMax: numberTest,
+    vr: booleanTest,
+    cleaning: booleanTest,
+    astro: booleanTest,
+    noLowPass: booleanTest,
+    ir: booleanTest,
+  }),
+  viewfinder: object({
+    type: stringTest,
+    magnification: numberTest,
+    coverage: numberTest,
+    resolution: numberTest,
+  }),
+  display: object({
+    desc: stringTest,
+    liveview: booleanTest,
+    touch: booleanTest,
+    tilt: booleanTest,
+    swivel: booleanTest,
+    trueblack: booleanTest,
+  }),
+  rugged: booleanTest,
+  video: object({
+    format: stringTest,
+    modes: stringTest,
+  }),
+}).required();
+
+export type Camerachema = InferType<typeof cameraValidator>;
+
+export interface FBCamerachema extends Camerachema {
+  id: string;
+}
+
 // 펜탁스 관련 ===================================
 
 export const pentaxSlrValidator = object({

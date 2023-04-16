@@ -1,5 +1,11 @@
 @use 'src/styles/mixins' as m;
 
+.subtitle {
+  margin: 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .inputWrapper {
   @include m.flexbox(start, center);
   position: relative;
@@ -26,6 +32,24 @@
     input,
     select {
       height: 18px;
+    }
+  }
+
+  &.camera {
+    height: 16px;
+
+    + label {
+      margin-top: 1px;
+    }
+
+    .fieldName {
+      width: 70px;
+      font-size: 11px;
+    }
+
+    input,
+    select {
+      height: 16px;
     }
   }
 

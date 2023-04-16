@@ -33,7 +33,7 @@ const Data = (props: Props) => {
         )}
         <DataViewFinder camera={camera} />
         <DataDisplay camera={camera} />
-        {video && (
+        {video && video.format && video.modes && (
           <tr>
             <th>비디오</th>
             <td>

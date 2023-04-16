@@ -25,7 +25,7 @@ const DataViewFinder = (props: Props) => {
       <td className={styles.dataViewFinder}>
         {prettyOpticsType(viewfinder.type)}&nbsp;
         {magnification}
-        {viewfinder.coverage && (
+        {viewfinder.coverage !== 0 && (
           <span className={cx({ [styles.green]: viewfinder.coverage === 100 })}>{viewfinder.coverage}%</span>
         )}
       </td>

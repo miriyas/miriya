@@ -11,6 +11,7 @@ import { cameraId } from '@/utils/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
 import Loading from '@/components/Loading';
+import Editor from './Editor';
 import Comments from './Comments';
 import DataInternal from './DataInternal';
 import DataExternal from './DataExternal';
@@ -106,8 +107,9 @@ const Camera = (props: Props) => {
           >
             <DataExternal camera={camera} showExternalData={tab === 'external'} />
           </Suspense>
-          <DataInternal camera={camera} />
+          <DataInternal camera={camera} setTab={setTab} />
           {tab === 'comments' && <Comments targetId={camera.id} targetName={camera.name} />}
+          {tab === 'editor' && <Editor camera={camera} setTab={setTab} />}
           <div className={styles.tabs}>
             {TABS.map((item) => (
               <button

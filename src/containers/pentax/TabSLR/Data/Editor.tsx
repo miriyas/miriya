@@ -3,11 +3,11 @@
 import cx from 'clsx';
 
 import { FBPentaxSlr } from '@/types/pentaxes.d';
-import useEditor from './useEditor';
-import EditorInputs from '@/containers/pentax/_common/EditorInput';
 import { InputFields } from '@/types/index.d';
+import useEditor from './useEditor';
 
-import inputStyles from '../../_common/EditorInput/index.module.scss';
+import EditorInputs from '@/components/EditorInputs';
+import inputStyles from '@/components/EditorInputs/index.module.scss';
 import styles from '../../_common/CommonEditor.module.scss';
 
 const fields1: InputFields = {

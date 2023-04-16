@@ -88,7 +88,7 @@
   .tabs {
     @include m.absolute(auto 0 0 0);
     @include m.flexbox;
-    z-index: var(--z-3);
+    z-index: var(--z-4);
     height: var(--h-camera-data-source-btn);
 
     button {

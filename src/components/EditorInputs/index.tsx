@@ -23,6 +23,7 @@ const getBooleanFromObjectViaKeys = (obj: Record<string, any>, fieldsKey: string
 };
 
 interface Props {
+  subtitle?: string;
   fields: InputFields;
   register: UseFormRegister<any>;
   errors: FieldErrors;
@@ -30,9 +31,10 @@ interface Props {
   category: string;
 }
 
-const EditorInputs = ({ fields, register, errors, dirtyFields, category }: Props) => {
+const EditorInputs = ({ subtitle, fields, register, errors, dirtyFields, category }: Props) => {
   return (
     <>
+      {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       {Object.keys(fields).map((fieldsKey) => {
         const field = fields[fieldsKey];
         const type = typeof field === 'string' ? 'text' : field.type;
