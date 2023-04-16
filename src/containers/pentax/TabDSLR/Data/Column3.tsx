@@ -65,7 +65,7 @@ const DataColumn3 = ({ camera }: Props) => {
             <td>{valueOr(data?.imageType)}</td>
           </tr>
           <tr>
-            <th>레퍼런스</th>
+            <th>근거자료</th>
             <td>
               {data?.refs?.split(',').map((ref, i) => {
                 const key = `${ref}-${i}`;

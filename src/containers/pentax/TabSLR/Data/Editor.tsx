@@ -3,96 +3,13 @@
 import cx from 'clsx';
 
 import { FBPentaxSlr } from '@/types/pentaxes.d';
-import { InputFields } from '@/types/index.d';
 import useEditor from './useEditor';
 
+import { yearsField, mountField, dimensionField, fields1, fields2, fields3, fields4, fields5, fields6 } from './fields';
 import EditorInputs from '@/components/EditorInputs';
+import LabelWithInfo from '@/components/EditorInputs/LabelWithInfo';
 import inputStyles from '@/components/EditorInputs/index.module.scss';
 import styles from '../../_common/CommonEditor.module.scss';
-
-const fields1: InputFields = {
-  'data.body.weight': {
-    type: 'number',
-    label: '무게',
-  },
-  'data.body.color': '색상',
-  'data.body.verticalGrip': '세로그립',
-  'data.power': '전원',
-  'data.etc': '기타',
-  'data.refs': '레퍼런스',
-};
-
-const fields2: InputFields = {
-  'data.modes': '촬영모드',
-  'data.metering.k': 'K/M 측광',
-  'data.metering.a': 'A/F/FA 측광',
-  'data.metering.range': '측광범위',
-  'data.exposure.range': '노출보정',
-  'data.asa.dx': 'DX ASA',
-  'data.asa.manual': '매뉴얼 ASA',
-  'data.exposure.fix': {
-    type: 'checkbox',
-    label: '노출고정',
-  },
-  'data.panorama': {
-    type: 'checkbox',
-    label: '파노라마포멧',
-  },
-};
-
-const fields3: InputFields = {
-  'data.shutter.build': '셔터구조',
-  'data.shutter.speed': '셔터속도',
-  'data.shutter.emergency': '비상셔터',
-  'data.shutter.timer': '셀프타이머',
-  'data.shutter.release': '유선릴리즈',
-  'data.shutter.releaseW': '무선릴리즈',
-  'data.winder.internal': '내장와인더',
-  'data.winder.external': '외장와인더',
-  'data.winder.motorDrive': '모터드라이브',
-};
-
-const fields4: InputFields = {
-  'data.viewFinder.coverage': {
-    type: 'number',
-    label: '시야율',
-  },
-  'data.viewFinder.magnification': {
-    type: 'number',
-    label: '배율',
-  },
-  'data.viewFinder.seeShutterSpeed': '셔터속도보기',
-  'data.viewFinder.seeAperture': '조리개값보기',
-  'data.viewFinder.screenReplace': {
-    type: 'checkbox',
-    label: '스크린교환',
-  },
-  'data.viewFinder.finderReplace': {
-    type: 'checkbox',
-    label: '파인더교환',
-  },
-  'data.focus.powerZoom': '파워줌',
-};
-
-const fields5: InputFields = {
-  'data.flash.sync': '플래시연동',
-  'data.flash.modes': '플래시작동',
-  'data.flash.syncSpeed': '동조속도',
-  'data.flash.internal': '내장플래시',
-  'data.flash.redEye': {
-    type: 'checkbox',
-    label: '적목감소',
-  },
-};
-
-const fields6: InputFields = {
-  'data.focus.name': 'AF센서',
-  'data.focus.sensitivity': 'AF감도',
-  'data.focus.support': {
-    type: 'checkbox',
-    label: 'AF보조광',
-  },
-};
 
 interface Props {
   camera: FBPentaxSlr;
@@ -104,7 +21,7 @@ const Editor = ({ camera }: Props) => {
     <form className={cx(styles.editor, styles.slr)} onSubmit={onSubmit}>
       <div className={styles.column}>
         <label className={inputStyles.inputWrapper}>
-          <p className={inputStyles.fieldName}>생산연도</p>
+          <LabelWithInfo {...yearsField} />
           <input
             {...register('startYear')}
             type='number'
@@ -129,11 +46,11 @@ const Editor = ({ camera }: Props) => {
             [inputStyles.changed]: dirtyFields.mount,
           })}
         >
-          <p className={inputStyles.fieldName}>마운트</p>
+          <LabelWithInfo {...mountField} />
           <input type='text' {...register('mount')} />
         </label>
         <label className={inputStyles.inputWrapper}>
-          <p className={inputStyles.fieldName}>규격</p>
+          <LabelWithInfo {...dimensionField} />
           <input
             type='number'
             step='0.1'

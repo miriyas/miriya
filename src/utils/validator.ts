@@ -201,7 +201,9 @@ export interface FBPentaxSLRSchema extends PentaxSLRSchema {
 
 export const pentaxDslrValidator = object({
   startYear: numberTest.required(),
+  startQuarter: numberTest.required(),
   endYear: numberTest.required(),
+  endQuarter: numberTest.required(),
   data: object({
     mount: stringTest.required(),
     body: object({

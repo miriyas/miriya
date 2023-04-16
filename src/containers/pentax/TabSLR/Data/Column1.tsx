@@ -56,7 +56,7 @@ const DataColumn1 = ({ camera }: Props) => {
             <td>{valueOr(etc)}</td>
           </tr>
           <tr>
-            <th>레퍼런스</th>
+            <th>근거자료</th>
             <td>
               {refs
                 ? refs.split(',').map((ref, i) => {

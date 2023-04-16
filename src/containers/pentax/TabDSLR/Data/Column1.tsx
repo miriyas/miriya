@@ -10,19 +10,23 @@ interface Props {
 }
 
 const DataColumn1 = ({ camera }: Props) => {
-  const { startYear, endYear, data } = camera;
+  const { startYear, startQuarter, endYear, endQuarter, data } = camera;
 
-  const endYearData = endYear ? `${endYear}년` : '생산중';
+  const endYearData = endYear ? `${endYear}년 / ${endQuarter}분기` : '생산중';
 
   return (
     <div className={styles.column}>
       <table>
         <tbody>
           <tr>
-            <th>생산연도</th>
+            <th>생산시작</th>
             <td>
-              {startYear}년 ~ {endYearData}
+              {startYear}년 / {startQuarter}분기
             </td>
+          </tr>
+          <tr>
+            <th>생산종료</th>
+            <td>{endYearData}</td>
           </tr>
           <tr>
             <th>마운트</th>

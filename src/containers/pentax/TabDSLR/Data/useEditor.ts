@@ -27,7 +27,9 @@ const useEditor = (camera: FBPentaxDslr) => {
     resolver: yupResolver(pentaxDslrValidator),
     defaultValues: {
       startYear: camera.startYear,
+      startQuarter: camera.startQuarter,
       endYear: camera.endYear,
+      endQuarter: camera.endQuarter,
       data: {
         mount: camera.data.mount ?? '',
         body: {
