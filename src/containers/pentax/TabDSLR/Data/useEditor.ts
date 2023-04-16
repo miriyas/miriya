@@ -1,5 +1,3 @@
-/* eslint-disable no-alert */
-
 import { atom } from 'jotai';
 import { User } from 'firebase/auth';
 import { useForm } from 'react-hook-form';
@@ -8,6 +6,7 @@ import { useResetAtom } from 'jotai/utils';
 import { FormEventHandler } from 'react';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import { UserWithRole } from '@/types/auth.d';
 import { SUB_TARGET_CATEGORY } from '@/types/comments.d';
 import { FBPentaxDslr } from '@/types/pentaxes';
@@ -20,6 +19,7 @@ export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useEditor = (camera: FBPentaxDslr) => {
   const { isAdmin, isSupporter, user } = useAuth();
+  const { addAlert } = useAlert();
   const resetEditCamera = useResetAtom(editCameraAtom);
 
   const methods = useForm<PentaxDSLRSchema>({
@@ -130,13 +130,14 @@ const useEditor = (camera: FBPentaxDslr) => {
       return;
     }
     if (!user) {
-      alert('미안, 구경 잘 했어? 로그인 하고 돌아오자.'); // 인터렉션 방해해서 얼럿 쓰면 안되는건 알지만, 범용 모달 만들기 전까지 쓴다
+      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
       return;
     }
     if (!isSupporter) {
-      alert(
-        '진짜 미안, 아무나 수정할 수는 없어.. 무섭잖아.. \n이준혁에게 DM을 보내보자.\n나를 도와줘! 아이돌이 너무 많아..',
-      ); // 인터렉션 방해해서 얼럿 쓰면 안되는건 알지만, 범용 모달 만들기 전까지 쓴다
+      addAlert({
+        message:
+          '진짜 미안, 아무나 수정할 수는 없어.. 무섭잖아.. \n이준혁에게 DM을 보내보자.\n나를 도와줘! 카메라가 너무 많아..',
+      });
     }
   };
 

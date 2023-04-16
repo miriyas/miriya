@@ -1,0 +1,127 @@
+@use 'src/styles/mixins' as m;
+
+.alertWrapper {
+  @include m.fixed(0 0 0 0);
+  @include m.flexbox;
+  z-index: var(--z-global-alert);
+  flex-direction: column;
+  overflow: hidden;
+  background-color: rgba(var(--color-black-rgb), 0.4);
+
+  .alertBackground {
+    @include m.position(absolute, 0 0 0 0);
+    z-index: var(--z-global-alert-bg);
+    width: 100%;
+    opacity: 0;
+    transition: 200ms;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  .alert {
+    @include m.flexbox(start, center);
+    @include m.middleBox;
+    z-index: var(--z-global-alert-content);
+    flex-direction: column;
+    width: calc(100% - 28px);
+    max-width: 320px;
+    max-height: calc(100vh - 60px);
+    padding: 14px 8px 8px;
+    overflow: hidden;
+    background-color: var(--color-white);
+    border-radius: 4px;
+
+    &.enterActive,
+    &.exitActive {
+      transition: all 200ms ease-out;
+    }
+
+    &.enter {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    &.enterActive,
+    &.exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &.exitActive {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .title {
+      flex: 0;
+      width: 100%;
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.1;
+      color: var(--color-gray-2);
+    }
+
+    .message {
+      flex: 1;
+      width: 100%;
+      margin-bottom: 16px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--color-gray-2);
+      word-break: break-word;
+
+      @include m.after(SD) {
+        font-size: 16px;
+      }
+
+      strong {
+        margin-left: 4px;
+        color: var(--color-blue);
+      }
+    }
+
+    .buttonsWrapper {
+      @include m.flexbox;
+      flex: 0;
+      margin-top: 14px;
+
+      button {
+        flex: 1;
+        min-width: 100px;
+        height: 32px;
+        border-radius: 2px;
+
+        &.primary {
+          color: var(--color-white);
+          background-color: var(--color-blue);
+        }
+      }
+    }
+  }
+
+  @include m.after(SD) {
+    z-index: var(--z-global-alert);
+
+    .alertBackground {
+      z-index: var(--z-global-alert-bg);
+    }
+
+    .wrapper {
+      z-index: var(--z-global-alert-content);
+    }
+
+    .alert {
+      padding: 24px;
+    }
+
+    .buttonsWrapper {
+      button {
+        flex: none;
+      }
+    }
+  }
+}

@@ -32,7 +32,7 @@
     "react-avatar": "^3.7.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
-    "react-portal": "^4.2.2",
+    "react-hotkeys-hook": "^4.4.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
     "remark": "^14.0.2",

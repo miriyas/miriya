@@ -38,6 +38,10 @@ const EditorInputs = ({ subtitle, fields, register, errors, dirtyFields, categor
       {Object.keys(fields).map((fieldsKey) => {
         const field = fields[fieldsKey];
         const type = typeof field === 'string' ? 'text' : field.type;
+        let step;
+        if (typeof field !== 'string') {
+          step = field.type === 'number' ? field.step ?? '0.1' : undefined;
+        }
         return (
           <label
             key={fieldsKey}
@@ -47,7 +51,7 @@ const EditorInputs = ({ subtitle, fields, register, errors, dirtyFields, categor
             })}
           >
             <p className={styles.fieldName}>{typeof field === 'string' ? field : field.label}</p>
-            <input type={type} step={type === 'number' ? '0.1' : undefined} {...register(fieldsKey)} />
+            <input type={type} step={step} {...register(fieldsKey)} />
           </label>
         );
       })}

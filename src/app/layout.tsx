@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 
+import { Alert } from '@/components/Alert';
 import Providers from './providers';
 import Header from './_common/Header';
 import Additional from './_common/Additional';
@@ -36,7 +37,9 @@ const RootLayout = ({ children }: Props) => {
             <Footer />
           </Suspense>
         </Providers>
+        <div id='alert' />
         <div id='modal' />
+        <Alert />
       </body>
     </html>
   );
