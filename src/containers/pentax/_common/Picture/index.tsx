@@ -33,6 +33,7 @@ const Picture = ({ selectedCamera, baseUrl }: Props) => {
           height={280}
           blurDataURL='/images/cameras/placeholder.png'
           placeholder='blur'
+          priority
         />
       </div>
       <p className={styles.name} title={selectedCamera.id}>
