@@ -228,6 +228,7 @@ export interface CameraType {
   predecessor?: string;
   successor?: string;
   rugged?: boolean;
+  dustproof?: boolean;
   desc?: string;
   sensor?: Sensor;
   shutter?: {

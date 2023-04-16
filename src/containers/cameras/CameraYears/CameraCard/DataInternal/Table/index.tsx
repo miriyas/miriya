@@ -1,46 +1,36 @@
-import { CameraType } from '@/types/cameras.d';
+import { FBCameraType } from '@/types/cameras.d';
 
 import DataRefs from './DataRefs';
 import DataSensor from './DataSensor';
 import DataViewFinder from './DataViewFinder';
 import DataShutter from './DataShutter';
+import DataMetering from './DataMetering';
 import DataDisplay from './DataDisplay';
+import DataVideo from './DataVideo';
+import DataEtc from './DataEtc';
 import styles from './Table.module.scss';
 
 interface Props {
-  camera: CameraType;
+  camera: FBCameraType;
 }
 
 const Data = (props: Props) => {
   const { camera } = props;
-  const { name, maker2, name2, otherNames, metering, video } = camera;
+  const { name, maker2, name2, otherNames } = camera;
 
   const name2data = maker2 ? `${maker2} ${name2}` : '';
   const nameLine = [name, name2data, otherNames].filter((item) => !!item).join(' / ');
-
-  const meteringData = metering ? [metering.engine, metering.desc].filter((item) => !!item).join('/') : '?';
 
   return (
     <table className={styles.dataTable}>
       <tbody>
         <DataSensor camera={camera} />
         <DataShutter camera={camera} />
-        {metering && (
-          <tr>
-            <th>측광</th>
-            <td>{meteringData}</td>
-          </tr>
-        )}
+        <DataMetering camera={camera} />
         <DataViewFinder camera={camera} />
         <DataDisplay camera={camera} />
-        {video && video.format && video.modes && (
-          <tr>
-            <th>비디오</th>
-            <td>
-              {video.format}, {video.modes}
-            </td>
-          </tr>
-        )}
+        <DataVideo camera={camera} />
+        <DataEtc camera={camera} />
         <DataRefs nameLine={nameLine} camera={camera} />
       </tbody>
     </table>

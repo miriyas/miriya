@@ -1,8 +1,8 @@
-import { CameraType } from '@/types/cameras';
+import { FBCameraType } from '@/types/cameras';
 
 interface Props {
   nameLine: string;
-  camera: CameraType;
+  camera: FBCameraType;
 }
 
 const DataRefs = (props: Props) => {

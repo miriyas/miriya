@@ -7,6 +7,7 @@ import cx from 'clsx';
 
 import { InputFields } from '@/types/index.d';
 
+import LabelWithInfo from './LabelWithInfo';
 import styles from './index.module.scss';
 
 const getBooleanFromObjectViaKeys = (obj: Record<string, any>, fieldsKey: string) => {
@@ -37,11 +38,27 @@ const EditorInputs = ({ subtitle, fields, register, errors, dirtyFields, categor
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       {Object.keys(fields).map((fieldsKey) => {
         const field = fields[fieldsKey];
-        const type = typeof field === 'string' ? 'text' : field.type;
-        let step;
-        if (typeof field !== 'string') {
-          step = field.type === 'number' ? field.step ?? '0.1' : undefined;
+
+        if (typeof field === 'string') {
+          return (
+            <label
+              key={fieldsKey}
+              className={cx(styles.inputWrapper, styles[category], {
+                [styles.error]: getBooleanFromObjectViaKeys(errors, fieldsKey),
+                [styles.changed]: getBooleanFromObjectViaKeys(dirtyFields, fieldsKey),
+              })}
+            >
+              <p className={styles.fieldName}>{field}</p>
+              <input type='text' {...register(fieldsKey)} />
+            </label>
+          );
         }
+
+        let step;
+        if (field.type === 'number') {
+          step = field.step ?? '0.1';
+        }
+
         return (
           <label
             key={fieldsKey}
@@ -50,8 +67,12 @@ const EditorInputs = ({ subtitle, fields, register, errors, dirtyFields, categor
               [styles.changed]: getBooleanFromObjectViaKeys(dirtyFields, fieldsKey),
             })}
           >
-            <p className={styles.fieldName}>{typeof field === 'string' ? field : field.label}</p>
-            <input type={type} step={step} {...register(fieldsKey)} />
+            {field.desc ? (
+              <LabelWithInfo label={field.label} desc={field.desc} />
+            ) : (
+              <p className={styles.fieldName}>{field.label}</p>
+            )}
+            <input type={field.type ?? 'text'} step={step} {...register(fieldsKey)} />
           </label>
         );
       })}

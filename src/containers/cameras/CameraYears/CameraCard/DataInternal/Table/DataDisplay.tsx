@@ -1,9 +1,9 @@
-import { CameraType } from '@/types/cameras.d';
+import { FBCameraType } from '@/types/cameras.d';
 
 import styles from './Table.module.scss';
 
 interface Props {
-  camera: CameraType;
+  camera: FBCameraType;
 }
 
 const DataDisplay = (props: Props) => {
@@ -13,10 +13,10 @@ const DataDisplay = (props: Props) => {
   if (!display) return null;
 
   return (
-    <tr className={styles.dataDisplay}>
+    <tr className={styles.dataMulti}>
       <th>화면</th>
       <td>
-        {display.desc}
+        <span>{display.desc}</span>
         {display.liveview && <span className='green'>LiveView</span>}
         {display.trueblack && <span className='red'>TB</span>}
         {display.tilt && <span className='indigo'>Tilt</span>}

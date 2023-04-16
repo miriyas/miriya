@@ -1,3 +1,4 @@
+import IconInfo from './info.svg';
 import IconSound from './sound.svg';
 import IconComment from './comment.svg';
 import IconGithub from './github.svg';
@@ -12,6 +13,7 @@ import IconProviderGithub from './provider-github.svg';
 import IconProviderGoogle from './provider-google.svg';
 
 export {
+  IconInfo,
   IconSound,
   IconComment,
   IconGithub,

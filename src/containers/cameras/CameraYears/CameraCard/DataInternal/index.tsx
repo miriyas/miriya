@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import cx from 'clsx';
 
-import { CameraType } from '@/types/cameras.d';
+import { FBCameraType } from '@/types/cameras.d';
 
 import Badges from './Badges';
 import DataImage from './Image';
@@ -11,7 +11,7 @@ import commonStyles from '../index.module.scss';
 import styles from './index.module.scss';
 
 interface Props {
-  camera: CameraType;
+  camera: FBCameraType;
   setTab: Dispatch<SetStateAction<string>>;
 }
 

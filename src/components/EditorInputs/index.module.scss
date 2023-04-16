@@ -43,7 +43,7 @@
     }
 
     .fieldName {
-      width: 70px;
+      width: 80px;
       font-size: 11px;
     }
 
@@ -54,10 +54,22 @@
   }
 
   .fieldName {
+    @include m.flexbox(end, center);
+    flex-shrink: 0;
     width: 90px;
     padding-right: 8px;
     font-size: 12px;
     text-align: right;
+
+    &.withInfo {
+      color: var(--color-blue);
+
+      svg {
+        width: 10px;
+        height: 10px;
+        margin-left: 2px;
+      }
+    }
   }
 
   .deco {

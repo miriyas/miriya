@@ -58,8 +58,7 @@
       flex: 0;
       width: 100%;
       margin-bottom: 16px;
-      font-size: 20px;
-      font-weight: bold;
+      font-size: 18px;
       line-height: 1.1;
       color: var(--color-gray-2);
     }
@@ -69,14 +68,11 @@
       width: 100%;
       margin-bottom: 16px;
       overflow-y: auto;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1.4;
       color: var(--color-gray-2);
       word-break: break-word;
-
-      @include m.after(SD) {
-        font-size: 16px;
-      }
+      white-space: pre-wrap;
 
       strong {
         margin-left: 4px;

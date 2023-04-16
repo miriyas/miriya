@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { SENSOR_SIZE, SensorSizeTypes, CameraType } from '@/types/cameras.d';
+import { SENSOR_SIZE, SensorSizeTypes, FBCameraType } from '@/types/cameras.d';
 
 import styles from './Table.module.scss';
 
@@ -17,7 +17,7 @@ const prettySensorSize = (sensorSize?: SensorSizeTypes) => {
 };
 
 interface Props {
-  camera: CameraType;
+  camera: FBCameraType;
 }
 
 const DataSensor = (props: Props) => {

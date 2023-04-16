@@ -1,7 +1,7 @@
-import { CameraType } from '@/types/cameras.d';
+import { FBCameraType } from '@/types/cameras.d';
 
 interface Props {
-  camera: CameraType;
+  camera: FBCameraType;
 }
 
 const DataShutter = (props: Props) => {
