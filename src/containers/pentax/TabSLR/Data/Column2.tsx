@@ -1,5 +1,7 @@
 'use client';
 
+import cx from 'clsx';
+
 import { PentaxSlr } from '@/types/pentaxes.d';
 import { valueOr } from '@/utils';
 
@@ -14,80 +16,39 @@ const DataColumn2 = ({ camera }: Props) => {
 
   const { focus, viewFinder, shutter, winder } = data;
 
+  const rows = [
+    { label: '셔터구조', content: valueOr(shutter?.build) },
+    { label: '셔터속도', content: valueOr(shutter?.speed) },
+    { label: '비상셔터', content: valueOr(shutter?.emergency) },
+    { label: '셀프타이머', content: valueOr(shutter?.timer) },
+    { label: '유선릴리즈', content: valueOr(shutter?.release) },
+    { label: '무선릴리즈', content: valueOr(shutter?.releaseW) },
+    { label: '내장와인더', content: valueOr(winder?.internal) },
+    { label: '외장와인더', content: valueOr(winder?.external) },
+    { label: '모터드라이브', content: valueOr(winder?.motorDrive) },
+    { label: 'blank', content: '' },
+    { label: '시야율', content: viewFinder?.coverage ? `${viewFinder?.coverage}%` : '?' },
+    { label: '배율', content: viewFinder?.magnification ? `${viewFinder?.magnification}x` : '?' },
+    { label: '셔터속도보기', content: valueOr(viewFinder?.seeShutterSpeed) },
+    { label: '조리개값보기', content: valueOr(viewFinder?.seeAperture) },
+    { label: '스크린교환', content: valueOr(viewFinder?.screenReplace, '-', '가능') },
+    { label: '파인더교환', content: valueOr(viewFinder?.finderReplace, '-', '가능') },
+    { label: '파워줌', content: valueOr(focus?.powerZoom) },
+  ];
+
   return (
     <div className={styles.column}>
       <table>
         <tbody>
-          <tr>
-            <th>셔터구조</th>
-            <td>{valueOr(shutter?.build)}</td>
-          </tr>
-          <tr>
-            <th>셔터속도</th>
-            <td>{valueOr(shutter?.speed)}</td>
-          </tr>
-          <tr>
-            <th>비상셔터</th>
-            <td>{valueOr(shutter?.emergency)}</td>
-          </tr>
-          <tr>
-            <th>셀프타이머</th>
-            <td>{valueOr(shutter?.timer)}</td>
-          </tr>
-          <tr>
-            <th>유선릴리즈</th>
-            <td>{valueOr(shutter?.release)}</td>
-          </tr>
-          <tr>
-            <th>무선릴리즈</th>
-            <td>{valueOr(shutter?.releaseW)}</td>
-          </tr>
-          <tr>
-            <th>내장와인더</th>
-            <td>{valueOr(winder?.internal)}</td>
-          </tr>
-          <tr>
-            <th>외장와인더</th>
-            <td>{valueOr(winder?.external)}</td>
-          </tr>
-          <tr>
-            <th>모터드라이브</th>
-            <td>{valueOr(winder?.motorDrive)}</td>
-          </tr>
-
-          <tr className={styles.blank}>
-            <th />
-            <td />
-          </tr>
-
-          <tr>
-            <th>시야율</th>
-            <td>{viewFinder?.coverage ? `${viewFinder?.coverage}%` : '?'}</td>
-          </tr>
-          <tr>
-            <th>배율</th>
-            <td>{viewFinder?.magnification ? `${viewFinder?.magnification}x` : '?'}</td>
-          </tr>
-          <tr>
-            <th>셔터속도보기</th>
-            <td>{valueOr(viewFinder?.seeShutterSpeed)}</td>
-          </tr>
-          <tr>
-            <th>조리개값보기</th>
-            <td>{valueOr(viewFinder?.seeAperture)}</td>
-          </tr>
-          <tr>
-            <th>스크린교환</th>
-            <td>{valueOr(viewFinder?.screenReplace, '-', '가능')}</td>
-          </tr>
-          <tr>
-            <th>파인더교환</th>
-            <td>{valueOr(viewFinder?.finderReplace, '-', '가능')}</td>
-          </tr>
-          <tr>
-            <th>파워줌</th>
-            <td>{valueOr(focus?.powerZoom)}</td>
-          </tr>
+          {rows.map((row, i) => {
+            const key = `${i}-${row.label}`;
+            return (
+              <tr key={key} className={cx({ [styles.blank]: row.label === 'blank' })}>
+                <th>{row.label === 'blank' ? '' : row.label}</th>
+                <td>{row.content}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

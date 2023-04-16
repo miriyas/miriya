@@ -56,7 +56,7 @@
   .fieldName {
     @include m.flexbox(end, center);
     flex-shrink: 0;
-    width: 90px;
+    width: 100px;
     padding-right: 8px;
     font-size: 12px;
     text-align: right;

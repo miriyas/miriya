@@ -1,5 +1,7 @@
 'use client';
 
+import cx from 'clsx';
+
 import { PentaxDslr } from '@/types/pentaxes.d';
 import { valueOr } from '@/utils';
 
@@ -13,100 +15,43 @@ interface Props {
 const DataColumn2 = ({ camera }: Props) => {
   const { data } = camera;
 
+  const rows = [
+    { label: '촬영모드', content: valueOr(data?.modes) },
+    { label: 'K/M 측광', content: valueOr(data?.meteringK) },
+    { label: 'A/F/FA 측광', content: valueOr(data?.meteringA) },
+    { label: '측광범위', content: valueOr(data?.meteringRange) },
+    { label: '노출보정', content: valueOr(data?.exposureRange) },
+    { label: '셔터속도', content: valueOr(data?.shutter) },
+    { label: '연사속도', content: valueOr(data?.continuous) },
+    { label: '연사매수', content: valueOr(data?.continuousLength) },
+    { label: 'blank', content: '' },
+    { label: '뷰파인더', content: <OpticsType type={data?.viewFinder?.type} /> },
+    { label: '시야율', content: valueOr(data?.viewFinder?.coverage) },
+    { label: '배율', content: valueOr(data?.viewFinder?.magnification) },
+    { label: '스크린교환', content: valueOr(data?.viewFinder?.screenReplace, '-', '가능') },
+    { label: 'blank', content: '' },
+    { label: '플래시동조', content: valueOr(data?.flash?.interlock) },
+    { label: '플래시모드', content: valueOr(data?.flash?.modes) },
+    { label: '동조속도', content: valueOr(data?.flash?.syncSpeed) },
+    { label: '내장플래시', content: valueOr(data?.flash?.internal) },
+    { label: '적목감소', content: valueOr(data?.flash?.redEye, '-', '지원') },
+    { label: '유선릴리즈', content: valueOr(data?.flash?.release) },
+    { label: '무선릴리즈', content: valueOr(data?.flash?.releaseW) },
+  ];
+
   return (
     <div className={styles.column}>
       <table>
         <tbody>
-          <tr>
-            <th>촬영모드</th>
-            <td>{valueOr(data?.modes)}</td>
-          </tr>
-          <tr>
-            <th>K/M 측광</th>
-            <td>{valueOr(data?.meteringK)}</td>
-          </tr>
-          <tr>
-            <th>A/F/FA 측광</th>
-            <td>{valueOr(data?.meteringA)}</td>
-          </tr>
-          <tr>
-            <th>측광범위</th>
-            <td>{valueOr(data?.meteringRange)}</td>
-          </tr>
-          <tr>
-            <th>노출보정</th>
-            <td>{valueOr(data?.exposureRange)}</td>
-          </tr>
-          <tr>
-            <th>셔터속도</th>
-            <td>{valueOr(data?.shutter)}</td>
-          </tr>
-          <tr>
-            <th>연사속도</th>
-            <td>{valueOr(data?.continuous)}</td>
-          </tr>
-          <tr>
-            <th>연사매수</th>
-            <td>{valueOr(data?.continuousLength)}</td>
-          </tr>
-
-          <tr className={styles.blank}>
-            <th />
-            <td />
-          </tr>
-
-          <tr>
-            <th>뷰파인더</th>
-            <td>
-              <OpticsType type={data?.viewFinder?.type} />
-            </td>
-          </tr>
-          <tr>
-            <th>시야율</th>
-            <td>{valueOr(data?.viewFinder?.coverage)}</td>
-          </tr>
-          <tr>
-            <th>배율</th>
-            <td>{valueOr(data?.viewFinder?.magnification)}</td>
-          </tr>
-          <tr>
-            <th>스크린교환</th>
-            <td>{valueOr(data?.viewFinder?.screenReplace, '-', '가능')}</td>
-          </tr>
-
-          <tr className={styles.blank}>
-            <th />
-            <td />
-          </tr>
-
-          <tr>
-            <th>플래시연동</th>
-            <td>{valueOr(data?.flash?.interlock)}</td>
-          </tr>
-          <tr>
-            <th>플래시작동</th>
-            <td>{valueOr(data?.flash?.modes)}</td>
-          </tr>
-          <tr>
-            <th>동조속도</th>
-            <td>{valueOr(data?.flash?.syncSpeed)}</td>
-          </tr>
-          <tr>
-            <th>내장플래시</th>
-            <td>{valueOr(data?.flash?.internal)}</td>
-          </tr>
-          <tr>
-            <th>적목감소</th>
-            <td>{valueOr(data?.flash?.redEye, '-', '지원')}</td>
-          </tr>
-          <tr>
-            <th>유선릴리즈</th>
-            <td>{valueOr(data?.flash?.release)}</td>
-          </tr>
-          <tr>
-            <th>무선릴리즈</th>
-            <td>{valueOr(data?.flash?.releaseW)}</td>
-          </tr>
+          {rows.map((row, i) => {
+            const key = `${i}-${row.label}`;
+            return (
+              <tr key={key} className={cx({ [styles.blank]: row.label === 'blank' })}>
+                <th>{row.label === 'blank' ? '' : row.label}</th>
+                <td>{row.content}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

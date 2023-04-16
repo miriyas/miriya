@@ -164,7 +164,7 @@ export const fields4: InputFields = {
 
 export const fields5: InputFields = {
   'data.flash.interlock': {
-    label: '플래시연동',
+    label: '플래시동조',
     desc: '지원하는 연동 방식을 나열',
     example: '디지털, X-Sync / 디지털 / 아날로그, 디지털',
   },

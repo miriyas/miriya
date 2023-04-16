@@ -1,5 +1,7 @@
 'use client';
 
+import cx from 'clsx';
+
 import { PentaxSlr } from '@/types/pentaxes.d';
 import { valueOr } from '@/utils';
 
@@ -15,103 +17,53 @@ const DataColumn1 = ({ camera }: Props) => {
 
   const endYearData = endYear ? `${endYear}년` : '생산중';
 
+  const rows = [
+    { label: '생산연도', content: `${startYear}년 ~ ${endYearData}` },
+    { label: '마운트', content: valueOr(mount) },
+    { label: '규격', content: `${body.width} x ${body.height} x ${body.depth}mm` },
+    { label: '무게', content: `${body.weight}g` },
+    { label: '색상', content: valueOr(body.color) },
+    { label: '세로그립', content: valueOr(body.verticalGrip) },
+    { label: '전원', content: valueOr(power) },
+    { label: '기타', content: valueOr(etc) },
+    {
+      label: '근거자료',
+      content: refs
+        ? refs.split(',').map((ref, i) => {
+            const key = `${ref}-${i}`;
+            return (
+              <a key={key} href={ref} target='_blank' rel='nofollow'>
+                Link {i + 1}
+              </a>
+            );
+          })
+        : '-',
+    },
+    { label: 'blank', content: '' },
+    { label: '촬영모드', content: valueOr(modes) },
+    { label: 'K/M 측광', content: valueOr(metering?.k) },
+    { label: 'A/F/FA 측광', content: valueOr(metering?.a) },
+    { label: '측광범위', content: valueOr(metering?.range) },
+    { label: '노출보정', content: valueOr(exposure?.range) },
+    { label: 'DX ASA', content: valueOr(asa?.dx) },
+    { label: '매뉴얼 ASA', content: valueOr(asa?.manual) },
+    { label: '노출고정', content: valueOr(exposure?.fix, '-', '가능') },
+    { label: '파노라마포멧', content: valueOr(panorama, '-', '가능') },
+  ];
+
   return (
     <div className={styles.column}>
       <table>
         <tbody>
-          <tr>
-            <th>생산연도</th>
-            <td>
-              {startYear}년 ~ {endYearData}
-            </td>
-          </tr>
-          <tr>
-            <th>마운트</th>
-            <td>{valueOr(mount)}</td>
-          </tr>
-          <tr>
-            <th>규격</th>
-            <td>
-              {body.width} x {body.height} x {body.depth}mm
-            </td>
-          </tr>
-          <tr>
-            <th>무게</th>
-            <td>{body.weight}g</td>
-          </tr>
-          <tr>
-            <th>색상</th>
-            <td>{valueOr(body.color)}</td>
-          </tr>
-          <tr>
-            <th>세로그립</th>
-            <td>{valueOr(body.verticalGrip)}</td>
-          </tr>
-          <tr>
-            <th>전원</th>
-            <td>{valueOr(power)}</td>
-          </tr>
-          <tr>
-            <th>기타</th>
-            <td>{valueOr(etc)}</td>
-          </tr>
-          <tr>
-            <th>근거자료</th>
-            <td>
-              {refs
-                ? refs.split(',').map((ref, i) => {
-                    const key = `${ref}-${i}`;
-                    return (
-                      <a key={key} href={ref} target='_blank' rel='nofollow'>
-                        Link {i + 1}
-                      </a>
-                    );
-                  })
-                : '-'}
-            </td>
-          </tr>
-
-          <tr className={styles.blank}>
-            <th />
-            <td />
-          </tr>
-
-          <tr>
-            <th>촬영모드</th>
-            <td>{valueOr(modes)}</td>
-          </tr>
-          <tr>
-            <th>K/M 측광</th>
-            <td>{valueOr(metering?.k)}</td>
-          </tr>
-          <tr>
-            <th>A/F/FA 측광</th>
-            <td>{valueOr(metering?.a)}</td>
-          </tr>
-          <tr>
-            <th>측광범위</th>
-            <td>{valueOr(metering?.range)}</td>
-          </tr>
-          <tr>
-            <th>노출보정</th>
-            <td>{valueOr(exposure?.range)}</td>
-          </tr>
-          <tr>
-            <th>DX ASA</th>
-            <td>{valueOr(asa?.dx)}</td>
-          </tr>
-          <tr>
-            <th>매뉴얼 ASA</th>
-            <td>{valueOr(asa?.manual)}</td>
-          </tr>
-          <tr>
-            <th>노출고정</th>
-            <td>{valueOr(exposure?.fix, '-', '가능')}</td>
-          </tr>
-          <tr>
-            <th>파노라마포멧</th>
-            <td>{valueOr(panorama, '-', '가능')}</td>
-          </tr>
+          {rows.map((row, i) => {
+            const key = `${i}-${row.label}`;
+            return (
+              <tr key={key} className={cx({ [styles.blank]: row.label === 'blank' })}>
+                <th>{row.label === 'blank' ? '' : row.label}</th>
+                <td>{row.content}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
