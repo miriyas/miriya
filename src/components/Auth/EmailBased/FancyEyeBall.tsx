@@ -118,7 +118,7 @@ const FancyEyeBall = ({ showPassword, setShowPassword }: Props) => {
   });
 
   return (
-    <button type='button' className={styles.fancyEyeBall} onClick={onClick} ref={originRef}>
+    <button type='button' className={styles.fancyEyeBall} onClick={onClick} ref={originRef} aria-label='show password'>
       {showPassword ? (
         <>
           <IconEyeTemplate className={styles.eyeTemplate} />

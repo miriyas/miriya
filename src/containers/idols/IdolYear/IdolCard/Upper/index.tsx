@@ -28,7 +28,7 @@ const Upper = ({ idol, opened, i, yearLength, onClickOpen }: Props) => {
   return (
     <div className={styles.upper}>
       {opened && (
-        <button type='button' className={styles.toEdit} onClick={onClickEdit}>
+        <button type='button' className={styles.toEdit} onClick={onClickEdit} aria-label='edit'>
           <IconEdit />
         </button>
       )}

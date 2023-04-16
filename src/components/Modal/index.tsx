@@ -45,19 +45,24 @@ export const Modal = memo(({ isShow, className, header, children, closeIcon, onC
       unmountOnExit
     >
       <div className={styles.modalWrapper}>
-        <button type='button' className={styles.bg} onClick={onClose} />
+        <button type='button' className={styles.bg} onClick={onClose} aria-label='close' />
         <div className={styles.wrapper}>
           <dialog className={cx(styles.modal, className)} translate='no'>
             {header && (
               <header className={styles.header}>
                 <h2>{header}</h2>
-                <button type='button' className={styles.closeButton} onClick={onClose}>
+                <button type='button' className={styles.closeButton} onClick={onClose} aria-label='close'>
                   <IconClose />
                 </button>
               </header>
             )}
             {closeIcon && (
-              <button type='button' className={cx(styles.closeButton, styles.only)} onClick={onClose}>
+              <button
+                type='button'
+                className={cx(styles.closeButton, styles.only)}
+                onClick={onClose}
+                aria-label='close'
+              >
                 <IconClose />
               </button>
             )}

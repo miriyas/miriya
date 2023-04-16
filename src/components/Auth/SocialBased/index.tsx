@@ -20,17 +20,17 @@ const Social = () => {
     <div className={styles.socialBased}>
       <ul>
         <li>
-          <button type='button' onClick={socialLogin} data-provider='google'>
+          <button type='button' onClick={socialLogin} data-provider='google' aria-label='google login'>
             <IconProviderGoogle />
           </button>
         </li>
         <li>
-          <button type='button' onClick={socialLogin} data-provider='facebook'>
+          <button type='button' onClick={socialLogin} data-provider='facebook' aria-label='facebook login'>
             <IconProviderFacebook />
           </button>
         </li>
         <li>
-          <button type='button' onClick={socialLogin} data-provider='github'>
+          <button type='button' onClick={socialLogin} data-provider='github' aria-label='github login'>
             <IconProviderGithub />
           </button>
         </li>

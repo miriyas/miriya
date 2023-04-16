@@ -16,7 +16,7 @@ const Profile = ({ i, yearLength, idol, onClickUpper }: Props) => {
   const { category, name, debutYear, endYear } = idol;
 
   return (
-    <button type='button' onClick={onClickUpper} className={styles.profile}>
+    <button type='button' onClick={onClickUpper} className={styles.profile} aria-label='show more'>
       <div className={styles.profileImg}>
         <ImageSprite
           i={i}

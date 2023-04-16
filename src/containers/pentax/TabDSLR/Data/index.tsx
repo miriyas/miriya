@@ -33,7 +33,7 @@ const Data = ({ selectedCamera }: Props) => {
       <DataColumn1 camera={selectedCamera} />
       <DataColumn2 camera={selectedCamera} />
       <DataColumn3 camera={selectedCamera} />
-      <button type='button' className={styles.toEdit} onClick={onClickEdit}>
+      <button type='button' className={styles.toEdit} onClick={onClickEdit} aria-label='edit'>
         <IconEdit />
       </button>
     </div>
