@@ -68,7 +68,7 @@ const EditorInputs = ({ subtitle, fields, register, errors, dirtyFields, categor
             })}
           >
             {field.desc ? (
-              <LabelWithInfo label={field.label} desc={field.desc} />
+              <LabelWithInfo label={field.label} desc={field.desc} example={field.example} />
             ) : (
               <p className={styles.fieldName}>{field.label}</p>
             )}

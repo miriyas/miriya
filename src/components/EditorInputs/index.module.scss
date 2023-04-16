@@ -157,3 +157,17 @@
     line-height: 1.4;
   }
 }
+
+.info {
+  line-height: 1.6;
+
+  pre {
+    width: 100%;
+    padding: 8px 14px;
+    margin-top: 8px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    background-color: var(--color-bg);
+    border-radius: 2px;
+  }
+}

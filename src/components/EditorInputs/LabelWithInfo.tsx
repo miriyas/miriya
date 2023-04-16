@@ -10,15 +10,21 @@ import styles from './index.module.scss';
 interface Props {
   label: string;
   desc: string;
+  example?: string;
 }
 
-const LabelWithInfo = ({ label, desc }: Props) => {
+const LabelWithInfo = ({ label, desc, example }: Props) => {
   const { addAlert } = useAlert();
 
   const onClick = () => {
     addAlert({
       title: label,
-      message: desc,
+      message: (
+        <div className={styles.info}>
+          {desc}
+          {example && <pre>{example}</pre>}
+        </div>
+      ),
     });
   };
 

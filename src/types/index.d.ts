@@ -19,5 +19,6 @@ export type InputFields = Record<
       label: string;
       step?: string;
       desc?: string;
+      example?: string;
     }
 >;
