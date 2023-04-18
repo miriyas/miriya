@@ -10,7 +10,7 @@ import ExternalLink from '@/components/ExternalLink';
 
 const NewsBar = () => {
   const newsLength = 10;
-  const { data } = useQuery(
+  const { data = [], isError } = useQuery(
     ['getRecentNewsApi', newsLength],
     () => getRecentNewsApi(newsLength).then((res) => res.data),
     {
@@ -19,6 +19,16 @@ const NewsBar = () => {
       refetchOnMount: false,
     },
   );
+
+  const hasError = data[0].title === 'error';
+
+  if (isError || hasError) {
+    return (
+      <ul className={cx(styles.commonBox, styles.news)}>
+        <li>{data[0].link}</li>
+      </ul>
+    );
+  }
 
   return (
     <ul className={cx(styles.commonBox, styles.news)}>

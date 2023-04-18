@@ -39,7 +39,7 @@
   }
 
   .news {
-    @include m.flexbox(center, start);
+    @include m.flexbox(start, start);
     flex-wrap: wrap;
 
     li {
@@ -47,7 +47,7 @@
       position: relative;
       width: 50%;
       height: 20px;
-      padding-left: 8px;
+      padding: 0 14px 0 8px;
 
       &::before {
         @include m.absolute(8px auto auto -2px);
@@ -59,9 +59,12 @@
       }
 
       a {
+        overflow: hidden;
         font-size: 12px;
         color: var(--color-gray-4);
         text-decoration: underline;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   }

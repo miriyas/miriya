@@ -10,9 +10,10 @@ interface Props {
   width: number;
   height: number;
   className?: string;
+  priority?: boolean;
 }
 
-const ImageSprite = ({ i, url, length, width, height, className }: Props) => {
+const ImageSprite = ({ i, url, length, width, height, className, priority }: Props) => {
   return (
     <div className={cx(styles.imageSprite, className)}>
       <Image
@@ -23,6 +24,7 @@ const ImageSprite = ({ i, url, length, width, height, className }: Props) => {
         style={{
           top: `-${i * height}px`,
         }}
+        priority={priority}
       />
     </div>
   );

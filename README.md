@@ -137,6 +137,7 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 1. 해시 아이디로 링킹 오작동
 
 - https://github.com/vercel/next.js/issues/42157
+- next@13.1.2 에서도 수정되지 않았다.
 
 영향 받는 코드 : src/components/Camera/Table/DataSiblings/SiblingLink.tsx
 
@@ -160,6 +161,7 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 - https://github.com/vercel/next.js/issues/46510
 - https://github.com/vercel/next.js/issues/46868
 - https://github.com/vercel/next.js/issues/46947
+- next@13.3.0에서 해결되었다. 어우 후련해..
 
 4. i18n 적용시 인스턴스가 무한 생성됨
 
@@ -235,6 +237,7 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 - https://github.com/vercel/next.js/issues/42157
 - 매우 부득이하게 pushState로 url 업데이트하고, 별도로 hashchange 이벤트를 쏴서 현재 기종 하이라이트 구현함
 - asPath가 삭제되어, 공식적으로 제공되는 훅으로 id를 알아낼 수가 없다.
+- next@13.3.0에서도 수정되지 않았음.
 
 4. queryString으로 라우팅 하기도 힘들다.
 
@@ -250,3 +253,13 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 6. next super json 라이브러리 사용시 앱 구동 불가
 
 - NEXT-939 SIGSEGV on next build with 13.2.4 [#46989]: https://github.com/vercel/next.js/issues/46989
+
+7. 프리로딩 관련 경고 뜨는 문제
+
+`The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.`
+
+이슈가 콘솔창에 계속 보여서 확인해봤는데, 이미 [이슈]: https://github.com/vercel/next.js/issues/6517 가 있었고, 넥스트 측에서는 중요하지 않다고 묵살한 모양. preload가 아니라 prefetch 쓰면 되는데 설정이라도 할 수 있어야 할것 아니냐- 했지만...
+
+8. 이미지 사이즈 관련 경고 뜨는 문제
+
+- pentax-logo 원본 이미지가 301x40이었는데, 150x20으로 렌더링하는 과정에서 경고를 보여주었다. width auth, height auto로 변경하라 해서 했지만 문제 해결되지 않았음. 포토샵 열어서 1px 지우고 300x40으로 바꿔주니 경고가 사라졌다..

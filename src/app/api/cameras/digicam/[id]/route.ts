@@ -5,20 +5,10 @@ import * as cheerio from 'cheerio';
 import { trim } from 'lodash';
 
 import { DigicamDB } from '@/types/cameras.d';
+import apiClient from '@/services/apiClient';
 
-const getCameraDataFromURL = async (url: string) => {
-  const fullUrl = `https://www.digicamdb.com/specs/${url}/`;
-  const response = await fetch(fullUrl);
-  const html = await response.text();
-  const $ = cheerio.load(html);
-
-  const noData = $('.table_specs tr').length === 0;
-
-  if (!response.ok || noData) {
-    return {
-      error: 'No Data Found',
-    };
-  }
+const processData = (rawString: string) => {
+  const $ = cheerio.load(rawString);
 
   const table: DigicamDB = {};
   $('.table_specs tr').each((_tri, tr) => {
@@ -29,6 +19,14 @@ const getCameraDataFromURL = async (url: string) => {
     table[rows[0].replace(':', '')] = rows[1];
   });
   return table;
+};
+
+const getCameraDataFromURL = async (url: string) => {
+  return apiClient(`https://www.digicamdb.com/specs/${url}/`)
+    .then((res) => processData(res.data))
+    .catch(() => ({
+      error: 'No Data Found',
+    }));
 };
 
 interface Props {

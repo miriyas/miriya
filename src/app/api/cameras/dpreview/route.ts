@@ -3,20 +3,12 @@ import 'server-only';
 import { NextRequest, NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 
-const getRecentNews = async (count: number) => {
-  const response = await fetch('https://www.dpreview.com/feeds/news.xml');
-  const html = await response.text();
-  const $ = cheerio.load(html, {
+import apiClient, { fakeUserAgent } from '@/services/apiClient';
+
+const processData = (rawString: string, count: number) => {
+  const $ = cheerio.load(rawString, {
     xmlMode: true,
   });
-
-  const noData = $('item').length === 0;
-
-  if (!response.ok || noData) {
-    return {
-      error: 'No Data Found',
-    };
-  }
 
   const news: { title: string; link: string }[] = [];
   $('item')
@@ -28,6 +20,21 @@ const getRecentNews = async (count: number) => {
       });
     });
   return news;
+};
+
+const getRecentNews = async (count: number) => {
+  return apiClient('https://www.dpreview.com/feeds/news.xml', {
+    headers: {
+      'User-Agent': fakeUserAgent,
+    },
+  })
+    .then((res) => processData(res.data, count))
+    .catch(() => [
+      {
+        title: 'error',
+        link: 'No Data Found',
+      },
+    ]);
 };
 
 export const GET = async (request: NextRequest) => {
