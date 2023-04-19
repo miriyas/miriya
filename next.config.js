@@ -31,6 +31,12 @@ const nextConfig = {
     NEXT_FIREBASE_APP_ID: '1:857542953507:web:68b4a4f68a21df8bfe3f96',
     NEXT_FIREBASE_MEASUREMENT_ID: 'G-0TXNVQK8Q3',
   },
+  modularizeImports: {
+    lodash: {
+      transform: 'lodash/{{member}}',
+      preventFullImport: true,
+    },
+  },
   experimental: {
     appDir: true,
     optimizeCss: true,
