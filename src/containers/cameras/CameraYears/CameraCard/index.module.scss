@@ -76,9 +76,8 @@
     @include m.absolute(0 0 0 0);
     @include m.flexbox(start, center);
     flex-direction: column;
-    height: 420px;
-    padding: 8px 8px var(--h-camera-data-source-btn);
-    margin-bottom: 24px;
+    height: calc(420px - var(--h-camera-data-source-btn));
+    padding: 8px 8px 0;
     overflow: auto;
     background-color: var(--color-white);
     transition: 300ms;
