@@ -14,6 +14,7 @@
     @include m.flexbox;
     flex-direction: column;
     width: 100%;
+    white-space: pre-wrap;
 
     .imageWrapper {
       width: 100%;
@@ -87,6 +88,23 @@
       @include m.after(MD) {
         padding: 14px 24px;
         font-size: 16px;
+      }
+
+      ul {
+        li {
+          position: relative;
+          padding-left: 14px;
+          margin-top: 8px;
+
+          &::before {
+            @include m.absolute(10px auto auto 0);
+            width: 3px;
+            height: 3px;
+            content: '';
+            background-color: var(--color-gray-7);
+            border-radius: 50%;
+          }
+        }
       }
     }
   }

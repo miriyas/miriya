@@ -6,6 +6,7 @@ import { PentaxSlr } from '@/types/pentaxes.d';
 import { valueOr } from '@/utils';
 
 import styles from '../../_common/CommonData.module.scss';
+import ExternalLink from '@/components/ExternalLink';
 
 interface Props {
   camera: PentaxSlr;
@@ -32,9 +33,9 @@ const DataColumn1 = ({ camera }: Props) => {
         ? refs.split(',').map((ref, i) => {
             const key = `${ref}-${i}`;
             return (
-              <a key={key} href={ref} target='_blank' rel='nofollow'>
+              <ExternalLink key={key} href={ref}>
                 Link {i + 1}
-              </a>
+              </ExternalLink>
             );
           })
         : '-',

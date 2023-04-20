@@ -19,7 +19,7 @@ const Navigation = () => {
           return (
             <li key={menu.href}>
               <Link href={`${menu.href}?${query}`}>
-                <ImageSprite i={i} width={100} height={100} length={4} url='pentaxes/home-nav.png' priority />
+                <ImageSprite i={i} width={100} height={100} length={4} url='pentax/home-nav.png' priority />
                 <div className={styles.label}>{menu.labelDetailed}</div>
               </Link>
             </li>

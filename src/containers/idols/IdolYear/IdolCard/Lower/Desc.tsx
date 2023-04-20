@@ -5,6 +5,7 @@ import { IdolType } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
 
 import styles from './Desc.module.scss';
+import ExternalLink from '@/components/ExternalLink';
 
 interface Props {
   idol: IdolType;
@@ -32,19 +33,19 @@ const Desc = ({ idol, showHistory, setShowHistory }: Props) => {
     <div className={styles.desc}>
       <div className={styles.leftWing}>
         {desc?.namu && (
-          <a href={desc.namu} target='_blank' onClick={onClickDesc} title='나무위키' rel='nofollow'>
+          <ExternalLink href={desc.namu} onClick={onClickDesc} title='나무위키'>
             나무위키
-          </a>
+          </ExternalLink>
         )}
         {desc?.melon && (
-          <a href={desc.melon} target='_blank' onClick={onClickDesc} title='멜론' rel='nofollow'>
+          <ExternalLink href={desc.melon} onClick={onClickDesc} title='멜론'>
             멜론
-          </a>
+          </ExternalLink>
         )}
         {desc?.naver && (
-          <a href={desc.naver} target='_blank' onClick={onClickDesc} title='바이브' rel='nofollow'>
+          <ExternalLink href={desc.naver} onClick={onClickDesc} title='바이브'>
             바이브
-          </a>
+          </ExternalLink>
         )}
         {desc?.title && <p>한줄평 : {desc.title}</p>}
       </div>

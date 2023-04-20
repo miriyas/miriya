@@ -1,20 +1,37 @@
+/* eslint-disable react/no-danger */
+
 'use client';
 
-import { ReactNode, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import cx from 'clsx';
 import { useWindowSize } from 'react-use';
 
 import styles from './Article.module.scss';
 
+const processTags = (raw: string) => {
+  let processed = raw;
+  const regex = /(?:__|[*#])|\[(.+?)]\((.+?)\)/g;
+  const matchedArray = [...processed.matchAll(regex)];
+  matchedArray.forEach((arr) => {
+    const original = arr[0];
+    const label = arr[1];
+    const link = arr[2];
+    processed = processed.replace(original, `<a href='${link}' target='_blank' rel='nofollow'>${label}</a>`);
+  });
+
+  return processed;
+};
+
 interface Props {
-  href: string;
-  summary: ReactNode;
-  children?: ReactNode;
+  id: string;
+  summary: string;
+  dev?: string;
+  devList?: string[];
 }
 
 const HomeArticle = (props: Props) => {
-  const { href, summary, children } = props;
+  const { id, summary, dev, devList } = props;
 
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const { width } = useWindowSize();
@@ -25,19 +42,28 @@ const HomeArticle = (props: Props) => {
   }, [width]);
 
   return (
-    <li className={cx(styles.page, styles[href])}>
+    <li className={cx(styles.page, styles[id])}>
       <article>
         <Link
           className={styles.imageWrapper}
-          href={`/${href}`}
-          style={{ backgroundImage: `url('/images/${href}/og.jpg')` }}
+          href={`/${id}`}
+          style={{ backgroundImage: `url('/images/${id}/og.jpg')` }}
         />
-        <details ref={detailsRef} className={cx({ [styles.noData]: !children })}>
+        <details ref={detailsRef} className={cx({ [styles.noData]: !dev })}>
           <summary>
-            {summary}
+            <div dangerouslySetInnerHTML={{ __html: processTags(summary) }} />
             <span className={styles.fakeViewMore}>더보기 &gt;</span>
           </summary>
-          <p className={styles.devComment}>{children}</p>
+          <div className={styles.devComment}>
+            {dev && <div dangerouslySetInnerHTML={{ __html: processTags(dev) }} />}
+            {devList && (
+              <ul>
+                {devList.map((item) => (
+                  <li key={item} dangerouslySetInnerHTML={{ __html: processTags(item) }} />
+                ))}
+              </ul>
+            )}
+          </div>
         </details>
       </article>
     </li>

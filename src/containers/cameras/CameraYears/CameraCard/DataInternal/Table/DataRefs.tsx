@@ -1,5 +1,7 @@
 import { FBCameraType } from '@/types/cameras';
 
+import ExternalLink from '@/components/ExternalLink';
+
 interface Props {
   nameLine: string;
   camera: FBCameraType;
@@ -18,9 +20,9 @@ const DataRefs = (props: Props) => {
         {refs.split(',').map((ref, i) => {
           const key = `${nameLine}-${i}`;
           return (
-            <a key={key} href={ref} target='_blank' rel='nofollow'>
+            <ExternalLink key={key} href={ref}>
               Link {i + 1}
-            </a>
+            </ExternalLink>
           );
         })}
       </td>

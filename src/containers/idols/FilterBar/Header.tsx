@@ -1,3 +1,4 @@
+import ExternalLink from '@/components/ExternalLink';
 import styles from './FilterBar.module.scss';
 
 interface Props {
@@ -36,9 +37,7 @@ const Header = ({ idolsLength, yearStart, yearEnd }: Props) => {
         <br />
         {idolsLength}명 편집하느라 지친 터라 의도하지 않은 얼굴 교체나 틀린 내용, 추가할 부분이 있을 수 있습니다.
         <br />
-        <a href='mailto:miriya.lee@gmail.com' target='_blank' rel='nofollow'>
-          miriya.lee@gmail.com
-        </a>
+        <ExternalLink href='mailto:miriya.lee@gmail.com'>miriya.lee@gmail.com</ExternalLink>
         으로 신고해주세요. 개발자라면, 상단 깃허브 링크로 PR을 올려주세요.
       </div>
     </div>

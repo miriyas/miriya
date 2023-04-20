@@ -1,15 +1,14 @@
-import { ReactNode } from 'react';
+import { AnchorHTMLAttributes, ReactNode } from 'react';
 
-interface Props {
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: ReactNode;
-  className?: string;
 }
 
 /** rel: nofollow 적용한 외부 링크 */
-const ExternalLink = ({ href, children, className }: Props) => {
+const ExternalLink = ({ href, children, ...restProps }: Props) => {
   return (
-    <a href={href} target='_blank' rel='nofollow' className={className}>
+    <a href={href} target='_blank' rel='nofollow' {...restProps}>
       {children}
     </a>
   );
