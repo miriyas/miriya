@@ -9,6 +9,7 @@ import { getHistories } from '@/services/firebase/histories';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 
+import Select from '@/components/Select';
 import styles from '../common.module.scss';
 
 const TabIdol = () => {
@@ -43,10 +44,10 @@ const TabIdol = () => {
       <p className={styles.menu}>아이돌 페이지 댓글 목록</p>
       <div className={styles.commentsWrapper}>
         <div className={styles.selectWrapper}>
-          <select placeholder='폴더' onChange={onChangeFolder} value={show}>
+          <Select placeholder='폴더' onChange={onChangeFolder} value={show} className={styles.select}>
             <option value='comments'>댓글 목록</option>
             <option value='histories'>수정 내역</option>
-          </select>
+          </Select>
         </div>
         <p className={styles.desc}>
           일촌, 단짝친구 공개 폴더입니다 <span>[{comments[0].commentNoInCategory}]</span>

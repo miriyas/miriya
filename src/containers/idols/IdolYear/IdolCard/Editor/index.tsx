@@ -10,6 +10,7 @@ import { prettyCategory } from '@/utils/idols';
 import { editIdolAtom } from '@/containers/idols/states';
 
 import styles from './index.module.scss';
+import Select from '@/components/Select';
 
 interface Item {
   label: string;
@@ -88,7 +89,7 @@ const Editor = ({ idol }: Props) => {
         className={cx(styles.inputWrapper, { [styles.error]: errors.category, [styles.changed]: dirtyFields.category })}
       >
         <span>*카테고리</span>
-        <select {...register('category')} placeholder='*카테고리' required>
+        <Select placeholder='*카테고리' {...register('category')} required className={styles.select}>
           {CATEGORIES.filter((c) => c !== 'total').map((category) => {
             return (
               <option value={category} key={category}>
@@ -96,7 +97,7 @@ const Editor = ({ idol }: Props) => {
               </option>
             );
           })}
-        </select>
+        </Select>
       </label>
       <label className={styles.inputWrapper}>
         <span>*데뷔 연도</span>
