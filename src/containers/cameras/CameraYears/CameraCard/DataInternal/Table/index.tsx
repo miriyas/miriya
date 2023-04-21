@@ -2,7 +2,8 @@ import { FBCameraType } from '@/types/cameras.d';
 
 import DataRefs from './DataRefs';
 import DataSensor from './DataSensor';
-import DataViewFinder from './DataViewFinder';
+import DataFinder from './DataFinder';
+import DataFocus from './DataFocus';
 import DataShutter from './DataShutter';
 import DataMetering from './DataMetering';
 import DataDisplay from './DataDisplay';
@@ -26,8 +27,9 @@ const Data = (props: Props) => {
       <tbody>
         <DataSensor camera={camera} />
         <DataShutter camera={camera} />
+        <DataFocus camera={camera} />
         <DataMetering camera={camera} />
-        <DataViewFinder camera={camera} />
+        <DataFinder camera={camera} />
         <DataDisplay camera={camera} />
         <DataVideo camera={camera} />
         <DataEtc camera={camera} />

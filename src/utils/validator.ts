@@ -107,6 +107,7 @@ export const cameraValidator = object({
     swivel: booleanTest,
     trueblack: booleanTest,
   }),
+  dustproof: booleanTest,
   rugged: booleanTest,
   video: object({
     format: stringTest,

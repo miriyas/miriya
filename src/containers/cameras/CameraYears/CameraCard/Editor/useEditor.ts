@@ -7,7 +7,7 @@ import useAuth from '@/hooks/useAuth';
 import { UserWithRole } from '@/types/auth.d';
 import { FBCameraType } from '@/types/cameras.d';
 import { FBCamerachema, cameraValidator } from '@/utils/validator';
-import { editCameraDoc } from '@/services/firebase/cameras';
+import { editCameraDataApi } from '@/services/cameras';
 import useCameras from '../../../useCameras';
 
 export const currentUserAtom = atom<User | null>(null);
@@ -60,6 +60,7 @@ const useEditor = (camera: FBCameraType) => {
         swivel: camera.display?.swivel ?? false,
         trueblack: camera.display?.trueblack ?? false,
       },
+      dustproof: camera.dustproof ?? false,
       rugged: camera.rugged ?? false,
       video: {
         format: camera.video?.format ?? '',
@@ -78,7 +79,7 @@ const useEditor = (camera: FBCameraType) => {
   const submit = handleSubmit((formValues: FBCamerachema) => {
     if (!user) return;
 
-    editCameraDoc(
+    editCameraDataApi(
       {
         ...camera,
         ...formValues,

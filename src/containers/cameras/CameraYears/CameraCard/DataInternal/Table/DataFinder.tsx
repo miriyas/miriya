@@ -16,11 +16,12 @@ interface Props {
   camera: FBCameraType;
 }
 
-const DataViewFinder = (props: Props) => {
+const DataFinder = (props: Props) => {
   const { camera } = props;
   const { viewfinder } = camera;
 
   if (!viewfinder) return null;
+  if (!viewfinder.magnification && !viewfinder.coverage) return null;
 
   const magnification = viewfinder.magnification
     ? `x${viewfinder.magnification}${viewfinder.coverage ? ' / ' : ''}`
@@ -40,4 +41,4 @@ const DataViewFinder = (props: Props) => {
   );
 };
 
-export default DataViewFinder;
+export default DataFinder;

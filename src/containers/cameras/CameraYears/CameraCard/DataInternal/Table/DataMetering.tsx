@@ -9,6 +9,7 @@ const DataMetering = (props: Props) => {
   const { metering } = camera;
 
   if (!metering) return null;
+  if (!metering.engine && !metering.desc) return null;
 
   const meteringData = metering ? [metering.engine, metering.desc].filter((item) => !!item).join('/') : '?';
 

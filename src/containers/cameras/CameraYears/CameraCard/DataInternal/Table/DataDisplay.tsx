@@ -11,6 +11,8 @@ const DataDisplay = (props: Props) => {
   const { display } = camera;
 
   if (!display) return null;
+  if (!display.desc && !display.liveview && !display.trueblack && !display.tilt && !display.swivel && !display.touch)
+    return null;
 
   return (
     <tr className={styles.dataMulti}>
