@@ -43,3 +43,14 @@ export interface YearDescType {
 export interface IsotopesType {
   [key: number]: Isotope;
 }
+
+// Crawl =======================================================================
+
+export type CrawlIdol = {
+  name: string;
+  url: string;
+};
+
+export type CrawlGeneration = Record<string, CrawlIdol[]>;
+
+export type CrawlIdolData = Record<string, CrawlGeneration>;

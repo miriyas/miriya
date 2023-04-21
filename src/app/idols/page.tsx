@@ -38,14 +38,6 @@ export const metadata: Metadata = {
 const IdolsPage = async () => {
   const idolYears = await getIdolYears();
 
-  // IDOLS.forEach((idol) => {
-  //   createIdolDoc(idol);
-  // });
-
-  // YEARS.forEach((yearDesc) => {
-  //   createIdolYearDoc(yearDesc);
-  // });
-
   return <Idols idolYears={idolYears} />;
 };
 
