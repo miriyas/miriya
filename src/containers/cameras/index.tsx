@@ -7,9 +7,10 @@ import { useEffect, useState } from 'react';
 import { FBCameraType } from '@/types/cameras.d';
 import { getCamerasRealtime } from '@/services/firebase/cameras';
 
-import Top from './Top';
+import Loading from '@/components/Loading';
 import CameraYearPlaceholder from './CameraYears/Placeholder';
 
+const Top = dynamic(() => import('./Top'), { ssr: false, loading: () => <Loading /> });
 const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 const CamerasPage = () => {
