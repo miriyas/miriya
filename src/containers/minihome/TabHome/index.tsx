@@ -1,35 +1,44 @@
+'use client';
+
 import Image from 'next/image';
-import { Suspense } from 'react';
 import cx from 'clsx';
+import dynamic from 'next/dynamic';
 
 import { FullCommitData } from '@/types/github.d';
 
-import LeftRecent from './Top/LeftRecent';
-import RightCategory from './Top/RightCategory';
+import Loading from '@/components/Loading';
 import Commits from './Commits';
 import commonStyles from '../common.module.scss';
 import styles from './index.module.scss';
-import Loading from '@/components/Loading';
+
+const LeftRecent = dynamic(() => import('./Top/LeftRecent'), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.loading}>
+      <Loading small />
+    </div>
+  ),
+});
+
+const RightCategory = dynamic(() => import('./Top/RightCategory'), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.loading}>
+      <Loading small />
+    </div>
+  ),
+});
 
 interface Props {
   commitsData: FullCommitData[];
 }
 
 const TabHome = ({ commitsData }: Props) => {
-  // https://github.com/vercel/next.js/issues/46989 이슈 수정 전 까지 getRecentComments를 CSR로 불러온다..
   return (
     <div className={cx(commonStyles.commonTab, styles.tabHome)}>
       <p className={commonStyles.menu}>최근 게시물</p>
       <div className={styles.recents}>
-        <Suspense
-          fallback={
-            <div className={styles.commentsRecentLoading}>
-              <Loading small />
-            </div>
-          }
-        >
-          <LeftRecent />
-        </Suspense>
+        <LeftRecent />
         <RightCategory />
       </div>
       <p className={commonStyles.menu}>미니룸</p>

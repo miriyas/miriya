@@ -150,6 +150,7 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 - Next 뿐만 아니라 Nuxt에도 유사 이슈 있다 함
 - next/dynamic 자체를 아예 쓸 수 없게됨
 - https://github.com/vercel/next.js/issues/47173
+- [Next@13.3.1-canary.16](https://github.com/vercel/next.js/releases/tag/v13.3.1-canary.16)에서 수정되었다.
 
 3. appDir일 경우 CSS 프리로딩 안됨, FOUC 유발됨
 
