@@ -1,5 +1,4 @@
-import { collection, doc, onSnapshot, orderBy, query, serverTimestamp, updateDoc } from 'firebase/firestore';
-import { Dispatch, SetStateAction } from 'react';
+import { collection, doc, getDocs, orderBy, query, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 
 import { FBCameraType } from '@/types/cameras.d';
@@ -10,20 +9,26 @@ import { FBCamerachema } from '@/utils/validator';
 import { db } from '@/utils/firebase';
 import { getUserName } from '@/utils';
 
-/** 카메라 목록을 순서 없이 다 가져온다 */
-export const getCamerasRealtime = (setCameras: Dispatch<SetStateAction<FBCameraType[]>>) => {
-  const q = query(collection(db, COLLECTION.CAMERAS, 'data', CAMERA_COLLECTION_NAMES.CAMERA), orderBy('year', 'asc'));
-  return onSnapshot(q, (querySnapshot) => {
-    const cameras = querySnapshot.docs
-      .sort((a, b) => b.data().debutYear - a.data().debutYear)
-      .map((item) => {
-        return {
-          id: item.id,
-          ...item.data(),
-        } as FBCameraType;
-      });
-    setCameras(cameras);
-  });
+const q = query(collection(db, COLLECTION.CAMERAS, 'data', CAMERA_COLLECTION_NAMES.CAMERA), orderBy('year', 'asc'));
+
+// /** 카메라 목록을 순서 없이 다 가져온다 */
+// export const getCamerasRealtime = (setCameras: Dispatch<SetStateAction<FBCameraType[]>>) => {
+//   return onSnapshot(q, (querySnapshot) => {
+//     const cameras = querySnapshot.docs
+//       .sort((a, b) => b.data().debutYear - a.data().debutYear)
+//       .map((item) => {
+//         return {
+//           id: item.id,
+//           ...item.data(),
+//         } as FBCameraType;
+//       });
+//     setCameras(cameras);
+//   });
+// };
+
+export const getCamerasSnapshot = async () => {
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map((item) => item.data() as FBCameraType);
 };
 
 export const editCameraDoc = async (newCamera: FBCamerachema, changed: string[], user: User) => {

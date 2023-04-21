@@ -22,8 +22,6 @@ const CameraYear = (props: Props) => {
 
   const filteredCameras = cameras.filter((c) => (selectedMaker === 'ALL' ? c : c.maker === selectedMaker));
 
-  // if (filteredCameras.length === 0) return null;
-
   return (
     <li id={`camera-year-${year}`} className={styles.cameraYear}>
       <div className={styles.title}>

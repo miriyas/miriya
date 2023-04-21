@@ -8,12 +8,14 @@ import { UserWithRole } from '@/types/auth.d';
 import { FBCameraType } from '@/types/cameras.d';
 import { FBCamerachema, cameraValidator } from '@/utils/validator';
 import { editCameraDoc } from '@/services/firebase/cameras';
+import useCameras from '../../../useCameras';
 
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useEditor = (camera: FBCameraType) => {
   const { user } = useAuth();
+  const { reload } = useCameras();
 
   const methods = useForm<FBCamerachema>({
     mode: 'onBlur',
@@ -85,6 +87,7 @@ const useEditor = (camera: FBCameraType) => {
       user,
     ).then(() => {
       reset();
+      reload();
     });
   });
 
