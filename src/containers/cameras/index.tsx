@@ -1,6 +1,6 @@
 'use client';
 
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import { groupBy } from 'lodash';
 import { useEffect, useState } from 'react';
 
@@ -8,10 +8,9 @@ import { FBCameraType } from '@/types/cameras.d';
 import { getCamerasRealtime } from '@/services/firebase/cameras';
 
 import Top from './Top';
-// import CameraYearPlaceholder from './CameraYears/Placeholder';
-import CameraYears from './CameraYears';
+import CameraYearPlaceholder from './CameraYears/Placeholder';
 
-// const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
+const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 const CamerasPage = () => {
   const [cameras, setCameras] = useState<FBCameraType[]>([]);

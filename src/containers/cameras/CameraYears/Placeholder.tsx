@@ -1,7 +1,6 @@
 'use client';
 
 import cx from 'clsx';
-import { groupBy } from 'lodash';
 
 import { getNumberArr } from '@/utils';
 
@@ -11,11 +10,11 @@ import styles from './CameraYears.module.scss';
 const CameraYearPlaceholder = () => {
   return (
     <ul className={styles.cameraYears}>
-      {Object.keys(years).map((year) => {
+      {[1995, 1996].map((year) => {
         const key = `camera-year-placeholder-${year}`;
         return (
           <li key={key} className={cx(styles.cameraYear, styles.placeholder)}>
-            <div className={styles.title}>0000년</div>
+            <div className={styles.title}>{year}년</div>
 
             <ul className={styles.cameras}>
               {getNumberArr(4).map((camera) => {
