@@ -114,3 +114,8 @@
     }
   }
 }
+
+.listLoading {
+  @include m.flexbox;
+  height: 360px;
+}
