@@ -1,11 +1,13 @@
-import { YearDescType } from '@/types/idols';
+'use client';
 
-import IdolsContent from './Content';
+import dynamic from 'next/dynamic';
 
-interface Props {
-  idolYears: YearDescType[];
-}
+import Loading from '@/components/Loading';
 
-const IdolsPage = ({ idolYears }: Props) => <IdolsContent idolYears={idolYears} />;
+const Content = dynamic(() => import('./Content'), { ssr: false, loading: () => <Loading /> });
 
-export default IdolsPage;
+const IdolsPageContent = () => {
+  return <Content />;
+};
+
+export default IdolsPageContent;

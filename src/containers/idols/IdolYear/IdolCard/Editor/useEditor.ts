@@ -4,18 +4,20 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useResetAtom } from 'jotai/utils';
 
+import useIdols from '../../../useIdols';
 import useAuth from '@/hooks/useAuth';
 import { FBIdolType } from '@/types/idols.d';
 import { UserWithRole } from '@/types/auth.d';
 import { IdolSchema, idolValidator } from '@/utils/validator';
-import { editIdolDoc } from '@/services/firebase/idols';
 import { editIdolAtom } from '@/containers/idols/states';
+import { editIdolDataApi } from '@/services/idols';
 
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useEditor = (idol: FBIdolType) => {
   const { user } = useAuth();
+  const { reload } = useIdols();
   const resetEditIdol = useResetAtom(editIdolAtom);
 
   const methods = useForm<IdolSchema>({
@@ -41,7 +43,7 @@ const useEditor = (idol: FBIdolType) => {
   const submitIdol = handleSubmit((formValues: IdolSchema) => {
     if (!user) return;
 
-    editIdolDoc(
+    editIdolDataApi(
       {
         ...idol,
         category: formValues.category,
@@ -61,6 +63,7 @@ const useEditor = (idol: FBIdolType) => {
       user,
     ).then(() => {
       resetEditIdol();
+      reload();
     });
   });
 

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Idols from '@/containers/idols';
-import { getIdolYears } from '@/services/firebase/idols';
 
 const title = 'History of Idols';
 const description = '96년부터 2019년까지 활동한 아이돌들';
@@ -35,10 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-const IdolsPage = async () => {
-  const idolYears = await getIdolYears();
-
-  return <Idols idolYears={idolYears} />;
-};
+const IdolsPage = async () => <Idols />;
 
 export default IdolsPage;
