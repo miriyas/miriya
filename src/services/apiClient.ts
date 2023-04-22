@@ -5,7 +5,7 @@ export const baseURL = `${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api`;
 
 const apiClient = axios.create({
   baseURL,
-  timeout: 3000,
+  timeout: 30_000,
 });
 
 export default apiClient;

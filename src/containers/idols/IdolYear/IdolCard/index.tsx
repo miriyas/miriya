@@ -38,7 +38,9 @@ const IdolCard = (props: Props) => {
 
   const onClickOpen = () => {
     setOpened(true);
-    sort();
+    setTimeout(() => {
+      sort();
+    }, 50);
     gaEvent(IDOL.IDOL_OPEN, { name });
   };
 
