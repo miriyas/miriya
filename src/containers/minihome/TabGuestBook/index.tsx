@@ -1,31 +1,19 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 
-import { getGuestCommentsRealtime } from '@/services/firebase/guestbook';
-import { Comment } from '@/types/comments.d';
-import CommentItem from '@/containers/minihome/TabGuestBook/Comment';
+import Loading from '@/components/Loading';
+import styles from './index.module.scss';
 
-import NewForm from './NewForm';
-
-const TabGuestBook = () => {
-  const [comments, setComments] = useState<Comment[]>([]);
-
-  useEffect(() => {
-    const unSubscribe = getGuestCommentsRealtime(setComments);
-    return () => unSubscribe();
-  }, []);
-
-  return (
-    <div>
-      <NewForm />
-      <ul>
-        {comments.map((comment) => {
-          return <CommentItem key={comment.id} comment={comment} />;
-        })}
-      </ul>
+const Content = dynamic(() => import('./Content'), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.loading}>
+      <Loading />
     </div>
-  );
-};
+  ),
+});
+
+const TabGuestBook = () => <Content />;
 
 export default TabGuestBook;

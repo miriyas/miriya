@@ -1,40 +1,32 @@
-import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+'use client';
 
-import { createGuestCommentDoc } from '@/services/firebase/guestbook';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { ChangeEventHandler, FormEventHandler } from 'react';
+import { useAtom } from 'jotai';
+
 import useAuth from '@/hooks/useAuth';
-import { getAuthorData } from '@/utils';
+import useGuestbook, { newPostBodyAtom, newPostHiddenAtom } from './useGuestbook';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
 import styles from './NewForm.module.scss';
 
-const TabGuest = () => {
-  const [body, setBody] = useState('');
-  const [hidden, setHidden] = useState(false);
-
+const NewForm = () => {
   const { user } = useAuth();
+  const { submitNewGuestComment } = useGuestbook();
+  const [newPostBody, setNewPostBody] = useAtom(newPostBodyAtom);
+  const [newPostHidden, setNewPostHidden] = useAtom(newPostHiddenAtom);
 
   const onChangeHidden: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setHidden(e.currentTarget.checked);
+    setNewPostHidden(e.currentTarget.checked);
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (!user) return;
-
-    createGuestCommentDoc({
-      ...getAuthorData(user),
-      body,
-      hidden,
-      targetCategory: TARGET_CATEGORY.GUESTBOOK,
-    }).then(() => {
-      setBody('');
-    });
+    submitNewGuestComment();
   };
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setBody(e.currentTarget.value);
+    setNewPostBody(e.currentTarget.value);
   };
 
   if (!user) {
@@ -55,10 +47,10 @@ const TabGuest = () => {
         <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={96} />
       </div>
       <div className={styles.rightWing}>
-        <textarea onChange={onChange} value={body} data-lpignore='true' autoComplete='off' />
+        <textarea onChange={onChange} value={newPostBody} data-lpignore='true' autoComplete='off' />
         <div className={styles.buttonWrapper}>
           <label className={styles.checkboxWrapper}>
-            <input type='checkbox' checked={hidden} onChange={onChangeHidden} />
+            <input type='checkbox' checked={newPostHidden} onChange={onChangeHidden} />
             비밀로하기
           </label>
           <button type='submit'>확인</button>
@@ -68,4 +60,4 @@ const TabGuest = () => {
   );
 };
 
-export default TabGuest;
+export default NewForm;

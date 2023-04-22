@@ -1,4 +1,14 @@
 import apiClient from '@/services/apiClient';
-import { GADataRow } from '@/types/minihome';
+import { Comment, NewComment } from '@/types/comments.d';
+import { GADataRow } from '@/types/minihome.d';
 
 export const getGAdataAPI = () => apiClient<GADataRow[]>('https://us-central1-miriyas.cloudfunctions.net/getGAdata');
+
+export const getGuestbookDataAPI = () => apiClient<Comment[]>('/minihome/guestbook');
+
+export const postGuestbookAPI = (comment: NewComment) => apiClient.post('/minihome/guestbook', comment);
+
+export const patchGuestbookAPI = (comment: Partial<Comment>) => apiClient.patch('/minihome/guestbook', comment);
+
+export const deleteGuestbookAPI = (commentId: string, uid: string) =>
+  apiClient.delete(`/minihome/guestbook?commentId=${commentId}&uid=${uid}`);

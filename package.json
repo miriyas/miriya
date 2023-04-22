@@ -21,6 +21,7 @@
     "dayjs": "^1.11.7",
     "encoding": "^0.1.13",
     "firebase": "^9.19.0",
+    "firebase-admin": "^11.7.0",
     "gray-matter": "^4.0.3",
     "humps": "^2.0.1",
     "iconv-lite": "^0.6.3",

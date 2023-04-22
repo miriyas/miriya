@@ -2,10 +2,10 @@ import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 import Image from 'next/image';
 
-import { editGuestCommentDoc, markDeleteGuestComment } from '@/services/firebase/guestbook';
 import { Comment } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 import useAuth from '@/hooks/useAuth';
+import useGuestbook from './useGuestbook';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import EditForm from './EditForm';
@@ -16,6 +16,7 @@ interface Props {
 }
 
 const CommentItem = ({ comment }: Props) => {
+  const { submitEditGuestCommentHidden, deleteGuestComment } = useGuestbook();
   const { isMine, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -23,22 +24,16 @@ const CommentItem = ({ comment }: Props) => {
     setEditMode(true);
   };
 
-  const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
-    markDeleteGuestComment(e.currentTarget.dataset.id!, e.currentTarget.dataset.authorId!);
+  const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
+    deleteGuestComment(comment);
   };
 
   const onClickHide: MouseEventHandler<HTMLButtonElement> = () => {
-    editGuestCommentDoc({
-      ...comment,
-      hidden: true,
-    });
+    submitEditGuestCommentHidden(comment.id, true);
   };
 
   const onClickShow: MouseEventHandler<HTMLButtonElement> = () => {
-    editGuestCommentDoc({
-      ...comment,
-      hidden: false,
-    });
+    submitEditGuestCommentHidden(comment.id, false);
   };
 
   const deleted = comment.deletedAt.seconds > 0;

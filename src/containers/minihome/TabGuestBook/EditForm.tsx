@@ -1,8 +1,9 @@
-import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
+import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction } from 'react';
+import { useMount } from 'react-use';
 
-import { editGuestCommentDoc } from '@/services/firebase/guestbook';
 import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
+import useGuestbook from './useGuestbook';
 
 import styles from './EditForm.module.scss';
 
@@ -13,40 +14,38 @@ interface Props {
 
 const EditForm = ({ comment, setEditMode }: Props) => {
   const { user } = useAuth();
-  const [body, setBody] = useState(comment.body);
-  const [hidden, setHidden] = useState(comment.hidden ?? false);
+  const { editPostBody, setEditPostBody, editPostHidden, setEditPostHidden, submitEditGuestComment } = useGuestbook();
+
+  useMount(() => {
+    setEditPostBody(comment.body);
+    setEditPostHidden(comment.hidden ?? false);
+  });
 
   const onClickCancel: MouseEventHandler<HTMLButtonElement> = () => {
     setEditMode(false);
-    setBody(comment.body);
+    setEditPostBody(comment.body);
   };
 
   const onChangeHidden: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setHidden(e.currentTarget.checked);
+    setEditPostHidden(e.currentTarget.checked);
   };
 
   const onChangeEdit: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setBody(e.currentTarget.value);
+    setEditPostBody(e.currentTarget.value);
   };
 
   const onEditSubmit: FormEventHandler<HTMLFormElement> = () => {
     if (!user) return;
     setEditMode(false);
-    editGuestCommentDoc({
-      ...comment,
-      body,
-      hidden,
-    }).then(() => {
-      setBody(body);
-    });
+    submitEditGuestComment(comment);
   };
 
   return (
     <form className={styles.form} onSubmit={onEditSubmit}>
-      <textarea onChange={onChangeEdit} value={body} data-lpignore='true' autoComplete='off' />
+      <textarea onChange={onChangeEdit} value={editPostBody} data-lpignore='true' autoComplete='off' />
       <div className={styles.buttonWrapper}>
         <label className={styles.checkboxWrapper}>
-          <input type='checkbox' checked={hidden} onChange={onChangeHidden} />
+          <input type='checkbox' checked={editPostHidden} onChange={onChangeHidden} />
           비밀로하기
         </label>
         <div className={styles.rightWing}>
