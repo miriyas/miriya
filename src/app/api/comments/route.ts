@@ -16,8 +16,8 @@ import {
 
 import { CAMERA_COLLECTION_NAMES, COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';
 import { Comment, NewComment, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
-import { db, initialTs } from '@/utils/firebase';
-import { db as adminDb, initialAdminTs } from '@/utils/db';
+import { db, initialTs } from '@/utils/db';
+import { adminDB, initialAdminTs } from '@/utils/db/admin';
 
 import { getAdminUsers } from '@/app/api/utils';
 
@@ -88,7 +88,7 @@ const commentsQuery = (category: TargetCategoryTypes, order: 'asc' | 'desc', lim
 const createCommentDoc = async (comment: NewComment) => {
   const lastCommentSnapshot = await getDocs(commentsQuery(comment.targetCategory, 'desc', 1));
   const lastCommentCount = lastCommentSnapshot.docs[0] ? lastCommentSnapshot.docs[0].data().commentNoInCategory : 0;
-  await adminDb.collection(COLLECTION.COMMENTS).add({
+  await adminDB.collection(COLLECTION.COMMENTS).add({
     ...comment,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     deletedAt: initialAdminTs,
@@ -120,7 +120,7 @@ const editCommentDoc = async (comment: Comment) => {
 
 /** 실제 삭제는 아니고 가짜 삭제 */
 const deleteCommentDoc = async (commentId: string, uid: string) => {
-  const targetDoc = await adminDb.collection(COLLECTION.COMMENTS).doc(commentId);
+  const targetDoc = await adminDB.collection(COLLECTION.COMMENTS).doc(commentId);
   const targetSnapshot = await targetDoc.get();
   const targetData = (await targetSnapshot.data()) as Comment;
 
@@ -128,7 +128,7 @@ const deleteCommentDoc = async (commentId: string, uid: string) => {
   const isAdmin = adminUsers.filter((adminUser) => adminUser.uid === uid);
 
   if (!isAdmin && uid !== targetData.authorId) return; // TODO: 서버로 기능을 넘겨야함
-  adminDb.collection(COLLECTION.COMMENTS).doc(commentId).update({
+  adminDB.collection(COLLECTION.COMMENTS).doc(commentId).update({
     deletedAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 

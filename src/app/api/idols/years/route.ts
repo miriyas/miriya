@@ -3,7 +3,7 @@ import 'server-only';
 import { NextResponse } from 'next/server';
 import { collection, getDocs } from 'firebase/firestore';
 
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/db';
 import { YearDescType } from '@/types/idols.d';
 import { COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';
 

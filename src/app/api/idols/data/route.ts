@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { collection, doc, getDocs, limit, orderBy, query, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/db';
 import { FBIdolType } from '@/types/idols.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';

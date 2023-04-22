@@ -3,7 +3,7 @@ import 'server-only';
 import { NextRequest, NextResponse } from 'next/server';
 import { collection, getDocs, limit, orderBy, query, Timestamp, where } from 'firebase/firestore';
 
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/db';
 import { COLLECTION } from '@/types/firebase.d';
 
 /** 모든 댓글을 삭제된걸 제외하고 정렬해서 불러옴 */

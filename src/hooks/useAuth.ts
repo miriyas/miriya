@@ -3,7 +3,7 @@ import { atom, useAtom } from 'jotai';
 import { signOut, User } from 'firebase/auth';
 import { useCallback, useMemo } from 'react';
 
-import { auth } from '@/utils/firebase';
+import { auth } from '@/utils/db';
 import { UserWithRole } from '@/types/auth.d';
 
 import { getAdminUsers, getSupporters } from '@/app/api/utils';

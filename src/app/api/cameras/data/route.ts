@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { collection, doc, getDocs, orderBy, query, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/db';
 import { FBCameraType } from '@/types/cameras.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { CAMERA_COLLECTION_NAMES, COLLECTION } from '@/types/firebase.d';

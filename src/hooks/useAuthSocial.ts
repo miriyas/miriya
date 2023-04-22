@@ -3,7 +3,7 @@ import { useAtom } from 'jotai';
 import { signInWithPopup } from 'firebase/auth';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 
-import { auth, PROVIDERS } from '@/utils/firebase';
+import { auth, PROVIDERS } from '@/utils/db';
 
 export const socialErrorAtom = atomWithReset('');
 

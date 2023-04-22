@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { collection, getDocs, query } from 'firebase/firestore';
 import admin from 'firebase-admin';
 
-import { db } from '@/utils/firebase';
-import { db as adminDb } from '@/utils/db';
+import { db } from '@/utils/db';
+import { adminDB } from '@/utils/db/admin';
 import { FBPentaxSlr, SlrEditProps } from '@/types/pentaxes.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION, PENTAX_COLLECTION_NAMES } from '@/types/firebase.d';
@@ -43,7 +43,7 @@ const getPentaxSlrs = async () => {
 
 const editPentaxSlrDoc = async (props: SlrEditProps) => {
   const { camera, changed, user, targetSubCategory } = props;
-  adminDb
+  adminDB
     .collection(`${COLLECTION.PENTAXES}/data/${PENTAX_COLLECTION_NAMES[targetSubCategory]}`)
     .doc(camera.id)
     .update({

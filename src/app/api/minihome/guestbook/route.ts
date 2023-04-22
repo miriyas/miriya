@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import admin from 'firebase-admin';
 
-import { db } from '@/utils/firebase';
-import { db as adminDb, initialAdminTs } from '@/utils/db';
+import { db } from '@/utils/db';
+import { adminDB, initialAdminTs } from '@/utils/db/admin';
 import { Comment, NewComment, TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
 
@@ -41,7 +41,7 @@ const getGuestComments = async () => {
 // };
 
 const createGuestCommentDoc = async (comment: NewComment) => {
-  adminDb.collection(COLLECTION.COMMENTS).add({
+  adminDB.collection(COLLECTION.COMMENTS).add({
     ...comment,
     targetCategory: TARGET_CATEGORY.GUESTBOOK,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -50,7 +50,7 @@ const createGuestCommentDoc = async (comment: NewComment) => {
 };
 
 const editGuestCommentDoc = async (comment: Comment) => {
-  adminDb.collection(COLLECTION.COMMENTS).doc(comment.id).update({
+  adminDB.collection(COLLECTION.COMMENTS).doc(comment.id).update({
     body: comment.body,
     hidden: comment.hidden,
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -58,7 +58,7 @@ const editGuestCommentDoc = async (comment: Comment) => {
 };
 
 const markDeleteGuestComment = async (commentId: string, uid: string) => {
-  const targetDoc = await adminDb.collection(COLLECTION.COMMENTS).doc(commentId);
+  const targetDoc = await adminDB.collection(COLLECTION.COMMENTS).doc(commentId);
   const targetSnapshot = await targetDoc.get();
   const targetData = (await targetSnapshot.data()) as Comment;
 
@@ -67,7 +67,7 @@ const markDeleteGuestComment = async (commentId: string, uid: string) => {
 
   if (!targetData) return;
   if (!isAdmin && uid !== targetData.authorId) return;
-  adminDb.collection(COLLECTION.COMMENTS).doc(commentId).update({
+  adminDB.collection(COLLECTION.COMMENTS).doc(commentId).update({
     deletedAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 };

@@ -2,7 +2,7 @@
 
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/db';
 import { ROLE, UserWithRole } from '@/types/auth.d';
 import { COLLECTION } from '@/types/firebase.d';
 

@@ -3,7 +3,7 @@ import 'server-only';
 import { NextRequest, NextResponse } from 'next/server';
 import { collection, getDocs, limit, orderBy, query, Timestamp, where } from 'firebase/firestore';
 
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/db';
 import { Comment } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
 

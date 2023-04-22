@@ -9,7 +9,7 @@ import {
 import { FirebaseError } from 'firebase/app';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 
-import { auth } from '@/utils/firebase';
+import { auth } from '@/utils/db';
 import { LogInWithEmailAndPasswordErrors, SignUpWithEmailAndPasswordErrors } from '@/utils/firebaseError';
 
 export const logInLoadingAtom = atom(false);

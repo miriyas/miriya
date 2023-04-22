@@ -3,7 +3,7 @@ import { collection, getDocs, limit, orderBy, query, where } from 'firebase/fire
 
 import { COLLECTION } from '@/types/firebase.d';
 import { History } from '@/types/histories.d';
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/db';
 
 import { createHistoryDoc } from '@/app/api/histories/services';
 
