@@ -8,17 +8,24 @@ import { FormEventHandler } from 'react';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { UserWithRole } from '@/types/auth.d';
-import { SUB_TARGET_CATEGORY } from '@/types/comments.d';
+import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
 import { FBPentaxDslr } from '@/types/pentaxes';
 import { PentaxDSLRSchema, pentaxDslrValidator } from '@/utils/validator';
 import { editCameraAtom } from '../states';
 import { patchPentaxDslrAPI } from '@/services/pentaxes';
 import usePentax from '../../usePentax';
 
+import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
+
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useDslrEditor = (camera: FBPentaxDslr) => {
+  const { reloadHistories } = useCommentAndHistory({
+    targetCategory: TARGET_CATEGORY.PENTAX,
+    targetSubCategory: SUB_TARGET_CATEGORY.DSLR,
+    targetId: camera.id,
+  });
   const { reloadDslr } = usePentax();
   const { isAdmin, isSupporter, user } = useAuth();
   const { addAlert } = useAlert();
@@ -124,6 +131,7 @@ const useDslrEditor = (camera: FBPentaxDslr) => {
     }).then(() => {
       resetEditCamera();
       reloadDslr();
+      reloadHistories();
     });
   });
 

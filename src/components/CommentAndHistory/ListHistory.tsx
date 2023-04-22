@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
 import cx from 'clsx';
+import { Suspense } from 'react';
 
 import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
-import { History } from '@/types/histories.d';
 import { getTimeDiffText } from '@/utils/date';
-import { getHistoriesInTargetRealtime } from '@/services/firebase/histories';
+import useCommentAndHistory from './useCommentAndHistory';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import liststyles from './List.module.scss';
 import styles from './Item.module.scss';
+import Loading from '@/components/Loading';
 
 interface Props {
   targetCategory: TargetCategoryTypes;
@@ -16,13 +16,8 @@ interface Props {
   targetId: string;
 }
 
-export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Props) => {
-  const [histories, setHistories] = useState<History[]>([]);
-
-  useEffect(() => {
-    const unSubscribe = getHistoriesInTargetRealtime(targetCategory, targetId, setHistories, targetSubCategory);
-    return () => unSubscribe();
-  }, [targetCategory, targetSubCategory, targetId]);
+export const ListHistoryContent = ({ targetCategory, targetSubCategory, targetId }: Props) => {
+  const { histories } = useCommentAndHistory({ targetCategory, targetSubCategory, targetId });
 
   return (
     <ul className={liststyles.list}>
@@ -61,3 +56,15 @@ export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Pro
     </ul>
   );
 };
+
+export const ListHistory = (props: Props) => (
+  <Suspense
+    fallback={
+      <div className={cx(liststyles.list, liststyles.loading)}>
+        <Loading small />
+      </div>
+    }
+  >
+    <ListHistoryContent {...props} />
+  </Suspense>
+);

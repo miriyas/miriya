@@ -5,19 +5,29 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useResetAtom } from 'jotai/utils';
 import { FormEventHandler } from 'react';
 
+import usePentax from '../../usePentax';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { UserWithRole } from '@/types/auth.d';
-import { SUB_TARGET_CATEGORY } from '@/types/comments.d';
+import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
 import { FBPentaxSlr, PentaxSlrMountTypes } from '@/types/pentaxes';
 import { PentaxSLRSchema, pentaxSlrValidator } from '@/utils/validator';
 import { editCameraAtom } from '../states';
 import { patchPentaxSlrAPI } from '@/services/pentaxes';
 
+import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
+
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useSlrEditor = (camera: FBPentaxSlr) => {
+  const { reloadHistories } = useCommentAndHistory({
+    targetCategory: TARGET_CATEGORY.PENTAX,
+    targetSubCategory: SUB_TARGET_CATEGORY.SLR,
+    targetId: camera.id,
+  });
+  const { reloadSlr } = usePentax();
+
   const { isAdmin, isSupporter, user } = useAuth();
   const { addAlert } = useAlert();
   const resetEditCamera = useResetAtom(editCameraAtom);
@@ -120,6 +130,8 @@ const useSlrEditor = (camera: FBPentaxSlr) => {
       targetSubCategory: SUB_TARGET_CATEGORY.SLR,
     }).then(() => {
       resetEditCamera();
+      reloadSlr();
+      reloadHistories();
     });
   });
 

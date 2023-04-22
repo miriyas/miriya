@@ -1,10 +1,9 @@
 // https://wneild.medium.com/tracking-document-timestamps-with-firestore-638a5522753c
 
-import { collection, query, where, orderBy, limit, getDocs, onSnapshot } from 'firebase/firestore';
-import { Dispatch, SetStateAction } from 'react';
+import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 
 import { db } from '@/utils/firebase';
-import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
+import { TargetCategoryTypes } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
 import { History } from '@/types/histories.d';
 
@@ -15,39 +14,6 @@ const historiesQuery = (targetCategory: TargetCategoryTypes, order: 'asc' | 'des
   query(
     collection(db, COLLECTION.HISTORIES),
     where('targetCategory', '==', targetCategory),
-    orderBy('createdAt', order),
-    limit(limitCount),
-  );
-
-/** 카테고리 내 타겟 내 모든 기록을 정렬해서 불러옴 */
-const historiesInTargetQuery = (
-  targetCategory: TargetCategoryTypes,
-  targetId: string,
-  order: 'asc' | 'desc',
-  limitCount: number,
-) =>
-  query(
-    collection(db, COLLECTION.HISTORIES),
-    where('targetCategory', '==', targetCategory),
-    where('targetId', '==', targetId),
-    orderBy('createdAt', order),
-    limit(limitCount),
-  );
-
-/** 카테고리 내 서브 카테고리 내 타겟 내 모든 기록을 정렬해서 불러옴
- * 펜탁스에서 사용 */
-const historiesInTargetQueryWithSubCategory = (
-  targetCategory: TargetCategoryTypes,
-  targetSubCategory: SubTargetCategoryTypes,
-  targetId: string,
-  order: 'asc' | 'desc',
-  limitCount: number,
-) =>
-  query(
-    collection(db, COLLECTION.HISTORIES),
-    where('targetCategory', '==', targetCategory),
-    where('targetSubCategory', '==', targetSubCategory),
-    where('targetId', '==', targetId),
     orderBy('createdAt', order),
     limit(limitCount),
   );
@@ -65,28 +31,5 @@ export const getHistories = async (targetCategory: TargetCategoryTypes, limitCou
       ...item.data(),
       id: item.id,
     } as History;
-  });
-};
-
-export const getHistoriesInTargetRealtime = (
-  targetCategory: TargetCategoryTypes,
-  targetId: string,
-  setHistories: Dispatch<SetStateAction<History[]>>,
-  targetSubCategory?: SubTargetCategoryTypes,
-) => {
-  const q = targetSubCategory
-    ? historiesInTargetQueryWithSubCategory(targetCategory, targetSubCategory, targetId, 'desc', 1000)
-    : historiesInTargetQuery(targetCategory, targetId, 'desc', 1000);
-  return onSnapshot(q, (querySnapshot) => {
-    const histories = querySnapshot.docs
-      .filter((item) => !item.metadata.hasPendingWrites)
-      .sort((a, b) => b.data().createdAt - a.data().createdAt)
-      .map((item) => {
-        return {
-          ...item.data(),
-          id: item.id,
-        } as History;
-      });
-    setHistories(histories);
   });
 };
