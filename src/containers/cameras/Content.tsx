@@ -4,10 +4,10 @@ import dynamic from 'next/dynamic';
 
 import useCameras from './useCameras';
 
-import Loading from '@/components/Loading';
+import TopPlaceholder from './Top/Placeholder';
 import CameraYearPlaceholder from './CameraYears/Placeholder';
 
-const Top = dynamic(() => import('./Top'), { ssr: false, loading: () => <Loading /> });
+const Top = dynamic(() => import('./Top'), { ssr: false, loading: () => <TopPlaceholder /> });
 const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 const CamerasPageContent = () => {

@@ -59,7 +59,7 @@
       }
 
       &.placeholder::before {
-        background-color: var(--color-gray-d);
+        display: none;
       }
 
       a {
