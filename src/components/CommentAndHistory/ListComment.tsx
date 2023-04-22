@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
 import cx from 'clsx';
 
-import { Comment, SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
-import { getCommentsInTargetRealtime } from '@/services/firebase/comments';
+import useCommentAndHistory from './useCommentAndHistory';
+import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 
+import Loading from '@/components/Loading';
 import ItemComment from './ItemComment';
-import itemStyles from './Item.module.scss';
-import styles from './List.module.scss';
+import liststyles from './List.module.scss';
+import styles from './Item.module.scss';
 
 interface Props {
   targetCategory: TargetCategoryTypes;
@@ -15,21 +15,24 @@ interface Props {
 }
 
 export const ListComment = ({ targetCategory, targetSubCategory, targetId }: Props) => {
-  const [comments, setComments] = useState<Comment[]>([]);
+  const { comments, isLoadingComments } = useCommentAndHistory({ targetCategory, targetSubCategory, targetId });
 
-  useEffect(() => {
-    const unSubscribe = getCommentsInTargetRealtime(targetCategory, targetId, setComments, targetSubCategory);
-    return () => unSubscribe();
-  }, [targetCategory, targetSubCategory, targetId]);
+  if (isLoadingComments) {
+    return (
+      <div className={cx(liststyles.list, liststyles.loading)}>
+        <Loading small />
+      </div>
+    );
+  }
 
   return (
-    <ul className={styles.list}>
+    <ul className={liststyles.list}>
       {comments.map((comment) => (
         <ItemComment key={comment.id} comment={comment} />
       ))}
       {comments.length === 0 && (
-        <li className={cx(itemStyles.item, itemStyles.blank)}>
-          <div className={itemStyles.upper}>가장 먼저 댓글을 달아주세요!</div>
+        <li className={cx(styles.item, styles.blank)}>
+          <div className={styles.upper}>가장 먼저 댓글을 달아주세요!</div>
         </li>
       )}
     </ul>

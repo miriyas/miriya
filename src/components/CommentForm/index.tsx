@@ -1,11 +1,13 @@
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import cx from 'clsx';
 
-import { createCommentDoc } from '@/services/firebase/comments';
-import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
-import { getAuthorData } from '@/utils';
 import useAuth from '@/hooks/useAuth';
+import useCameras from '@/containers/cameras/useCameras';
+import { SubTargetCategoryTypes, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
+import { getAuthorData } from '@/utils';
+import { postCommentAPI } from '@/services/comments';
 
+import useCommentAndHistory from '../CommentAndHistory/useCommentAndHistory';
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
 import styles from './index.module.scss';
@@ -18,16 +20,21 @@ interface Props {
 }
 
 const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }: Props) => {
-  const [body, setBody] = useState('');
-
   const { user } = useAuth();
+  const { reload } = useCameras();
+  const { reloadComments } = useCommentAndHistory({
+    targetCategory,
+    targetSubCategory,
+    targetId,
+  });
+  const [body, setBody] = useState('');
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (!user) return;
 
     if (targetSubCategory) {
-      createCommentDoc({
+      postCommentAPI({
         ...getAuthorData(user),
         body,
         targetCategory,
@@ -36,11 +43,12 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
         targetName,
       }).then(() => {
         setBody('');
+        reloadComments();
       });
       return;
     }
 
-    createCommentDoc({
+    postCommentAPI({
       ...getAuthorData(user),
       body,
       targetCategory,
@@ -48,6 +56,8 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
       targetName,
     }).then(() => {
       setBody('');
+      reloadComments();
+      if (targetCategory === TARGET_CATEGORY.CAMERA) reload();
     });
   };
 

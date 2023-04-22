@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useQueries, UseQueryResult } from '@tanstack/react-query';
 
 import { RECENT_CATEGORIES } from '@/types/minihome.d';
-import { getCommentsCountInTarget } from '@/services/firebase/comments';
+import { getMinihomRightCounterDataAPI } from '@/services/minihome';
 
 import styles from './RightCategory.module.scss';
 
@@ -23,8 +23,8 @@ const RightCategory = () => {
   const keys = Object.keys(RECENT_CATEGORIES) as Array<keyof typeof RECENT_CATEGORIES>;
   const data = useQueries<UseQueryResult<CounterData, unknown>[]>({
     queries: keys.map((tc) => ({
-      queryKey: ['getCommentsCountInTarget', tc],
-      queryFn: () => getCommentsCountInTarget(tc),
+      queryKey: ['getMinihomRightCounterDataAPI', tc],
+      queryFn: () => getMinihomRightCounterDataAPI(tc).then((res) => res.data),
       placeholderData: INITIAL_COUNT,
     })),
   });

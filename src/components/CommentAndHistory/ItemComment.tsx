@@ -4,17 +4,23 @@ import cx from 'clsx';
 import useAuth from '@/hooks/useAuth';
 import { Comment } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
-import { markDeleteComment } from '@/services/firebase/comments';
+import { deleteCommentAPI } from '@/services/comments';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import CommentEditForm from './CommentEditForm';
 import styles from './Item.module.scss';
+import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 
 interface Props {
   comment: Comment;
 }
 
 const ItemComment = ({ comment }: Props) => {
+  const { reloadComments } = useCommentAndHistory({
+    targetCategory: comment.targetCategory,
+    targetSubCategory: comment.targetSubCategory,
+    targetId: comment.targetId ?? 'undefined',
+  });
   const { isMine, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -23,7 +29,9 @@ const ItemComment = ({ comment }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
-    markDeleteComment(comment, e.currentTarget.dataset.authorId!);
+    deleteCommentAPI(comment.id, e.currentTarget.dataset.authorId!).then(() => {
+      reloadComments();
+    });
   };
 
   const deleted = comment.deletedAt.seconds > 0;

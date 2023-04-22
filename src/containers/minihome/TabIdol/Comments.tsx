@@ -3,16 +3,16 @@
 import { useQuery } from '@tanstack/react-query';
 import cx from 'clsx';
 
-import { getComments } from '@/services/firebase/comments';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
+import { getMinihomeCommentDataAPI } from '@/services/minihome';
 
 import styles from '../common.module.scss';
 
 const Comments = () => {
   const { data: comments = [] } = useQuery(
-    ['getComments', TARGET_CATEGORY.IDOLS, 1000],
-    () => getComments(TARGET_CATEGORY.IDOLS, 1000).then((res) => res),
+    ['getMinihomeCommentDataAPI', TARGET_CATEGORY.IDOLS, 1000],
+    () => getMinihomeCommentDataAPI(TARGET_CATEGORY.IDOLS, 1000).then((res) => res.data),
     {
       suspense: true,
       cacheTime: 6 * 1000,

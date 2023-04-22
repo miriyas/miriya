@@ -3,17 +3,21 @@
 import cx from 'clsx';
 import { useQuery } from '@tanstack/react-query';
 
-import { getRecentComments } from '@/services/firebase/comments';
 import { RECENT_CATEGORIES } from '@/types/minihome.d';
+import { getMinihomeLeftCommentsDataAPI } from '@/services/minihome';
 
 import styles from './LeftRecent.module.scss';
 
 const LeftRecent = () => {
-  const { data: recentComments } = useQuery(['getRecentGuestComments'], () => getRecentComments(4).then((res) => res), {
-    suspense: true,
-    cacheTime: 6 * 1000,
-    refetchOnMount: false,
-  });
+  const { data: recentComments } = useQuery(
+    ['getMinihomeLeftCommentsDataAPI'],
+    () => getMinihomeLeftCommentsDataAPI(4).then((res) => res.data),
+    {
+      suspense: true,
+      cacheTime: 6 * 1000,
+      refetchOnMount: false,
+    },
+  );
 
   return (
     <ul className={styles.leftRecent}>

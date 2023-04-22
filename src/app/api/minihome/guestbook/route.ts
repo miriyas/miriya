@@ -8,7 +8,8 @@ import { db } from '@/utils/firebase';
 import { db as adminDb, initialAdminTs } from '@/utils/db';
 import { Comment, NewComment, TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION } from '@/types/firebase.d';
-import { getAdminUsers } from '@/services/firebase/auth';
+
+import { getAdminUsers } from '@/app/api/utils';
 
 const q = query(collection(db, COLLECTION.COMMENTS), where('targetCategory', '==', TARGET_CATEGORY.GUESTBOOK));
 

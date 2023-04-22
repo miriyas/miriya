@@ -4,8 +4,9 @@ import { signOut, User } from 'firebase/auth';
 import { useCallback, useMemo } from 'react';
 
 import { auth } from '@/utils/firebase';
-import { getAdminUsers, getSupporters } from '@/services/firebase/auth';
 import { UserWithRole } from '@/types/auth.d';
+
+import { getAdminUsers, getSupporters } from '@/app/api/utils';
 
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
