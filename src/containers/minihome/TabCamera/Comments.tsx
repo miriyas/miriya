@@ -23,7 +23,7 @@ const Comments = () => {
   return (
     <>
       <p className={styles.desc}>
-        일촌, 단짝친구 공개 폴더입니다 <span>[{comments[0].commentNoInCategory}]</span>
+        일촌, 단짝친구 공개 폴더입니다 <span>[{comments[0]?.commentNoInCategory}]</span>
       </p>
       <ul>
         <li className={styles.header}>

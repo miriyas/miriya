@@ -15,7 +15,9 @@ const processData = (rawString: string) => {
     const rows: string[] = [];
     $(tr)
       .find('td')
-      .each((_tdi, td) => rows.push(trim($(td).text())));
+      .each((_tdi, td) => {
+        rows.push(trim($(td).text()));
+      });
     table[rows[0].replace(':', '')] = rows[1];
   });
   return table;

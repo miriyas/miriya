@@ -1,4 +1,4 @@
-import { ValueOf } from '@/types.d';
+import { ValueOf } from '@/types/index.d';
 import { WithTS } from '@/types/firebase';
 
 export const MOUNT = {

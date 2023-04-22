@@ -39,14 +39,3 @@ export const valueOr = (value: string | boolean | undefined, _placeholder?: stri
   if (value === '') return placeholder;
   return ifTrue ?? value;
 };
-
-// export const getSystemAuthor = () => {
-//   return {
-//     authorId: 'fXruvSpnIcMp20gi6a6HhOdihli1',
-//     author: {
-//       nickname: 'SYSTEM',
-//       nicknameIsFake: true,
-//       profileUrl: 'https://miriya.vercel.app/android-chrome-192x192.png',
-//     },
-//   };
-// };

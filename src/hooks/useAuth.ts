@@ -2,11 +2,11 @@ import { useMount } from 'react-use';
 import { atom, useAtom } from 'jotai';
 import { signOut, User } from 'firebase/auth';
 import { useCallback, useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 import { auth } from '@/utils/db';
 import { UserWithRole } from '@/types/auth.d';
-
-import { getAdminUsers, getSupporters } from '@/app/api/utils';
+import { getAdminUsersApi, getSupportersApi } from '@/services/auth';
 
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
@@ -14,15 +14,33 @@ export const supporterUsersAtom = atom<UserWithRole[]>([]);
 
 const useAuth = () => {
   const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
-  const [adminUsers, setAdminUsers] = useAtom(adminUsersAtom);
-  const [supporterUsers, setSupporterUsers] = useAtom(supporterUsersAtom);
+
+  const { data: adminUsers = [] } = useQuery(
+    ['getAdminUsersApi'],
+    () => {
+      return getAdminUsersApi().then((res) => res.data);
+    },
+    {
+      cacheTime: 6 * 1000,
+      refetchOnMount: false,
+    },
+  );
+
+  const { data: supporterUsers = [] } = useQuery(
+    ['getSupportersApi'],
+    () => {
+      return getSupportersApi().then((res) => res.data);
+    },
+    {
+      cacheTime: 6 * 1000,
+      refetchOnMount: false,
+    },
+  );
 
   useMount(async () => {
     auth.onAuthStateChanged((u) => {
       setCurrentUser(u);
     });
-    setAdminUsers(await getAdminUsers());
-    setSupporterUsers(await getSupporters());
   });
 
   const currentUserId = auth.currentUser?.uid;

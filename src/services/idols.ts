@@ -1,9 +1,9 @@
 import { User } from 'firebase/auth';
 
-import apiClient from '@/services/apiClient';
+import apiClient, { apiClientLocal } from '@/services/apiClient';
 import { FBIdolType, YearDescType } from '@/types/idols.d';
 
-export const crawlIdolData = () => apiClient('/idols/crawl');
+export const crawlIdolData = () => apiClientLocal('/idols/crawl');
 
 export const getIdolsDataApi = () => apiClient<FBIdolType[]>('/idols/data');
 

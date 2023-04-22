@@ -20,6 +20,7 @@ const nextConfig = {
     ],
   },
   env: {
+    NEXT_PUBLIC_LOCAL_FETCH_URL: process.env.NEXT_PUBLIC_LOCAL_FETCH_URL,
     NEXT_PUBLIC_BASE_FETCH_URL: process.env.NEXT_PUBLIC_BASE_FETCH_URL,
     NEXT_PUBLIC_GA_ID: 'G-BCXXRGTY78',
     NEXT_PUBLIC_CDN_URL: 'https://miriya.sgp1.cdn.digitaloceanspaces.com',

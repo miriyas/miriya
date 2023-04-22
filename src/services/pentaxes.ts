@@ -1,9 +1,9 @@
-import apiClient from '@/services/apiClient';
+import apiClient, { apiClientLocal } from '@/services/apiClient';
 import { DslrEditProps, FBPentaxDslr, FBPentaxSlr, SlrEditProps } from '@/types/pentaxes.d';
 
-export const getReadMeMarkdownApi = () => apiClient('/pentax/markdown/readme');
+export const getReadMeMarkdownApi = () => apiClientLocal('/pentax/markdown/readme');
 
-export const getDescMarkdownApi = () => apiClient('/pentax/markdown/desc');
+export const getDescMarkdownApi = () => apiClientLocal('/pentax/markdown/desc');
 
 export const getPentaxDslrDataApi = () => apiClient<FBPentaxDslr[]>('/pentax/dslr');
 

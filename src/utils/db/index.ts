@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, Timestamp } from 'firebase/firestore';
 import { FacebookAuthProvider, getAuth, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -14,8 +13,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore();
-
 export const auth = getAuth(app);
 
 export const PROVIDERS = {
@@ -23,5 +20,3 @@ export const PROVIDERS = {
   facebook: new FacebookAuthProvider(),
   github: new GithubAuthProvider(),
 };
-
-export const initialTs = new Timestamp(0, 0);
