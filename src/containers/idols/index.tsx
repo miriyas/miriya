@@ -2,9 +2,9 @@
 
 import dynamic from 'next/dynamic';
 
-import Loading from '@/components/Loading';
+import LoadingPage from '@/components/Loading/LoadingPage';
 
-const Content = dynamic(() => import('./Content'), { ssr: false, loading: () => <Loading /> });
+const Content = dynamic(() => import('./Content'), { ssr: false, loading: () => <LoadingPage /> });
 
 const IdolsPageContent = () => {
   return <Content />;
