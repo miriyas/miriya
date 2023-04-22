@@ -7,6 +7,7 @@
     @include m.flexbox;
     position: relative;
     width: 100%;
+    height: calc(var(--h-pentax-picture) + var(--x-pentax-dslr-cell));
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-black);
   }
@@ -15,7 +16,7 @@
     @include m.flexbox(start, start);
     flex: 1;
     flex-direction: column;
-    height: calc(var(--h-pentax-picture) + var(--x-pentax-dslr-cell));
+    height: 100%;
     overflow: hidden;
     background-color: var(--color-black);
 
@@ -87,5 +88,6 @@
     @include m.flexbox;
     width: 100%;
     height: var(--h-pentax-data);
+    overflow: hidden;
   }
 }

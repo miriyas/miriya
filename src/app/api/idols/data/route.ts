@@ -8,8 +8,9 @@ import { db } from '@/utils/firebase';
 import { FBIdolType } from '@/types/idols.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION, IDOL_COLLECTION_NAMES } from '@/types/firebase.d';
-import { createHistoryDoc } from '@/services/firebase/histories';
 import { getUserName } from '@/utils';
+
+import { createHistoryDoc } from '@/app/api/histories/services';
 
 const getIdolsSnapshot = async (order: 'asc' | 'desc', limitCount: number) => {
   const q = query(
@@ -60,12 +61,12 @@ const editIdolDoc = async ({ newIdol, changed, user }: EditParams) => {
     youtube: newIdol.youtube,
     updatedAt: serverTimestamp(),
   }).then(() => {
-    createHistoryDoc(
-      `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
-      TARGET_CATEGORY.IDOLS,
-      newIdol.name,
-      newIdol.name,
-    );
+    createHistoryDoc({
+      body: `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
+      targetCategory: TARGET_CATEGORY.IDOLS,
+      targetId: newIdol.name,
+      targetName: newIdol.name,
+    });
   });
 };
 

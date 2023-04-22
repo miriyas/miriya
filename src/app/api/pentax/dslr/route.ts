@@ -6,10 +6,12 @@ import admin from 'firebase-admin';
 
 import { db } from '@/utils/firebase';
 import { db as adminDb } from '@/utils/db';
-import { FBPentaxDslr, FBPentaxSlr } from '@/types/pentaxes.d';
-import { Comment, NewComment, TARGET_CATEGORY } from '@/types/comments.d';
+import { DslrEditProps, FBPentaxDslr } from '@/types/pentaxes.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { COLLECTION, PENTAX_COLLECTION_NAMES } from '@/types/firebase.d';
-import { getAdminUsers } from '@/services/firebase/auth';
+import { getUserName } from '@/utils';
+
+import { createHistoryDoc } from '@/app/api/histories/services';
 
 const getPentaxDslrs = async () => {
   const q = query(collection(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES.DSLR));
@@ -39,40 +41,25 @@ const getPentaxDslrs = async () => {
 //   });
 // };
 
-const editGuestCommentDoc = async (comment: Comment) => {
-  adminDb.collection(COLLECTION.COMMENTS).doc(comment.id).update({
-    body: comment.body,
-    hidden: comment.hidden,
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-  });
+const editPentaxDslrDoc = async (props: DslrEditProps) => {
+  const { camera, changed, user, targetSubCategory } = props;
+  adminDb
+    .collection(`${COLLECTION.PENTAXES}/data/${PENTAX_COLLECTION_NAMES[targetSubCategory]}`)
+    .doc(camera.id)
+    .update({
+      ...camera,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    })
+    .then(() => {
+      createHistoryDoc({
+        body: `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
+        targetCategory: TARGET_CATEGORY.PENTAX,
+        targetSubCategory,
+        targetId: camera.id,
+        targetName: camera.name,
+      });
+    });
 };
-
-// export const editPentaxDoc = async (
-//   newCamera: FBPentaxSLRSchema | FBPentaxDSLRSchema,
-//   changed: string[],
-//   user: User,
-//   subTargetCategory: SubTargetCategoryTypes,
-// ) => {
-//   const ref = doc(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES[subTargetCategory], newCamera.id);
-//   updateDoc(ref, {
-//     ...newCamera,
-//     updatedAt: serverTimestamp(),
-//   }).then(() => {
-//     createHistoryDoc(
-//       `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
-//       TARGET_CATEGORY.PENTAX,
-//       newCamera.id,
-//       newCamera.name,
-//       subTargetCategory,
-//     );
-//   });
-// };
-
-// export const deleteGuestComment = async (commentId: string, authorId: string) => {
-//   const uid = auth.currentUser?.uid;
-//   if (uid !== authorId) return;
-//   await deleteDoc(doc(db, COLLECTION.COMMENTS, commentId));
-// };
 
 export const GET = async () => {
   const data = await getPentaxDslrs();
@@ -80,6 +67,6 @@ export const GET = async () => {
 };
 
 export const PATCH = async (request: NextRequest) => {
-  await editGuestCommentDoc(await request.json());
+  await editPentaxDslrDoc(await request.json());
   return new Response();
 };

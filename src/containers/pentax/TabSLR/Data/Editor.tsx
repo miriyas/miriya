@@ -3,7 +3,7 @@
 import cx from 'clsx';
 
 import { FBPentaxSlr } from '@/types/pentaxes.d';
-import useEditor from './useEditor';
+import useSlrEditor from './useSlrEditor';
 
 import { yearsField, mountField, dimensionField, fields1, fields2, fields3, fields4, fields5, fields6 } from './fields';
 import EditorInputs from '@/components/EditorInputs';
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Editor = ({ camera }: Props) => {
-  const { errors, dirtyFields, isDirty, register, onSubmit, onClickCancel } = useEditor(camera);
+  const { errors, dirtyFields, isDirty, register, onSubmit, onClickCancel } = useSlrEditor(camera);
   return (
     <form className={cx(styles.editor, styles.slr)} onSubmit={onSubmit}>
       <div className={styles.column}>

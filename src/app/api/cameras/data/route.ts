@@ -8,9 +8,10 @@ import { db } from '@/utils/firebase';
 import { FBCameraType } from '@/types/cameras.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { CAMERA_COLLECTION_NAMES, COLLECTION } from '@/types/firebase.d';
-import { createHistoryDoc } from '@/services/firebase/histories';
 import { FBCamerachema } from '@/utils/validator';
 import { getUserName } from '@/utils';
+
+import { createHistoryDoc } from '@/app/api/histories/services';
 
 const q = query(collection(db, COLLECTION.CAMERAS, 'data', CAMERA_COLLECTION_NAMES.CAMERA), orderBy('year', 'asc'));
 
@@ -54,12 +55,12 @@ const editCameraDoc = async (params: EditParams) => {
     ...newCamera,
     updatedAt: serverTimestamp(),
   }).then(() => {
-    createHistoryDoc(
-      `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
-      TARGET_CATEGORY.CAMERA,
-      newCamera.id,
-      newCamera.name,
-    );
+    createHistoryDoc({
+      body: `${changed.join(', ')} 항목을 ${getUserName(user)} 님이 수정했습니다.`,
+      targetCategory: TARGET_CATEGORY.CAMERA,
+      targetId: newCamera.id,
+      targetName: newCamera.name,
+    });
   });
 };
 

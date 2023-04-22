@@ -60,7 +60,7 @@ const Contents = ({ data }: Props) => {
         <Comments
           selectedCameraId={selectedCamera?.id}
           selectedCameraName={selectedCamera?.name}
-          subTargetCategory={SUB_TARGET_CATEGORY.SLR}
+          targetSubCategory={SUB_TARGET_CATEGORY.SLR}
         />
         <Data selectedCamera={selectedCamera} />
       </div>

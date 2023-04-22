@@ -1,16 +1,6 @@
 // https://wneild.medium.com/tracking-document-timestamps-with-firestore-638a5522753c
 
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  query,
-  where,
-  orderBy,
-  limit,
-  getDocs,
-  onSnapshot,
-} from 'firebase/firestore';
+import { collection, query, where, orderBy, limit, getDocs, onSnapshot } from 'firebase/firestore';
 import { Dispatch, SetStateAction } from 'react';
 
 import { db } from '@/utils/firebase';
@@ -99,31 +89,4 @@ export const getHistoriesInTargetRealtime = (
       });
     setHistories(histories);
   });
-};
-
-export const createHistoryDoc = async (
-  body: string,
-  targetCategory: TargetCategoryTypes,
-  targetId: string,
-  targetName: string,
-  targetSubCategory?: SubTargetCategoryTypes,
-) => {
-  if (targetSubCategory) {
-    await addDoc(collection(db, COLLECTION.HISTORIES), {
-      body,
-      targetCategory,
-      targetSubCategory,
-      targetId,
-      targetName,
-      createdAt: serverTimestamp(),
-    });
-  } else {
-    await addDoc(collection(db, COLLECTION.HISTORIES), {
-      body,
-      targetCategory,
-      targetId,
-      targetName,
-      createdAt: serverTimestamp(),
-    });
-  }
 };

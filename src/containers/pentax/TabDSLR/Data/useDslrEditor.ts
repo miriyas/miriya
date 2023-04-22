@@ -11,13 +11,15 @@ import { UserWithRole } from '@/types/auth.d';
 import { SUB_TARGET_CATEGORY } from '@/types/comments.d';
 import { FBPentaxDslr } from '@/types/pentaxes';
 import { PentaxDSLRSchema, pentaxDslrValidator } from '@/utils/validator';
-import { editPentaxDoc } from '@/services/firebase/pentaxes';
 import { editCameraAtom } from '../states';
+import { patchPentaxDslrAPI } from '@/services/pentaxes';
+import usePentax from '../../usePentax';
 
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
 
-const useEditor = (camera: FBPentaxDslr) => {
+const useDslrEditor = (camera: FBPentaxDslr) => {
+  const { reloadDslr } = usePentax();
   const { isAdmin, isSupporter, user } = useAuth();
   const { addAlert } = useAlert();
   const resetEditCamera = useResetAtom(editCameraAtom);
@@ -111,16 +113,17 @@ const useEditor = (camera: FBPentaxDslr) => {
       dataKeys = Object.keys(dirtyFields?.data);
     }
 
-    editPentaxDoc(
-      {
+    patchPentaxDslrAPI({
+      camera: {
         ...camera,
         ...formValues,
       },
-      [...keys, ...dataKeys],
+      changed: [...keys, ...dataKeys],
       user,
-      SUB_TARGET_CATEGORY.DSLR,
-    ).then(() => {
+      targetSubCategory: SUB_TARGET_CATEGORY.DSLR,
+    }).then(() => {
       resetEditCamera();
+      reloadDslr();
     });
   });
 
@@ -158,4 +161,4 @@ const useEditor = (camera: FBPentaxDslr) => {
   };
 };
 
-export default useEditor;
+export default useDslrEditor;

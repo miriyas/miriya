@@ -12,10 +12,10 @@ import CommentForm from '@/components/CommentForm';
 interface Props {
   selectedCameraId?: string;
   selectedCameraName?: string;
-  subTargetCategory: SubTargetCategoryTypes;
+  targetSubCategory: SubTargetCategoryTypes;
 }
 
-const Comments = ({ selectedCameraId, selectedCameraName, subTargetCategory }: Props) => {
+const Comments = ({ selectedCameraId, selectedCameraName, targetSubCategory }: Props) => {
   const [showHistory, setShowHistory] = useState<'comments' | 'history'>('comments');
 
   if (!selectedCameraId || !selectedCameraName) return null;
@@ -42,21 +42,21 @@ const Comments = ({ selectedCameraId, selectedCameraName, subTargetCategory }: P
       </nav>
       <CommentForm
         targetCategory={TARGET_CATEGORY.PENTAX}
-        targetSubCategory={subTargetCategory}
+        targetSubCategory={targetSubCategory}
         targetId={selectedCameraId}
         targetName={selectedCameraName}
       />
       {showHistory === 'comments' && (
         <ListComment
           targetCategory={TARGET_CATEGORY.PENTAX}
-          targetSubCategory={subTargetCategory}
+          targetSubCategory={targetSubCategory}
           targetId={selectedCameraId}
         />
       )}
       {showHistory === 'history' && (
         <ListHistory
           targetCategory={TARGET_CATEGORY.PENTAX}
-          targetSubCategory={subTargetCategory}
+          targetSubCategory={targetSubCategory}
           targetId={selectedCameraId}
         />
       )}
