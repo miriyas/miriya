@@ -58,6 +58,10 @@
         border-radius: 50%;
       }
 
+      &.placeholder::before {
+        background-color: var(--color-gray-d);
+      }
+
       a {
         overflow: hidden;
         font-size: 12px;

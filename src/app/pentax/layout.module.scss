@@ -17,6 +17,10 @@
   .centering {
     width: 1200px;
 
+    &.loading {
+      @include m.flexbox;
+    }
+
     section {
       @include m.flexbox;
       flex-direction: column;

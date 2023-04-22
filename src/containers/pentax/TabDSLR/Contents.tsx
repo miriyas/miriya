@@ -17,7 +17,7 @@ import Comments from '../_common/Comments';
 import ViewMoreButton from '../_common/ViewMoreButton';
 import Camera from './Camera';
 import Data from './Data';
-import styles from './TabDSLR.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   data: FBPentaxDslr[];
@@ -35,7 +35,7 @@ const Contents = ({ data }: Props) => {
   const yearEnd = useMemo(() => Math.max(...data.map((camera) => camera.endYear ?? camera.startYear)), [data]) + 1;
 
   useMount(() => {
-    setSelectedCameraName(data[0].name);
+    setSelectedCameraName('K10D');
   });
 
   return (

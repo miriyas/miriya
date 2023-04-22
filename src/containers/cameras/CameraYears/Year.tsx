@@ -8,7 +8,7 @@ import { FBCameraType } from '@/types/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
 import Camera from './CameraCard';
-import styles from './CameraYears.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   cameras: FBCameraType[];

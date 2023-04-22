@@ -5,7 +5,7 @@ import cx from 'clsx';
 import { getNumberArr } from '@/utils';
 
 import CameraPlaceholder from './CameraCard/Placeholder';
-import styles from './CameraYears.module.scss';
+import styles from './index.module.scss';
 
 const CameraYearPlaceholder = () => {
   return (

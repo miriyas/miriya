@@ -116,7 +116,7 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 
 각종 리드미나 글 들은 마크다운 파일로 만들어 렌더링했습니다. 서브라우팅 부분은 Next AppDir의 layout을 사용했고, 타임라인 부분은 드래그해서 스크롤 할 수 있게 만들었습니다. 맨 우측의 화살표 부분은 IntersectionObserver를 사용했습니다. 캔버스로 구현할까 하다가, 목적에 맞지 않는것 같아 단순 HTML로 작업했네요.
 
-타임라인의 모눈의 경우, 처음에는 ul/li를 사용했는데, 가로로 120개, 세로로 15개 해서 총 1800개의 DOM을 만들어야 했습니다. 이거 도저히 무식해서 눈뜨고 봐 줄 수가 없어서 방법을 찾다가, repeating-linear-gradient 4중첩을 이용해 DOM 하나로 구현해냈습니다. src/containers/pentax/TabDSLR/TabDSLR.module.scss 참고.
+타임라인의 모눈의 경우, 처음에는 ul/li를 사용했는데, 가로로 120개, 세로로 15개 해서 총 1800개의 DOM을 만들어야 했습니다. 이거 도저히 무식해서 눈뜨고 봐 줄 수가 없어서 방법을 찾다가, repeating-linear-gradient 4중첩을 이용해 DOM 하나로 구현해냈습니다. src/containers/pentax/TabDSLR/index.module.scss 참고.
 
 <br />
 <br />

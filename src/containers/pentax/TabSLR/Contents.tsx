@@ -13,7 +13,7 @@ import Picture from '../_common/Picture';
 import Comments from '../_common/Comments';
 import Camera from './Camera';
 import Data from './Data';
-import styles from './TabSLR.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   data: FBPentaxSlr[];

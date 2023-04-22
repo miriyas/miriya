@@ -1,13 +1,15 @@
+import cx from 'clsx';
+
 import LoadingSpinner from '@/components/Loading';
 import styles from './layout.module.scss';
 
 const Loading = () => {
   return (
-    <main className={styles.pentaxes}>
-      <div className={styles.centering}>
+    <section className={styles.wrapper}>
+      <div className={cx(styles.centering, styles.loading)}>
         <LoadingSpinner />
       </div>
-    </main>
+    </section>
   );
 };
 

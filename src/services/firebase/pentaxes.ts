@@ -15,7 +15,7 @@ export const getPentaxSlrsRealtime = (setSlrs: Dispatch<SetStateAction<FBPentaxS
   const q = query(collection(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES.SLR));
   return onSnapshot(q, (querySnapshot) => {
     const slrs = querySnapshot.docs
-      .sort((a, b) => b.data().debutYear - a.data().debutYear)
+      .sort((a, b) => b.data().startYear - a.data().startYear)
       .map((item) => {
         return {
           id: item.id,
@@ -31,7 +31,7 @@ export const getPentaxDslrsRealtime = (setDslrs: Dispatch<SetStateAction<FBPenta
   const q = query(collection(db, COLLECTION.PENTAXES, 'data', PENTAX_COLLECTION_NAMES.DSLR));
   return onSnapshot(q, (querySnapshot) => {
     const dslrs = querySnapshot.docs
-      .sort((a, b) => b.data().debutYear - a.data().debutYear)
+      .sort((a, b) => b.data().startYear - a.data().startYear)
       .map((item) => {
         return {
           id: item.id,

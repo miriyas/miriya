@@ -8,12 +8,10 @@ import { FBCameraType } from '@/types/cameras.d';
 
 import Header from './Header';
 import News from './News';
+import NewsPlaceholder from './NewsPlaceholder';
 import Years from './Years';
 import Categories from './Categories';
-// import CameraYearPlaceholder from './CameraYears/Placeholder';
 import styles from './index.module.scss';
-
-// const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 interface Props {
   cameras: FBCameraType[];
@@ -27,7 +25,9 @@ const Top = ({ cameras, years }: Props) => {
   return (
     <div className={styles.top}>
       <Header yearStart={yearStart} yearEnd={yearEnd} length={cameras.length} />
-      <News />
+      <Suspense fallback={<NewsPlaceholder />}>
+        <News />
+      </Suspense>
       <Categories />
       <Suspense fallback={null}>
         <Years yearStart={yearStart} yearEnd={yearEnd} years={years} />

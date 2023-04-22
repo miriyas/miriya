@@ -6,7 +6,7 @@ import { Dictionary } from 'lodash';
 import { FBCameraType } from '@/types/cameras';
 
 import Year from './Year';
-import styles from './CameraYears.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   years: Dictionary<FBCameraType[]>;

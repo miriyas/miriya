@@ -1,29 +1,22 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 
-import { FBPentaxSlr } from '@/types/pentaxes.d';
-import { getPentaxSlrsRealtime } from '@/services/firebase/pentaxes';
+import usePentax from '../usePentax';
 
-import Contents from './Contents';
 import Loading from '@/components/Loading';
-import styles from './TabSLR.module.scss';
+import styles from './index.module.scss';
+
+const Contents = dynamic(() => import('./Contents'), {
+  loading: () => (
+    <section className={styles.wrapper}>
+      <Loading />
+    </section>
+  ),
+});
 
 const PentaxSLRPage = () => {
-  const [slrs, setSlrs] = useState<FBPentaxSlr[]>([]);
-
-  useEffect(() => {
-    const unSubscribe = getPentaxSlrsRealtime(setSlrs);
-    return () => unSubscribe();
-  }, []);
-
-  if (slrs.length === 0) {
-    return (
-      <section className={styles.wrapper}>
-        <Loading />
-      </section>
-    );
-  }
+  const { slrs } = usePentax();
 
   return <Contents data={slrs} />;
 };
