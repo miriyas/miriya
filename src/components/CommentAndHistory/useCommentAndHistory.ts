@@ -10,13 +10,16 @@ interface Props {
 }
 
 const useCommentAndHistory = ({ targetCategory, targetSubCategory, targetId }: Props) => {
-  const { data: histories = [], refetch: reloadHistories } = useQuery(
-    ['getHistoriesApi'],
+  const {
+    data: histories = [],
+    refetch: reloadHistories,
+    isLoading: isLoadingHistories,
+  } = useQuery(
+    ['getHistoriesApi', targetCategory, targetSubCategory, targetId],
     () => {
       return getHistoriesApi({ targetCategory, targetSubCategory, targetId }).then((res) => res.data);
     },
     {
-      suspense: true,
       cacheTime: 6 * 1000,
       refetchOnMount: false,
     },
@@ -25,6 +28,7 @@ const useCommentAndHistory = ({ targetCategory, targetSubCategory, targetId }: P
   return {
     histories,
     reloadHistories,
+    isLoadingHistories,
   };
 };
 

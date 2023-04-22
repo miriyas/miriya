@@ -6,14 +6,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import useAuth from '@/hooks/useAuth';
 import { UserWithRole } from '@/types/auth.d';
 import { FBCameraType } from '@/types/cameras.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { FBCamerachema, cameraValidator } from '@/utils/validator';
 import { editCameraDataApi } from '@/services/cameras';
 import useCameras from '../../../useCameras';
+
+import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useEditor = (camera: FBCameraType) => {
+  const { reloadHistories } = useCommentAndHistory({
+    targetCategory: TARGET_CATEGORY.CAMERA,
+    targetId: camera.id,
+  });
+
   const { user } = useAuth();
   const { reload } = useCameras();
 
@@ -89,6 +97,7 @@ const useEditor = (camera: FBCameraType) => {
     ).then(() => {
       reset();
       reload();
+      reloadHistories();
     });
   });
 

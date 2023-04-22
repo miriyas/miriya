@@ -6,16 +6,24 @@ import { useResetAtom } from 'jotai/utils';
 
 import useIdols from '../../../useIdols';
 import useAuth from '@/hooks/useAuth';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { FBIdolType } from '@/types/idols.d';
 import { UserWithRole } from '@/types/auth.d';
 import { IdolSchema, idolValidator } from '@/utils/validator';
 import { editIdolAtom } from '@/containers/idols/states';
 import { editIdolDataApi } from '@/services/idols';
 
+import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
+
 export const currentUserAtom = atom<User | null>(null);
 export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useEditor = (idol: FBIdolType) => {
+  const { reloadHistories } = useCommentAndHistory({
+    targetCategory: TARGET_CATEGORY.IDOLS,
+    targetId: idol.name,
+  });
+
   const { user } = useAuth();
   const { reload } = useIdols();
   const resetEditIdol = useResetAtom(editIdolAtom);
@@ -64,6 +72,7 @@ const useEditor = (idol: FBIdolType) => {
     ).then(() => {
       resetEditIdol();
       reload();
+      reloadHistories();
     });
   });
 

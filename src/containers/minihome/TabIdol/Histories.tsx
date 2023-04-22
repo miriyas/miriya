@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import { getHistories } from '@/services/firebase/histories';
+import { getHistoriesApi } from '@/services/histories';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 
@@ -10,8 +10,8 @@ import styles from '../common.module.scss';
 
 const Histories = () => {
   const { data: histories = [] } = useQuery(
-    ['getHistories', TARGET_CATEGORY.IDOLS, 1000],
-    () => getHistories(TARGET_CATEGORY.IDOLS, 1000).then((res) => res),
+    ['getHistoriesApi', TARGET_CATEGORY.IDOLS],
+    () => getHistoriesApi({ targetCategory: TARGET_CATEGORY.IDOLS }).then((res) => res.data),
     {
       suspense: true,
       cacheTime: 6 * 1000,

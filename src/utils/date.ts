@@ -40,8 +40,6 @@ export const getTimeDiffText = (_date?: dayjs.ConfigType, preserveDay?: boolean)
       return `${diff.hour}시간 전`;
     case diff.minute > 0:
       return `${diff.minute}분 전`;
-    case diff.second > 0:
-      return '1분 전';
     default:
       return '방금 전';
   }

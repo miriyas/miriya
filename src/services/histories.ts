@@ -5,7 +5,7 @@ import { History, NewHistory } from '@/types/histories.d';
 interface GetHistoriesParams {
   targetCategory: TargetCategoryTypes;
   targetSubCategory?: SubTargetCategoryTypes;
-  targetId: string;
+  targetId?: string;
 }
 
 export const getHistoriesApi = ({ targetCategory, targetSubCategory, targetId }: GetHistoriesParams) =>

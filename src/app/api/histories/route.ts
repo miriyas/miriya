@@ -7,6 +7,15 @@ import { db } from '@/utils/firebase';
 
 import { createHistoryDoc } from '@/app/api/histories/services';
 
+/** 방명록 - 아이돌 등 해당 카테고리 전체 기록을 정렬해서 불러옴 */
+const historiesQuery = (targetCategory: string, order: 'asc' | 'desc', limitCount: number) =>
+  query(
+    collection(db, COLLECTION.HISTORIES),
+    where('targetCategory', '==', targetCategory),
+    orderBy('createdAt', order),
+    limit(limitCount),
+  );
+
 /** 카테고리 내 타겟 내 모든 기록을 정렬해서 불러옴 */
 const historiesInTargetQuery = (targetCategory: string, targetId: string, order: 'asc' | 'desc', limitCount: number) =>
   query(
@@ -38,15 +47,21 @@ const historiesInTargetQueryWithSubCategory = (
 interface GetHistoriesParams {
   targetCategory: string;
   targetId: string;
-  targetSubCategory?: string;
+  targetSubCategory: string;
 }
 
 const getHistories = async (props: GetHistoriesParams) => {
   const { targetCategory, targetId, targetSubCategory } = props;
 
-  const q = targetSubCategory
-    ? historiesInTargetQueryWithSubCategory(targetCategory, targetSubCategory, targetId, 'desc', 1000)
-    : historiesInTargetQuery(targetCategory, targetId, 'desc', 1000);
+  let q;
+  if (targetId === 'undefined') {
+    q = historiesQuery(targetCategory, 'desc', 1000);
+  } else {
+    q =
+      targetSubCategory === 'undefined'
+        ? historiesInTargetQuery(targetCategory, targetId, 'desc', 1000)
+        : historiesInTargetQueryWithSubCategory(targetCategory, targetSubCategory, targetId, 'desc', 1000);
+  }
 
   const snapshot = await getDocs(q);
   return snapshot.docs.map((item) => {

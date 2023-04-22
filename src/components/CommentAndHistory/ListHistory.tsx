@@ -1,5 +1,4 @@
 import cx from 'clsx';
-import { Suspense } from 'react';
 
 import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
@@ -16,8 +15,16 @@ interface Props {
   targetId: string;
 }
 
-export const ListHistoryContent = ({ targetCategory, targetSubCategory, targetId }: Props) => {
-  const { histories } = useCommentAndHistory({ targetCategory, targetSubCategory, targetId });
+export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Props) => {
+  const { histories, isLoadingHistories } = useCommentAndHistory({ targetCategory, targetSubCategory, targetId });
+
+  if (isLoadingHistories) {
+    return (
+      <div className={cx(liststyles.list, liststyles.loading)}>
+        <Loading small />
+      </div>
+    );
+  }
 
   return (
     <ul className={liststyles.list}>
@@ -56,15 +63,3 @@ export const ListHistoryContent = ({ targetCategory, targetSubCategory, targetId
     </ul>
   );
 };
-
-export const ListHistory = (props: Props) => (
-  <Suspense
-    fallback={
-      <div className={cx(liststyles.list, liststyles.loading)}>
-        <Loading small />
-      </div>
-    }
-  >
-    <ListHistoryContent {...props} />
-  </Suspense>
-);
