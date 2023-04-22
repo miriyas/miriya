@@ -29,11 +29,11 @@ const CommentItem = ({ comment }: Props) => {
   };
 
   const onClickHide: MouseEventHandler<HTMLButtonElement> = () => {
-    submitEditGuestCommentHidden(comment.id, true);
+    submitEditGuestCommentHidden(comment, true);
   };
 
   const onClickShow: MouseEventHandler<HTMLButtonElement> = () => {
-    submitEditGuestCommentHidden(comment.id, false);
+    submitEditGuestCommentHidden(comment, false);
   };
 
   const deleted = comment.deletedAt.seconds > 0;

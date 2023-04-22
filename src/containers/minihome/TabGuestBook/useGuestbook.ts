@@ -69,12 +69,11 @@ const useGuestbook = () => {
     });
   };
 
-  const submitEditGuestCommentHidden = (id: string, hidden: boolean) => {
+  const submitEditGuestCommentHidden = (comment: Comment, hidden: boolean) => {
     if (!user) return;
     patchGuestbookAPI({
-      id,
+      ...comment,
       hidden,
-      targetCategory: TARGET_CATEGORY.GUESTBOOK,
     }).then(reload);
   };
 

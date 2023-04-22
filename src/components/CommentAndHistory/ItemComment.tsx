@@ -2,9 +2,10 @@ import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
-import { Comment } from '@/types/comments.d';
+import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 import { deleteCommentAPI } from '@/services/comments';
+import useCameras from '@/containers/cameras/useCameras';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import CommentEditForm from './CommentEditForm';
@@ -21,6 +22,7 @@ const ItemComment = ({ comment }: Props) => {
     targetSubCategory: comment.targetSubCategory,
     targetId: comment.targetId ?? 'undefined',
   });
+  const { reload } = useCameras();
   const { isMine, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -31,6 +33,7 @@ const ItemComment = ({ comment }: Props) => {
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
     deleteCommentAPI(comment.id, e.currentTarget.dataset.authorId!).then(() => {
       reloadComments();
+      if (comment.targetCategory === TARGET_CATEGORY.CAMERA) reload();
     });
   };
 
