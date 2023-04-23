@@ -8,7 +8,6 @@ import { FormEventHandler } from 'react';
 import usePentax from '../../usePentax';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
-import { UserWithRole } from '@/types/auth.d';
 import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
 import { FBPentaxSlr, PentaxSlrMountTypes } from '@/types/pentaxes';
 import { PentaxSLRSchema, pentaxSlrValidator } from '@/utils/validator';
@@ -18,7 +17,6 @@ import { patchPentaxSlrAPI } from '@/services/pentaxes';
 import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 
 export const currentUserAtom = atom<User | null>(null);
-export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useSlrEditor = (camera: FBPentaxSlr) => {
   const { reloadHistories } = useCommentAndHistory({

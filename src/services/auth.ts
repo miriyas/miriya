@@ -1,6 +1,4 @@
 import apiClient from '@/services/apiClient';
-import { UserWithRole } from '@/types/auth';
+import { RoleTypes } from '@/types/auth.d';
 
-export const getAdminUsersApi = () => apiClient<UserWithRole[]>('/auth/adminUsers');
-
-export const getSupportersApi = () => apiClient<UserWithRole[]>('/auth/supporters');
+export const getRoleApi = (token: string) => apiClient<RoleTypes>(`/auth/role?token=${token}`);

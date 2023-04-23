@@ -1,5 +1,3 @@
-import { atom } from 'jotai';
-import { User } from 'firebase/auth';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useResetAtom } from 'jotai/utils';
@@ -7,7 +5,6 @@ import { FormEventHandler } from 'react';
 
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
-import { UserWithRole } from '@/types/auth.d';
 import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
 import { FBPentaxDslr } from '@/types/pentaxes';
 import { PentaxDSLRSchema, pentaxDslrValidator } from '@/utils/validator';
@@ -16,9 +13,6 @@ import { patchPentaxDslrAPI } from '@/services/pentaxes';
 import usePentax from '../../usePentax';
 
 import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
-
-export const currentUserAtom = atom<User | null>(null);
-export const adminUsersAtom = atom<UserWithRole[]>([]);
 
 const useDslrEditor = (camera: FBPentaxDslr) => {
   const { reloadHistories } = useCommentAndHistory({

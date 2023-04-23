@@ -1,4 +1,4 @@
-import { ValueOf } from '@/types';
+import { ValueOf } from '@/types/index.d';
 
 export const ROLE = {
   ADMIN: 'ADMIN',
@@ -8,8 +8,3 @@ export const ROLE = {
 } as const;
 
 export type RoleTypes = ValueOf<typeof ROLE>;
-
-export interface UserWithRole {
-  uid: string;
-  role: RoleTypes;
-}
