@@ -11,7 +11,7 @@ import { editIdolAtom } from '@/containers/idols/states';
 import Editor from './Editor';
 import Upper from './Upper';
 import Lower from './Lower';
-import styles from './Idol.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   idol: FBIdolType;

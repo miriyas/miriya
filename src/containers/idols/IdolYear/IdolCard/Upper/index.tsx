@@ -1,4 +1,5 @@
 import { useSetAtom } from 'jotai';
+import cx from 'clsx';
 
 import { FBIdolType } from '@/types/idols.d';
 import { editIdolAtom } from '@/containers/idols/states';
@@ -6,6 +7,7 @@ import { editIdolAtom } from '@/containers/idols/states';
 import { IconSound, IconComment, IconEdit } from 'public/svgs';
 import Profile from './Profile';
 import Youtube from './Youtube';
+import idolStyles from '../index.module.scss';
 import styles from './index.module.scss';
 
 interface Props {
@@ -26,7 +28,7 @@ const Upper = ({ idol, opened, i, yearLength, onClickOpen }: Props) => {
   };
 
   return (
-    <div className={styles.upper}>
+    <div className={cx(idolStyles.upper, styles.upper)}>
       {opened && (
         <button type='button' className={styles.toEdit} onClick={onClickEdit} aria-label='edit'>
           <IconEdit />

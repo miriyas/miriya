@@ -1,35 +1,35 @@
+import Image from 'next/image';
+
 import { FBIdolType } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 
-import ImageSprite from '@/components/ImageSprite';
 import styles from './index.module.scss';
 
-interface Props {
-  i: number;
-  yearLength: number;
+const filterIdolName = (name: string) => {
+  return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|&]/g, '');
+};
 
+interface Props {
   idol: FBIdolType;
   onClickUpper: () => void;
 }
 
-const Profile = ({ i, yearLength, idol, onClickUpper }: Props) => {
+const Profile = ({ idol, onClickUpper }: Props) => {
   const { category, name, debutYear, endYear } = idol;
 
   return (
     <button type='button' onClick={onClickUpper} className={styles.profile} aria-label='show more'>
-      <div className={styles.profileImg}>
-        <ImageSprite
-          i={i}
-          width={100}
-          height={100}
-          length={yearLength}
-          url={`idols/sprites/${String(debutYear)}.png`}
-          className={styles.profileSprite}
-        />
+      <Image
+        src={`/images/idols/${debutYear}/${filterIdolName(name)}.jpg`}
+        alt={name}
+        fill
+        className={styles.profileImg}
+      />
+      <div className={styles.content}>
+        <p className={styles.name}>{name}</p>
+        <p className={styles.category}>{prettyCategory(category)}</p>
+        <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
       </div>
-      <p className={styles.name}>{name}</p>
-      <p className={styles.category}>{prettyCategory(category)}</p>
-      <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
     </button>
   );
 };

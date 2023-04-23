@@ -8,7 +8,7 @@
   height: var(--h-idol);
   overflow: hidden;
   background-color: var(--color-white);
-  border-radius: 8px;
+  border-radius: 14px;
 
   @include m.after(M) {
     width: var(--w-idol);
@@ -20,6 +20,10 @@
 
     @include m.after(M) {
       width: calc(var(--w-idol) * 2 + var(--gutter-idol));
+    }
+
+    .upper {
+      height: auto;
     }
 
     .lower {
