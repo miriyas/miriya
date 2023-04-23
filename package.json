@@ -27,7 +27,7 @@
     "isotope-layout": "^3.0.6",
     "jotai": "^2.0.3",
     "lodash": "^4.17.21",
-    "next": "^13.3.1-canary.17",
+    "next": "^13.3.1-canary.19",
     "next-superjson-plugin": "^0.5.6",
     "react": "^18.2.0",
     "react-avatar": "^3.7.0",
