@@ -23,13 +23,6 @@
     }
   }
 
-  .withSound {
-    @include m.absolute(8px 8px auto auto);
-    width: 12px;
-    height: 12px;
-    fill: var(--color-gray-8);
-  }
-
   .toEdit {
     @include m.flexbox;
     @include m.absolute(0 auto auto 0);

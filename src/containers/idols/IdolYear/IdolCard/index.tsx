@@ -16,12 +16,10 @@ import styles from './index.module.scss';
 interface Props {
   idol: FBIdolType;
   sort: () => void;
-  i: number;
-  yearLength: number;
 }
 
 const IdolCard = (props: Props) => {
-  const { idol, sort, i, yearLength } = props;
+  const { idol, sort } = props;
   const { category, name, debutYear } = idol;
 
   const { gaEvent } = useGA();
@@ -53,7 +51,7 @@ const IdolCard = (props: Props) => {
         <Editor idol={idol} />
       ) : (
         <>
-          <Upper onClickOpen={onClickOpen} i={i} yearLength={yearLength} idol={idol} opened={opened} />
+          <Upper onClickOpen={onClickOpen} idol={idol} opened={opened} />
           {opened && <Lower idol={idol} />}
         </>
       )}
