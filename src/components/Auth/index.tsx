@@ -1,15 +1,11 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
 import { useAtomValue } from 'jotai';
-import { useResetAtom } from 'jotai/utils';
 import Image from 'next/image';
 import cx from 'clsx';
 
-import { authModalAtom, showPasswordAtom } from './states';
-import useAuth from '@/hooks/useAuth';
-import useAuthEmail from '@/hooks/useAuthEmail';
-import useAuthSocial from '@/hooks/useAuthSocial';
+import { showPasswordAtom } from './states';
+import useAuthModal from './useAuthModal';
 
 import { Modal } from '@/components/Modal';
 import EmailBased from './EmailBased';
@@ -17,24 +13,8 @@ import SocialBased from './SocialBased';
 import styles from './Auth.module.scss';
 
 const AuthModal = () => {
-  const authModal = useAtomValue(authModalAtom);
-  const resetAuthModal = useResetAtom(authModalAtom);
-
-  const { user } = useAuth();
-  const { cleanUpEmailRelatedState } = useAuthEmail();
-  const { cleanUpSocialRelatedState } = useAuthSocial();
+  const { authModal, onClose } = useAuthModal();
   const showPassword = useAtomValue(showPasswordAtom);
-
-  const onClose = useCallback(() => {
-    resetAuthModal();
-    cleanUpEmailRelatedState();
-    cleanUpSocialRelatedState();
-  }, [resetAuthModal, cleanUpEmailRelatedState, cleanUpSocialRelatedState]);
-
-  useEffect(() => {
-    // 로그인 하면 모달 닫기.
-    if (user) onClose();
-  }, [onClose, user]);
 
   return (
     <Modal isShow={!!authModal} onClose={onClose} closeIcon>

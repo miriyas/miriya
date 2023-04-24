@@ -3,11 +3,13 @@ import axios, { AxiosError } from 'axios';
 const apiClient = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api`,
   timeout: 30_000,
+  withCredentials: true,
 });
 
 export const apiClientLocal = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}/api`,
   timeout: 30_000,
+  withCredentials: true,
 });
 
 export default apiClient;

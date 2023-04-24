@@ -264,3 +264,59 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 8. 이미지 사이즈 관련 경고 뜨는 문제
 
 - pentax-logo 원본 이미지가 301x40이었는데, 150x20으로 렌더링하는 과정에서 경고를 보여주었다. width auth, height auto로 변경하라 해서 했지만 문제 해결되지 않았음. 포토샵 열어서 1px 지우고 300x40으로 바꿔주니 경고가 사라졌다..
+
+9. 청크 용량 문제
+
+- 처음에는 댓글 기능 달기 위해 파이어베이스를 달았고, 이게 청크 크기 문제를 야기했음.
+- 파이어베이스 SDK 자체의 용량이 너무 커서, 파이어베이스를 사용하는 청크 용량은 기본 100kb~200kb를 넘어가버린다.
+- 트리쉐이킹이 되는 V9 버전에서도 문제가 생기는거라, 그냥 SDK의 용량이 큰게 문제.
+
+<img src='./reserved/screenshot-chunksize1.png' alt=''>
+
+- 위 스크린샷 처럼 대부분의 청크 파일이 붉은 색으로 고용량이라 경고를 표시하고 있었다.
+- Next v13.3.1부터 modularizeImports를 지원하게 되었고, lodash 라이브러리에 한해 적용해보았다.
+
+<img src='./reserved/screenshot-chunksize2.png' alt=''>
+
+- /cameras가 16kb 정도 줄어든걸 발견할 수 있다.
+
+<img src='./reserved/screenshot-chunksize3.png' alt=''>
+<img src='./reserved/screenshot-chunksize4.png' alt=''>
+
+- 우측에 보이던 lodash가 순식간에 사라진걸 볼 수 있다. 하지만 턱없이 부족하다.
+- firebase 라이브러리는 이미 최적화가 많이 되어있어서 적용해도 효과가 없었다.
+
+<img src='./reserved/screenshot-chunksize5.png' alt=''>
+
+- https://github.com/vercel/next.js/issues/47173
+- dynamic import를 적용하면 청크 파일이 랜덤하게 404가 뜨는 문제가 있었는데, v13.3.1-canary.15 부터 수정되었다.
+- dynamic import를 하나 적용해본 결과 /cameras용량이 확 줄어든게 보인다. 이제 다 적용해보자.
+
+<img src='./reserved/screenshot-chunksize6.png' alt=''>
+
+- 파이어베이스를 프론트엔드 자체에서 사용하지 않고, NEXT의 api route에서 불러다가 결과만 주게 만들어보았다.
+- 이 경우 파이어베이스 SDK를 프론트엔드에서 돌릴 필요가 없어지고, 그냥 GET/POST만 하면 되니까 청크 용량이 확 준다.
+
+<img src='./reserved/screenshot-chunksize7.png' alt=''>
+
+- dynamic을 쓰고, 모든 API들을 다 이동시켰더니 이렇게 올 그린을 볼 수 있었다.
+- dynamic을 쓸 때는 Suspense로 잘 감아주었는지 확인해야 하고, 렌더링이 이상하지 않은지 잘 확인해야한다.
+
+10. 모든 API를 서버 레포로 이전
+
+- 윗단계에서 모든 API를 다 서버로 이동시켰는데, 하는 김에 API와 프론트엔드를 분리하고 싶었다.
+- 일단 수정/삭제 인증 등을 프론트에서 진행했기에 누구나 다 뚫을 수 있었고, 심지어 코드가 공유되어있으니 보안 문제가 크다.
+- 그래서 app/api 안에 내용을 통으로 떠다가 새로운 비밀 레포에 옮겨버렸다.
+- 일부 ENV 값들을 수정해주고, CORS 설정을 조금 해주니 금방 적용되었다.
+
+11. 일부 API CORS 문제
+
+- 하지만 프론트/백엔드 간에 세션 검증을 딱히 하고 있지 않아 쉽게 해킹이 가능해서 쿠키 세션을 추가하려고 한다.
+- 프론트엔드에서 파이어베이스로 인증을 하고 idToken을 서버로 넘기면, 서버에서 쿠키 세팅을 해주는 API를 만들고자 했다.
+- 근데 이상하게도 쿠키 세팅 API에서만 CORS 문제가 떴다.
+- 동일한 POST 요청임에도 불구하고 comment 부분은 CORS 문제가 없다.
+- POST 요청 안에 쿠키 관련된것들을 다 지우고 'aaa'만 보내고, 'bbb'만 받게 해도 CORS 문제가 잔존한다.
+- OPTIONS 부분에 문제가 있을거라 생각하고 [문서](https://beta.nextjs.org/docs/api-reference/file-conventions/route#http-methods) 를 봤는데, 문서에는 OPTIONS를 정의하지 않으면 자동 생성한다더라.
+- 하지만 뭔가 뒤가 구렸고, 정상 작동하는 comment와 비교해보았다.
+- GET 요청이 하나라도 있어야 OPTIONS가 자동 생성되는걸 확인, NEXT쪽에 문서 보강을 권했다.
+- CORS 문제 해결할 때는 파이어폭스가 기가막히더라. 헤더 비교까지 해준다. 최고.

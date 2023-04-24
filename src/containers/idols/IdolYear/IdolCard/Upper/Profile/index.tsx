@@ -22,7 +22,8 @@ const Profile = ({ idol, onClickUpper }: Props) => {
       <Image
         src={`/images/idols/${debutYear}/${filterIdolName(name)}.jpg`}
         alt={name}
-        fill
+        width={140}
+        height={220}
         className={styles.profileImg}
       />
       <div className={styles.content}>

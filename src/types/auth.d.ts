@@ -1,3 +1,5 @@
+import { User } from 'firebase/auth';
+
 import { ValueOf } from '@/types/index.d';
 
 export const ROLE = {
@@ -8,3 +10,7 @@ export const ROLE = {
 } as const;
 
 export type RoleTypes = ValueOf<typeof ROLE>;
+
+export interface UserWithRole extends User {
+  role: RoleTypes;
+}

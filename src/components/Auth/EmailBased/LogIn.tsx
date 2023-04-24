@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAtom } from 'jotai';
 
+import useAuthModal from '../useAuthModal';
 import useAuthEmail from '@/hooks/useAuthEmail';
 import { showPasswordAtom } from '../states';
 import { LogInSchema, logInValidator } from '@/utils/validator';
@@ -18,6 +19,7 @@ interface Props {
 }
 
 const LogIn = ({ setTab }: Props) => {
+  const { onClose } = useAuthModal();
   const { logInEmail, logInLoading, logInError } = useAuthEmail();
 
   const methods = useForm<LogInSchema>({ mode: 'onBlur', resolver: yupResolver(logInValidator) });
@@ -40,7 +42,7 @@ const LogIn = ({ setTab }: Props) => {
 
   const onSignIn: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    submitLogIn();
+    submitLogIn().then(onClose);
   };
 
   const errorMessage = Object.values(errors).length > 0 ? Object.values(errors)[0].message : undefined;
