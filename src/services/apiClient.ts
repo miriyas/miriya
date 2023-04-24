@@ -12,6 +12,33 @@ export const apiClientLocal = axios.create({
   withCredentials: true,
 });
 
+apiClient.interceptors.response.use(
+  (response) => response, // 2xx 범위일 때
+  (error) => {
+    if (error.response && error.response.status) {
+      switch (error.response.status) {
+        case 401:
+          if (error.response.config?.url === '/auth/session') {
+            //
+            return Promise.reject(error);
+          }
+          window.dispatchEvent(
+            new CustomEvent('axiosError', {
+              detail: {
+                message: 'Unauthorized',
+              },
+            }),
+          );
+          return new Promise(() => {});
+        default:
+          return Promise.reject(error);
+      }
+    }
+
+    return Promise.reject(error);
+  },
+);
+
 export default apiClient;
 
 export const isAxiosError = (err: unknown | AxiosError): err is AxiosError => {

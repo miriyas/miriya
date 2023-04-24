@@ -87,7 +87,6 @@ const useEditor = (camera: FBCameraType) => {
         ...formValues,
       },
       Object.keys(dirtyFields),
-      user,
     ).then(() => {
       reset();
       reload();

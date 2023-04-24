@@ -62,7 +62,6 @@ const useEditor = (idol: FBIdolType) => {
         },
       },
       Object.keys(dirtyFields),
-      user,
     ).then(() => {
       resetEditIdol();
       reload();

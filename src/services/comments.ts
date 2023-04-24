@@ -16,5 +16,4 @@ export const postCommentAPI = (params: NewComment) => apiClient.post('/comments'
 
 export const patchCommentAPI = (comment: Partial<Comment>) => apiClient.patch('/comments', comment);
 
-export const deleteCommentAPI = (commentId: string, uid: string) =>
-  apiClient.delete(`/comments?commentId=${commentId}&uid=${uid}`);
+export const deleteCommentAPI = (commentId: string) => apiClient.delete(`/comments?commentId=${commentId}`);

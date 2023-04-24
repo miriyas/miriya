@@ -30,8 +30,8 @@ const ItemComment = ({ comment }: Props) => {
     setEditMode(true);
   };
 
-  const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
-    deleteCommentAPI(comment.id, e.currentTarget.dataset.authorId!).then(() => {
+  const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
+    deleteCommentAPI(comment.id).then(() => {
       reloadComments();
       if (comment.targetCategory === TARGET_CATEGORY.CAMERA) reload();
     });
@@ -66,12 +66,7 @@ const ItemComment = ({ comment }: Props) => {
                     수정
                   </button>
                   {!deleted && (
-                    <button
-                      type='button'
-                      onClick={onClickDelete}
-                      data-id={comment.id}
-                      data-author-id={comment.authorId}
-                    >
+                    <button type='button' onClick={onClickDelete}>
                       삭제
                     </button>
                   )}

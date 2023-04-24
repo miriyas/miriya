@@ -1,5 +1,3 @@
-import { User } from 'firebase/auth';
-
 import apiClient, { apiClientLocal } from '@/services/apiClient';
 import { DigicamDB, DpreviewNews, FBCameraType } from '@/types/cameras.d';
 import { FBCamerachema } from '@/utils/validator';
@@ -11,5 +9,5 @@ export const getRecentNewsApi = (count: number) => apiClientLocal<DpreviewNews[]
 
 export const getCamerasDataApi = () => apiClient<FBCameraType[]>('/cameras/data');
 
-export const editCameraDataApi = (newCamera: FBCamerachema, changed: string[], user: User) =>
-  apiClient.patch('/cameras/data', { newCamera, changed, user });
+export const editCameraDataApi = (newCamera: FBCamerachema, changed: string[]) =>
+  apiClient.patch('/cameras/data', { newCamera, changed });
