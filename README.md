@@ -323,6 +323,10 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 
 12. 또 일부 API CORS 문제
 
+<img src='./reserved/screenshot-cors1.png' alt=''>
+
+<img src='./reserved/screenshot-cors2.png' alt=''>
+
 - 로컬에선 잘 작동하던 것이 프로덕션에서는 '일부' API만 문제가 생기더라.
 - 나는 분명 Access-Control-Allow-Origin을 https://miriya.vercel.app/ 로 잘 지정했다.
 - 근데 배포할 때 일부 API만 '\*' 으로 변경되어 CORS 문제를 초래했다.
