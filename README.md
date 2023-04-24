@@ -320,3 +320,13 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 - 하지만 뭔가 뒤가 구렸고, 정상 작동하는 comment와 비교해보았다.
 - GET 요청이 하나라도 있어야 OPTIONS가 자동 생성되는걸 확인, NEXT쪽에 문서 보강을 권했다.
 - CORS 문제 해결할 때는 파이어폭스가 기가막히더라. 헤더 비교까지 해준다. 최고.
+
+12. 또 일부 API CORS 문제
+
+- 로컬에선 잘 작동하던 것이 프로덕션에서는 '일부' API만 문제가 생기더라.
+- 나는 분명 Access-Control-Allow-Origin을 https://miriya.vercel.app/ 로 잘 지정했다.
+- 근데 배포할 때 일부 API만 '\*' 으로 변경되어 CORS 문제를 초래했다.
+- /api/idols/data는 문제 없고, /api/idols/years만 문제가 있다.
+- 둘 다 안에 간단한 GET 요청이 있었고, 차이점이라곤 data 부분에는 PATCH도 있었다.
+- 혹시나 하여 years에 의미 없는 PATCH 요청을 추가하니 Access-Control-Allow-Origin이 변경되지 않고 문제가 해결되었다.
+- 결론: 넥스트 appDir은 정말 무시무시하다.. 넥스트측에 버그 리포팅도 했다.
