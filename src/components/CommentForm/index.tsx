@@ -4,7 +4,6 @@ import cx from 'clsx';
 import useAuth from '@/hooks/useAuth';
 import useCameras from '@/containers/cameras/useCameras';
 import { SubTargetCategoryTypes, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
-import { getAuthorData } from '@/utils';
 import { postCommentAPI } from '@/services/comments';
 
 import useCommentAndHistory from '../CommentAndHistory/useCommentAndHistory';
@@ -35,7 +34,6 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
 
     if (targetSubCategory) {
       postCommentAPI({
-        ...getAuthorData(user),
         body,
         targetCategory,
         targetSubCategory,
@@ -49,7 +47,6 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
     }
 
     postCommentAPI({
-      ...getAuthorData(user),
       body,
       targetCategory,
       targetId,

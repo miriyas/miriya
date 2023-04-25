@@ -4,7 +4,6 @@ import { atomWithReset, useResetAtom } from 'jotai/utils';
 
 import { getGuestbookDataAPI, patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
 import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
-import { getAuthorData } from '@/utils';
 import useAuth from '@/hooks/useAuth';
 
 export const newPostBodyAtom = atomWithReset<string>('');
@@ -44,7 +43,6 @@ const useGuestbook = () => {
   const submitNewGuestComment = () => {
     if (!user) return;
     postGuestbookAPI({
-      ...getAuthorData(user),
       body: newPostBody,
       hidden: newPostHidden,
       targetCategory: TARGET_CATEGORY.GUESTBOOK,

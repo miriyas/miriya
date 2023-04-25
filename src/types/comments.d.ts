@@ -20,7 +20,7 @@ export const SUB_TARGET_CATEGORY = {
 
 export type SubTargetCategoryTypes = ValueOf<typeof SUB_TARGET_CATEGORY>;
 
-export interface NewComment extends WithAuthor {
+export interface NewComment {
   body: string;
   hidden?: boolean; // 방명록 전용
   targetCategory: TargetCategoryTypes;
