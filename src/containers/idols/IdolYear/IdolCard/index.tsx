@@ -8,7 +8,7 @@ import { FBIdolType } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
 import { editIdolAtom } from '@/containers/idols/states';
 
-import Editor from './Editor';
+import Editor from './Editor/Edit';
 import Upper from './Upper';
 import Lower from './Lower';
 import styles from './index.module.scss';

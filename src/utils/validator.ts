@@ -46,9 +46,10 @@ export const idolCategoryTest = string()
   .oneOf(CATEGORIES, '카테고리를 확인해주세요.')
   .required('카테고리를 입력해주세요.');
 
-export const idolEndYearTest = mixed<Year>().required();
+export const idolYearTest = mixed<Year>().required();
 
-export const idolValidator = object({
+export const newIdolValidator = object({
+  name: stringTest.required(),
   category: idolCategoryTest,
   desc: object({
     melon: stringTest,
@@ -56,14 +57,32 @@ export const idolValidator = object({
     naver: stringTest,
     title: stringTest,
   }),
-  endYear: idolEndYearTest,
+  debutYear: idolYearTest,
+  endYear: idolYearTest,
   youtube: object({
     startsAt: numberTest,
     url: stringTest,
   }).optional(),
 }).required();
 
-export type IdolSchema = InferType<typeof idolValidator>;
+export type NewIdolSchema = InferType<typeof newIdolValidator>;
+
+export const editIdolValidator = object({
+  category: idolCategoryTest,
+  desc: object({
+    melon: stringTest,
+    namu: stringTest,
+    naver: stringTest,
+    title: stringTest,
+  }),
+  endYear: idolYearTest,
+  youtube: object({
+    startsAt: numberTest,
+    url: stringTest,
+  }).optional(),
+}).required();
+
+export type EditIdolSchema = InferType<typeof editIdolValidator>;
 
 // 카메라 관련 ===================================
 

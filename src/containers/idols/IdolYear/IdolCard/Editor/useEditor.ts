@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useResetAtom } from 'jotai/utils';
@@ -6,7 +7,7 @@ import useIdols from '../../../useIdols';
 import useAuth from '@/hooks/useAuth';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { FBIdolType } from '@/types/idols.d';
-import { IdolSchema, idolValidator } from '@/utils/validator';
+import { EditIdolSchema, editIdolValidator } from '@/utils/validator';
 import { editIdolAtom } from '@/containers/idols/states';
 import { editIdolDataApi } from '@/services/idols';
 
@@ -21,10 +22,11 @@ const useEditor = (idol: FBIdolType) => {
   const { user } = useAuth();
   const { reload } = useIdols();
   const resetEditIdol = useResetAtom(editIdolAtom);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const methods = useForm<IdolSchema>({
+  const methods = useForm<EditIdolSchema>({
     mode: 'onBlur',
-    resolver: yupResolver(idolValidator),
+    resolver: yupResolver(editIdolValidator),
     defaultValues: {
       category: idol.category,
       endYear: idol.endYear,
@@ -42,9 +44,10 @@ const useEditor = (idol: FBIdolType) => {
     formState: { errors, dirtyFields, isDirty },
   } = methods;
 
-  const submitIdol = handleSubmit((formValues: IdolSchema) => {
+  const submitIdol = handleSubmit((formValues: EditIdolSchema) => {
     if (!user) return;
 
+    setIsLoading(true);
     editIdolDataApi(
       {
         ...idol,
@@ -62,11 +65,15 @@ const useEditor = (idol: FBIdolType) => {
         },
       },
       Object.keys(dirtyFields),
-    ).then(() => {
-      resetEditIdol();
-      reload();
-      reloadHistories();
-    });
+    )
+      .then(() => {
+        resetEditIdol();
+        reload();
+        reloadHistories();
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   });
 
   return {
@@ -76,6 +83,7 @@ const useEditor = (idol: FBIdolType) => {
     isDirty,
     dirtyFields,
     submitIdol,
+    isLoading,
   };
 };
 

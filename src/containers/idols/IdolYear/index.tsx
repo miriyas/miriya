@@ -8,6 +8,7 @@ import { FBIdolType, IsotopesType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { useResponsive } from '@/hooks/useResponsive';
 
+import IdolNew from './IdolCard/Editor/New';
 import IdolCard from './IdolCard';
 import styles from './IdolYear.module.scss';
 
@@ -16,10 +17,11 @@ interface Props {
   year: number;
   isotopes: MutableRefObject<IsotopesType>;
   yearDesc: string;
+  yearStart: number;
 }
 
 const IdolYear = (props: Props) => {
-  const { idols, isotopes, year, yearDesc } = props;
+  const { idols, isotopes, year, yearDesc, yearStart } = props;
 
   const { isMobile } = useResponsive();
 
@@ -58,6 +60,7 @@ const IdolYear = (props: Props) => {
       {yearDesc && <div className={styles.desc}>{yearDesc}</div>}
 
       <ul className={cx(styles.idols, `grid-${year}`)}>
+        {yearStart === year && <IdolNew year={year} />}
         {idols.map((idol) => {
           return <IdolCard key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} />;
         })}
