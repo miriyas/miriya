@@ -12,6 +12,12 @@ export const apiClientLocal = axios.create({
   withCredentials: true,
 });
 
+export const apiClientRoot = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}`,
+  timeout: 30_000,
+  withCredentials: true,
+});
+
 apiClient.interceptors.response.use(
   (response) => response, // 2xx 범위일 때
   (error) => {
