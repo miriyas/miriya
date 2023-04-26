@@ -29,7 +29,7 @@ const Profile = ({ idol, onClickUpper }: Props) => {
       <div className={styles.content}>
         <p className={styles.name}>{name}</p>
         <p className={styles.category}>{prettyCategory(category)}</p>
-        <p className={styles.years}>{`${debutYear} ~ ${endYear ?? '활동중'}`}</p>
+        <p className={styles.years}>{`${debutYear} ~ ${endYear ?? ''}`}</p>
       </div>
     </button>
   );
