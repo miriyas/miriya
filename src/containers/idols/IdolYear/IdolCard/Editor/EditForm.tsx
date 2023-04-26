@@ -64,7 +64,7 @@ const Form = ({ idol, submitIdol, onClickCancel, errors, register, dirtyFields, 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    if (isAdmin) {
+    if (isAdmin || isSupporter) {
       submitIdol();
       return;
     }
