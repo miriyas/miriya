@@ -1,56 +1,5 @@
 <a href="https://codeclimate.com/github/miriyas/idols/maintainability"><img src="https://api.codeclimate.com/v1/badges/59cc1769c02f412ac124/maintainability" /></a> [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmiriyas%2Fidols&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-### 목차
-
-1. [History of Idols](https://github.com/miriyas/miriya#history-of-idols)
-2. [History of DSLR](https://github.com/miriyas/miriya#history-of-dslr)
-3. [Pentaxian Encyclopedia](https://github.com/miriyas/miriya#pentaxian-encyclopedia)
-4. [개발자를 위한 글](https://github.com/miriyas/miriya#%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B8%80)
-
-<br />
-<br />
-
-# History of Idols
-
-<img src='./reserved/screenshot-idols.png' alt=''>
-
-1996년부터 2019년까지의 아이돌 목록을 정리해봤습니다. 아이돌 등재 기준은 ['나무위키 한국 아이돌/역사'](https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC) 입니다.
-
-각 아이돌을 클릭하면 해당 아이돌이 부른 대표곡의 하이라이트 부분이 재생됩니다.. 추억여행 한번 빠져보시죠.
-
-보다 보면 이 사람이 왜 아이돌이야? 하는 경우도 있을 것 같습니다만, 대량으로 등록하다보면 어쩔 수 없습니다. 직접 해보세요.
-
-정리할 자료가 수백명이나 되다 보니 내용상 누락이나 잘못된 부분이 있을 수 있습니다. ['이곳'](https://github.com/miriyas/idols/issues)에 글을 남겨주시거나, ['miriya.lee@gmail.com'](mailto://miriya.lee@gmail.com)으로 메일을 보내주세요.
-
-정말 큰 도움이 되고 싶을 경우, ['원본 데이터'](https://github.com/miriyas/idols/blob/main/src/constants/idols.ts)를 참조하여 유튜브 주소나 시작 시간 등을 만들어주시면 더욱 좋습니다.
-
-<br />
-<br />
-
-# History of DSLR
-
-<img src='./reserved/screenshot-cameras.png' alt=''>
-
-출시일 기준, 1995년부터 2023년 현재 까지의 DSLR 및 렌즈 교환식 카메라들을 정리해봤습니다.
-
-저는 대학생 시절 SLR클럽 활동을 활발하게 했었고, 당시에 플래시와 포토샵으로 [카메라 족보](http://www.slrclub.com/bbs/vx2.php?id=best_review&no=2248)와 [펜탁스 렌즈의 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)를 만든 적이 있었지요.
-
-이번 History of DSLR은 12년 전에 만들었던 포토샵 버전 [카메라 족보](http://www.slrclub.com/bbs/vx2.php?id=best_review&no=2248)의 웹 리뉴얼 버전입니다.
-
-<br />
-<br />
-
-# Pentaxian Encyclopedia
-
-<img src='./reserved/screenshot-pentaxes1.png' alt=''>
-
-<img src='./reserved/screenshot-pentaxes2.png' alt=''>
-
-SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)의 웹 버전입니다. 당시 여러 회원분들의 도움을 받아 자료를 취합하여 꾸역꾸역 만들 수 있었네요. 12년만에 웹 버전으로 재탄생 했습니다.
-
-<br />
-<br />
-
 # 개발자를 위한 글
 
 [![Miriyas's GitHub stats](https://github-readme-stats.vercel.app/api?username=miriyas)](https://github.com/anuraghazra/github-readme-stats)
@@ -73,10 +22,43 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 각종 버튼에는 GA를 붙여두었습니다.
 
+### 목차
+
+1. [History of Idols](https://github.com/miriyas/miriya#history-of-idols)
+2. [History of DSLR](https://github.com/miriyas/miriya#history-of-dslr)
+3. [Pentaxian Encyclopedia](https://github.com/miriyas/miriya#pentaxian-encyclopedia)
+4. [개발자를 위한 글](https://github.com/miriyas/miriya#%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B8%80)
+
 <br />
 <br />
 
-## History of Idols
+# History of Idols
+
+#### 리뉴얼 후
+
+<img src='./reserved/screenshot-idols2.png' alt=''>
+
+#### 리뉴얼 전
+
+<img src='./reserved/screenshot-idols.png' alt=''>
+
+1994년부터 2019년까지의 아이돌 목록을 정리해봤습니다.
+
+각 아이돌을 클릭하면 해당 아이돌이 부른 대표곡의 하이라이트 부분이 재생됩니다. 추억여행 한번 빠져보시죠.
+
+#### 정리 빡쎔
+
+아이돌 등재 기준은 나무위키 ['한국 아이돌/역사'](https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC) 입니다.
+
+저 문서를 긁어다가 [크롤링 샘플](https://miriya.vercel.app/idols/crawl) 페이지를 만들어놨는데, 이게 무슨 숙제 같이 되어버렸네요..<br>많아도 너무나 많네요. 한명당 이름, 데뷔 연도, 그리고 까다로운 해체 연도, 그리고 나무위키/멜론/바이브 링크를 걸고, 유튜브에서 음원 찾아다가 고유 아이디와 하이라이트 부분 시간을 입력해야 합니다. 거기다가 아이돌을 검색하여 적당히 잘 나온 세로로 긴 사진을 찾아 포토샵으로 편집해서 올려야하지요.
+
+보다 보면 이 사람이 왜 아이돌이야? 하는 경우도 있을 것 같습니다만, 기준은 나무위키입니다.
+
+정리할 자료가 수백명이나 되다 보니 내용상 누락이나 잘못된 부분이 있을 수 있습니다. ['이곳'](https://github.com/miriyas/idols/issues)에 글을 남겨주시거나, ['miriya.lee@gmail.com'](mailto://miriya.lee@gmail.com)으로 메일을 보내주세요. 주위 친구들 몇명이 서포터로 등록되어 수정이나 추가 등의 작업을 도와주었습니다.
+
+<br />
+
+#### 개발 이야기
 
 예전에 라인 입사할 때 만들었던 리액트 버전 아이돌 리스트의 리팩토링 버전입니다.
 
@@ -84,39 +66,69 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 몇년 전 까지는 유튜브 자동 재생이 되었는데, 막혀버렸네요 :(
 
-이번 제 작업 목록의 첫번째이며, Next.js를 사용해서 만들었습니다. 그리고 하는 김에 Next 13의 experimental AppDir로 만들었네요.
+이번 제 작업 목록의 첫번째이며, Next.js를 사용해서 만들었습니다. 그리고 하는 김에 Next 13의 experimental appDir로 만들었네요.
 
 즐겨 쓰던 Isotope 라이브러리를 사용하여 반응형 목록 재정렬 기능을 만들었고, 대부분의 작업은 자료 수집 노가다네요.
 
 작업 중간에 Youtube JS 라이브러리를 사용하려고 했는데, 아예 전체 레이아웃을 다 바꿔야 해서 작업하지 않았습니다. 1996년부터 주요곡들을 한번에 다 들을 수 있게 해달라는 요청이 있었는데, 흐음, 그보다는 내용을 다 채우는게 우선이 될 것 같네요. 하아 이거 알바를 뽑을 수도 없고 ㅋㅋㅋ.. 천천히 하겠습니다.
 
+2023년 3월 30일 :
+
 일본의 사용자가 인터넷이 느리다 하여 아이돌 이미지들을 연도별로 모아 ImageSprite로 데이터 요청 수를 줄였습니다.
 
-<br />
+2023년 4월 25일 :
+
+하지만 아이돌을 추가하고 수정하는 기능을 만들다 보니 이미지 추가가 너무 번거로워져 다시 개별 이미지로 회귀했습니다. 하는 김에 이미지 품질도 끌어올리고, 디자인도 좀 더 모던하게 변경했습니다. 아무래도 조만간 Isotope를 떼어내고 좀 더 심플하게 가는게 어떨까.. 하는 생각이 들기도 합니다.
+
+매번 나무위키를 보면서 확인하기 힘들어서, ['한국 아이돌/역사'](https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC) 문서를 파싱하여 [크롤링 샘플](https://miriya.vercel.app/idols/crawl) 페이지를 만들었습니다. 근데 이게 참 ㅋㅋ 나무위키 크롤링을 할라니까 서버를 너무 잘 만든겁니다. 그래서 그런지 2019년 이후로는 크롤링 성공했다는 블로그 글이 안보이더군요. 몇번 트라이 해보고, 본질은 이게 아니겠다 싶고 시간 낭비 하기 싫어서 그냥 저 페이지의 HTML을 그냥 긁어다 복사했습니다.
+
 <br />
 
-## History of DSLR
+# History of DSLR
+
+<img src='./reserved/screenshot-cameras.png' alt=''>
+
+출시일 기준, 1995년부터 2023년 현재 까지의 DSLR 및 렌즈 교환식 카메라들을 정리해봤습니다.
+
+저는 대학생 시절 SLR클럽 활동을 활발하게 했었고, 당시에 플래시와 포토샵으로 [카메라 족보](http://www.slrclub.com/bbs/vx2.php?id=best_review&no=2248)와 [펜탁스 렌즈의 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)를 만든 적이 있었지요.
 
 이번 History of DSLR은 12년 전에 만들었던 포토샵 버전 [카메라 족보](http://www.slrclub.com/bbs/vx2.php?id=best_review&no=2248)의 웹 리뉴얼 버전입니다.
 
-이번 Next.js experimental AppDir을 사용하게 되며 가장 힘들었던 부분인데요, 일단은 쿼리스트링과 해시로 라우팅 하기가 매우 까다롭습니다. canary20 버전 기준으로 리랜더 문제와 해시값 가져올 수 없는 문제들이 있어 SSR과 병행하기 참 힘들었습니다. 코드를 보시면 이벤트리스너를 다는 등 상당히 성가시게 구현해놓은 모습을 볼 수 있습니다. 아마 버전업이 되어가면서 하나하나 단순하게 고쳐나가지 싶네요. 이딴걸 구현하려고 이렇게 했다고?? 싶은 부분이 조금 보일겁니다. Successor/Prodecessor 링크 부분이 제일 빡쎘습니다.
+<br />
 
-필터를 빡쎄게 넣으면서 Isotope는 걷어내고 일반적인 플렉스로 정렬했습니다. 특기할만한 것은, CameraDB라고 외국의 어떤 분이 저 처럼 원맨 삽질을 하며 정리해놓은게 있길래, 이번 Next api 라우트를 사용해 서버사이드 요청 / HTML 파싱을 하는 기능을 만들어봤습니다. 남의 홈페이지에 테러하지 않기 위해 캐싱을 잘 해두려 했는데, 아이고 맙소사.. Next.js 현재 버전에서는 요청을 한번이 아니라 두번씩 보내는 버그가 남아있습니다.
+#### 개발 이야기
+
+이번 Next.js experimental AppDir을 사용하게 되며 가장 힘들었던 부분인데요, 일단은 쿼리스트링과 해시로 라우팅 하기가 매우 까다롭습니다. next@13.2.3-canary.20 버전 기준으로 리랜더 문제와 해시값 가져올 수 없는 문제들이 있어 SSR과 병행하기 참 힘들었습니다. 코드를 보시면 별 쓸데 없는 곳에 굳이 이벤트리스너를 다는 등 상당히 성가시게 구현해놓은 모습을 볼 수 있습니다. 아마 버전업이 되어가면서 하나하나 단순하게 고쳐나가지 싶네요. 이딴걸 구현하려고 이렇게 했다고?? 싶은 부분이 조금 보일겁니다. [Successor/Prodecessor 링크 부분](https://github.com/miriyas/miriya/blob/main/src/containers/cameras/CameraYears/CameraCard/DataInternal/Siblings/SiblingLink.tsx)이 제일 빡쎘습니다.
+
+필터를 빡쎄게 넣으면서 Isotope는 걷어내고 일반적인 flex로 정렬했습니다. 특기할만한 것은, [DigicamDB](https://www.digicamdb.com/)라고 외국의 어떤 분이 저 처럼 원맨 삽질을 하며 정리해놓은게 있길래, 이번 Next api 라우트를 사용해 서버사이드 요청 / HTML 파싱을 하는 기능을 만들어봤습니다. 그리고 DigicamDB 클릭시 카드가 휙 돌아가면서 나오는 부분은 CSS의 backface-visibility를 사용했습니다. 남의 홈페이지에 테러하지 않기 위해 캐싱을 잘 해두려 했는데, 아이고 맙소사.. Next.js 현재 버전에서는 요청을 한번이 아니라 두번씩 보내는 버그가 남아있습니다.
 
 카메라 하단에 잘 보면 흐릿한 그림자가 보이는데요, CSS만으로 구현했습니다. 카메라 이미지는 모두 흰색 배경의 정사각형 JPEG 파일인데, 그림자를 띄운 다음 CSS의 mix-blend-mode: multiply 를 이용해 이미지가 뒷배경에 녹아들게 만들었습니다. 흰 배경 정사각형이라 유사한 drop-shadow()를 쓸 수 없어 조금 아쉬웠던 부분.
 
 카메라 이미지들은 16x16px의 블러 이미지를 플레이스홀더로 넣어두었습니다. 보니까 카메라들이 축소하면 다 비슷하게 보여서 한장으로 다 퉁칠 수 있었네요.
 
-<br />
+이후에 댓글 기능을 달고, 수정 기능을 달고, 수정을 할 경우 누가 어떤 부분을 수정하는지 기록을 남기는 기능도 만들었습니다. 해당 기능은 파이어베이스로 구현했습니다. 아... 애초에 그냥 노드로 서버 짜서 만들걸 뭣하러 파이어베이스를 썼을꼬...
+
+또 크롤링 기능을 만든 김에 아예 상단에 DPreview의 카메라 뉴스를 보여주도록 만들었습니다. 처음에는 HTML을 싹 긁을라다가, DPreview에서 RSS를 제공하고 있길래 그걸 사용했죠. cheerio를 사용했는데, XML의 경우 xmlMode: true를 넣어줘야 정상 작동합니다.
+
 <br />
 
-## Pentaxian Encyclopedia
+# Pentaxian Encyclopedia
 
-SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)의 웹 버전입니다. 아시다시피 플래시가 전부 지원 중단이 되어버려서, PaleMoon 브라우저에 오래된 플러그인 설치하여 겨우 예전 파일을 열어서 스크린샷을 찍어다가 웹 버전으로 옮겼습니다.
+<img src='./reserved/screenshot-pentaxes1.png' alt=''>
+
+<img src='./reserved/screenshot-pentaxes2.png' alt=''>
+
+SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)의 웹 버전입니다. 당시 여러 회원분들의 도움을 받아 자료를 취합하여 꾸역꾸역 만들 수 있었네요. 12년만에 디자인을 똑같이 유지하며 웹 버전으로 재탄생 했습니다.
+
+<br />
+
+#### 개발 이야기
+
+아시다시피 플래시가 전부 지원 중단이 되어버려서, PaleMoon 브라우저에 오래된 플러그인 설치하여 겨우 예전 파일을 열어서 스크린샷을 찍어다가 웹 버전으로 옮겼습니다.
 
 각종 리드미나 글 들은 마크다운 파일로 만들어 렌더링했습니다. 서브라우팅 부분은 Next AppDir의 layout을 사용했고, 타임라인 부분은 드래그해서 스크롤 할 수 있게 만들었습니다. 맨 우측의 화살표 부분은 IntersectionObserver를 사용했습니다. 캔버스로 구현할까 하다가, 목적에 맞지 않는것 같아 단순 HTML로 작업했네요.
 
-타임라인의 모눈의 경우, 처음에는 ul/li를 사용했는데, 가로로 120개, 세로로 15개 해서 총 1800개의 DOM을 만들어야 했습니다. 이거 도저히 무식해서 눈뜨고 봐 줄 수가 없어서 방법을 찾다가, repeating-linear-gradient 4중첩을 이용해 DOM 하나로 구현해냈습니다. src/containers/pentax/TabDSLR/index.module.scss 참고.
+타임라인의 모눈의 경우, 처음에는 ul/li를 사용했는데, 가로로 120개, 세로로 15개 해서 총 1800개의 DOM을 만들어야 했습니다. 이거 도저히 무식해서 눈뜨고 봐 줄 수가 없어서 방법을 찾다가, repeating-linear-gradient 4중첩을 이용해 DOM 하나로 구현해냈습니다. [src/containers/pentax/TabDSLR/index.module.scss](https://github.com/miriyas/miriya/blob/main/src/containers/pentax/TabDSLR/index.module.scss#L75) 참고.
 
 <br />
 <br />
@@ -125,10 +137,12 @@ SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표
 
 아마도 i18n 작업이나 댓글 기능을 달지 않을까 싶네요. i18n은 Next AppDir에서 난리도 아니라는 말이 있어서 조금 긴장하는중.
 
+...는 댓글도 달았고, 댓글 달라고 로그인도 만들고, 로그인 만들다보니 권한 관리도 만들고.. 수정 기록도 만들고, 심지어 추가 기능까지 만들고...
+
 <br />
 <br />
 
-# [Next.js 13.2.5-canary](https://github.com/vercel/next.js/releases) with Experimental appDir
+# [Next.js 13 canary](https://github.com/vercel/next.js/releases) with Experimental appDir
 
 - 현재 canary 30에서도 아래 문제들은 재현되고 있음.
 

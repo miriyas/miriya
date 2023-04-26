@@ -29,7 +29,7 @@ const TABS = [
   },
   {
     key: 'external',
-    label: 'CameraDB',
+    label: 'DigicamDB',
   },
   {
     key: 'comments',
