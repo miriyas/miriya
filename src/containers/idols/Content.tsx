@@ -23,16 +23,7 @@ const IdolsPageContent = () => {
         {Object.keys(debutYears).map((year) => {
           const yearIdols = debutYears[year].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
           const desc = years.find((yearDesc) => yearDesc.year === Number(year))?.desc ?? '';
-          return (
-            <IdolYear
-              key={year}
-              idols={yearIdols}
-              year={Number(year)}
-              isotopes={isotopes}
-              yearDesc={desc}
-              yearStart={yearStart}
-            />
-          );
+          return <IdolYear key={year} idols={yearIdols} year={Number(year)} isotopes={isotopes} yearDesc={desc} />;
         })}
       </ul>
     </main>

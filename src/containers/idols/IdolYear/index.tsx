@@ -19,11 +19,10 @@ interface Props {
   year: number;
   isotopes: MutableRefObject<IsotopesType>;
   yearDesc: string;
-  yearStart: number;
 }
 
 const IdolYear = (props: Props) => {
-  const { idols, isotopes, year, yearDesc, yearStart } = props;
+  const { idols, isotopes, year, yearDesc } = props;
 
   const { user } = useAuth();
   const { isMobile } = useResponsive();
@@ -55,7 +54,7 @@ const IdolYear = (props: Props) => {
     }, 100); // NOTE: covers transition duration
   }, [OPTIONS, isotopes, year]);
 
-  const showNew = user && (user.role === ROLE.ADMIN || user.role === ROLE.SUPPORTER) && yearStart === year;
+  const showNew = user && (user.role === ROLE.ADMIN || user.role === ROLE.SUPPORTER);
 
   return (
     <li id={`idol-year-${year}`} className={styles.idolYear}>
