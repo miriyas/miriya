@@ -3,10 +3,12 @@
 import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
 import cx from 'clsx';
 
+import useAuth from '@/hooks/useAuth';
+import { useResponsive } from '@/hooks/useResponsive';
 import type { IsotopeOptions } from 'isotope-layout';
+import { ROLE } from '@/types/auth.d';
 import { FBIdolType, IsotopesType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
-import { useResponsive } from '@/hooks/useResponsive';
 
 import IdolNew from './IdolCard/Editor/New';
 import IdolCard from './IdolCard';
@@ -23,6 +25,7 @@ interface Props {
 const IdolYear = (props: Props) => {
   const { idols, isotopes, year, yearDesc, yearStart } = props;
 
+  const { user } = useAuth();
   const { isMobile } = useResponsive();
 
   const OPTIONS: IsotopeOptions = useMemo(
@@ -52,6 +55,8 @@ const IdolYear = (props: Props) => {
     }, 100); // NOTE: covers transition duration
   }, [OPTIONS, isotopes, year]);
 
+  const showNew = user && (user.role === ROLE.ADMIN || user.role === ROLE.SUPPORTER) && yearStart === year;
+
   return (
     <li id={`idol-year-${year}`} className={styles.idolYear}>
       <div className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
@@ -60,7 +65,7 @@ const IdolYear = (props: Props) => {
       {yearDesc && <div className={styles.desc}>{yearDesc}</div>}
 
       <ul className={cx(styles.idols, `grid-${year}`)}>
-        {yearStart === year && <IdolNew year={year} />}
+        {showNew && <IdolNew year={year} />}
         {idols.map((idol) => {
           return <IdolCard key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} />;
         })}
