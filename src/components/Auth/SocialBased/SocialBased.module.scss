@@ -6,8 +6,13 @@
     gap: 8px;
   }
 
-  button svg {
+  button {
     width: 28px;
     height: 28px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
