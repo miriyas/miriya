@@ -6,11 +6,15 @@
   }
 
   .sideYears {
-    @include m.fixed(calc(var(--h-nav) + 14px) 14px calc(24px + var(--h-footer) + 14px + var(--x-totop)) auto);
-    @include m.flexbox(end, center);
-    flex-direction: column;
-    width: var(--x-totop);
-    overflow: auto;
+    display: none;
+
+    @include m.after(SD) {
+      @include m.fixed(calc(var(--h-nav) + 14px) 14px calc(24px + var(--h-footer) + 14px + var(--x-totop)) auto);
+      @include m.flexbox(end, center);
+      flex-direction: column;
+      width: var(--x-totop);
+      overflow: auto;
+    }
 
     button {
       @include m.flexbox;
