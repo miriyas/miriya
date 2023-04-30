@@ -1,6 +1,7 @@
 import { useSetAtom } from 'jotai';
 import cx from 'clsx';
 
+import useAuth from '@/hooks/useAuth';
 import { FBIdolType } from '@/types/idols.d';
 import { editIdolAtom } from '@/containers/idols/states';
 
@@ -18,6 +19,7 @@ interface Props {
 
 const Upper = ({ idol, opened, onClickOpen }: Props) => {
   const { commentsLength, youtube } = idol;
+  const { isSupporter, isAdmin } = useAuth();
   const setEditIdol = useSetAtom(editIdolAtom);
   const hasYoutube = youtube && youtube.url !== '';
 
@@ -40,6 +42,7 @@ const Upper = ({ idol, opened, onClickOpen }: Props) => {
       )}
       {opened && hasYoutube && <Youtube youtube={youtube} />}
       {opened && !hasYoutube && <Profile onClickUpper={onClickOpen} idol={idol} />}
+      {(isSupporter || isAdmin) && !opened && !hasYoutube && <span className={styles.noYt}>NO YT</span>}
       {!opened && <Profile onClickUpper={onClickOpen} idol={idol} />}
     </div>
   );
