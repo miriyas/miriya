@@ -1,4 +1,3 @@
-import Isotope from '@/libs/isotope-layout';
 import { WithAuthor, WithTS } from '@/types/firebase';
 
 export type Category = 'total' | 'mixed-group' | 'girl-group' | 'boy-group' | 'girl-solo' | 'boy-solo';
@@ -38,10 +37,6 @@ export interface FBIdolType extends IdolType, WithAuthor, WithTS {
 export interface YearDescType {
   year: number;
   desc: string;
-}
-
-export interface IsotopesType {
-  [key: number]: Isotope;
 }
 
 // Crawl =======================================================================

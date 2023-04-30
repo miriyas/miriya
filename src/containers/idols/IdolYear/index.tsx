@@ -1,14 +1,14 @@
 'use client';
 
-import { MutableRefObject, useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
 import { useResponsive } from '@/hooks/useResponsive';
-import type { IsotopeOptions } from 'isotope-layout';
 import { ROLE } from '@/types/auth.d';
-import { FBIdolType, IsotopesType } from '@/types/idols.d';
+import { FBIdolType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
+import { getIsotopeOptions } from '@/utils/idols';
 
 import IdolNew from './IdolCard/Editor/New';
 import IdolCard from './IdolCard';
@@ -17,42 +17,27 @@ import styles from './IdolYear.module.scss';
 interface Props {
   idols: FBIdolType[];
   year: number;
-  isotopes: MutableRefObject<IsotopesType>;
   yearDesc: string;
 }
 
 const IdolYear = (props: Props) => {
-  const { idols, isotopes, year, yearDesc } = props;
+  const { idols, year, yearDesc } = props;
 
   const { user } = useAuth();
   const { isMobile } = useResponsive();
-
-  const OPTIONS: IsotopeOptions = useMemo(
-    () => ({
-      itemSelector: `.grid-item-${year}`,
-      layoutMode: 'packery',
-      transitionDuration: 200,
-      percentPosition: true,
-      packery: {
-        gutter: 28,
-        columnWidth: isMobile ? 132 : 140,
-      },
-    }),
-    [year, isMobile],
-  );
 
   useEffect(() => {
     const elem = document.querySelector<HTMLElement>(`.grid-${year}`);
     if (!elem) return;
 
-    isotopes.current[year] = new Isotope(elem, OPTIONS);
-  }, [OPTIONS, isotopes, year]);
+    window.isotopes[year] = new Isotope(elem, getIsotopeOptions(year, isMobile));
+  }, [isMobile, year, idols.length]);
 
   const sort = useCallback(() => {
     setTimeout(() => {
-      isotopes.current[year].arrange(OPTIONS);
+      window.isotopes[year].arrange(getIsotopeOptions(year, isMobile));
     }, 100); // NOTE: covers transition duration
-  }, [OPTIONS, isotopes, year]);
+  }, [isMobile, year]);
 
   const showNew = user && (user.role === ROLE.ADMIN || user.role === ROLE.SUPPORTER);
 

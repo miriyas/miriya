@@ -4,7 +4,7 @@ import { MouseEventHandler, useEffect, useRef } from 'react';
 import { useRafState, useUnmount } from 'react-use';
 import cx from 'clsx';
 
-import styles from './Idols.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   year: string;

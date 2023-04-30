@@ -1,7 +1,7 @@
-import { MouseEventHandler, MutableRefObject, useState, useTransition } from 'react';
+import { MouseEventHandler, useState, useTransition } from 'react';
 import cx from 'clsx';
 
-import { CATEGORIES, Category, IsotopesType } from '@/types/idols.d';
+import { CATEGORIES, Category } from '@/types/idols.d';
 import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';
@@ -11,14 +11,13 @@ import Header from './Header';
 import styles from './FilterBar.module.scss';
 
 interface Props {
-  isotopes: MutableRefObject<IsotopesType>;
   idolsLength: number;
   yearStart: number;
   yearEnd: number;
 }
 
 const FilterBar = (props: Props) => {
-  const { isotopes, idolsLength, yearStart, yearEnd } = props;
+  const { idolsLength, yearStart, yearEnd } = props;
 
   const { gaEvent } = useGA();
   const [, startTransition] = useTransition();
@@ -30,8 +29,8 @@ const FilterBar = (props: Props) => {
     startTransition(() => {
       setCurrentCategory(newCategory as Category);
     });
-    Object.keys(isotopes.current).forEach((key) => {
-      isotopes.current[Number(key)].arrange({
+    Object.keys(window.isotopes).forEach((key) => {
+      window.isotopes[Number(key)].arrange({
         filter: (elem) => (newCategory === 'total' ? true : elem.classList.value.includes(`category-${newCategory}`)),
       });
     });

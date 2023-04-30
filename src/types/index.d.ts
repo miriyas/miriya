@@ -1,9 +1,14 @@
+import Isotope from 'isotope-layout';
+
 import type { Gtag } from '@types/gtag.js';
 
 declare global {
   interface Window {
     gtag: Gtag;
     dataLayer: object[];
+    isotopes: {
+      [key: number]: Isotope;
+    };
   }
 }
 
