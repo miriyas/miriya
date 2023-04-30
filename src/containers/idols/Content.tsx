@@ -7,6 +7,7 @@ import { IsotopesType } from '@/types/idols.d';
 
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';
+import SideYear from './SideYear';
 import styles from './Idols.module.scss';
 
 const IdolsPageContent = () => {
@@ -24,6 +25,11 @@ const IdolsPageContent = () => {
           const yearIdols = debutYears[year].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
           const desc = years.find((yearDesc) => yearDesc.year === Number(year))?.desc ?? '';
           return <IdolYear key={year} idols={yearIdols} year={Number(year)} isotopes={isotopes} yearDesc={desc} />;
+        })}
+      </ul>
+      <ul className={styles.sideYears}>
+        {Object.keys(debutYears).map((year) => {
+          return <SideYear key={`side-${year}`} year={year} />;
         })}
       </ul>
     </main>

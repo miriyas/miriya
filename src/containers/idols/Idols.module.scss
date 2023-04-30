@@ -4,4 +4,27 @@
   .idolYears {
     max-width: 812px;
   }
+
+  .sideYears {
+    @include m.fixed(calc(var(--h-nav) + 14px) 14px calc(24px + var(--h-footer) + 14px + var(--x-totop)) auto);
+    @include m.flexbox(end, center);
+    flex-direction: column;
+    width: var(--x-totop);
+    overflow: auto;
+
+    button {
+      @include m.flexbox;
+      height: 24px;
+      font-size: 12px;
+      cursor: pointer;
+
+      &.active {
+        font-weight: 600;
+      }
+
+      &:hover {
+        color: var(--color-blue);
+      }
+    }
+  }
 }

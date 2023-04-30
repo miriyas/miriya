@@ -4,8 +4,8 @@
   @include m.commonBoxShadow;
   @include m.fixed(auto 14px calc(24px + var(--h-footer)) auto);
   z-index: var(--z-global-to-top);
-  width: 52px;
-  height: 52px;
+  width: var(--x-totop);
+  height: var(--x-totop);
   background-color: var(--color-white);
   border-radius: 4px;
 
