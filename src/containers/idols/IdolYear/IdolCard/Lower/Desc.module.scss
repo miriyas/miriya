@@ -4,6 +4,7 @@
   @include m.flexbox(between, center);
   gap: 8px;
   width: calc(100% - 16px);
+  min-height: 26px;
   margin: 0 8px 8px;
 
   .leftWing,

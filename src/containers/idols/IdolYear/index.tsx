@@ -46,7 +46,13 @@ const IdolYear = (props: Props) => {
       <div className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
         {year}
       </div>
-      {yearDesc && <div className={styles.desc}>{yearDesc}</div>}
+      {yearDesc && (
+        <div className={styles.desc}>
+          {year}년에는 무슨 일이?
+          <br />
+          {yearDesc}
+        </div>
+      )}
 
       <ul className={cx(styles.idols, `grid-${year}`)}>
         {showNew && <IdolNew year={year} />}
