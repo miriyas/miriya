@@ -6,7 +6,7 @@ import { prettyCategory } from '@/utils/idols';
 import styles from './index.module.scss';
 
 const filterIdolName = (name: string) => {
-  return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|&]/g, '');
+  return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|&]|:/g, '');
 };
 
 interface Props {
