@@ -38,3 +38,6 @@ next-env.d.ts
 *.psb
 
 serviceAccountKey.json
+
+# Sentry Auth Token
+.sentryclirc
