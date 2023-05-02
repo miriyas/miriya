@@ -42,7 +42,16 @@ const Upper = ({ idol, opened, onClickOpen }: Props) => {
       )}
       {opened && hasYoutube && <Youtube youtube={youtube} />}
       {opened && !hasYoutube && <Profile onClickUpper={onClickOpen} idol={idol} />}
-      {(isSupporter || isAdmin) && !opened && !hasYoutube && <span className={styles.noYt}>NO YT</span>}
+      {(isSupporter || isAdmin) && !opened && !idol.desc?.melon && (
+        <span className={cx(styles.no, styles.melon)}>NO M</span>
+      )}
+      {(isSupporter || isAdmin) && !opened && !idol.desc?.namu && (
+        <span className={cx(styles.no, styles.namu)}>NO N</span>
+      )}{' '}
+      {(isSupporter || isAdmin) && !opened && !idol.desc?.naver && (
+        <span className={cx(styles.no, styles.vibe)}>NO V</span>
+      )}
+      {(isSupporter || isAdmin) && !opened && !hasYoutube && <span className={cx(styles.no, styles.yt)}>NO YT</span>}
       {!opened && <Profile onClickUpper={onClickOpen} idol={idol} />}
     </div>
   );

@@ -24,15 +24,30 @@
     }
   }
 
-  .noYt {
+  .no {
     @include m.flexbox;
     @include m.absolute(8px auto auto 8px);
     z-index: var(--z-3);
     padding: 4px 8px;
     font-size: 10px;
     color: var(--color-white);
-    background-color: var(--color-red);
     border-radius: 2px;
+
+    &.yt {
+      background-color: var(--color-red);
+    }
+
+    &.melon {
+      background-color: var(--color-green);
+    }
+
+    &.namu {
+      background-color: var(--color-blue);
+    }
+
+    &.vibe {
+      background-color: var(--color-indigo);
+    }
   }
 
   .toEdit {
