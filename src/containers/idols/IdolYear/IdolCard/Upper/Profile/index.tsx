@@ -16,6 +16,7 @@ interface Props {
 
 const Profile = ({ idol, onClickUpper }: Props) => {
   const { category, name, debutYear, endYear } = idol;
+  // const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/idols/${debutYear}/${filterIdolName(name)}.jpg`;
 
   return (
     <button type='button' onClick={onClickUpper} className={styles.profile} aria-label='show more'>
