@@ -22,8 +22,8 @@ export const CAMERA_COLLECTION_NAMES = {
 } as const;
 
 export const IDOL_COLLECTION_NAMES = {
-  IDOLS: 'idols',
   IDOL_YEARS: 'idolYears',
+  IDOL_DATA: 'idolData',
 } as const;
 
 export const PENTAX_COLLECTION_NAMES = {

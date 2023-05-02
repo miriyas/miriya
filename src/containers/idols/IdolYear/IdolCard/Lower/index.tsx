@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { IdolType } from '@/types/idols.d';
+import { FBIdolType } from '@/types/idols.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 
 import Desc from './Desc';
@@ -9,7 +9,7 @@ import CommentNewForm from '@/components/CommentForm';
 import styles from './index.module.scss';
 
 interface Props {
-  idol: IdolType;
+  idol: FBIdolType;
 }
 
 const Lower = ({ idol }: Props) => {
@@ -17,12 +17,12 @@ const Lower = ({ idol }: Props) => {
 
   return (
     <div className={styles.lower}>
-      <CommentNewForm targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} targetName={idol.name} />
+      <CommentNewForm targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.id} targetName={idol.name} />
       <Desc idol={idol} showHistory={showHistory} setShowHistory={setShowHistory} />
       {showHistory ? (
-        <ListHistory targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} />
+        <ListHistory targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.id} />
       ) : (
-        <ListComment targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.name} />
+        <ListComment targetCategory={TARGET_CATEGORY.IDOLS} targetId={idol.id} />
       )}
     </div>
   );

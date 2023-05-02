@@ -31,6 +31,7 @@ export interface IdolType {
 }
 
 export interface FBIdolType extends IdolType, WithAuthor, WithTS {
+  id: string;
   commentsLength: number;
 }
 
