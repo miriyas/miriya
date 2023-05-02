@@ -33,8 +33,6 @@ const DataExternal = (props: Props) => {
     {
       suspense: true,
       enabled: showExternalData,
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
     },
   );
 

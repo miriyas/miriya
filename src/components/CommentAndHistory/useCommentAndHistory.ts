@@ -15,31 +15,17 @@ const useCommentAndHistory = ({ targetCategory, targetSubCategory, targetId }: P
     data: histories = [],
     refetch: reloadHistories,
     isLoading: isLoadingHistories,
-  } = useQuery(
-    ['getHistoriesApi', targetCategory, targetSubCategory, targetId],
-    () => {
-      return getHistoriesApi({ targetCategory, targetSubCategory, targetId }).then((res) => res.data);
-    },
-    {
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
-    },
-  );
+  } = useQuery(['getHistoriesApi', targetCategory, targetSubCategory, targetId], () => {
+    return getHistoriesApi({ targetCategory, targetSubCategory, targetId }).then((res) => res.data);
+  });
 
   const {
     data: comments = [],
     refetch: reloadComments,
     isLoading: isLoadingComments,
-  } = useQuery(
-    ['getCommentsApi', targetCategory, targetSubCategory, targetId],
-    () => {
-      return getCommentsApi({ targetCategory, targetSubCategory, targetId }).then((res) => res.data);
-    },
-    {
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
-    },
-  );
+  } = useQuery(['getCommentsApi', targetCategory, targetSubCategory, targetId], () => {
+    return getCommentsApi({ targetCategory, targetSubCategory, targetId }).then((res) => res.data);
+  });
 
   const onEditSubmit = (comment: Comment, body: string) => {
     return patchCommentAPI({

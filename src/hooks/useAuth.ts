@@ -14,8 +14,6 @@ const useAuth = () => {
           return null;
         }),
     {
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
       retry: 0,
     },
   );

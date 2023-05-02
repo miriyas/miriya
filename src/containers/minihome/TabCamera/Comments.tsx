@@ -15,8 +15,6 @@ const Comments = () => {
     () => getMinihomeCommentDataAPI(TARGET_CATEGORY.CAMERA, 1000).then((res) => res.data),
     {
       suspense: true,
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
     },
   );
 

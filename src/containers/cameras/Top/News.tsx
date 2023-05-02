@@ -15,8 +15,6 @@ const NewsBar = () => {
     () => getRecentNewsApi(newsLength).then((res) => res.data),
     {
       suspense: true,
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
     },
   );
 

@@ -10,13 +10,8 @@ import Loading from '@/components/Loading';
 import styles from './Privacy.module.scss';
 
 const PrivacyPage = () => {
-  const { data, isLoading, isError } = useQuery(
-    ['getPrivacyMarkdownApi'],
-    () => getPrivacyMarkdownApi().then((res) => res.data),
-    {
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
-    },
+  const { data, isLoading, isError } = useQuery(['getPrivacyMarkdownApi'], () =>
+    getPrivacyMarkdownApi().then((res) => res.data),
   );
 
   if (isLoading) {

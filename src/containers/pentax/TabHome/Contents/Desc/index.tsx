@@ -10,10 +10,7 @@ import Loading from '@/components/Loading';
 import styles from './Desc.module.scss';
 
 const Desc = () => {
-  const { data, isLoading } = useQuery(['getDescMarkdownApi'], () => getDescMarkdownApi().then((res) => res.data), {
-    cacheTime: 6 * 1000,
-    refetchOnMount: false,
-  });
+  const { data, isLoading } = useQuery(['getDescMarkdownApi'], () => getDescMarkdownApi().then((res) => res.data));
 
   return (
     <div className={styles.desc}>
