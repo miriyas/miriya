@@ -53,7 +53,6 @@ const IdolYear = (props: Props) => {
           {yearDesc}
         </div>
       )}
-
       <ul className={cx(styles.idols, `grid-${year}`)}>
         {showNew && <IdolNew year={year} />}
         {idols.map((idol) => {

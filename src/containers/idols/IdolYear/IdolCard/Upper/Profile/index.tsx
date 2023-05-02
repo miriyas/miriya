@@ -5,28 +5,18 @@ import { prettyCategory } from '@/utils/idols';
 
 import styles from './index.module.scss';
 
-const filterIdolName = (name: string) => {
-  return name.replace(/[^a-z|A-Z|0-9|ㄱ-ㅎ|가-힣|.,-|&]|:/g, '');
-};
-
 interface Props {
   idol: FBIdolType;
   onClickUpper: () => void;
 }
 
 const Profile = ({ idol, onClickUpper }: Props) => {
-  const { category, name, debutYear, endYear } = idol;
-  // const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/idols/${debutYear}/${filterIdolName(name)}.jpg`;
+  const { category, name, debutYear, endYear, id } = idol;
+  const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/idols/${id}.jpg`;
 
   return (
     <button type='button' onClick={onClickUpper} className={styles.profile} aria-label='show more'>
-      <Image
-        src={`/images/idols/${debutYear}/${filterIdolName(name)}.jpg`}
-        alt={name}
-        width={140}
-        height={220}
-        className={styles.profileImg}
-      />
+      <Image src={imageUrl} alt={name} width={140} height={220} className={styles.profileImg} />
       <div className={styles.content}>
         <p className={styles.name}>{name}</p>
         <p className={styles.category}>{prettyCategory(category)}</p>
