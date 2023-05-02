@@ -5,6 +5,7 @@ import useIdols from './useIdols';
 import FilterBar from './FilterBar';
 import IdolYear from './IdolYear';
 import SideYear from './SideYear';
+import Cover from './Cover';
 import styles from './index.module.scss';
 
 window.isotopes = {};
@@ -27,6 +28,7 @@ const IdolsPageContent = () => {
           return <SideYear key={`side-${year}`} year={year} />;
         })}
       </ul>
+      <Cover />
     </main>
   );
 };

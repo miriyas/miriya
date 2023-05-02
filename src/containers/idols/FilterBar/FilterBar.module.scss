@@ -1,6 +1,8 @@
 @use 'src/styles/mixins' as m;
 
 .filterBar {
+  position: relative;
+  z-index: var(--z-2);
   width: 100%;
   max-width: 812px;
   margin-bottom: 100px;
@@ -29,7 +31,8 @@
   .years {
     width: 100%;
     margin-top: 14px;
-    background-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 80%);
+    backdrop-filter: blur(2px);
     border-radius: 8px;
   }
 

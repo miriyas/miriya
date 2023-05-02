@@ -2,6 +2,8 @@
 
 .appHeader {
   @include m.flexbox;
+  position: relative;
+  z-index: var(--z-global-header);
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-gray-e);
 
@@ -39,8 +41,6 @@
 
     .upper {
       @include m.flexbox(between, center);
-      position: relative;
-      z-index: var(--z-global-header);
 
       .home {
         @include m.absolute(0 auto 0 0);

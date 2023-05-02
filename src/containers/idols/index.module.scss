@@ -2,6 +2,8 @@
 
 .idols {
   .idolYears {
+    position: relative;
+    z-index: var(--z-2);
     max-width: 812px;
   }
 
@@ -11,6 +13,7 @@
     @include m.after(SD) {
       @include m.fixed(calc(var(--h-nav) + 14px) 14px calc(24px + var(--h-footer) + 14px + var(--x-totop)) auto);
       @include m.flexbox(end, center);
+      z-index: var(--z-2);
       flex-direction: column;
       width: var(--x-totop);
       overflow: auto;
@@ -28,6 +31,26 @@
 
       &:hover {
         color: var(--color-blue);
+      }
+    }
+  }
+
+  .cover {
+    @include m.fixed(-20px -20px -20px -20px);
+    z-index: var(--z-1);
+    filter: blur(20px);
+
+    > div {
+      @include m.absolute(0 0 0 0);
+      width: 100%;
+      height: 100%;
+      background-position: top center;
+      background-size: cover;
+      opacity: 0;
+      transition: 0.5s opacity;
+
+      &.on {
+        opacity: 0.4;
       }
     }
   }

@@ -2,6 +2,7 @@
 
 .lower {
   @include m.flexbox(start, center);
+  z-index: var(--z-2);
   flex: 1;
   flex-direction: column;
   width: 100%;

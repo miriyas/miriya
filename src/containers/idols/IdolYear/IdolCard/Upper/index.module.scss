@@ -3,6 +3,7 @@
 .upper {
   @include m.flexbox(center, start);
   position: relative;
+  z-index: var(--z-2);
   width: 100%;
   height: 100%;
 

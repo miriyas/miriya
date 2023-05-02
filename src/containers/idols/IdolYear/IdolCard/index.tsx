@@ -1,12 +1,12 @@
 import { useRef } from 'react';
 import { useClickAway, useRafState } from 'react-use';
 import cx from 'clsx';
-import { useAtomValue } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 
 import { useGA } from '@/hooks/useGA';
 import { FBIdolType } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
-import { editIdolAtom } from '@/containers/idols/states';
+import { coverIdolAtom, editIdolAtom } from '@/containers/idols/states';
 
 import Editor from './Editor/Edit';
 import Upper from './Upper';
@@ -26,6 +26,7 @@ const IdolCard = (props: Props) => {
   const idolRef = useRef<HTMLLIElement>(null);
   const [opened, setOpened] = useRafState(false);
   const editIdol = useAtomValue(editIdolAtom);
+  const setCoverUrl = useSetAtom(coverIdolAtom);
 
   useClickAway(idolRef, () => {
     if (!opened) return;
@@ -35,6 +36,7 @@ const IdolCard = (props: Props) => {
   });
 
   const onClickOpen = () => {
+    setCoverUrl(idol.id);
     setOpened(true);
     setTimeout(() => {
       sort();

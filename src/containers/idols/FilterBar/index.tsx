@@ -22,7 +22,6 @@ const FilterBar = (props: Props) => {
   const { gaEvent } = useGA();
   const [, startTransition] = useTransition();
   const [currentCategory, setCurrentCategory] = useState<Category>('total');
-  const [currentYear, setCurrentYear] = useState<number | null>(null);
 
   const onClickCategory: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newCategory = e.currentTarget.title;
@@ -39,9 +38,6 @@ const FilterBar = (props: Props) => {
 
   const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newYear = e.currentTarget.title;
-    startTransition(() => {
-      setCurrentYear(Number(newYear));
-    });
     document.getElementById(`idol-year-${newYear}`)?.scrollIntoView({ behavior: 'smooth' });
     gaEvent(IDOL.IDOL_YEAR_CLICK, { year: newYear });
   };
@@ -64,7 +60,7 @@ const FilterBar = (props: Props) => {
         {getNumberArr(yearEnd - yearStart + 1).map((n) => {
           const year = yearStart + n;
           return (
-            <li key={year} className={cx({ [styles.current]: year === currentYear })}>
+            <li key={year}>
               <button type='button' onClick={onClickYear} title={String(year)}>
                 {year}
               </button>
