@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import ExternalLink from '@/components/ExternalLink';
 import ImageAlbum from '@/components/ImageAlbum';
-import styles from './Profile.module.scss';
+import styles from './index.module.scss';
 
 const ProfilePage = () => {
   return (

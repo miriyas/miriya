@@ -1,0 +1,67 @@
+@use 'src/styles/mixins' as m;
+
+.mycar {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-gray-2);
+
+  @include m.after(SD) {
+    font-size: 14px;
+  }
+
+  .centering {
+    @include m.flexbox(start, center);
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--color-white);
+  }
+
+  .header {
+    position: relative;
+
+    .texts {
+      @include m.absolute(14px auto auto 14px);
+      color: var(--color-white);
+
+      .title {
+        width: 100%;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .vin {
+        width: 100%;
+      }
+    }
+  }
+
+  .contents {
+    width: 100%;
+    padding: 14px;
+  }
+
+  table {
+    width: 100%;
+
+    th,
+    td {
+      padding: 14px 0;
+      font-size: 12px;
+      border-bottom: 1px solid var(--color-gray-e);
+    }
+
+    th {
+      text-align: left;
+
+      time,
+      p {
+        width: 100%;
+      }
+    }
+
+    td {
+      white-space: pre-wrap;
+    }
+  }
+}
