@@ -83,7 +83,10 @@ const Form = ({ idol, submitIdol, onClickCancel, errors, register, dirtyFields, 
   return (
     <form className={styles.editor} onSubmit={onSubmit}>
       {/* {idol ? ( */}
-      <p className={styles.title}>{idol.name}</p>
+      <p className={styles.title}>
+        {idol.name}
+        <span>{idol.id}</span>
+      </p>
       {/* ) : (
         <label className={styles.inputWrapper}>
           <span>*이름</span>
