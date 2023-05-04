@@ -14,7 +14,27 @@
     flex-direction: column;
     width: 100%;
     max-width: 800px;
-    background-color: var(--color-white);
+
+    .hero {
+      display: block;
+    }
+  }
+
+  .carSelect {
+    @include m.flexbox(start, center);
+    gap: 14px;
+    width: 100%;
+    margin-bottom: 8px;
+
+    button {
+      @include m.flexbox;
+      height: 24px;
+      font-size: 18px;
+
+      &.current {
+        font-weight: 600;
+      }
+    }
   }
 
   .header {
@@ -39,29 +59,44 @@
   .contents {
     width: 100%;
     padding: 14px;
-  }
+    background-color: var(--color-white);
 
-  table {
-    width: 100%;
-
-    th,
-    td {
-      padding: 14px 0;
-      font-size: 12px;
+    .tableSelect {
+      @include m.flexbox(start, center);
+      gap: 8px;
+      width: 100%;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--color-gray-e);
-    }
 
-    th {
-      text-align: left;
-
-      time,
-      p {
-        width: 100%;
+      button {
+        &.current {
+          font-weight: 600;
+        }
       }
     }
 
-    td {
-      white-space: pre-wrap;
+    table {
+      width: 100%;
+
+      th,
+      td {
+        padding: 14px 0;
+        font-size: 12px;
+        border-bottom: 1px solid var(--color-gray-e);
+      }
+
+      th {
+        text-align: left;
+
+        time,
+        p {
+          width: 100%;
+        }
+      }
+
+      td {
+        white-space: pre-wrap;
+      }
     }
   }
 }
