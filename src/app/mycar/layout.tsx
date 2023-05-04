@@ -1,6 +1,8 @@
+import { ReactNode } from 'react';
+
 import type { Metadata } from 'next';
-import MyCar from '@/containers/mycar';
-import { fetchClient } from '@/services/apiClient';
+
+import styles from './layout.module.scss';
 
 const title = 'MIRIYA';
 const description = '내 차량의 상태와 부품/튜닝 목록';
@@ -35,9 +37,16 @@ export const metadata: Metadata = {
   },
 };
 
-const MyCarPage = async () => {
-  const cars = await fetchClient('/mycar');
-  return <MyCar cars={await cars.json()} />;
+interface Props {
+  children: ReactNode;
+}
+
+const RootLayout = ({ children }: Props) => {
+  return (
+    <main className={styles.mycar}>
+      <div className={styles.centering}>{children}</div>
+    </main>
+  );
 };
 
-export default MyCarPage;
+export default RootLayout;

@@ -13,12 +13,16 @@ export interface ItemParts {
   price?: number;
 }
 
-export interface FBMyCar {
+export interface NewMyCar {
   name: string;
   vin: string;
   maker: string;
   lineup: string;
   owner: string;
+}
+
+export interface FBMyCar extends NewMyCar {
+  id: string;
   listFix: ItemFix[];
   listParts: ItemParts[];
 }

@@ -1,6 +1,23 @@
 @use 'src/styles/mixins' as m;
 
 .wrapper {
+  .carSelect {
+    @include m.flexbox(start, center);
+    gap: 14px;
+    width: 100%;
+    margin-bottom: 8px;
+
+    button {
+      @include m.flexbox;
+      height: 24px;
+      font-size: 18px;
+
+      &.current {
+        font-weight: 600;
+      }
+    }
+  }
+
   .header {
     position: relative;
 

@@ -1,5 +1,10 @@
 import axios, { AxiosError } from 'axios';
 
+export const fetchClient = (url: string) =>
+  fetch(`${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api${url}`, {
+    next: { revalidate: 60 * 10 }, // 10분 캐시
+  });
+
 const apiClient = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api`,
   timeout: 30_000,

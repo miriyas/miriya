@@ -1,0 +1,29 @@
+@use 'src/styles/mixins' as m;
+
+.top {
+  @include m.flexbox(between, center);
+  width: 100%;
+
+  .carSelect {
+    @include m.flexbox(start, center);
+    gap: 14px;
+    width: 100%;
+    margin-bottom: 8px;
+
+    button {
+      @include m.flexbox;
+      height: 24px;
+      font-size: 18px;
+
+      &.current {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .newBtn {
+    font-size: 14px;
+    color: var(--color-black);
+    white-space: nowrap;
+  }
+}

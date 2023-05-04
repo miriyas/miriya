@@ -1,0 +1,18 @@
+@use 'src/styles/mixins' as m;
+
+.mycar {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-gray-2);
+
+  @include m.after(SD) {
+    font-size: 14px;
+  }
+
+  .centering {
+    @include m.flexbox(start, center);
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+  }
+}

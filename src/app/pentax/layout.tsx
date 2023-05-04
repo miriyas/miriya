@@ -1,11 +1,11 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
 
 import Wrapper from '@/app/pentax/wrapper';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const title = 'Pentaxian Encyclopedia';
