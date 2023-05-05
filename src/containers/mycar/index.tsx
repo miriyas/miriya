@@ -9,6 +9,8 @@ import { currentCarAtom } from './states';
 
 import Top from './Top';
 import HeroHeader from './HeroHeader';
+import ListFix from './ListFix';
+import ListParts from './ListParts';
 import styles from './index.module.scss';
 
 const TABS = [
@@ -40,6 +42,13 @@ const MyCarPage = ({ cars }: Props) => {
 
   const targetCar = cars.find((car) => car.vin === currentCar) || cars[0];
 
+  if (!targetCar)
+    return (
+      <div className={styles.wrapper}>
+        <Top cars={cars} />
+      </div>
+    );
+
   return (
     <div className={styles.wrapper}>
       <Top cars={cars} />
@@ -65,40 +74,8 @@ const MyCarPage = ({ cars }: Props) => {
             </li>
           ))}
         </ul>
-        {currentTab === 'fix' && (
-          <table>
-            <tbody>
-              {targetCar.listFix?.map((item) => {
-                return (
-                  <tr key={`${item.time}-${item.title}`}>
-                    <th>
-                      <time>{item.time}</time>
-                      <p>{item.km.toLocaleString()}km</p>
-                    </th>
-                    <td>{item.location}</td>
-                    <td>{item.title}</td>
-                    <td>{item.body}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        )}
-        {currentTab === 'parts' && (
-          <table>
-            <tbody>
-              {targetCar.listParts?.map((item) => {
-                return (
-                  <tr key={`${item.name}-${item.partsNo}`}>
-                    <th>{item.name}</th>
-                    <td>{item.partsNo}</td>
-                    <td>{item.price?.toLocaleString()}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        )}
+        {currentTab === 'fix' && <ListFix list={targetCar.listFix} />}
+        {currentTab === 'parts' && <ListParts list={targetCar.listParts} />}
       </div>
     </div>
   );

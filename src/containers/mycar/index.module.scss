@@ -41,6 +41,11 @@
 
       td {
         white-space: pre-wrap;
+
+        &.blank {
+          line-height: 100px;
+          text-align: center;
+        }
       }
     }
   }

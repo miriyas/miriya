@@ -17,15 +17,11 @@ const Top = ({ cars }: Props) => {
   const [currentCar, setCurrentCar] = useAtom(currentCarAtom);
 
   useMount(() => {
-    setCurrentCar(cars[0].vin);
+    setCurrentCar(cars[0]?.vin);
   });
 
   const onClickSelectCar: MouseEventHandler<HTMLButtonElement> = (e) => {
     setCurrentCar(e.currentTarget.dataset.vin ?? '');
-  };
-
-  const onClickNew = () => {
-    console.log(111);
   };
 
   const targetCar = cars.find((car) => car.vin === currentCar) || cars[0];
@@ -46,7 +42,7 @@ const Top = ({ cars }: Props) => {
           </li>
         ))}
       </ul>
-      <Link href='/mycar/new' onClick={onClickNew} className={styles.newBtn}>
+      <Link href='/mycar/new' className={styles.newBtn}>
         내 차 추가하기
       </Link>
     </div>
