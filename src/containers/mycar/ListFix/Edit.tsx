@@ -106,7 +106,7 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
             <input
               {...register('title')}
               type='text'
-              placeholder='ex) 엔진오일 교환 서비스'
+              placeholder='내용, ex) 엔진오일 교환 서비스'
               className={cx({ [styles.error]: errors.title, [styles.changed]: dirtyFields.title })}
             />
           </label>
@@ -114,7 +114,7 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
             <input
               {...register('location')}
               type='text'
-              placeholder='ex) 타이어프로 신갈'
+              placeholder='장소, ex) 타이어프로 신갈'
               className={cx({ [styles.error]: errors.location, [styles.changed]: dirtyFields.location })}
             />
           </label>
@@ -122,7 +122,7 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
             <input
               {...register('locationUrl')}
               type='text'
-              placeholder='ex) https://aaaa.com/bbb'
+              placeholder='위치, ex) https://aaaa.com/bbb'
               className={cx({ [styles.error]: errors.locationUrl, [styles.changed]: dirtyFields.locationUrl })}
             />
           </label>
@@ -131,7 +131,7 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
           <label className={styles.inputWrapper}>
             <textarea
               {...register('body')}
-              placeholder='ex) 밸런스 샤프트 커버 좌 우 교환'
+              placeholder='상세 내용, ex) 밸런스 샤프트 커버 좌 우 교환'
               className={cx({ [styles.error]: errors.body, [styles.changed]: dirtyFields.body })}
             />
           </label>

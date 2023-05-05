@@ -5,6 +5,8 @@ export const getMyCarDataAPI = () => apiClient<FBMyCar[]>('/mycar');
 
 export const postCarDataAPI = (params: NewMyCar) => apiClient.post('/mycar', params);
 
+export const patchCarDataAPI = (carId: string, params: NewMyCar) => apiClient.patch(`/mycar/${carId}`, params);
+
 // 정비 내역
 
 export const getCarFixDataAPI = (carId: string) => apiClient<FBItemFix[]>(`/mycar/${carId}/fix`);

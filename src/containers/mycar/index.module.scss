@@ -1,6 +1,16 @@
 @use 'src/styles/mixins' as m;
 
 .wrapper {
+  .headerWrapper {
+    position: relative;
+
+    .editButton {
+      @include m.absolute(14px 14px auto auto);
+      z-index: var(--z-2);
+      color: var(--color-white);
+    }
+  }
+
   .contents {
     width: 100%;
     padding: 14px;

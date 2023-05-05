@@ -1,0 +1,63 @@
+@use 'src/styles/mixins' as m;
+
+.wrapper {
+  width: 100%;
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .inputWrapper {
+    @include m.flexbox;
+    height: 32px;
+    margin-bottom: 8px;
+
+    span {
+      width: 80px;
+    }
+
+    input {
+      width: 240px;
+      padding: 0 8px;
+      line-height: 32px;
+      color: var(--color-white);
+      background-color: rgba(var(--color-black-rgb), 0.5);
+      border-radius: 4px;
+      backdrop-filter: blur(2px);
+
+      &.error {
+        border-color: var(--color-red) !important;
+      }
+
+      &.changed {
+        border-color: var(--color-green) !important;
+      }
+    }
+  }
+
+  .buttonWrapper {
+    @include m.absolute(auto 14px 14px auto);
+    @include m.flexbox(end, center);
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+
+    a,
+    button {
+      @include m.flexbox;
+      width: 100px;
+      height: 28px;
+      border-radius: 4px;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
+    button[type='submit'] {
+      color: var(--color-white);
+      background-color: var(--color-blue);
+    }
+  }
+}

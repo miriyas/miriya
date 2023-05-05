@@ -7,8 +7,10 @@ import { useQuery } from '@tanstack/react-query';
 
 import { currentCarAtom } from './states';
 import { getMyCarDataAPI } from '@/services/mycar';
+import useAuth from '@/hooks/useAuth';
 
 import Top from './Top';
+import FormEdit from './FormEdit';
 import HeroHeader from './HeroHeader';
 import ListFix from './ListFix';
 import ListParts from './ListParts';
@@ -27,8 +29,10 @@ const TABS = [
 ];
 
 const MyCarPage = () => {
+  const { user } = useAuth();
   const currentCar = useAtomValue(currentCarAtom);
   const [currentTab, setCurrentTab] = useState(TABS[0].key);
+  const [editMode, setEditMode] = useState(false);
 
   const { data = [], isLoading } = useQuery(['getMyCarDataAPI'], () => getMyCarDataAPI().then((res) => res.data));
 
@@ -41,6 +45,10 @@ const MyCarPage = () => {
   };
 
   const targetCar = data.find((car) => car.vin === currentCar) || data[0];
+
+  const onClickEdit = () => {
+    setEditMode(true);
+  };
 
   if (isLoading) {
     return (
@@ -61,14 +69,25 @@ const MyCarPage = () => {
   return (
     <div className={styles.wrapper}>
       <Top cars={data} />
-      <HeroHeader
-        carId={targetCar.id}
-        name={targetCar.name}
-        vin={targetCar.vin}
-        maker={targetCar.maker}
-        lineup={targetCar.lineup}
-        owner={targetCar.author.nickname}
-      />
+      <div className={styles.headerWrapper}>
+        {editMode ? (
+          <FormEdit car={targetCar} />
+        ) : (
+          <HeroHeader
+            carId={targetCar.id}
+            name={targetCar.name}
+            vin={targetCar.vin}
+            maker={targetCar.maker}
+            lineup={targetCar.lineup}
+            owner={targetCar.author.nickname}
+          />
+        )}
+        {!editMode && user?.uid === targetCar.authorId && (
+          <button type='button' onClick={onClickEdit} className={styles.editButton}>
+            수정
+          </button>
+        )}
+      </div>
       <div className={styles.contents}>
         <ul className={styles.tableSelect}>
           {TABS.map((tb) => (

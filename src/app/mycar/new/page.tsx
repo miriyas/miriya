@@ -1,4 +1,4 @@
-import MyCarNew from '@/containers/mycar/New';
+import MyCarNew from '@/containers/mycar/FormNew';
 
 const MyCarNewPage = async () => {
   return <MyCarNew />;
