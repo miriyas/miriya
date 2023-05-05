@@ -1,25 +1,6 @@
 @use 'src/styles/mixins' as m;
 
 .wrapper {
-  .header {
-    position: relative;
-
-    .texts {
-      @include m.absolute(14px auto auto 14px);
-      color: var(--color-white);
-
-      .title {
-        width: 100%;
-        font-size: 24px;
-        font-weight: 600;
-      }
-
-      .vin {
-        width: 100%;
-      }
-    }
-  }
-
   .contents {
     width: 100%;
     padding: 14px;

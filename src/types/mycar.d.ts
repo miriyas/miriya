@@ -1,3 +1,5 @@
+import { WithAuthor, WithTS } from '@/types/firebase.d';
+
 export interface ItemFix {
   time: string;
   km: number;
@@ -18,10 +20,9 @@ export interface NewMyCar {
   vin: string;
   maker: string;
   lineup: string;
-  owner: string;
 }
 
-export interface FBMyCar extends NewMyCar {
+export interface FBMyCar extends NewMyCar, WithAuthor, WithTS {
   id: string;
   listFix: ItemFix[];
   listParts: ItemParts[];

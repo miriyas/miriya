@@ -1,83 +1,68 @@
 @use 'src/styles/mixins' as m;
 
 .wrapper {
-  .carSelect {
-    @include m.flexbox(start, center);
-    gap: 14px;
-    width: 100%;
-    margin-bottom: 8px;
+  width: 100%;
 
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .editor {
+    @include m.flexbox(center, start);
+    flex-direction: column;
+    width: 320px;
+    margin-top: 14px;
+
+    .inputWrapper {
+      @include m.flexbox;
+      height: 32px;
+      margin-bottom: 8px;
+
+      span {
+        width: 80px;
+      }
+
+      input {
+        width: 240px;
+        padding: 0 8px;
+        line-height: 32px;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-c);
+        border-radius: 4px;
+
+        &.error {
+          border-color: var(--color-red) !important;
+        }
+
+        &.changed {
+          border-color: var(--color-green) !important;
+        }
+      }
+    }
+  }
+
+  .buttonWrapper {
+    @include m.flexbox(end, center);
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+
+    a,
     button {
       @include m.flexbox;
-      height: 24px;
-      font-size: 18px;
+      width: 100px;
+      height: 28px;
+      border-radius: 4px;
 
-      &.current {
-        font-weight: 600;
+      &:disabled {
+        opacity: 0.5;
       }
     }
-  }
 
-  .header {
-    position: relative;
-
-    .texts {
-      @include m.absolute(14px auto auto 14px);
+    button[type='submit'] {
       color: var(--color-white);
-
-      .title {
-        width: 100%;
-        font-size: 24px;
-        font-weight: 600;
-      }
-
-      .vin {
-        width: 100%;
-      }
-    }
-  }
-
-  .contents {
-    width: 100%;
-    padding: 14px;
-    background-color: var(--color-white);
-
-    .tableSelect {
-      @include m.flexbox(start, center);
-      gap: 8px;
-      width: 100%;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--color-gray-e);
-
-      button {
-        &.current {
-          font-weight: 600;
-        }
-      }
-    }
-
-    table {
-      width: 100%;
-
-      th,
-      td {
-        padding: 14px 0;
-        font-size: 12px;
-        border-bottom: 1px solid var(--color-gray-e);
-      }
-
-      th {
-        text-align: left;
-
-        time,
-        p {
-          width: 100%;
-        }
-      }
-
-      td {
-        white-space: pre-wrap;
-      }
+      background-color: var(--color-blue);
     }
   }
 }

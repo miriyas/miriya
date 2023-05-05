@@ -1,0 +1,54 @@
+@use 'src/styles/mixins' as m;
+
+.heroHeader {
+  position: relative;
+  width: 800px;
+  height: 450px;
+
+  &.preview {
+    p {
+      background-color: rgba(var(--color-black-rgb), 0.2);
+    }
+  }
+
+  .hero,
+  .heroPlaceholder {
+    @include m.absolute(0 0 0 0);
+  }
+
+  .hero {
+    z-index: var(--z-2);
+  }
+
+  .heroPlaceholder {
+    z-index: var(--z-1);
+
+    img {
+      opacity: 0.5;
+    }
+
+    p {
+      @include m.middleBox;
+      padding: 4px 8px;
+      text-align: center;
+      white-space: nowrap;
+      background-color: var(--color-white);
+    }
+  }
+
+  .texts {
+    @include m.absolute(14px auto auto 14px);
+    z-index: var(--z-3);
+    color: var(--color-white);
+
+    .title {
+      width: 100%;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .vin {
+      width: 100%;
+    }
+  }
+}

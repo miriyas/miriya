@@ -2,13 +2,13 @@
 
 import { MouseEventHandler, useEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
-import Image from 'next/image';
 import cx from 'clsx';
 
 import { FBMyCar } from '@/types/mycar.d';
 import { currentCarAtom } from './states';
 
 import Top from './Top';
+import HeroHeader from './HeroHeader';
 import styles from './index.module.scss';
 
 const TABS = [
@@ -43,17 +43,13 @@ const MyCarPage = ({ cars }: Props) => {
   return (
     <div className={styles.wrapper}>
       <Top cars={cars} />
-      <div className={styles.header}>
-        <div className={styles.texts}>
-          <p className={styles.title}>{targetCar.name}</p>
-          <p className={styles.line}>
-            {targetCar.maker} {targetCar.lineup}
-          </p>
-          <p className={styles.vin}>{targetCar.vin}</p>
-          <p className={styles.owner}>{targetCar.owner}</p>
-        </div>
-        <Image src={`/images/mycar/${targetCar.vin}.jpg`} width={800} height={450} alt='' className={styles.hero} />
-      </div>
+      <HeroHeader
+        name={targetCar.name}
+        vin={targetCar.vin}
+        maker={targetCar.maker}
+        lineup={targetCar.lineup}
+        owner={targetCar.author.nickname}
+      />
       <div className={styles.contents}>
         <ul className={styles.tableSelect}>
           {TABS.map((tb) => (
@@ -72,7 +68,7 @@ const MyCarPage = ({ cars }: Props) => {
         {currentTab === 'fix' && (
           <table>
             <tbody>
-              {targetCar.listFix.map((item) => {
+              {targetCar.listFix?.map((item) => {
                 return (
                   <tr key={`${item.time}-${item.title}`}>
                     <th>

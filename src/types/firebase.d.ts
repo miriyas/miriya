@@ -36,7 +36,7 @@ export const PENTAX_COLLECTION_NAMES = {
 export interface WithAuthor {
   authorId: string;
   author: {
-    nickname?: string;
+    nickname: string;
     nicknameIsFake?: boolean;
     profileUrl?: string;
   };
