@@ -1,4 +1,3 @@
-import { MouseEventHandler } from 'react';
 import { useMount } from 'react-use';
 import { useAtom } from 'jotai';
 import cx from 'clsx';
@@ -10,35 +9,27 @@ import { currentCarAtom } from '@/containers/mycar/states';
 import styles from './Top.module.scss';
 
 interface Props {
+  carId?: string;
   cars: FBMyCar[];
 }
 
-const Top = ({ cars }: Props) => {
+const Top = ({ carId, cars }: Props) => {
   const [currentCar, setCurrentCar] = useAtom(currentCarAtom);
 
   useMount(() => {
-    setCurrentCar(cars[0]?.vin);
+    setCurrentCar(carId ?? cars[0]?.id);
   });
 
-  const onClickSelectCar: MouseEventHandler<HTMLButtonElement> = (e) => {
-    setCurrentCar(e.currentTarget.dataset.vin ?? '');
-  };
-
-  const targetCar = cars.find((car) => car.vin === currentCar) || cars[0];
+  const targetCar = cars.find((car) => car.id === currentCar) || cars[0];
 
   return (
     <div className={styles.top}>
       <ul className={styles.carSelect}>
         {cars.map((car) => (
-          <li key={car.vin}>
-            <button
-              type='button'
-              onClick={onClickSelectCar}
-              data-vin={car.vin}
-              className={cx({ [styles.current]: car.vin === targetCar.vin })}
-            >
+          <li key={car.id}>
+            <Link href={`/mycar/${car.id}`} className={cx({ [styles.current]: car.id === targetCar.id })}>
               {car.name}
-            </button>
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,11 +1,10 @@
 'use client';
 
-import { FormEventHandler, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { Dispatch, FormEventHandler, SetStateAction, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import cx from 'clsx';
 import Image from 'next/image';
+import cx from 'clsx';
 
 import { NewMyCarSchema, newMyCarValidator } from '@/utils/validator';
 import useAuth from '@/hooks/useAuth';
@@ -18,10 +17,11 @@ import styles from './index.module.scss';
 
 interface Props {
   car: FBMyCar;
+  refetch: () => Promise<any>;
+  setEditMode: Dispatch<SetStateAction<boolean>>;
 }
 
-const MyCarEdit = ({ car }: Props) => {
-  const router = useRouter();
+const MyCarEdit = ({ car, refetch, setEditMode }: Props) => {
   const { addAlert } = useAlert();
   const { user, isSupporter, isAdmin } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +54,9 @@ const MyCarEdit = ({ car }: Props) => {
       lineup: formValues.lineup,
     })
       .then(() => {
-        router.push('/mycar');
+        refetch().then(() => {
+          setEditMode(false);
+        });
       })
       .finally(() => {
         setIsLoading(false);

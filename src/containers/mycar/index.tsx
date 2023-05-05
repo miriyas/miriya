@@ -28,13 +28,21 @@ const TABS = [
   },
 ];
 
-const MyCarPage = () => {
+interface Props {
+  carId?: string;
+}
+
+const MyCarPage = ({ carId }: Props) => {
   const { user } = useAuth();
   const currentCar = useAtomValue(currentCarAtom);
   const [currentTab, setCurrentTab] = useState(TABS[0].key);
   const [editMode, setEditMode] = useState(false);
 
-  const { data = [], isLoading } = useQuery(['getMyCarDataAPI'], () => getMyCarDataAPI().then((res) => res.data));
+  const {
+    data = [],
+    isLoading,
+    refetch,
+  } = useQuery(['getMyCarDataAPI'], () => getMyCarDataAPI().then((res) => res.data));
 
   useEffect(() => {
     setCurrentTab(TABS[0].key);
@@ -44,7 +52,7 @@ const MyCarPage = () => {
     setCurrentTab(e.currentTarget.dataset.tb ?? '');
   };
 
-  const targetCar = data.find((car) => car.vin === currentCar) || data[0];
+  const targetCar = data.find((car) => car.id === currentCar) || data[0];
 
   const onClickEdit = () => {
     setEditMode(true);
@@ -68,10 +76,10 @@ const MyCarPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Top cars={data} />
+      <Top cars={data} carId={carId} />
       <div className={styles.headerWrapper}>
         {editMode ? (
-          <FormEdit car={targetCar} />
+          <FormEdit car={targetCar} refetch={refetch} setEditMode={setEditMode} />
         ) : (
           <HeroHeader
             carId={targetCar.id}

@@ -10,10 +10,11 @@
     width: 100%;
     margin-bottom: 8px;
 
-    button {
+    a {
       @include m.flexbox;
       height: 24px;
       font-size: 18px;
+      color: var(--color-black);
 
       &.current {
         font-weight: 600;
