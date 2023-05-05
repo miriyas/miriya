@@ -1,8 +1,8 @@
 import axios, { AxiosError } from 'axios';
 
-export const fetchClient = (url: string) =>
+export const fetchClient = (url: string, tags?: string[]) =>
   fetch(`${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api${url}`, {
-    next: { revalidate: 60 * 10 }, // 10분 캐시
+    next: { revalidate: 60 * 10, tags }, // 10분 캐시
   });
 
 const apiClient = axios.create({
@@ -59,3 +59,5 @@ export const isAxiosError = (err: unknown | AxiosError): err is AxiosError => {
 /** DPreview는 axios만 막는다. */
 export const fakeUserAgent =
   'Mozilla/5.0 (iPhone14,3; U; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19A346 Safari/602.1';
+
+export const revalidateApi = (tag: string) => apiClientLocal(`/revalidate?tag=${tag}`);

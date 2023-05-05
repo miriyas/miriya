@@ -3,15 +3,17 @@
 import { MouseEventHandler, useEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import cx from 'clsx';
+import { useQuery } from '@tanstack/react-query';
 
-import { FBMyCar } from '@/types/mycar.d';
 import { currentCarAtom } from './states';
+import { getMyCarDataAPI } from '@/services/mycar';
 
 import Top from './Top';
 import HeroHeader from './HeroHeader';
 import ListFix from './ListFix';
 import ListParts from './ListParts';
 import styles from './index.module.scss';
+import Loading from '@/components/Loading';
 
 const TABS = [
   {
@@ -24,13 +26,11 @@ const TABS = [
   },
 ];
 
-interface Props {
-  cars: FBMyCar[];
-}
-
-const MyCarPage = ({ cars }: Props) => {
+const MyCarPage = () => {
   const currentCar = useAtomValue(currentCarAtom);
   const [currentTab, setCurrentTab] = useState(TABS[0].key);
+
+  const { data = [], isLoading } = useQuery(['getMyCarDataAPI'], () => getMyCarDataAPI().then((res) => res.data));
 
   useEffect(() => {
     setCurrentTab(TABS[0].key);
@@ -40,19 +40,29 @@ const MyCarPage = ({ cars }: Props) => {
     setCurrentTab(e.currentTarget.dataset.tb ?? '');
   };
 
-  const targetCar = cars.find((car) => car.vin === currentCar) || cars[0];
+  const targetCar = data.find((car) => car.vin === currentCar) || data[0];
 
-  if (!targetCar)
+  if (isLoading) {
     return (
       <div className={styles.wrapper}>
-        <Top cars={cars} />
+        <Loading small />
       </div>
     );
+  }
+
+  if (!targetCar) {
+    return (
+      <div className={styles.wrapper}>
+        <Top cars={data} />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.wrapper}>
-      <Top cars={cars} />
+      <Top cars={data} />
       <HeroHeader
+        carId={targetCar.id}
         name={targetCar.name}
         vin={targetCar.vin}
         maker={targetCar.maker}
@@ -74,8 +84,8 @@ const MyCarPage = ({ cars }: Props) => {
             </li>
           ))}
         </ul>
-        {currentTab === 'fix' && <ListFix list={targetCar.listFix} />}
-        {currentTab === 'parts' && <ListParts list={targetCar.listParts} />}
+        {currentTab === 'fix' && <ListFix car={targetCar} />}
+        {currentTab === 'parts' && <ListParts car={targetCar} />}
       </div>
     </div>
   );

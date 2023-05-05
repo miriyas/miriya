@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import MyCar from '@/containers/mycar';
-import { fetchClient } from '@/services/apiClient';
 
 const title = 'MIRIYA';
 const description = '내 차량의 상태와 부품/튜닝 목록';
@@ -35,9 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-const MyCarPage = async () => {
-  const cars = await fetchClient('/mycar');
-  return <MyCar cars={await cars.json()} />;
-};
+const MyCarPage = async () => <MyCar />;
 
 export default MyCarPage;

@@ -1,0 +1,160 @@
+@use 'src/styles/mixins' as m;
+
+.listWrapper {
+  form {
+    @include m.flexbox(start, start);
+    gap: 4px;
+
+    &.new {
+      margin-bottom: 8px;
+    }
+
+    .vertical {
+      @include m.flexbox(center, start);
+      flex-direction: column;
+    }
+
+    .bodyWrapper {
+      @include m.flexbox(center, start);
+      flex: 1;
+    }
+
+    .inputWrapper {
+      @include m.flexbox(start, start);
+      width: 100%;
+
+      span {
+        width: 80px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0 8px;
+        font-size: 12px;
+        line-height: 18px;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-c);
+        border-radius: 2px;
+
+        &.error {
+          border-color: var(--color-red) !important;
+        }
+
+        &.changed {
+          border-color: var(--color-green) !important;
+        }
+      }
+
+      input {
+        height: 24px;
+      }
+
+      textarea {
+        height: 80px;
+        padding-top: 4px;
+        resize: none;
+      }
+    }
+  }
+
+  .list {
+    width: 100%;
+
+    li {
+      @include m.flexbox;
+      width: 100%;
+      border-bottom: 1px solid var(--color-gray-e);
+
+      &.edit {
+        padding: 8px;
+        background-color: var(--color-bg);
+
+        form {
+          width: 100%;
+
+          div {
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    div {
+      @include m.flexbox(start, start);
+      flex-direction: column;
+      align-self: flex-start;
+      padding: 8px 0;
+      font-size: 12px;
+      line-height: 18px;
+      white-space: pre-wrap;
+
+      &.blank {
+        @include m.flexbox;
+        height: 100px;
+      }
+    }
+
+    // th {
+    //   text-align: left;
+
+    //   time,
+    //   p {
+    //     width: 100%;
+    //   }
+    // }
+  }
+
+  .dataTime {
+    @include m.flexbox;
+    gap: 4px;
+    width: 120px;
+
+    p {
+      color: var(--color-gray-9);
+    }
+  }
+
+  .dataTitle {
+    @include m.flexbox;
+    gap: 4px;
+    width: 200px;
+  }
+
+  .dataBody {
+    @include m.flexbox;
+    flex: 1;
+    gap: 4px;
+  }
+
+  .dataButtons {
+    @include m.flexbox;
+    flex-direction: column;
+    gap: 4px;
+    align-self: auto !important;
+    width: 60px;
+
+    button {
+      width: 60px;
+      font-size: 12px;
+      color: var(--color-gray-7);
+      white-space: nowrap;
+
+      &[type='submit'] {
+        height: 80px;
+        color: var(--color-gray-4);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-c);
+        border-radius: 2px;
+
+        &.editSubmit {
+          height: 54px;
+        }
+      }
+
+      &:focus {
+        border-color: var(--color-gray-4);
+      }
+    }
+  }
+}

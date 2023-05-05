@@ -55,7 +55,7 @@ const MyCarNewPage = () => {
       lineup: formValues.lineup,
     })
       .then(() => {
-        router.replace('/mycar');
+        router.push('/mycar');
       })
       .finally(() => {
         setIsLoading(false);

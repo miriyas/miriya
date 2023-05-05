@@ -7,6 +7,8 @@
 
   &.preview {
     p {
+      display: inline-block;
+      width: auto !important;
       background-color: rgba(var(--color-black-rgb), 0.2);
     }
   }
@@ -37,8 +39,10 @@
   }
 
   .texts {
+    @include m.flexbox(center, start);
     @include m.absolute(14px auto auto 14px);
     z-index: var(--z-3);
+    flex-direction: column;
     color: var(--color-white);
 
     .title {

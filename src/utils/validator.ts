@@ -306,3 +306,23 @@ export const newMyCarValidator = object({
 }).required();
 
 export type NewMyCarSchema = InferType<typeof newMyCarValidator>;
+
+export const newMyCarFixValidator = object({
+  time: stringTest.required(),
+  km: numberTest,
+  title: stringTest.required(),
+  body: stringTest,
+  location: stringTest,
+  locationUrl: stringTest,
+}).required();
+
+export type NewMyCarFixSchema = InferType<typeof newMyCarFixValidator>;
+
+export const newMyCarPartsValidator = object({
+  name: stringTest.required(),
+  partsNo: stringTest.required(),
+  partsUrl: stringTest,
+  body: stringTest.required(),
+}).required();
+
+export type NewMyCarPartsSchema = InferType<typeof newMyCarPartsValidator>;
