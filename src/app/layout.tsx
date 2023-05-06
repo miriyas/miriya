@@ -8,8 +8,15 @@ import Additional from './_common/Additional';
 import ToTop from './_common/ToTop';
 import Footer from './_common/Footer';
 import '@/styles/globals.scss';
+import { metadata as profileMetadata } from './profile/page';
 
-export { metadata } from './profile/page';
+export const metadata = {
+  ...profileMetadata,
+  title: {
+    absolute: 'MIRIYA',
+    template: '%s | MIRIYA',
+  },
+};
 
 interface Props {
   children: React.ReactNode;
