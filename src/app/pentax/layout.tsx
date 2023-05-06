@@ -3,10 +3,6 @@ import { ReactNode } from 'react';
 import { generateMetaData } from '@/app/sharedMetadata';
 import Wrapper from '@/app/pentax/wrapper';
 
-interface Props {
-  children: ReactNode;
-}
-
 export const metadata = generateMetaData({
   url: 'https://miriya.vercel.app/pentax',
   title: 'Pentaxian Encyclopedia',
@@ -15,8 +11,12 @@ export const metadata = generateMetaData({
   keywords: ['pentax', 'camera', 'lens', 'limited', 'encyclopedia', 'dslr'],
 });
 
-const RootLayout = ({ children }: Props) => {
+interface Props {
+  children: ReactNode;
+}
+
+const Layout = ({ children }: Props) => {
   return <Wrapper>{children}</Wrapper>;
 };
 
-export default RootLayout;
+export default Layout;

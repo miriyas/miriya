@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import localFont from 'next/font/local';
 import cx from 'clsx';
 
@@ -11,7 +11,7 @@ import { generateMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const metadata = generateMetaData({
@@ -28,7 +28,7 @@ const dungGeunMoFont = localFont({
   fallback: ['Spoqa Han Sans Neo', 'sans-serif'],
 });
 
-const RootLayout = async ({ children }: Props) => {
+const Layout = async ({ children }: Props) => {
   const gaDataRaw = await fetch('https://us-central1-miriyas.cloudfunctions.net/getGAdata', {
     next: { revalidate: 60 * 30 }, // 30분 캐시
   });
@@ -69,4 +69,4 @@ const RootLayout = async ({ children }: Props) => {
   );
 };
 
-export default RootLayout;
+export default Layout;

@@ -15,7 +15,7 @@ interface Props {
   children: ReactNode;
 }
 
-const RootLayout = ({ children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <main className={styles.mycar}>
       <div className={styles.centering}>{children}</div>
@@ -23,4 +23,4 @@ const RootLayout = ({ children }: Props) => {
   );
 };
 
-export default RootLayout;
+export default Layout;

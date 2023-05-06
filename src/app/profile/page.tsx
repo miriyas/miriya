@@ -5,7 +5,7 @@ import { generateMetaData } from '@/app/sharedMetadata';
 
 export const metadata = generateMetaData({
   url: 'https://miriya.vercel.app/',
-  title: 'MIRIYA',
+  title: 'Profile',
   description: '프론트엔드 웹 개발자로 일하고 있는 miriya의 개인 작업 목록',
   imageUrl: 'https://miriya.vercel.app/images/profile/og.jpg',
   keywords: ['miriya'],
