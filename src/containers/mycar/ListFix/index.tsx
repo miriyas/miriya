@@ -41,7 +41,7 @@ const ListFix = ({ car }: Props) => {
           </li>
         )}
         {data?.map((item) => (
-          <ItemFix key={`${item.time}-${item.title}`} item={item} refetch={refetch} />
+          <ItemFix key={`${item.time}-${item.title}`} item={item} refetch={refetch} carOwnerId={car.authorId} />
         ))}
       </ul>
     </div>

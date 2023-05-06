@@ -16,12 +16,13 @@ import styles from '../List.module.scss';
 interface Props {
   item: FBItemFix;
   refetch: () => void;
+  carOwnerId: string;
 }
 
-const ItemFix = ({ item, refetch }: Props) => {
+const ItemFix = ({ item, refetch, carOwnerId }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const { addAlert } = useAlert();
-  const { user } = useAuth();
+  const { user, isAdmin, isMine } = useAuth();
   const metricKm = useAtomValue(metricKmAtom);
 
   const onClickEdit = () => {
@@ -61,14 +62,16 @@ const ItemFix = ({ item, refetch }: Props) => {
       </div>
       <div className={styles.rightWing}>
         <div className={styles.dataBody}>{item.body}</div>
-        <div className={styles.dataButtons}>
-          <button type='button' onClick={onClickEdit}>
-            수정
-          </button>
-          <button type='button' onClick={onClickDelete}>
-            삭제
-          </button>
-        </div>
+        {(isAdmin || isMine(carOwnerId)) && (
+          <div className={styles.dataButtons}>
+            <button type='button' onClick={onClickEdit}>
+              수정
+            </button>
+            <button type='button' onClick={onClickDelete}>
+              삭제
+            </button>
+          </div>
+        )}
       </div>
     </li>
   );
