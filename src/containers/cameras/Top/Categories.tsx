@@ -3,6 +3,7 @@
 import { MouseEventHandler, useEffect } from 'react';
 import { startCase } from 'lodash';
 import cx from 'clsx';
+import { useRouter } from 'next/navigation';
 
 import useRafAtom from '@/hooks/useRafAtom';
 import { useGA } from '@/hooks/useGA';
@@ -14,6 +15,7 @@ import styles from './index.module.scss';
 
 const Categories = () => {
   const { gaEvent } = useGA();
+  const router = useRouter();
 
   const [selectedMaker, setSelectedMaker] = useRafAtom(selectedMakerAtom);
 
@@ -26,7 +28,9 @@ const Categories = () => {
   const onClickMaker: MouseEventHandler<HTMLButtonElement> = (e) => {
     setSelectedMaker(e.currentTarget.title);
     // search params가 변경되었을 때 리랜더 되어 언마운트 애니메이션이 불가능해지므로, next/navigation 안쓰고 강제로 soft navigation 사용
-    window.history.pushState(null, '', `?maker=${e.currentTarget.title}`);
+    // window.history.pushState(null, '', `?maker=${e.currentTarget.title}`);
+    // 추가 : https://github.com/vercel/next.js/releases/tag/v13.4.0 여기서 해결됨.
+    router.push(`/cameras?maker=${e.currentTarget.title}`);
     gaEvent(CAMERA.CAMERA_MAKER_CLICK, { maker: e.currentTarget.title });
   };
 
