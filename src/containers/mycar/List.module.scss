@@ -3,10 +3,18 @@
 .listWrapper {
   form {
     @include m.flexbox(start, start);
+    flex-wrap: wrap;
     gap: 4px;
 
     &.new {
       margin-bottom: 8px;
+
+      .leftWing,
+      .rightWing {
+        > div {
+          padding: 0;
+        }
+      }
     }
 
     .vertical {
@@ -60,24 +68,42 @@
 
   .list {
     width: 100%;
+  }
 
-    li {
-      @include m.flexbox;
-      width: 100%;
-      border-bottom: 1px solid var(--color-gray-e);
+  .item {
+    @include m.flexbox(start, start);
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+    border-bottom: 1px solid var(--color-gray-e);
 
-      &.edit {
-        padding: 8px;
-        background-color: var(--color-bg);
+    &.edit {
+      padding: 8px;
+      background-color: var(--color-bg);
 
-        form {
-          width: 100%;
+      form {
+        width: 100%;
 
-          div {
-            padding: 0;
-          }
+        div {
+          padding: 0;
         }
       }
+    }
+  }
+
+  .dataTime,
+  .dataTitle,
+  .dataButtons {
+    gap: 4px;
+  }
+
+  .leftWing,
+  .rightWing {
+    @include m.flexbox(start, start);
+    width: 100%;
+
+    @include m.after(SD) {
+      width: auto;
     }
 
     div {
@@ -94,67 +120,74 @@
         height: 100px;
       }
     }
-
-    // th {
-    //   text-align: left;
-
-    //   time,
-    //   p {
-    //     width: 100%;
-    //   }
-    // }
   }
 
-  .dataTime {
-    @include m.flexbox;
+  .leftWing {
     gap: 4px;
-    width: 120px;
 
-    p {
-      color: var(--color-gray-9);
+    .dataTime {
+      width: 120px;
+
+      p {
+        color: var(--color-gray-9);
+      }
+    }
+
+    .dataTitle {
+      width: 200px;
     }
   }
 
-  .dataTitle {
-    @include m.flexbox;
-    gap: 4px;
-    width: 200px;
-  }
-
-  .dataBody {
-    @include m.flexbox;
+  .rightWing {
     flex: 1;
     gap: 4px;
-  }
 
-  .dataButtons {
-    @include m.flexbox;
-    flex-direction: column;
-    gap: 4px;
-    align-self: auto !important;
-    width: 60px;
+    .dataBody {
+      flex: 1;
+      gap: 4px;
 
-    button {
-      width: 60px;
-      font-size: 12px;
-      color: var(--color-gray-7);
-      white-space: nowrap;
+      @include m.after(SD) {
+        min-width: 320px;
+      }
+    }
 
-      &[type='submit'] {
-        height: 80px;
-        color: var(--color-gray-4);
-        background-color: var(--color-white);
-        border: 1px solid var(--color-gray-c);
-        border-radius: 2px;
+    .dataButtons {
+      flex-direction: column;
+      gap: 4px;
+      align-self: flex-end !important;
+      width: 40px;
 
-        &.editSubmit {
-          height: 54px;
+      button {
+        width: 40px;
+        font-size: 12px;
+        color: var(--color-gray-7);
+        white-space: nowrap;
+
+        &[type='submit'] {
+          height: 80px;
+          color: var(--color-gray-4);
+          background-color: var(--color-white);
+          border: 1px solid var(--color-gray-c);
+          border-radius: 2px;
+
+          &.editSubmit {
+            height: 60px;
+          }
+        }
+
+        &:focus {
+          border-color: var(--color-gray-4);
         }
       }
 
-      &:focus {
-        border-color: var(--color-gray-4);
-      }
+      // @include m.after(SD) {
+      //   width: 60px;
+
+      //   button {
+      //     width: 60px;
+      //     text-align: center;
+      //   }
+      // }
     }
   }
 }

@@ -38,21 +38,25 @@ const ItemParts = ({ item, refetch }: Props) => {
   }
 
   return (
-    <li>
-      <div className={styles.dataTitle}>
-        <p>{item.name}</p>
+    <li className={styles.item}>
+      <div className={styles.leftWing}>
+        <div className={styles.dataTitle}>
+          <p>{item.name}</p>
+        </div>
+        <div className={styles.dataTime}>
+          {item.partsUrl ? <ExternalLink href={item.partsUrl}>{item.partsNo}</ExternalLink> : <p>{item.partsNo}</p>}
+        </div>
       </div>
-      <div className={styles.dataTime}>
-        {item.partsUrl ? <ExternalLink href={item.partsUrl}>{item.partsNo}</ExternalLink> : <p>{item.partsNo}</p>}
-      </div>
-      <div className={styles.dataBody}>{item.body}</div>
-      <div className={styles.dataButtons}>
-        <button type='button' onClick={onClickEdit}>
-          수정
-        </button>
-        <button type='button' onClick={onClickDelete}>
-          삭제
-        </button>
+      <div className={styles.rightWing}>
+        <div className={styles.dataBody}>{item.body}</div>
+        <div className={styles.dataButtons}>
+          <button type='button' onClick={onClickEdit}>
+            수정
+          </button>
+          <button type='button' onClick={onClickDelete}>
+            삭제
+          </button>
+        </div>
       </div>
     </li>
   );

@@ -2,8 +2,13 @@
 
 .heroHeader {
   position: relative;
-  width: 800px;
-  height: 450px;
+  width: 100%;
+  padding-top: 56.25%; // 16:9
+
+  @include m.after(SD) {
+    width: 800px;
+    height: 450px;
+  }
 
   &.preview {
     p {
@@ -33,8 +38,11 @@
       @include m.middleBox;
       padding: 4px 8px;
       text-align: center;
-      white-space: nowrap;
       background-color: var(--color-white);
+
+      @include m.after(SD) {
+        white-space: nowrap;
+      }
     }
   }
 

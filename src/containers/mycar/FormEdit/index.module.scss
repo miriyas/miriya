@@ -3,15 +3,10 @@
 .wrapper {
   width: 100%;
 
-  .title {
-    font-size: 24px;
-    font-weight: 600;
-  }
-
   .inputWrapper {
     @include m.flexbox;
-    height: 32px;
-    margin-bottom: 8px;
+    height: 24px;
+    margin-bottom: 4px;
 
     span {
       width: 80px;
@@ -20,7 +15,8 @@
     input {
       width: 240px;
       padding: 0 8px;
-      line-height: 32px;
+      font-size: 10px;
+      line-height: 24px;
       color: var(--color-white);
       background-color: rgba(var(--color-black-rgb), 0.5);
       border-radius: 4px;
@@ -34,10 +30,20 @@
         border-color: var(--color-green) !important;
       }
     }
+
+    @include m.after(SD) {
+      height: 32px;
+      margin-bottom: 8px;
+
+      input {
+        font-size: 14px;
+        line-height: 32px;
+      }
+    }
   }
 
   .buttonWrapper {
-    @include m.absolute(auto 14px 14px auto);
+    @include m.absolute(auto 8px 8px auto);
     @include m.flexbox(end, center);
     gap: 8px;
     width: 100%;
@@ -58,6 +64,10 @@
     button[type='submit'] {
       color: var(--color-white);
       background-color: var(--color-blue);
+    }
+
+    @include m.after(SD) {
+      @include m.absolute(auto 14px 14px auto);
     }
   }
 }

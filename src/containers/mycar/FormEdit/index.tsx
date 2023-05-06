@@ -117,13 +117,7 @@ const MyCarEdit = ({ car, refetch, setEditMode }: Props) => {
 
           <p className={styles.owner}>{user?.displayName}</p>
         </div>
-        <Image
-          src={`${process.env.NEXT_PUBLIC_CDN_URL}/mycar/${car.id}.jpg`}
-          width={800}
-          height={450}
-          alt=''
-          className={styles.hero}
-        />
+        <Image src={`${process.env.NEXT_PUBLIC_CDN_URL}/mycar/${car.id}.jpg`} fill alt='' className={styles.hero} />
       </div>
       <div className={styles.buttonWrapper}>
         <button type='submit' disabled={!isDirty || isLoading}>

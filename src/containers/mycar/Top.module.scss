@@ -8,12 +8,12 @@
     @include m.flexbox(start, center);
     gap: 14px;
     width: 100%;
-    margin-bottom: 8px;
+    padding: 0 8px;
 
     a {
       @include m.flexbox;
       height: 24px;
-      font-size: 18px;
+      font-size: 14px;
       color: var(--color-black);
 
       &.current {
@@ -23,8 +23,25 @@
   }
 
   .newBtn {
-    font-size: 14px;
+    margin-right: 8px;
+    font-size: 12px;
     color: var(--color-black);
     white-space: nowrap;
+  }
+
+  @include m.after(SD) {
+    .carSelect {
+      padding: 0;
+      margin-bottom: 8px;
+
+      a {
+        font-size: 18px;
+      }
+    }
+
+    .newBtn {
+      margin-right: 0;
+      font-size: 14px;
+    }
   }
 }

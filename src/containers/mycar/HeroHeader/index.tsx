@@ -28,13 +28,12 @@ const HeroHeader = ({ carId, name, vin, maker, lineup, owner, preview }: Props) 
       </div>
       <Image
         src={`${process.env.NEXT_PUBLIC_CDN_URL}/mycar/${preview ? 'sample' : carId}.jpg`}
-        width={800}
-        height={450}
         alt=''
+        fill
         className={styles.hero}
       />
       <div className={styles.heroPlaceholder}>
-        <Image src={`${process.env.NEXT_PUBLIC_CDN_URL}/mycar/sample.jpg`} width={800} height={450} alt='' />
+        <Image src={`${process.env.NEXT_PUBLIC_CDN_URL}/mycar/sample.jpg`} fill alt='' />
         <p>
           이미지는 1600x900px 사이즈로 준비해서 제게 주세요.
           <br />

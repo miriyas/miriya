@@ -44,27 +44,31 @@ const ItemFix = ({ item, refetch }: Props) => {
   if (!metricKm) range = item.miles ? `${item.miles?.toLocaleString()}mi` : '';
 
   return (
-    <li>
-      <div className={styles.dataTime}>
-        <time>{item.time}</time>
-        <p>{range}</p>
+    <li className={styles.item}>
+      <div className={styles.leftWing}>
+        <div className={styles.dataTime}>
+          <time>{item.time}</time>
+          <p>{range}</p>
+        </div>
+        <div className={styles.dataTitle}>
+          <p>{item.title}</p>
+          {item.locationUrl ? (
+            <ExternalLink href={item.locationUrl}>{item.location}</ExternalLink>
+          ) : (
+            <p>{item.location}</p>
+          )}
+        </div>
       </div>
-      <div className={styles.dataTitle}>
-        <p>{item.title}</p>
-        {item.locationUrl ? (
-          <ExternalLink href={item.locationUrl}>{item.location}</ExternalLink>
-        ) : (
-          <p>{item.location}</p>
-        )}
-      </div>
-      <div className={styles.dataBody}>{item.body}</div>
-      <div className={styles.dataButtons}>
-        <button type='button' onClick={onClickEdit}>
-          수정
-        </button>
-        <button type='button' onClick={onClickDelete}>
-          삭제
-        </button>
+      <div className={styles.rightWing}>
+        <div className={styles.dataBody}>{item.body}</div>
+        <div className={styles.dataButtons}>
+          <button type='button' onClick={onClickEdit}>
+            수정
+          </button>
+          <button type='button' onClick={onClickDelete}>
+            삭제
+          </button>
+        </div>
       </div>
     </li>
   );

@@ -1,6 +1,8 @@
 @use 'src/styles/mixins' as m;
 
 .wrapper {
+  width: 100%;
+
   .headerWrapper {
     position: relative;
 

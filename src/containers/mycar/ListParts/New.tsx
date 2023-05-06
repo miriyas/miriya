@@ -65,45 +65,49 @@ const NewFix = ({ carId, refetch }: Props) => {
 
   return (
     <form className={styles.new} onSubmit={onSubmit}>
-      <div className={cx(styles.vertical, styles.dataTitle)}>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('name')}
-            type='text'
-            placeholder='*부품명'
-            className={cx({ [styles.error]: errors.name, [styles.changed]: dirtyFields.name })}
-          />
-        </label>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('partsNo')}
-            type='text'
-            placeholder='*부품 번호'
-            className={cx({ [styles.error]: errors.partsNo, [styles.changed]: dirtyFields.partsNo })}
-          />
-        </label>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('partsUrl')}
-            type='text'
-            placeholder='부품 URL'
-            className={cx({ [styles.error]: errors.partsUrl, [styles.changed]: dirtyFields.partsUrl })}
-          />
-        </label>
+      <div className={styles.leftWing}>
+        <div className={cx(styles.vertical, styles.dataTitle)}>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('name')}
+              type='text'
+              placeholder='*부품명'
+              className={cx({ [styles.error]: errors.name, [styles.changed]: dirtyFields.name })}
+            />
+          </label>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('partsNo')}
+              type='text'
+              placeholder='*부품 번호'
+              className={cx({ [styles.error]: errors.partsNo, [styles.changed]: dirtyFields.partsNo })}
+            />
+          </label>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('partsUrl')}
+              type='text'
+              placeholder='부품 URL'
+              className={cx({ [styles.error]: errors.partsUrl, [styles.changed]: dirtyFields.partsUrl })}
+            />
+          </label>
+        </div>
       </div>
-      <div className={styles.dataBody}>
-        <label className={styles.inputWrapper}>
-          <textarea
-            {...register('body')}
-            placeholder='순정 앞브레이크 패드'
-            className={cx({ [styles.error]: errors.body, [styles.changed]: dirtyFields.body })}
-          />
-        </label>
-      </div>
-      <div className={styles.dataButtons}>
-        <button type='submit' disabled={!isDirty || isLoading}>
-          추가
-        </button>
+      <div className={styles.rightWing}>
+        <div className={styles.dataBody}>
+          <label className={styles.inputWrapper}>
+            <textarea
+              {...register('body')}
+              placeholder='순정 앞브레이크 패드'
+              className={cx({ [styles.error]: errors.body, [styles.changed]: dirtyFields.body })}
+            />
+          </label>
+        </div>
+        <div className={styles.dataButtons}>
+          <button type='submit' disabled={!isDirty || isLoading}>
+            추가
+          </button>
+        </div>
       </div>
     </form>
   );

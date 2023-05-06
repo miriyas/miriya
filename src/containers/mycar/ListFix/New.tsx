@@ -75,63 +75,67 @@ const NewFix = ({ carId, refetch }: Props) => {
 
   return (
     <form className={styles.new} onSubmit={onSubmit}>
-      <div className={cx(styles.vertical, styles.dataTime)}>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('time')}
-            type='date'
-            placeholder='정비 일시'
-            className={cx({ [styles.error]: errors.time, [styles.changed]: dirtyFields.time })}
-          />
-        </label>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('range')}
-            type='number'
-            placeholder={`주행거리 (${metricKm ? 'km' : 'mi'})`}
-            className={cx({ [styles.error]: errors.range, [styles.changed]: dirtyFields.range })}
-          />
-        </label>
+      <div className={styles.leftWing}>
+        <div className={cx(styles.vertical, styles.dataTime)}>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('time')}
+              type='date'
+              placeholder='정비 일시'
+              className={cx({ [styles.error]: errors.time, [styles.changed]: dirtyFields.time })}
+            />
+          </label>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('range')}
+              type='number'
+              placeholder={`주행거리 (${metricKm ? 'km' : 'mi'})`}
+              className={cx({ [styles.error]: errors.range, [styles.changed]: dirtyFields.range })}
+            />
+          </label>
+        </div>
+        <div className={cx(styles.vertical, styles.dataTitle)}>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('title')}
+              type='text'
+              placeholder='내용, ex) 엔진오일 교환 서비스'
+              className={cx({ [styles.error]: errors.title, [styles.changed]: dirtyFields.title })}
+            />
+          </label>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('location')}
+              type='text'
+              placeholder='장소, ex) 타이어프로 신갈'
+              className={cx({ [styles.error]: errors.location, [styles.changed]: dirtyFields.location })}
+            />
+          </label>
+          <label className={styles.inputWrapper}>
+            <input
+              {...register('locationUrl')}
+              type='text'
+              placeholder='위치, ex) https://aaaa.com/bbb'
+              className={cx({ [styles.error]: errors.locationUrl, [styles.changed]: dirtyFields.locationUrl })}
+            />
+          </label>
+        </div>
       </div>
-      <div className={cx(styles.vertical, styles.dataTitle)}>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('title')}
-            type='text'
-            placeholder='내용, ex) 엔진오일 교환 서비스'
-            className={cx({ [styles.error]: errors.title, [styles.changed]: dirtyFields.title })}
-          />
-        </label>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('location')}
-            type='text'
-            placeholder='장소, ex) 타이어프로 신갈'
-            className={cx({ [styles.error]: errors.location, [styles.changed]: dirtyFields.location })}
-          />
-        </label>
-        <label className={styles.inputWrapper}>
-          <input
-            {...register('locationUrl')}
-            type='text'
-            placeholder='위치, ex) https://aaaa.com/bbb'
-            className={cx({ [styles.error]: errors.locationUrl, [styles.changed]: dirtyFields.locationUrl })}
-          />
-        </label>
-      </div>
-      <div className={cx(styles.bodyWrapper, styles.dataBody)}>
-        <label className={styles.inputWrapper}>
-          <textarea
-            {...register('body')}
-            placeholder='상세 내용, ex) 밸런스 샤프트 커버 좌 우 교환'
-            className={cx({ [styles.error]: errors.body, [styles.changed]: dirtyFields.body })}
-          />
-        </label>
-      </div>
-      <div className={styles.dataButtons}>
-        <button type='submit' disabled={!isDirty || isLoading}>
-          추가
-        </button>
+      <div className={styles.rightWing}>
+        <div className={cx(styles.bodyWrapper, styles.dataBody)}>
+          <label className={styles.inputWrapper}>
+            <textarea
+              {...register('body')}
+              placeholder='상세 내용, ex) 밸런스 샤프트 커버 좌 우 교환'
+              className={cx({ [styles.error]: errors.body, [styles.changed]: dirtyFields.body })}
+            />
+          </label>
+        </div>
+        <div className={styles.dataButtons}>
+          <button type='submit' disabled={!isDirty || isLoading}>
+            추가
+          </button>
+        </div>
       </div>
     </form>
   );

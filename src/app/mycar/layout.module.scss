@@ -5,6 +5,10 @@
   line-height: 1.6;
   color: var(--color-gray-2);
 
+  @include m.mobileOnly {
+    padding: 0;
+  }
+
   @include m.after(SD) {
     font-size: 14px;
   }
