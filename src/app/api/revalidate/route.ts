@@ -1,8 +1,9 @@
 // eslint-disable-next-line camelcase
-import { NextRequest, NextResponse, unstable_revalidateTag } from 'next/server';
+import { revalidateTag } from 'next/cache';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   const tag = request.nextUrl.searchParams.get('tag');
-  if (tag) unstable_revalidateTag(tag);
+  if (tag) revalidateTag(tag);
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }
