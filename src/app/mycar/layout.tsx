@@ -1,42 +1,15 @@
 import { ReactNode } from 'react';
 
-import type { Metadata } from 'next';
-
+import { generateMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
 
-const title = 'My Car';
-const description = '내 차량의 상태와 부품/튜닝 목록, 차계부';
-const url = 'https://miriya.vercel.app/mycar';
-const imageUrl = 'https://miriya.vercel.app/images/mycar/og.jpg';
-
-export const metadata: Metadata = {
-  metadataBase: new URL(url),
-  title,
-  description,
-  keywords: ['miriya'],
-  openGraph: {
-    description,
-    type: 'website',
-    title,
-    url,
-    images: [
-      {
-        type: 'image/jpeg',
-        url: imageUrl,
-        secureUrl: imageUrl,
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title,
-    description,
-    images: [imageUrl],
-  },
-};
+export const metadata = generateMetaData({
+  url: 'https://miriya.vercel.app/mycar',
+  title: 'My Car',
+  description: '내 차량의 상태와 부품/튜닝 목록, 차계부',
+  imageUrl: 'https://miriya.vercel.app/images/mycar/og.jpg',
+  keywords: ['차계부', '튜닝', '차량', '부품'],
+});
 
 interface Props {
   children: ReactNode;

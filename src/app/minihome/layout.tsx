@@ -2,51 +2,25 @@ import React from 'react';
 import localFont from 'next/font/local';
 import cx from 'clsx';
 
-import type { Metadata } from 'next';
 import Top from '@/containers/minihome/_common/Top';
 import LeftWing from '@/containers/minihome/_common/LeftWing';
 import RightNav from '@/containers/minihome/_common/RightNav';
 import { GADataRow } from '@/types/minihome';
 
+import { generateMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
 
 interface Props {
   children: React.ReactNode;
 }
 
-const title = '미니홈피';
-const description = '싸이월드 스타일로 재구성한 미니홈피';
-const url = 'https://miriya.vercel.app/minihome/home';
-const imageUrl = 'https://miriya.vercel.app/images/minihome/og.jpg';
-
-export const metadata: Metadata = {
-  metadataBase: new URL(url),
-  title,
-  description,
+export const metadata = generateMetaData({
+  url: 'https://miriya.vercel.app/minihome/home',
+  title: '미니홈피',
+  description: '싸이월드 스타일로 재구성한 미니홈피',
+  imageUrl: 'https://miriya.vercel.app/images/minihome/og.jpg',
   keywords: ['싸이월드', '미니홈피'],
-  openGraph: {
-    description,
-    type: 'website',
-    title,
-    url,
-    images: [
-      {
-        type: 'image/jpeg',
-        url: imageUrl,
-        secureUrl: imageUrl,
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title,
-    description,
-    images: [imageUrl],
-  },
-};
+});
 
 const dungGeunMoFont = localFont({
   src: './DungGeunMo.woff2',
