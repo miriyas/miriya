@@ -10,7 +10,7 @@
 
 짜잔, 실무에서 회사 일 하면서 참 달성하기 힘들던 Lighthouse 100점입니다.
 
-<img src='./reserved/screenshot-lighthouse.png' alt=''>
+<img src='./reserved/screenshots/lighthouse.png' alt=''>
 
 아시죠? 개선하고 싶은 부분이 있다면 PR을 올려주세요.
 
@@ -36,13 +36,13 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 #### 리뉴얼 후
 
-<img src='./reserved/screenshot-idols2.png' alt=''>
+<img src='./reserved/screenshots/idols2.jpg' alt=''>
 
 #### 리뉴얼 전
 
-<img src='./reserved/screenshot-idols.png' alt=''>
+<img src='./reserved/screenshots/idols.png' alt=''>
 
-1994년부터 2019년까지의 아이돌 목록을 정리해봤습니다.
+1994년부터 2023년 현재까지의 아이돌 목록을 정리해봤습니다.
 
 각 아이돌을 클릭하면 해당 아이돌이 부른 대표곡의 하이라이트 부분이 재생됩니다. 추억여행 한번 빠져보시죠.
 
@@ -86,7 +86,7 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 # History of DSLR
 
-<img src='./reserved/screenshot-cameras.png' alt=''>
+<img src='./reserved/screenshots/cameras.png' alt=''>
 
 출시일 기준, 1995년부터 2023년 현재 까지의 DSLR 및 렌즈 교환식 카메라들을 정리해봤습니다.
 
@@ -98,7 +98,7 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 #### 개발 이야기
 
-이번 Next.js experimental AppDir을 사용하게 되며 가장 힘들었던 부분인데요, 일단은 쿼리스트링과 해시로 라우팅 하기가 매우 까다롭습니다. next@13.2.3-canary.20 버전 기준으로 리랜더 문제와 해시값 가져올 수 없는 문제들이 있어 SSR과 병행하기 참 힘들었습니다. 코드를 보시면 별 쓸데 없는 곳에 굳이 이벤트리스너를 다는 등 상당히 성가시게 구현해놓은 모습을 볼 수 있습니다. 아마 버전업이 되어가면서 하나하나 단순하게 고쳐나가지 싶네요. 이딴걸 구현하려고 이렇게 했다고?? 싶은 부분이 조금 보일겁니다. [Successor/Prodecessor 링크 부분](https://github.com/miriyas/miriya/blob/main/src/containers/cameras/CameraYears/CameraCard/DataInternal/Siblings/SiblingLink.tsx)이 제일 빡쎘습니다.
+이번 Next.js experimental AppDir을 사용하게 되며 가장 힘들었던 부분인데요, 일단은 쿼리스트링과 해시로 라우팅 하기가 매우 까다롭습니다. next@13.2.3-canary.20 버전 기준으로 리랜더 문제와 해시값 가져올 수 없는 문제들이 있어 SSR과 병행하기 참 힘들었습니다. 코드를 보시면 별 쓸데 없는 곳에 굳이 이벤트리스너를 다는 등 상당히 성가시게 구현해놓은 모습을 볼 수 있습니다. 아마 버전업이 되어가면서 하나하나 단순하게 고쳐나가지 싶네요. 이딴걸 구현하려고 이렇게 했다고?? 싶은 부분이 조금 보일겁니다. [Successor/Prodecessor 링크 부분](https://github.com/miriyas/miriya/blob/main/src/containers/cameras/CameraYears/CameraCard/DataInternal/Siblings/SiblingLink.tsx)이 제일 빡쎘습니다. [Categories](https://github.com/miriyas/miriya/blob/main/src/containers/cameras/Top/Categories.tsx) 부분에선 searchParam 을 사용하는데, 클릭할 때 마다 페이지가 새로고침 되는 문제가 있었습니다. 이 문제는 [13.4.0](https://github.com/vercel/next.js/releases/tag/v13.4.0) 에서 해소되었습니다.
 
 필터를 빡쎄게 넣으면서 Isotope는 걷어내고 일반적인 flex로 정렬했습니다. 특기할만한 것은, [DigicamDB](https://www.digicamdb.com/)라고 외국의 어떤 분이 저 처럼 원맨 삽질을 하며 정리해놓은게 있길래, 이번 Next api 라우트를 사용해 서버사이드 요청 / HTML 파싱을 하는 기능을 만들어봤습니다. 그리고 DigicamDB 클릭시 카드가 휙 돌아가면서 나오는 부분은 CSS의 backface-visibility를 사용했습니다. 남의 홈페이지에 테러하지 않기 위해 캐싱을 잘 해두려 했는데, 아이고 맙소사.. Next.js 현재 버전에서는 요청을 한번이 아니라 두번씩 보내는 버그가 남아있습니다.
 
@@ -114,13 +114,29 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 # Pentaxian Encyclopedia
 
-<img src='./reserved/screenshot-pentaxes1.png' alt=''>
+<img src='./reserved/screenshots/pentaxes1.png' alt=''>
 
-<img src='./reserved/screenshot-pentaxes2.png' alt=''>
+<img src='./reserved/screenshots/pentaxes2.png' alt=''>
 
 SLR클럽 활동 시절에 플래시로 만들었던 [펜탁스 렌즈 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)의 웹 버전입니다. 당시 여러 회원분들의 도움을 받아 자료를 취합하여 꾸역꾸역 만들 수 있었네요. 12년만에 디자인을 똑같이 유지하며 웹 버전으로 재탄생 했습니다.
 
 <br />
+
+# My Car
+
+<img src='./reserved/screenshots/mycar.jpg' alt=''>
+
+평소에 마이클 앱과 메모장을 이용해 차계부를 관리해왔습니다.
+
+이번에는 뭘 만들어볼까 하다가, 쓰던 차계부를 관리하기 위한 간단한 서비스를 만들어봤습니다.
+
+마이클 처럼 차량 정비 기록도 남기지만, 거기 더해 튜닝/호환 부품 목록도 적을 수 있게 했습니다.
+
+별거 아니긴 하지만 제겐 꼭 필요한 기능입니다.
+
+또한 미국에 사는 차쟁이 친구를 위해 마일 변환 기능을 넣었습니다. 아.. 좀 살것 같네;;
+
+그리고 사용중인 CDN에 사진을 올리고 싶었는데, Next.js appDir에서 S3 SDK가 경로를 못잡는 문제가 있어 실패.
 
 #### 개발 이야기
 
@@ -285,33 +301,33 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 - 파이어베이스 SDK 자체의 용량이 너무 커서, 파이어베이스를 사용하는 청크 용량은 기본 100kb~200kb를 넘어가버린다.
 - 트리쉐이킹이 되는 V9 버전에서도 문제가 생기는거라, 그냥 SDK의 용량이 큰게 문제.
 
-<img src='./reserved/screenshot-chunksize1.png' alt=''>
+<img src='./reserved/screenshots/chunksize1.png' alt=''>
 
 - 위 스크린샷 처럼 대부분의 청크 파일이 붉은 색으로 고용량이라 경고를 표시하고 있었다.
 - Next v13.3.1부터 modularizeImports를 지원하게 되었고, lodash 라이브러리에 한해 적용해보았다.
 
-<img src='./reserved/screenshot-chunksize2.png' alt=''>
+<img src='./reserved/screenshots/chunksize2.png' alt=''>
 
 - /cameras가 16kb 정도 줄어든걸 발견할 수 있다.
 
-<img src='./reserved/screenshot-chunksize3.png' alt=''>
-<img src='./reserved/screenshot-chunksize4.png' alt=''>
+<img src='./reserved/screenshots/chunksize3.png' alt=''>
+<img src='./reserved/screenshots/chunksize4.png' alt=''>
 
 - 우측에 보이던 lodash가 순식간에 사라진걸 볼 수 있다. 하지만 턱없이 부족하다.
 - firebase 라이브러리는 이미 최적화가 많이 되어있어서 적용해도 효과가 없었다.
 
-<img src='./reserved/screenshot-chunksize5.png' alt=''>
+<img src='./reserved/screenshots/chunksize5.png' alt=''>
 
 - https://github.com/vercel/next.js/issues/47173
 - dynamic import를 적용하면 청크 파일이 랜덤하게 404가 뜨는 문제가 있었는데, v13.3.1-canary.15 부터 수정되었다.
 - dynamic import를 하나 적용해본 결과 /cameras용량이 확 줄어든게 보인다. 이제 다 적용해보자.
 
-<img src='./reserved/screenshot-chunksize6.png' alt=''>
+<img src='./reserved/screenshots/chunksize6.png' alt=''>
 
 - 파이어베이스를 프론트엔드 자체에서 사용하지 않고, NEXT의 api route에서 불러다가 결과만 주게 만들어보았다.
 - 이 경우 파이어베이스 SDK를 프론트엔드에서 돌릴 필요가 없어지고, 그냥 GET/POST만 하면 되니까 청크 용량이 확 준다.
 
-<img src='./reserved/screenshot-chunksize7.png' alt=''>
+<img src='./reserved/screenshots/chunksize7.png' alt=''>
 
 - dynamic을 쓰고, 모든 API들을 다 이동시켰더니 이렇게 올 그린을 볼 수 있었다.
 - dynamic을 쓸 때는 Suspense로 잘 감아주었는지 확인해야 하고, 렌더링이 이상하지 않은지 잘 확인해야한다.
@@ -337,9 +353,9 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 
 12. 또 일부 API CORS 문제
 
-<img src='./reserved/screenshot-cors1.png' alt=''>
+<img src='./reserved/screenshots/cors1.png' alt=''>
 
-<img src='./reserved/screenshot-cors2.png' alt=''>
+<img src='./reserved/screenshots/cors2.png' alt=''>
 
 - 로컬에선 잘 작동하던 것이 프로덕션에서는 '일부' API만 문제가 생기더라.
 - 나는 분명 Access-Control-Allow-Origin을 https://miriya.vercel.app/ 로 잘 지정했다.

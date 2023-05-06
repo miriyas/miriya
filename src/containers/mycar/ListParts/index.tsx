@@ -41,7 +41,9 @@ const ListParts = ({ car }: Props) => {
           </li>
         )}
         {data?.map((item) => {
-          return <ItemParts key={`${item.name}-${item.partsNo}`} item={item} refetch={refetch} />;
+          return (
+            <ItemParts key={`${item.name}-${item.partsNo}`} item={item} refetch={refetch} carOwnerId={car.authorId} />
+          );
         })}
       </ul>
     </div>
