@@ -33,6 +33,11 @@ const ROUTES = [
     title: 'Pentaxian Encyclopedia',
     mobileTitle: 'Pentaxian',
   },
+  {
+    href: '/mycar',
+    title: 'My Car',
+    mobileTitle: 'My Car',
+  },
 ];
 
 const Header = () => {

@@ -37,6 +37,11 @@
     <priority>0.70</priority>
   </url>
   <url>
+    <loc>https://miriya.vercel.app/mycar</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
     <loc>https://miriya.vercel.app/minihome</loc>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
