@@ -14,6 +14,7 @@ export interface FBMyCar extends NewMyCar, WithAuthor, WithTS {
 export interface ItemFix {
   time: string;
   km?: number;
+  miles?: number;
   location?: string;
   locationUrl?: string;
   title: string;

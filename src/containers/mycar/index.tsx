@@ -1,11 +1,11 @@
 'use client';
 
 import { MouseEventHandler, useEffect, useState } from 'react';
-import { useAtomValue } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import cx from 'clsx';
 import { useQuery } from '@tanstack/react-query';
 
-import { currentCarAtom } from './states';
+import { currentCarAtom, metricKmAtom } from './states';
 import { getMyCarDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 
@@ -37,6 +37,7 @@ const MyCarPage = ({ carId }: Props) => {
   const currentCar = useAtomValue(currentCarAtom);
   const [currentTab, setCurrentTab] = useState(TABS[0].key);
   const [editMode, setEditMode] = useState(false);
+  const [metricKm, setMetricKm] = useAtom(metricKmAtom);
 
   const {
     data = [],
@@ -56,6 +57,10 @@ const MyCarPage = ({ carId }: Props) => {
 
   const onClickEdit = () => {
     setEditMode(true);
+  };
+
+  const onClickMetric = () => {
+    setMetricKm((prev) => !prev);
   };
 
   if (isLoading) {
@@ -97,20 +102,25 @@ const MyCarPage = ({ carId }: Props) => {
         )}
       </div>
       <div className={styles.contents}>
-        <ul className={styles.tableSelect}>
-          {TABS.map((tb) => (
-            <li key={tb.key}>
-              <button
-                type='button'
-                onClick={onClickSelecTab}
-                data-tb={tb.key}
-                className={cx({ [styles.current]: tb.key === currentTab })}
-              >
-                {tb.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.tabBar}>
+          <ul className={styles.tableSelect}>
+            {TABS.map((tb) => (
+              <li key={tb.key}>
+                <button
+                  type='button'
+                  onClick={onClickSelecTab}
+                  data-tb={tb.key}
+                  className={cx({ [styles.current]: tb.key === currentTab })}
+                >
+                  {tb.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button type='button' onClick={onClickMetric} className={cx(styles.metric, { [styles.km]: metricKm })}>
+            <span className={styles.km}>Km</span> / <span className={styles.miles}>Miles</span>
+          </button>
+        </div>
         {currentTab === 'fix' && <ListFix car={targetCar} />}
         {currentTab === 'parts' && <ListParts car={targetCar} />}
       </div>

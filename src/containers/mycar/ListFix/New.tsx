@@ -1,14 +1,19 @@
+/* eslint-disable prefer-destructuring */
+
 'use client';
 
 import { FormEventHandler, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import cx from 'clsx';
+import { useAtomValue } from 'jotai';
 
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';
 import { NewMyCarFixSchema, newMyCarFixValidator } from '@/utils/validator';
 import { postCarFixDataAPI } from '@/services/mycar';
+import { metricKmAtom } from '@/containers/mycar/states';
+import { getKmAndMiles } from '@/utils/mycar';
 
 import styles from '../List.module.scss';
 
@@ -21,6 +26,7 @@ const NewFix = ({ carId, refetch }: Props) => {
   const { addAlert } = useAlert();
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+  const metricKm = useAtomValue(metricKmAtom);
 
   const methods = useForm<NewMyCarFixSchema>({
     mode: 'onBlur',
@@ -38,10 +44,12 @@ const NewFix = ({ carId, refetch }: Props) => {
     if (!user) return;
     setIsLoading(true);
 
+    const { km, miles } = getKmAndMiles(metricKm, formValues.range);
     postCarFixDataAPI(carId, {
       carId,
       time: formValues.time,
-      km: formValues.km,
+      km,
+      miles,
       title: formValues.title,
       body: formValues.body,
       location: formValues.location,
@@ -78,10 +86,10 @@ const NewFix = ({ carId, refetch }: Props) => {
         </label>
         <label className={styles.inputWrapper}>
           <input
-            {...register('km')}
+            {...register('range')}
             type='number'
-            placeholder='주행거리 (km)'
-            className={cx({ [styles.error]: errors.km, [styles.changed]: dirtyFields.km })}
+            placeholder={`주행거리 (${metricKm ? 'km' : 'mi'})`}
+            className={cx({ [styles.error]: errors.range, [styles.changed]: dirtyFields.range })}
           />
         </label>
       </div>

@@ -16,14 +16,43 @@
     padding: 14px;
     background-color: var(--color-white);
 
-    .tableSelect {
-      @include m.flexbox(start, center);
-      gap: 8px;
-      width: 100%;
+    .tabBar {
+      @include m.flexbox(between, center);
       padding-bottom: 8px;
 
-      button {
-        &.current {
+      .tableSelect {
+        @include m.flexbox(start, center);
+        gap: 8px;
+        width: 100%;
+
+        button {
+          font-size: 14px;
+
+          &.current {
+            font-weight: 600;
+          }
+        }
+      }
+
+      .metric {
+        font-size: 12px;
+        white-space: nowrap;
+
+        &.km {
+          .km {
+            font-weight: 600;
+          }
+
+          .miles {
+            font-weight: 400;
+          }
+        }
+
+        .km {
+          font-weight: 400;
+        }
+
+        .miles {
           font-weight: 600;
         }
       }

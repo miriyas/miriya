@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useAtomValue } from 'jotai';
 
 import { FBItemFix } from '@/types/mycar.d';
 import { deleteCarFixDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';
+import { metricKmAtom } from '../states';
 
 import ExternalLink from '@/components/ExternalLink';
 import EditItemFix from './Edit';
@@ -20,6 +22,7 @@ const ItemFix = ({ item, refetch }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const { addAlert } = useAlert();
   const { user } = useAuth();
+  const metricKm = useAtomValue(metricKmAtom);
 
   const onClickEdit = () => {
     setEditMode(true);
@@ -37,11 +40,14 @@ const ItemFix = ({ item, refetch }: Props) => {
     return <EditItemFix item={item} refetch={refetch} setEditMode={setEditMode} />;
   }
 
+  let range = item.km ? `${item.km?.toLocaleString()}km` : '';
+  if (!metricKm) range = item.miles ? `${item.miles?.toLocaleString()}mi` : '';
+
   return (
     <li>
       <div className={styles.dataTime}>
         <time>{item.time}</time>
-        <p>{item.km?.toLocaleString()}km</p>
+        <p>{range}</p>
       </div>
       <div className={styles.dataTitle}>
         <p>{item.title}</p>

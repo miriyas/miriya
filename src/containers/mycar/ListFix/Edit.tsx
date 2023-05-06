@@ -4,12 +4,15 @@ import { Dispatch, FormEventHandler, SetStateAction, useState } from 'react';
 import cx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useAtomValue } from 'jotai';
 
 import { FBItemFix } from '@/types/mycar.d';
 import { patchCarFixDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { NewMyCarFixSchema, newMyCarFixValidator } from '@/utils/validator';
+import { getKmAndMiles } from '@/utils/mycar';
+import { metricKmAtom } from '../states';
 
 import styles from '../List.module.scss';
 
@@ -23,13 +26,14 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
   const { addAlert } = useAlert();
+  const metricKm = useAtomValue(metricKmAtom);
 
   const methods = useForm<NewMyCarFixSchema>({
     mode: 'onBlur',
     resolver: yupResolver(newMyCarFixValidator),
     defaultValues: {
       time: item.time,
-      km: item.km,
+      range: metricKm ? item.km : item.miles,
       title: item.title,
       location: item.location,
       locationUrl: item.locationUrl,
@@ -48,10 +52,12 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
     if (!user) return;
     setIsLoading(true);
 
+    const { km, miles } = getKmAndMiles(metricKm, formValues.range);
     patchCarFixDataAPI(item.carId, item.id, {
       carId: item.carId,
       time: formValues.time,
-      km: formValues.km,
+      km,
+      miles,
       title: formValues.title,
       body: formValues.body,
       location: formValues.location,
@@ -94,10 +100,10 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
           </label>
           <label className={styles.inputWrapper}>
             <input
-              {...register('km')}
+              {...register('range')}
               type='number'
-              placeholder='주행 거리'
-              className={cx({ [styles.error]: errors.km, [styles.changed]: dirtyFields.km })}
+              placeholder={`주행거리 (${metricKm ? 'km' : 'mi'})`}
+              className={cx({ [styles.error]: errors.range, [styles.changed]: dirtyFields.range })}
             />
           </label>
         </div>

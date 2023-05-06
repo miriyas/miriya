@@ -309,7 +309,7 @@ export type NewMyCarSchema = InferType<typeof newMyCarValidator>;
 
 export const newMyCarFixValidator = object({
   time: stringTest.required(),
-  km: numberTest,
+  range: numberTest,
   title: stringTest.required(),
   body: stringTest,
   location: stringTest,
