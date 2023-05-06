@@ -3,6 +3,7 @@
 import { useCallback, useEffect } from 'react';
 
 import useAlert from '@/hooks/useAlert';
+import useAuth from '@/hooks/useAuth';
 
 import AlertPortal from './portal';
 import View from './View';
@@ -14,6 +15,7 @@ interface AxiosErrorDetail {
 
 export const Alert = () => {
   const { alert, addAlert } = useAlert();
+  const { logOut } = useAuth();
 
   const handleAxiosError = useCallback(
     (event: CustomEvent<AxiosErrorDetail>) => {
@@ -21,11 +23,13 @@ export const Alert = () => {
       const { message = '' } = event.detail;
       if (message === 'Unauthorized') {
         addAlert({ message: '권한이 없습니다.' });
+      } else if (message === 'Forbidden') {
+        addAlert({ message: '다시 로그인해주세요.', onConfirm: logOut });
       } else {
         addAlert({ message });
       }
     },
-    [addAlert],
+    [addAlert, logOut],
   );
 
   useEffect(() => {

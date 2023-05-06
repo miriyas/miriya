@@ -37,10 +37,10 @@ const RootLayout = ({ children }: Props) => {
           <Suspense fallback={null}>
             <Footer />
           </Suspense>
+          <div id='alert' />
+          <div id='modal' />
+          <Alert />
         </Providers>
-        <div id='alert' />
-        <div id='modal' />
-        <Alert />
         <Analytics />
       </body>
     </html>

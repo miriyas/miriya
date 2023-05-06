@@ -41,6 +41,16 @@ apiClient.interceptors.response.use(
             }),
           );
           return new Promise(() => {});
+        case 403:
+          window.dispatchEvent(
+            new CustomEvent('axiosError', {
+              detail: {
+                message: 'Forbidden',
+              },
+            }),
+          );
+          return new Promise(() => {});
+
         default:
           return Promise.reject(error);
       }
