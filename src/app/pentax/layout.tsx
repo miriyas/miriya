@@ -14,6 +14,7 @@ const url = 'https://miriya.vercel.app/pentax';
 const imageUrl = 'https://miriya.vercel.app/images/pentax/og.jpg';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title,
   description,
   keywords: ['pentax', 'camera', 'lens', 'limited', 'encyclopedia', 'dslr'],

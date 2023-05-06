@@ -20,6 +20,7 @@ const url = 'https://miriya.vercel.app/minihome/home';
 const imageUrl = 'https://miriya.vercel.app/images/minihome/og.jpg';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title,
   description,
   keywords: ['싸이월드', '미니홈피'],

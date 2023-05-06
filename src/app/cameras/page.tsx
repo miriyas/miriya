@@ -7,6 +7,7 @@ const url = 'https://miriya.vercel.app/cameras';
 const imageUrl = 'https://miriya.vercel.app/images/cameras/og.jpg';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title,
   description,
   keywords: ['DSLR', 'DSLT', 'MILC', 'camera', 'history', 'interchangable'],

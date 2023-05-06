@@ -7,6 +7,7 @@ const url = 'https://miriya.vercel.app/idols';
 const imageUrl = 'https://miriya.vercel.app/images/idols/og.jpg';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title,
   description,
   keywords: ['idols', 'korea'],
