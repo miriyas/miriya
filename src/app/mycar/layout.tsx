@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 import styles from './layout.module.scss';
 
-const title = 'MIRIYA';
+const title = 'My Car';
 const description = '내 차량의 상태와 부품/튜닝 목록, 차계부';
 const url = 'https://miriya.vercel.app/mycar';
 const imageUrl = 'https://miriya.vercel.app/images/mycar/og.jpg';
