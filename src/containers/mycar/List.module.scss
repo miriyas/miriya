@@ -1,6 +1,11 @@
 @use 'src/styles/mixins' as m;
 
 .listWrapper {
+  .blank {
+    @include m.flexbox;
+    height: 100px;
+  }
+
   form {
     @include m.flexbox(start, start);
     flex-wrap: wrap;
@@ -114,11 +119,6 @@
       font-size: 12px;
       line-height: 18px;
       white-space: pre-wrap;
-
-      &.blank {
-        @include m.flexbox;
-        height: 100px;
-      }
     }
   }
 

@@ -65,8 +65,8 @@ const MyCarPage = ({ carId }: Props) => {
 
   if (isLoading) {
     return (
-      <div className={styles.wrapper}>
-        <Loading small />
+      <div className={cx(styles.wrapper, styles.loading)}>
+        <Loading />
       </div>
     );
   }
