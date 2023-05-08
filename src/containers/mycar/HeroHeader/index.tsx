@@ -18,6 +18,7 @@ interface Props {
 const HeroHeader = ({ carId, name, vin, maker, lineup, owner, preview }: Props) => {
   return (
     <div className={cx(styles.heroHeader, { [styles.preview]: preview })}>
+      <div className={styles.thisIsPreview}>미리보기</div>
       <div className={styles.texts}>
         <p className={styles.title}>{name}</p>
         <p className={styles.line}>

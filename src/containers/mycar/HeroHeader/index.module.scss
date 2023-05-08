@@ -16,6 +16,23 @@
       width: auto !important;
       background-color: rgba(var(--color-black-rgb), 0.2);
     }
+
+    .thisIsPreview {
+      @include m.middleBox;
+      z-index: var(--z-3);
+      display: block;
+      padding: 0 8px;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-red);
+      border: 3px solid var(--color-red);
+      transform: translate(-50%, -50%) rotate(-25deg);
+      transform-origin: center center;
+    }
+  }
+
+  .thisIsPreview {
+    display: none;
   }
 
   .hero,

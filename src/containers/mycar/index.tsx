@@ -3,14 +3,13 @@
 import { MouseEventHandler, useEffect, useState } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
 import cx from 'clsx';
-import { useQuery } from '@tanstack/react-query';
+import Link from 'next/link';
 
+import useMyCar from './useMyCar';
 import { currentCarAtom, metricKmAtom } from './states';
-import { getMyCarDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 
 import Top from './Top';
-import FormEdit from './FormEdit';
 import HeroHeader from './HeroHeader';
 import ListFix from './ListFix';
 import ListParts from './ListParts';
@@ -36,14 +35,9 @@ const MyCarPage = ({ carId }: Props) => {
   const { user } = useAuth();
   const currentCar = useAtomValue(currentCarAtom);
   const [currentTab, setCurrentTab] = useState(TABS[0].key);
-  const [editMode, setEditMode] = useState(false);
   const [metricKm, setMetricKm] = useAtom(metricKmAtom);
 
-  const {
-    data = [],
-    isLoading,
-    refetch,
-  } = useQuery(['getMyCarDataAPI'], () => getMyCarDataAPI().then((res) => res.data));
+  const { cars, isCarsLoading } = useMyCar();
 
   useEffect(() => {
     setCurrentTab(TABS[0].key);
@@ -53,17 +47,13 @@ const MyCarPage = ({ carId }: Props) => {
     setCurrentTab(e.currentTarget.dataset.tb ?? '');
   };
 
-  const targetCar = data.find((car) => car.id === currentCar) || data[0];
-
-  const onClickEdit = () => {
-    setEditMode(true);
-  };
+  const targetCar = cars.find((car) => car.id === currentCar) || cars[0];
 
   const onClickMetric = () => {
     setMetricKm((prev) => !prev);
   };
 
-  if (isLoading) {
+  if (isCarsLoading) {
     return (
       <div className={cx(styles.wrapper, styles.loading)}>
         <Loading />
@@ -74,31 +64,27 @@ const MyCarPage = ({ carId }: Props) => {
   if (!targetCar) {
     return (
       <div className={styles.wrapper}>
-        <Top cars={data} />
+        <Top cars={cars} />
       </div>
     );
   }
 
   return (
     <div className={styles.wrapper}>
-      <Top cars={data} carId={carId} />
+      <Top cars={cars} carId={carId} />
       <div className={styles.headerWrapper}>
-        {editMode ? (
-          <FormEdit car={targetCar} refetch={refetch} setEditMode={setEditMode} />
-        ) : (
-          <HeroHeader
-            carId={targetCar.id}
-            name={targetCar.name}
-            vin={targetCar.vin}
-            maker={targetCar.maker}
-            lineup={targetCar.lineup}
-            owner={targetCar.author.nickname}
-          />
-        )}
-        {!editMode && user?.uid === targetCar.authorId && (
-          <button type='button' onClick={onClickEdit} className={styles.editButton}>
+        <HeroHeader
+          carId={targetCar.id}
+          name={targetCar.name}
+          vin={targetCar.vin}
+          maker={targetCar.maker}
+          lineup={targetCar.lineup}
+          owner={targetCar.author.nickname}
+        />
+        {user?.uid === targetCar.authorId && (
+          <Link href={`/mycar/${carId}/edit`} className={styles.editButton}>
             수정
-          </button>
+          </Link>
         )}
       </div>
       <div className={styles.contents}>
