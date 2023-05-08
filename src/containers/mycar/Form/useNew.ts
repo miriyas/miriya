@@ -10,10 +10,10 @@ import { postCarDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 
 const useNew = () => {
+  const { user } = useAuth();
   const router = useRouter();
   const { refetchCars } = useMyCar();
-  const { addAlert } = useAlert();
-  const { user, isSupporter, isAdmin } = useAuth();
+  const { alertUserOnly } = useAlert();
   const [isLoading, setIsLoading] = useState(false);
 
   const methods = useForm<NewMyCarSchema>({
@@ -55,14 +55,7 @@ const useNew = () => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    if (isAdmin || isSupporter) {
-      submit();
-      return;
-    }
-    if (!user) {
-      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
-    }
+    alertUserOnly(submit);
   };
 
   return {

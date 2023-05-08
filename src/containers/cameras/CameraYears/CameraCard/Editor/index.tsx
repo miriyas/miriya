@@ -1,7 +1,6 @@
 import { Dispatch, FormEventHandler, SetStateAction } from 'react';
 
 import useEditor from './useEditor';
-import useAuth from '@/hooks/useAuth';
 import { FBCameraType } from '@/types/cameras.d';
 import useAlert from '@/hooks/useAlert';
 import { fields } from '@/containers/cameras/CameraYears/CameraCard/Editor/fields';
@@ -15,8 +14,7 @@ interface Props {
 }
 
 const Editor = ({ camera, setTab }: Props) => {
-  const { user, isSupporter, isAdmin } = useAuth();
-  const { addAlert } = useAlert();
+  const { alertSupporterOnly } = useAlert();
 
   const { errors, dirtyFields, isDirty, register, submit, reset } = useEditor(camera);
 
@@ -27,22 +25,10 @@ const Editor = ({ camera, setTab }: Props) => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    if (isAdmin) {
+    alertSupporterOnly(() => {
       submit();
       setTab('internal');
-      return;
-    }
-    if (!user) {
-      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
-      return;
-    }
-    if (!isSupporter) {
-      addAlert({
-        message:
-          '진짜 미안, 아무나 수정할 수는 없어.. 무섭잖아.. \n이준혁에게 DM을 보내보자.\n나를 도와줘! 카메라가 너무 많아..',
-      });
-    }
+    });
   };
 
   return (

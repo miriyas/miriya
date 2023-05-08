@@ -2,7 +2,6 @@ import { FormEventHandler } from 'react';
 import { useResetAtom } from 'jotai/utils';
 import cx from 'clsx';
 
-import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useEditor from './useEditor';
 import { CATEGORIES, FBIdolType } from '@/types/idols.d';
@@ -52,8 +51,7 @@ interface Props {
 }
 
 const Editor = ({ idol }: Props) => {
-  const { user, isSupporter, isAdmin } = useAuth();
-  const { addAlert } = useAlert();
+  const { alertSupporterOnly } = useAlert();
 
   const resetEditIdol = useResetAtom(editIdolAtom);
 
@@ -65,21 +63,7 @@ const Editor = ({ idol }: Props) => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    if (isAdmin) {
-      submitIdol();
-      return;
-    }
-    if (!user) {
-      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
-      return;
-    }
-    if (!isSupporter) {
-      addAlert({
-        message:
-          '진짜 미안, 아무나 수정할 수는 없어.. 무섭잖아.. \n이준혁에게 DM을 보내보자.\n나를 도와줘! 아이돌이 너무 많아..',
-      });
-    }
+    alertSupporterOnly(submitIdol);
   };
 
   return (

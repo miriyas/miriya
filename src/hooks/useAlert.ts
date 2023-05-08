@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
 import { useAtom } from 'jotai';
 
+import useAuth from './useAuth';
 import { Alert, alertState } from '@/states/alert';
 
 const useAlert = () => {
+  const { isAdmin, isSupporter, user } = useAuth();
   const [alert, setAlert] = useAtom(alertState);
 
   const addAlert = useCallback(
@@ -18,10 +20,36 @@ const useAlert = () => {
     setAlert(undefined);
   }, [setAlert]);
 
+  const alertUserOnly = (callback: () => void) => {
+    if (!user) {
+      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
+      return;
+    }
+    callback();
+  };
+
+  const alertSupporterOnly = (callback: () => void) => {
+    if (isAdmin || isSupporter) {
+      callback();
+      return;
+    }
+    if (!user) {
+      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
+      return;
+    }
+    if (!isSupporter) {
+      addAlert({
+        message: '서포터로 등록된 사람만 쓸 수 있는 기능이야.\n이준혁에게 메시지를 보내보자.',
+      });
+    }
+  };
+
   return {
     alert,
     addAlert,
     removeAlert,
+    alertUserOnly,
+    alertSupporterOnly,
   };
 };
 

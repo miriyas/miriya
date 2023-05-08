@@ -23,8 +23,8 @@ interface Props {
 }
 
 const NewFix = ({ carId, refetch }: Props) => {
-  const { addAlert } = useAlert();
   const { user } = useAuth();
+  const { alertUserOnly } = useAlert();
   const [isLoading, setIsLoading] = useState(false);
   const metricKm = useAtomValue(metricKmAtom);
 
@@ -66,11 +66,7 @@ const NewFix = ({ carId, refetch }: Props) => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (!user) {
-      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
-      return;
-    }
-    submit();
+    alertUserOnly(submit);
   };
 
   return (

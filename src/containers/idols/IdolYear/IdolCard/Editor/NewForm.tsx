@@ -2,7 +2,6 @@ import { FormEventHandler } from 'react';
 import cx from 'clsx';
 import { FieldErrors, FieldNamesMarkedBoolean, UseFormRegister } from 'react-hook-form';
 
-import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { CATEGORIES } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
@@ -57,26 +56,11 @@ interface Props {
 }
 
 const Form = ({ submitIdol, onClickCancel, errors, register, dirtyFields, isDirty, isLoading }: Props) => {
-  const { user, isSupporter, isAdmin } = useAuth();
-  const { addAlert } = useAlert();
+  const { alertSupporterOnly } = useAlert();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    if (isAdmin || isSupporter) {
-      submitIdol();
-      return;
-    }
-    if (!user) {
-      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
-      return;
-    }
-    if (!isSupporter) {
-      addAlert({
-        message:
-          '진짜 미안, 아무나 수정할 수는 없어.. 무섭잖아.. \n이준혁에게 DM을 보내보자.\n나를 도와줘! 아이돌이 너무 많아..',
-      });
-    }
+    alertSupporterOnly(submitIdol);
   };
 
   return (

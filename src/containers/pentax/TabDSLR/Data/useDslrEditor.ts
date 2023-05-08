@@ -20,9 +20,9 @@ const useDslrEditor = (camera: FBPentaxDslr) => {
     targetSubCategory: SUB_TARGET_CATEGORY.DSLR,
     targetId: camera.id,
   });
+  const { user } = useAuth();
   const { reloadDslr } = usePentax();
-  const { isAdmin, isSupporter, user } = useAuth();
-  const { addAlert } = useAlert();
+  const { alertSupporterOnly } = useAlert();
   const resetEditCamera = useResetAtom(editCameraAtom);
 
   const methods = useForm<PentaxDSLRSchema>({
@@ -131,21 +131,7 @@ const useDslrEditor = (camera: FBPentaxDslr) => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    if (isAdmin) {
-      submit();
-      return;
-    }
-    if (!user) {
-      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
-      return;
-    }
-    if (!isSupporter) {
-      addAlert({
-        message:
-          '진짜 미안, 아무나 수정할 수는 없어.. 무섭잖아.. \n이준혁에게 DM을 보내보자.\n나를 도와줘! 카메라가 너무 많아..',
-      });
-    }
+    alertSupporterOnly(submit);
   };
 
   const onClickCancel = () => {

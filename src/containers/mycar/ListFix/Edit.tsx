@@ -25,7 +25,7 @@ interface Props {
 const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
-  const { addAlert } = useAlert();
+  const { alertUserOnly } = useAlert();
   const metricKm = useAtomValue(metricKmAtom);
 
   const methods = useForm<NewMyCarFixSchema>({
@@ -75,11 +75,7 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (!user) {
-      addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
-      return;
-    }
-    submit();
+    alertUserOnly(submit);
   };
 
   const onClickCancel = () => {
