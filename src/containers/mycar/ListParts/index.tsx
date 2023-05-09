@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ListParts = ({ car }: Props) => {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
 
   const {
     data = [],
@@ -26,7 +26,7 @@ const ListParts = ({ car }: Props) => {
 
   return (
     <div className={styles.listWrapper}>
-      {user && user.uid === car.authorId && <New carId={car.id} refetch={refetch} />}
+      {user && (user.uid === car.authorId || isAdmin) && <New carId={car.id} refetch={refetch} />}
       <ul className={styles.list}>
         {isLoading && (
           <li>
@@ -40,9 +40,9 @@ const ListParts = ({ car }: Props) => {
             <div className={styles.blank}>내역을 추가해주세요.</div>
           </li>
         )}
-        {data?.map((item) => {
-          return <ItemParts key={item.id} item={item} refetch={refetch} carOwnerId={car.authorId} />;
-        })}
+        {data?.map((item) => (
+          <ItemParts key={item.id} item={item} refetch={refetch} carOwnerId={car.authorId} />
+        ))}
       </ul>
     </div>
   );

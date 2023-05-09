@@ -7,6 +7,7 @@ import cx from 'clsx';
 import useNew from './useNew';
 import useAuth from '@/hooks/useAuth';
 
+import Loading from '@/components/Loading';
 import HeroHeader from '../HeroHeader';
 import styles from './index.module.scss';
 
@@ -28,6 +29,8 @@ const MyCarNewPage = () => {
       setPreviewUrl(URL.createObjectURL(file));
     }
   }, [watchImage]);
+
+  const submitDisabled = !isDirty || isLoading;
 
   return (
     <div className={styles.wrapper}>
@@ -52,6 +55,7 @@ const MyCarNewPage = () => {
               className={cx({ [styles.error]: errors.image, [styles.changed]: dirtyFields.image })}
               autoComplete='off'
               accept='image/jpeg'
+              disabled={isLoading}
             />
           </label>
           <label className={styles.inputWrapper}>
@@ -62,6 +66,7 @@ const MyCarNewPage = () => {
               placeholder='로켓보이 등등 차량 별명'
               className={cx({ [styles.error]: errors.name, [styles.changed]: dirtyFields.name })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <label className={styles.inputWrapper}>
@@ -72,6 +77,7 @@ const MyCarNewPage = () => {
               placeholder='로그인한 작성자에게만 보입니다.'
               className={cx({ [styles.error]: errors.vin, [styles.changed]: dirtyFields.vin })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <label className={styles.inputWrapper}>
@@ -82,6 +88,7 @@ const MyCarNewPage = () => {
               placeholder='현대, 기아 등등..'
               className={cx({ [styles.error]: errors.maker, [styles.changed]: dirtyFields.maker })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <label className={styles.inputWrapper}>
@@ -92,12 +99,15 @@ const MyCarNewPage = () => {
               placeholder='쏘나타 2.0 터보 노블레스 등등..'
               className={cx({ [styles.error]: errors.lineup, [styles.changed]: dirtyFields.lineup })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <div className={styles.buttonWrapper}>
-            <Link href='/mycar'>취소</Link>
-            <button type='submit' disabled={!isDirty || isLoading}>
-              확인
+            <Link href='/mycar' className={cx({ [styles.disabled]: submitDisabled })}>
+              취소
+            </Link>
+            <button type='submit' disabled={submitDisabled}>
+              {isLoading ? <Loading small /> : '확인'}
             </button>
           </div>
         </form>

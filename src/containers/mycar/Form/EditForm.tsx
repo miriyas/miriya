@@ -8,6 +8,7 @@ import useEdit from './useEdit';
 import useAuth from '@/hooks/useAuth';
 import { FBMyCar } from '@/types/mycar.d';
 
+import Loading from '@/components/Loading';
 import HeroHeader from '../HeroHeader';
 import styles from './index.module.scss';
 
@@ -34,6 +35,8 @@ const EditForm = ({ currentCar }: Props) => {
     }
   }, [watchImage]);
 
+  const submitDisabled = !isDirty || isLoading;
+
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>수정</p>
@@ -56,6 +59,7 @@ const EditForm = ({ currentCar }: Props) => {
               className={cx({ [styles.error]: errors.name, [styles.changed]: dirtyFields.name })}
               autoComplete='off'
               accept='image/jpeg'
+              disabled={isLoading}
             />
           </label>
 
@@ -67,6 +71,7 @@ const EditForm = ({ currentCar }: Props) => {
               placeholder='로켓보이 등등 차량 별명'
               className={cx({ [styles.error]: errors.name, [styles.changed]: dirtyFields.name })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <label className={styles.inputWrapper}>
@@ -77,6 +82,7 @@ const EditForm = ({ currentCar }: Props) => {
               placeholder='로그인한 작성자에게만 보입니다.'
               className={cx({ [styles.error]: errors.vin, [styles.changed]: dirtyFields.vin })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <label className={styles.inputWrapper}>
@@ -87,6 +93,7 @@ const EditForm = ({ currentCar }: Props) => {
               placeholder='현대, 기아 등등..'
               className={cx({ [styles.error]: errors.maker, [styles.changed]: dirtyFields.maker })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <label className={styles.inputWrapper}>
@@ -97,12 +104,15 @@ const EditForm = ({ currentCar }: Props) => {
               placeholder='쏘나타 2.0 터보 노블레스 등등..'
               className={cx({ [styles.error]: errors.lineup, [styles.changed]: dirtyFields.lineup })}
               autoComplete='off'
+              disabled={isLoading}
             />
           </label>
           <div className={styles.buttonWrapper}>
-            <Link href={`/mycar/${currentCar.id}`}>취소</Link>
-            <button type='submit' disabled={!isDirty || isLoading}>
-              확인
+            <Link href={`/mycar/${currentCar.id}`} className={cx({ [styles.disabled]: submitDisabled })}>
+              취소
+            </Link>
+            <button type='submit' disabled={submitDisabled}>
+              {isLoading ? <Loading small /> : '확인'}
             </button>
           </div>
         </form>

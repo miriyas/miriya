@@ -2,13 +2,13 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import { FBMyCar } from '@/types/mycar.d';
-import { getCarFixDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
+import { getCarFixDataAPI } from '@/services/mycar';
+import { FBMyCar } from '@/types/mycar.d';
 
 import Loading from '@/components/Loading';
-import ItemFix from './Item';
 import New from './New';
+import ItemFix from './Item';
 import styles from '../List.module.scss';
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ListFix = ({ car }: Props) => {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
 
   const {
     data = [],
@@ -26,7 +26,7 @@ const ListFix = ({ car }: Props) => {
 
   return (
     <div className={styles.listWrapper}>
-      {user && user.uid === car.authorId && <New carId={car.id} refetch={refetch} />}
+      {user && (user.uid === car.authorId || isAdmin) && <New carId={car.id} refetch={refetch} />}
       <ul className={styles.list}>
         {isLoading && (
           <li>

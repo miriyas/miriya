@@ -61,7 +61,7 @@ const ItemFix = ({ item, refetch, carOwnerId }: Props) => {
         </div>
       </div>
       <div className={styles.rightWing}>
-        <div className={styles.dataBody}>{item.body}</div>
+        <div className={styles.dataBody}>{item.body ? item.body : '-'}</div>
         {(isAdmin || isMine(carOwnerId)) && (
           <div className={styles.dataButtons}>
             <button type='button' onClick={onClickEdit}>
