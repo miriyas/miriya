@@ -20,10 +20,11 @@ const useNew = () => {
     mode: 'onBlur',
     resolver: yupResolver(newMyCarValidator),
     defaultValues: {
-      name: '차량 별명',
-      vin: '차대 번호',
-      maker: '제조사',
-      lineup: '모델명',
+      image: undefined,
+      name: '',
+      vin: '',
+      maker: '',
+      lineup: '',
     },
   });
 
@@ -36,17 +37,20 @@ const useNew = () => {
 
   const submit = handleSubmit((formValues: NewMyCarSchema) => {
     if (!user) return;
+
     setIsLoading(true);
 
-    postCarDataAPI({
-      name: formValues.name,
-      vin: formValues.vin,
-      maker: formValues.maker,
-      lineup: formValues.lineup,
-    })
-      .then(() => {
+    const formData = new FormData();
+    formData.append('image', formValues.image[0]);
+    formData.append('name', formValues.name);
+    formData.append('vin', formValues.vin);
+    formData.append('maker', formValues.maker);
+    formData.append('lineup', formValues.lineup);
+
+    postCarDataAPI(formData)
+      .then((res) => {
         refetchCars();
-        router.push('/mycar');
+        router.push(`/mycar/${res.data.id}`);
       })
       .finally(() => {
         setIsLoading(false);

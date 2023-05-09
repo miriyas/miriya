@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import useMyCar from '../useMyCar';
 import useAuth from '@/hooks/useAuth';
-import { NewMyCarSchema, newMyCarValidator } from '@/utils/validator';
+import { EditMyCarSchema, editMyCarValidator } from '@/utils/validator';
 import { patchCarDataAPI } from '@/services/mycar';
 import { FBMyCar } from '@/types/mycar.d';
 import useAlert from '@/hooks/useAlert';
@@ -17,9 +17,9 @@ const useEdit = (currentCar: FBMyCar) => {
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
-  const methods = useForm<NewMyCarSchema>({
+  const methods = useForm<EditMyCarSchema>({
     mode: 'onBlur',
-    resolver: yupResolver(newMyCarValidator),
+    resolver: yupResolver(editMyCarValidator),
     defaultValues: {
       name: currentCar.name,
       vin: currentCar.vin,
@@ -35,16 +35,18 @@ const useEdit = (currentCar: FBMyCar) => {
     formState: { errors, dirtyFields, isDirty },
   } = methods;
 
-  const submit = handleSubmit((formValues: NewMyCarSchema) => {
+  const submit = handleSubmit((formValues: EditMyCarSchema) => {
     if (!user || !currentCar) return;
     setIsLoading(true);
 
-    patchCarDataAPI(currentCar.id ?? '', {
-      name: formValues.name,
-      vin: formValues.vin,
-      maker: formValues.maker,
-      lineup: formValues.lineup,
-    })
+    const formData = new FormData();
+    formData.append('image', formValues.image[0]);
+    formData.append('name', formValues.name);
+    formData.append('vin', formValues.vin);
+    formData.append('maker', formValues.maker);
+    formData.append('lineup', formValues.lineup);
+
+    patchCarDataAPI(currentCar.id ?? '', formData)
       .then(() => {
         refetchCars();
         router.push(`/mycar/${currentCar.id}`);

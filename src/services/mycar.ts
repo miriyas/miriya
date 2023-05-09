@@ -1,11 +1,11 @@
 import apiClient from '@/services/apiClient';
-import { FBItemFix, FBItemParts, FBMyCar, NewItemFix, NewItemParts, NewMyCar } from '@/types/mycar.d';
+import { FBItemFix, FBItemParts, FBMyCar, NewItemFix, NewItemParts } from '@/types/mycar.d';
 
 export const getMyCarDataAPI = () => apiClient<FBMyCar[]>('/mycar');
 
-export const postCarDataAPI = (params: NewMyCar) => apiClient.post('/mycar', params);
+export const postCarDataAPI = (body: FormData) => apiClient.postForm('/mycar', body);
 
-export const patchCarDataAPI = (carId: string, params: NewMyCar) => apiClient.patch(`/mycar/${carId}`, params);
+export const patchCarDataAPI = (carId: string, body: FormData) => apiClient.patch(`/mycar/${carId}`, body);
 
 // 정비 내역
 

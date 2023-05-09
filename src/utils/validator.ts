@@ -298,14 +298,28 @@ export interface FBPentaxDSLRSchema extends PentaxDSLRSchema {
 
 // 마이카 관련 ===================================
 
-export const newMyCarValidator = object({
+const commonMyCarValidator = {
   name: stringTest.required(),
   vin: stringTest.required(),
   maker: stringTest.required(),
   lineup: stringTest.required(),
+};
+
+export const newMyCarValidator = object({
+  image: mixed<FileList>()
+    .test('required', '사진을 업로드해주세요.', (value) => !value || value.length > 0)
+    .required(),
+  ...commonMyCarValidator,
 }).required();
 
 export type NewMyCarSchema = InferType<typeof newMyCarValidator>;
+
+export const editMyCarValidator = object({
+  image: mixed(),
+  ...commonMyCarValidator,
+}).required();
+
+export type EditMyCarSchema = InferType<typeof editMyCarValidator>;
 
 export const newMyCarFixValidator = object({
   time: stringTest.required(),

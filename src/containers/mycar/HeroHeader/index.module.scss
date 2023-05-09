@@ -29,38 +29,20 @@
       transform: translate(-50%, -50%) rotate(-25deg);
       transform-origin: center center;
     }
+
+    .hero {
+      opacity: 0.5;
+    }
   }
 
   .thisIsPreview {
     display: none;
   }
 
-  .hero,
-  .heroPlaceholder {
-    @include m.absolute(0 0 0 0);
-  }
-
   .hero {
+    @include m.absolute(0 0 0 0);
     z-index: var(--z-2);
-  }
-
-  .heroPlaceholder {
-    z-index: var(--z-1);
-
-    img {
-      opacity: 0.5;
-    }
-
-    p {
-      @include m.middleBox;
-      padding: 4px 8px;
-      text-align: center;
-      background-color: var(--color-white);
-
-      @include m.after(SD) {
-        white-space: nowrap;
-      }
-    }
+    object-fit: cover;
   }
 
   .texts {

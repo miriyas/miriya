@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import cx from 'clsx';
 
@@ -12,12 +13,21 @@ import styles from './index.module.scss';
 const MyCarNewPage = () => {
   const { user } = useAuth();
 
+  const [previewUrl, setPreviewUrl] = useState<string | undefined>(undefined);
   const { dirtyFields, isDirty, isLoading, errors, onSubmit, register, watch } = useNew();
 
+  const watchImage = watch('image');
   const watchName = watch('name');
   const watchVin = watch('vin');
   const watchMaker = watch('maker');
   const watchLineup = watch('lineup');
+
+  useEffect(() => {
+    if (watchImage && watchImage.length > 0) {
+      const file = watchImage[0];
+      setPreviewUrl(URL.createObjectURL(file));
+    }
+  }, [watchImage]);
 
   return (
     <div className={styles.wrapper}>
@@ -29,9 +39,21 @@ const MyCarNewPage = () => {
         lineup={watchLineup === '' ? '모델명' : watchLineup}
         owner={user?.displayName ?? ''}
         preview
+        previewUrl={previewUrl}
       />
       <div className={styles.bottom}>
         <form className={styles.editor} onSubmit={onSubmit}>
+          <label className={styles.inputWrapper}>
+            <span>*차량 이미지</span>
+            <input
+              {...register('image')}
+              type='file'
+              placeholder='1600x450px의 JPG 이미지'
+              className={cx({ [styles.error]: errors.image, [styles.changed]: dirtyFields.image })}
+              autoComplete='off'
+              accept='image/jpeg'
+            />
+          </label>
           <label className={styles.inputWrapper}>
             <span>*차량 별명</span>
             <input
@@ -79,13 +101,7 @@ const MyCarNewPage = () => {
             </button>
           </div>
         </form>
-        <div className={styles.desc}>
-          이미지 업로드 기능은 준비중..
-          <br />
-          Next.js appDir에서 S3 라이브러리가 경로를 못잡는 버그로 인해 고생중..
-          <br />
-          1600x450px JPG 이미지를 제게 주시면 올려드리겠습니다...
-        </div>
+        <div className={styles.desc}>1600x900px JPG 이미지를 올려주세요!</div>
       </div>
     </div>
   );

@@ -13,9 +13,10 @@ interface Props {
   lineup: string;
   owner: string;
   preview?: boolean;
+  previewUrl?: string;
 }
 
-const HeroHeader = ({ carId, name, vin, maker, lineup, owner, preview }: Props) => {
+const HeroHeader = ({ carId, name, vin, maker, lineup, owner, preview, previewUrl }: Props) => {
   return (
     <div className={cx(styles.heroHeader, { [styles.preview]: preview })}>
       <div className={styles.thisIsPreview}>미리보기</div>
@@ -28,19 +29,15 @@ const HeroHeader = ({ carId, name, vin, maker, lineup, owner, preview }: Props) 
         <p className={styles.owner}>{owner}</p>
       </div>
       <Image
-        src={`${process.env.NEXT_PUBLIC_CDN_URL}/mycar/${preview ? 'sample' : carId}.jpg`}
+        src={
+          previewUrl ||
+          `${process.env.NEXT_PUBLIC_CDN_URL}/mycar/${preview ? 'sample' : carId}.jpg?hash=${new Date().getTime()}`
+        }
         alt=''
         fill
         className={styles.hero}
+        unoptimized
       />
-      <div className={styles.heroPlaceholder}>
-        <Image src={`${process.env.NEXT_PUBLIC_CDN_URL}/mycar/sample.jpg`} fill alt='' />
-        <p>
-          이미지는 1600x900px 사이즈로 준비해서 제게 주세요.
-          <br />
-          Next.js + appDir api에서 S3 SDK에 오류가 있어 제가 직접 올려야합니다 ㅠㅠ
-        </p>
-      </div>
     </div>
   );
 };

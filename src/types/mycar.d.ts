@@ -1,13 +1,17 @@
 import { WithAuthor, WithTS } from '@/types/firebase.d';
 
-export interface NewMyCar {
+export interface MyCar {
   name: string;
   vin: string;
   maker: string;
   lineup: string;
 }
 
-export interface FBMyCar extends NewMyCar, WithAuthor, WithTS {
+export interface NewMyCar extends MyCar {
+  image: any;
+}
+
+export interface FBMyCar extends MyCar, WithAuthor, WithTS {
   id: string;
 }
 

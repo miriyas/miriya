@@ -30,7 +30,6 @@ apiClient.interceptors.response.use(
       switch (error.response.status) {
         case 401:
           if (error.response.config?.url === '/auth/session') {
-            //
             return Promise.reject(error);
           }
           window.dispatchEvent(
@@ -40,7 +39,7 @@ apiClient.interceptors.response.use(
               },
             }),
           );
-          return new Promise(() => {});
+          return Promise.reject(error);
         case 403:
           window.dispatchEvent(
             new CustomEvent('axiosError', {
