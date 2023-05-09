@@ -39,7 +39,7 @@ const MyCarNewPage = () => {
         lineup={watchLineup === '' ? '모델명' : watchLineup}
         owner={user?.displayName ?? ''}
         preview
-        previewUrl={previewUrl}
+        imageUrl={previewUrl}
       />
       <div className={styles.bottom}>
         <form className={styles.editor} onSubmit={onSubmit}>

@@ -14,7 +14,9 @@
     .editButton {
       @include m.absolute(14px 14px auto auto);
       z-index: var(--z-2);
+      padding: 0 8px;
       color: var(--color-white);
+      background-color: rgba(var(--color-black-rgb), 0.2);
     }
   }
 

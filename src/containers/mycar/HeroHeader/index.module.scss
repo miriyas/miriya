@@ -11,12 +11,6 @@
   }
 
   &.preview {
-    p {
-      display: inline-block;
-      width: auto !important;
-      background-color: rgba(var(--color-black-rgb), 0.2);
-    }
-
     .thisIsPreview {
       @include m.middleBox;
       z-index: var(--z-3);
@@ -43,6 +37,13 @@
     @include m.absolute(0 0 0 0);
     z-index: var(--z-2);
     object-fit: cover;
+  }
+
+  p {
+    display: inline-block;
+    width: auto !important;
+    padding: 0 8px;
+    background-color: rgba(var(--color-black-rgb), 0.2);
   }
 
   .texts {

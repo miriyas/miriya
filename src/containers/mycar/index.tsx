@@ -74,7 +74,7 @@ const MyCarPage = ({ carId }: Props) => {
       <Top cars={cars} carId={carId} />
       <div className={styles.headerWrapper}>
         <HeroHeader
-          carId={targetCar.id}
+          imageUrl={`${process.env.NEXT_PUBLIC_CDN_URL}/${targetCar.imageUrl}`}
           name={targetCar.name}
           vin={targetCar.vin}
           maker={targetCar.maker}

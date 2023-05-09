@@ -38,13 +38,12 @@ const EditForm = ({ currentCar }: Props) => {
     <div className={styles.wrapper}>
       <p className={styles.title}>수정</p>
       <HeroHeader
-        carId={currentCar.id}
+        imageUrl={previewUrl ?? `${process.env.NEXT_PUBLIC_CDN_URL}/${currentCar.imageUrl}`}
         name={watchName === '' ? '차량 별명' : watchName}
         vin={watchVin === '' ? '차대 번호' : watchVin}
         maker={watchMaker === '' ? '제조사' : watchMaker}
         lineup={watchLineup === '' ? '모델명' : watchLineup}
         owner={user?.displayName ?? ''}
-        previewUrl={previewUrl}
       />
       <div className={styles.bottom}>
         <form className={styles.editor} onSubmit={onSubmit}>

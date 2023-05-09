@@ -7,12 +7,9 @@ export interface MyCar {
   lineup: string;
 }
 
-export interface NewMyCar extends MyCar {
-  image: any;
-}
-
 export interface FBMyCar extends MyCar, WithAuthor, WithTS {
   id: string;
+  imageUrl: string;
 }
 
 export interface ItemFix {
