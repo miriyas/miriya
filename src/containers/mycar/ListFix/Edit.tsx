@@ -143,7 +143,7 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
           </div>
           <div className={styles.dataButtons}>
             <button type='submit' disabled={!isDirty || isLoading} className={styles.editSubmit}>
-              확인
+              수정
             </button>
             <button type='button' onClick={onClickCancel}>
               취소

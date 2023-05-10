@@ -321,6 +321,8 @@ export const editMyCarValidator = object({
 
 export type EditMyCarSchema = InferType<typeof editMyCarValidator>;
 
+// 정비 내역
+
 export const newMyCarFixValidator = object({
   time: stringTest.required(),
   range: numberTest,
@@ -332,6 +334,8 @@ export const newMyCarFixValidator = object({
 
 export type NewMyCarFixSchema = InferType<typeof newMyCarFixValidator>;
 
+// 부품 목록
+
 export const newMyCarPartsValidator = object({
   name: stringTest.required(),
   partsNo: stringTest.required(),
@@ -340,3 +344,13 @@ export const newMyCarPartsValidator = object({
 }).required();
 
 export type NewMyCarPartsSchema = InferType<typeof newMyCarPartsValidator>;
+
+// 링크 목록
+
+export const newMyCarLinkValidator = object({
+  title: stringTest.required(),
+  url: stringTest.required(),
+  body: stringTest,
+}).required();
+
+export type NewMyCarLinkSchema = InferType<typeof newMyCarLinkValidator>;

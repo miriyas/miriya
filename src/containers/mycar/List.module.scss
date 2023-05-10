@@ -67,6 +67,10 @@
         height: 80px;
         padding-top: 4px;
         resize: none;
+
+        &.row2 {
+          height: 52px;
+        }
       }
     }
   }
@@ -135,6 +139,10 @@
 
     .dataTitle {
       width: 200px;
+
+      &.long {
+        width: 320px;
+      }
     }
   }
 
@@ -170,8 +178,16 @@
           border: 1px solid var(--color-gray-c);
           border-radius: 2px;
 
+          &.row2 {
+            height: 52px !important;
+          }
+
           &.editSubmit {
             height: 60px;
+
+            &.row2 {
+              height: 24px !important;
+            }
           }
         }
 

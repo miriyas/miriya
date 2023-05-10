@@ -5,32 +5,31 @@ import cx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FBItemParts } from '@/types/mycar.d';
-import { patchCarPartsDataAPI } from '@/services/mycar';
+import { FBItemLink } from '@/types/mycar.d';
+import { patchCarLinkDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
-import { NewMyCarPartsSchema, newMyCarPartsValidator } from '@/utils/validator';
+import { NewMyCarLinkSchema, newMyCarLinkValidator } from '@/utils/validator';
 
 import styles from '../List.module.scss';
 
 interface Props {
-  item: FBItemParts;
+  item: FBItemLink;
   refetch: () => void;
   setEditMode: Dispatch<SetStateAction<boolean>>;
 }
 
-const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
+const EditItemLink = ({ item, refetch, setEditMode }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
   const { alertUserOnly } = useAlert();
 
-  const methods = useForm<NewMyCarPartsSchema>({
+  const methods = useForm<NewMyCarLinkSchema>({
     mode: 'onBlur',
-    resolver: yupResolver(newMyCarPartsValidator),
+    resolver: yupResolver(newMyCarLinkValidator),
     defaultValues: {
-      name: item.name,
-      partsNo: item.partsNo,
-      partsUrl: item.partsUrl,
+      title: item.title,
+      url: item.url,
       body: item.body,
     },
   });
@@ -42,15 +41,14 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
     formState: { errors, dirtyFields, isDirty },
   } = methods;
 
-  const submit = handleSubmit((formValues: NewMyCarPartsSchema) => {
+  const submit = handleSubmit((formValues: NewMyCarLinkSchema) => {
     if (!user) return;
     setIsLoading(true);
 
-    patchCarPartsDataAPI(item.carId, item.id, {
+    patchCarLinkDataAPI(item.carId, item.id, {
       carId: item.carId,
-      name: formValues.name,
-      partsNo: formValues.partsNo,
-      partsUrl: formValues.partsUrl,
+      title: formValues.title,
+      url: formValues.url,
       body: formValues.body,
     })
       .then(() => {
@@ -76,29 +74,21 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
     <li className={cx(styles.item, styles.edit)}>
       <form onSubmit={onSubmit}>
         <div className={styles.leftWing}>
-          <div className={cx(styles.vertical, styles.dataTitle)}>
+          <div className={cx(styles.vertical, styles.dataTitle, styles.long)}>
             <label className={styles.inputWrapper}>
               <input
-                {...register('name')}
+                {...register('title')}
                 type='text'
-                placeholder='*부품명'
-                className={cx({ [styles.error]: errors.name, [styles.changed]: dirtyFields.name })}
+                placeholder='*링크명'
+                className={cx({ [styles.error]: errors.title, [styles.changed]: dirtyFields.title })}
               />
             </label>
             <label className={styles.inputWrapper}>
               <input
-                {...register('partsNo')}
+                {...register('url')}
                 type='text'
-                placeholder='*부품 번호'
-                className={cx({ [styles.error]: errors.partsNo, [styles.changed]: dirtyFields.partsNo })}
-              />
-            </label>
-            <label className={styles.inputWrapper}>
-              <input
-                {...register('partsUrl')}
-                type='text'
-                placeholder='부품 URL'
-                className={cx({ [styles.error]: errors.partsUrl, [styles.changed]: dirtyFields.partsUrl })}
+                placeholder='*URL'
+                className={cx({ [styles.error]: errors.url, [styles.changed]: dirtyFields.url })}
               />
             </label>
           </div>
@@ -108,13 +98,13 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
             <label className={styles.inputWrapper}>
               <textarea
                 {...register('body')}
-                placeholder='순정 앞브레이크 패드'
-                className={cx({ [styles.error]: errors.body, [styles.changed]: dirtyFields.body })}
+                placeholder='ex) 비머베르크 카페'
+                className={cx({ [styles.error]: errors.body, [styles.changed]: dirtyFields.body }, styles.row2)}
               />
             </label>
           </div>
           <div className={styles.dataButtons}>
-            <button type='submit' disabled={!isDirty || isLoading} className={styles.editSubmit}>
+            <button type='submit' disabled={!isDirty || isLoading} className={cx(styles.editSubmit, styles.row2)}>
               수정
             </button>
             <button type='button' onClick={onClickCancel}>
@@ -127,4 +117,4 @@ const EditItemFix = ({ item, refetch, setEditMode }: Props) => {
   );
 };
 
-export default EditItemFix;
+export default EditItemLink;

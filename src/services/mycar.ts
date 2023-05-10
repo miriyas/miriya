@@ -1,5 +1,5 @@
 import apiClient from '@/services/apiClient';
-import { FBItemFix, FBItemParts, FBMyCar, NewItemFix, NewItemParts } from '@/types/mycar.d';
+import { FBItemFix, FBItemLink, FBItemParts, FBMyCar, NewItemFix, NewItemLink, NewItemParts } from '@/types/mycar.d';
 
 export const getMyCarDataAPI = () => apiClient<FBMyCar[]>('/mycar');
 
@@ -30,3 +30,16 @@ export const patchCarPartsDataAPI = (carId: string, partsId: string, params: New
 
 export const deleteCarPartsDataAPI = (carId: string, partsId: string) =>
   apiClient.delete(`/mycar/${carId}/parts/${partsId}`);
+
+// 링크 목록
+
+export const getCarLinksDataAPI = (carId: string) => apiClient<FBItemLink[]>(`/mycar/${carId}/links`);
+
+export const postCarLinkDataAPI = (carId: string, params: NewItemLink) =>
+  apiClient.post(`/mycar/${carId}/links`, params);
+
+export const patchCarLinkDataAPI = (carId: string, linksId: string, params: NewItemLink) =>
+  apiClient.patch(`/mycar/${carId}/links/${linksId}`, params);
+
+export const deleteCarLinkDataAPI = (carId: string, linksId: string) =>
+  apiClient.delete(`/mycar/${carId}/links/${linksId}`);

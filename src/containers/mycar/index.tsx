@@ -9,12 +9,13 @@ import useMyCar from './useMyCar';
 import { currentCarAtom, metricKmAtom } from './states';
 import useAuth from '@/hooks/useAuth';
 
+import Loading from '@/components/Loading';
 import Top from './Top';
 import HeroHeader from './HeroHeader';
 import ListFix from './ListFix';
 import ListParts from './ListParts';
+import ListLinks from './ListLinks';
 import styles from './index.module.scss';
-import Loading from '@/components/Loading';
 
 const TABS = [
   {
@@ -24,6 +25,10 @@ const TABS = [
   {
     key: 'parts',
     label: '부품목록',
+  },
+  {
+    key: 'links',
+    label: '링크목록',
   },
 ];
 
@@ -109,6 +114,7 @@ const MyCarPage = ({ carId }: Props) => {
         </div>
         {currentTab === 'fix' && <ListFix car={targetCar} />}
         {currentTab === 'parts' && <ListParts car={targetCar} />}
+        {currentTab === 'links' && <ListLinks car={targetCar} />}
       </div>
     </div>
   );
