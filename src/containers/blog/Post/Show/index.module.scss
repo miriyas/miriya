@@ -1,0 +1,100 @@
+@use 'src/styles/mixins' as m;
+
+.showPost {
+  @include m.flexbox(start, center);
+
+  .centering {
+    @include m.flexbox(center, start);
+    gap: 32px;
+    width: 100%;
+    max-width: 1080px;
+    padding: 24px;
+    background-color: var(--color-white);
+
+    article {
+      width: 800px;
+    }
+
+    aside {
+      width: 200px;
+    }
+  }
+
+  header {
+    @include m.flexbox(between, center);
+    margin-bottom: 24px;
+
+    .leftWing {
+      @include m.flexbox(start, end);
+
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+
+      span {
+        margin-left: 14px;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-gray-8);
+      }
+    }
+
+    .rightWing {
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .author,
+  .time {
+    font-size: 14px;
+  }
+
+  .time {
+    color: var(--color-gray-8);
+  }
+
+  .body {
+    margin-top: 36px;
+
+    h2 {
+      padding-bottom: 8px;
+      margin: 48px 0 16px;
+      font-size: 24px;
+      font-weight: 500;
+      border-bottom: 1px solid var(--color-gray-d);
+    }
+
+    h3 {
+      margin: 32px 0 16px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    ol,
+    ul,
+    li {
+      list-style: unset;
+    }
+
+    ul {
+      padding-left: 32px;
+    }
+
+    li {
+      line-height: 24px;
+
+      + li {
+        margin-top: 4px;
+      }
+    }
+  }
+}

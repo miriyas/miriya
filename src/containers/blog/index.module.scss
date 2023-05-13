@@ -1,0 +1,79 @@
+@use 'src/styles/mixins' as m;
+
+.blogPage {
+  .centering {
+    @include m.flexbox(center, start);
+    gap: 32px;
+    width: 100%;
+    max-width: 1080px;
+    padding: 24px;
+    background-color: var(--color-white);
+
+    .wingTitle {
+      @include m.flexbox(between, center);
+      margin-bottom: 24px;
+      font-size: 18px;
+      font-weight: 600;
+
+      a {
+        @include m.flexbox;
+        height: 24px;
+        padding: 0 8px;
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-blue);
+      }
+    }
+
+    .leftWing {
+      width: 800px;
+    }
+
+    aside {
+      width: 200px;
+    }
+  }
+
+  .posts {
+    @include m.flexbox(center, start);
+    flex-direction: column;
+    gap: 24px;
+
+    .post {
+      width: 100%;
+      padding: 0 0 32px;
+      border-bottom: 1px solid var(--color-gray-d);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .title {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-gray-2);
+    }
+
+    .body {
+      margin-top: 14px;
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--color-gray-4);
+
+      @include m.after(SD) {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    time {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--color-gray-8);
+    }
+  }
+}

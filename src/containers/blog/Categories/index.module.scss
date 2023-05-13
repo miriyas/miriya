@@ -1,0 +1,63 @@
+@use 'src/styles/mixins' as m;
+
+.categoriesPage {
+  @include m.flexbox;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - var(--h-nav) - var(--h-footer));
+
+  .centering {
+    width: 320px;
+
+    .title {
+      margin-bottom: 14px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  .categories {
+    @include m.flexbox(center, start);
+    @include m.commonBoxShadow;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    background-color: var(--color-white);
+    border-radius: 4px;
+
+    .loading {
+      @include m.flexbox;
+      align-self: center;
+      height: 100px;
+      border: 0;
+    }
+  }
+
+  .new {
+    @include m.flexbox(between, center);
+    @include m.commonBoxShadow;
+    gap: 8px;
+    height: 44px;
+    padding: 0 8px;
+    margin-top: 14px;
+    background-color: var(--color-white);
+    border-radius: 4px;
+
+    input {
+      flex: 1;
+      height: 28px;
+      padding: 0 8px;
+      font-size: 12px;
+      border: 1px solid var(--color-gray-c);
+      border-radius: 2px;
+    }
+
+    button[type='submit'] {
+      height: 28px;
+      padding: 0 8px;
+      color: var(--color-white);
+      background-color: var(--color-blue);
+      border-radius: 2px;
+    }
+  }
+}

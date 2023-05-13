@@ -1,0 +1,25 @@
+/* stylelint-disable selector-class-pattern */
+
+.w-md-editor div,
+.w-md-editor p,
+.w-md-editor span,
+.w-md-editor a,
+.w-md-editor input,
+.w-md-editor textarea,
+.w-md-editor button,
+.w-md-editor h1,
+.w-md-editor h2,
+.w-md-editor h3,
+.w-md-editor h4,
+.w-md-editor h5,
+.w-md-editor h6,
+.w-md-editor th,
+.w-md-editor td {
+  font-family: unset;
+}
+
+.w-md-editor ol,
+.w-md-editor ul,
+.w-md-editor li {
+  list-style: unset;
+}

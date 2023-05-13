@@ -1,0 +1,70 @@
+@use 'src/styles/mixins' as m;
+
+.newPost {
+  @include m.flexbox(end, start);
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - var(--h-nav) - var(--h-footer));
+
+  .top {
+    @include m.flexbox(between, center);
+    width: 100%;
+    height: 44px;
+
+    input[type='text'] {
+      flex: 1;
+      height: 44px;
+      padding: 0 8px;
+      margin-left: 8px;
+      font-weight: 600;
+      line-height: 44px;
+    }
+
+    .rightWing {
+      @include m.flexbox;
+      gap: 14px;
+
+      label {
+        @include m.flexbox;
+        gap: 8px;
+
+        span {
+          font-size: 12px;
+        }
+
+        select,
+        input {
+          width: 140px;
+          height: 24px;
+          padding: 0 4px;
+          font-size: 12px;
+          background-color: var(--color-white);
+          border: 1px solid var(--color-gray-c);
+        }
+
+        .category::after {
+          top: 7px;
+        }
+      }
+
+      button[type='submit'] {
+        width: 60px;
+        height: 32px;
+        margin-right: 8px;
+        color: var(--color-white);
+        text-align: center;
+        background-color: var(--color-blue);
+        border-radius: 2px;
+
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .editor {
+    flex: 1;
+    width: 100%;
+  }
+}

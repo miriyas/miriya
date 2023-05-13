@@ -2,6 +2,7 @@
 
 .selectWrapper {
   position: relative;
+  user-select: none;
 
   &::after {
     @include m.absolute(5px 5px auto auto);

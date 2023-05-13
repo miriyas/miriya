@@ -38,6 +38,11 @@ const ROUTES = [
     title: 'My Car',
     mobileTitle: 'My Car',
   },
+  {
+    href: '/blog',
+    title: 'Blog',
+    mobileTitle: 'Blog',
+  },
 ];
 
 const Header = () => {
