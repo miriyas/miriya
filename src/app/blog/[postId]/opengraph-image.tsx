@@ -3,7 +3,6 @@ import { ImageResponse } from 'next/server';
 
 import { getPost } from './utils';
 
-export const alt = 'About Acme';
 export const size = {
   width: 1200,
   height: 630,
