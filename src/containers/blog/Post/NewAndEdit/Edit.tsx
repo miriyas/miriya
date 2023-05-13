@@ -6,7 +6,7 @@ import useAuth from '@/hooks/useAuth';
 import { patchBlogPostAPI } from '@/services/blog';
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 
-import Editor from './Editor';
+import Form from './Form';
 
 interface Props {
   categories: FBBlogCategory[];
@@ -18,7 +18,7 @@ const BlogEditPage = ({ categories, postData }: Props) => {
 
   if (!isAdmin) notFound();
 
-  return <Editor categories={categories} postData={postData} onSubmit={patchBlogPostAPI} />;
+  return <Form categories={categories} postData={postData} onSubmit={patchBlogPostAPI} />;
 };
 
 export default BlogEditPage;

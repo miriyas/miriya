@@ -2,17 +2,15 @@
 
 import { ChangeEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import { AxiosResponse } from 'axios';
 
 import useAuth from '@/hooks/useAuth';
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 
+import Editor from './Editor';
 import Select from '@/components/Select';
 import './form.css';
 import styles from './index.module.scss';
-
-const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
 interface Props {
   categories: FBBlogCategory[];
@@ -105,7 +103,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
           </button>
         </div>
       </div>
-      <MDEditor value={body} onChange={onChangeBody} autoFocus visibleDragbar={false} className={styles.editor} />
+      <Editor body={body} onChangeBody={onChangeBody} />
     </div>
   );
 };

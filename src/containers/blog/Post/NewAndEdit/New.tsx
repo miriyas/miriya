@@ -7,7 +7,7 @@ import { postBlogPostAPI } from '@/services/blog';
 import useAuth from '@/hooks/useAuth';
 
 import LoadingPage from '@/components/Loading/LoadingPage';
-import Editor from './Editor';
+import Form from './Form';
 
 const BlogNewPage = () => {
   const { isAdmin } = useAuth();
@@ -19,7 +19,7 @@ const BlogNewPage = () => {
     return <LoadingPage />;
   }
 
-  return <Editor categories={categories} onSubmit={postBlogPostAPI} />;
+  return <Form categories={categories} onSubmit={postBlogPostAPI} />;
 };
 
 export default BlogNewPage;
