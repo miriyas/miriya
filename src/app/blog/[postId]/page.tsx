@@ -1,21 +1,11 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { remark } from 'remark';
-import html from 'remark-html';
 
 import BlogShow from '@/containers/blog/Post/Show';
+import { getPost } from './utils';
 
 import { getMetaData } from '@/app/sharedMetadata';
-import { getCategories, getPostData } from '@/app/blog/utils';
-
-const getPost = async (postId: string) => {
-  const postData = await getPostData(postId);
-  const body = await (await remark().use(html, { sanitize: false }).process(postData.body)).toString();
-  return {
-    ...postData,
-    body,
-  };
-};
+import { getCategories } from '@/app/blog/utils';
 
 interface Props {
   params: {
@@ -30,8 +20,8 @@ export async function generateMetadata({ params: { postId } }: Props): Promise<M
     ...getMetaData({
       url: `https://miriya.vercel.app/blog/${postId}`,
       title: postData.title,
-      description: '',
-      imageUrl: postData.hero,
+      description: postData.preview,
+      imageUrl: postData.hero ?? '',
       keywords: [],
     }),
   };
