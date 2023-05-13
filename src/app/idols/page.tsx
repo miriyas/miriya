@@ -1,8 +1,8 @@
 import Idols from '@/containers/idols';
 
-import { generateMetaData } from '@/app/sharedMetadata';
+import { getMetaData } from '@/app/sharedMetadata';
 
-export const metadata = generateMetaData({
+export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/idols',
   title: 'History of Idols',
   description: '시대별로 정리된 한국의 아이돌들',

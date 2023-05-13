@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-import { generateMetaData } from '@/app/sharedMetadata';
+import { getMetaData } from '@/app/sharedMetadata';
 import Wrapper from '@/app/pentax/wrapper';
 
-export const metadata = generateMetaData({
+export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/pentax',
   title: 'Pentaxian Encyclopedia',
   description: '펜탁스 대백과사전',

@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-import { generateMetaData } from '@/app/sharedMetadata';
+import { getMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
 
-export const metadata = generateMetaData({
+export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/mycar',
   title: 'My Car',
   description: '내 차량의 상태와 부품/튜닝 목록, 차계부',

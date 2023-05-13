@@ -8,7 +8,7 @@ interface Props {
   keywords: string[];
 }
 
-export const generateMetaData = ({ url, title, description, imageUrl, keywords }: Props): Metadata => {
+export const getMetaData = ({ url, title, description, imageUrl, keywords }: Props): Metadata => {
   return {
     metadataBase: new URL(url),
     title,

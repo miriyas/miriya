@@ -7,14 +7,14 @@ import LeftWing from '@/containers/minihome/_common/LeftWing';
 import RightNav from '@/containers/minihome/_common/RightNav';
 import { GADataRow } from '@/types/minihome';
 
-import { generateMetaData } from '@/app/sharedMetadata';
+import { getMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
 
 interface Props {
   children: ReactNode;
 }
 
-export const metadata = generateMetaData({
+export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/minihome/home',
   title: '미니홈피',
   description: '싸이월드 스타일로 재구성한 미니홈피',
