@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import BlogShow from '@/containers/blog/Post/Show';
 import { getPost } from './utils';
 
-import { getMetaData } from '@/app/sharedMetadata';
 import { getCategories } from '@/app/blog/utils';
 
 interface Props {
@@ -16,14 +15,25 @@ interface Props {
 export async function generateMetadata({ params: { postId } }: Props): Promise<Metadata> {
   const postData = await getPost(postId);
 
+  const url = `https://miriya.vercel.app/blog/${postId}`;
+  const { title } = postData;
+  const description = postData.preview;
+
   return {
-    ...getMetaData({
-      url: `https://miriya.vercel.app/blog/${postId}`,
-      title: postData.title,
-      description: postData.preview,
-      imageUrl: postData.hero ?? '',
-      keywords: [],
-    }),
+    title,
+    description,
+    openGraph: {
+      description,
+      type: 'website',
+      title,
+      url,
+    },
+    // twitter: {
+    //   card: 'summary_large_image',
+    //   title,
+    //   description,
+    //   images: [imageUrl],
+    // },
   };
 }
 
