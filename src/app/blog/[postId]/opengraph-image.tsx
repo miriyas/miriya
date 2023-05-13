@@ -21,6 +21,11 @@ interface Props {
 const og = async ({ params: { postId } }: Props) => {
   try {
     const postData = await getPost(postId);
+    // woff2는 지원 안됨
+    const font = await fetch(
+      new URL(`${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}/fonts/SpoqaHanSansNeo-Bold.woff`),
+    ).then((res) => res.arrayBuffer());
+
     // zIndex 지원 안됨, 나중에 올라오는게 위에 올라간다.
     return new ImageResponse(
       (
@@ -68,7 +73,8 @@ const og = async ({ params: { postId } }: Props) => {
             <p
               style={{
                 fontSize: 92,
-                fontWeight: 600,
+                fontWeight: 500,
+                fontFamily: 'Spoqa',
                 color: 'white',
                 textAlign: 'center',
               }}
@@ -80,6 +86,14 @@ const og = async ({ params: { postId } }: Props) => {
       ),
       {
         ...size,
+        fonts: [
+          {
+            name: 'Spoqa',
+            data: font,
+            weight: 700,
+            style: 'normal',
+          },
+        ],
       },
     );
   } catch (error) {
