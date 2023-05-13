@@ -26,6 +26,8 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
   const [title, setTitle] = useState(postData?.title ?? '');
   const [body, setBody] = useState(postData?.body ?? '**Hello world!!!**');
   const [category, setCategory] = useState(postData?.category ?? categories[0].id);
+
+  const [hidden, setHidden] = useState(postData?.hidden ?? false);
   const [isLoading, setIsLoading] = useState(false);
 
   const onChangeTitle: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -38,6 +40,10 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
 
   const onChangeCategory: ChangeEventHandler<HTMLSelectElement> = (e) => {
     setCategory(e.currentTarget.value);
+  };
+
+  const onChangeHidden: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setHidden(e.currentTarget.checked);
   };
 
   const submitDisabled = !user || !body || !title || !category;
@@ -53,6 +59,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
         body,
         preview: preview.substring(0, 300),
         category,
+        hidden,
       },
       postData?.id,
     )
@@ -89,9 +96,9 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
               ))}
             </Select>
           </label>
-          <label>
-            <span>예약일시</span>
-            <input type='datetime-local' />
+          <label className={styles.checkboxWrapper}>
+            <input type='checkbox' onChange={onChangeHidden} checked={hidden} />
+            <span>비공개</span>
           </label>
           <button type='submit' onClick={onClickSubmit} disabled={isLoading || submitDisabled}>
             확인

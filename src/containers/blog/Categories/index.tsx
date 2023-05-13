@@ -1,6 +1,7 @@
 'use client';
 
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+import { notFound } from 'next/navigation';
 
 import useBlog from '../useBlog';
 import useAuth from '@/hooks/useAuth';
@@ -11,7 +12,7 @@ import styles from './index.module.scss';
 import Loading from '@/components/Loading';
 
 const BlogCategoryPage = () => {
-  const { user } = useAuth();
+  const { isAdmin, user } = useAuth();
   const [categoryNew, setCategoryNew] = useState('');
   const [isSubmiting, setIsSubmiting] = useState(false);
 
@@ -37,6 +38,8 @@ const BlogCategoryPage = () => {
         setIsSubmiting(false);
       });
   };
+
+  if (!isAdmin) notFound();
 
   return (
     <div className={styles.categoriesPage}>

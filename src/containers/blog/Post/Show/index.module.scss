@@ -8,7 +8,7 @@
     gap: 32px;
     width: 100%;
     max-width: 1080px;
-    padding: 24px;
+    padding: 48px 24px;
     background-color: var(--color-white);
 
     article {
@@ -47,13 +47,17 @@
     }
   }
 
-  .author,
-  .time {
+  .desc {
     font-size: 14px;
-  }
 
-  .time {
-    color: var(--color-gray-8);
+    .time,
+    .hidden {
+      color: var(--color-gray-8);
+
+      &::before {
+        content: ' · ';
+      }
+    }
   }
 
   .body {

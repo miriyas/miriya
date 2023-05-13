@@ -55,6 +55,13 @@
       font-size: 18px;
       font-weight: 600;
       color: var(--color-gray-2);
+
+      span {
+        margin-left: 4px;
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-gray-8);
+      }
     }
 
     .body {

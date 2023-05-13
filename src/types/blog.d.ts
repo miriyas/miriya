@@ -1,11 +1,11 @@
-import { FbTimeStamp, WithAuthor, WithTS } from '@/types/firebase';
+import { WithAuthor, WithTS } from '@/types/firebase';
 
 export interface BlogPost {
   title: string;
   body: string;
   preview: string;
   category: string;
-  revealAt?: FbTimeStamp;
+  hidden?: boolean;
 }
 
 export interface FBBlogPost extends BlogPost, WithAuthor, WithTS {

@@ -28,6 +28,7 @@ const BlogPage = () => {
                 <li key={post.id} className={styles.post}>
                   <Link href={`/blog/${post.id}`} className={styles.title}>
                     {post.title}
+                    {post.hidden && <span className={styles.hidden}>비공개</span>}
                   </Link>
                   <p className={styles.body}>{post.preview.substring(0, 150)}...</p>
                   <time className={styles.time}>{getTimeDiffText(post.createdAt.seconds, true)}</time>

@@ -1,5 +1,8 @@
 'use client';
 
+import { notFound } from 'next/navigation';
+
+import useAuth from '@/hooks/useAuth';
 import { patchBlogPostAPI } from '@/services/blog';
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 
@@ -11,6 +14,10 @@ interface Props {
 }
 
 const BlogEditPage = ({ categories, postData }: Props) => {
+  const { isAdmin } = useAuth();
+
+  if (!isAdmin) notFound();
+
   return <Editor categories={categories} postData={postData} onSubmit={patchBlogPostAPI} />;
 };
 

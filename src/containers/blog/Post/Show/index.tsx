@@ -15,7 +15,7 @@ interface Props {
 }
 
 const BlogShowPage = ({ categories, postData }: Props) => {
-  const { id, title, category, body, author, createdAt } = postData;
+  const { id, title, category, body, author, createdAt, hidden } = postData;
 
   const categoryName = categories.find((c) => c.id === category)?.name ?? '';
 
@@ -35,8 +35,9 @@ const BlogShowPage = ({ categories, postData }: Props) => {
             </div>
           </header>
           <div className={styles.desc}>
-            <span className={styles.author}>{author.nickname} ·</span>
+            <span className={styles.author}>{author.nickname}</span>
             <time className={styles.time}>{getTimeDiffText(createdAt.seconds, true)}</time>
+            {hidden && <span className={styles.hidden}>비공개</span>}
           </div>
           <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }} />
         </article>
