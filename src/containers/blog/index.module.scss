@@ -34,6 +34,18 @@
     }
   }
 
+  @include m.mobileOnly {
+    padding: 14px;
+
+    .centering {
+      padding: 14px;
+
+      .wingTitle {
+        font-size: 18px;
+      }
+    }
+  }
+
   .posts {
     @include m.flexbox(center, start);
     flex-direction: column;
@@ -51,14 +63,14 @@
 
     a {
       @include m.flexbox;
+      flex-direction: column;
       gap: 14px;
 
       .hero {
         position: relative;
-        width: 240px;
+        width: 100%;
         height: 160px;
         overflow: hidden;
-        background-color: red;
         border-radius: 8px;
 
         img {
@@ -68,6 +80,14 @@
 
       .content {
         flex: 1;
+      }
+
+      @include m.after(SD) {
+        flex-direction: row;
+
+        .hero {
+          width: 240px;
+        }
       }
     }
 
