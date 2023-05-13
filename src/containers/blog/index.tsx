@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import useBlog from './useBlog';
 import { getTimeDiffText } from '@/utils/date';
@@ -17,7 +18,7 @@ const BlogPage = () => {
       <div className={styles.centering}>
         <div className={styles.leftWing}>
           <div className={styles.wingTitle}>
-            <p>글</p>
+            <p>글 목록</p>
             <AdminOnly>
               <Link href='blog/post/new'>글쓰기</Link>
             </AdminOnly>
@@ -26,12 +27,19 @@ const BlogPage = () => {
             {posts.map((post) => {
               return (
                 <li key={post.id} className={styles.post}>
-                  <Link href={`/blog/${post.id}`} className={styles.title}>
-                    {post.title}
-                    {post.hidden && <span className={styles.hidden}>비공개</span>}
+                  <Link href={`/blog/${post.id}`}>
+                    {post.hero && (
+                      <div className={styles.hero}>
+                        <Image src={post.hero} fill alt='' />
+                      </div>
+                    )}
+                    <div className={styles.content}>
+                      <p className={styles.title}>{post.title}</p>
+                      {post.hidden && <span className={styles.hidden}>비공개</span>}
+                      <p className={styles.body}>{post.preview.substring(0, 150)}...</p>
+                      <time className={styles.time}>{getTimeDiffText(post.createdAt.seconds, true)}</time>
+                    </div>
                   </Link>
-                  <p className={styles.body}>{post.preview.substring(0, 150)}...</p>
-                  <time className={styles.time}>{getTimeDiffText(post.createdAt.seconds, true)}</time>
                 </li>
               );
             })}

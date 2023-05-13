@@ -5,6 +5,7 @@ export interface BlogPost {
   body: string;
   preview: string;
   category: string;
+  hero?: string;
   hidden?: boolean;
 }
 

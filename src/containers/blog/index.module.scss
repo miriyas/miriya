@@ -12,7 +12,7 @@
     .wingTitle {
       @include m.flexbox(between, center);
       margin-bottom: 24px;
-      font-size: 18px;
+      font-size: 24px;
       font-weight: 600;
 
       a {
@@ -49,19 +49,41 @@
       }
     }
 
+    a {
+      @include m.flexbox;
+      gap: 14px;
+
+      .hero {
+        position: relative;
+        width: 240px;
+        height: 160px;
+        overflow: hidden;
+        background-color: red;
+        border-radius: 8px;
+
+        img {
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        flex: 1;
+      }
+    }
+
     .title {
       display: block;
       margin-bottom: 8px;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--color-gray-2);
+    }
 
-      span {
-        margin-left: 4px;
-        font-size: 12px;
-        font-weight: 400;
-        color: var(--color-gray-8);
-      }
+    .hidden {
+      margin-left: 4px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-gray-8);
     }
 
     .body {

@@ -1,3 +1,5 @@
+'use client';
+
 import BlogEdit from '@/containers/blog/Post/NewAndEdit/Edit';
 
 import { getCategories, getPostData } from '@/app/blog/utils';

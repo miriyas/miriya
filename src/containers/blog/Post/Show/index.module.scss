@@ -97,8 +97,18 @@
       line-height: 24px;
 
       + li {
-        margin-top: 4px;
+        margin-top: 8px;
       }
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 24px 0;
     }
   }
 }

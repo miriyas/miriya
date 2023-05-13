@@ -23,3 +23,13 @@
 .w-md-editor li {
   list-style: unset;
 }
+
+.w-md-editor iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin: 24px 0;
+}
+
+.w-md-editor li + li {
+  margin-top: 8px;
+}

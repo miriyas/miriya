@@ -24,6 +24,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
   const [title, setTitle] = useState(postData?.title ?? '');
   const [body, setBody] = useState(postData?.body ?? '**Hello world!!!**');
   const [category, setCategory] = useState(postData?.category ?? categories[0].id);
+  const [hero, setHero] = useState(postData?.hero ?? undefined);
 
   const [hidden, setHidden] = useState(postData?.hidden ?? false);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,6 +35,10 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
 
   const onChangeBody = (v?: string) => {
     setBody(v ?? '');
+  };
+
+  const onChangeHero: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setHero(e.currentTarget.value);
   };
 
   const onChangeCategory: ChangeEventHandler<HTMLSelectElement> = (e) => {
@@ -58,6 +63,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
         preview: preview.substring(0, 300),
         category,
         hidden,
+        hero,
       },
       postData?.id,
     )
@@ -74,6 +80,9 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
       <div className={styles.top}>
         <input type='text' value={title} onChange={onChangeTitle} placeholder='제목' />
         <div className={styles.rightWing}>
+          <label>
+            <input type='text' onChange={onChangeHero} value={hero} placeholder='대표이미지 URL' />
+          </label>
           <label>
             <span>카테고리</span>
             <Select
