@@ -12,6 +12,10 @@
     padding: 14px;
     background-color: var(--color-white);
 
+    article {
+      width: 100%;
+    }
+
     @include m.after(SD) {
       max-width: 1080px;
       padding: 48px 24px;
@@ -27,19 +31,15 @@
   }
 
   header {
-    @include m.flexbox(between, center);
     margin-bottom: 14px;
 
     .leftWing {
-      @include m.flexbox(start, end);
-
       h1 {
         font-size: 24px;
         font-weight: 500;
       }
 
       span {
-        margin-left: 8px;
         font-size: 12px;
         font-weight: 400;
         color: var(--color-gray-8);
@@ -52,10 +52,27 @@
       }
     }
 
+    @include m.mobileOnly {
+      @include m.flexbox(between, start);
+      flex-direction: column;
+
+      .leftWing {
+        flex-direction: column;
+
+        h1 {
+          display: inline-block;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
     @include m.after(SD) {
+      @include m.flexbox(between, center);
       margin-bottom: 24px;
 
       .leftWing {
+        @include m.flexbox(start, end);
+
         h1 {
           font-size: 32px;
         }
