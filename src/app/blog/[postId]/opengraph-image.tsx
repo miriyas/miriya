@@ -64,8 +64,11 @@ const og = async ({ params: { postId } }: Props) => {
           />
           <div
             style={{
-              width: '100%',
-              height: '100%',
+              position: 'absolute',
+              top: 0,
+              right: '14px',
+              bottom: 0,
+              left: '14px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
