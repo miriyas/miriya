@@ -16,6 +16,7 @@ interface Props {
   };
 }
 
+// https://og-playground.vercel.app/
 // https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation/og-image-examples#load-files-in-node.js-runtime
 const og = async ({ params: { postId } }: Props) => {
   try {

@@ -38,10 +38,17 @@
     "react-hotkeys-hook": "^4.4.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
+    "rehype-highlight": "^6.0.0",
+    "rehype-raw": "^6.1.1",
+    "rehype-stringify": "^9.0.3",
     "remark": "^14.0.2",
+    "remark-gfm": "^3.0.1",
     "remark-html": "^15.0.2",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
     "server-only": "^0.0.1",
     "superjson": "^1.12.2",
+    "unified": "^10.1.2",
     "yup": "^1.0.2"
   },
   "devDependencies": {
