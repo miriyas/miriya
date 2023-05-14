@@ -17,6 +17,7 @@ interface Props {
 }
 
 // https://og-playground.vercel.app/
+// https://github.com/vercel/satori#documentation
 // https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation/og-image-examples#load-files-in-node.js-runtime
 const og = async ({ params: { postId } }: Props) => {
   try {
@@ -76,11 +77,13 @@ const og = async ({ params: { postId } }: Props) => {
           >
             <p
               style={{
+                padding: '14px 32px',
                 fontSize: 92,
                 fontWeight: 500,
                 fontFamily: 'Spoqa',
                 color: 'white',
                 textAlign: 'center',
+                backgroundColor: 'rgba(0 0 0, 0.3)',
               }}
             >
               {postData.title}
