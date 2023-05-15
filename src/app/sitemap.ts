@@ -1,6 +1,29 @@
 import { MetadataRoute } from 'next';
 
-const sitemap = (): MetadataRoute.Sitemap => {
+import { fetchClient } from '@/services/apiClient';
+import { FBBlogPost } from '@/types/blog';
+
+export const getPosts = () => {
+  return fetchClient('/blog/posts')
+    .then((res) => {
+      if (!res.ok) {
+        return Promise.reject();
+      }
+      return res.json();
+    })
+    .catch(() => {
+      return [];
+    });
+};
+
+const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
+  const posts: FBBlogPost[] = await getPosts();
+
+  const blogPosts = posts.map((post) => ({
+    url: `https://miriya.vercel.app/blog/${post.id}`,
+    lastModified: new Date(),
+  }));
+
   return [
     {
       url: 'https://miriya.vercel.app',
@@ -38,11 +61,8 @@ const sitemap = (): MetadataRoute.Sitemap => {
       url: 'https://miriya.vercel.app/minihome',
       lastModified: new Date(),
     },
-    {
-      url: 'https://miriya.vercel.app/privacy',
-      lastModified: new Date(),
-    },
+    ...blogPosts,
   ];
 };
 
-export default sitemap;
+export default Sitemap;
