@@ -104,6 +104,16 @@
 
   .body {
     margin-top: 24px;
+    color: var(--color-gray-4);
+
+    strong {
+      font-weight: 500;
+      color: var(--color-black);
+    }
+
+    em {
+      color: var(--color-em);
+    }
 
     h2 {
       padding-bottom: 8px;
@@ -160,6 +170,20 @@
       margin: 48px 0;
       background-color: var(--color-gray-d);
       border: 0;
+    }
+
+    > p > code {
+      display: inline-block;
+      padding: 0 8px;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 20px;
+      background-color: var(--color-gray-e);
+      border-radius: 4px;
+    }
+
+    del {
+      color: var(--color-gray-9);
     }
 
     pre {
@@ -259,12 +283,22 @@
         border: 1px solid var(--color-gray-d);
       }
 
-      .image320 img {
-        max-width: 320px;
+      .image320 {
+        @include m.flexbox;
+
+        img {
+          width: 100%;
+          max-width: 320px;
+        }
       }
 
-      .image480 img {
-        max-width: 480px;
+      .image480 {
+        @include m.flexbox;
+
+        img {
+          width: 100%;
+          max-width: 480px;
+        }
       }
     }
 

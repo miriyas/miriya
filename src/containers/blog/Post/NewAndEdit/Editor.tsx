@@ -63,6 +63,40 @@ interface Props {
 }
 
 const Editor = ({ body, onChangeBody }: Props) => {
+  const em: commands.ICommand = {
+    name: 'em',
+    keyCommand: 'em',
+    buttonProps: { 'aria-label': 'Emphasize' },
+    icon: (
+      <svg role='img' width='12' height='12' viewBox='0 0 384 512'>
+        <path
+          fill='#fb5fa7'
+          d='M304.793 243.891c33.639-18.537 53.657-54.16 53.657-95.693 0-48.236-26.25-87.626-68.626-104.179C265.138 34.01 240.849 32 209.661 32H24c-8.837 0-16 7.163-16 16v33.049c0 8.837 7.163 16 16 16h33.113v318.53H24c-8.837 0-16 7.163-16 16V464c0 8.837 7.163 16 16 16h195.69c24.203 0 44.834-1.289 66.866-7.584C337.52 457.193 376 410.647 376 350.014c0-52.168-26.573-91.684-71.207-106.123zM142.217 100.809h67.444c16.294 0 27.536 2.019 37.525 6.717 15.828 8.479 24.906 26.502 24.906 49.446 0 35.029-20.32 56.79-53.029 56.79h-76.846V100.809zm112.642 305.475c-10.14 4.056-22.677 4.907-31.409 4.907h-81.233V281.943h84.367c39.645 0 63.057 25.38 63.057 63.057.001 28.425-13.66 52.483-34.782 61.284z'
+        />
+      </svg>
+    ),
+    execute: (state, api) => {
+      api.replaceSelection(`<em>${state.selectedText}</em>`);
+    },
+  };
+
+  const img320: commands.ICommand = {
+    name: 'img320',
+    keyCommand: 'img320',
+    buttonProps: { 'aria-label': '320px image' },
+    icon: (
+      <svg width='13' height='13' viewBox='0 0 20 20'>
+        <path
+          fill='currentColor'
+          d='M15 9c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4-7H1c-.55 0-1 .45-1 1v14c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 13l-6-5-2 2-4-5-4 8V4h16v11z'
+        />
+      </svg>
+    ),
+    execute: (state, api) => {
+      api.replaceSelection(`<div class='image320'>\n\n${state.selectedText}\n</div>\n`);
+    },
+  };
+
   return (
     <MDEditor
       value={body}
@@ -79,6 +113,7 @@ const Editor = ({ body, onChangeBody }: Props) => {
       }}
       commands={[
         commands.bold,
+        em,
         commands.strikethrough,
         commands.hr,
         commands.divider,
@@ -95,6 +130,7 @@ const Editor = ({ body, onChangeBody }: Props) => {
         commands.code,
         commands.codeBlock,
         commands.comment,
+        img320,
         commands.image,
       ]}
     />

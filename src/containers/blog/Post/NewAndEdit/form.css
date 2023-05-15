@@ -40,3 +40,21 @@
   background-color: var(--color-gray-d) !important;
   border: 0 !important;
 }
+
+.wmde-markdown > p > code {
+  display: inline-block;
+  padding: 0 8px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: var(--color-gray-e);
+  border-radius: 4px;
+}
+
+.wmde-markdown em {
+  color: var(--color-em);
+}
+
+.wmde-markdown del {
+  color: var(--color-gray-9);
+}
