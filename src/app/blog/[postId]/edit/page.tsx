@@ -10,9 +10,10 @@ interface Props {
   };
 }
 
-const BlogEditPage = async ({ params: { postId } }: Props) => {
+const BlogEditPage = async (props: Props) => {
+  if (!props) return null;
   const categories = await getCategories();
-  const postData = await getPostData(postId);
+  const postData = await getPostData(props.params.postId);
 
   return <BlogEdit categories={categories} postData={postData} />;
 };

@@ -2,6 +2,8 @@ import Cameras from '@/containers/cameras';
 
 import { getMetaData } from '@/app/sharedMetadata';
 
+export default Cameras;
+
 export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/cameras',
   title: 'History of DSLR',
@@ -9,7 +11,3 @@ export const metadata = getMetaData({
   imageUrl: 'https://miriya.vercel.app/images/cameras/og.jpg',
   keywords: ['DSLR', 'DSLT', 'MILC', 'camera', 'history', 'interchangable'],
 });
-
-const CamerasPage = async () => <Cameras />;
-
-export default CamerasPage;

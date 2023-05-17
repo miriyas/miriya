@@ -1,7 +1,6 @@
 import Profile from '@/containers/profile';
 
 import { getMetaData } from '@/app/sharedMetadata';
-// import { batchUpdate } from '@/services/firebase/batch';
 
 export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/',
@@ -11,10 +10,4 @@ export const metadata = getMetaData({
   keywords: ['miriya'],
 });
 
-const ProfilePage = async () => {
-  // batchUpdate();
-
-  return <Profile />;
-};
-
-export default ProfilePage;
+export default Profile;

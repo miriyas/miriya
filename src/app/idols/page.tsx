@@ -2,6 +2,8 @@ import Idols from '@/containers/idols';
 
 import { getMetaData } from '@/app/sharedMetadata';
 
+export default Idols;
+
 export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/idols',
   title: 'History of Idols',
@@ -9,7 +11,3 @@ export const metadata = getMetaData({
   imageUrl: 'https://miriya.vercel.app/images/idols/og.jpg',
   keywords: ['idols', 'korea', '한국', '아이돌'],
 });
-
-const IdolsPage = async () => <Idols />;
-
-export default IdolsPage;

@@ -9,7 +9,6 @@ import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 
 import Editor from './Editor';
 import Select from '@/components/Select';
-import './form.css';
 import styles from './index.module.scss';
 
 interface Props {

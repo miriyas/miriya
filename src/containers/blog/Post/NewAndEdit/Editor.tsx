@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import * as commands from '@uiw/react-md-editor/lib/commands'; // Next.js fix
 
-import './form.css';
+import './form.scss';
 
 import { uploadImageAPI } from '@/services/s3';
 
