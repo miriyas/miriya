@@ -32,23 +32,10 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
     e.preventDefault();
     if (!user) return;
 
-    if (targetSubCategory) {
-      postCommentAPI({
-        body,
-        targetCategory,
-        targetSubCategory,
-        targetId,
-        targetName,
-      }).then(() => {
-        setBody('');
-        reloadComments();
-      });
-      return;
-    }
-
     postCommentAPI({
       body,
       targetCategory,
+      targetSubCategory,
       targetId,
       targetName,
     }).then(() => {
