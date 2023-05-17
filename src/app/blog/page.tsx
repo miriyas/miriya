@@ -1,3 +1,1 @@
-import Blog from '@/containers/blog';
-
-export default Blog;
+export { default } from '@/containers/blog';

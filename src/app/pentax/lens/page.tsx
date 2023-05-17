@@ -1,3 +1,1 @@
-import TabLens from '@/containers/pentax/TabLens';
-
-export default TabLens;
+export { default } from '@/containers/pentax/TabLens';

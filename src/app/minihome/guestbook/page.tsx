@@ -1,3 +1,1 @@
-import TabGuestBook from '@/containers/minihome/TabGuestBook';
-
-export default TabGuestBook;
+export { default } from '@/containers/minihome/TabGuestBook';

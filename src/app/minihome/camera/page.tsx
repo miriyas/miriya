@@ -1,3 +1,1 @@
-import TabCamera from '@/containers/minihome/TabCamera';
-
-export default TabCamera;
+export { default } from '@/containers/minihome/TabCamera';

@@ -1,8 +1,6 @@
-import Idols from '@/containers/idols';
-
 import { getMetaData } from '@/app/sharedMetadata';
 
-export default Idols;
+export { default } from '@/containers/idols';
 
 export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/idols',

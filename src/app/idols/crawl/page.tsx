@@ -1,3 +1,1 @@
-import IdolCrawl from '@/containers/idols/Crawl';
-
-export default IdolCrawl;
+export { default } from '@/containers/idols/Crawl';

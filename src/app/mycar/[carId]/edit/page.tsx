@@ -1,3 +1,1 @@
-import MyCarEdit from '@/containers/mycar/Form/Edit';
-
-export default MyCarEdit;
+export { default } from '@/containers/mycar/Form/Edit';

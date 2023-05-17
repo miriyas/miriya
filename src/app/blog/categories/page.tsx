@@ -1,3 +1,1 @@
-import BlogCategory from '@/containers/blog/Categories';
-
-export default BlogCategory;
+export { default } from '@/containers/blog/Categories';

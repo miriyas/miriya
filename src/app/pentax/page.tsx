@@ -1,3 +1,1 @@
-import TabHome from '@/containers/pentax/TabHome';
-
-export default TabHome;
+export { default } from '@/containers/pentax/TabHome';

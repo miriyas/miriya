@@ -1,3 +1,1 @@
-import MyCarNew from '@/containers/mycar/Form/New';
-
-export default MyCarNew;
+export { default } from '@/containers/mycar/Form/New';

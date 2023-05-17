@@ -1,6 +1,6 @@
-import Profile from '@/containers/profile';
-
 import { getMetaData } from '@/app/sharedMetadata';
+
+export { default } from '@/containers/profile';
 
 export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/',
@@ -9,5 +9,3 @@ export const metadata = getMetaData({
   imageUrl: 'https://miriya.vercel.app/images/profile/og.jpg',
   keywords: ['miriya'],
 });
-
-export default Profile;

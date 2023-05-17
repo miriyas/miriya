@@ -1,3 +1,1 @@
-import TabSLR from '@/containers/pentax/TabSLR';
-
-export default TabSLR;
+export { default } from '@/containers/pentax/TabSLR';

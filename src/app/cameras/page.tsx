@@ -1,8 +1,6 @@
-import Cameras from '@/containers/cameras';
-
 import { getMetaData } from '@/app/sharedMetadata';
 
-export default Cameras;
+export { default } from '@/containers/cameras';
 
 export const metadata = getMetaData({
   url: 'https://miriya.vercel.app/cameras',

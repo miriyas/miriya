@@ -1,3 +1,1 @@
-import MinihomeHomePage from './home/page';
-
-export default MinihomeHomePage;
+export { default } from './home/page';

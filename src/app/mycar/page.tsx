@@ -1,3 +1,1 @@
-import MyCar from '@/containers/mycar';
-
-export default MyCar;
+export { default } from '@/containers/mycar';

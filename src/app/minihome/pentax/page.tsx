@@ -1,3 +1,1 @@
-import TabPentax from '@/containers/minihome/TabPentax';
-
-export default TabPentax;
+export { default } from '@/containers/minihome/TabPentax';

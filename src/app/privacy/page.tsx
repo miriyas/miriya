@@ -1,3 +1,1 @@
-import Privacy from '@/containers/privacy';
-
-export default Privacy;
+export { default } from '@/containers/privacy';

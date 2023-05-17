@@ -1,3 +1,1 @@
-import LoadingPage from '@/components/Loading/LoadingPage';
-
-export default LoadingPage;
+export { default } from '@/components/Loading/LoadingPage';
