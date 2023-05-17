@@ -10,11 +10,13 @@ interface Props {
   activeClassName: string;
   className?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
+  exact?: boolean;
 }
 
-const NavLink = ({ href, hrefs, children, className, activeClassName, onClick }: Props) => {
+const NavLink = ({ href, hrefs, children, className, activeClassName, onClick, exact }: Props) => {
   const pathname = usePathname();
-  const isActive = hrefs?.includes(pathname) || pathname === href;
+  const pureHref = href.split('?')[0];
+  const isActive = hrefs?.includes(pathname) || exact ? pathname === pureHref : pathname.includes(pureHref);
 
   return (
     <Link href={href} className={cx(className, { [activeClassName]: isActive })} onClick={onClick}>

@@ -19,7 +19,7 @@ const Navigation = () => {
           {MENUS.map((menu) => {
             return (
               <li key={menu.href}>
-                <NavLink href={`${menu.href}?${query}`} activeClassName={styles.active}>
+                <NavLink href={`${menu.href}?${query}`} activeClassName={styles.active} exact>
                   {menu.label}
                 </NavLink>
               </li>
