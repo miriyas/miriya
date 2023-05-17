@@ -5,6 +5,7 @@ import cx from 'clsx';
 
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
+import { filterAuthorName } from '@/utils/auth';
 import { getMinihomeCommentDataAPI } from '@/services/minihome';
 
 import styles from '../common.module.scss';
@@ -38,7 +39,7 @@ const Comments = () => {
               <p className={styles.targetName}>{comment.targetName}</p>
               <p className={styles.body}>{comment.body}</p>
               <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
-                {comment.author.nickname}
+                {filterAuthorName(comment.authorId, comment.author.nickname)}
               </p>
               <time className={styles.createdAt}>{getTimeDiffText(comment.createdAt?.seconds, true)}</time>
             </li>

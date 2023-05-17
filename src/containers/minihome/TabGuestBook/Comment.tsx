@@ -6,6 +6,7 @@ import { Comment } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 import useAuth from '@/hooks/useAuth';
 import useGuestbook from './useGuestbook';
+import { filterAuthorName } from '@/utils/auth';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import EditForm from './EditForm';
@@ -52,7 +53,7 @@ const CommentItem = ({ comment }: Props) => {
         <div className={styles.leftWing}>
           <p className={styles.number}>No.{comment.commentNoInCategory}</p>
           <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
-            {comment.author.nickname}
+            {filterAuthorName(comment.authorId, comment.author.nickname)}
           </p>
           {deleted && <time>({getTimeDiffText(comment.deletedAt.seconds, true)} 삭제됨)</time>}
           {!deleted && comment.updatedAt?.seconds && (

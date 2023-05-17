@@ -3,6 +3,7 @@ import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
 import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
+import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
 import { deleteCommentAPI } from '@/services/comments';
 import useCameras from '@/containers/cameras/useCameras';
@@ -56,7 +57,7 @@ const ItemComment = ({ comment }: Props) => {
                 <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={18} />
               </div>
               <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
-                {comment.author.nickname}
+                {filterAuthorName(comment.authorId, comment.author.nickname)}
               </p>
             </div>
             <div className={styles.rightWing}>

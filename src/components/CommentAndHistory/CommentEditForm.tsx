@@ -4,6 +4,7 @@ import cx from 'clsx';
 import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
 import useCommentAndHistory from './useCommentAndHistory';
+import { filterAuthorName } from '@/utils/auth';
 
 import styles from './Item.module.scss';
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
@@ -51,7 +52,7 @@ const CommentEditForm = ({ comment, setEditMode }: Props) => {
             <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={18} />
           </div>
           <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
-            {comment.author.nickname}
+            {filterAuthorName(comment.authorId, comment.author.nickname)}
           </p>
         </div>
 
