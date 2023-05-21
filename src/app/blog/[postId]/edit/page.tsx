@@ -2,8 +2,6 @@
 
 import BlogEdit from '@/containers/blog/Post/NewAndEdit/Edit';
 
-import { getCategories, getPostData } from '@/app/blog/utils';
-
 interface Props {
   params: {
     postId: string;
@@ -12,10 +10,7 @@ interface Props {
 
 const BlogEditPage = async (props: Props) => {
   if (!props) return null;
-  const categories = await getCategories();
-  const postData = await getPostData(props.params.postId);
-
-  return <BlogEdit categories={categories} postData={postData} />;
+  return <BlogEdit postId={props.params.postId} />;
 };
 
 export default BlogEditPage;

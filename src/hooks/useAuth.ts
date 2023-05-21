@@ -1,3 +1,4 @@
+import 'client-only';
 import { useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
@@ -5,7 +6,11 @@ import { getMeApi, logoutApi } from '@/services/auth';
 import { ROLE } from '@/types/auth.d';
 
 const useAuth = () => {
-  const { data: currentUser = null, refetch } = useQuery(
+  const {
+    data: currentUser = null,
+    refetch,
+    isLoading: isLoadingMe,
+  } = useQuery(
     ['getMeApi'],
     () =>
       getMeApi()
@@ -41,6 +46,7 @@ const useAuth = () => {
     isAdmin: currentUser?.role === ROLE.ADMIN,
     isSupporter: currentUser?.role === ROLE.SUPPORTER,
     isMine,
+    isLoadingMe,
     getMe,
   };
 };

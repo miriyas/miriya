@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern */
-@use '../markdown' as md;
+@use '../../markdown' as md;
 
-.w-md-editor {
+.monaco-editor {
   div,
   p,
   span,

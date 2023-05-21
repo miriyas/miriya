@@ -1,25 +1,19 @@
 'use client';
 
-import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
-import useBlog from '../../useBlog';
-import { postBlogPostAPI } from '@/services/blog';
-import useAuth from '@/hooks/useAuth';
+import Loading from '@/components/Loading';
+import styles from './Form/index.module.scss';
 
-import LoadingPage from '@/components/Loading/LoadingPage';
-import Form from './Form';
+const NewContent = dynamic(() => import('./NewContent'), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.listLoading}>
+      <Loading />
+    </div>
+  ),
+});
 
-const BlogNewPage = () => {
-  const { isAdmin } = useAuth();
-  const { categories, isLoadingCategories } = useBlog();
-
-  if (!isAdmin) notFound();
-
-  if (isLoadingCategories) {
-    return <LoadingPage />;
-  }
-
-  return <Form categories={categories} onSubmit={postBlogPostAPI} />;
-};
+const BlogNewPage = () => <NewContent />;
 
 export default BlogNewPage;

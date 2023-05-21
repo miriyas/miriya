@@ -1,0 +1,28 @@
+@use 'src/styles/mixins' as m;
+@use '../../markdown' as md;
+
+.form {
+  @include m.flexbox(end, start);
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - var(--h-nav) - var(--h-footer));
+
+  .editorWrapper {
+    @include m.flexbox(end, start);
+    flex: 1;
+    width: 100%;
+
+    .editor,
+    .previewWrapper {
+      width: 50% !important;
+    }
+
+    .previewWrapper {
+      @include md.markdownShow;
+      height: calc(100vh - var(--h-nav) - var(--h-footer));
+      padding: 14px;
+      overflow-y: scroll;
+      background-color: var(--color-white);
+    }
+  }
+}

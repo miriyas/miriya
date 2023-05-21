@@ -1,24 +1,22 @@
 'use client';
 
-import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
-import useAuth from '@/hooks/useAuth';
-import { patchBlogPostAPI } from '@/services/blog';
-import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
+import Loading from '@/components/Loading';
+import styles from './Form/index.module.scss';
 
-import Form from './Form';
-
+const EditContent = dynamic(() => import('./EditContent'), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.listLoading}>
+      <Loading />
+    </div>
+  ),
+});
 interface Props {
-  categories: FBBlogCategory[];
-  postData: FBBlogPost;
+  postId: string;
 }
 
-const BlogEditPage = ({ categories, postData }: Props) => {
-  const { isAdmin } = useAuth();
-
-  if (!isAdmin) notFound();
-
-  return <Form categories={categories} postData={postData} onSubmit={patchBlogPostAPI} />;
-};
+const BlogEditPage = ({ postId }: Props) => <EditContent postId={postId} />;
 
 export default BlogEditPage;

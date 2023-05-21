@@ -8,13 +8,8 @@ import Loading from '@/components/Loading';
 import styles from './ReadMe.module.scss';
 
 const ReadMe = () => {
-  const { data, isLoading, isError } = useQuery(
-    ['getReadMeMarkdownApi'],
-    () => getReadMeMarkdownApi().then((res) => res.data),
-    {
-      cacheTime: 6 * 1000,
-      refetchOnMount: false,
-    },
+  const { data, isLoading, isError } = useQuery(['getReadMeMarkdownApi'], () =>
+    getReadMeMarkdownApi().then((res) => res.data),
   );
 
   if (isLoading) {

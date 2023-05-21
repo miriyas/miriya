@@ -5,7 +5,7 @@ import { BlogPost, BlogCategory, FBBlogPost, FBBlogCategory } from '@/types/blog
 
 export const getBlogPostsAPI = () => apiClient<FBBlogPost[]>('/blog/posts');
 
-export const getBlogPostAPI = (postId: string) => apiClient<FBBlogPost[]>(`/blog/posts/${postId}`);
+export const getBlogPostAPI = (postId: string) => apiClient<FBBlogPost>(`/blog/posts/${postId}`);
 
 export const postBlogPostAPI = (data: Partial<BlogPost>) => apiClient.post('/blog/posts', data);
 
