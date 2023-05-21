@@ -5,13 +5,25 @@ import { FBBlogCategory } from '@/types/blog.d';
 
 import AdminOnly from '@/components/AdminOnly';
 import styles from './index.module.scss';
+import Loading from '@/components/Loading';
 
 interface Props {
   categories: FBBlogCategory[];
   currentCategory?: string;
+  isLoading?: boolean;
 }
 
-const CategoriesBar = ({ categories, currentCategory }: Props) => {
+const CategoriesBar = ({ categories, currentCategory, isLoading }: Props) => {
+  if (isLoading) {
+    return (
+      <aside className={styles.categoriesBar}>
+        <div className={styles.loading}>
+          <Loading />
+        </div>
+      </aside>
+    );
+  }
+
   return (
     <aside className={styles.categoriesBar}>
       <div className={styles.wingTitle}>

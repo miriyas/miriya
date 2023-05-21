@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { FBBlogCategory, FBBlogPost } from '@/types/blog';
+import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 import CategoriesBar from '@/containers/blog/_common/CategoriesBar';
 import { getTimeDiffText } from '@/utils/date';
 
