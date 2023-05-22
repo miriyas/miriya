@@ -52,6 +52,11 @@
         line-height: 24px;
       }
 
+      a {
+        @include m.flexbox;
+        width: 100%;
+      }
+
       &.header {
         > * {
           font-family: var(--font-dunggeunmo);
@@ -89,6 +94,7 @@
     .targetName {
       width: 80px;
       overflow: hidden;
+      color: var(--color-black);
       text-overflow: ellipsis;
       white-space: nowrap;
     }
@@ -96,6 +102,7 @@
     .body {
       flex: 1;
       overflow: hidden;
+      color: var(--color-black);
       text-overflow: ellipsis;
       word-wrap: break-word;
       white-space: nowrap;

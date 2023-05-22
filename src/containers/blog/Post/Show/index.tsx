@@ -1,13 +1,20 @@
 /* eslint-disable react/no-danger */
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 import CategoriesBar from '@/containers/blog/_common/CategoriesBar';
 import { getTimeDiffText } from '@/utils/date';
 
 import AdminOnly from '@/components/AdminOnly';
+import Loading from '@/components/Loading';
 import styles from './index.module.scss';
+
+const Comments = dynamic(() => import('./Comments'), {
+  ssr: false,
+  loading: () => <Loading />,
+});
 
 interface Props {
   categories: FBBlogCategory[];
@@ -40,6 +47,7 @@ const BlogShowPage = ({ categories, postData }: Props) => {
             {hidden && <span className={styles.hidden}>비공개</span>}
           </div>
           <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }} />
+          <Comments targetId={id} targetName={title} />
         </article>
         <CategoriesBar categories={categories} currentCategory={category} />
       </div>

@@ -9,16 +9,21 @@ import { postCommentAPI } from '@/services/comments';
 import useCommentAndHistory from '../CommentAndHistory/useCommentAndHistory';
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
-import styles from './index.module.scss';
+import defaultStyles from './index.module.scss';
 
 interface Props {
   targetCategory: TargetCategoryTypes;
   targetSubCategory?: SubTargetCategoryTypes;
   targetId: string;
   targetName: string;
+  multiline?: boolean;
+  overrideStyles?: {
+    readonly [key: string]: string;
+  };
 }
 
-const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }: Props) => {
+const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName, multiline, overrideStyles }: Props) => {
+  const styles = overrideStyles ?? defaultStyles;
   const { user } = useAuth();
   const { reload } = useCameras();
   const { reloadComments } = useCommentAndHistory({
@@ -45,7 +50,7 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
     });
   };
 
-  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     setBody(e.currentTarget.value);
   };
 
@@ -62,15 +67,25 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName }
       <div className={styles.profile}>
         <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={32} />
       </div>
-      <input
-        type='text'
-        onChange={onChange}
-        value={body}
-        data-lpignore='true'
-        autoComplete='off'
-        placeholder='댓글을 입력해주세요.'
-      />
-      <button type='submit'>확인</button>
+      {multiline ? (
+        <textarea
+          onChange={onChange}
+          value={body}
+          data-lpignore='true'
+          autoComplete='off'
+          placeholder='댓글을 입력해주세요.'
+        />
+      ) : (
+        <input
+          type='text'
+          onChange={onChange}
+          value={body}
+          data-lpignore='true'
+          autoComplete='off'
+          placeholder='댓글을 입력해주세요.'
+        />
+      )}
+      <button type='submit'>등록</button>
     </form>
   );
 };

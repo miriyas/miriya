@@ -7,6 +7,7 @@ export const TARGET_CATEGORY = {
   IDOLS: 'IDOLS',
   CAMERA: 'CAMERA',
   PENTAX: 'PENTAX',
+  BLOG: 'BLOG',
 } as const;
 
 export type TargetCategoryTypes = ValueOf<typeof TARGET_CATEGORY>;

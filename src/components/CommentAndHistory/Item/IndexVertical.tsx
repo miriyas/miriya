@@ -1,51 +1,32 @@
-import { MouseEventHandler, useState } from 'react';
+import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
-import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
+import { Comment } from '@/types/comments.d';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
-import { deleteCommentAPI } from '@/services/comments';
-import useCameras from '@/containers/cameras/useCameras';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
-import CommentEditForm from './CommentEditForm';
-import styles from './Item.module.scss';
-import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
+import CommentEditForm from './Edit';
 
 interface Props {
   comment: Comment;
+  editMode: boolean;
+  setEditMode: Dispatch<SetStateAction<boolean>>;
+  onClickEdit: MouseEventHandler<HTMLButtonElement>;
+  onClickDelete: MouseEventHandler<HTMLButtonElement>;
+  styles: {
+    readonly [key: string]: string;
+  };
 }
 
-const ItemComment = ({ comment }: Props) => {
-  const { reloadComments } = useCommentAndHistory({
-    targetCategory: comment.targetCategory,
-    targetSubCategory: comment.targetSubCategory,
-    targetId: comment.targetId ?? 'undefined',
-  });
-  const { reload } = useCameras();
+const ItemCommentVertical = ({ comment, editMode, setEditMode, onClickEdit, onClickDelete, styles }: Props) => {
   const { isMine, isAdmin } = useAuth();
-  const [editMode, setEditMode] = useState(false);
-
-  const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
-    setEditMode(true);
-  };
-
-  const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
-    deleteCommentAPI(comment.id).then(() => {
-      reloadComments();
-      if (comment.targetCategory === TARGET_CATEGORY.CAMERA) reload();
-    });
-  };
-
-  const deleted = comment.deletedAt.seconds > 0;
-
-  if (deleted) return null;
 
   return (
     <li className={styles.item} title={comment.id}>
       {editMode ? (
-        <CommentEditForm comment={comment} setEditMode={setEditMode} />
+        <CommentEditForm comment={comment} setEditMode={setEditMode} styles={styles} />
       ) : (
         <>
           <div className={styles.upper}>
@@ -66,11 +47,9 @@ const ItemComment = ({ comment }: Props) => {
                   <button type='button' onClick={onClickEdit}>
                     수정
                   </button>
-                  {!deleted && (
-                    <button type='button' onClick={onClickDelete}>
-                      삭제
-                    </button>
-                  )}
+                  <button type='button' onClick={onClickDelete}>
+                    삭제
+                  </button>
                 </>
               )}
               <time>{getTimeDiffText(comment.createdAt?.seconds, true)}</time>
@@ -82,4 +61,4 @@ const ItemComment = ({ comment }: Props) => {
   );
 };
 
-export default ItemComment;
+export default ItemCommentVertical;

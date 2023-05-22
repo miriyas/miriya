@@ -6,7 +6,7 @@ import useCommentAndHistory from './useCommentAndHistory';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import liststyles from './List.module.scss';
-import styles from './Item.module.scss';
+import styles from './Item/index.module.scss';
 import Loading from '@/components/Loading';
 
 interface Props {
