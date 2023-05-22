@@ -56,7 +56,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
     if (submitDisabled) return;
     setIsLoading(true);
 
-    const preview = document.querySelector('.w-md-editor-preview')?.textContent ?? '';
+    const preview = document.querySelector('#previewData')?.textContent ?? '';
     onSubmit(
       {
         title,

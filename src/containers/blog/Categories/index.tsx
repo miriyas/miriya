@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+import { ChangeEventHandler, FormEventHandler, Suspense, useState } from 'react';
 import { notFound } from 'next/navigation';
 
 import useBlog from '../useBlog';
@@ -16,7 +16,7 @@ const BlogCategoryPage = () => {
   const [categoryNew, setCategoryNew] = useState('');
   const [isSubmiting, setIsSubmiting] = useState(false);
 
-  const { categories, isLoadingCategories, refetchCategories } = useBlog();
+  const { categories, refetchCategories } = useBlog();
 
   const onChangeCategoryNew: ChangeEventHandler<HTMLInputElement> = (e) => {
     setCategoryNew(e.currentTarget.value);
@@ -45,16 +45,21 @@ const BlogCategoryPage = () => {
     <div className={styles.categoriesPage}>
       <div className={styles.centering}>
         <p className={styles.title}>카테고리 관리</p>
-        <ul className={styles.categories}>
-          {isLoadingCategories && (
-            <li className={styles.loading}>
-              <Loading small />
-            </li>
-          )}
-          {categories.map((category) => (
-            <Item key={category.id} category={category} refetch={refetchCategories} />
-          ))}
-        </ul>
+        <Suspense
+          fallback={
+            <ul className={styles.categories}>
+              <li className={styles.loading}>
+                <Loading small />
+              </li>
+            </ul>
+          }
+        >
+          <ul className={styles.categories}>
+            {categories.map((category) => (
+              <Item key={category.id} category={category} refetch={refetchCategories} />
+            ))}
+          </ul>
+        </Suspense>
         <form className={styles.new} onSubmit={onSubmitNewCategory}>
           <input type='text' value={categoryNew} onChange={onChangeCategoryNew} placeholder='카테고리명' />
           <button type='submit' disabled={isSubmiting}>

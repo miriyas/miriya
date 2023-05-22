@@ -1,6 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 @use 'src/styles/mixins' as m;
-@use '../markdown' as md;
+@use '../markdown' as ms;
+@use '../markdownPreview' as mp;
 
 .showPost {
   @include m.flexbox(start, center);
@@ -104,34 +105,10 @@
   }
 
   .body {
+    @include ms.markdownShow;
+    @include mp.markdownPreview;
     margin-top: 24px;
     color: var(--color-gray-4);
-
-    @include md.markdownShow;
-
-    :global {
-      .imageBorder img {
-        border: 1px solid var(--color-gray-d);
-      }
-
-      .image320 {
-        @include m.flexbox;
-
-        img {
-          width: 100%;
-          max-width: 320px;
-        }
-      }
-
-      .image480 {
-        @include m.flexbox;
-
-        img {
-          width: 100%;
-          max-width: 480px;
-        }
-      }
-    }
 
     @include m.after(SD) {
       margin-top: 36px;

@@ -1,5 +1,7 @@
+/* stylelint-disable selector-class-pattern */
 @use 'src/styles/mixins' as m;
-@use '../../markdown' as md;
+@use '../../markdown' as ms;
+@use '../../markdownPreview' as mp;
 
 .form {
   @include m.flexbox(end, start);
@@ -9,18 +11,62 @@
 
   .editorWrapper {
     @include m.flexbox(end, start);
+    position: relative;
     flex: 1;
     width: 100%;
+
+    .uploading {
+      @include m.fixed(auto auto 100px 50%);
+      @include m.flexbox;
+      z-index: 11111;
+      width: 100px;
+      height: 32px;
+      font-size: 12px;
+      color: var(--color-white);
+      background-color: rgba(var(--color-black-rgb), 0.5);
+      border-radius: 4px;
+      transform: translateX(-50%);
+    }
 
     .editor,
     .previewWrapper {
       width: 50% !important;
+      height: calc(100vh - var(--h-nav) - var(--h-footer) - 44px); // 44는 Top
+    }
+
+    :global {
+      .EasyMDEContainer {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .editor-toolbar {
+        height: 32px;
+        padding: 0;
+        border-radius: 0;
+      }
+
+      .editor-statusbar {
+        @include m.absolute(auto 0 3px auto);
+        font-size: 10px;
+      }
+
+      .CodeMirror {
+        height: calc(100vh - var(--h-nav) - var(--h-footer) - 32px - 44px);
+        border-radius: 0;
+      }
+
+      .CodeMirror-lines {
+        font-size: 14px;
+        line-height: 22px;
+      }
     }
 
     .previewWrapper {
-      @include md.markdownShow;
-      height: calc(100vh - var(--h-nav) - var(--h-footer));
-      padding: 14px;
+      @include ms.markdownShow;
+      @include mp.markdownPreview;
+      padding: 14px 14px 100px;
       overflow-y: scroll;
       background-color: var(--color-white);
     }
