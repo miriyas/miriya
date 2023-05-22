@@ -2,17 +2,13 @@
 
 import dynamic from 'next/dynamic';
 
-import Loading from '@/components/Loading';
-import styles from './Form/index.module.scss';
+import LoadingPage from '@/components/Loading/LoadingPage';
 
 const EditContent = dynamic(() => import('./EditContent'), {
   ssr: false,
-  loading: () => (
-    <div className={styles.listLoading}>
-      <Loading />
-    </div>
-  ),
+  loading: () => <LoadingPage />,
 });
+
 interface Props {
   postId: string;
 }

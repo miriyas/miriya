@@ -106,6 +106,8 @@ export const OPTIONS = {
   syncSideBySidePreviewScroll: false,
   // status: false,
   toolbar: TOOLBAR,
+  indentWithTabs: false,
+  tabSize: 2,
   renderingConfig: {
     codeSyntaxHighlighting: true,
   },
