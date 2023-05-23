@@ -50,7 +50,7 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 아이돌 등재 기준은 나무위키 ['한국 아이돌/역사'](https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC) 입니다.
 
-저 문서를 긁어다가 [크롤링 샘플](https://miriya.vercel.app/idols/crawl) 페이지를 만들어놨는데, 이게 무슨 숙제 같이 되어버렸네요..<br>많아도 너무나 많네요. 한명당 이름, 데뷔 연도, 그리고 까다로운 해체 연도, 그리고 나무위키/멜론/바이브 링크를 걸고, 유튜브에서 음원 찾아다가 고유 아이디와 하이라이트 부분 시간을 입력해야 합니다. 거기다가 아이돌을 검색하여 적당히 잘 나온 세로로 긴 사진을 찾아 포토샵으로 편집해서 올려야하지요.
+저 문서를 긁어다가 [크롤링 샘플](https://miriya.net/idols/crawl) 페이지를 만들어놨는데, 이게 무슨 숙제 같이 되어버렸네요..<br>많아도 너무나 많네요. 한명당 이름, 데뷔 연도, 그리고 까다로운 해체 연도, 그리고 나무위키/멜론/바이브 링크를 걸고, 유튜브에서 음원 찾아다가 고유 아이디와 하이라이트 부분 시간을 입력해야 합니다. 거기다가 아이돌을 검색하여 적당히 잘 나온 세로로 긴 사진을 찾아 포토샵으로 편집해서 올려야하지요.
 
 보다 보면 이 사람이 왜 아이돌이야? 하는 경우도 있을 것 같습니다만, 기준은 나무위키입니다.
 
@@ -80,7 +80,7 @@ https://github.com/miriyas/miriya/blob/main/.eslintrc.json
 
 하지만 아이돌을 추가하고 수정하는 기능을 만들다 보니 이미지 추가가 너무 번거로워져 다시 개별 이미지로 회귀했습니다. 하는 김에 이미지 품질도 끌어올리고, 디자인도 좀 더 모던하게 변경했습니다. 아무래도 조만간 Isotope를 떼어내고 좀 더 심플하게 가는게 어떨까.. 하는 생각이 들기도 합니다.
 
-매번 나무위키를 보면서 확인하기 힘들어서, ['한국 아이돌/역사'](https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC) 문서를 파싱하여 [크롤링 샘플](https://miriya.vercel.app/idols/crawl) 페이지를 만들었습니다. 근데 이게 참 ㅋㅋ 나무위키 크롤링을 할라니까 서버를 너무 잘 만든겁니다. 그래서 그런지 2019년 이후로는 크롤링 성공했다는 블로그 글이 안보이더군요. 몇번 트라이 해보고, 본질은 이게 아니겠다 싶고 시간 낭비 하기 싫어서 그냥 저 페이지의 HTML을 그냥 긁어다 복사했습니다.
+매번 나무위키를 보면서 확인하기 힘들어서, ['한국 아이돌/역사'](https://namu.wiki/w/%ED%95%9C%EA%B5%AD%20%EC%95%84%EC%9D%B4%EB%8F%8C/%EC%97%AD%EC%82%AC) 문서를 파싱하여 [크롤링 샘플](https://miriya.net/idols/crawl) 페이지를 만들었습니다. 근데 이게 참 ㅋㅋ 나무위키 크롤링을 할라니까 서버를 너무 잘 만든겁니다. 그래서 그런지 2019년 이후로는 크롤링 성공했다는 블로그 글이 안보이더군요. 몇번 트라이 해보고, 본질은 이게 아니겠다 싶고 시간 낭비 하기 싫어서 그냥 저 페이지의 HTML을 그냥 긁어다 복사했습니다.
 
 <br />
 
@@ -252,7 +252,7 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 2. 메타데이터가 갑자기 안나온다!
 
 - 페이스북이나 카카오톡으로 공유를 했는데, 기존에 pages 로 작업한건 문제가 없지만 appDir로 바꾼 직후 미리보기 이미지가 안나오더라
-- [페이스북 디버거](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fmiriya.vercel.app%2Fcameras)로 확인해보니 og-image가 나오지 않고 있음
+- [페이스북 디버거](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fmiriya.net%2Fcameras)로 확인해보니 og-image가 나오지 않고 있음
 - '스크레이퍼에게 표시되는 URL 그대로 보기'로 확인해보니 head 부분에 메타데이터가 없고, **next_error** 가 보인다.
 - https://github.com/vercel/next.js/issues/47350
 - https://beta.nextjs.org/docs/rendering/static-and-dynamic-rendering#using-dynamic-functions
@@ -358,7 +358,7 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/St
 <img src='./reserved/screenshots/cors2.png' alt=''>
 
 - 로컬에선 잘 작동하던 것이 프로덕션에서는 '일부' API만 문제가 생기더라.
-- 나는 분명 Access-Control-Allow-Origin을 https://miriya.vercel.app/ 로 잘 지정했다.
+- 나는 분명 Access-Control-Allow-Origin을 https://miriya.net/ 로 잘 지정했다.
 - 근데 배포할 때 일부 API만 '\*' 으로 변경되어 CORS 문제를 초래했다.
 - /api/idols/data는 문제 없고, /api/idols/years만 문제가 있다.
 - 둘 다 안에 간단한 GET 요청이 있었고, 차이점이라곤 data 부분에는 PATCH도 있었다.

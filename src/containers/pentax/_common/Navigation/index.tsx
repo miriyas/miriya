@@ -29,7 +29,7 @@ const Navigation = () => {
       </nav>
       <p className={styles.desc}>
         1975 ~ 2023 <span>*</span>{' '}
-        <ExternalLink href='https://miriya.vercel.app/pentax'>PENTAXIAN Encyclopedia v{VERSION}</ExternalLink>
+        <ExternalLink href='https://miriya.net/pentax'>PENTAXIAN Encyclopedia v{VERSION}</ExternalLink>
       </p>
     </div>
   );

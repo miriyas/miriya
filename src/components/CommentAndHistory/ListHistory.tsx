@@ -37,7 +37,7 @@ export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Pro
             <div className={styles.leftWing}>
               <div className={styles.profileWrapper}>
                 <ProfileImageWithFallback
-                  src='https://miriya.vercel.app/android-chrome-192x192.png'
+                  src='https://miriya.net/android-chrome-192x192.png'
                   uid='SYSTEM'
                   alt=''
                   size={18}

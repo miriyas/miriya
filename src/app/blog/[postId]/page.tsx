@@ -15,7 +15,7 @@ interface Props {
 export async function generateMetadata({ params: { postId } }: Props): Promise<Metadata> {
   const postData = await getPost(postId);
 
-  const url = `https://miriya.vercel.app/blog/${postId}`;
+  const url = `https://miriya.net/blog/${postId}`;
   const { title } = postData;
   const description = postData.preview;
 

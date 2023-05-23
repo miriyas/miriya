@@ -15,10 +15,10 @@ interface Props {
 }
 
 export const metadata = getMetaData({
-  url: 'https://miriya.vercel.app/minihome/home',
+  url: 'https://miriya.net/minihome/home',
   title: '미니홈피',
   description: '싸이월드 스타일로 재구성한 미니홈피',
-  imageUrl: 'https://miriya.vercel.app/images/minihome/og.jpg',
+  imageUrl: 'https://miriya.net/images/minihome/og.jpg',
   keywords: ['싸이월드', '미니홈피'],
 });
 

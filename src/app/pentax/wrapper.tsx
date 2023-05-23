@@ -26,7 +26,7 @@ const Wrapper = ({ children }: Props) => {
           <p className={styles.title}>공유하기</p>
           <p className={styles.desc}>다음 코드를 복사해서 붙여넣으세요.</p>
           <pre>
-            {`<iframe src='https://miriya.vercel.app/pentax?layout=full' title='pentaxian encyclopedia' frameborder='0' allow='web-share' allowfullscreen style={{ width: '1200px', height: '834px' }}></iframe>`}
+            {`<iframe src='https://miriya.net/pentax?layout=full' title='pentaxian encyclopedia' frameborder='0' allow='web-share' allowfullscreen style={{ width: '1200px', height: '834px' }}></iframe>`}
           </pre>
         </div>
       </div>

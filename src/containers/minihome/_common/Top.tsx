@@ -16,7 +16,7 @@ const Top = ({ counterData }: Props) => {
       </div>
       <div className={styles.rightWing}>
         <p className={styles.title}>준혁e의 ㅁlㄴl홈피✨</p>
-        <p className={styles.url}>https://miriya.vercel.app</p>
+        <p className={styles.url}>https://miriya.net</p>
       </div>
     </div>
   );

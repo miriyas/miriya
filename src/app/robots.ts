@@ -6,7 +6,7 @@ const robots = (): MetadataRoute.Robots => {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://miriya.vercel.app/sitemap.xml',
+    sitemap: 'https://miriya.net/sitemap.xml',
   };
 };
 

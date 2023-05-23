@@ -20,45 +20,45 @@ const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const posts: FBBlogPost[] = await getPosts();
 
   const blogPosts = posts.map((post) => ({
-    url: `https://miriya.vercel.app/blog/${post.id}`,
+    url: `https://miriya.net/blog/${post.id}`,
     lastModified: new Date(),
   }));
 
   return [
     {
-      url: 'https://miriya.vercel.app',
+      url: 'https://miriya.net',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/profile',
+      url: 'https://miriya.net/profile',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/idols',
+      url: 'https://miriya.net/idols',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/cameras',
+      url: 'https://miriya.net/cameras',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/pentax',
+      url: 'https://miriya.net/pentax',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/pentax/slr',
+      url: 'https://miriya.net/pentax/slr',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/pentax/dslr',
+      url: 'https://miriya.net/pentax/dslr',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/mycar',
+      url: 'https://miriya.net/mycar',
       lastModified: new Date(),
     },
     {
-      url: 'https://miriya.vercel.app/minihome',
+      url: 'https://miriya.net/minihome',
       lastModified: new Date(),
     },
     ...blogPosts,
