@@ -2,13 +2,18 @@
 
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
 import useBlog from '../../useBlog';
 import { postBlogPostAPI } from '@/services/blog';
 import useAuth from '@/hooks/useAuth';
 
-import Loading from '@/components/Loading';
-import Form from './Form';
+import LoadingPage from '@/components/Loading/LoadingPage';
+
+const Form = dynamic(() => import('./Form'), {
+  ssr: false,
+  loading: () => <LoadingPage />,
+});
 
 const NewContent = () => {
   const { isAdmin, isLoadingMe } = useAuth();
@@ -17,7 +22,7 @@ const NewContent = () => {
   if (!isAdmin && !isLoadingMe) notFound();
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingPage />}>
       <Form categories={categories} onSubmit={postBlogPostAPI} />
     </Suspense>
   );

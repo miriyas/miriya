@@ -1,6 +1,5 @@
 /* stylelint-disable selector-class-pattern */
 @use 'src/styles/mixins' as m;
-@use '../markdown' as ms;
 @use '../markdownPreview' as mp;
 
 .showPost {
@@ -105,7 +104,6 @@
   }
 
   .body {
-    @include ms.markdownShow;
     @include mp.markdownPreview;
     margin-top: 24px;
     color: var(--color-gray-4);

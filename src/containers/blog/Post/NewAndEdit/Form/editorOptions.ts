@@ -102,6 +102,9 @@ export const OPTIONS = {
   mode: {
     name: 'markdown',
   },
+  shortcuts: {
+    em: 'Cmd-E',
+  },
   spellChecker: false,
   syncSideBySidePreviewScroll: false,
   // status: false,

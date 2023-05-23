@@ -9,16 +9,11 @@ import useBlog from '../../useBlog';
 import useBlogEdit from './useBlogEdit';
 import { patchBlogPostAPI } from '@/services/blog';
 
-import Loading from '@/components/Loading';
-import styles from './Form/index.module.scss';
+import LoadingPage from '@/components/Loading/LoadingPage';
 
 const Form = dynamic(() => import('./Form'), {
   ssr: false,
-  loading: () => (
-    <div className={styles.listLoading}>
-      <Loading />
-    </div>
-  ),
+  loading: () => <LoadingPage />,
 });
 
 interface Props {
@@ -34,7 +29,7 @@ const EditContent = ({ postId }: Props) => {
   if (!isAdmin && !isLoadingMe) notFound();
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingPage />}>
       <Form categories={categories} postData={postData} onSubmit={patchBlogPostAPI} />
     </Suspense>
   );

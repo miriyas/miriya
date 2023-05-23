@@ -1,5 +1,150 @@
+@use 'src/styles/mixins' as m;
+
 /* stylelint-disable selector-class-pattern */
 @mixin markdownPreview {
+  strong {
+    font-weight: 500;
+    color: var(--color-black);
+  }
+
+  em {
+    color: var(--color-em);
+  }
+
+  h2 {
+    padding-bottom: 8px;
+    margin: 56px 0 16px !important;
+    font-size: 24px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-gray-d);
+  }
+
+  h3 {
+    margin: 32px 0 16px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  h4 {
+    margin: 24px 0 16px !important;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  ul,
+  li {
+    list-style: unset;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul,
+  ol {
+    padding-left: 32px;
+    margin-bottom: 24px;
+  }
+
+  li {
+    line-height: 24px;
+
+    + li {
+      margin-top: 8px;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin: 24px 0;
+  }
+
+  hr {
+    height: 1px !important;
+    margin: 48px 0 !important;
+    background-color: var(--color-gray-d) !important;
+    border: 0 !important;
+  }
+
+  p > code {
+    display: inline-block;
+    padding: 0 8px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: var(--color-gray-e);
+    border-radius: 4px;
+  }
+
+  blockquote {
+    position: relative;
+    padding-left: 14px;
+    color: var(--color-gray-7);
+
+    &::before {
+      @include m.absolute(0 auto 0 0);
+      width: 4px;
+      content: '';
+      background-color: var(--color-gray-c);
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 32px;
+    font-size: 12px;
+    line-height: 24px;
+    border: 1px solid var(--color-gray-c);
+
+    td {
+      padding: 0 8px;
+      text-align: center;
+      border: 1px solid var(--color-gray-c);
+    }
+  }
+
+  del {
+    color: var(--color-gray-9);
+  }
+
+  :global {
+    .imageBorder img {
+      border: 1px solid var(--color-gray-d);
+    }
+
+    .image320 {
+      @include m.flexbox;
+
+      img {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    .image480 {
+      @include m.flexbox;
+
+      img {
+        width: 100%;
+        max-width: 480px;
+      }
+    }
+  }
+
   > p > code {
     display: inline-block;
     padding: 0 8px;
@@ -12,7 +157,7 @@
 
   pre {
     padding: 14px 20px;
-    margin: 48px 0 32px;
+    margin: 32px 0;
     overflow: auto;
     font-size: 12px !important;
     line-height: 16px !important;
@@ -26,6 +171,7 @@
 
     > code {
       padding: 0 !important;
+      font-size: 12px !important;
     }
 
     :global {

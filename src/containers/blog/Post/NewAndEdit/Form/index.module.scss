@@ -1,6 +1,5 @@
 /* stylelint-disable selector-class-pattern */
 @use 'src/styles/mixins' as m;
-@use '../../markdown' as ms;
 @use '../../markdownPreview' as mp;
 
 .form {
@@ -64,7 +63,6 @@
     }
 
     .previewWrapper {
-      @include ms.markdownShow;
       @include mp.markdownPreview;
       padding: 14px 14px 100px;
       overflow-y: scroll;
