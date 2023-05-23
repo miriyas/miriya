@@ -63,8 +63,11 @@
 
   img {
     display: block;
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: calc(100% - 2px);
+    padding: 1px;
+    margin: 32px auto;
+    border: 1px solid var(--color-gray-d);
+    border-radius: 4px;
   }
 
   iframe {
@@ -113,6 +116,7 @@
     td {
       padding: 0 8px;
       text-align: center;
+      vertical-align: middle;
       border: 1px solid var(--color-gray-c);
     }
   }

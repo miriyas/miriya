@@ -47,8 +47,12 @@
       }
 
       .editor-statusbar {
-        @include m.absolute(auto 0 3px auto);
+        @include m.absolute(auto 24px 3px auto);
         font-size: 10px;
+
+        span {
+          min-width: auto;
+        }
       }
 
       .CodeMirror {

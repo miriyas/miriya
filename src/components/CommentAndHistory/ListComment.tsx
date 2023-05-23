@@ -49,7 +49,6 @@ export const ListComment = ({
       <ul className={cx(styles.comments)}>
         {comments.map((comment) => (
           <ItemComment key={comment.id} comment={comment} overrideStyles={overrideStyles} direction={direction} />
-          // <ItemComment key={comment.id} comment={comment} />
         ))}
         {comments.length === 0 && (
           <li className={cx(styles.item, styles.blank)}>

@@ -35,7 +35,7 @@ const ItemCommentVertical = ({ comment, editMode, setEditMode, onClickEdit, onCl
           <div className={styles.lower}>
             <div className={styles.leftWing}>
               <div className={styles.profileWrapper}>
-                <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={18} />
+                <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={36} />
               </div>
               <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
                 {filterAuthorName(comment.authorId, comment.author.nickname)}

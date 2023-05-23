@@ -87,7 +87,7 @@ const CommentItem = ({ comment }: Props) => {
       </div>
       <div className={styles.lower}>
         <div className={styles.leftWing}>
-          <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={96} />
+          <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={192} />
         </div>
         <div className={styles.rightWing}>
           {editMode ? (

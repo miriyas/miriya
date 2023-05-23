@@ -40,7 +40,7 @@ export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Pro
                   src='https://miriya.net/android-chrome-192x192.png'
                   uid='SYSTEM'
                   alt=''
-                  size={18}
+                  size={36}
                 />
               </div>
               <p className={cx(styles.name, styles.isFake)}>SYSTEM</p>

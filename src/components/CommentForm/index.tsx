@@ -65,7 +65,7 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName, 
   return (
     <form className={styles.commentNewForm} onSubmit={onSubmit}>
       <div className={styles.profile}>
-        <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={32} />
+        <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={64} />
       </div>
       {multiline ? (
         <textarea

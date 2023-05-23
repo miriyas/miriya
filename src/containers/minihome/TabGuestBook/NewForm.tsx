@@ -44,7 +44,7 @@ const NewForm = () => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <div className={styles.leftWing}>
-        <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={96} />
+        <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={192} />
       </div>
       <div className={styles.rightWing}>
         <textarea onChange={onChange} value={newPostBody} data-lpignore='true' autoComplete='off' />

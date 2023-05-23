@@ -23,7 +23,7 @@ const CommentEditVertical = ({ comment, body, onSubmit, onChangeBody, onClickCan
     <form onSubmit={onSubmit} className={styles.editor}>
       <div className={styles.leftWing}>
         <div className={styles.profileWrapper}>
-          <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={18} />
+          <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={36} />
         </div>
       </div>
       <div className={styles.rightWing}>

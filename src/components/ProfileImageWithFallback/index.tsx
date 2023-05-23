@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Avatar from 'react-avatar';
 
 interface Props {
   uid: string;
@@ -9,10 +8,14 @@ interface Props {
 }
 
 const ProfileImageWithFallback = ({ src, uid, alt, size }: Props) => {
-  if (!src) {
-    return <Avatar name={uid} size={String(size)} />;
-  }
-  return <Image src={src} alt={alt ?? ''} width={size} height={size} />;
+  return (
+    <Image
+      src={src || `${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}/api/common/avatar/${uid}`}
+      alt={alt ?? ''}
+      width={size}
+      height={size}
+    />
+  );
 };
 
 export default ProfileImageWithFallback;
