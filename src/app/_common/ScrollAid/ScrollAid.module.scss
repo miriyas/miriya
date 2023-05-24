@@ -1,0 +1,52 @@
+@use 'src/styles/mixins' as m;
+
+.scrollAid {
+  @include m.fixed(auto 14px calc(24px + var(--h-footer)) auto);
+  @include m.commonBoxShadow;
+  z-index: var(--z-global-to-top);
+  width: var(--x-scroll-aid);
+  height: var(--x-scroll-aid);
+  background-color: rgba(var(--color-black-rgb), 0.4);
+  border-radius: 50%;
+
+  button {
+    position: absolute;
+    width: var(--x-scroll-aid);
+    height: calc(var(--x-scroll-aid) / 2);
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 14px;
+      width: 14px;
+      height: 3px;
+      content: '';
+      background-color: var(--color-white);
+    }
+
+    &::before {
+      right: 15px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      left: 15px;
+      transform: rotate(-45deg);
+    }
+
+    p {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--color-white);
+    }
+
+    &.toTop {
+      top: 0;
+    }
+
+    &.toBottom {
+      bottom: 0;
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { Alert } from '@/components/Alert';
 import Providers from './providers';
 import Header from './_common/Header';
 import Additional from './_common/Additional';
-import ToTop from './_common/ToTop';
+import ScrollAid from './_common/ScrollAid';
 import Footer from './_common/Footer';
 import '@/styles/globals.scss';
 import { metadata as profileMetadata } from './profile/page';
@@ -39,7 +39,7 @@ const RootLayout = ({ children }: Props) => {
           </Suspense>
           {children}
           <Suspense fallback={null}>
-            <ToTop />
+            <ScrollAid />
           </Suspense>
           <Suspense fallback={null}>
             <Footer />
