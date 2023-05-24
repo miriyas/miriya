@@ -3,103 +3,91 @@
 @use '../markdownPreview' as mp;
 
 .showPost {
-  @include m.flexbox(start, center);
-  padding: 14px;
+  background-color: var(--color-blog-bg);
 
   .centering {
-    @include m.flexbox(center, start);
-    gap: 32px;
     width: 100%;
-    padding: 14px;
+    max-width: var(--w-blog-center);
+    padding: 7px;
+    overflow: hidden;
     background-color: var(--color-white);
+    border-radius: 2px;
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 368px;
+      overflow: hidden;
+      background-position: center;
+      background-size: cover;
+      border-radius: 2px;
+
+      .cover {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(var(--color-black-rgb), 0.3);
+      }
+
+      .titleShade {
+        @include m.absolute(0 14px 0 14px);
+        @include m.flexbox;
+
+        p {
+          padding: 14px 32px;
+          font-size: 32px;
+          font-weight: 500;
+          line-height: 1.6;
+          color: var(--color-white);
+          text-align: center;
+          background-color: rgba(var(--color-black-rgb), 30%);
+        }
+      }
+    }
+  }
+
+  @include m.before(SD) {
+    padding: 0;
+
+    .centering {
+      padding: 0 !important;
+
+      .hero {
+        height: 200px !important;
+        margin-bottom: 0 !important;
+
+        .titleShade p {
+          font-size: 24px !important;
+        }
+      }
+    }
+  }
+
+  @include m.after(SD) {
+    .centering {
+      .hero {
+        .titleShade p {
+          font-size: 48px !important;
+        }
+      }
+    }
+  }
+
+  .wingWrapper {
+    @include m.flexbox(center, normal);
 
     article {
+      flex: 1;
       width: 100%;
+      padding: 14px;
+      overflow: hidden;
     }
 
     @include m.after(SD) {
-      max-width: 1080px;
-      padding: 48px 24px;
+      padding: 7px 0;
 
       article {
-        width: 800px;
+        border: 1px dashed var(--color-gray-d);
       }
-
-      aside {
-        width: 200px;
-      }
-    }
-  }
-
-  header {
-    margin-bottom: 14px;
-
-    .leftWing {
-      h1 {
-        font-size: 24px;
-        font-weight: 500;
-      }
-
-      span {
-        font-size: 12px;
-        font-weight: 400;
-        color: var(--color-gray-8);
-      }
-    }
-
-    .rightWing {
-      a {
-        font-size: 14px;
-      }
-    }
-
-    @include m.mobileOnly {
-      @include m.flexbox(between, start);
-      flex-direction: column;
-
-      .leftWing {
-        flex-direction: column;
-
-        h1 {
-          display: inline-block;
-          margin-bottom: 8px;
-        }
-      }
-    }
-
-    @include m.after(SD) {
-      @include m.flexbox(between, center);
-      margin-bottom: 24px;
-
-      .leftWing {
-        @include m.flexbox(start, end);
-
-        h1 {
-          font-size: 32px;
-        }
-
-        span {
-          margin-left: 14px;
-          font-size: 14px;
-        }
-      }
-    }
-  }
-
-  .desc {
-    font-size: 12px;
-
-    .time,
-    .hidden {
-      color: var(--color-gray-8);
-
-      &::before {
-        content: ' · ';
-      }
-    }
-
-    @include m.after(SD) {
-      font-size: 14px;
     }
   }
 
@@ -108,7 +96,7 @@
     margin-top: 24px;
     color: var(--color-gray-4);
 
-    @include m.after(SD) {
+    @include m.after(LD) {
       margin-top: 36px;
 
       p {

@@ -1,14 +1,12 @@
 /* eslint-disable react/no-danger */
 
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
-import CategoriesBar from '@/containers/blog/_common/CategoriesBar';
-import { getTimeDiffText } from '@/utils/date';
+import CategoriesBar from '@/containers/blog/_common/SideBar';
 
-import AdminOnly from '@/components/AdminOnly';
 import Loading from '@/components/Loading';
+import Header from './Header';
 import styles from './index.module.scss';
 
 const Comments = dynamic(() => import('./Comments'), {
@@ -22,34 +20,33 @@ interface Props {
 }
 
 const BlogShowPage = ({ categories, postData }: Props) => {
-  const { id, title, category, body, author, createdAt, hidden } = postData;
-
-  const categoryName = categories.find((c) => c.id === category)?.name ?? '';
+  const { id, title, category, body, hero } = postData;
 
   return (
     <main className={styles.showPost}>
       <div className={styles.centering}>
-        <article>
-          <header>
-            <div className={styles.leftWing}>
-              <h1>{title}</h1>
-              <span>{categoryName}</span>
+        {hero && (
+          <div
+            className={styles.hero}
+            style={{
+              backgroundImage: `url(${hero})`,
+            }}
+          >
+            <div className={styles.cover}>
+              <div className={styles.titleShade}>
+                <p>{postData.title}</p>
+              </div>
             </div>
-            <div className={styles.rightWing}>
-              <AdminOnly>
-                <Link href={`/blog/${id}/edit`}>수정</Link>
-              </AdminOnly>
-            </div>
-          </header>
-          <div className={styles.desc}>
-            <span className={styles.author}>{author.nickname}</span>
-            <time className={styles.time}>{getTimeDiffText(createdAt.seconds, true)}</time>
-            {hidden && <span className={styles.hidden}>비공개</span>}
           </div>
-          <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }} />
-          <Comments targetId={id} targetName={title} />
-        </article>
-        <CategoriesBar categories={categories} currentCategory={category} />
+        )}
+        <div className={styles.wingWrapper}>
+          <article>
+            <Header postData={postData} categories={categories} />
+            <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }} />
+            <Comments targetId={id} targetName={title} />
+          </article>
+          <CategoriesBar categories={categories} currentCategory={category} />
+        </div>
       </div>
     </main>
   );

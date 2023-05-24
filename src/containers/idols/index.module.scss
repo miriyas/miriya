@@ -11,11 +11,11 @@
     display: none;
 
     @include m.after(SD) {
-      @include m.fixed(calc(var(--h-nav) + 14px) 14px calc(24px + var(--h-footer) + 14px + var(--x-totop)) auto);
+      @include m.fixed(calc(var(--h-nav) + 14px) 14px calc(24px + var(--h-footer) + 14px + var(--x-scroll-aid)) auto);
       @include m.flexbox(end, center);
       z-index: var(--z-2);
       flex-direction: column;
-      width: var(--x-totop);
+      width: var(--x-scroll-aid);
       overflow: auto;
     }
 

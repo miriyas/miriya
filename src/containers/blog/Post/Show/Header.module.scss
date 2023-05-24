@@ -1,0 +1,115 @@
+/* stylelint-disable selector-class-pattern */
+@use 'src/styles/mixins' as m;
+@use '../markdownPreview' as mp;
+
+.header {
+  margin-bottom: 14px;
+  background-position: center;
+  background-size: cover;
+
+  .title {
+    @include m.flexbox(start, center);
+    padding: 0 4px 8px;
+    border-bottom: 1px dotted var(--color-gray-4);
+
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-em);
+    }
+
+    span {
+      position: relative;
+      padding-left: 12px;
+      margin-left: 12px;
+      font-size: 12px;
+      color: var(--color-gray-7);
+
+      &::before {
+        @include m.absolute(0 auto 0 0);
+        color: var(--color-gray-9);
+        content: '|';
+      }
+    }
+  }
+
+  @include m.before(MD) {
+    .title {
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+
+      h1 {
+        font-size: 18px;
+      }
+
+      span {
+        display: block;
+        padding-left: 0;
+        margin-left: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .sub {
+    @include m.flexbox(between, center);
+    height: 32px;
+    padding: 0 4px;
+    font-size: 11px;
+
+    .leftWing {
+      .time,
+      .hidden {
+        color: var(--color-gray-8);
+
+        &::before {
+          content: ' · ';
+        }
+      }
+
+      a {
+        &::before {
+          color: var(--color-gray-8);
+          content: ' · ';
+        }
+      }
+    }
+
+    .rightWing {
+      .url {
+        position: relative;
+        font-size: 11px;
+        color: var(--color-gray-8);
+        transition: 300ms;
+
+        span {
+          @include m.absolute(0 0 0 0);
+          color: transparent;
+        }
+
+        &.copied {
+          color: transparent;
+
+          span {
+            color: var(--color-gray-8);
+          }
+        }
+      }
+    }
+
+    @include m.before(MD) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 4px;
+
+      .url {
+        display: none;
+      }
+    }
+  }
+}

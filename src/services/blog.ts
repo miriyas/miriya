@@ -1,5 +1,6 @@
 import apiClient from '@/services/apiClient';
 import { BlogPost, BlogCategory, FBBlogPost, FBBlogCategory } from '@/types/blog.d';
+import { Comment } from '@/types/comments.d';
 
 // 글
 
@@ -25,3 +26,8 @@ export const patchBlogCategoryAPI = (categoryId: string, body: Partial<FBBlogCat
   apiClient.patch(`/blog/categories/${categoryId}`, body);
 
 export const deleteBlogCategoryAPI = (categoryId: string) => apiClient.delete(`/blog/categories/${categoryId}`);
+
+// 댓글
+
+export const getBlogCommentsAPI = (limitCount: number) =>
+  apiClient<Comment[]>(`/blog/comments?limitCount=${limitCount}`);

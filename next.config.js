@@ -12,11 +12,19 @@ const nextConfig = {
   images: {
     imageSizes: [100, 200, 280],
     minimumCacheTTL: 86400,
-    domains: ['miriya.sgp1.cdn.digitaloceanspaces.com'],
+    domains: ['miriya.sgp1.cdn.digitaloceanspaces.com', 'localhost'],
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'miriya.sgp1.cdn.digitaloceanspaces.com',
+      },
+      {
+        protocol: 'https',
         hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
       },
     ],
   },

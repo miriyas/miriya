@@ -1,0 +1,39 @@
+@use 'src/styles/mixins' as m;
+
+.profile {
+  .profileImgWrapper {
+    overflow: hidden;
+    border-radius: 4px;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .nicknameWrapper {
+    @include m.flexbox(start, center);
+    gap: 4px;
+    margin-top: 14px;
+
+    .iconWrapper {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      overflow: hidden;
+      border: 1px solid var(--color-gray-9);
+      border-radius: 4px;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  .ment {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
