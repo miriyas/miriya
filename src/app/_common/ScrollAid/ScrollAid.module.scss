@@ -6,6 +6,7 @@
   z-index: var(--z-global-to-top);
   width: var(--x-scroll-aid);
   height: var(--x-scroll-aid);
+  overflow: hidden;
   background-color: rgba(var(--color-black-rgb), 0.4);
   border-radius: 50%;
 
@@ -13,6 +14,10 @@
     position: absolute;
     width: var(--x-scroll-aid);
     height: calc(var(--x-scroll-aid) / 2);
+
+    &:hover {
+      background-color: rgba(var(--color-black-rgb), 0.1);
+    }
 
     &::before,
     &::after {
