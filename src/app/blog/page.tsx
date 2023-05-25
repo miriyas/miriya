@@ -1,6 +1,6 @@
-import { getMetaData } from '@/app/sharedMetadata';
+import BlogHome from '@/containers/blog';
 
-export { default } from '@/containers/blog';
+import { getMetaData } from '@/app/sharedMetadata';
 
 export const metadata = getMetaData({
   url: 'https://miriya.net/blog',
@@ -9,3 +9,7 @@ export const metadata = getMetaData({
   imageUrl: 'https://miriya.net/images/blog/og.jpg',
   keywords: ['블로그', '미리야', 'miriya'],
 });
+
+const BlogHomePage = async () => <BlogHome />;
+
+export default BlogHomePage;
