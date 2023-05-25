@@ -18,19 +18,19 @@
     &::after {
       position: absolute;
       top: 14px;
-      width: 14px;
-      height: 3px;
+      width: 10px;
+      height: 2px;
       content: '';
       background-color: var(--color-white);
     }
 
     &::before {
-      right: 15px;
+      right: 18px;
       transform: rotate(45deg);
     }
 
     &::after {
-      left: 15px;
+      left: 18px;
       transform: rotate(-45deg);
     }
 

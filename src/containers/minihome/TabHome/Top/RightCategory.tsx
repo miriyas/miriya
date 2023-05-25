@@ -51,10 +51,6 @@ const RightCategory = () => {
         <p className={styles.category} />
         <p className={styles.count} />
       </li>
-      <li>
-        <p className={styles.category} />
-        <p className={styles.count} />
-      </li>
     </ul>
   );
 };

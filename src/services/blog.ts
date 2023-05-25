@@ -4,7 +4,8 @@ import { Comment } from '@/types/comments.d';
 
 // 글
 
-export const getBlogPostsAPI = () => apiClient<FBBlogPost[]>('/blog/posts');
+export const getBlogPostsAPI = (categoryId?: string) =>
+  apiClient<FBBlogPost[]>('/blog/posts', { params: { categoryId } });
 
 export const getBlogPostAPI = (postId: string) => apiClient<FBBlogPost>(`/blog/posts/${postId}`);
 
@@ -30,4 +31,4 @@ export const deleteBlogCategoryAPI = (categoryId: string) => apiClient.delete(`/
 // 댓글
 
 export const getBlogCommentsAPI = (limitCount: number) =>
-  apiClient<Comment[]>(`/blog/comments?limitCount=${limitCount}`);
+  apiClient<Comment[]>('/blog/comments', { params: { limitCount } });

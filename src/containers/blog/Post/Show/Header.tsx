@@ -22,7 +22,7 @@ interface Props {
 let autoHide: NodeJS.Timeout;
 
 const Header = ({ categories, postData }: Props) => {
-  const { id, title, category, author, createdAt, hidden } = postData;
+  const { id, title, category: categoryId, author, createdAt, hidden } = postData;
 
   const [copied, setCopied] = useRafState(false);
 
@@ -37,7 +37,7 @@ const Header = ({ categories, postData }: Props) => {
     clearTimeout(autoHide);
   });
 
-  const categoryName = useMemo(() => categories.find((c) => c.id === category)?.name ?? '', [categories, category]);
+  const category = useMemo(() => categories.find((c) => c.id === categoryId), [categories, categoryId]);
 
   const url = `${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}/blog/${id}`;
 
@@ -45,7 +45,7 @@ const Header = ({ categories, postData }: Props) => {
     <header className={styles.header}>
       <div className={styles.title}>
         <h1>{title}</h1>
-        <span>{categoryName}</span>
+        {category && <Link href={`/blog/categories/${category.id}`}>{category.name}</Link>}
       </div>
       <div className={styles.sub}>
         <div className={styles.leftWing}>

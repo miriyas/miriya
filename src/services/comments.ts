@@ -8,12 +8,10 @@ interface GetCommentsParams {
 }
 
 export const getCommentsApi = ({ targetCategory, targetSubCategory, targetId }: GetCommentsParams) =>
-  apiClient<Comment[]>(
-    `/comments?targetCategory=${targetCategory}&targetSubCategory=${targetSubCategory}&targetId=${targetId}`,
-  );
+  apiClient<Comment[]>('/comments', { params: { targetCategory, targetSubCategory, targetId } });
 
 export const postCommentAPI = (params: NewComment) => apiClient.post('/comments', params);
 
 export const patchCommentAPI = (comment: Partial<Comment>) => apiClient.patch('/comments', comment);
 
-export const deleteCommentAPI = (commentId: string) => apiClient.delete(`/comments?commentId=${commentId}`);
+export const deleteCommentAPI = (commentId: string) => apiClient.delete('/comments', { params: { commentId } });

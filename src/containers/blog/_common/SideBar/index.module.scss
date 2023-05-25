@@ -119,6 +119,10 @@
           height: 5px;
         }
 
+        a {
+          @include m.flexbox(start, center);
+        }
+
         span {
           margin-left: 4px;
           font-size: 10px;
@@ -152,6 +156,7 @@
       a {
         &:hover {
           color: var(--color-black);
+          text-decoration: underline;
         }
       }
     }

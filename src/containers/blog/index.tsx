@@ -6,6 +6,6 @@ import LoadingPage from '@/components/Loading/LoadingPage';
 
 const Content = dynamic(() => import('./Content'), { ssr: false, loading: () => <LoadingPage /> });
 
-const BlogPage = () => <Content />;
+const BlogPage = ({ categoryId }: { categoryId?: string }) => <Content categoryId={categoryId} />;
 
 export default BlogPage;

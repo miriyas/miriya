@@ -9,6 +9,4 @@ interface GetHistoriesParams {
 }
 
 export const getHistoriesApi = ({ targetCategory, targetSubCategory, targetId }: GetHistoriesParams) =>
-  apiClient<History[]>(
-    `/histories?targetCategory=${targetCategory}&targetSubCategory=${targetSubCategory}&targetId=${targetId}`,
-  );
+  apiClient<History[]>('/histories', { params: { targetCategory, targetSubCategory, targetId } });

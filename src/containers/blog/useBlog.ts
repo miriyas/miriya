@@ -3,12 +3,12 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '@/hooks/useAuth';
 import { getBlogCategoriesAPI, getBlogCommentsAPI, getBlogPostsAPI } from '@/services/blog';
 
-const useBlog = () => {
+const useBlog = (categoryId?: string) => {
   const { isAdmin } = useAuth();
 
   const { data: posts = [], refetch: refetchPosts } = useQuery(
-    ['getBlogPostsAPI', isAdmin],
-    () => getBlogPostsAPI().then((res) => res.data),
+    ['getBlogPostsAPI', isAdmin, categoryId],
+    () => getBlogPostsAPI(categoryId).then((res) => res.data),
     {
       suspense: true,
     },

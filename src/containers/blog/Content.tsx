@@ -12,8 +12,12 @@ import CategoriesBar from './_common/SideBar';
 import styles from './index.module.scss';
 import Loading from '@/components/Loading';
 
-const BlogPageContent = () => {
-  const { posts, categories } = useBlog();
+interface Props {
+  categoryId?: string;
+}
+
+const BlogPageContent = ({ categoryId }: Props) => {
+  const { posts, categories } = useBlog(categoryId);
 
   return (
     <main className={styles.blogPage}>

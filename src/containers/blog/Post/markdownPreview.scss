@@ -83,6 +83,14 @@
     border: 0 !important;
   }
 
+  a {
+    color: var(--color-blue);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   p > code {
     display: inline-block;
     padding: 0 8px;

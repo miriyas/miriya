@@ -8,17 +8,19 @@
 
   li {
     width: 50%;
-    padding: 2px 0 0 4px;
+    height: 20px;
     border-top: 1px solid var(--color-gray-c);
 
     a {
+      @include m.flexbox(start, center);
+      height: 100%;
+      padding: 2px 0 0 4px;
       color: initial;
     }
 
     .category,
     .count {
       display: inline-block;
-      height: 20px;
       font-size: 12px;
       line-height: 20px;
     }

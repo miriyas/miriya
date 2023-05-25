@@ -19,7 +19,7 @@
       color: var(--color-em);
     }
 
-    span {
+    a {
       position: relative;
       padding-left: 12px;
       margin-left: 12px;
@@ -30,6 +30,10 @@
         @include m.absolute(0 auto 0 0);
         color: var(--color-gray-9);
         content: '|';
+      }
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }

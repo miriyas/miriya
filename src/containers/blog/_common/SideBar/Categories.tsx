@@ -1,4 +1,5 @@
 import cx from 'clsx';
+import Link from 'next/link';
 
 import { FBBlogCategory } from '@/types/blog.d';
 
@@ -22,8 +23,10 @@ const Categories = ({ categories, currentCategory }: Props) => {
                 [styles.active]: category.id === currentCategory,
               })}
             >
-              <p className={styles.name}>{category.name}</p>
-              <span>({category.postsLength})</span>
+              <Link href={`/blog/categories/${category.id}`}>
+                <p className={styles.name}>{category.name}</p>
+                <span>({category.postsLength})</span>
+              </Link>
             </li>
           );
         })}
