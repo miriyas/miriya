@@ -9,6 +9,7 @@ import { RESET } from 'jotai/utils';
 import useAuth from '@/hooks/useAuth';
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 import { bodyAtom, categoryAtom, heroAtom, hiddenAtom, titleAtom, loadingAtom } from './states';
+import { revalidateApi } from '@/services/apiClient';
 
 import Top from './Top';
 import Editor from './Editor';
@@ -69,7 +70,9 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
       postData?.id,
     )
       .then((res) => {
-        router.push(`/blog/${res.data.postId}`);
+        revalidateApi(`/blog/${res.data.postId}`).then(() => {
+          router.push(`/blog/${res.data.postId}`);
+        });
       })
       .finally(() => {
         setIsLoading(false);

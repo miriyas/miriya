@@ -28,12 +28,6 @@ export async function generateMetadata({ params: { postId } }: Props): Promise<M
       title,
       url,
     },
-    // twitter: {
-    //   card: 'summary_large_image',
-    //   title,
-    //   description,
-    //   images: [imageUrl],
-    // },
   };
 }
 
