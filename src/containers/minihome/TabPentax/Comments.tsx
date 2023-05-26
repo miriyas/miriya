@@ -1,24 +1,16 @@
-'use client';
-
-import { useQuery } from '@tanstack/react-query';
 import cx from 'clsx';
 
-import { getMinihomeCommentDataAPI } from '@/services/minihome';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { Comment } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 import { filterAuthorName } from '@/utils/auth';
 
 import styles from '../common.module.scss';
 
-const Comments = () => {
-  const { data: comments = [] } = useQuery(
-    ['getMinihomeCommentDataAPI', TARGET_CATEGORY.PENTAX, 1000],
-    () => getMinihomeCommentDataAPI(TARGET_CATEGORY.PENTAX, 1000).then((res) => res.data),
-    {
-      suspense: true,
-    },
-  );
+interface Props {
+  comments: Comment[];
+}
 
+const Comments = ({ comments }: Props) => {
   return (
     <>
       <p className={styles.desc}>

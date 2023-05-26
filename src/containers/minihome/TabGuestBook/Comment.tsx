@@ -1,3 +1,5 @@
+'use client';
+
 import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 import Image from 'next/image';

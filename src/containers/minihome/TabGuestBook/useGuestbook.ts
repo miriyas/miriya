@@ -1,10 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
 import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
+import { useRouter } from 'next/navigation';
 
-import { getGuestbookDataAPI, patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
+import { patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
 import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
+import { revalidateApi } from '@/services/apiClient';
 
 export const newPostBodyAtom = atomWithReset<string>('');
 export const newPostHiddenAtom = atomWithReset<boolean>(false);
@@ -13,6 +14,7 @@ export const editPostHiddenAtom = atomWithReset<boolean>(false);
 
 const useGuestbook = () => {
   const { user } = useAuth();
+  const router = useRouter();
 
   const [newPostBody, setNewPostBody] = useAtom(newPostBodyAtom);
   const resetNewPostBody = useResetAtom(newPostBodyAtom);
@@ -24,18 +26,10 @@ const useGuestbook = () => {
   const [editPostHidden, setEditPostHidden] = useAtom(editPostHiddenAtom);
   const resetEditPostHidden = useResetAtom(editPostHiddenAtom);
 
-  const { data: comments = [], refetch } = useQuery(
-    ['getGuestbookDataAPI'],
-    () => {
-      return getGuestbookDataAPI().then((res) => res.data);
-    },
-    {
-      suspense: true,
-    },
-  );
-
   const reload = () => {
-    refetch();
+    revalidateApi(`/minihome/guestbook`).then(() => {
+      router.refresh();
+    });
   };
 
   const submitNewGuestComment = () => {
@@ -79,9 +73,6 @@ const useGuestbook = () => {
   };
 
   return {
-    comments,
-    reload,
-
     newPostBody,
     setNewPostBody,
     newPostHidden,

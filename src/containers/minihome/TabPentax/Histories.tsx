@@ -1,22 +1,15 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-
-import { getHistoriesApi } from '@/services/histories';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { History } from '@/types/histories.d';
 import { getTimeDiffText } from '@/utils/date';
 
 import styles from '../common.module.scss';
 
-const Histories = () => {
-  const { data: histories = [] } = useQuery(
-    ['getHistoriesApi', TARGET_CATEGORY.PENTAX],
-    () => getHistoriesApi({ targetCategory: TARGET_CATEGORY.PENTAX }).then((res) => res.data),
-    {
-      suspense: true,
-    },
-  );
+interface Props {
+  histories: History[];
+}
 
+const Histories = ({ histories }: Props) => {
   return (
     <>
       <p className={styles.desc}>

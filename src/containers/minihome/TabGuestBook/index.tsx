@@ -1,19 +1,23 @@
-'use client';
+import { Comment } from '@/types/comments.d';
 
-import dynamic from 'next/dynamic';
+import NewForm from './NewForm';
+import CommentItem from './Comment';
 
-import Loading from '@/components/Loading';
-import styles from './index.module.scss';
+interface Props {
+  comments: Comment[];
+}
 
-const Content = dynamic(() => import('./Content'), {
-  ssr: false,
-  loading: () => (
-    <div className={styles.loading}>
-      <Loading />
+const TabGuestBook = ({ comments }: Props) => {
+  return (
+    <div>
+      <NewForm />
+      <ul>
+        {comments.map((comment) => {
+          return <CommentItem key={comment.id} comment={comment} />;
+        })}
+      </ul>
     </div>
-  ),
-});
-
-const TabGuestBook = () => <Content />;
+  );
+};
 
 export default TabGuestBook;

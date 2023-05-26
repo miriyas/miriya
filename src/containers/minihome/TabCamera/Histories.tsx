@@ -1,22 +1,13 @@
-'use client';
-
-import { useQuery } from '@tanstack/react-query';
-
-import { TARGET_CATEGORY } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
-import { getHistoriesApi } from '@/services/histories';
+import { History } from '@/types/histories.d';
 
 import styles from '../common.module.scss';
 
-const Histories = () => {
-  const { data: histories = [] } = useQuery(
-    ['getHistoriesApi', TARGET_CATEGORY.CAMERA],
-    () => getHistoriesApi({ targetCategory: TARGET_CATEGORY.CAMERA }).then((res) => res.data),
-    {
-      suspense: true,
-    },
-  );
+interface Props {
+  histories: History[];
+}
 
+const Histories = ({ histories }: Props) => {
   return (
     <>
       <p className={styles.desc}>

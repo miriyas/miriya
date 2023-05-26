@@ -1,31 +1,21 @@
 'use client';
 
 import { ChangeEventHandler, useState } from 'react';
-import dynamic from 'next/dynamic';
 
-import Loading from '@/components/Loading';
+import { Comment } from '@/types/comments.d';
+import { History } from '@/types/histories.d';
+
 import Select from '@/components/Select';
+import Comments from './Comments';
+import Histories from './Histories';
 import styles from '../common.module.scss';
 
-const Comments = dynamic(() => import('./Comments'), {
-  ssr: false,
-  loading: () => (
-    <div className={styles.listLoading}>
-      <Loading />
-    </div>
-  ),
-});
+interface Props {
+  comments: Comment[];
+  histories: History[];
+}
 
-const Histories = dynamic(() => import('./Histories'), {
-  ssr: false,
-  loading: () => (
-    <div className={styles.listLoading}>
-      <Loading />
-    </div>
-  ),
-});
-
-const TabPentax = () => {
+const TabPentax = ({ comments, histories }: Props) => {
   const [show, setShow] = useState<'comments' | 'histories'>('comments');
 
   const onChangeFolder: ChangeEventHandler<HTMLSelectElement> = (e) => {
@@ -42,8 +32,8 @@ const TabPentax = () => {
             <option value='histories'>수정 내역</option>
           </Select>
         </div>
-        {show === 'comments' && <Comments />}
-        {show === 'histories' && <Histories />}
+        {show === 'comments' && <Comments comments={comments} />}
+        {show === 'histories' && <Histories histories={histories} />}
       </div>
     </div>
   );
