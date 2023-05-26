@@ -23,7 +23,7 @@ const BlogPageContent = ({ categoryId }: Props) => {
     <main className={styles.blogPage}>
       <div className={styles.centering}>
         <div className={styles.hero}>
-          <Image src='/images/blog/top.jpg' alt='' width={994 * 2} height={368 * 2} />
+          <Image src='/images/blog/top.jpg' alt='' width={994 * 2} height={368 * 2} priority />
         </div>
         <Suspense
           fallback={
@@ -43,7 +43,7 @@ const BlogPageContent = ({ categoryId }: Props) => {
                       <Link href={`/blog/${post.id}`}>
                         {post.hero && (
                           <div className={styles.hero}>
-                            <Image src={post.hero} fill alt='' />
+                            <Image src={post.hero} width={240} height={160} alt='' />
                           </div>
                         )}
                         <div className={styles.content}>

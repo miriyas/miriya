@@ -7,7 +7,7 @@ interface Props {
 }
 
 const BlogCategoryPage = async ({ params: { categoryId } }: Props) => {
-  return <BlogCategory categoryId={categoryId} />;
+  return <BlogCategory categoryId={categoryId ? categoryId[0] : undefined} />;
 };
 
 export default BlogCategoryPage;

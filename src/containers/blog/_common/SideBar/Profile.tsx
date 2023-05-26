@@ -10,7 +10,7 @@ const Profile = () => {
       </div>
       <div className={styles.nicknameWrapper}>
         <div className={styles.iconWrapper}>
-          <Image src='/images/blog/icon.png' fill alt='' className={styles.icon} />
+          <Image src='/images/blog/icon.png' width={22} height={22} alt='' className={styles.icon} />
         </div>
         <p className={styles.nickname}>MIRIYA</p>
       </div>
