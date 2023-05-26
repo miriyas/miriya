@@ -3,14 +3,15 @@ import { notFound } from 'next/navigation';
 
 import BlogShow from '@/containers/blog/Post/Show';
 import { getPost } from './utils';
-
-import { getCategories, getPostsData } from '@/app/blog/utils';
+import { getBlogCategoriesAPI, getBlogPostsAPI } from '@/services/blog';
 
 interface Props {
   params: {
     postId: string;
   };
 }
+
+export const revalidate = 3600;
 
 export async function generateMetadata({ params: { postId } }: Props): Promise<Metadata> {
   const postData = await getPost(postId);
@@ -32,7 +33,7 @@ export async function generateMetadata({ params: { postId } }: Props): Promise<M
 }
 
 export async function generateStaticParams() {
-  const posts = await getPostsData();
+  const posts = await getBlogPostsAPI().then((res) => res.data);
 
   return posts.map((post) => ({
     postId: post.id,
@@ -40,10 +41,9 @@ export async function generateStaticParams() {
 }
 
 const BlogShowPage = async ({ params: { postId } }: Props) => {
-  let categories;
+  const categories = await getBlogCategoriesAPI().then((res) => res.data);
   let postData;
   try {
-    categories = await getCategories();
     postData = await getPost(postId);
   } catch (error) {
     if (error instanceof Error) {
@@ -51,6 +51,7 @@ const BlogShowPage = async ({ params: { postId } }: Props) => {
     }
   }
 
+  if (!postData) notFound();
   return <BlogShow categories={categories} postData={postData} />;
 };
 

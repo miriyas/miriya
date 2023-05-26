@@ -1,9 +1,9 @@
 import { renderMarkdown } from '@/utils/blog';
+import { getBlogPostAPI } from '@/services/blog';
+import { FBBlogPost } from '@/types/blog.d';
 
-import { getPostData } from '@/app/blog/utils';
-
-export const getPost = async (postId: string) => {
-  const postData = await getPostData(postId);
+export const getPost = async (postId: string): Promise<FBBlogPost> => {
+  const postData = await getBlogPostAPI(postId).then((res) => res.data);
   const body = await renderMarkdown(postData.body);
   return {
     ...postData,
