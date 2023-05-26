@@ -1,13 +1,28 @@
-'use client';
-
 import dynamic from 'next/dynamic';
+import { Dictionary } from 'lodash';
 
-import LoadingPage from '@/components/Loading/LoadingPage';
+import { FBCameraType } from '@/types/cameras';
 
-const Content = dynamic(() => import('./Content'), { ssr: false, loading: () => <LoadingPage /> });
+import TopPlaceholder from './Top/Placeholder';
+import CameraYearPlaceholder from './CameraYears/Placeholder';
 
-const CamerasPage = () => {
-  return <Content />;
+const Top = dynamic(() => import('./Top'), { ssr: false, loading: () => <TopPlaceholder /> });
+const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
+
+interface Props {
+  cameras: FBCameraType[];
+  years: Dictionary<FBCameraType[]>;
+}
+
+const CamerasPage = ({ cameras, years }: Props) => {
+  if (cameras.length === 0) return null;
+
+  return (
+    <main>
+      <Top cameras={cameras} years={years} />
+      <CameraYears years={years} />
+    </main>
+  );
 };
 
 export default CamerasPage;

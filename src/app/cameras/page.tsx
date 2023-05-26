@@ -1,6 +1,9 @@
-import { getMetaData } from '@/app/sharedMetadata';
+import { groupBy } from 'lodash';
 
-export { default } from '@/containers/cameras';
+import Cameras from '@/containers/cameras';
+import { getCamerasDataApi } from '@/services/cameras';
+
+import { getMetaData } from '@/app/sharedMetadata';
 
 export const metadata = getMetaData({
   url: 'https://miriya.net/cameras',
@@ -9,3 +12,15 @@ export const metadata = getMetaData({
   imageUrl: 'https://miriya.net/images/cameras/og.jpg',
   keywords: ['DSLR', 'DSLT', 'MILC', 'camera', 'history', 'interchangable'],
 });
+
+export const revalidate = 3600;
+
+const CamerasPage = async () => {
+  const cameras = await getCamerasDataApi().then((res) => res.data);
+
+  const years = groupBy(cameras, 'year');
+
+  return <Cameras cameras={cameras} years={years} />;
+};
+
+export default CamerasPage;
