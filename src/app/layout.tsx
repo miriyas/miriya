@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import { Analytics } from '@vercel/analytics/react';
 
 import { Alert } from '@/components/Alert';
@@ -6,7 +7,6 @@ import Providers from './providers';
 import Header from './_common/Header';
 import Additional from './_common/Additional';
 import ScrollAid from './_common/ScrollAid';
-import Footer from './_common/Footer';
 import '@/styles/globals.scss';
 import { metadata as profileMetadata } from './profile/page';
 
@@ -17,6 +17,8 @@ export const metadata = {
     template: '%s | MIRIYA',
   },
 };
+
+const Footer = dynamic(() => import('./_common/Footer'), { ssr: false });
 
 interface Props {
   children: React.ReactNode;
