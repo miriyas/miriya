@@ -14,4 +14,10 @@ const AdminOnly = ({ children }: Props) => {
   return isAdmin ? children : null;
 };
 
+export const SupporterOnly = ({ children }: Props) => {
+  const { isAdmin, isSupporter } = useAuth();
+
+  return isAdmin || isSupporter ? children : null;
+};
+
 export default AdminOnly;

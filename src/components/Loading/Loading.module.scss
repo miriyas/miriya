@@ -1,5 +1,12 @@
 @use 'src/styles/mixins' as m;
 
+.loading,
+.loadingPage {
+  &.test {
+    background-color: var(--color-red);
+  }
+}
+
 .loading {
   @include m.flexbox(start, center);
   flex-direction: column;
