@@ -10,11 +10,6 @@
   overflow-y: auto;
   color: var(--color-gray-2);
 
-  &.loading {
-    align-items: center;
-    justify-content: center;
-  }
-
   @include m.after(SD) {
     flex-direction: row;
     font-size: 14px;

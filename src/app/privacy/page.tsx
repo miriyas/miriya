@@ -4,10 +4,10 @@ import { getPrivacyMarkdownApi } from '@/services/privacy';
 
 import styles from './Privacy.module.scss';
 
-export const revalidate = false;
-
 const PrivacyPage = async () => {
-  const data = await getPrivacyMarkdownApi().then((res) => res.data);
+  const data = await getPrivacyMarkdownApi()
+    .then((res) => res.data)
+    .catch(() => '');
 
   return (
     <main className={styles.privacy}>

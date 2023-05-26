@@ -1,8 +1,6 @@
-'use client';
-
 import dynamic from 'next/dynamic';
 
-import usePentax from '../usePentax';
+import { FBPentaxDslr } from '@/types/pentaxes.d';
 
 import Loading from '@/components/Loading';
 import styles from './index.module.scss';
@@ -15,9 +13,11 @@ const Contents = dynamic(() => import('./Contents'), {
   ),
 });
 
-const PentaxDSLRPage = () => {
-  const { dslrs } = usePentax();
+interface Props {
+  dslrs: FBPentaxDslr[];
+}
 
+const PentaxDSLRPage = ({ dslrs }: Props) => {
   return <Contents data={dslrs} />;
 };
 

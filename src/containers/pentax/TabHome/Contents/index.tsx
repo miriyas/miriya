@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 
 import { VERSION } from '@/constants/pentaxes';
@@ -8,7 +6,11 @@ import Navigation from './Navigation';
 import Desc from './Desc';
 import styles from './Contents.module.scss';
 
-const PentaxPage = () => {
+interface Props {
+  desc: string;
+}
+
+const PentaxContent = ({ desc }: Props) => {
   return (
     <div className={styles.contents}>
       <div className={styles.upper}>
@@ -19,9 +21,9 @@ const PentaxPage = () => {
         </div>
         <h1>Pentaxian Encyclopedia v{VERSION}</h1>
       </div>
-      <Desc />
+      <Desc desc={desc} />
     </div>
   );
 };
 
-export default PentaxPage;
+export default PentaxContent;

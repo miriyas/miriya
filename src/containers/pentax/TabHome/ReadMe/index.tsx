@@ -1,40 +1,15 @@
 /* eslint-disable react/no-danger */
-import cx from 'clsx';
-import { useQuery } from '@tanstack/react-query';
 
-import { getReadMeMarkdownApi } from '@/services/pentaxes';
-
-import Loading from '@/components/Loading';
 import styles from './ReadMe.module.scss';
 
-const ReadMe = () => {
-  const { data, isLoading, isError } = useQuery(['getReadMeMarkdownApi'], () =>
-    getReadMeMarkdownApi().then((res) => res.data),
-  );
+interface Props {
+  readMe: string;
+}
 
-  if (isLoading) {
-    return (
-      <div className={cx(styles.mdWrapper, styles.loading)}>
-        <div className={styles.loading}>
-          <Loading />
-        </div>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className={styles.mdWrapper}>
-        <div className={styles.error}>
-          <p>ERROR</p>
-        </div>
-      </div>
-    );
-  }
-
+const ReadMe = ({ readMe }: Props) => {
   return (
     <div className={styles.mdWrapper}>
-      <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: data }} />
+      <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: readMe }} />
     </div>
   );
 };
