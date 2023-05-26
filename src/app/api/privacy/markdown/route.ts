@@ -6,7 +6,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 const getPrivacy = () => {
-  const fullPath = join(process.cwd(), 'src/containers/privacy/PRIVACY.md');
+  const fullPath = join(process.cwd(), 'src/app/privacy/PRIVACY.md');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { content } = matter(fileContents);
 
