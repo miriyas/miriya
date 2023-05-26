@@ -1,6 +1,9 @@
-import { getMetaData } from '@/app/sharedMetadata';
+import { groupBy } from 'lodash';
 
-export { default } from '@/containers/idols';
+import Idols from '@/containers/idols';
+import { getIdolsDataApi, getIdolYearsDataApi } from '@/services/idols';
+
+import { getMetaData } from '@/app/sharedMetadata';
 
 export const metadata = getMetaData({
   url: 'https://miriya.net/idols',
@@ -9,3 +12,21 @@ export const metadata = getMetaData({
   imageUrl: 'https://miriya.net/images/idols/og.jpg',
   keywords: ['idols', 'korea', '한국', '아이돌'],
 });
+
+const IdolsPage = async () => {
+  const idols = await getIdolsDataApi()
+    .then((res) => res.data)
+    .catch(() => []);
+
+  const years = await getIdolYearsDataApi()
+    .then((res) => res.data)
+    .catch(() => []);
+
+  const debutYears = groupBy(idols, 'debutYear');
+  const yearStart = Math.min(...Object.keys(debutYears).map((year) => Number(year)));
+  const yearEnd = Math.max(...Object.keys(debutYears).map((year) => Number(year)));
+
+  return <Idols idols={idols} years={years} debutYears={debutYears} yearStart={yearStart} yearEnd={yearEnd} />;
+};
+
+export default IdolsPage;

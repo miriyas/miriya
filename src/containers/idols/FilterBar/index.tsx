@@ -1,3 +1,5 @@
+'use client';
+
 import { MouseEventHandler, useState, useTransition } from 'react';
 import cx from 'clsx';
 

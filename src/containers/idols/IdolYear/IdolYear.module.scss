@@ -21,6 +21,15 @@
     width: 292px;
     margin-top: 14px;
 
+    &.placeholder {
+      @include m.flexbox(between, start);
+      flex-wrap: wrap;
+
+      > li {
+        margin-bottom: 34px;
+      }
+    }
+
     @include m.after(320px) {
       // 2단
       width: 300px;

@@ -3,14 +3,11 @@
 import { useCallback, useEffect } from 'react';
 import cx from 'clsx';
 
-import useAuth from '@/hooks/useAuth';
 import { useResponsive } from '@/hooks/useResponsive';
-import { ROLE } from '@/types/auth.d';
 import { FBIdolType } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { getIsotopeOptions } from '@/utils/idols';
 
-import IdolNew from './IdolCard/Editor/New';
 import IdolCard from './IdolCard';
 import styles from './IdolYear.module.scss';
 
@@ -20,10 +17,13 @@ interface Props {
   yearDesc: string;
 }
 
+if (typeof window !== 'undefined' && !window.isotopes) {
+  window.isotopes = {};
+}
+
 const IdolYear = (props: Props) => {
   const { idols, year, yearDesc } = props;
 
-  const { user } = useAuth();
   const { isMobile } = useResponsive();
 
   useEffect(() => {
@@ -39,8 +39,6 @@ const IdolYear = (props: Props) => {
     }, 100); // NOTE: covers transition duration
   }, [isMobile, year]);
 
-  const showNew = user && (user.role === ROLE.ADMIN || user.role === ROLE.SUPPORTER);
-
   return (
     <li id={`idol-year-${year}`} className={styles.idolYear}>
       <div className={styles.title} title={`${year}년에 데뷔한 아이돌 수는 ${idols.length}개`}>
@@ -54,7 +52,6 @@ const IdolYear = (props: Props) => {
         </div>
       )}
       <ul className={cx(styles.idols, `grid-${year}`)}>
-        {showNew && <IdolNew year={year} />}
         {idols.map((idol) => {
           return <IdolCard key={`${idol.name}-${idol.debutYear}`} idol={idol} sort={sort} />;
         })}

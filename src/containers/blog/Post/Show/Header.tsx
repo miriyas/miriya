@@ -4,6 +4,7 @@
 
 import cx from 'clsx';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import Clipboard from 'react-clipboard.js';
 import { useRafState, useUnmount } from 'react-use';
 import { useMemo } from 'react';
@@ -11,8 +12,9 @@ import { useMemo } from 'react';
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 import { getTimeDiffText } from '@/utils/date';
 
-import AdminOnly from '@/components/AdminOnly';
 import styles from './Header.module.scss';
+
+const AdminOnly = dynamic(() => import('@/components/AdminOnly'), { ssr: false });
 
 interface Props {
   categories: FBBlogCategory[];

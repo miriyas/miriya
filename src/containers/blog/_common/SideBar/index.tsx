@@ -6,11 +6,12 @@ import dynamic from 'next/dynamic';
 
 import { FBBlogCategory } from '@/types/blog.d';
 
-import AdminOnly from '@/components/AdminOnly';
 import Loading from '@/components/Loading';
 import Profile from './Profile';
 import Categories from './Categories';
 import styles from './index.module.scss';
+
+const AdminOnly = dynamic(() => import('@/components/AdminOnly'), { ssr: false });
 
 const RecentPosts = dynamic(() => import('./RecentPosts'), {
   ssr: false,
