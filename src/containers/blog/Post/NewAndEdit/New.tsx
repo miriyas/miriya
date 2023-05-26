@@ -1,19 +1,34 @@
 'use client';
 
+import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
-import Loading from '@/components/Loading';
-import styles from './Form/index.module.scss';
+import useAuth from '@/hooks/useAuth';
+import { postBlogPostAPI } from '@/services/blog';
+import { FBBlogCategory } from '@/types/blog.d';
 
-const NewContent = dynamic(() => import('./NewContent'), {
+import LoadingPage from '@/components/Loading/LoadingPage';
+
+const Form = dynamic(() => import('./Form'), {
   ssr: false,
-  loading: () => (
-    <div className={styles.listLoading}>
-      <Loading />
-    </div>
-  ),
+  loading: () => <LoadingPage />,
 });
 
-const BlogNewPage = () => <NewContent />;
+interface Props {
+  categories: FBBlogCategory[];
+}
 
-export default BlogNewPage;
+const NewContent = ({ categories }: Props) => {
+  const { isAdmin, isLoadingMe } = useAuth();
+
+  if (!isAdmin && !isLoadingMe) notFound();
+
+  return (
+    <Suspense fallback={<LoadingPage />}>
+      <Form categories={categories} onSubmit={postBlogPostAPI} />
+    </Suspense>
+  );
+};
+
+export default NewContent;

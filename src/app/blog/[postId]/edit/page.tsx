@@ -1,7 +1,7 @@
 'use client';
 
 import BlogEdit from '@/containers/blog/Post/NewAndEdit/Edit';
-import { getBlogPostsAPI } from '@/services/blog';
+import { getBlogCategoriesAPI, getBlogPostAPI, getBlogPostsAPI } from '@/services/blog';
 
 export async function generateStaticParams() {
   const posts = await getBlogPostsAPI().then((res) => res.data);
@@ -17,9 +17,11 @@ interface Props {
   };
 }
 
-const BlogEditPage = async (props: Props) => {
-  if (!props) return null;
-  return <BlogEdit postId={props.params.postId} />;
+const BlogEditPage = async ({ params: { postId } }: Props) => {
+  if (!postId) return null;
+  const postData = await getBlogPostAPI(postId).then((res) => res.data);
+  const categories = await getBlogCategoriesAPI().then((res) => res.data);
+  return <BlogEdit postData={postData} categories={categories} />;
 };
 
 export default BlogEditPage;
