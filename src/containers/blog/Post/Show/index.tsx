@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 import CategoriesBar from '@/containers/blog/_common/SideBar';
+import { imageOptimize } from '../utils';
 
 import Loading from '@/components/Loading';
 import Header from './Header';
@@ -42,7 +43,7 @@ const BlogShowPage = ({ categories, postData }: Props) => {
         <div className={styles.wingWrapper}>
           <article>
             <Header postData={postData} categories={categories} />
-            <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }} />
+            <div className={styles.body} dangerouslySetInnerHTML={{ __html: imageOptimize(body) }} />
             <Comments targetId={id} targetName={title} />
           </article>
           <CategoriesBar categories={categories} currentCategory={category} />

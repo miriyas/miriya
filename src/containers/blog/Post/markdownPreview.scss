@@ -51,6 +51,7 @@
   ol {
     padding-left: 32px;
     margin-bottom: 24px;
+    font-size: 14px;
   }
 
   li {
@@ -106,8 +107,8 @@
     margin: 24px 0;
     font-size: 14px;
     line-height: 22px;
-    background-color: rgba(var(--color-red-rgb), 0.1);
-    border: 1px dashed var(--color-red);
+    background-color: rgba(var(--color-red-rgb), 0.03);
+    border: 1px dashed rgba(var(--color-red-rgb), 0.5);
   }
 
   blockquote {

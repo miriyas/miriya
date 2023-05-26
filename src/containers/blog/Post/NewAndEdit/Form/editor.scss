@@ -647,6 +647,7 @@ span.CodeMirror-selectedtext {
   font-size: 12px;
   color: #959694;
   text-align: right;
+  user-select: none;
 }
 
 .EasyMDEContainer.sided--no-fullscreen .editor-statusbar {

@@ -8,6 +8,7 @@ import { useAtom } from 'jotai';
 
 import { uploadImageAPI } from '@/services/s3';
 import { renderMarkdown } from '@/utils/blog';
+import { imageOptimize } from '../../utils';
 import { bodyAtom } from './states';
 
 import { OPTIONS } from './editorOptions';
@@ -66,7 +67,7 @@ const Editor = () => {
       {uploading && <div className={styles.uploading}>업로드중..</div>}
       <SimpleMdeReact className={styles.editor} value={body} onChange={onChangeBody} options={OPTIONS} />
       <div className={styles.previewWrapper}>
-        <div className={styles.preview} id='previewData' dangerouslySetInnerHTML={{ __html: preview }} />
+        <div className={styles.preview} id='previewData' dangerouslySetInnerHTML={{ __html: imageOptimize(preview) }} />
       </div>
     </div>
   );
