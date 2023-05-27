@@ -1,0 +1,80 @@
+@use 'src/styles/mixins' as m;
+
+.categoryRelated {
+  padding: 24px 14px 14px;
+  margin-top: 100px;
+  border: 1px solid var(--color-gray-d);
+
+  .header {
+    margin-bottom: 14px;
+    font-size: 16px;
+  }
+
+  ul {
+    @include m.flexbox(start, start);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  li {
+    position: relative;
+    width: calc((100% - 8px - 8px) / 3);
+    height: 180px;
+    overflow: hidden;
+    border-radius: 4px;
+
+    &.heroLess {
+      border: 1px solid var(--color-gray-9);
+    }
+
+    a {
+      &:hover {
+        img {
+          transform: scale(105%);
+          transform-origin: center;
+        }
+
+        .content {
+          background-color: rgba(var(--color-black-rgb), 0.5);
+          backdrop-filter: none;
+
+          p {
+            white-space: normal;
+          }
+        }
+      }
+
+      img {
+        transition: 200ms;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      @include m.flexbox;
+      @include m.middleBox;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 8px 14px;
+      text-align: center;
+      background-color: rgba(var(--color-black-rgb), 0.4);
+      backdrop-filter: blur(2px);
+      transition: 200ms;
+
+      p {
+        @include m.textEllipsis;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-white);
+      }
+
+      time {
+        margin-left: 8px;
+        font-size: 11px;
+        color: var(--color-white);
+      }
+    }
+  }
+}

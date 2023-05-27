@@ -92,28 +92,21 @@
     }
 
     .targetName {
+      @include m.textEllipsis;
       width: 80px;
-      overflow: hidden;
       color: var(--color-black);
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
 
     .body {
+      @include m.textEllipsis;
       flex: 1;
-      overflow: hidden;
       color: var(--color-black);
-      text-overflow: ellipsis;
-      word-wrap: break-word;
-      white-space: nowrap;
     }
 
     .name {
+      @include m.textEllipsis;
       width: 70px;
-      overflow: hidden;
       color: var(--color-cy-6);
-      text-overflow: ellipsis;
-      white-space: nowrap;
 
       &.isFake {
         color: var(--color-gray-7);

@@ -63,12 +63,10 @@
       }
 
       a {
-        overflow: hidden;
+        @include m.textEllipsis;
         font-size: 12px;
         color: var(--color-gray-4);
         text-decoration: underline;
-        text-overflow: ellipsis;
-        white-space: nowrap;
       }
     }
   }

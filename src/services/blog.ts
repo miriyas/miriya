@@ -4,8 +4,8 @@ import { Comment } from '@/types/comments.d';
 
 // 글
 
-export const getBlogPostsAPI = (categoryId?: string) =>
-  apiClient<FBBlogPost[]>('/blog/posts', { params: { categoryId } });
+export const getBlogPostsAPI = (categoryId?: string, limitCount?: number) =>
+  apiClient<FBBlogPost[]>('/blog/posts', { params: { categoryId, limitCount } });
 
 export const getBlogPostAPI = (postId: string) => apiClient<FBBlogPost>(`/blog/posts/${postId}`);
 

@@ -45,3 +45,11 @@
     border-radius: 2px;
   }
 }
+
+@mixin textEllipsis {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: nowrap;
+}

@@ -48,12 +48,9 @@
       }
 
       .commentBody {
-        overflow: hidden;
+        @include m.textEllipsis;
         font-size: 12px;
         line-height: 16px;
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-        white-space: nowrap;
       }
     }
   }

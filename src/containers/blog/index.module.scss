@@ -93,6 +93,13 @@
       @include m.flexbox;
       gap: 14px;
 
+      &:hover {
+        .hero img {
+          transform: scale(110%);
+          transform-origin: center;
+        }
+      }
+
       .hero {
         position: relative;
         width: 240px;
@@ -102,6 +109,7 @@
 
         img {
           object-fit: cover;
+          transition: 200ms;
         }
       }
 

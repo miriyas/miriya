@@ -15,6 +15,8 @@ const Comments = dynamic(() => import('./Comments'), {
   loading: () => <Loading />,
 });
 
+const CategoryRelated = dynamic(() => import('./CategoryRelated'), { ssr: false });
+
 interface Props {
   categories: FBBlogCategory[];
   postData: FBBlogPost;
@@ -44,6 +46,7 @@ const BlogShowPage = ({ categories, postData }: Props) => {
           <article>
             <Header postData={postData} categories={categories} />
             <div className={styles.body} dangerouslySetInnerHTML={{ __html: bodyProcess(body) }} />
+            <CategoryRelated postData={postData} categories={categories} />
             <Comments targetId={id} targetName={title} />
           </article>
           <CategoriesBar categories={categories} currentCategory={category} />

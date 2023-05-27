@@ -144,13 +144,10 @@
 
       p,
       a {
-        overflow: hidden;
+        @include m.textEllipsis;
         font-size: 12px;
         line-height: 14px;
         color: var(--color-gray-4);
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-        white-space: nowrap;
       }
 
       a {
