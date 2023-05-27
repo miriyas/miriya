@@ -6,6 +6,22 @@ import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import rehypeHighlight from 'rehype-highlight';
 
+const processYoutube = (raw: string) => {
+  let processed = raw;
+  const regex = /(?:{{youtube\|(.+?)}})/g;
+  const matchedArray = [...processed.matchAll(regex)];
+  matchedArray.forEach((arr) => {
+    const original = arr[0];
+    const id = arr[1];
+    processed = processed.replace(
+      original,
+      `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen=""></iframe>`,
+    );
+  });
+
+  return processed;
+};
+
 export const renderMarkdown = async (mdText: string) => {
   const body = await (
     await unified()
@@ -15,7 +31,8 @@ export const renderMarkdown = async (mdText: string) => {
       .use(rehypeRaw)
       .use(rehypeHighlight, { ignoreMissing: true })
       .use(rehypeStringify)
-      .processSync(mdText)
+      .process(mdText)
+      .then((txt) => processYoutube(String(txt)))
   ).toString();
   return body;
 };
