@@ -1,8 +1,13 @@
 import axios, { AxiosError } from 'axios';
 
-export const fetchClient = (url: string, tags?: string[]) =>
+interface FetchProps {
+  tags?: string[];
+  revalidate?: number;
+}
+
+export const fetchClient = (url: string, options?: FetchProps) =>
   fetch(`${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api${url}`, {
-    next: { revalidate: 60 * 60 * 10, tags }, // 1시간 캐시
+    next: { revalidate: options?.revalidate ?? 60 * 60 * 10, tags: options?.tags }, // 1시간 캐시
   });
 
 const apiClient = axios.create({
