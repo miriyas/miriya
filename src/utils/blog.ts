@@ -13,7 +13,7 @@ export const renderMarkdown = async (mdText: string) => {
       .use(remarkGfm) // Github 문법
       .use(remark2rehype, { allowDangerousHtml: true }) // remark to rehype
       .use(rehypeRaw)
-      .use(rehypeHighlight)
+      .use(rehypeHighlight, { ignoreMissing: true })
       .use(rehypeStringify)
       .processSync(mdText)
   ).toString();
