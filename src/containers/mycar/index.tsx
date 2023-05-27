@@ -8,6 +8,7 @@ import Link from 'next/link';
 import useMyCar from './useMyCar';
 import { currentCarAtom, metricKmAtom } from './states';
 import useAuth from '@/hooks/useAuth';
+import { getCDNImage } from '@/utils/image';
 
 import Loading from '@/components/Loading';
 import Top from './Top';
@@ -79,7 +80,7 @@ const MyCarPage = ({ carId }: Props) => {
       <Top cars={cars} carId={carId} />
       <div className={styles.headerWrapper}>
         <HeroHeader
-          imageUrl={`${process.env.NEXT_PUBLIC_CDN_URL}/${targetCar.imageUrl}`}
+          imageUrl={getCDNImage(targetCar.imageUrl)}
           name={targetCar.name}
           vin={targetCar.vin}
           maker={targetCar.maker}

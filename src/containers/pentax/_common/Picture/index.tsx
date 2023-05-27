@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { cameraId } from '@/utils/cameras';
 import { FBPentaxSlr, FBPentaxDslr } from '@/types/pentaxes';
+import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
 
 import styles from './Picture.module.scss';
 
@@ -21,7 +22,7 @@ const Picture = ({ selectedCamera, baseUrl }: Props) => {
     );
 
   const id = cameraId('pentax', selectedCamera.name);
-  const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/pentaxes/${baseUrl}/${id}.jpg`;
+  const imageUrl = getCDNImage(`pentaxes/${baseUrl}/${id}.jpg`);
 
   return (
     <div className={styles.pictureWrapper}>
@@ -32,6 +33,7 @@ const Picture = ({ selectedCamera, baseUrl }: Props) => {
           width={280}
           height={280}
           blurDataURL='/images/cameras/placeholder.png'
+          loader={imageLoaderDo2Ik}
           placeholder='blur'
           priority
         />

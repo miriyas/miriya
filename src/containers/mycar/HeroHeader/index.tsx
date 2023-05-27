@@ -3,6 +3,8 @@
 import cx from 'clsx';
 import Image from 'next/image';
 
+import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
+
 import styles from './index.module.scss';
 
 interface Props {
@@ -16,7 +18,7 @@ interface Props {
 }
 
 const HeroHeader = ({ imageUrl, name, vin, maker, lineup, owner, preview }: Props) => {
-  const sampleUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/mycar/sample.jpg`;
+  const sampleUrl = getCDNImage('mycar/sample.jpg');
   return (
     <div className={cx(styles.heroHeader, { [styles.preview]: preview })}>
       <div className={styles.thisIsPreview}>미리보기</div>
@@ -28,7 +30,7 @@ const HeroHeader = ({ imageUrl, name, vin, maker, lineup, owner, preview }: Prop
         <p className={styles.vin}>{vin}</p>
         <p className={styles.owner}>{owner}</p>
       </div>
-      <Image src={imageUrl ?? sampleUrl} alt='' fill className={styles.hero} unoptimized />
+      <Image src={imageUrl ?? sampleUrl} alt='' fill className={styles.hero} loader={imageLoaderDo2Ik} />
     </div>
   );
 };

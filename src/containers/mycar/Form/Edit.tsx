@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import useEdit from './useEdit';
 import useAuth from '@/hooks/useAuth';
 import { FBMyCar } from '@/types/mycar.d';
+import { getCDNImage } from '@/utils/image';
 
 import Loading from '@/components/Loading';
 import HeroHeader from '../HeroHeader';
@@ -41,7 +42,7 @@ const EditForm = ({ currentCar }: Props) => {
     <div className={styles.wrapper}>
       <p className={styles.title}>수정</p>
       <HeroHeader
-        imageUrl={previewUrl ?? `${process.env.NEXT_PUBLIC_CDN_URL}/${currentCar.imageUrl}`}
+        imageUrl={previewUrl ?? getCDNImage(currentCar.imageUrl)}
         name={watchName === '' ? '차량 별명' : watchName}
         vin={watchVin === '' ? '차대 번호' : watchVin}
         maker={watchMaker === '' ? '제조사' : watchMaker}

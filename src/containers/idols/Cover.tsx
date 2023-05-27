@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useAtomValue } from 'jotai';
 
 import { coverIdolAtom } from '@/containers/idols/states';
+import { getCDNImage } from '@/utils/image';
 
 import styles from './index.module.scss';
 
@@ -15,7 +16,7 @@ const Cover = () => {
     if (!coverRef.current || !id) return;
 
     const coverNode = document.createElement('div');
-    coverNode.setAttribute('style', `background-image: url(${process.env.NEXT_PUBLIC_CDN_URL}/idols/${id}.jpg)`);
+    coverNode.setAttribute('style', `background-image: url(${getCDNImage(`idols/${id}.jpg`)})`);
 
     coverRef.current.appendChild(coverNode);
     coverRef.current.children[0].setAttribute('class', styles.off);

@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import { CameraType } from '@/types/cameras.d';
 import { cameraId } from '@/utils/cameras';
+import { imageLoaderDo2Ik } from '@/utils/image';
 
 import styles from './Image.module.scss';
 
@@ -24,6 +25,7 @@ const DataImage = (props: Props) => {
         width={140}
         height={140}
         blurDataURL='/images/cameras/placeholder.png'
+        loader={imageLoaderDo2Ik}
         placeholder='blur'
       />
       <div className={styles.shadow} />

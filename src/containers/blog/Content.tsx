@@ -7,6 +7,7 @@ import { Suspense } from 'react';
 
 import useBlog from './useBlog';
 import { getTimeDiffText } from '@/utils/date';
+import { imageLoaderDo2Ik } from '@/utils/image';
 
 import CategoriesBar from './_common/SideBar';
 import styles from './index.module.scss';
@@ -43,7 +44,7 @@ const BlogPageContent = ({ categoryId }: Props) => {
                       <Link href={`/blog/${post.id}`}>
                         {post.hero && (
                           <div className={styles.hero}>
-                            <Image src={post.hero} width={240} height={160} alt='' />
+                            <Image src={post.hero} width={240} height={160} alt='' loader={imageLoaderDo2Ik} />
                           </div>
                         )}
                         <div className={styles.content}>
