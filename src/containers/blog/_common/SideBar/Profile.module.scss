@@ -40,4 +40,28 @@
     font-size: 12px;
     line-height: 18px;
   }
+
+  .info {
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--color-gray-4);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &::after {
+      position: absolute;
+      top: 1px;
+      right: -7px;
+      width: 0;
+      height: 0;
+      content: '';
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid var(--color-gray-4);
+    }
+  }
 }

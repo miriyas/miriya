@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from './Profile.module.scss';
 
@@ -15,10 +16,14 @@ const Profile = () => {
         <p className={styles.nickname}>MIRIYA</p>
       </div>
       <p className={styles.ment}>
-        입은 닫고,
+        입은 닫고, 지갑은 열고.
         <br />
-        지갑은 열고
+        나는 먼지다, 맨날 코딩하자.
+        <br />
       </p>
+      <Link href='/blog/bVVTtqMorvSG9HMmTbE0' className={styles.info}>
+        블로그 소개
+      </Link>
     </div>
   );
 };
