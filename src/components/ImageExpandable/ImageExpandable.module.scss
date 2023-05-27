@@ -12,7 +12,8 @@
     &::before {
       @include m.fixed(0 0 0 0);
       content: '';
-      background-color: var(--color-black);
+      background-color: rgba(var(--color-black-rgb), 0.7);
+      backdrop-filter: blur(2px);
     }
 
     summary {
