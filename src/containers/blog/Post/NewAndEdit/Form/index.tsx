@@ -71,7 +71,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
     )
       .then((res) => {
         revalidateApi(`/blog/${res.data.postId}`).then(() => {
-          router.push(`/blog/${res.data.postId}`);
+          router.replace(`/blog/${res.data.postId}`);
         });
       })
       .finally(() => {
