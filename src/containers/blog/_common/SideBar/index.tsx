@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic';
 
 import { FBBlogCategory } from '@/types/blog.d';
 
+import { IconRSS } from 'public/svgs';
+import ExternalLink from '@/components/ExternalLink';
 import Loading from '@/components/Loading';
 import Profile from './Profile';
 import Categories from './Categories';
@@ -54,6 +56,10 @@ const SideBar = ({ categories, currentCategory }: Props) => {
         <Categories categories={categories} currentCategory={currentCategory} />
         <RecentPosts />
         <RecentComments />
+        <ExternalLink href='/api/blog/rss' className={styles.rss}>
+          <IconRSS />
+          <p>RSS FEED</p>
+        </ExternalLink>
       </aside>
     </Suspense>
   );

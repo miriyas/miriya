@@ -10,6 +10,7 @@ import IconChevronRight from './chevron-right.svg';
 import IconProviderFacebook from './provider-facebook.svg';
 import IconProviderGithub from './provider-github.svg';
 import IconProviderGoogle from './provider-google.svg';
+import IconRSS from './rss.svg';
 
 export {
   IconInfo,
@@ -24,4 +25,5 @@ export {
   IconProviderFacebook,
   IconProviderGithub,
   IconProviderGoogle,
+  IconRSS,
 };

@@ -159,6 +159,28 @@
     }
   }
 
+  .rss {
+    @include m.flexbox(start, center);
+    gap: 4px;
+    align-self: flex-start;
+    padding: 3px 4px;
+    margin-left: 14px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--color-white);
+    background-image: linear-gradient(#f68924, #e66923);
+    border-radius: 2px;
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    p {
+      padding-top: 1px;
+    }
+  }
+
   @include m.before(MD) {
     display: none;
   }
