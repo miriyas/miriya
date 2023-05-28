@@ -12,68 +12,100 @@
 
   ul {
     @include m.flexbox(start, start);
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 8px;
+
+    @include m.after(SD) {
+      flex-flow: row wrap;
+    }
   }
 
   li {
-    position: relative;
-    width: calc((100% - 8px - 8px) / 3);
-    height: 180px;
-    overflow: hidden;
-    border-radius: 4px;
-
-    &.heroLess {
-      border: 1px solid var(--color-gray-9);
-    }
+    width: 100%;
 
     a {
-      &:hover {
-        img {
-          transform: scale(105%);
-          transform-origin: center;
-        }
-
-        .content {
-          background-color: rgba(var(--color-black-rgb), 0.5);
-          backdrop-filter: none;
-
-          p {
-            white-space: normal;
-          }
-        }
-      }
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
 
       img {
-        transition: 200ms;
-        object-fit: cover;
+        display: none;
       }
     }
 
     .content {
       @include m.flexbox;
-      @include m.middleBox;
       flex-direction: column;
       width: 100%;
       height: 100%;
-      padding: 8px 14px;
-      text-align: center;
-      background-color: rgba(var(--color-black-rgb), 0.4);
-      backdrop-filter: blur(2px);
-      transition: 200ms;
 
       p {
         @include m.textEllipsis;
         display: inline-block;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 24px;
-        color: var(--color-white);
+        color: var(--color-gray-4);
       }
 
       time {
-        margin-left: 8px;
-        font-size: 11px;
-        color: var(--color-white);
+        display: none;
+      }
+    }
+
+    @include m.after(SD) {
+      width: calc((100% - 8px - 8px) / 3);
+      height: 180px;
+      overflow: hidden;
+      border-radius: 4px;
+
+      &.heroLess {
+        border: 1px solid var(--color-gray-9);
+      }
+
+      a {
+        &:hover {
+          .content {
+            background-color: rgba(var(--color-black-rgb), 0.5);
+            backdrop-filter: none;
+
+            p {
+              white-space: normal;
+            }
+          }
+
+          img {
+            transform: scale(105%);
+            transform-origin: center;
+          }
+        }
+
+        img {
+          display: block;
+          transition: 200ms;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        @include m.middleBox;
+        padding: 8px 14px;
+        text-align: center;
+        background-color: rgba(var(--color-black-rgb), 0.4);
+        backdrop-filter: blur(2px);
+        transition: 200ms;
+
+        p {
+          font-size: 16px;
+          color: var(--color-white);
+        }
+
+        time {
+          display: block;
+          margin-left: 8px;
+          font-size: 11px;
+          color: var(--color-white);
+        }
       }
     }
   }

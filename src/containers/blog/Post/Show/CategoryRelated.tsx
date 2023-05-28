@@ -8,6 +8,7 @@ import cx from 'clsx';
 import { getBlogPostsAPI } from '@/services/blog';
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 import { getTimeDiffText } from '@/utils/date';
+import { imageLoaderDo2Ik } from '@/utils/image';
 
 import styles from './CategoryRelated.module.scss';
 
@@ -35,7 +36,15 @@ const CategoryRelated = ({ categories, postData }: Props) => {
           return (
             <li key={post.id} className={cx({ [styles.heroLess]: !post.hero })}>
               <Link href={`/blog/${post.id}`}>
-                {post.hero && <Image src={post.hero} fill alt={post.title} />}
+                {post.hero && (
+                  <Image
+                    src={post.hero}
+                    fill
+                    alt={post.title}
+                    loader={imageLoaderDo2Ik}
+                    sizes='(max-width: 240px) 100vw'
+                  />
+                )}
                 <div className={styles.content}>
                   <p>{post.title}</p>
                   <time>({getTimeDiffText(post.createdAt.seconds, true)})</time>
