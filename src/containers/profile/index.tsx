@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+// import { useMount } from 'react-use';
+
+// import { batchUpdateApi } from '@/services/apiClient';
 
 import ExternalLink from '@/components/ExternalLink';
 import ImageAlbum from '@/components/ImageAlbum';
