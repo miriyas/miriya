@@ -7,6 +7,11 @@
     color: var(--color-black);
   }
 
+  ::selection {
+    color: var(--color-white);
+    background-color: var(--color-em);
+  }
+
   em {
     color: var(--color-em);
   }
