@@ -1,0 +1,14 @@
+@use 'src/styles/mixins' as m;
+
+.tabGuestbook {
+  .comments {
+    position: relative;
+  }
+
+  .viewMore {
+    @include m.absolute(auto 0 0 0);
+    width: 100%;
+    height: 10px;
+    touch-action: none;
+  }
+}

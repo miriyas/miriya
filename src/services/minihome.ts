@@ -13,7 +13,11 @@ export const getMinihomRightCounterDataAPI = (category: string) =>
     total: number;
   }>('/minihome/rightCounter', { params: { category } });
 
-export const getGuestbookDataAPI = (after?: string) => apiClient<Comment[]>(`/minihome/guestbook?after=${after}`);
+export const getGuestbookDataAPI = (after?: string) => {
+  const searchParams = new URLSearchParams();
+  if (after) searchParams.set('after', after);
+  return apiClient<Comment[]>(`/minihome/guestbook?${searchParams}`);
+};
 
 export const getMinihomeCommentDataAPI = (category: string, limitCount: number) =>
   apiClient<Comment[]>('/minihome/comments', { params: { category, limitCount } });
