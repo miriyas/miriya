@@ -21,7 +21,7 @@ const Comments = () => {
     ({ pageParam }) => getGuestbookDataAPI(pageParam).then((res) => res.data),
     {
       retry: 0,
-      getNextPageParam: (lastPage) => lastPage[lastPage.length - 1].id,
+      getNextPageParam: (lastPage) => lastPage.nextCursor,
     },
   );
 
@@ -46,7 +46,7 @@ const Comments = () => {
         const key = `frag-${i}`;
         return (
           <Fragment key={key}>
-            {page.map((comment) => {
+            {page.items.map((comment) => {
               return <CommentItem key={comment.id} comment={comment} />;
             })}
           </Fragment>

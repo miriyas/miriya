@@ -1,3 +1,5 @@
+import { Comment } from '@/types/comments.d';
+
 export const RECENT_CATEGORIES = {
   IDOLS: '아이돌',
   CAMERA: '카메라',
@@ -25,4 +27,9 @@ export interface GADataRow {
 export interface CounterData {
   total: number[];
   today: number[];
+}
+
+export interface Guestbook {
+  items: Comment[];
+  nextCursor?: string;
 }

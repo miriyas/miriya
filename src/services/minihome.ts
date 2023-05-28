@@ -1,6 +1,6 @@
 import apiClient from '@/services/apiClient';
 import { Comment, NewComment } from '@/types/comments.d';
-import { GADataRow } from '@/types/minihome.d';
+import { GADataRow, Guestbook } from '@/types/minihome.d';
 
 export const getGAdataAPI = () => apiClient<GADataRow[]>('https://us-central1-miriyas.cloudfunctions.net/getGAdata');
 
@@ -13,10 +13,10 @@ export const getMinihomRightCounterDataAPI = (category: string) =>
     total: number;
   }>('/minihome/rightCounter', { params: { category } });
 
-export const getGuestbookDataAPI = (after?: string) => {
+export const getGuestbookDataAPI = (nextCursor?: string) => {
   const searchParams = new URLSearchParams();
-  if (after) searchParams.set('after', after);
-  return apiClient<Comment[]>(`/minihome/guestbook?${searchParams}`);
+  if (nextCursor) searchParams.set('nextCursor', nextCursor);
+  return apiClient<Guestbook>(`/minihome/guestbook?${searchParams}`);
 };
 
 export const getMinihomeCommentDataAPI = (category: string, limitCount: number) =>
