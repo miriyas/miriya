@@ -39,18 +39,19 @@ export async function generateStaticParams() {
 }
 
 const BlogShowPage = async ({ params: { postId } }: Props) => {
-  const categories = await getBlogCategoriesAPI().then((res) => res.data);
+  const categoriesData = getBlogCategoriesAPI().then((res) => res.data);
   let postData;
   try {
-    postData = await getPost(postId);
+    postData = getPost(postId);
   } catch (error) {
     if (error instanceof Error) {
       if (error.message === 'Not Found') notFound();
     }
   }
+  const [post, categories] = await Promise.all([postData, categoriesData]);
 
-  if (!postData) notFound();
-  return <BlogShow categories={categories} postData={postData} />;
+  if (!post) notFound();
+  return <BlogShow categories={categories} postData={post} />;
 };
 
 export default BlogShowPage;

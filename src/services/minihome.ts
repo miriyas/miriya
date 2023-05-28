@@ -13,7 +13,7 @@ export const getMinihomRightCounterDataAPI = (category: string) =>
     total: number;
   }>('/minihome/rightCounter', { params: { category } });
 
-export const getGuestbookDataAPI = () => apiClient<Comment[]>('/minihome/guestbook');
+export const getGuestbookDataAPI = (after?: string) => apiClient<Comment[]>(`/minihome/guestbook?after=${after}`);
 
 export const getMinihomeCommentDataAPI = (category: string, limitCount: number) =>
   apiClient<Comment[]>('/minihome/comments', { params: { category, limitCount } });

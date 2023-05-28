@@ -14,14 +14,15 @@ export const metadata = getMetaData({
 });
 
 const IdolsPage = async () => {
-  const idols = await getIdolsDataApi()
+  const idolsData = getIdolsDataApi()
     .then((res) => res.data)
     .catch(() => []);
 
-  const years = await getIdolYearsDataApi()
+  const yearsData = getIdolYearsDataApi()
     .then((res) => res.data)
     .catch(() => []);
 
+  const [idols, years] = await Promise.all([idolsData, yearsData]);
   const debutYears = groupBy(idols, 'debutYear');
   const yearStart = Math.min(...Object.keys(debutYears).map((year) => Number(year)));
   const yearEnd = Math.max(...Object.keys(debutYears).map((year) => Number(year)));

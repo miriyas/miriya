@@ -19,9 +19,10 @@ interface Props {
 
 const BlogEditPage = async ({ params: { postId } }: Props) => {
   if (!postId) return null;
-  const postData = await getBlogPostAPI(postId).then((res) => res.data);
-  const categories = await getBlogCategoriesAPI().then((res) => res.data);
-  return <BlogEdit postData={postData} categories={categories} />;
+  const postData = getBlogPostAPI(postId).then((res) => res.data);
+  const categoriesData = getBlogCategoriesAPI().then((res) => res.data);
+  const [post, categories] = await Promise.all([postData, categoriesData]);
+  return <BlogEdit postData={post} categories={categories} />;
 };
 
 export default BlogEditPage;
