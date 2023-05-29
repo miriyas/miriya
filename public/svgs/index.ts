@@ -11,6 +11,7 @@ import IconProviderFacebook from './provider-facebook.svg';
 import IconProviderGithub from './provider-github.svg';
 import IconProviderGoogle from './provider-google.svg';
 import IconRSS from './rss.svg';
+import IconSearch from './search.svg';
 
 export {
   IconInfo,
@@ -26,4 +27,5 @@ export {
   IconProviderGithub,
   IconProviderGoogle,
   IconRSS,
+  IconSearch,
 };

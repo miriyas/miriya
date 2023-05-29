@@ -9,6 +9,7 @@ import { FBBlogCategory } from '@/types/blog.d';
 import { IconRSS } from 'public/svgs';
 import ExternalLink from '@/components/ExternalLink';
 import Loading from '@/components/Loading';
+import Search from './Search';
 import Profile from './Profile';
 import Categories from './Categories';
 import styles from './index.module.scss';
@@ -42,6 +43,7 @@ const SideBar = ({ categories, currentCategory }: Props) => {
       }
     >
       <aside className={styles.sideBar}>
+        <Search />
         <Profile />
         <AdminOnly>
           <div className={styles.admin}>

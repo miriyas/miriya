@@ -1,0 +1,17 @@
+@use 'src/styles/mixins' as m;
+
+.search {
+  flex-shrink: 0;
+  width: 100%;
+  height: 24px;
+  margin: 8px 0 -24px;
+  border: 1px solid var(--color-gray-8);
+  border-radius: 2px;
+
+  input {
+    @include m.flexbox;
+    height: 100%;
+    padding: 0 4px;
+    font-size: 12px;
+  }
+}

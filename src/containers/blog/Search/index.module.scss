@@ -1,0 +1,223 @@
+/* stylelint-disable selector-class-pattern */
+@use 'src/styles/mixins' as m;
+
+.blogSearchPage {
+  background-color: var(--color-blog-bg);
+
+  .centering {
+    width: 100%;
+    max-width: var(--w-blog-center);
+    padding: 7px;
+    overflow: hidden;
+    background-color: var(--color-white);
+    border-radius: 2px;
+
+    .hero {
+      width: 100%;
+      height: 368px;
+      margin-bottom: 7px;
+      overflow: hidden;
+      border: 1px solid var(--color-gray-c);
+      border-radius: 2px;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @include m.before(SD) {
+    padding: 0;
+
+    .centering {
+      flex-direction: column;
+      gap: 14px;
+      padding: 0;
+
+      .hero {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .wingWrapper {
+    @include m.flexbox(center, normal);
+
+    .searchWing {
+      flex-shrink: 0;
+      width: 100%;
+      padding: 14px;
+    }
+
+    @include m.after(SD) {
+      .searchWing {
+        border: 1px dashed var(--color-gray-d);
+      }
+    }
+
+    @include m.after(MD) {
+      .searchWing {
+        flex: 1;
+      }
+    }
+  }
+
+  .searchWing {
+    flex-direction: column;
+    overflow: hidden;
+
+    .searchBox {
+      @include m.flexbox(center, center);
+      position: relative;
+      width: 100%;
+      margin-bottom: 24px;
+
+      svg {
+        @include m.absolute(50% auto auto 14px);
+        width: 24px;
+        height: 24px;
+        color: var(--color-gray-4);
+        transform: translateY(-50%);
+      }
+
+      input {
+        width: 100%;
+        height: 48px;
+        padding: 0 8px 0 48px;
+        font-size: 16px;
+        font-weight: 500;
+        border: 1px solid var(--color-gray-4);
+
+        &::-ms-clear,
+        &::-ms-reveal,
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+          display: none;
+        }
+      }
+
+      .loading {
+        @include m.absolute(50% 0 auto auto);
+        transform: translateY(-50%);
+      }
+    }
+
+    .header {
+      width: 100%;
+      margin-bottom: 14px;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--color-em);
+    }
+
+    .highlight {
+      width: 100%;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-gray-e);
+
+      a {
+        @include m.flexbox;
+        gap: 14px;
+
+        &:hover {
+          .hero img {
+            transform: scale(110%);
+            transform-origin: center;
+          }
+        }
+
+        .hero {
+          position: relative;
+          flex-shrink: 0;
+          width: 240px;
+          height: 160px;
+          overflow: hidden;
+          border-radius: 4px;
+
+          img {
+            object-fit: cover;
+            transition: 200ms;
+          }
+        }
+
+        .content {
+          flex: 1;
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+
+      @include m.before(SD) {
+        a {
+          flex-direction: column;
+
+          .hero {
+            width: 100% !important;
+          }
+        }
+
+        .title {
+          span {
+            display: block;
+            margin-left: 0;
+          }
+        }
+      }
+
+      .title {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--color-em);
+
+        span {
+          margin-left: 8px;
+          font-size: 12px;
+          color: var(--color-gray-a);
+        }
+      }
+
+      .body {
+        margin-top: 14px;
+        font-size: 12px;
+        line-height: 18px;
+        color: var(--color-gray-4);
+
+        @include m.after(SD) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+
+    :global {
+      .ais-Hits {
+        @include m.flexbox(center, start);
+        flex-direction: column;
+      }
+
+      .ais-Hits-list {
+        width: 100%;
+      }
+
+      .ais-Hits-item {
+        width: 100%;
+
+        &:first-child {
+          padding-top: 0;
+        }
+
+        &:last-child {
+          padding-bottom: 0;
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

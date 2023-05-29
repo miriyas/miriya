@@ -150,6 +150,10 @@
         color: var(--color-gray-4);
       }
 
+      p {
+        width: auto;
+      }
+
       a {
         &:hover {
           color: var(--color-black);
