@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import useAuth from '@/hooks/useAuth';
-import { getBlogCategoriesAPI, getBlogCommentsAPI, getBlogPostsAPI } from '@/services/blog';
+import { getBlogCommentsAPI, getBlogPostsAPI } from '@/services/blog';
 
 const useBlog = (categoryId?: string) => {
   const { isAdmin } = useAuth();
@@ -9,14 +9,6 @@ const useBlog = (categoryId?: string) => {
   const { data: posts = [], refetch: refetchPosts } = useQuery(
     ['getBlogPostsAPI', isAdmin, categoryId],
     () => getBlogPostsAPI(categoryId).then((res) => res.data),
-    {
-      suspense: true,
-    },
-  );
-
-  const { data: categories = [], refetch: refetchCategories } = useQuery(
-    ['getBlogCategoriesAPI', isAdmin],
-    () => getBlogCategoriesAPI().then((res) => res.data),
     {
       suspense: true,
     },
@@ -33,8 +25,6 @@ const useBlog = (categoryId?: string) => {
   return {
     posts,
     refetchPosts,
-    categories,
-    refetchCategories,
     comments,
   };
 };

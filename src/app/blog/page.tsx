@@ -1,5 +1,5 @@
 import BlogHome from '@/containers/blog';
-import { getBlogCategoriesAPI, getBlogPostsAPI } from '@/services/blog';
+import { fetchBlogCategoriesAPI, getBlogPostsAPI } from '@/services/blog';
 
 import { getMetaData } from '@/app/sharedMetadata';
 
@@ -13,7 +13,7 @@ export const metadata = getMetaData({
 
 const BlogHomePage = async () => {
   const postsData = getBlogPostsAPI().then((res) => res.data);
-  const categoriesData = getBlogCategoriesAPI().then((res) => res.data);
+  const categoriesData = fetchBlogCategoriesAPI().then((res) => res.json());
   const [posts, categories] = await Promise.all([postsData, categoriesData]);
 
   return <BlogHome posts={posts} categories={categories} />;

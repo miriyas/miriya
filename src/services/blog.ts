@@ -1,4 +1,4 @@
-import apiClient from '@/services/apiClient';
+import apiClient, { fetchClient } from '@/services/apiClient';
 import { BlogPost, BlogCategory, FBBlogPost, FBBlogCategory } from '@/types/blog.d';
 import { Comment } from '@/types/comments.d';
 
@@ -17,6 +17,8 @@ export const patchBlogPostAPI = (body: Partial<BlogPost>, postId?: string) =>
 // 카테고리
 
 export const getBlogCategoriesAPI = () => apiClient<FBBlogCategory[]>('/blog/categories');
+
+export const fetchBlogCategoriesAPI = () => fetchClient('/blog/categories');
 
 export const postBlogCategoryAPI = (body: BlogCategory) => apiClient.post('/blog/categories', body);
 

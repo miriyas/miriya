@@ -47,10 +47,10 @@ const SideBar = ({ categories, currentCategory }: Props) => {
         <Profile />
         <AdminOnly>
           <div className={styles.admin}>
-            <Link href='blog/post/new' className={styles.write}>
+            <Link href='/blog/post/new' className={styles.write}>
               글쓰기
             </Link>
-            <Link href='blog/categories' className={styles.manage}>
+            <Link href='/blog/categories' className={styles.manage}>
               관리
             </Link>
           </div>

@@ -10,12 +10,12 @@ export const revalidate = 3600;
 
 interface Props {
   params: {
-    categoryId?: string;
+    categoryId: string;
   };
 }
 
 const BlogCategoryPage = async ({ params: { categoryId } }: Props) => {
-  const postsData = getBlogPostsAPI(categoryId?.[0]).then((res) => res.data);
+  const postsData = getBlogPostsAPI(categoryId).then((res) => res.data);
   const categoriesData = getBlogCategoriesAPI().then((res) => res.data);
   const [posts, categories] = await Promise.all([postsData, categoriesData]);
 

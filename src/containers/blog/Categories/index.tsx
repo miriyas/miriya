@@ -1,25 +1,35 @@
 'use client';
 
 import { ChangeEventHandler, FormEventHandler, Suspense, useState } from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 
-import useBlog from '../useBlog';
 import useAuth from '@/hooks/useAuth';
 import { postBlogCategoryAPI } from '@/services/blog';
+import { FBBlogCategory } from '@/types/blog';
+import { revalidateApi } from '@/services/apiClient';
 
 import Item from './Item';
 import styles from './index.module.scss';
 import Loading from '@/components/Loading';
 
-const BlogCategoryPage = () => {
-  const { isAdmin, user } = useAuth();
+interface Props {
+  categories: FBBlogCategory[];
+}
+
+const BlogCategoryPage = ({ categories }: Props) => {
+  const { isAdmin, user, isLoadingMe } = useAuth();
+  const router = useRouter();
   const [categoryNew, setCategoryNew] = useState('');
   const [isSubmiting, setIsSubmiting] = useState(false);
 
-  const { categories, refetchCategories } = useBlog();
-
   const onChangeCategoryNew: ChangeEventHandler<HTMLInputElement> = (e) => {
     setCategoryNew(e.currentTarget.value);
+  };
+
+  const refetch = () => {
+    revalidateApi('/blog/categories').then(() => {
+      router.refresh();
+    });
   };
 
   const onSubmitNewCategory: FormEventHandler<HTMLFormElement> = (e) => {
@@ -30,16 +40,14 @@ const BlogCategoryPage = () => {
     postBlogCategoryAPI({
       name: categoryNew,
     })
-      .then(() => {
-        refetchCategories();
-      })
+      .then(refetch)
       .finally(() => {
         setCategoryNew('');
         setIsSubmiting(false);
       });
   };
 
-  if (!isAdmin) notFound();
+  if (!isAdmin && !isLoadingMe) notFound();
 
   return (
     <div className={styles.categoriesPage}>
@@ -56,7 +64,7 @@ const BlogCategoryPage = () => {
         >
           <ul className={styles.categories}>
             {categories.map((category) => (
-              <Item key={category.id} category={category} refetch={refetchCategories} />
+              <Item key={category.id} category={category} refetch={refetch} />
             ))}
           </ul>
         </Suspense>
