@@ -1,13 +1,16 @@
-import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
+import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
 import { Comment } from '@/types/comments.d';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
+import { postCommentAPI } from '@/services/comments';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
+import Reply from './Reply';
 import CommentEditForm from './Edit';
+import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 
 interface Props {
   comment: Comment;
@@ -21,7 +24,41 @@ interface Props {
 }
 
 const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, onClickDelete, styles }: Props) => {
-  const { isMine, isAdmin } = useAuth();
+  const { isMine, isAdmin, user } = useAuth();
+  const [replyOpen, setReplyOpen] = useState(false);
+  const [replyBody, setReplyBody] = useState('');
+
+  const { reloadComments } = useCommentAndHistory({
+    targetCategory: comment.targetCategory,
+    targetSubCategory: comment.targetSubCategory,
+    targetId: comment.targetId,
+  });
+
+  const onClickReply = () => {
+    setReplyOpen(true);
+  };
+
+  const onChangeReply: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+    setReplyBody(e.currentTarget.value);
+  };
+
+  const onSubmitReply: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    if (!user) return;
+
+    postCommentAPI({
+      body: replyBody,
+      targetCategory: comment.targetCategory,
+      targetSubCategory: comment.targetSubCategory,
+      targetId: comment.targetId,
+      targetName: comment.targetName,
+      parentId: comment.id,
+    }).then(() => {
+      setReplyOpen(false);
+      setReplyBody('');
+      reloadComments();
+    });
+  };
 
   return (
     <li className={styles.item} title={comment.id}>
@@ -43,17 +80,39 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
             </div>
             <p className={styles.body}>{comment.body}</p>
             <div className={styles.lower}>
-              {!editMode && (isAdmin || isMine(comment.authorId)) && (
-                <>
-                  <button type='button' onClick={onClickEdit}>
-                    수정
+              <div className={styles.lowerLeft}>
+                {!editMode && (isAdmin || isMine(comment.authorId)) && (
+                  <>
+                    <button type='button' onClick={onClickEdit}>
+                      수정
+                    </button>
+                    <button type='button' onClick={onClickDelete}>
+                      삭제
+                    </button>
+                  </>
+                )}
+              </div>
+              <div className={styles.lowerRight}>
+                {!replyOpen && (
+                  <button type='button' onClick={onClickReply}>
+                    대댓글
                   </button>
-                  <button type='button' onClick={onClickDelete}>
-                    삭제
-                  </button>
-                </>
-              )}
+                )}
+              </div>
             </div>
+            {replyOpen && (
+              <form className={styles.replyForm} onSubmit={onSubmitReply}>
+                <textarea onChange={onChangeReply} value={replyBody} data-lpignore='true' autoComplete='off' />
+                <button type='submit'>확인</button>
+              </form>
+            )}
+            {comment.children && comment.children.length > 0 && (
+              <ul className={styles.replies}>
+                {comment.children.map((rc) => (
+                  <Reply key={rc.id} comment={rc} styles={styles} reloadComments={reloadComments} />
+                ))}
+              </ul>
+            )}
           </div>
         </>
       )}

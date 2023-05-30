@@ -5,16 +5,24 @@
   margin: 100px 0 32px;
   border: 1px solid var(--color-gray-d);
 
-  .commentNewForm,
-  .editor {
-    textarea {
-      width: 100%;
-      height: 100px;
-      padding: 8px;
-      font-size: 14px;
-      border: 1px solid var(--color-gray-c);
-      border-radius: 2px;
-    }
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid var(--color-gray-c);
+    border-radius: 2px;
+  }
+
+  button[type='submit'] {
+    align-self: flex-end;
+    width: 100px;
+    height: 32px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--color-white) !important;
+    background-color: var(--color-blue);
+    border-radius: 2px;
   }
 
   .commentNewForm {
@@ -23,17 +31,6 @@
 
     .profile {
       display: none;
-    }
-
-    button[type='submit'] {
-      align-self: flex-end;
-      width: 100px;
-      height: 32px;
-      margin-top: 8px;
-      font-size: 14px;
-      color: var(--color-white);
-      background-color: var(--color-blue);
-      border-radius: 2px;
     }
   }
 
@@ -88,46 +85,6 @@
         }
       }
 
-      .rightWing {
-        @include m.flexbox(start, start);
-        flex: 1;
-        flex-direction: column;
-        gap: 14px;
-
-        .upper {
-          @include m.flexbox(start, center);
-          font-size: 14px;
-
-          .name {
-            color: var(--color-gray-4);
-          }
-
-          time {
-            font-size: 12px;
-            color: var(--color-gray-9);
-
-            &::before {
-              content: ' · ';
-            }
-          }
-        }
-
-        .body {
-          font-size: 14px;
-          line-height: 22px;
-        }
-
-        .lower {
-          @include m.flexbox(start, start);
-          gap: 8px;
-
-          button {
-            font-size: 12px;
-            color: var(--color-gray-9);
-          }
-        }
-      }
-
       @include m.after(SD) {
         flex-direction: row;
 
@@ -144,6 +101,103 @@
               height: var(--h-comment-form-large);
             }
           }
+        }
+      }
+    }
+
+    .rightWing {
+      @include m.flexbox(start, start);
+      flex: 1;
+      flex-direction: column;
+      gap: 14px;
+
+      .upper {
+        @include m.flexbox(start, center);
+        font-size: 14px;
+
+        .name {
+          color: var(--color-gray-4);
+        }
+
+        time {
+          font-size: 12px;
+          color: var(--color-gray-9);
+
+          &::before {
+            content: ' · ';
+          }
+        }
+      }
+
+      .body {
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      .lower {
+        @include m.flexbox(between, center);
+        width: 100%;
+
+        .lowerLeft {
+          @include m.flexbox(start, start);
+          gap: 8px;
+        }
+
+        button {
+          font-size: 12px;
+          color: var(--color-gray-9);
+        }
+      }
+    }
+
+    .replyForm {
+      @include m.flexbox(center, end);
+      flex-direction: column;
+      width: 100%;
+
+      textarea {
+        height: 64px;
+      }
+
+      button {
+        width: 64px;
+        height: 28px;
+        font-size: 12px;
+      }
+    }
+
+    .replies {
+      @include m.flexbox(start, start);
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .replyItem {
+      @include m.flexbox(between, start);
+      gap: 14px;
+      width: 100%;
+
+      .leftWing {
+        width: var(--h-comment-form) !important;
+        height: var(--h-comment-form) !important;
+      }
+
+      .rightWing {
+        flex: 1;
+        gap: 8px;
+      }
+
+      .profileWrapper {
+        width: var(--h-comment-form) !important;
+        height: var(--h-comment-form) !important;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img {
+          width: var(--h-comment-form) !important;
+          height: var(--h-comment-form) !important;
         }
       }
     }

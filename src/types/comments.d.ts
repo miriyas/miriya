@@ -28,6 +28,7 @@ export interface NewComment {
   targetSubCategory?: SubTargetCategoryTypes;
   targetId?: string; // 방명록일 때는 타겟 없음
   targetName?: string; // 방명록에서 목록 보여줄 때 쿼리 줄이기 위해 사용함.
+  parentId?: string;
 }
 
 export interface Comment extends WithAuthor, WithTS {
@@ -36,7 +37,9 @@ export interface Comment extends WithAuthor, WithTS {
   commentNoInCategory: number;
   targetCategory: TargetCategoryTypes;
   targetSubCategory?: SubTargetCategoryTypes;
-  targetId?: string;
+  targetId: string;
   targetName?: string;
   hidden?: boolean;
+  parentId?: string;
+  children?: Comment[];
 }

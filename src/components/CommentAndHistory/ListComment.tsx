@@ -43,7 +43,7 @@ export const ListComment = ({
     <div className={cx(liststyles.list, styles.commentList)}>
       {withHeader && (
         <div className={styles.header}>
-          댓글 <span>{comments.length}</span>
+          댓글 <span>{comments.length + comments.reduce((acc, c) => acc + (c.children?.length || 0), 0)}</span>
         </div>
       )}
       <ul className={cx(styles.comments)}>
