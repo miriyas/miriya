@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import { renderMarkdown } from '@/utils/blog';
 import { FBBlogPost } from '@/types/blog.d';
 import { fetchClient } from '@/services/apiClient';
@@ -9,7 +11,7 @@ export const getPost = async (postId: string): Promise<FBBlogPost> => {
     // https://github.com/vercel/next.js/issues/49387
     // Next ISG 이슈가 해결되기 전까지 revaildate 0 넣어서 사용한다 ㅠㅠ
     if (!res.ok) {
-      throw Error(res.statusText);
+      if (res.statusText === 'Not Found') notFound();
     }
     return res.json();
   });

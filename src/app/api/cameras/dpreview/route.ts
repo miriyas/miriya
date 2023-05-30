@@ -38,8 +38,7 @@ const getRecentNews = async (count: number) => {
 };
 
 export const GET = async (request: NextRequest) => {
-  const { searchParams } = new URL(request.url);
-  const count = searchParams.get('count');
+  const count = request.nextUrl.searchParams.get('count');
   const data = await getRecentNews(Number(count));
   return NextResponse.json(data);
 };

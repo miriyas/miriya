@@ -2,7 +2,7 @@ import 'client-only';
 import { useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-import { getMeApi, logoutApi } from '@/services/auth';
+import { getMeApiLocal, logoutApi } from '@/services/auth';
 import { ROLE } from '@/types/auth.d';
 
 const useAuth = () => {
@@ -11,9 +11,9 @@ const useAuth = () => {
     refetch,
     isLoading: isLoadingMe,
   } = useQuery(
-    ['getMeApi'],
+    ['getMeApiLocal'],
     () =>
-      getMeApi()
+      getMeApiLocal()
         .then((res) => res.data)
         .catch(() => {
           return null;
