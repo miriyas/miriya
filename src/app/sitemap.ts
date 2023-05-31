@@ -16,6 +16,8 @@ export const getPosts = () => {
     });
 };
 
+export const dynamic = 'force-dynamic';
+
 const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const posts: FBBlogPost[] = await getPosts();
 
