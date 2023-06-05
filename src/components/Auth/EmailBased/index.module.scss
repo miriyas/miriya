@@ -28,6 +28,8 @@
 
       &:disabled {
         color: var(--color-gray-c);
+        cursor: not-allowed;
+        background-color: var(--color-gray-e);
       }
     }
   }
@@ -52,6 +54,10 @@
     button {
       font-size: 11px;
       color: var(--color-blue);
+
+      &:disabled {
+        opacity: 0.3;
+      }
     }
   }
 }

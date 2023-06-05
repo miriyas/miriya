@@ -6,12 +6,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useAtom } from 'jotai';
 
 import useAuthEmail from '@/hooks/useAuthEmail';
+import useAuthSocial from '@/hooks/useAuthSocial';
 import { showPasswordAtom } from '../states';
 import { LogInSchema, logInValidator } from '@/utils/validator';
 
 import FancyEyeBall from './FancyEyeBall';
-import authStyles from '../Auth.module.scss';
-import styles from './EmailBased.module.scss';
+import authStyles from '../index.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   setTab: Dispatch<SetStateAction<'login' | 'signup' | undefined>>;
@@ -19,6 +20,7 @@ interface Props {
 
 const LogIn = ({ setTab }: Props) => {
   const { logInEmail, logInLoading, logInError } = useAuthEmail();
+  const { socialLoading } = useAuthSocial();
 
   const methods = useForm<LogInSchema>({ mode: 'onBlur', resolver: yupResolver(logInValidator) });
 
@@ -44,11 +46,12 @@ const LogIn = ({ setTab }: Props) => {
   };
 
   const errorMessage = Object.values(errors).length > 0 ? Object.values(errors)[0].message : undefined;
+  const disabled = socialLoading || logInLoading;
 
   return (
     <form onSubmit={onSignIn}>
       <div className={styles.inputWrapper}>
-        <input {...register('email')} type='string' placeholder='이메일' disabled={logInLoading} />
+        <input {...register('email')} type='string' placeholder='이메일' disabled={disabled} />
       </div>
       <div className={styles.inputWrapper}>
         <input
@@ -56,17 +59,17 @@ const LogIn = ({ setTab }: Props) => {
           type={showPassword ? 'string' : 'password'}
           placeholder='비밀번호 (6글자 이상)'
           autoComplete='off'
-          disabled={logInLoading}
+          disabled={disabled}
         />
-        <FancyEyeBall showPassword={showPassword} setShowPassword={setShowPassword} />
+        {!disabled && <FancyEyeBall showPassword={showPassword} setShowPassword={setShowPassword} />}
       </div>
-      <button type='submit' disabled={logInLoading}>
+      <button type='submit' disabled={disabled}>
         로그인
       </button>
       <div className={authStyles.commonError}>{logInError || errorMessage}</div>
       <div className={styles.toOtherTab}>
         이렇게 반가울데가.. &nbsp;
-        <button type='button' onClick={onClickSionUp}>
+        <button type='button' onClick={onClickSionUp} disabled={disabled}>
           회원가입
         </button>
       </div>

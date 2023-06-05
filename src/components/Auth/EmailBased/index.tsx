@@ -7,7 +7,7 @@ import { authModalAtom } from '../states';
 
 import LogIn from './LogIn';
 import SignUp from './SignUp';
-import styles from './EmailBased.module.scss';
+import styles from './index.module.scss';
 
 const EmailBased = () => {
   const authModal = useAtomValue(authModalAtom);

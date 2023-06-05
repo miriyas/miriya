@@ -1,11 +1,13 @@
 import 'client-only';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { getMeApiLocal, logoutApi } from '@/services/auth';
 import { ROLE } from '@/types/auth.d';
 
 const useAuth = () => {
+  const [logOutLoading, setLogOutLoading] = useState(false);
+
   const {
     data: currentUser = null,
     refetch,
@@ -35,14 +37,20 @@ const useAuth = () => {
   };
 
   const logOut = () => {
-    logoutApi().then(() => {
-      getMe();
-    });
+    setLogOutLoading(true);
+    logoutApi()
+      .then(() => {
+        getMe();
+      })
+      .finally(() => {
+        setLogOutLoading(false);
+      });
   };
 
   return {
     user: currentUser,
     logOut,
+    logOutLoading,
     isAdmin: currentUser?.role === ROLE.ADMIN,
     isSupporter: currentUser?.role === ROLE.SUPPORTER,
     isMine,

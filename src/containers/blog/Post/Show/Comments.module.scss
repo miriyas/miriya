@@ -23,6 +23,11 @@
     color: var(--color-white) !important;
     background-color: var(--color-blue);
     border-radius: 2px;
+    transition: 0.2s;
+
+    &:disabled {
+      opacity: 0.4;
+    }
   }
 
   .commentNewForm {
@@ -146,6 +151,11 @@
         button {
           font-size: 12px;
           color: var(--color-gray-9);
+          transition: 0.2s;
+
+          &:disabled {
+            opacity: 0.4;
+          }
         }
       }
     }
@@ -163,6 +173,11 @@
         width: 64px;
         height: 28px;
         font-size: 12px;
+        transition: 0.2s;
+
+        &:disabled {
+          opacity: 0.4;
+        }
       }
     }
 

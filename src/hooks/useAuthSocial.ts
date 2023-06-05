@@ -10,15 +10,20 @@ import { postIdTokenApi } from '@/services/auth';
 import useAuthModal from '@/components/Auth/useAuthModal';
 
 export const socialErrorAtom = atomWithReset('');
+export const socialLoadingAtom = atomWithReset(false);
 
 const useAuthSocial = () => {
   const { getMe } = useAuth();
   const { onClose } = useAuthModal();
   const [socialError, setSocialError] = useAtom(socialErrorAtom);
+  const [socialLoading, setSocialLoading] = useAtom(socialLoadingAtom);
   const resetSocialError = useResetAtom(socialErrorAtom);
+  const resetSocialLoading = useResetAtom(socialLoadingAtom);
 
   const logInWithSocial = useCallback(
     (provider: 'google' | 'facebook' | 'github') => {
+      if (socialLoading) return;
+      setSocialLoading(true);
       signInWithPopup(auth, PROVIDERS[provider])
         .then((res) => {
           return res.user.getIdToken().then((idToken) => {
@@ -34,17 +39,20 @@ const useAuthSocial = () => {
         })
         .finally(() => {
           getMe();
+          setSocialLoading(false);
         });
     },
-    [getMe, onClose, setSocialError],
+    [getMe, onClose, setSocialError, setSocialLoading, socialLoading],
   );
 
   const cleanUpSocialRelatedState = useCallback(() => {
     resetSocialError();
-  }, [resetSocialError]);
+    resetSocialLoading();
+  }, [resetSocialError, resetSocialLoading]);
 
   return {
     logInWithSocial,
+    socialLoading,
     socialError,
     cleanUpSocialRelatedState,
   };

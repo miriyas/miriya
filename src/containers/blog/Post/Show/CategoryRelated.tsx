@@ -28,6 +28,9 @@ const CategoryRelated = ({ categories, postData }: Props) => {
   );
 
   const posts = data.filter((post) => post.id !== postData.id);
+
+  if (posts.length === 0) return null;
+
   return (
     <aside className={styles.categoryRelated}>
       <p className={styles.header}>&apos;{categoryName}&apos; 카테고리의 다른 글</p>

@@ -32,22 +32,28 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName, 
     targetId,
   });
   const [body, setBody] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (!user) return;
 
+    setLoading(false);
     postCommentAPI({
       body,
       targetCategory,
       targetSubCategory,
       targetId,
       targetName,
-    }).then(() => {
-      setBody('');
-      reloadComments();
-      if (targetCategory === TARGET_CATEGORY.CAMERA) reload();
-    });
+    })
+      .then(() => {
+        setBody('');
+        reloadComments();
+        if (targetCategory === TARGET_CATEGORY.CAMERA) reload();
+      })
+      .finally(() => {
+        setLoading(true);
+      });
   };
 
   const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
@@ -85,7 +91,9 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName, 
           placeholder='댓글을 입력해주세요.'
         />
       )}
-      <button type='submit'>등록</button>
+      <button type='submit' disabled={loading}>
+        등록
+      </button>
     </form>
   );
 };

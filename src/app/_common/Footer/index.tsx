@@ -8,7 +8,7 @@ import useAuth from '@/hooks/useAuth';
 
 import AuthModal from '@/components/Auth';
 import Session from './Session';
-import styles from './Footer.module.scss';
+import styles from './index.module.scss';
 
 const Footer = () => {
   const { isLoadingMe } = useAuth();

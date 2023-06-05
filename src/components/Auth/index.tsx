@@ -10,7 +10,7 @@ import useAuthModal from './useAuthModal';
 import { Modal } from '@/components/Modal';
 import EmailBased from './EmailBased';
 import SocialBased from './SocialBased';
-import styles from './Auth.module.scss';
+import styles from './index.module.scss';
 
 const AuthModal = () => {
   const { authModal, onClose } = useAuthModal();

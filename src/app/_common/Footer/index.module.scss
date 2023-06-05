@@ -49,8 +49,29 @@
       gap: 8px;
 
       button {
+        position: relative;
         font-size: 12px;
         text-decoration: underline;
+
+        span {
+          transition: 0.2s;
+        }
+
+        .loadingIcon {
+          @include m.middleBox;
+          opacity: 0;
+          transition: 0.2s;
+        }
+
+        &.loading {
+          span {
+            opacity: 0;
+          }
+
+          .loadingIcon {
+            opacity: 1;
+          }
+        }
       }
     }
 
