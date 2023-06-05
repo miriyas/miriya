@@ -1,12 +1,12 @@
-import apiClient, { apiClientLocal } from '@/services/apiClient';
+import { apiBe, apiFe } from '@/services';
 import { UserWithRole } from '@/types/auth.d';
 
-export const postIdTokenApi = (idToken: string) => apiClient.post('/auth/session', { idToken });
+export const postIdTokenApi = (idToken: string) => apiBe.post('/auth/session', { idToken });
 
-export const getMeApiLocal = () => apiClientLocal<UserWithRole>('/auth/session');
+export const getMeApiLocal = () => apiFe<UserWithRole>('/auth/session');
 
 export const getMeApi = (cookie: string) =>
-  apiClient<UserWithRole>({
+  apiBe<UserWithRole>({
     url: '/auth/session',
     method: 'get',
     headers: {
@@ -14,4 +14,4 @@ export const getMeApi = (cookie: string) =>
     },
   });
 
-export const logoutApi = () => apiClient.delete('/auth/session');
+export const logoutApi = () => apiBe.delete('/auth/session');

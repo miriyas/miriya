@@ -3,7 +3,7 @@ import 'server-only';
 import { NextRequest, NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 
-import apiClient, { fakeUserAgent } from '@/services/apiClient';
+import { apiBe, fakeUserAgent } from '@/services';
 
 const processData = (rawString: string, count: number) => {
   const $ = cheerio.load(rawString, {
@@ -23,7 +23,7 @@ const processData = (rawString: string, count: number) => {
 };
 
 const getRecentNews = async (count: number) => {
-  return apiClient('https://www.dpreview.com/feeds/news.xml', {
+  return apiBe('https://www.dpreview.com/feeds/news.xml', {
     headers: {
       'User-Agent': fakeUserAgent,
     },

@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import { trim } from 'lodash';
 
 import { DigicamDB } from '@/types/cameras.d';
-import apiClient from '@/services/apiClient';
+import { apiBe } from '@/services';
 
 const processData = (rawString: string) => {
   const $ = cheerio.load(rawString);
@@ -24,7 +24,7 @@ const processData = (rawString: string) => {
 };
 
 const getCameraDataFromURL = async (url: string) => {
-  return apiClient(`https://www.digicamdb.com/specs/${url}/`)
+  return apiBe(`https://www.digicamdb.com/specs/${url}/`)
     .then((res) => processData(res.data))
     .catch(() => ({
       error: 'No Data Found',

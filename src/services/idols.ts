@@ -1,13 +1,13 @@
-import apiClient, { apiClientLocal } from '@/services/apiClient';
+import { apiBe, apiFe } from '@/services';
 import { FBIdolType, IdolType, YearDescType } from '@/types/idols.d';
 
-export const crawlIdolData = () => apiClientLocal('/idols/crawl');
+export const crawlIdolData = () => apiFe('/idols/crawl');
 
-export const getIdolsDataApi = () => apiClient<FBIdolType[]>('/idols/data');
+export const getIdolsDataApi = () => apiBe<FBIdolType[]>('/idols/data');
 
-export const getIdolYearsDataApi = () => apiClient<YearDescType[]>('/idols/years');
+export const getIdolYearsDataApi = () => apiBe<YearDescType[]>('/idols/years');
 
-export const postIdolDataApi = (newIdol: IdolType) => apiClient.post('/idols/data', { newIdol });
+export const postIdolDataApi = (newIdol: IdolType) => apiBe.post('/idols/data', { newIdol });
 
 export const editIdolDataApi = (newIdol: FBIdolType, changed: string[]) =>
-  apiClient.patch('/idols/data', { newIdol, changed });
+  apiBe.patch('/idols/data', { newIdol, changed });

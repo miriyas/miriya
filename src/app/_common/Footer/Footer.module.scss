@@ -2,6 +2,7 @@
 
 .appFooter {
   position: relative;
+  height: 32px;
   background-color: var(--color-white);
   border-top: 1px solid var(--color-gray-e);
 
@@ -25,7 +26,7 @@
     @include m.flexbox(between, center);
     flex-direction: column;
     height: 100%;
-    padding: 8px 14px;
+    padding: 0 14px;
     font-size: 12px;
     color: var(--color-gray-4);
     text-align: center;

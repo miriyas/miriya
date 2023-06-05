@@ -9,7 +9,7 @@ import { RESET } from 'jotai/utils';
 import useAuth from '@/hooks/useAuth';
 import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
 import { bodyAtom, categoryAtom, heroAtom, hiddenAtom, titleAtom, loadingAtom } from './states';
-import { revalidateApi } from '@/services/apiClient';
+import { revalidateApi } from '@/services';
 
 import Top from './Top';
 import Editor from './Editor';

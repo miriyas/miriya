@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
 import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
-import { revalidateApi } from '@/services/apiClient';
+import { revalidateApi } from '@/services';
 
 export const newPostBodyAtom = atomWithReset<string>('');
 export const newPostHiddenAtom = atomWithReset<boolean>(false);

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 
 import { renderMarkdown } from '@/utils/blog';
 import { FBBlogPost } from '@/types/blog.d';
-import { fetchClient } from '@/services/apiClient';
+import { fetchClient } from '@/services';
 
 export const getPost = async (postId: string): Promise<FBBlogPost> => {
   // Axios 쓰면 안된다! og:image용 서비스워커는 fetch만 가능함 ㅠㅠ

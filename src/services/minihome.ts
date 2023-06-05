@@ -1,14 +1,14 @@
-import apiClient from '@/services/apiClient';
+import { apiBe } from '@/services';
 import { Comment, NewComment } from '@/types/comments.d';
 import { GADataRow, Guestbook } from '@/types/minihome.d';
 
-export const getGAdataAPI = () => apiClient<GADataRow[]>('https://us-central1-miriyas.cloudfunctions.net/getGAdata');
+export const getGAdataAPI = () => apiBe<GADataRow[]>('https://us-central1-miriyas.cloudfunctions.net/getGAdata');
 
 export const getMinihomeLeftCommentsDataAPI = (limitCount: number) =>
-  apiClient<Comment[]>('/minihome/leftComments', { params: { limitCount } });
+  apiBe<Comment[]>('/minihome/leftComments', { params: { limitCount } });
 
 export const getMinihomRightCounterDataAPI = (category: string) =>
-  apiClient<{
+  apiBe<{
     today: number;
     total: number;
   }>('/minihome/rightCounter', { params: { category } });
@@ -16,15 +16,15 @@ export const getMinihomRightCounterDataAPI = (category: string) =>
 export const getGuestbookDataAPI = (nextCursor?: string) => {
   const searchParams = new URLSearchParams();
   if (nextCursor) searchParams.set('nextCursor', nextCursor);
-  return apiClient<Guestbook>(`/minihome/guestbook?${searchParams}`);
+  return apiBe<Guestbook>(`/minihome/guestbook?${searchParams}`);
 };
 
 export const getMinihomeCommentDataAPI = (category: string, limitCount: number) =>
-  apiClient<Comment[]>('/minihome/comments', { params: { category, limitCount } });
+  apiBe<Comment[]>('/minihome/comments', { params: { category, limitCount } });
 
-export const postGuestbookAPI = (comment: NewComment) => apiClient.post('/minihome/guestbook', comment);
+export const postGuestbookAPI = (comment: NewComment) => apiBe.post('/minihome/guestbook', comment);
 
-export const patchGuestbookAPI = (comment: Partial<Comment>) => apiClient.patch('/minihome/guestbook', comment);
+export const patchGuestbookAPI = (comment: Partial<Comment>) => apiBe.patch('/minihome/guestbook', comment);
 
 export const deleteGuestbookAPI = (commentId: string, uid: string) =>
-  apiClient.delete('/minihome/guestbook', { params: { commentId, uid } });
+  apiBe.delete('/minihome/guestbook', { params: { commentId, uid } });

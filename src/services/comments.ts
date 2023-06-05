@@ -1,4 +1,4 @@
-import apiClient from '@/services/apiClient';
+import { apiBe } from '@/services';
 import { Comment, NewComment, SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 
 interface GetCommentsParams {
@@ -8,10 +8,10 @@ interface GetCommentsParams {
 }
 
 export const getCommentsApi = ({ targetCategory, targetSubCategory, targetId }: GetCommentsParams) =>
-  apiClient<Comment[]>('/comments', { params: { targetCategory, targetSubCategory, targetId } });
+  apiBe<Comment[]>('/comments', { params: { targetCategory, targetSubCategory, targetId } });
 
-export const postCommentAPI = (params: NewComment) => apiClient.post('/comments', params);
+export const postCommentAPI = (params: NewComment) => apiBe.post('/comments', params);
 
-export const patchCommentAPI = (comment: Partial<Comment>) => apiClient.patch('/comments', comment);
+export const patchCommentAPI = (comment: Partial<Comment>) => apiBe.patch('/comments', comment);
 
-export const deleteCommentAPI = (commentId: string) => apiClient.delete('/comments', { params: { commentId } });
+export const deleteCommentAPI = (commentId: string) => apiBe.delete('/comments', { params: { commentId } });

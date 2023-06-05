@@ -1,5 +1,5 @@
-import apiClient from '@/services/apiClient';
-import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments';
+import { apiBe } from '@/services';
+import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
 import { History } from '@/types/histories.d';
 
 interface GetHistoriesParams {
@@ -9,4 +9,4 @@ interface GetHistoriesParams {
 }
 
 export const getHistoriesApi = ({ targetCategory, targetSubCategory, targetId }: GetHistoriesParams) =>
-  apiClient<History[]>('/histories', { params: { targetCategory, targetSubCategory, targetId } });
+  apiBe<History[]>('/histories', { params: { targetCategory, targetSubCategory, targetId } });

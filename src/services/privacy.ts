@@ -1,3 +1,3 @@
-import { apiClientLocal } from '@/services/apiClient';
+import { apiFe } from '@/services';
 
-export const getPrivacyMarkdownApi = () => apiClientLocal('/privacy/markdown');
+export const getPrivacyMarkdownApi = () => apiFe('/privacy/markdown');

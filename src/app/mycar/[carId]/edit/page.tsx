@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 
 import MyCarEdit from '@/containers/mycar/Form/Edit';
-import { getMyCarDataAPI } from '@/services/mycar';
+import { getMyCarDataAPI, fetchMyCarDataAPI } from '@/services/mycar';
 
 export async function generateStaticParams() {
-  return getMyCarDataAPI().then((res) => {
+  return fetchMyCarDataAPI().then((res) => {
     return res.data.map((car) => ({
       carId: car.id,
     }));

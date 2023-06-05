@@ -1,14 +1,14 @@
-import apiClient, { apiClientLocal } from '@/services/apiClient';
+import { apiBe, apiFe } from '@/services';
 import { DslrEditProps, FBPentaxDslr, FBPentaxSlr, SlrEditProps } from '@/types/pentaxes.d';
 
-export const getReadMeMarkdownApi = () => apiClientLocal('/pentax/markdown/readme');
+export const getReadMeMarkdownApi = () => apiFe('/pentax/markdown/readme');
 
-export const getDescMarkdownApi = () => apiClientLocal('/pentax/markdown/desc');
+export const getDescMarkdownApi = () => apiFe('/pentax/markdown/desc');
 
-export const getPentaxDslrDataApi = () => apiClient<FBPentaxDslr[]>('/pentax/dslr');
+export const getPentaxDslrDataApi = () => apiBe<FBPentaxDslr[]>('/pentax/dslr');
 
-export const getPentaxSlrDataApi = () => apiClient<FBPentaxSlr[]>('/pentax/slr');
+export const getPentaxSlrDataApi = () => apiBe<FBPentaxSlr[]>('/pentax/slr');
 
-export const patchPentaxDslrAPI = (props: DslrEditProps) => apiClient.patch('/pentax/dslr', props);
+export const patchPentaxDslrAPI = (props: DslrEditProps) => apiBe.patch('/pentax/dslr', props);
 
-export const patchPentaxSlrAPI = (props: SlrEditProps) => apiClient.patch('/pentax/slr', props);
+export const patchPentaxSlrAPI = (props: SlrEditProps) => apiBe.patch('/pentax/slr', props);

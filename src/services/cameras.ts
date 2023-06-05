@@ -1,14 +1,12 @@
-import apiClient, { apiClientLocal } from '@/services/apiClient';
+import { apiBe, apiFe } from '@/services';
 import { DigicamDB, DpreviewNews, FBCameraType } from '@/types/cameras.d';
 import { FBCamerachema } from '@/utils/validator';
 
-export const getExternalCameraDataApi = (externalId: string) =>
-  apiClientLocal<DigicamDB>(`/cameras/digicam/${externalId}`);
+export const getExternalCameraDataApi = (externalId: string) => apiFe<DigicamDB>(`/cameras/digicam/${externalId}`);
 
-export const getRecentNewsApi = (count: number) =>
-  apiClientLocal<DpreviewNews[]>('/cameras/dpreview', { params: { count } });
+export const getRecentNewsApi = (count: number) => apiFe<DpreviewNews[]>('/cameras/dpreview', { params: { count } });
 
-export const getCamerasDataApi = () => apiClient<FBCameraType[]>('/cameras/data');
+export const getCamerasDataApi = () => apiBe<FBCameraType[]>('/cameras/data');
 
 export const editCameraDataApi = (newCamera: FBCamerachema, changed: string[]) =>
-  apiClient.patch('/cameras/data', { newCamera, changed });
+  apiBe.patch('/cameras/data', { newCamera, changed });

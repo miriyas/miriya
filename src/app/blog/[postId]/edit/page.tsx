@@ -1,15 +1,7 @@
 'use client';
 
 import BlogEdit from '@/containers/blog/Post/NewAndEdit/Edit';
-import { getBlogCategoriesAPI, getBlogPostAPI, getBlogPostsAPI } from '@/services/blog';
-
-export async function generateStaticParams() {
-  const posts = await getBlogPostsAPI().then((res) => res.data);
-
-  return posts.map((post) => ({
-    postId: post.id,
-  }));
-}
+import { getBlogCategoriesAPI, getBlogPostAPI } from '@/services/blog';
 
 interface Props {
   params: {

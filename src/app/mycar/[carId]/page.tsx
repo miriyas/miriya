@@ -1,10 +1,10 @@
 import MyCar from '@/containers/mycar';
-import { getMyCarDataAPI } from '@/services/mycar';
+import { fetchMyCarDataAPI } from '@/services/mycar';
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return getMyCarDataAPI().then((res) => {
+  return fetchMyCarDataAPI().then((res) => {
     return res.data.map((car) => ({
       carId: car.id,
     }));

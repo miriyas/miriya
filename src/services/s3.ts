@@ -1,3 +1,3 @@
-import apiClient from '@/services/apiClient';
+import { apiBe } from '@/services';
 
-export const uploadImageAPI = (body: FormData) => apiClient.postForm('/image', body);
+export const uploadImageAPI = (body: FormData) => apiBe.postForm('/image', body);

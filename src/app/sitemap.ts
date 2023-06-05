@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { fetchClient } from '@/services/apiClient';
+import { fetchClient } from '@/services';
 import { FBBlogPost } from '@/types/blog';
 
 export const getPosts = () => {

@@ -1,36 +1,38 @@
-import apiClient, { fetchClient } from '@/services/apiClient';
+import { apiBe, apiBePure, fetchClient } from '@/services';
 import { BlogPost, BlogCategory, FBBlogPost, FBBlogCategory } from '@/types/blog.d';
 import { Comment } from '@/types/comments.d';
 
 // 글
 
 export const getBlogPostsAPI = (categoryId?: string, limitCount?: number) =>
-  apiClient<FBBlogPost[]>('/blog/posts', { params: { categoryId, limitCount } });
+  apiBe<FBBlogPost[]>('/blog/posts', { params: { categoryId, limitCount } });
 
-export const getBlogPostAPI = (postId: string) => apiClient<FBBlogPost>(`/blog/posts/${postId}`);
+export const getBlogPostAPI = (postId: string) => apiBe<FBBlogPost>(`/blog/posts/${postId}`);
 
-export const postBlogPostAPI = (data: Partial<BlogPost>) => apiClient.post('/blog/posts', data);
+export const fetchBlogPostAPI = (postId: string) => apiBePure<FBBlogPost>(`/blog/posts/${postId}`);
+
+export const postBlogPostAPI = (data: Partial<BlogPost>) => apiBe.post('/blog/posts', data);
 
 export const patchBlogPostAPI = (body: Partial<BlogPost>, postId?: string) =>
-  apiClient.patch(`/blog/posts/${postId}`, body);
+  apiBe.patch(`/blog/posts/${postId}`, body);
 
 // 카테고리
 
-export const getBlogCategoriesAPI = () => apiClient<FBBlogCategory[]>('/blog/categories');
+export const getBlogCategoriesAPI = () => apiBe<FBBlogCategory[]>('/blog/categories');
 
 export const fetchBlogCategoriesAPI = () => fetchClient('/blog/categories');
 
-export const postBlogCategoryAPI = (body: BlogCategory) => apiClient.post('/blog/categories', body);
+export const postBlogCategoryAPI = (body: BlogCategory) => apiBe.post('/blog/categories', body);
 
 export const changeBlogCategoryOrderAPI = (categoryId: string, direction: 'up' | 'down') =>
-  apiClient.patch('/blog/categories', { categoryId, direction });
+  apiBe.patch('/blog/categories', { categoryId, direction });
 
 export const patchBlogCategoryAPI = (categoryId: string, body: Partial<FBBlogCategory>) =>
-  apiClient.patch(`/blog/categories/${categoryId}`, body);
+  apiBe.patch(`/blog/categories/${categoryId}`, body);
 
-export const deleteBlogCategoryAPI = (categoryId: string) => apiClient.delete(`/blog/categories/${categoryId}`);
+export const deleteBlogCategoryAPI = (categoryId: string) => apiBe.delete(`/blog/categories/${categoryId}`);
 
 // 댓글
 
 export const getBlogCommentsAPI = (limitCount: number) =>
-  apiClient<Comment[]>('/blog/comments', { params: { limitCount } });
+  apiBe<Comment[]>('/blog/comments', { params: { limitCount } });

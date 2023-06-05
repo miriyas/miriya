@@ -6,7 +6,7 @@ import { notFound, useRouter } from 'next/navigation';
 import useAuth from '@/hooks/useAuth';
 import { postBlogCategoryAPI } from '@/services/blog';
 import { FBBlogCategory } from '@/types/blog';
-import { revalidateApi } from '@/services/apiClient';
+import { revalidateApi } from '@/services';
 
 import Item from './Item';
 import styles from './index.module.scss';

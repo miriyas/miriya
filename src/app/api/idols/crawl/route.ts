@@ -3,7 +3,7 @@ import 'server-only';
 import { NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 
-import { apiClientRoot } from '@/services/apiClient';
+import { apiFe } from '@/services';
 import { CrawlGeneration, CrawlIdol, CrawlIdolData } from '@/types/idols.d';
 
 const processData = (rawString: string) => {
@@ -48,7 +48,7 @@ const processData = (rawString: string) => {
 };
 
 const getIdolData = async () => {
-  return apiClientRoot('/idolCrawl.html')
+  return apiFe('../idolCrawl.html')
     .then((res) => processData(res.data))
     .catch(() => ({
       error: 'No Data Found',
