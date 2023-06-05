@@ -2,7 +2,7 @@ import { apiBe } from '@/services';
 import { Comment, NewComment } from '@/types/comments.d';
 import { GADataRow, Guestbook } from '@/types/minihome.d';
 
-export const getGAdataAPI = () => apiBe<GADataRow[]>('https://us-central1-miriyas.cloudfunctions.net/getGAdata');
+export const getGAdataAPI = () => apiBe<GADataRow[]>('/minihome/counter');
 
 export const getMinihomeLeftCommentsDataAPI = (limitCount: number) =>
   apiBe<Comment[]>('/minihome/leftComments', { params: { limitCount } });

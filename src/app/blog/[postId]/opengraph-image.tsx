@@ -24,8 +24,8 @@ const og = async ({ params: { postId } }: Props) => {
     const postData = await getPost(postId);
 
     // woff2는 지원 안됨, ttf/otf가 컴파일이 빠르다.
-    const font = await fetch(new URL(`${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}/fonts/SpoqaHanSansNeo-Bold.ttf`)).then(
-      (res) => res.arrayBuffer(),
+    const font = await fetch(new URL(`${process.env.NEXT_PUBLIC_FE_URL}/fonts/SpoqaHanSansNeo-Bold.ttf`)).then((res) =>
+      res.arrayBuffer(),
     );
 
     // zIndex 지원 안됨, 나중에 올라오는게 위에 올라간다.

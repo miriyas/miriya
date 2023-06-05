@@ -12,7 +12,7 @@ const Top = ({ counterData }: Props) => {
   return (
     <div className={styles.top}>
       <div className={styles.leftWing}>
-        TODAY <span>{today[1]}</span> | TOTAL <span>{total[1]}</span>
+        TODAY <span>{today?.[1] ?? 0}</span> | TOTAL <span>{total?.[1] ?? 0}</span>
       </div>
       <div className={styles.rightWing}>
         <p className={styles.title}>준혁e의 ㅁlㄴl홈피✨</p>

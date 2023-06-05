@@ -5,7 +5,7 @@ import cx from 'clsx';
 import Top from '@/containers/minihome/_common/Top';
 import LeftWing from '@/containers/minihome/_common/LeftWing';
 import RightNav from '@/containers/minihome/_common/RightNav';
-import { GADataRow } from '@/types/minihome';
+import { getGAdataAPI } from '@/services/minihome';
 
 import { getMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
@@ -29,14 +29,9 @@ const dungGeunMoFont = localFont({
 });
 
 const Layout = async ({ children }: Props) => {
-  const gaDataRaw = await fetch('https://us-central1-miriyas.cloudfunctions.net/getGAdata', {
-    next: { revalidate: 60 * 30 }, // 30분 캐시
-  });
-  const gaDataRes = await gaDataRaw.json();
-  const gaData = gaDataRes.data as GADataRow[];
-
+  const gaData = await getGAdataAPI().then((res) => res.data);
   const total = gaData[0].metricValues.map((v) => Number(v.value));
-  const today = gaData[1].metricValues.map((v) => Number(v.value));
+  const today = gaData[1]?.metricValues.map((v) => Number(v.value));
 
   return (
     <main className={cx(styles.minihome, dungGeunMoFont.variable)}>

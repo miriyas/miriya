@@ -12,9 +12,9 @@ const hexEncode = (str: string) => {
 
 const avatar = async (uid: string) => {
   try {
-    const font = await fetch(
-      new URL(`${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}/fonts/SpoqaHanSansNeo-Medium.ttf`),
-    ).then((res) => res.arrayBuffer());
+    const font = await fetch(new URL(`${process.env.NEXT_PUBLIC_FE_URL}/fonts/SpoqaHanSansNeo-Medium.ttf`)).then(
+      (res) => res.arrayBuffer(),
+    );
 
     const hex = hexEncode(uid);
     const longHex = hex + hex.split('').reverse().join('');

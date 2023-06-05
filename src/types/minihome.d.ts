@@ -25,8 +25,8 @@ export interface GADataRow {
 }
 
 export interface CounterData {
-  total: number[];
-  today: number[];
+  total?: number[];
+  today?: number[];
 }
 
 export interface Guestbook {

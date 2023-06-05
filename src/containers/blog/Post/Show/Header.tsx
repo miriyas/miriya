@@ -41,7 +41,7 @@ const Header = ({ categories, postData }: Props) => {
 
   const category = useMemo(() => categories.find((c) => c.id === categoryId), [categories, categoryId]);
 
-  const url = `${process.env.NEXT_PUBLIC_LOCAL_FETCH_URL}/blog/${id}`;
+  const url = `${process.env.NEXT_PUBLIC_FE_URL}/blog/${id}`;
 
   return (
     <header className={styles.header}>
