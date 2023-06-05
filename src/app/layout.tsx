@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
-import dynamic from 'next/dynamic';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 
 import { Alert } from '@/components/Alert';
-import Providers from './providers';
+import Providers from './Providers';
 import Header from './_common/Header';
-import Additional from './_common/Additional';
+import Footer from './_common/Footer';
+import GoogleAnalytics from './GoogleAnalytics';
 import ScrollAid from './_common/ScrollAid';
 import '@/styles/globals.scss';
 import { metadata as profileMetadata } from './profile/page';
@@ -17,8 +17,6 @@ export const metadata = {
     template: '%s | MIRIYA',
   },
 };
-
-const Footer = dynamic(() => import('./_common/Footer'), { ssr: false });
 
 interface Props {
   children: React.ReactNode;
@@ -33,24 +31,18 @@ const RootLayout = ({ children }: Props) => {
       </head>
       <body>
         <Suspense fallback={null}>
-          <Additional />
-        </Suspense>
-        <Providers>
-          <Suspense fallback={null}>
+          <GoogleAnalytics />
+          <Providers>
             <Header />
-          </Suspense>
-          {children}
-          <Suspense fallback={null}>
+            {children}
             <ScrollAid />
-          </Suspense>
-          <Suspense fallback={null}>
             <Footer />
-          </Suspense>
-          <div id='alert' />
-          <div id='modal' />
-          <Alert />
-        </Providers>
-        <Analytics />
+            <div id='alert' />
+            <div id='modal' />
+            <Alert />
+          </Providers>
+          <VercelAnalytics />
+        </Suspense>
       </body>
     </html>
   );

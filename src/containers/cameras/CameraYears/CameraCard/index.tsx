@@ -49,7 +49,7 @@ const Camera = (props: Props) => {
   const selectedMaker = useAtomValue(selectedMakerAtom);
   const [isShow, setIsShow] = useRafState(selectedMaker === 'ALL' ? true : maker === selectedMaker);
 
-  const [selected, setSelected] = useState(getIsSelected(id));
+  const [selected, setSelected] = useState(() => getIsSelected(id));
   const [tab, setTab] = useState('internal');
 
   const onClickTab: MouseEventHandler<HTMLButtonElement> = (e) => {
