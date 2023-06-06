@@ -27,12 +27,22 @@
         button {
           font-weight: 600;
           background-color: var(--color-white);
+
+          &:hover,
+          &:active {
+            text-decoration: none;
+          }
         }
       }
 
       button {
         width: 100%;
         height: 100%;
+
+        &:hover,
+        &:active {
+          text-decoration: underline;
+        }
       }
     }
   }

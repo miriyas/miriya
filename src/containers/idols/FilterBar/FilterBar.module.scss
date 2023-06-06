@@ -51,6 +51,11 @@
       button {
         font-size: 13px;
         font-weight: inherit;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
   }

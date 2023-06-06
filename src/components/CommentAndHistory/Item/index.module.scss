@@ -100,8 +100,9 @@
       }
 
       button {
-        &:hover {
-          color: var(--color-gray-4);
+        &:hover,
+        &:active {
+          text-decoration: underline;
         }
       }
     }

@@ -7,6 +7,7 @@ import { authModalAtom } from '@/components/Auth/states';
 import useAuth from '@/hooks/useAuth';
 
 import styles from './index.module.scss';
+import Button from '@/components/Button';
 
 const PleaseLogin = () => {
   const { user } = useAuth();
@@ -27,12 +28,12 @@ const PleaseLogin = () => {
     <div className={styles.pleaseLogin}>
       <p>로그인을 해주세요.</p>
       <div className={styles.wrapper}>
-        <button type='button' onClick={onClickLogin}>
+        <Button onClick={onClickLogin} size='tiny'>
           로그인
-        </button>
-        <button type='button' onClick={onClickSignUp}>
+        </Button>
+        <Button onClick={onClickSignUp} size='tiny'>
           회원가입
-        </button>
+        </Button>
       </div>
     </div>
   );

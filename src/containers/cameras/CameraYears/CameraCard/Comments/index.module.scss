@@ -36,6 +36,11 @@
         width: 100%;
         height: 100%;
         font-size: 12px;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
   }

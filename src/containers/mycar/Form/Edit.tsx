@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import cx from 'clsx';
 import { useEffect, useState } from 'react';
 
@@ -12,6 +11,7 @@ import { getCDNImage } from '@/utils/image';
 import Loading from '@/components/Loading';
 import HeroHeader from '../HeroHeader';
 import styles from './index.module.scss';
+import Button from '@/components/Button';
 
 interface Props {
   currentCar: FBMyCar;
@@ -109,12 +109,17 @@ const EditForm = ({ currentCar }: Props) => {
             />
           </label>
           <div className={styles.buttonWrapper}>
-            <Link href={`/mycar/${currentCar.id}`} className={cx({ [styles.disabled]: submitDisabled })}>
+            <Button
+              link={`/mycar/${currentCar.id}`}
+              className={cx({ [styles.disabled]: submitDisabled })}
+              skin='inverse'
+              size='small'
+            >
               취소
-            </Link>
-            <button type='submit' disabled={submitDisabled}>
+            </Button>
+            <Button type='submit' disabled={submitDisabled} skin='primary' size='small'>
               {isLoading ? <Loading small /> : '확인'}
-            </button>
+            </Button>
           </div>
         </form>
         <div className={styles.desc}>1600x900px JPG 이미지를 올려주세요!</div>

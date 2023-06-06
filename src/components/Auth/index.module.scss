@@ -37,20 +37,6 @@
     text-align: center;
   }
 
-  .tabs {
-    @include m.flexbox;
-    height: 44px;
-
-    li {
-      flex: 1;
-      text-align: center;
-
-      &.active button {
-        font-weight: 700;
-      }
-    }
-  }
-
   .commonError {
     @include m.flexbox;
     height: 20px;

@@ -96,6 +96,11 @@
       font-size: 10px;
       background-color: var(--color-gray-f);
 
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+
       &.current {
         background-color: var(--color-white);
       }

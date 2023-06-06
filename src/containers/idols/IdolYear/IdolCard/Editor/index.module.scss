@@ -84,17 +84,6 @@
 
     button {
       flex: 1;
-      height: 28px;
-      border-radius: 4px;
-
-      &:disabled {
-        opacity: 0.5;
-      }
-    }
-
-    button[type='submit'] {
-      color: var(--color-white);
-      background-color: var(--color-blue);
     }
   }
 }

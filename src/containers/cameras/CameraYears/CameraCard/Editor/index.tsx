@@ -7,6 +7,7 @@ import { fields } from '@/containers/cameras/CameraYears/CameraCard/Editor/field
 
 import styles from './index.module.scss';
 import EditorInputs from '@/components/EditorInputs';
+import Button from '@/components/Button';
 
 interface Props {
   camera: FBCameraType;
@@ -46,12 +47,12 @@ const Editor = ({ camera, setTab }: Props) => {
         />
       ))}
       <div className={styles.buttonWrapper}>
-        <button type='button' onClick={onClickCancel}>
+        <Button onClick={onClickCancel} skin='inverse' size='small'>
           취소
-        </button>
-        <button type='submit' disabled={!isDirty}>
+        </Button>
+        <Button type='submit' disabled={!isDirty} skin='primary' size='small'>
           수정
-        </button>
+        </Button>
       </div>
     </form>
   );

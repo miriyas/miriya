@@ -33,24 +33,24 @@ const Desc = ({ idol, showHistory, setShowHistory }: Props) => {
     <div className={styles.desc}>
       <div className={styles.leftWing}>
         {desc?.namu && (
-          <ExternalLink href={desc.namu} onClick={onClickDesc} title='나무위키'>
+          <ExternalLink href={desc.namu} onClick={onClickDesc} title='나무위키' className={styles.link}>
             나무위키
           </ExternalLink>
         )}
         {desc?.melon && (
-          <ExternalLink href={desc.melon} onClick={onClickDesc} title='멜론'>
+          <ExternalLink href={desc.melon} onClick={onClickDesc} title='멜론' className={styles.link}>
             멜론
           </ExternalLink>
         )}
         {desc?.naver && (
-          <ExternalLink href={desc.naver} onClick={onClickDesc} title='바이브'>
+          <ExternalLink href={desc.naver} onClick={onClickDesc} title='바이브' className={styles.link}>
             바이브
           </ExternalLink>
         )}
         {desc?.title && <p>한줄평 : {desc.title}</p>}
       </div>
       <div className={styles.rightWing}>
-        <button type='button' onClick={onClickToggle}>
+        <button type='button' onClick={onClickToggle} className={styles.link}>
           {showHistory ? '댓글 목록' : '수정 기록'}
         </button>
       </div>

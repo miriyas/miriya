@@ -59,7 +59,8 @@
       font-size: 11px;
       color: var(--color-gray-7);
 
-      &:hover {
+      &:hover,
+      &:active {
         text-decoration: underline;
       }
     }

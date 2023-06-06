@@ -88,13 +88,6 @@
       button {
         flex: 1;
         min-width: 100px;
-        height: 32px;
-        border-radius: 2px;
-
-        &.primary {
-          color: var(--color-white);
-          background-color: var(--color-blue);
-        }
       }
     }
   }

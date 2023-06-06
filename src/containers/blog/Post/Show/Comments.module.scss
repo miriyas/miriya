@@ -16,18 +16,6 @@
 
   button[type='submit'] {
     align-self: flex-end;
-    width: 100px;
-    height: 32px;
-    margin-top: 8px;
-    font-size: 14px;
-    color: var(--color-white) !important;
-    background-color: var(--color-blue);
-    border-radius: 2px;
-    transition: 0.2s;
-
-    &:disabled {
-      opacity: 0.4;
-    }
   }
 
   .commentNewForm {
@@ -36,6 +24,10 @@
 
     .profile {
       display: none;
+    }
+
+    button[type='submit'] {
+      margin-top: 8px;
     }
   }
 
@@ -172,12 +164,8 @@
       button {
         width: 64px;
         height: 28px;
+        margin-top: 8px;
         font-size: 12px;
-        transition: 0.2s;
-
-        &:disabled {
-          opacity: 0.4;
-        }
       }
     }
 

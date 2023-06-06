@@ -54,6 +54,10 @@
     margin-top: 8px;
     font-size: 10px;
     color: var(--color-gray-c);
-    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
   }
 }

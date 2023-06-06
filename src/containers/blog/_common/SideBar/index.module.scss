@@ -25,20 +25,14 @@
     a {
       @include m.flexbox;
       height: 100%;
-      padding: 8px;
-      font-size: 12px;
-      color: var(--color-black);
-      border-radius: 4px;
 
       &.write {
         flex: 1;
-        color: var(--color-white);
-        background-color: var(--color-blue);
-        border: 0;
       }
 
       &.manage {
-        border: 1px solid var(--color-gray-c);
+        min-width: auto;
+        padding: 0 14px;
       }
     }
   }

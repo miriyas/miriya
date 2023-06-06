@@ -1,0 +1,75 @@
+@use 'sass:color';
+@use 'src/styles/mixins' as m;
+
+.commonButton {
+  @include m.flexbox;
+  white-space: nowrap;
+  border-radius: 2px;
+  transition: 0.2s;
+
+  &:disabled {
+    opacity: 0.4;
+  }
+
+  // Size
+
+  &.tiny {
+    min-width: 80px;
+    height: 20px;
+    padding: 0 8px;
+    font-size: 12px;
+    color: var(--color-gray-4);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-9);
+    border-radius: 3px;
+
+    &:hover,
+    &:focus {
+      border-color: var(--color-gray-4);
+    }
+  }
+
+  &.small {
+    min-width: 80px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  &.normal {
+    height: var(--h-comment-form);
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
+  // Skin
+
+  &.primary {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-blue-dark);
+    }
+  }
+
+  &.inverse {
+    color: var(--color-black);
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &.ghost {
+    color: var(--color-black);
+    border: 1px solid var(--color-gray-c);
+
+    &:hover,
+    &:focus {
+      border: 1px solid var(--color-gray-a);
+    }
+  }
+}

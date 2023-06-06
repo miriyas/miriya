@@ -14,6 +14,11 @@
     white-space: pre-line;
     cursor: pointer;
     user-select: none;
+
+    &:hover,
+    &:active {
+      font-weight: 700;
+    }
   }
 
   &.current {

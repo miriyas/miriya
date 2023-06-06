@@ -64,7 +64,8 @@
       border: 1px solid var(--color-gray-a);
       border-radius: 3px;
 
-      &:focus {
+      &:focus,
+      &:active {
         border-color: var(--color-gray-4);
       }
 

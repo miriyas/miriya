@@ -11,6 +11,11 @@
     font-size: 10px;
     text-align: center;
     cursor: pointer;
+
+    &:hover,
+    &:active {
+      font-weight: 700;
+    }
   }
 
   &.current {

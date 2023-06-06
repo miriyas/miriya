@@ -29,7 +29,8 @@
         font-weight: 600;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: var(--color-blue);
       }
     }

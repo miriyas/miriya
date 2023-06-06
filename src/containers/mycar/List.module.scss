@@ -191,19 +191,11 @@
           }
         }
 
+        &:hover,
         &:focus {
-          border-color: var(--color-gray-4);
+          text-decoration: underline;
         }
       }
-
-      // @include m.after(SD) {
-      //   width: 60px;
-
-      //   button {
-      //     width: 60px;
-      //     text-align: center;
-      //   }
-      // }
     }
   }
 }

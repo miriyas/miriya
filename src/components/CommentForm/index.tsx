@@ -9,6 +9,7 @@ import { postCommentAPI } from '@/services/comments';
 import useCommentAndHistory from '../CommentAndHistory/useCommentAndHistory';
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
+import Button from '@/components/Button';
 import defaultStyles from './index.module.scss';
 
 interface Props {
@@ -91,9 +92,9 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName, 
           placeholder='댓글을 입력해주세요.'
         />
       )}
-      <button type='submit' disabled={loading}>
+      <Button type='submit' disabled={loading} skin='primary' className={styles.submit}>
         등록
-      </button>
+      </Button>
     </form>
   );
 };

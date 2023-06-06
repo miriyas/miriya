@@ -3,6 +3,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import useAlert from '@/hooks/useAlert';
 import { Alert } from '@/states/alert';
 
+import Button from '@/components/Button';
 import styles from './index.module.scss';
 
 interface Props {
@@ -40,14 +41,10 @@ const View = ({ alert }: Props) => {
       )}
 
       <div className={styles.buttonsWrapper}>
-        {cancelLabel && (
-          <button type='button' onClick={handleCancel}>
-            {cancelLabel}
-          </button>
-        )}
-        <button type='button' onClick={handleConfirm} className={styles.primary}>
+        {cancelLabel && <Button onClick={handleCancel}>{cancelLabel}</Button>}
+        <Button onClick={handleConfirm} skin='primary'>
           {confirmLabel || '확인'}
-        </button>
+        </Button>
       </div>
     </aside>
   );

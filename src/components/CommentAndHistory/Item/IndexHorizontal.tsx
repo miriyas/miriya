@@ -11,6 +11,7 @@ import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import Reply from './Reply';
 import CommentEditForm from './Edit';
 import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
+import Button from '@/components/Button';
 
 interface Props {
   comment: Comment;
@@ -103,7 +104,9 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
             {replyOpen && (
               <form className={styles.replyForm} onSubmit={onSubmitReply}>
                 <textarea onChange={onChangeReply} value={replyBody} data-lpignore='true' autoComplete='off' />
-                <button type='submit'>확인</button>
+                <Button type='submit' skin='primary'>
+                  확인
+                </Button>
               </form>
             )}
             {comment.children && comment.children.length > 0 && (

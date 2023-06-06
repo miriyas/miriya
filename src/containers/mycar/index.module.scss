@@ -17,6 +17,11 @@
       padding: 0 8px;
       color: var(--color-white);
       background-color: rgba(var(--color-black-rgb), 0.2);
+
+      &:hover,
+      &:active {
+        background-color: rgba(var(--color-black-rgb), 0.4);
+      }
     }
   }
 
@@ -39,6 +44,16 @@
 
           &.current {
             font-weight: 600;
+
+            &:hover,
+            &:active {
+              text-decoration: none;
+            }
+          }
+
+          &:hover,
+          &:active {
+            text-decoration: underline;
           }
         }
       }

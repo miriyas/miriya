@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
@@ -9,6 +8,7 @@ import { FBBlogCategory } from '@/types/blog.d';
 import { IconRSS } from 'public/svgs';
 import ExternalLink from '@/components/ExternalLink';
 import Loading from '@/components/Loading';
+import Button from '@/components/Button';
 import Search from './Search';
 import Profile from './Profile';
 import Categories from './Categories';
@@ -47,12 +47,12 @@ const SideBar = ({ categories, currentCategory }: Props) => {
         <Profile />
         <AdminOnly>
           <div className={styles.admin}>
-            <Link href='/blog/post/new' className={styles.write}>
+            <Button link='/blog/post/new' className={styles.write} skin='primary' size='small'>
               글쓰기
-            </Link>
-            <Link href='/blog/categories' className={styles.manage}>
+            </Button>
+            <Button link='/blog/categories' className={styles.manage} skin='ghost' size='small'>
               관리
-            </Link>
+            </Button>
           </div>
         </AdminOnly>
         <Categories categories={categories} currentCategory={currentCategory} />

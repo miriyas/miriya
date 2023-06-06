@@ -22,6 +22,7 @@ import LabelWithInfo from '@/components/EditorInputs/LabelWithInfo';
 import EditorInputs from '@/components/EditorInputs';
 import inputStyles from '@/components/EditorInputs/index.module.scss';
 import styles from '../../_common/CommonEditor.module.scss';
+import Button from '@/components/Button';
 
 interface Props {
   camera: FBPentaxDslr;
@@ -140,12 +141,12 @@ const Editor = ({ camera }: Props) => {
           <textarea {...register('data.comment')} />
         </label>
         <div className={styles.buttonWrapper}>
-          <button type='button' onClick={onClickCancel}>
+          <Button onClick={onClickCancel} skin='inverse' size='small'>
             취소
-          </button>
-          <button type='submit' disabled={!isDirty}>
+          </Button>
+          <Button type='submit' disabled={!isDirty} skin='primary' size='small'>
             수정
-          </button>
+          </Button>
         </div>
       </div>
     </form>

@@ -13,6 +13,7 @@ import { SignUpSchema, signUpValidator } from '@/utils/validator';
 import FancyEyeBall from './FancyEyeBall';
 import authStyles from '../index.module.scss';
 import styles from './index.module.scss';
+import Button from '@/components/Button';
 
 interface Props {
   setTab: Dispatch<SetStateAction<'login' | 'signup' | undefined>>;
@@ -72,10 +73,10 @@ const SignUp = ({ setTab }: Props) => {
           disabled={disabled}
         />
       </div>
-      <button type='submit' disabled={disabled}>
+      <Button type='submit' disabled={disabled} skin='primary'>
         회원가입
-      </button>
-      <div className={authStyles.commonError}>{signUpError || errorMessage}</div>
+      </Button>
+      {(signUpError || errorMessage) && <div className={authStyles.commonError}>{signUpError || errorMessage}</div>}
 
       <div className={styles.toOtherTab}>
         계정이 있다면?&nbsp;

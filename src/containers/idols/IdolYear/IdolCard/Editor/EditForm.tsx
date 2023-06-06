@@ -9,6 +9,7 @@ import { EditIdolSchema } from '@/utils/validator';
 
 import styles from './index.module.scss';
 import Select from '@/components/Select';
+import Button from '@/components/Button';
 
 interface Item {
   label: string;
@@ -144,12 +145,12 @@ const Form = ({ idol, submitIdol, onClickCancel, errors, register, dirtyFields, 
         );
       })}
       <div className={styles.buttonWrapper}>
-        <button type='button' onClick={onClickCancel}>
+        <Button onClick={onClickCancel} size='small' skin='inverse'>
           취소
-        </button>
-        <button type='submit' disabled={!isDirty || isLoading}>
+        </Button>
+        <Button type='submit' disabled={!isDirty || isLoading} size='small' skin='primary'>
           확인
-        </button>
+        </Button>
       </div>
     </form>
   );

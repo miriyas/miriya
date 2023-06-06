@@ -13,6 +13,7 @@ import { LogInSchema, logInValidator } from '@/utils/validator';
 import FancyEyeBall from './FancyEyeBall';
 import authStyles from '../index.module.scss';
 import styles from './index.module.scss';
+import Button from '@/components/Button';
 
 interface Props {
   setTab: Dispatch<SetStateAction<'login' | 'signup' | undefined>>;
@@ -63,10 +64,10 @@ const LogIn = ({ setTab }: Props) => {
         />
         {!disabled && <FancyEyeBall showPassword={showPassword} setShowPassword={setShowPassword} />}
       </div>
-      <button type='submit' disabled={disabled}>
+      <Button type='submit' disabled={disabled} skin='primary'>
         로그인
-      </button>
-      <div className={authStyles.commonError}>{logInError || errorMessage}</div>
+      </Button>
+      {(logInError || errorMessage) && <div className={authStyles.commonError}>{logInError || errorMessage}</div>}
       <div className={styles.toOtherTab}>
         이렇게 반가울데가.. &nbsp;
         <button type='button' onClick={onClickSionUp} disabled={disabled}>

@@ -11,6 +11,7 @@ import { revalidateApi } from '@/services';
 import Item from './Item';
 import styles from './index.module.scss';
 import Loading from '@/components/Loading';
+import Button from '@/components/Button';
 
 interface Props {
   categories: FBBlogCategory[];
@@ -70,9 +71,9 @@ const BlogCategoryPage = ({ categories }: Props) => {
         </Suspense>
         <form className={styles.new} onSubmit={onSubmitNewCategory}>
           <input type='text' value={categoryNew} onChange={onChangeCategoryNew} placeholder='카테고리명' />
-          <button type='submit' disabled={isSubmiting}>
+          <Button type='submit' disabled={isSubmiting} skin='primary' size='small'>
             추가
-          </button>
+          </Button>
         </form>
       </div>
     </div>
