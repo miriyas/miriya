@@ -10,6 +10,8 @@ import { getGAdataAPI } from '@/services/minihome';
 import { getMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
 
+export const revalidate = 3600;
+
 interface Props {
   children: ReactNode;
 }
