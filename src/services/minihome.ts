@@ -4,8 +4,7 @@ import { GADataRow, Guestbook } from '@/types/minihome.d';
 
 export const getGAdataAPI = () => apiBe<GADataRow[]>('/minihome/counter');
 
-export const getMinihomeLeftCommentsDataAPI = (limitCount: number) =>
-  apiBe<Comment[]>('/minihome/leftComments', { params: { limitCount } });
+export const getMinihomeLeftCommentsDataAPI = () => apiBe<Comment[]>('/minihome/leftComments');
 
 export const getMinihomRightCounterDataAPI = (category: string) =>
   apiBe<{

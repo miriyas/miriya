@@ -11,7 +11,7 @@ import styles from './LeftRecent.module.scss';
 const LeftRecent = () => {
   const { data: recentComments } = useQuery(
     ['getMinihomeLeftCommentsDataAPI'],
-    () => getMinihomeLeftCommentsDataAPI(4).then((res) => res.data),
+    () => getMinihomeLeftCommentsDataAPI().then((res) => res.data),
     {
       suspense: true,
     },
