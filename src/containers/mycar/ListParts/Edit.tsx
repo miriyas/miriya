@@ -5,7 +5,7 @@ import cx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FBItemParts } from '@/types/mycar.d';
+import { ItemParts } from '@/types/mycar.d';
 import { patchCarPartsDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
@@ -14,7 +14,7 @@ import { NewMyCarPartsSchema, newMyCarPartsValidator } from '@/utils/validator';
 import styles from '../List.module.scss';
 
 interface Props {
-  item: FBItemParts;
+  item: ItemParts;
   refetch: () => void;
   setEditMode: Dispatch<SetStateAction<boolean>>;
 }

@@ -1,9 +1,9 @@
 import { apiBe, apiBePure } from '@/services';
-import { FBItemFix, FBItemLink, FBItemParts, FBMyCar, NewItemFix, NewItemLink, NewItemParts } from '@/types/mycar.d';
+import { ItemFix, ItemLink, ItemParts, MyCar, NewItemFix, NewItemLink, NewItemParts } from '@/types/mycar.d';
 
-export const getMyCarDataAPI = () => apiBe<FBMyCar[]>('/mycar');
+export const getMyCarDataAPI = () => apiBe<MyCar[]>('/mycar');
 
-export const fetchMyCarDataAPI = () => apiBePure<FBMyCar[]>('/mycar');
+export const fetchMyCarDataAPI = () => apiBePure<MyCar[]>('/mycar');
 
 export const postCarDataAPI = (body: FormData) => apiBe.postForm('/mycar', body);
 
@@ -11,7 +11,7 @@ export const patchCarDataAPI = (carId: string, body: FormData) => apiBe.patch(`/
 
 // 정비 내역
 
-export const getCarFixDataAPI = (carId: string) => apiBe<FBItemFix[]>(`/mycar/${carId}/fix`);
+export const getCarFixDataAPI = (carId: string) => apiBe<ItemFix[]>(`/mycar/${carId}/fix`);
 
 export const postCarFixDataAPI = (carId: string, params: NewItemFix) => apiBe.post(`/mycar/${carId}/fix`, params);
 
@@ -22,7 +22,7 @@ export const deleteCarFixDataAPI = (carId: string, fixId: string) => apiBe.delet
 
 // 부품 목록
 
-export const getCarPartsDataAPI = (carId: string) => apiBe<FBItemParts[]>(`/mycar/${carId}/parts`);
+export const getCarPartsDataAPI = (carId: string) => apiBe<ItemParts[]>(`/mycar/${carId}/parts`);
 
 export const postCarPartsDataAPI = (carId: string, params: NewItemParts) => apiBe.post(`/mycar/${carId}/parts`, params);
 
@@ -34,7 +34,7 @@ export const deleteCarPartsDataAPI = (carId: string, partsId: string) =>
 
 // 링크 목록
 
-export const getCarLinksDataAPI = (carId: string) => apiBe<FBItemLink[]>(`/mycar/${carId}/links`);
+export const getCarLinksDataAPI = (carId: string) => apiBe<ItemLink[]>(`/mycar/${carId}/links`);
 
 export const postCarLinkDataAPI = (carId: string, params: NewItemLink) => apiBe.post(`/mycar/${carId}/links`, params);
 

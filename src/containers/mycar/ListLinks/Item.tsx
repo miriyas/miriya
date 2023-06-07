@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import cx from 'clsx';
 
-import { FBItemLink } from '@/types/mycar.d';
+import { ItemLink } from '@/types/mycar.d';
 import { deleteCarLinkDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';
@@ -13,12 +13,12 @@ import EditItemParts from './Edit';
 import styles from '../List.module.scss';
 
 interface Props {
-  item: FBItemLink;
+  item: ItemLink;
   refetch: () => void;
   carOwnerId: string;
 }
 
-const ItemLinks = ({ item, refetch, carOwnerId }: Props) => {
+const ListLinksItem = ({ item, refetch, carOwnerId }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const { addAlert } = useAlert();
   const { user, isAdmin, isMine } = useAuth();
@@ -63,4 +63,4 @@ const ItemLinks = ({ item, refetch, carOwnerId }: Props) => {
   );
 };
 
-export default ItemLinks;
+export default ListLinksItem;

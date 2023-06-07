@@ -4,15 +4,15 @@ import { useQuery } from '@tanstack/react-query';
 
 import useAuth from '@/hooks/useAuth';
 import { getCarFixDataAPI } from '@/services/mycar';
-import { FBMyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar.d';
 
 import Loading from '@/components/Loading';
 import New from './New';
-import ItemFix from './Item';
+import ListFixItem from './Item';
 import styles from '../List.module.scss';
 
 interface Props {
-  car: FBMyCar;
+  car: MyCar;
 }
 
 const ListFix = ({ car }: Props) => {
@@ -41,7 +41,7 @@ const ListFix = ({ car }: Props) => {
           </li>
         )}
         {data?.map((item) => (
-          <ItemFix key={item.id} item={item} refetch={refetch} carOwnerId={car.authorId} />
+          <ListFixItem key={item.id} item={item} refetch={refetch} carOwnerId={car.authorId} />
         ))}
       </ul>
     </div>

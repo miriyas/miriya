@@ -3,14 +3,14 @@ import { useAtom } from 'jotai';
 import cx from 'clsx';
 import Link from 'next/link';
 
-import { FBMyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar.d';
 import { currentCarAtom } from '@/containers/mycar/states';
 
 import styles from './Top.module.scss';
 
 interface Props {
   carId?: string;
-  cars: FBMyCar[];
+  cars: MyCar[];
 }
 
 const Top = ({ carId, cars }: Props) => {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { FBItemParts } from '@/types/mycar.d';
+import { ItemParts } from '@/types/mycar.d';
 import { deleteCarPartsDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';
@@ -12,12 +12,12 @@ import EditItemParts from './Edit';
 import styles from '../List.module.scss';
 
 interface Props {
-  item: FBItemParts;
+  item: ItemParts;
   refetch: () => void;
   carOwnerId: string;
 }
 
-const ItemParts = ({ item, refetch, carOwnerId }: Props) => {
+const ListPartsItem = ({ item, refetch, carOwnerId }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const { addAlert } = useAlert();
   const { user, isAdmin, isMine } = useAuth();
@@ -65,4 +65,4 @@ const ItemParts = ({ item, refetch, carOwnerId }: Props) => {
   );
 };
 
-export default ItemParts;
+export default ListPartsItem;

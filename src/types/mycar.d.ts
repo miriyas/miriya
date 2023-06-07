@@ -1,20 +1,28 @@
-import { WithAuthor, WithTS } from '@/types/firebase.d';
+import { WithAuthor, WithTS } from '@/types/firebase';
 
-interface MyCar {
+interface MyCarCore {
   name: string;
   vin: string;
   maker: string;
   lineup: string;
 }
 
-export interface FBMyCar extends MyCar, WithAuthor, WithTS {
+export interface NewMyCar extends MyCarCore {
+  image: File;
+}
+
+export interface EditMyCar extends NewMyCar {
+  id: string;
+}
+
+export interface MyCar extends MyCarCore, WithAuthor, WithTS {
   id: string;
   imageUrl: string;
 }
 
 // 정비 내역
 
-export interface ItemFix {
+export interface ItemFixCore {
   time: string;
   km?: number;
   miles?: number;
@@ -24,43 +32,59 @@ export interface ItemFix {
   body?: string;
 }
 
-export interface NewItemFix extends ItemFix {
+export interface NewItemFix extends ItemFixCore {
   carId: string;
 }
 
-export interface FBItemFix extends NewItemFix, WithAuthor, WithTS {
+export interface EditItemFix extends NewItemFix {
+  id: string;
+}
+
+export interface ItemFix extends ItemFixCore, WithAuthor, WithTS {
+  carId: string;
   id: string;
 }
 
 // 부품 목록
 
-export interface ItemParts {
+export interface ItemPartsCore {
   name: string;
   partsNo: string;
   partsUrl?: string;
   body: string;
 }
 
-export interface NewItemParts extends ItemParts {
+export interface NewItemParts extends ItemPartsCore {
   carId: string;
 }
 
-export interface FBItemParts extends NewItemParts, WithAuthor, WithTS {
+export interface EditItemParts extends NewItemParts {
   id: string;
+}
+
+export interface ItemParts extends ItemPartsCore, WithAuthor, WithTS {
+  id: string;
+  carId: string;
 }
 
 // 링크 목록
 
-export interface ItemLink {
+export interface ItemLinkCore {
   title: string;
   url: string;
   body?: string;
 }
 
-export interface NewItemLink extends ItemLink {
+export interface NewItemLink extends ItemLinkCore {
   carId: string;
 }
 
-export interface FBItemLink extends NewItemLink, WithAuthor, WithTS {
+export interface EditItemLink extends NewItemLink {
   id: string;
+  carId: string;
+}
+
+export interface ItemLink extends ItemLinkCore, WithAuthor, WithTS {
+  id: string;
+  carId: string;
 }

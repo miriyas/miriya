@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAtomValue } from 'jotai';
 
-import { FBItemFix } from '@/types/mycar.d';
+import { ItemFix } from '@/types/mycar.d';
 import { patchCarFixDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
@@ -17,7 +17,7 @@ import { metricKmAtom } from '../states';
 import styles from '../List.module.scss';
 
 interface Props {
-  item: FBItemFix;
+  item: ItemFix;
   refetch: () => void;
   setEditMode: Dispatch<SetStateAction<boolean>>;
 }

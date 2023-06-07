@@ -1,15 +1,9 @@
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
-import MyCarEdit from '@/containers/mycar/Form/Edit';
-import { getMyCarDataAPI, fetchMyCarDataAPI } from '@/services/mycar';
+import { getMyCarDataAPI } from '@/services/mycar';
 
-export async function generateStaticParams() {
-  return fetchMyCarDataAPI().then((res) => {
-    return res.data.map((car) => ({
-      carId: car.id,
-    }));
-  });
-}
+const MyCarEdit = dynamic(() => import('@/containers/mycar/Form/Edit'), { ssr: false });
 
 interface Props {
   params: {
@@ -26,7 +20,7 @@ const MyCarEditPage = async ({ params }: Props) => {
 
   if (!currentCar) notFound();
 
-  return <MyCarEdit currentCar={currentCar} />;
+  return <MyCarEdit carId={params.carId} />;
 };
 
 export default MyCarEditPage;

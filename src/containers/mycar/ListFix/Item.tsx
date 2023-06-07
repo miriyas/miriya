@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useAtomValue } from 'jotai';
 
-import { FBItemFix } from '@/types/mycar.d';
+import { ItemFix } from '@/types/mycar.d';
 import { deleteCarFixDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';
@@ -14,12 +14,12 @@ import EditItemFix from './Edit';
 import styles from '../List.module.scss';
 
 interface Props {
-  item: FBItemFix;
+  item: ItemFix;
   refetch: () => void;
   carOwnerId: string;
 }
 
-const ItemFix = ({ item, refetch, carOwnerId }: Props) => {
+const ListFixItem = ({ item, refetch, carOwnerId }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const { addAlert } = useAlert();
   const { user, isAdmin, isMine } = useAuth();
@@ -77,4 +77,4 @@ const ItemFix = ({ item, refetch, carOwnerId }: Props) => {
   );
 };
 
-export default ItemFix;
+export default ListFixItem;

@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import useAuth from '@/hooks/useAuth';
 import { getCarPartsDataAPI } from '@/services/mycar';
-import { FBMyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar.d';
 
 import Loading from '@/components/Loading';
 import New from './New';
@@ -12,7 +12,7 @@ import ItemParts from './Item';
 import styles from '../List.module.scss';
 
 interface Props {
-  car: FBMyCar;
+  car: MyCar;
 }
 
 const ListParts = ({ car }: Props) => {

@@ -7,10 +7,10 @@ import useMyCar from '../useMyCar';
 import useAuth from '@/hooks/useAuth';
 import { EditMyCarSchema, editMyCarValidator } from '@/utils/validator';
 import { patchCarDataAPI } from '@/services/mycar';
-import { FBMyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar.d';
 import useAlert from '@/hooks/useAlert';
 
-const useEdit = (currentCar: FBMyCar) => {
+const useEdit = (currentCar: MyCar) => {
   const router = useRouter();
   const { refetchCars } = useMyCar();
   const { alertUserOnly } = useAlert();

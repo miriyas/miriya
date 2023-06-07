@@ -5,7 +5,7 @@ import cx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FBItemLink } from '@/types/mycar.d';
+import { ItemLink } from '@/types/mycar.d';
 import { patchCarLinkDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
@@ -14,7 +14,7 @@ import { NewMyCarLinkSchema, newMyCarLinkValidator } from '@/utils/validator';
 import styles from '../List.module.scss';
 
 interface Props {
-  item: FBItemLink;
+  item: ItemLink;
   refetch: () => void;
   setEditMode: Dispatch<SetStateAction<boolean>>;
 }
