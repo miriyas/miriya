@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 
 import { Alert } from '@/components/Alert';
 import Providers from './Providers';
@@ -41,7 +40,6 @@ const RootLayout = ({ children }: Props) => {
             <div id='modal' />
             <Alert />
           </Providers>
-          <VercelAnalytics />
         </Suspense>
       </body>
     </html>
