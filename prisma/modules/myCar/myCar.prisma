@@ -1,0 +1,18 @@
+model Author {
+  id String @id @default(cuid())
+  MyCar MyCar[]
+}
+
+model MyCar {
+  id         String       @id @default(cuid())
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime?    @updatedAt
+  deletedAt  DateTime?
+  author     Author       @relation(fields: [authorId], references: [id])
+  authorId   String
+  imageUrl   String?
+  lineup     String // 세부 모델명
+  maker      String // 제조사
+  name       String // 차 별명
+  vin        String // 차대번호
+}

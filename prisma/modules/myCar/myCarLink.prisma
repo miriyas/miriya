@@ -1,0 +1,23 @@
+model Author {
+  id String @id @default(cuid())
+  MyCarLink  MyCarLink[]
+}
+
+model MyCar {
+  id String @id @default(cuid())
+  MyCarLink  MyCarLink[]
+}
+
+model MyCarLink {
+  id        String    @id @unique @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  author    Author    @relation(fields: [authorId], references: [id])
+  authorId  String
+  car       MyCar     @relation(fields: [carId], references: [id])
+  carId     String
+  body      String?
+  url       String
+  title     String
+}

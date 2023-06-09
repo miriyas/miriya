@@ -1,0 +1,19 @@
+{
+  "mixers": [
+    {
+      "input": [
+        "prisma/modules/base.prisma",
+        "prisma/modules/blog/category.prisma",
+        "prisma/modules/blog/comment.prisma",
+        "prisma/modules/blog/post.prisma",
+        "prisma/modules/myCar/myCar.prisma",
+        "prisma/modules/myCar/myCarFix.prisma",
+        "prisma/modules/myCar/myCarLink.prisma",
+        "prisma/modules/myCar/myCartParts.prisma",
+        "prisma/modules/user/author.prisma",
+        "prisma/modules/user/user.prisma"
+      ],
+      "output": "prisma/schema.prisma"
+    }
+  ]
+}

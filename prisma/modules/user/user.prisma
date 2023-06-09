@@ -1,0 +1,18 @@
+enum Role {
+  USER // 안씀
+  ADMIN
+  SUPPORTER
+}
+
+/// Authenticate 한 사용자 구분용으로 사용함. 거의 업데이트 없음.
+model User {
+  id   String  @id @unique @default(cuid())
+  uid  String  @unique
+  email String @unique
+  nickname String @unique
+  password String?
+  role Role @default(USER)
+  memo String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

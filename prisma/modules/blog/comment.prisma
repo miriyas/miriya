@@ -1,0 +1,25 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model Post {
+  id String @id @default(cuid())
+  comments PostComment[]
+}
+
+model User {
+  id String @id @default(cuid())
+  comments PostComment[]
+}
+
+model PostComment {
+  id String @id @default(cuid())
+  content String @db.Text
+  postId String
+  post Post @relation(fields: [postId], references: [id])
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

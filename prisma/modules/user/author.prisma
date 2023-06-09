@@ -1,0 +1,10 @@
+model Author {
+  id             String       @id @unique @default(cuid())
+  nickname       String?
+  nicknameIsFake Boolean?
+  profileUrl     String?
+  // MyCar          MyCar[]
+  // MyCarFix       MyCarFix[]
+  // MyCarLink      MyCarLink[]
+  // MyCarParts     MyCarParts[]
+}
