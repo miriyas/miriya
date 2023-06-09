@@ -4,7 +4,7 @@ module.exports = {
       name: 'frontend',
       script: 'yarn start',
       node_args: '--max-old-space-size=1024',
-      exec_mode: 'cluster',
+      exec_mode: 'fork',
       instances: 1,
     },
   ],
