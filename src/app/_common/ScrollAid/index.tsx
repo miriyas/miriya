@@ -27,8 +27,8 @@ const ScrollAid = () => {
 
   return (
     <div className={styles.scrollAid}>
-      <button type='button' onClick={onClickToTop} className={styles.toTop} />
-      <button type='button' onClick={onClickToBottom} className={styles.toBottom} />
+      <button type='button' onClick={onClickToTop} className={styles.toTop} aria-label='to top' />
+      <button type='button' onClick={onClickToBottom} className={styles.toBottom} aria-label='to bottom' />
     </div>
   );
 };

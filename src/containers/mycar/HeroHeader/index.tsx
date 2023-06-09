@@ -30,7 +30,7 @@ const HeroHeader = ({ imageUrl, name, vin, maker, lineup, owner, preview }: Prop
         <p className={styles.vin}>{vin}</p>
         <p className={styles.owner}>{owner}</p>
       </div>
-      <Image src={imageUrl ?? sampleUrl} alt='' fill className={styles.hero} loader={imageLoaderDo2Ik} />
+      <Image src={imageUrl ?? sampleUrl} alt='' fill className={styles.hero} loader={imageLoaderDo2Ik} priority />
     </div>
   );
 };
