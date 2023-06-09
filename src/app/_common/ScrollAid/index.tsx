@@ -1,6 +1,5 @@
 'use client';
 
-import '@/utils/ga';
 import { useSearchParams } from 'next/navigation';
 
 import styles from './ScrollAid.module.scss';

@@ -5,7 +5,7 @@ if (typeof window !== 'undefined') {
   ga4.async = true;
   ga4.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`;
   const s4 = document.getElementsByTagName('script')[0];
-  s4.parentNode?.insertBefore(ga4, s4);
+  s4?.parentNode?.insertBefore(ga4, s4);
 
   window.dataLayer = window.dataLayer || [];
 
