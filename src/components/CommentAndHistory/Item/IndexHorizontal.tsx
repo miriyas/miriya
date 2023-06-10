@@ -1,17 +1,19 @@
 import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
 import cx from 'clsx';
+import { useSetAtom } from 'jotai';
 
 import useAuth from '@/hooks/useAuth';
 import { Comment } from '@/types/comments.d';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
 import { postCommentAPI } from '@/services/comments';
+import { authModalAtom } from '@/components/Auth/states';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
-import Reply from './Reply';
-import CommentEditForm from './Edit';
 import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 import Button from '@/components/Button';
+import CommentEditForm from './Edit';
+import Reply from './Reply';
 
 interface Props {
   comment: Comment;
@@ -28,6 +30,7 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
   const { isMine, isAdmin, user } = useAuth();
   const [replyOpen, setReplyOpen] = useState(false);
   const [replyBody, setReplyBody] = useState('');
+  const setAuthModal = useSetAtom(authModalAtom);
 
   const { reloadComments } = useCommentAndHistory({
     targetCategory: comment.targetCategory,
@@ -45,8 +48,10 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
 
   const onSubmitReply: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (!user) return;
-
+    if (!user) {
+      setAuthModal('login');
+      return;
+    }
     postCommentAPI({
       body: replyBody,
       targetCategory: comment.targetCategory,

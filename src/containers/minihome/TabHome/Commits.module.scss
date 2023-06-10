@@ -11,6 +11,7 @@
     position: relative;
     height: 20px;
     padding-left: 10px;
+    white-space: nowrap;
     border-bottom: 1px solid var(--color-gray-e);
 
     &::before {
