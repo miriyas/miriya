@@ -4,7 +4,7 @@ import cx from 'clsx';
 import { useAtomValue, useSetAtom } from 'jotai';
 
 import { useGA } from '@/hooks/useGA';
-import { FBIdolType } from '@/types/idols.d';
+import { Idol } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
 import { coverIdolAtom, editIdolAtom } from '@/containers/idols/states';
 
@@ -14,7 +14,7 @@ import Lower from './Lower';
 import styles from './index.module.scss';
 
 interface Props {
-  idol: FBIdolType;
+  idol: Idol;
   sort: () => void;
 }
 

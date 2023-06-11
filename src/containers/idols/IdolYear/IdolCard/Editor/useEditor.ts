@@ -6,14 +6,14 @@ import { useResetAtom } from 'jotai/utils';
 import useIdols from '../../../useIdols';
 import useAuth from '@/hooks/useAuth';
 import { TARGET_CATEGORY } from '@/types/comments.d';
-import { FBIdolType } from '@/types/idols.d';
+import { Idol } from '@/types/idols.d';
 import { EditIdolSchema, editIdolValidator } from '@/utils/validator';
 import { editIdolAtom } from '@/containers/idols/states';
 import { editIdolDataApi } from '@/services/idols';
 
 import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 
-const useEditor = (idol: FBIdolType) => {
+const useEditor = (idol: Idol) => {
   const { reloadHistories } = useCommentAndHistory({
     targetCategory: TARGET_CATEGORY.IDOLS,
     targetId: idol.name,
@@ -30,11 +30,12 @@ const useEditor = (idol: FBIdolType) => {
     defaultValues: {
       category: idol.category,
       endYear: idol.endYear,
-      youtube: {
-        url: idol.youtube?.url,
-        startsAt: idol.youtube?.startsAt,
-      },
-      desc: idol.desc,
+      youtubeUrl: idol.youtubeUrl,
+      youtubeStartsAt: idol.youtubeStartsAt,
+      descTitle: idol.descTitle,
+      descNamu: idol.descNamu,
+      descVibe: idol.descVibe,
+      descMelon: idol.descMelon,
     },
   });
 
@@ -53,16 +54,12 @@ const useEditor = (idol: FBIdolType) => {
         ...idol,
         category: formValues.category,
         endYear: formValues.endYear,
-        youtube: {
-          url: formValues.youtube?.url ?? '',
-          startsAt: formValues.youtube?.startsAt ?? 0,
-        },
-        desc: {
-          title: formValues.desc.title,
-          melon: formValues.desc.melon,
-          namu: formValues.desc.namu,
-          naver: formValues.desc.naver,
-        },
+        youtubeUrl: formValues.youtubeUrl ?? '',
+        youtubeStartsAt: formValues.youtubeStartsAt ?? 0,
+        descTitle: formValues.descTitle,
+        descNamu: formValues.descNamu,
+        descVibe: formValues.descVibe,
+        descMelon: formValues.descMelon,
       },
       Object.keys(dirtyFields),
     )

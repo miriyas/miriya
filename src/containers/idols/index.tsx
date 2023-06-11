@@ -1,7 +1,7 @@
 import { Dictionary } from 'lodash';
 import dynamic from 'next/dynamic';
 
-import { FBIdolType, YearDescType } from '@/types/idols.d';
+import { Idol, YearDesc } from '@/types/idols.d';
 import New from '@/containers/idols/IdolYear/IdolCard/Editor/New';
 
 import FilterBar from './FilterBar';
@@ -14,9 +14,9 @@ const IdolYear = dynamic(() => import('./IdolYear'), { ssr: false, loading: () =
 const SupporterOnly = dynamic(() => import('@/components/AdminOnly'), { ssr: false });
 
 interface Props {
-  idols: FBIdolType[];
-  years: YearDescType[];
-  debutYears: Dictionary<FBIdolType[]>;
+  idols: Idol[];
+  years: YearDesc[];
+  debutYears: Dictionary<Idol[]>;
   yearStart: number;
   yearEnd: number;
 }

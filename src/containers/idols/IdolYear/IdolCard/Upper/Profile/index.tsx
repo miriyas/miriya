@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
-import { FBIdolType } from '@/types/idols.d';
+import { Idol } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
 
 import styles from './index.module.scss';
 
 interface Props {
-  idol: FBIdolType;
+  idol: Idol;
   onClickUpper: () => void;
 }
 

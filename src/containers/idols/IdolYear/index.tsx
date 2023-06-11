@@ -4,7 +4,7 @@ import { useCallback, useEffect } from 'react';
 import cx from 'clsx';
 
 import { useResponsive } from '@/hooks/useResponsive';
-import { FBIdolType } from '@/types/idols.d';
+import { Idol } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { getIsotopeOptions } from '@/utils/idols';
 
@@ -12,7 +12,7 @@ import IdolCard from './IdolCard';
 import styles from './IdolYear.module.scss';
 
 interface Props {
-  idols: FBIdolType[];
+  idols: Idol[];
   year: number;
   yearDesc: string;
 }

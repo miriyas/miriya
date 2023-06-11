@@ -32,16 +32,12 @@ const useNew = () => {
       category: formValues.category,
       debutYear: formValues.debutYear,
       endYear: formValues.endYear,
-      youtube: {
-        url: formValues.youtube?.url ?? '',
-        startsAt: formValues.youtube?.startsAt ?? 0,
-      },
-      desc: {
-        title: formValues.desc.title,
-        melon: formValues.desc.melon,
-        namu: formValues.desc.namu,
-        naver: formValues.desc.naver,
-      },
+      youtubeUrl: formValues.youtubeUrl ?? '',
+      youtubeStartsAt: formValues.youtubeStartsAt ?? 0,
+      descTitle: formValues.descTitle,
+      descNamu: formValues.descNamu,
+      descVibe: formValues.descVibe,
+      descMelon: formValues.descMelon,
     })
       .then(() => {
         reload();

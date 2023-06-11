@@ -1,20 +1,20 @@
 import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 
 import { useGA } from '@/hooks/useGA';
-import { IdolType } from '@/types/idols.d';
+import { IdolCore } from '@/types/idols.d';
 import { IDOL } from '@/constants/ga';
 
 import styles from './Desc.module.scss';
 import ExternalLink from '@/components/ExternalLink';
 
 interface Props {
-  idol: IdolType;
+  idol: IdolCore;
   showHistory: boolean;
   setShowHistory: Dispatch<SetStateAction<boolean>>;
 }
 
 const Desc = ({ idol, showHistory, setShowHistory }: Props) => {
-  const { desc, name } = idol;
+  const { descNamu, descMelon, descTitle, descVibe, name } = idol;
 
   const { gaEvent } = useGA();
 
@@ -32,22 +32,22 @@ const Desc = ({ idol, showHistory, setShowHistory }: Props) => {
   return (
     <div className={styles.desc}>
       <div className={styles.leftWing}>
-        {desc?.namu && (
-          <ExternalLink href={desc.namu} onClick={onClickDesc} title='나무위키' className={styles.link}>
+        {descNamu && (
+          <ExternalLink href={descNamu} onClick={onClickDesc} title='나무위키' className={styles.link}>
             나무위키
           </ExternalLink>
         )}
-        {desc?.melon && (
-          <ExternalLink href={desc.melon} onClick={onClickDesc} title='멜론' className={styles.link}>
+        {descMelon && (
+          <ExternalLink href={descMelon} onClick={onClickDesc} title='멜론' className={styles.link}>
             멜론
           </ExternalLink>
         )}
-        {desc?.naver && (
-          <ExternalLink href={desc.naver} onClick={onClickDesc} title='바이브' className={styles.link}>
+        {descVibe && (
+          <ExternalLink href={descVibe} onClick={onClickDesc} title='바이브' className={styles.link}>
             바이브
           </ExternalLink>
         )}
-        {desc?.title && <p>한줄평 : {desc.title}</p>}
+        {descTitle && <p>한줄평 : {descTitle}</p>}
       </div>
       <div className={styles.rightWing}>
         <button type='button' onClick={onClickToggle} className={styles.link}>

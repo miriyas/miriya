@@ -1,13 +1,13 @@
 import { useResetAtom } from 'jotai/utils';
 
 import useEditor from './useEditor';
-import { FBIdolType } from '@/types/idols.d';
+import { Idol } from '@/types/idols.d';
 import { editIdolAtom } from '@/containers/idols/states';
 
 import Form from './EditForm';
 
 interface Props {
-  idol: FBIdolType;
+  idol: Idol;
 }
 
 const Edit = ({ idol }: Props) => {

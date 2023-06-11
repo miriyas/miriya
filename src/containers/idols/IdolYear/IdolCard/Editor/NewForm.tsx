@@ -10,41 +10,6 @@ import { NewIdolSchema } from '@/utils/validator';
 import styles from './index.module.scss';
 import Select from '@/components/Select';
 
-interface Item {
-  label: string;
-  placeholder: string;
-}
-
-const DESC_ITEMS: Record<'title' | 'namu' | 'naver' | 'melon', Item> = {
-  title: {
-    label: '한줄 소개',
-    placeholder: '한줄 요약',
-  },
-  melon: {
-    label: '멜론 URL',
-    placeholder: 'https://www.melon.com/artist/timeline.htm?artistId=6017',
-  },
-  namu: {
-    label: '나무위키 URL',
-    placeholder: 'https://namu.wiki/w/%EA%B9%80%EC%97%B0%EC%9A%B0',
-  },
-  naver: {
-    label: 'Vibe URL',
-    placeholder: 'https://vibe.naver.com/artist/30',
-  },
-};
-
-const YOUTUBE_ITEMS: Record<'url' | 'startsAt', Item> = {
-  url: {
-    label: '고유 아이디',
-    placeholder: '(ex: 72BqCAmhnxk)',
-  },
-  startsAt: {
-    label: '하이라이트(초)',
-    placeholder: '유튜브 하이라이트 시작 (초)',
-  },
-};
-
 interface Props {
   submitIdol: () => void;
   onClickCancel: () => void;
@@ -89,11 +54,7 @@ const Form = ({ submitIdol, onClickCancel, errors, register, dirtyFields, isDirt
       </label>
       <label className={styles.inputWrapper}>
         <span>*데뷔 연도</span>
-        {/* {idol ? (
-        <input type='number' defaultValue={idol.debutYear} disabled />
-        ) : ( */}
-        <input {...register('debutYear')} type='number' placeholder='숫자' />
-        {/* )} */}
+        <input {...register('debutYear')} type='text' placeholder='숫자' />
       </label>
       <label
         className={cx(styles.inputWrapper, { [styles.error]: errors.endYear, [styles.changed]: dirtyFields.endYear })}
@@ -102,43 +63,79 @@ const Form = ({ submitIdol, onClickCancel, errors, register, dirtyFields, isDirt
         <input {...register('endYear')} type='text' placeholder="숫자 또는 '활동중'" />
       </label>
       <p className={styles.subtitle}>유튜브 정보</p>
-      {(Object.keys(YOUTUBE_ITEMS) as Array<keyof typeof YOUTUBE_ITEMS>).map((key) => {
-        const { label, placeholder } = YOUTUBE_ITEMS[key];
-        return (
-          <label
-            key={key}
-            className={cx(styles.inputWrapper, {
-              [styles.error]: errors.youtube?.[key],
-              [styles.changed]: dirtyFields.youtube?.[key],
-            })}
-          >
-            <span>{label}</span>
-            <input {...register(`youtube.${key}`)} type='text' placeholder={placeholder} />
-          </label>
-        );
-      })}
+      <label
+        className={cx(styles.inputWrapper, {
+          [styles.error]: errors.youtubeUrl,
+          [styles.changed]: dirtyFields.youtubeUrl,
+        })}
+      >
+        <span>고유 아이디</span>
+        <input {...register('youtubeUrl')} type='text' placeholder='(ex: 72BqCAmhnxk)' />
+      </label>
+      <label
+        className={cx(styles.inputWrapper, {
+          [styles.error]: errors.youtubeStartsAt,
+          [styles.changed]: dirtyFields.youtubeStartsAt,
+        })}
+      >
+        <span>하이라이트(초)</span>
+        <input {...register('youtubeStartsAt')} type='text' placeholder='유튜브 하이라이트 시작 (초)' />
+      </label>
       <p className={styles.subtitle}>기타 정보</p>
-      {(Object.keys(DESC_ITEMS) as Array<keyof typeof DESC_ITEMS>).map((key) => {
-        const { label, placeholder } = DESC_ITEMS[key];
-        return (
-          <label
-            key={key}
-            className={cx(styles.inputWrapper, {
-              [styles.error]: errors.desc?.[key],
-              [styles.changed]: dirtyFields.desc?.[key],
-            })}
-          >
-            <span>{label}</span>
-            <input
-              {...register(`desc.${key}`)}
-              type='text'
-              placeholder={placeholder}
-              data-lpignore='true'
-              autoComplete='off'
-            />
-          </label>
-        );
-      })}
+      <label
+        className={cx(styles.inputWrapper, {
+          [styles.error]: errors.descTitle,
+          [styles.changed]: dirtyFields.descTitle,
+        })}
+      >
+        <span>한줄 소개</span>
+        <input {...register('descTitle')} type='text' placeholder='한줄 요약' data-lpignore='true' autoComplete='off' />
+      </label>
+      <label
+        className={cx(styles.inputWrapper, {
+          [styles.error]: errors.descMelon,
+          [styles.changed]: dirtyFields.descMelon,
+        })}
+      >
+        <span>멜론 URL</span>
+        <input
+          {...register('descMelon')}
+          type='text'
+          placeholder='https://www.melon.com/artist/timeline.htm?artistId=6017'
+          data-lpignore='true'
+          autoComplete='off'
+        />
+      </label>
+      <label
+        className={cx(styles.inputWrapper, {
+          [styles.error]: errors.descNamu,
+          [styles.changed]: dirtyFields.descNamu,
+        })}
+      >
+        <span>나무위키 URL</span>
+        <input
+          {...register('descNamu')}
+          type='text'
+          placeholder='https://namu.wiki/w/%EA%B9%80%EC%97%B0%EC%9A%B0'
+          data-lpignore='true'
+          autoComplete='off'
+        />
+      </label>
+      <label
+        className={cx(styles.inputWrapper, {
+          [styles.error]: errors.descVibe,
+          [styles.changed]: dirtyFields.descVibe,
+        })}
+      >
+        <span>Vibe URL</span>
+        <input
+          {...register('descVibe')}
+          type='text'
+          placeholder='https://vibe.naver.com/artist/30'
+          data-lpignore='true'
+          autoComplete='off'
+        />
+      </label>
       <div className={styles.buttonWrapper}>
         <button type='button' onClick={onClickCancel}>
           취소

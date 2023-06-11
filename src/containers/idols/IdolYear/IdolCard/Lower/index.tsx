@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { FBIdolType } from '@/types/idols.d';
+import { Idol } from '@/types/idols.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 
 import Desc from './Desc';
@@ -9,7 +9,7 @@ import CommentNewForm from '@/components/CommentForm';
 import styles from './index.module.scss';
 
 interface Props {
-  idol: FBIdolType;
+  idol: Idol;
 }
 
 const Lower = ({ idol }: Props) => {

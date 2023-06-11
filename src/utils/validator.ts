@@ -1,6 +1,6 @@
 import { InferType, bool, mixed, number, object, ref, string } from 'yup';
 
-import { CATEGORIES, Year } from '@/types/idols.d';
+import { CATEGORIES } from '@/types/idols.d';
 
 export const stringTest = string();
 
@@ -46,40 +46,30 @@ export const idolCategoryTest = string()
   .oneOf(CATEGORIES, '카테고리를 확인해주세요.')
   .required('카테고리를 입력해주세요.');
 
-export const idolYearTest = mixed<Year>().required();
-
 export const newIdolValidator = object({
   name: stringTest.required(),
   category: idolCategoryTest,
-  desc: object({
-    melon: stringTest,
-    namu: stringTest,
-    naver: stringTest,
-    title: stringTest,
-  }),
-  debutYear: idolYearTest,
-  endYear: idolYearTest,
-  youtube: object({
-    startsAt: numberTest,
-    url: stringTest,
-  }).optional(),
+  descMelon: stringTest.optional(),
+  descNamu: stringTest.optional(),
+  descVibe: stringTest.optional(),
+  descTitle: stringTest.optional(),
+  debutYear: stringTest.required(),
+  endYear: stringTest.required(),
+  youtubeStartsAt: numberTest.optional(),
+  youtubeUrl: stringTest.optional(),
 }).required();
 
 export type NewIdolSchema = InferType<typeof newIdolValidator>;
 
 export const editIdolValidator = object({
   category: idolCategoryTest,
-  desc: object({
-    melon: stringTest,
-    namu: stringTest,
-    naver: stringTest,
-    title: stringTest,
-  }),
-  endYear: idolYearTest,
-  youtube: object({
-    startsAt: numberTest,
-    url: stringTest,
-  }).optional(),
+  endYear: stringTest.optional(),
+  descMelon: stringTest.optional(),
+  descNamu: stringTest.optional(),
+  descVibe: stringTest.optional(),
+  descTitle: stringTest.optional(),
+  youtubeStartsAt: numberTest.optional(),
+  youtubeUrl: stringTest.optional(),
 }).required();
 
 export type EditIdolSchema = InferType<typeof editIdolValidator>;

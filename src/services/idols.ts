@@ -1,13 +1,12 @@
 import { apiBe, apiFe } from '@/services';
-import { FBIdolType, IdolType, YearDescType } from '@/types/idols.d';
+import { Idol, IdolCore, YearDesc } from '@/types/idols.d';
 
 export const crawlIdolData = () => apiFe('/idols/crawl');
 
-export const getIdolsDataApi = () => apiBe<FBIdolType[]>('/idols/data');
+export const getIdolsDataApi = () => apiBe<Idol[]>('/idols/data');
 
-export const getIdolYearsDataApi = () => apiBe<YearDescType[]>('/idols/years');
+export const getIdolYearsDataApi = () => apiBe<YearDesc[]>('/idols/years');
 
-export const postIdolDataApi = (newIdol: IdolType) => apiBe.post('/idols/data', { newIdol });
+export const postIdolDataApi = (newIdol: IdolCore) => apiBe.post('/idols/data', { newIdol });
 
-export const editIdolDataApi = (newIdol: FBIdolType, changed: string[]) =>
-  apiBe.patch('/idols/data', { newIdol, changed });
+export const editIdolDataApi = (newIdol: Idol, changed: string[]) => apiBe.patch('/idols/data', { newIdol, changed });
