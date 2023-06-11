@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import useAuth from '@/hooks/useAuth';
-import { FBCameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras.d';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { FBCamerachema, cameraValidator } from '@/utils/validator';
 import { editCameraDataApi } from '@/services/cameras';
@@ -10,7 +10,7 @@ import useCameras from '../../../useCameras';
 
 import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 
-const useEditor = (camera: FBCameraType) => {
+const useEditor = (camera: CameraType) => {
   const { reloadHistories } = useCommentAndHistory({
     targetCategory: TARGET_CATEGORY.CAMERA,
     targetId: camera.id,

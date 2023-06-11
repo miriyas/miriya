@@ -1,10 +1,10 @@
-import { FBCameraType } from '@/types/cameras';
+import { CameraType } from '@/types/cameras';
 
 import ExternalLink from '@/components/ExternalLink';
 
 interface Props {
   nameLine: string;
-  camera: FBCameraType;
+  camera: CameraType;
 }
 
 const DataRefs = (props: Props) => {

@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   OPTICS_TYPE,
   SENSOR_TYPE,
@@ -9,7 +9,7 @@ import {
   GRADE,
 } from '@/types/cameras.d';
 
-export const SIGMAS: CameraType[] = [
+export const SIGMAS: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

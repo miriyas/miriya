@@ -1,10 +1,10 @@
-import { CameraType } from '@/types/cameras.d';
+import { CameraCore } from '@/types/cameras.d';
 
 import SiblingLinks from './SiblingLinks';
 import styles from '../index.module.scss';
 
 interface Props {
-  camera: CameraType;
+  camera: CameraCore;
 }
 
 const Siblings = (props: Props) => {

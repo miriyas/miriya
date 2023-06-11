@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   OPTICS_TYPE,
   SENSOR_TYPE,
@@ -14,7 +14,7 @@ import {
 // https://en.wikipedia.org/wiki/Template:Pentax_digital_interchangeable_lens_cameras
 // https://en.wikipedia.org/wiki/Template:Pentax_MILC_cameras
 
-export const PENTAXS: CameraType[] = [
+export const PENTAXS: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

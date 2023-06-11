@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   OPTICS_TYPE,
   SENSOR_TYPE,
@@ -14,7 +14,7 @@ import {
 // https://en.wikipedia.org/wiki/Template:Nikon_1_cameras
 // https://en.wikipedia.org/wiki/Template:Nikon_Z_cameras
 
-export const NIKONS: CameraType[] = [
+export const NIKONS: CameraCore[] = [
   // 1995 =============================================
   {
     year: 1995,

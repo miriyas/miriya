@@ -4,7 +4,7 @@ import { Suspense, useMemo } from 'react';
 // import dynamic from 'next/dynamic';
 import { Dictionary } from 'lodash';
 
-import { FBCameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras.d';
 
 import Header from './Header';
 import News from './News';
@@ -14,8 +14,8 @@ import Categories from './Categories';
 import styles from './index.module.scss';
 
 interface Props {
-  cameras: FBCameraType[];
-  years: Dictionary<FBCameraType[]>;
+  cameras: CameraType[];
+  years: Dictionary<CameraType[]>;
 }
 
 const Top = ({ cameras, years }: Props) => {

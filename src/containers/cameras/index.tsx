@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Dictionary } from 'lodash';
 
-import { FBCameraType } from '@/types/cameras';
+import { CameraType } from '@/types/cameras';
 
 import TopPlaceholder from './Top/Placeholder';
 import CameraYearPlaceholder from './CameraYears/Placeholder';
@@ -10,8 +10,8 @@ const Top = dynamic(() => import('./Top'), { ssr: false, loading: () => <TopPlac
 const CameraYears = dynamic(() => import('./CameraYears'), { ssr: false, loading: () => <CameraYearPlaceholder /> });
 
 interface Props {
-  cameras: FBCameraType[];
-  years: Dictionary<FBCameraType[]>;
+  cameras: CameraType[];
+  years: Dictionary<CameraType[]>;
 }
 
 const CamerasPage = ({ cameras, years }: Props) => {

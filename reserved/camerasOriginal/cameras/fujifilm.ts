@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   OPTICS_TYPE,
   SENSOR_TYPE,
   SENSOR_SIZE,
@@ -11,7 +11,7 @@ import {
 
 // https://en.wikipedia.org/wiki/Template:Fujifilm_DSLR_cameras
 
-export const FUJIFILM: CameraType[] = [
+export const FUJIFILM: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

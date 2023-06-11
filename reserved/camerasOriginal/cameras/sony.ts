@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   OPTICS_TYPE,
   SENSOR_TYPE,
@@ -13,7 +13,7 @@ import {
 // https://en.wikipedia.org/wiki/Template:Konica_Minolta/Sony_DSLR_cameras
 // https://en.wikipedia.org/wiki/Template:Sony_MILC_cameras
 
-export const SONYS: CameraType[] = [
+export const SONYS: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { OPTICS_TYPE, OpticsTypes, FBCameraType } from '@/types/cameras.d';
+import { OPTICS_TYPE, OpticsTypes, CameraType } from '@/types/cameras.d';
 
 import styles from './Table.module.scss';
 
@@ -13,7 +13,7 @@ const prettyOpticsType = (type?: OpticsTypes) => {
 };
 
 interface Props {
-  camera: FBCameraType;
+  camera: CameraType;
 }
 
 const DataFinder = (props: Props) => {

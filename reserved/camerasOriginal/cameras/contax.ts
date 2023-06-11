@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   OPTICS_TYPE,
   SENSOR_TYPE,
@@ -13,7 +13,7 @@ import {
 
 // https://en.wikipedia.org/wiki/Contax_N_Digital
 
-export const CONTAXES: CameraType[] = [
+export const CONTAXES: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

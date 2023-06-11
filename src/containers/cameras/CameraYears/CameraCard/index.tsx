@@ -6,7 +6,7 @@ import { useRafState } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
 import { useAtomValue } from 'jotai';
 
-import { FBCameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras.d';
 import { cameraId } from '@/utils/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
@@ -38,7 +38,7 @@ const TABS = [
 ];
 
 interface Props {
-  camera: FBCameraType;
+  camera: CameraType;
 }
 
 const Camera = (props: Props) => {

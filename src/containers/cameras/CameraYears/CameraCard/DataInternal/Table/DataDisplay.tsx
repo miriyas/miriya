@@ -1,9 +1,9 @@
-import { FBCameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras.d';
 
 import styles from './Table.module.scss';
 
 interface Props {
-  camera: FBCameraType;
+  camera: CameraType;
 }
 
 const DataDisplay = (props: Props) => {

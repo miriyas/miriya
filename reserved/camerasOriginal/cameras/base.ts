@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   // CAMERA_MAKER,
   // OPTICS_TYPE,
   // SENSOR_TYPE,
@@ -9,7 +9,7 @@ import {
   // ENGINE_TYPE,
 } from '@/types/cameras.d';
 
-export const BASE: CameraType[] = [
+export const BASE: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

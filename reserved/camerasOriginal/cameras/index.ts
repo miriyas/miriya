@@ -1,4 +1,4 @@
-import { CameraType } from '@/types/cameras.d';
+import { CameraCore } from '@/types/cameras.d';
 
 import { CANONS } from './canon';
 import { CONTAXES } from './contax';
@@ -16,7 +16,7 @@ export const YEAR_INFO = {
   end: 2023,
 };
 
-export const CAMERAS: CameraType[] = [
+export const CAMERAS: CameraCore[] = [
   ...CANONS,
   ...CONTAXES,
   ...FUJIFILM,

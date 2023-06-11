@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import Image from 'next/image';
 
-import { CameraType, CAMERA_MAKER, GRADE, GradeTypes } from '@/types/cameras.d';
+import { CameraCore, CAMERA_MAKER, GRADE, GradeTypes } from '@/types/cameras.d';
 
 import styles from './Badges.module.scss';
 
@@ -44,7 +44,7 @@ const SHAKE_REDUCTION_NAMES = {
 };
 
 interface Props {
-  camera: CameraType;
+  camera: CameraCore;
 }
 
 const Badges = (props: Props) => {

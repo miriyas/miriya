@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
-import { CameraType } from '@/types/cameras.d';
+import { CameraCore } from '@/types/cameras.d';
 import { cameraId } from '@/utils/cameras';
 import { imageLoaderDo2Ik } from '@/utils/image';
 
 import styles from './Image.module.scss';
 
 interface Props {
-  camera: CameraType;
+  camera: CameraCore;
 }
 
 const DataImage = (props: Props) => {

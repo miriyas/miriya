@@ -3,13 +3,13 @@
 import { useEffect } from 'react';
 import { Dictionary } from 'lodash';
 
-import { FBCameraType } from '@/types/cameras';
+import { CameraType } from '@/types/cameras';
 
 import Year from './Year';
 import styles from './index.module.scss';
 
 interface Props {
-  years: Dictionary<FBCameraType[]>;
+  years: Dictionary<CameraType[]>;
 }
 
 const CameraYears = ({ years }: Props) => {

@@ -1,5 +1,4 @@
-import { ValueOf } from '@/types/index.d';
-import { WithTS } from '@/types/firebase';
+import { TimeStamp, ValueOf } from '@/types/index.d';
 
 export const MOUNT = {
   CanonEF: 'Canon EF',
@@ -216,7 +215,7 @@ export interface DisplayType {
   touch?: boolean;
 }
 
-export interface CameraType {
+export interface CameraCore {
   year: number;
   grade: GradeTypes;
   mount: MountTypes;
@@ -256,7 +255,7 @@ export interface DpreviewNews {
   title: string;
 }
 
-export interface FBCameraType extends CameraType, WithTS {
+export interface CameraType extends CameraCore, TimeStamp {
   id: string;
   commentsLength: number;
 }

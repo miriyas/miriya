@@ -1,4 +1,4 @@
-import { FBCameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras.d';
 
 import DataRefs from './DataRefs';
 import DataSensor from './DataSensor';
@@ -12,7 +12,7 @@ import DataEtc from './DataEtc';
 import styles from './Table.module.scss';
 
 interface Props {
-  camera: FBCameraType;
+  camera: CameraType;
 }
 
 const Data = (props: Props) => {

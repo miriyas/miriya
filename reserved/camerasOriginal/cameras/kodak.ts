@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   OPTICS_TYPE,
   SENSOR_TYPE,
@@ -11,7 +11,7 @@ import {
 
 // https://en.wikipedia.org/wiki/Kodak_DCS
 
-export const KODAKS: CameraType[] = [
+export const KODAKS: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

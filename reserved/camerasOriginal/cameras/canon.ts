@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   OPTICS_TYPE,
   SENSOR_TYPE,
@@ -14,7 +14,7 @@ import {
 // https://en.wikipedia.org/wiki/Template:Canon_EOS_digital_cameras
 // http://www.ayton.id.au/wiki/doku.php?id=photo:canoneoshistory
 
-export const CANONS: CameraType[] = [
+export const CANONS: CameraCore[] = [
   // 1995 =============================================
   {
     year: 1995,

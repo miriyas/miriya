@@ -1,5 +1,5 @@
 import {
-  CameraType,
+  CameraCore,
   CAMERA_MAKER,
   // OPTICS_TYPE,
   // SENSOR_TYPE,
@@ -14,7 +14,7 @@ import {
 // https://en.wikipedia.org/wiki/Lumix
 // https://en.wikipedia.org/wiki/Template:Micro_Four_Thirds_cameras
 
-export const PANASONICS: CameraType[] = [
+export const PANASONICS: CameraCore[] = [
   // 1995 =============================================
   // 1996 =============================================
   // 1997 =============================================

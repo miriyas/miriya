@@ -6,7 +6,7 @@ import { Dictionary } from 'lodash';
 
 import { useGA } from '@/hooks/useGA';
 import { CAMERA } from '@/constants/ga';
-import { FBCameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras.d';
 import { getNumberArr } from '@/utils';
 
 import styles from './index.module.scss';
@@ -14,7 +14,7 @@ import styles from './index.module.scss';
 interface Props {
   yearStart: number;
   yearEnd: number;
-  years: Dictionary<FBCameraType[]>;
+  years: Dictionary<CameraType[]>;
 }
 
 const Top = ({ yearStart, yearEnd, years }: Props) => {
