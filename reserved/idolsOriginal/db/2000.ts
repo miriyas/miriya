@@ -1,107 +1,81 @@
-import { IdolType } from '@/types/idols.d';
+import { IdolCore } from '@/types/idols.d';
 
-export const Y2000: IdolType[] = [
+export const Y2000: IdolCore[] = [
   // 2000 === === === === ===
   {
-    debutYear: 2000,
-    major: true,
+    debutYear: '2000',
     name: '체리필터',
     category: 'mixed-group',
-    youtube: {
-      url: 'XIgxZCPzt5w',
-      startsAt: 60,
-    },
+    youtubeUrl: 'XIgxZCPzt5w',
+    youtubeStartsAt: 60,
   },
-
   {
-    debutYear: 2000,
-    major: true,
+    debutYear: '2000',
     name: '샤크라',
     category: 'girl-group',
-    youtube: {
-      url: '0BlrHpBzDUI',
-      startsAt: 95,
-    },
+    youtubeUrl: '0BlrHpBzDUI',
+    youtubeStartsAt: 95,
   },
   {
-    debutYear: 2000,
+    debutYear: '2000',
     name: '파파야',
     category: 'girl-group',
   },
 
   {
-    debutYear: 2000,
-    major: true,
+    debutYear: '2000',
     name: '문차일드',
     category: 'boy-group',
-    youtube: {
-      url: '-sq8j3uCh5A',
-      startsAt: 63,
-    },
+    youtubeUrl: '-sq8j3uCh5A',
+    youtubeStartsAt: 63,
   },
   {
-    debutYear: 2000,
+    debutYear: '2000',
     name: 'UN',
     category: 'boy-group',
-    youtube: {
-      url: 'vghS3zLmeOw',
-      startsAt: 117,
-    },
+    youtubeUrl: 'vghS3zLmeOw',
+    youtubeStartsAt: 117,
   },
   {
-    debutYear: 2000,
+    debutYear: '2000',
     name: '량현량하',
     category: 'boy-group',
-    youtube: {
-      url: '-xtgeYvY33g',
-      startsAt: 6,
-    },
+    youtubeUrl: '-xtgeYvY33g',
+    youtubeStartsAt: 6,
   },
   {
-    debutYear: 2000,
-    major: true,
+    debutYear: '2000',
     name: '보아',
     category: 'girl-solo',
-    youtube: {
-      url: 'ceZc-5p3g1w',
-      startsAt: 41,
-    },
+    youtubeUrl: 'ceZc-5p3g1w',
+    youtubeStartsAt: 41,
   },
   {
-    debutYear: 2000,
+    debutYear: '2000',
     name: '화요비',
     category: 'girl-solo',
-    youtube: {
-      url: 'lVYLj8GNNyw',
-      startsAt: 82,
-    },
+    youtubeUrl: 'lVYLj8GNNyw',
+    youtubeStartsAt: 82,
   },
   {
-    debutYear: 2000,
+    debutYear: '2000',
     name: '왁스',
     category: 'girl-solo',
-    youtube: {
-      url: '6A4FnyJcNBM',
-      startsAt: 76,
-    },
+    youtubeUrl: '6A4FnyJcNBM',
+    youtubeStartsAt: 76,
   },
   {
-    debutYear: 2000,
+    debutYear: '2000',
     name: '정인',
     category: 'girl-solo',
-    youtube: {
-      url: 'Zm1JcsqbXzs',
-      startsAt: 74,
-    },
+    youtubeUrl: 'Zm1JcsqbXzs',
+    youtubeStartsAt: 74,
   },
-
   {
-    debutYear: 2000,
+    debutYear: '2000',
     name: '은지원',
     category: 'boy-solo',
-    youtube: {
-      url: '0cWWnlO7BIA',
-      startsAt: 6,
-    },
+    youtubeUrl: '0cWWnlO7BIA',
+    youtubeStartsAt: 6,
   },
 ];
