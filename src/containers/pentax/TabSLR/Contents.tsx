@@ -6,7 +6,7 @@ import { useMount } from 'react-use';
 
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
-import { FBPentaxSlr } from '@/types/pentaxes.d';
+import { PentaxSlr } from '@/types/pentaxes.d';
 import { SUB_TARGET_CATEGORY } from '@/types/comments.d';
 
 import Picture from '../_common/Picture';
@@ -16,7 +16,7 @@ import Data from './Data';
 import styles from './index.module.scss';
 
 interface Props {
-  data: FBPentaxSlr[];
+  data: PentaxSlr[];
 }
 
 const Contents = ({ data }: Props) => {

@@ -3,7 +3,7 @@
 import { useAtom } from 'jotai';
 import cx from 'clsx';
 
-import { FBPentaxDslr } from '@/types/pentaxes';
+import { PentaxDslr } from '@/types/pentaxes';
 import { editCameraAtom } from '../states';
 
 import { IconEdit } from 'public/svgs';
@@ -14,7 +14,7 @@ import DataColumn3 from './Column3';
 import styles from '../../_common/CommonData.module.scss';
 
 interface Props {
-  selectedCamera?: FBPentaxDslr;
+  selectedCamera?: PentaxDslr;
 }
 
 const Data = ({ selectedCamera }: Props) => {

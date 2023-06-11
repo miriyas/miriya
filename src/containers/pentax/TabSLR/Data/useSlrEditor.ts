@@ -9,8 +9,8 @@ import usePentax from '../../usePentax';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
-import { FBPentaxSlr, PentaxSlrMountTypes } from '@/types/pentaxes';
-import { PentaxSLRSchema, pentaxSlrValidator } from '@/utils/validator';
+import { PentaxSlr, PentaxSlrMountTypes } from '@/types/pentaxes';
+import { PentaxSLRSchemaCore, pentaxSlrValidator } from '@/utils/validator';
 import { editCameraAtom } from '../states';
 import { patchPentaxSlrAPI } from '@/services/pentaxes';
 
@@ -18,7 +18,7 @@ import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHi
 
 export const currentUserAtom = atom<User | null>(null);
 
-const useSlrEditor = (camera: FBPentaxSlr) => {
+const useSlrEditor = (camera: PentaxSlr) => {
   const { reloadHistories } = useCommentAndHistory({
     targetCategory: TARGET_CATEGORY.PENTAX,
     targetSubCategory: SUB_TARGET_CATEGORY.SLR,
@@ -30,7 +30,7 @@ const useSlrEditor = (camera: FBPentaxSlr) => {
   const { alertSupporterOnly } = useAlert();
   const resetEditCamera = useResetAtom(editCameraAtom);
 
-  const methods = useForm<PentaxSLRSchema>({
+  const methods = useForm<PentaxSLRSchemaCore>({
     mode: 'onBlur',
     resolver: yupResolver(pentaxSlrValidator),
     defaultValues: {
@@ -109,7 +109,7 @@ const useSlrEditor = (camera: FBPentaxSlr) => {
     formState: { errors, dirtyFields, isDirty },
   } = methods;
 
-  const submit = handleSubmit((formValues: PentaxSLRSchema) => {
+  const submit = handleSubmit((formValues: PentaxSLRSchemaCore) => {
     if (!user) return;
 
     const keys = Object.keys(dirtyFields).filter((field) => field !== 'data');

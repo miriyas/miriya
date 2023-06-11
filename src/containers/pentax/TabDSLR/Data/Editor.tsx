@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import { FBPentaxDslr } from '@/types/pentaxes.d';
+import { PentaxDslr } from '@/types/pentaxes.d';
 import useDslrEditor from './useDslrEditor';
 
 import {
@@ -25,7 +25,7 @@ import styles from '../../_common/CommonEditor.module.scss';
 import Button from '@/components/Button';
 
 interface Props {
-  camera: FBPentaxDslr;
+  camera: PentaxDslr;
 }
 
 const Editor = ({ camera }: Props) => {

@@ -2,14 +2,14 @@
 
 import cx from 'clsx';
 
-import { PentaxDslr } from '@/types/pentaxes.d';
+import { PentaxDslrCore } from '@/types/pentaxes.d';
 import { valueOr } from '@/utils';
 
 import ExternalLink from '@/components/ExternalLink';
 import styles from '../../_common/CommonData.module.scss';
 
 interface Props {
-  camera: PentaxDslr;
+  camera: PentaxDslrCore;
 }
 
 const DataColumn3 = ({ camera }: Props) => {

@@ -2,7 +2,7 @@ import cx from 'clsx';
 import { FocusEventHandler, MouseEventHandler, useMemo } from 'react';
 import { useAtom } from 'jotai';
 
-import { PentaxSlr } from '@/types/pentaxes';
+import { PentaxSlrCore } from '@/types/pentaxes';
 import { selectedCameraAtom } from './states';
 
 import styles from './Camera.module.scss';
@@ -13,7 +13,7 @@ const H_LINE = 17; // --h-pentax-slr-cell
 const YEAR_PADDING = 21;
 
 interface Props {
-  camera: PentaxSlr;
+  camera: PentaxSlrCore;
   yearStart: number;
 }
 

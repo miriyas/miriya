@@ -4,7 +4,7 @@ import { ValueOf } from '@/types';
 import { EngineTypes, FocusNameTypes, OpticsTypes } from '@/types/cameras';
 import { SubTargetCategoryTypes } from '@/types/comments';
 import { WithTS } from '@/types/firebase';
-import { FBPentaxDSLRSchema, FBPentaxSLRSchema } from '@/utils/validator';
+import { PentaxDSLRSchema, PentaxSLRSchema } from '@/utils/validator';
 
 export const PENTAX_DSLR_TYPE = {
   IST: 'IST',
@@ -35,7 +35,7 @@ export const PENTAX_DSLR_SENSOR_SIZE = {
 
 export type PentaxDslrSensorSizeTypes = ValueOf<typeof PENTAX_DSLR_SENSOR_SIZE>;
 
-export interface PentaxDslr {
+export interface PentaxDslrCore {
   type: PentaxDslrTypes;
   name: string;
   line: number;
@@ -119,7 +119,7 @@ export const PENTAX_SLR_MOUNT = {
 
 export type PentaxSlrMountTypes = ValueOf<typeof PENTAX_SLR_MOUNT>;
 
-export interface PentaxSlr {
+export interface PentaxSlrCore {
   name: string;
   line: number;
   startYear: number;
@@ -193,25 +193,25 @@ export interface PentaxSlr {
   };
 }
 
-export interface FBPentaxSlr extends PentaxSlr, WithTS {
+export interface PentaxSlr extends PentaxSlrCore, WithTS {
   id: string;
   commentsLength: number;
 }
 
-export interface FBPentaxDslr extends PentaxDslr, WithTS {
+export interface PentaxDslr extends PentaxDslrCore, WithTS {
   id: string;
   commentsLength: number;
 }
 
 export interface DslrEditProps {
-  camera: FBPentaxDSLRSchema;
+  camera: PentaxDSLRSchema;
   changed: string[];
   user: User;
   targetSubCategory: SubTargetCategoryTypes;
 }
 
 export interface SlrEditProps {
-  camera: FBPentaxSLRSchema;
+  camera: PentaxSLRSchema;
   changed: string[];
   user: User;
   targetSubCategory: SubTargetCategoryTypes;

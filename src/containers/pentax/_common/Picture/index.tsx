@@ -3,13 +3,13 @@
 import Image from 'next/image';
 
 import { cameraId } from '@/utils/cameras';
-import { FBPentaxSlr, FBPentaxDslr } from '@/types/pentaxes';
+import { PentaxSlr, PentaxDslr } from '@/types/pentaxes';
 import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
 
 import styles from './Picture.module.scss';
 
 interface Props {
-  selectedCamera?: FBPentaxSlr | FBPentaxDslr;
+  selectedCamera?: PentaxSlr | PentaxDslr;
   baseUrl: 'dslr' | 'slr';
 }
 

@@ -1,7 +1,7 @@
 import { ENGINE_TYPE, FOCUS_NAME, OPTICS_TYPE } from '@/types/cameras.d';
-import { PENTAX_DSLR_MATERIAL, PENTAX_DSLR_SENSOR_SIZE, PENTAX_DSLR_TYPE, PentaxDslr } from '@/types/pentaxes.d';
+import { PENTAX_DSLR_MATERIAL, PENTAX_DSLR_SENSOR_SIZE, PENTAX_DSLR_TYPE, PentaxDslrCore } from '@/types/pentaxes.d';
 
-export const PENTAX_DSLRS: PentaxDslr[] = [
+export const PENTAX_DSLRS: PentaxDslrCore[] = [
   // Line 1 ==============================
   {
     type: PENTAX_DSLR_TYPE.K645,

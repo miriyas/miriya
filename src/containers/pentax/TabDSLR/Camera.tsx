@@ -3,7 +3,7 @@ import { FocusEventHandler, MouseEventHandler, useMemo } from 'react';
 import { useAtom } from 'jotai';
 
 import { X_CELL_DSLR } from '@/constants/pentaxes';
-import { PentaxDslr } from '@/types/pentaxes';
+import { PentaxDslrCore } from '@/types/pentaxes';
 import { selectedCameraAtom } from './states';
 
 import styles from './Camera.module.scss';
@@ -14,7 +14,7 @@ const W_LINE = X_CELL_DSLR; // --x-pentax-dslr-cell
 const W_YEAR = W_LINE * 4;
 
 interface Props {
-  camera: PentaxDslr;
+  camera: PentaxDslrCore;
   yearStart: number;
   yearEnd: number;
 }

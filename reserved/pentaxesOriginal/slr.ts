@@ -1,10 +1,10 @@
 import { FOCUS_NAME } from '@/types/cameras.d';
-import { PentaxSlr, PENTAX_SLR_MOUNT } from '@/types/pentaxes.d';
+import { PentaxSlrCore, PENTAX_SLR_MOUNT } from '@/types/pentaxes.d';
 
 export const W_CELL_SLR = 22;
 export const H_CELL_SLR = 22;
 
-export const PENTAX_SLRS: PentaxSlr[] = [
+export const PENTAX_SLRS: PentaxSlrCore[] = [
   // Line 1 ==============================
   {
     name: 'PZ-1 (Z-1)',

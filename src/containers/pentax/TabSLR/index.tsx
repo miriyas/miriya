@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import { FBPentaxSlr } from '@/types/pentaxes';
+import { PentaxSlr } from '@/types/pentaxes';
 
 import Loading from '@/components/Loading';
 import styles from './index.module.scss';
@@ -14,7 +14,7 @@ const Contents = dynamic(() => import('./Contents'), {
 });
 
 interface Props {
-  slrs: FBPentaxSlr[];
+  slrs: PentaxSlr[];
 }
 
 const PentaxSLRPage = ({ slrs }: Props) => {

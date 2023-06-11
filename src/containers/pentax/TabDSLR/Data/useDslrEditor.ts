@@ -6,15 +6,15 @@ import { FormEventHandler } from 'react';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
-import { FBPentaxDslr } from '@/types/pentaxes';
-import { PentaxDSLRSchema, pentaxDslrValidator } from '@/utils/validator';
+import { PentaxDslr } from '@/types/pentaxes';
+import { PentaxDSLRSchemaCore, pentaxDslrValidator } from '@/utils/validator';
 import { editCameraAtom } from '../states';
 import { patchPentaxDslrAPI } from '@/services/pentaxes';
 import usePentax from '../../usePentax';
 
 import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 
-const useDslrEditor = (camera: FBPentaxDslr) => {
+const useDslrEditor = (camera: PentaxDslr) => {
   const { reloadHistories } = useCommentAndHistory({
     targetCategory: TARGET_CATEGORY.PENTAX,
     targetSubCategory: SUB_TARGET_CATEGORY.DSLR,
@@ -25,7 +25,7 @@ const useDslrEditor = (camera: FBPentaxDslr) => {
   const { alertSupporterOnly } = useAlert();
   const resetEditCamera = useResetAtom(editCameraAtom);
 
-  const methods = useForm<PentaxDSLRSchema>({
+  const methods = useForm<PentaxDSLRSchemaCore>({
     mode: 'onBlur',
     resolver: yupResolver(pentaxDslrValidator),
     defaultValues: {
@@ -105,7 +105,7 @@ const useDslrEditor = (camera: FBPentaxDslr) => {
     formState: { errors, dirtyFields, isDirty },
   } = methods;
 
-  const submit = handleSubmit((formValues: PentaxDSLRSchema) => {
+  const submit = handleSubmit((formValues: PentaxDSLRSchemaCore) => {
     if (!user) return;
 
     const keys = Object.keys(dirtyFields).filter((field) => field !== 'data');

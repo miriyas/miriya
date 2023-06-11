@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import { FBPentaxSlr } from '@/types/pentaxes.d';
+import { PentaxSlr } from '@/types/pentaxes.d';
 import useSlrEditor from './useSlrEditor';
 
 import { yearsField, mountField, dimensionField, fields1, fields2, fields3, fields4, fields5, fields6 } from './fields';
@@ -13,7 +13,7 @@ import styles from '../../_common/CommonEditor.module.scss';
 import Button from '@/components/Button';
 
 interface Props {
-  camera: FBPentaxSlr;
+  camera: PentaxSlr;
 }
 
 const Editor = ({ camera }: Props) => {

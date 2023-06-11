@@ -202,9 +202,9 @@ export const pentaxSlrValidator = object({
   }),
 }).required();
 
-export type PentaxSLRSchema = InferType<typeof pentaxSlrValidator>;
+export type PentaxSLRSchemaCore = InferType<typeof pentaxSlrValidator>;
 
-export interface FBPentaxSLRSchema extends PentaxSLRSchema {
+export interface PentaxSLRSchema extends PentaxSLRSchemaCore {
   id: string;
   name: string;
 }
@@ -279,9 +279,9 @@ export const pentaxDslrValidator = object({
   }),
 }).required();
 
-export type PentaxDSLRSchema = InferType<typeof pentaxDslrValidator>;
+export type PentaxDSLRSchemaCore = InferType<typeof pentaxDslrValidator>;
 
-export interface FBPentaxDSLRSchema extends PentaxDSLRSchema {
+export interface PentaxDSLRSchema extends PentaxDSLRSchemaCore {
   id: string;
   name: string;
 }

@@ -9,7 +9,7 @@ import { X_CELL_DSLR } from '@/constants/pentaxes';
 import { useDraggable } from '@/hooks/useDraggable';
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
-import { FBPentaxDslr } from '@/types/pentaxes';
+import { PentaxDslr } from '@/types/pentaxes';
 import { SUB_TARGET_CATEGORY } from '@/types/comments.d';
 
 import Picture from '../_common/Picture';
@@ -20,7 +20,7 @@ import Data from './Data';
 import styles from './index.module.scss';
 
 interface Props {
-  data: FBPentaxDslr[];
+  data: PentaxDslr[];
 }
 
 const Contents = ({ data }: Props) => {
