@@ -8,7 +8,7 @@ import { FormEventHandler } from 'react';
 import usePentax from '../../usePentax';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
-import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { PentaxSlr, PentaxSlrMountTypes } from '@/types/pentaxes';
 import { PentaxSLRSchemaCore, pentaxSlrValidator } from '@/utils/validator';
 import { editCameraAtom } from '../states';
@@ -20,8 +20,7 @@ export const currentUserAtom = atom<User | null>(null);
 
 const useSlrEditor = (camera: PentaxSlr) => {
   const { reloadHistories } = useCommentAndHistory({
-    targetCategory: TARGET_CATEGORY.PENTAX,
-    targetSubCategory: SUB_TARGET_CATEGORY.SLR,
+    targetCategory: TARGET_CATEGORY.PENTAX_SLR,
     targetId: camera.id,
   });
   const { reloadSlr } = usePentax();
@@ -119,13 +118,11 @@ const useSlrEditor = (camera: PentaxSlr) => {
     }
 
     patchPentaxSlrAPI({
-      user,
       camera: {
         ...camera,
         ...formValues,
       },
       changed: [...keys, ...dataKeys],
-      targetSubCategory: SUB_TARGET_CATEGORY.SLR,
     }).then(() => {
       resetEditCamera();
       reloadSlr();

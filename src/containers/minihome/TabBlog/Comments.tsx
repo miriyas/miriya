@@ -35,7 +35,7 @@ const Comments = ({ comments }: Props) => {
                 <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
                   {filterAuthorName(comment.authorId, comment.author.nickname)}
                 </p>
-                <time className={styles.createdAt}>{getTimeDiffText(comment.createdAt?.seconds, true)}</time>
+                <time className={styles.createdAt}>{getTimeDiffText(comment.createdAt, true)}</time>
               </Link>
             </li>
           );

@@ -1,4 +1,4 @@
-import { WithAuthor, WithTS } from '@/types/firebase';
+import { TimeStamp, WithAuthor } from '@/types';
 
 interface MyCarCore {
   name: string;
@@ -15,7 +15,7 @@ export interface EditMyCar extends NewMyCar {
   id: string;
 }
 
-export interface MyCar extends MyCarCore, WithAuthor, WithTS {
+export interface MyCar extends MyCarCore, WithAuthor, TimeStamp {
   id: string;
   imageUrl: string;
 }
@@ -40,7 +40,7 @@ export interface EditItemFix extends NewItemFix {
   id: string;
 }
 
-export interface ItemFix extends ItemFixCore, WithAuthor, WithTS {
+export interface ItemFix extends ItemFixCore, WithAuthor, TimeStamp {
   carId: string;
   id: string;
 }
@@ -62,7 +62,7 @@ export interface EditItemParts extends NewItemParts {
   id: string;
 }
 
-export interface ItemParts extends ItemPartsCore, WithAuthor, WithTS {
+export interface ItemParts extends ItemPartsCore, WithAuthor, TimeStamp {
   id: string;
   carId: string;
 }
@@ -84,7 +84,7 @@ export interface EditItemLink extends NewItemLink {
   carId: string;
 }
 
-export interface ItemLink extends ItemLinkCore, WithAuthor, WithTS {
+export interface ItemLink extends ItemLinkCore, WithAuthor, TimeStamp {
   id: string;
   carId: string;
 }

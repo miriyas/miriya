@@ -19,7 +19,6 @@ interface Props {
 const CommentEditForm = ({ comment, setEditMode, direction, styles }: Props) => {
   const { onEditSubmit } = useCommentAndHistory({
     targetCategory: comment.targetCategory,
-    targetSubCategory: comment.targetSubCategory,
     targetId: comment.targetId ?? '',
   });
   const { user } = useAuth();

@@ -34,7 +34,6 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
 
   const { reloadComments } = useCommentAndHistory({
     targetCategory: comment.targetCategory,
-    targetSubCategory: comment.targetSubCategory,
     targetId: comment.targetId,
   });
 
@@ -55,7 +54,6 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
     postCommentAPI({
       body: replyBody,
       targetCategory: comment.targetCategory,
-      targetSubCategory: comment.targetSubCategory,
       targetId: comment.targetId,
       targetName: comment.targetName,
       parentId: comment.id,
@@ -82,7 +80,7 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
               <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
                 {filterAuthorName(comment.authorId, comment.author.nickname)}
               </p>
-              <time>{getTimeDiffText(comment.createdAt?.seconds, true)}</time>
+              <time>{getTimeDiffText(comment.createdAt, true)}</time>
             </div>
             <p className={styles.body}>{comment.body}</p>
             <div className={styles.lower}>

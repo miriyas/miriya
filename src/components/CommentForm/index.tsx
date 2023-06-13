@@ -3,7 +3,7 @@ import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
 import useCameras from '@/containers/cameras/useCameras';
-import { SubTargetCategoryTypes, TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
+import { TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
 import { postCommentAPI } from '@/services/comments';
 
 import useCommentAndHistory from '../CommentAndHistory/useCommentAndHistory';
@@ -14,7 +14,6 @@ import defaultStyles from './index.module.scss';
 
 interface Props {
   targetCategory: TargetCategoryTypes;
-  targetSubCategory?: SubTargetCategoryTypes;
   targetId: string;
   targetName: string;
   multiline?: boolean;
@@ -23,13 +22,12 @@ interface Props {
   };
 }
 
-const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName, multiline, overrideStyles }: Props) => {
+const CommentForm = ({ targetCategory, targetId, targetName, multiline, overrideStyles }: Props) => {
   const styles = overrideStyles ?? defaultStyles;
   const { user } = useAuth();
   const { reload } = useCameras();
   const { reloadComments } = useCommentAndHistory({
     targetCategory,
-    targetSubCategory,
     targetId,
   });
   const [body, setBody] = useState('');
@@ -43,7 +41,6 @@ const CommentForm = ({ targetCategory, targetSubCategory, targetId, targetName, 
     postCommentAPI({
       body,
       targetCategory,
-      targetSubCategory,
       targetId,
       targetName,
     })

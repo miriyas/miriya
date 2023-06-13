@@ -1,5 +1,4 @@
-import { TimeStamp } from '@/types';
-import { WithAuthor } from '@/types/firebase';
+import { TimeStamp, WithAuthor } from '@/types';
 
 export type Category = 'total' | 'mixed-group' | 'girl-group' | 'boy-group' | 'girl-solo' | 'boy-solo';
 

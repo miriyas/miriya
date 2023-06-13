@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
+import { TargetCategoryTypes } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 import useCommentAndHistory from './useCommentAndHistory';
 
@@ -11,12 +11,11 @@ import Loading from '@/components/Loading';
 
 interface Props {
   targetCategory: TargetCategoryTypes;
-  targetSubCategory?: SubTargetCategoryTypes;
   targetId: string;
 }
 
-export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Props) => {
-  const { histories, isLoadingHistories } = useCommentAndHistory({ targetCategory, targetSubCategory, targetId });
+export const ListHistory = ({ targetCategory, targetId }: Props) => {
+  const { histories, isLoadingHistories } = useCommentAndHistory({ targetCategory, targetId });
 
   if (isLoadingHistories) {
     return (
@@ -46,7 +45,7 @@ export const ListHistory = ({ targetCategory, targetSubCategory, targetId }: Pro
               <p className={cx(styles.name, styles.isFake)}>SYSTEM</p>
             </div>
             <div className={styles.rightWing}>
-              <time>{getTimeDiffText(history.createdAt?.seconds, true)}</time>
+              <time>{getTimeDiffText(history.createdAt, true)}</time>
             </div>
           </div>
         </li>

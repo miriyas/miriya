@@ -1,9 +1,5 @@
-import { User } from 'firebase/auth';
-
-import { ValueOf } from '@/types';
+import { TimeStamp, ValueOf } from '@/types';
 import { EngineTypes, FocusNameTypes, OpticsTypes } from '@/types/cameras';
-import { SubTargetCategoryTypes } from '@/types/comments';
-import { WithTS } from '@/types/firebase';
 import { PentaxDSLRSchema, PentaxSLRSchema } from '@/utils/validator';
 
 export const PENTAX_DSLR_TYPE = {
@@ -193,12 +189,12 @@ export interface PentaxSlrCore {
   };
 }
 
-export interface PentaxSlr extends PentaxSlrCore, WithTS {
+export interface PentaxSlr extends PentaxSlrCore, TimeStamp {
   id: string;
   commentsLength: number;
 }
 
-export interface PentaxDslr extends PentaxDslrCore, WithTS {
+export interface PentaxDslr extends PentaxDslrCore, TimeStamp {
   id: string;
   commentsLength: number;
 }
@@ -206,13 +202,9 @@ export interface PentaxDslr extends PentaxDslrCore, WithTS {
 export interface DslrEditProps {
   camera: PentaxDSLRSchema;
   changed: string[];
-  user: User;
-  targetSubCategory: SubTargetCategoryTypes;
 }
 
 export interface SlrEditProps {
   camera: PentaxSLRSchema;
   changed: string[];
-  user: User;
-  targetSubCategory: SubTargetCategoryTypes;
 }

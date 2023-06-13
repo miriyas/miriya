@@ -1,7 +1,7 @@
 import cx from 'clsx';
 
 import useCommentAndHistory from './useCommentAndHistory';
-import { SubTargetCategoryTypes, TargetCategoryTypes } from '@/types/comments.d';
+import { TargetCategoryTypes } from '@/types/comments.d';
 
 import Loading from '@/components/Loading';
 import ItemComment from './Item';
@@ -10,7 +10,6 @@ import defaultStyles from './Item/index.module.scss';
 
 interface Props {
   targetCategory: TargetCategoryTypes;
-  targetSubCategory?: SubTargetCategoryTypes;
   targetId: string;
   withHeader?: boolean;
   direction?: 'horizontal' | 'vertical';
@@ -19,17 +18,10 @@ interface Props {
   };
 }
 
-export const ListComment = ({
-  targetCategory,
-  targetSubCategory,
-  targetId,
-  withHeader,
-  direction,
-  overrideStyles,
-}: Props) => {
+export const ListComment = ({ targetCategory, targetId, withHeader, direction, overrideStyles }: Props) => {
   const styles = overrideStyles ?? defaultStyles;
 
-  const { comments, isLoadingComments } = useCommentAndHistory({ targetCategory, targetSubCategory, targetId });
+  const { comments, isLoadingComments } = useCommentAndHistory({ targetCategory, targetId });
 
   if (isLoadingComments) {
     return (

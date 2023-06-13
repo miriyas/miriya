@@ -1,5 +1,4 @@
-import { TimeStamp } from '@/types';
-import { WithAuthor } from '@/types/firebase';
+import { TimeStamp, WithAuthor } from '@/types';
 
 // 글
 

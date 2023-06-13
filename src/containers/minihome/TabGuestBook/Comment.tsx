@@ -39,7 +39,7 @@ const CommentItem = ({ comment }: Props) => {
     submitEditGuestCommentHidden(comment, false);
   };
 
-  const deleted = comment.deletedAt.seconds > 0;
+  const deleted = comment.deletedAt !== null;
 
   if (!isAdmin && comment.hidden && !isMine(comment.authorId)) return null;
   if (!isAdmin && deleted) return null;
@@ -57,12 +57,10 @@ const CommentItem = ({ comment }: Props) => {
           <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
             {filterAuthorName(comment.authorId, comment.author.nickname)}
           </p>
-          {deleted && <time>({getTimeDiffText(comment.deletedAt.seconds, true)} 삭제됨)</time>}
-          {!deleted && comment.updatedAt?.seconds && (
-            <time>({getTimeDiffText(comment.updatedAt.seconds, true)} 수정됨)</time>
-          )}
-          {!deleted && !comment.updatedAt && comment.createdAt?.seconds && (
-            <time>({getTimeDiffText(comment.createdAt.seconds, true)})</time>
+          {deleted && <time>({getTimeDiffText(comment.deletedAt, true)} 삭제됨)</time>}
+          {!deleted && comment.updatedAt && <time>({getTimeDiffText(comment.updatedAt, true)} 수정됨)</time>}
+          {!deleted && !comment.updatedAt && comment.createdAt && (
+            <time>({getTimeDiffText(comment.createdAt, true)})</time>
           )}
         </div>
         {!editMode && (isAdmin || isMine(comment.authorId)) && (

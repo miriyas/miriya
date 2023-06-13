@@ -32,18 +32,3 @@ export const PENTAX_COLLECTION_NAMES = {
   LENS: 'lens',
   LENS645: 'lens645',
 } as const;
-
-export interface WithAuthor {
-  authorId: string;
-  author: {
-    nickname: string;
-    nicknameIsFake?: boolean;
-    profileUrl?: string;
-  };
-}
-
-export interface WithTS {
-  createdAt: FbTimeStamp;
-  updatedAt: FbTimeStamp;
-  deletedAt: FbTimeStamp;
-}

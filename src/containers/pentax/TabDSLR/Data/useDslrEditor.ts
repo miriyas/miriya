@@ -5,7 +5,7 @@ import { FormEventHandler } from 'react';
 
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
-import { SUB_TARGET_CATEGORY, TARGET_CATEGORY } from '@/types/comments.d';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { PentaxDslr } from '@/types/pentaxes';
 import { PentaxDSLRSchemaCore, pentaxDslrValidator } from '@/utils/validator';
 import { editCameraAtom } from '../states';
@@ -17,7 +17,6 @@ import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHi
 const useDslrEditor = (camera: PentaxDslr) => {
   const { reloadHistories } = useCommentAndHistory({
     targetCategory: TARGET_CATEGORY.PENTAX,
-    targetSubCategory: SUB_TARGET_CATEGORY.DSLR,
     targetId: camera.id,
   });
   const { user } = useAuth();
@@ -120,8 +119,6 @@ const useDslrEditor = (camera: PentaxDslr) => {
         ...formValues,
       },
       changed: [...keys, ...dataKeys],
-      user,
-      targetSubCategory: SUB_TARGET_CATEGORY.DSLR,
     }).then(() => {
       resetEditCamera();
       reloadDslr();

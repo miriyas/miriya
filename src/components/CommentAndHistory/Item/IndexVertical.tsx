@@ -52,7 +52,7 @@ const ItemCommentVertical = ({ comment, editMode, setEditMode, onClickEdit, onCl
                   </button>
                 </>
               )}
-              <time>{getTimeDiffText(comment.createdAt?.seconds, true)}</time>
+              <time>{getTimeDiffText(comment.createdAt, true)}</time>
             </div>
           </div>
         </>

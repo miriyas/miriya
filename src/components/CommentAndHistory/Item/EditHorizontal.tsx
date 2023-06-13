@@ -31,7 +31,7 @@ const CommentEditVertical = ({ comment, body, onSubmit, onChangeBody, onClickCan
           <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
             {filterAuthorName(comment.authorId, comment.author.nickname)}
           </p>
-          <time>{getTimeDiffText(comment.createdAt?.seconds, true)}</time>
+          <time>{getTimeDiffText(comment.createdAt, true)}</time>
         </div>
         <textarea onChange={onChangeBody} value={body} data-lpignore='true' autoComplete='off' />
         <div className={styles.lower}>

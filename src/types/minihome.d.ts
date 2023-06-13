@@ -1,6 +1,10 @@
 import { Comment } from '@/types/comments.d';
 
-export const RECENT_CATEGORIES = {
+export type RecentCategoriesType = {
+  [key: string]: string;
+};
+
+export const RECENT_CATEGORIES: RecentCategoriesType = {
   IDOLS: '아이돌',
   CAMERA: '카메라',
   PENTAX: '펜탁스',

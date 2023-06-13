@@ -20,7 +20,7 @@ const INITIAL_COUNT: CounterData = {
 };
 
 const RightCategory = () => {
-  const keys = Object.keys(RECENT_CATEGORIES) as Array<keyof typeof RECENT_CATEGORIES>;
+  const keys = Object.keys(RECENT_CATEGORIES);
   const data = useQueries<UseQueryResult<CounterData, unknown>[]>({
     queries: keys.map((tc) => ({
       queryKey: ['getMinihomRightCounterDataAPI', tc],

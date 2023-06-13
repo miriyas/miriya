@@ -20,6 +20,15 @@ export interface TimeStamp {
   deletedAt?: Date;
 }
 
+export interface WithAuthor {
+  authorId: string;
+  author: {
+    nickname: string;
+    nicknameIsFake?: boolean;
+    profileUrl?: string;
+  };
+}
+
 export type SupportedProviders = 'google' | 'facebook' | 'github';
 
 export type InputFields = Record<

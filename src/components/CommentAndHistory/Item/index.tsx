@@ -22,7 +22,6 @@ const ItemComment = ({ comment, direction = 'vertical', overrideStyles }: Props)
 
   const { reloadComments } = useCommentAndHistory({
     targetCategory: comment.targetCategory,
-    targetSubCategory: comment.targetSubCategory,
     targetId: comment.targetId ?? 'undefined',
   });
   const { reload } = useCameras();
@@ -39,7 +38,7 @@ const ItemComment = ({ comment, direction = 'vertical', overrideStyles }: Props)
     });
   };
 
-  const deleted = comment.deletedAt.seconds > 0;
+  const deleted = comment.deletedAt !== null;
 
   if (deleted) return null;
 

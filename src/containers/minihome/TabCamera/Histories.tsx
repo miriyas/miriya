@@ -24,7 +24,7 @@ const Histories = ({ histories }: Props) => {
             <li key={history.id} title={history.id}>
               <p className={styles.targetName}>{history.targetName}</p>
               <p className={styles.body}>{history.body}</p>
-              <time className={styles.createdAt}>{getTimeDiffText(history.createdAt?.seconds, true)}</time>
+              <time className={styles.createdAt}>{getTimeDiffText(history.createdAt, true)}</time>
             </li>
           );
         })}

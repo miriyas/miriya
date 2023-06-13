@@ -48,7 +48,7 @@ const Reply = ({ comment, styles, reloadComments }: Props) => {
               <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
                 {filterAuthorName(comment.authorId, comment.author.nickname)}
               </p>
-              <time>{getTimeDiffText(comment.createdAt?.seconds, true)}</time>
+              <time>{getTimeDiffText(comment.createdAt, true)}</time>
             </div>
             <p className={styles.body}>{comment.body}</p>
             <div className={styles.lower}>
