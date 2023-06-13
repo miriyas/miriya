@@ -1,13 +1,13 @@
 'use client';
 
 import BlogSearchContent from '@/containers/blog/Search/Content';
-import { FBBlogCategory } from '@/types/blog';
+import { BlogCategoryForList } from '@/types/blog';
 
 import CategoriesBar from '../_common/SideBar';
 import styles from './index.module.scss';
 
 interface Props {
-  categories: FBBlogCategory[];
+  categories: BlogCategoryForList[];
 }
 
 const BlogSearchPage = ({ categories }: Props) => {

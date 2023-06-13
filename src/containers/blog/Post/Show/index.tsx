@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
+import { BlogCategoryForList, BlogPostForShow } from '@/types/blog.d';
 import CategoriesBar from '@/containers/blog/_common/SideBar';
 import { bodyProcess } from '../utils';
 
@@ -18,8 +18,8 @@ const Comments = dynamic(() => import('./Comments'), {
 const CategoryRelated = dynamic(() => import('./CategoryRelated'), { ssr: false });
 
 interface Props {
-  categories: FBBlogCategory[];
-  postData: FBBlogPost;
+  categories: BlogCategoryForList[];
+  postData: BlogPostForShow;
 }
 
 const BlogShowPage = ({ categories, postData }: Props) => {
@@ -44,12 +44,12 @@ const BlogShowPage = ({ categories, postData }: Props) => {
         )}
         <div className={styles.wingWrapper}>
           <article>
-            <Header postData={postData} categories={categories} />
+            <Header postData={postData} />
             <div className={styles.body} dangerouslySetInnerHTML={{ __html: bodyProcess(body) }} />
-            <CategoryRelated postData={postData} categories={categories} />
+            <CategoryRelated postData={postData} />
             <Comments targetId={id} targetName={title} />
           </article>
-          <CategoriesBar categories={categories} currentCategory={category} />
+          <CategoriesBar categories={categories} currentCategory={category.id} />
         </div>
       </div>
     </main>

@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 
 import useAuth from '@/hooks/useAuth';
 import { patchBlogPostAPI } from '@/services/blog';
-import { FBBlogCategory, FBBlogPost } from '@/types/blog';
+import { BlogCategory, BlogPost } from '@/types/blog';
 
 import LoadingPage from '@/components/Loading/LoadingPage';
 
@@ -16,8 +16,8 @@ const Form = dynamic(() => import('./Form'), {
 });
 
 interface Props {
-  postData: FBBlogPost;
-  categories: FBBlogCategory[];
+  postData: BlogPost;
+  categories: BlogCategory[];
 }
 
 const EditContent = ({ postData, categories }: Props) => {

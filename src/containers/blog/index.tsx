@@ -7,15 +7,15 @@ import { Suspense } from 'react';
 
 import { getTimeDiffText } from '@/utils/date';
 import { imageLoaderDo2Ik } from '@/utils/image';
-import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
+import { BlogCategoryForList, BlogPostForList } from '@/types/blog.d';
 
 import CategoriesBar from './_common/SideBar';
 import styles from './index.module.scss';
 import Loading from '@/components/Loading';
 
 interface Props {
-  posts: FBBlogPost[];
-  categories: FBBlogCategory[];
+  posts: BlogPostForList[];
+  categories: BlogCategoryForList[];
 }
 
 const BlogPage = ({ posts, categories }: Props) => {
@@ -35,30 +35,26 @@ const BlogPage = ({ posts, categories }: Props) => {
           <div className={styles.wingWrapper}>
             <div className={styles.postsWing}>
               <ul className={styles.posts}>
-                {posts.map((post) => {
-                  const categoryName = categories.find((c) => c.id === post.category)?.name ?? '';
-
-                  return (
-                    <li key={post.id} className={styles.post}>
-                      <Link href={`/blog/${post.id}`}>
-                        {post.hero && (
-                          <div className={styles.hero}>
-                            <Image src={post.hero} width={240} height={160} alt='' loader={imageLoaderDo2Ik} />
-                          </div>
-                        )}
-                        <div className={styles.content}>
-                          <p className={styles.title}>
-                            {post.title}
-                            <span>{categoryName}</span>
-                            {post.hidden && <span className={styles.hidden}>비공개</span>}
-                          </p>
-                          <p className={styles.body}>{post.preview.substring(0, 150)}...</p>
-                          <time className={styles.time}>{getTimeDiffText(post.createdAt.seconds, true)}</time>
+                {posts.map((post) => (
+                  <li key={post.id} className={styles.post}>
+                    <Link href={`/blog/${post.id}`}>
+                      {post.hero && (
+                        <div className={styles.hero}>
+                          <Image src={post.hero} width={240} height={160} alt='' loader={imageLoaderDo2Ik} />
                         </div>
-                      </Link>
-                    </li>
-                  );
-                })}
+                      )}
+                      <div className={styles.content}>
+                        <p className={styles.title}>
+                          {post.title}
+                          <span>{post.category.name}</span>
+                          {post.hidden && <span className={styles.hidden}>비공개</span>}
+                        </p>
+                        <p className={styles.body}>{post.preview.substring(0, 150)}...</p>
+                        <time className={styles.time}>{getTimeDiffText(post.createdAt, true)}</time>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className={styles.categoryWing}>

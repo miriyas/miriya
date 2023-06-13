@@ -1,12 +1,13 @@
+/* eslint-disable no-underscore-dangle */
 import cx from 'clsx';
 import Link from 'next/link';
 
-import { FBBlogCategory } from '@/types/blog.d';
+import { BlogCategoryForList } from '@/types/blog.d';
 
 import styles from './index.module.scss';
 
 interface Props {
-  categories: FBBlogCategory[];
+  categories: BlogCategoryForList[];
   currentCategory?: string;
 }
 
@@ -25,7 +26,7 @@ const Categories = ({ categories, currentCategory }: Props) => {
             >
               <Link href={`/blog/categories/${category.id}`}>
                 <p className={styles.name}>{category.name}</p>
-                <span>({category.postsLength})</span>
+                <span>({category._count.BlogPost})</span>
               </Link>
             </li>
           );

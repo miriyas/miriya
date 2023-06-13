@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
-import { FBBlogCategory } from '@/types/blog.d';
+import { BlogCategoryForList } from '@/types/blog.d';
 
 import { IconRSS } from 'public/svgs';
 import ExternalLink from '@/components/ExternalLink';
@@ -27,7 +27,7 @@ const RecentComments = dynamic(() => import('./RecentComments'), {
 });
 
 interface Props {
-  categories: FBBlogCategory[];
+  categories: BlogCategoryForList[];
   currentCategory?: string;
 }
 

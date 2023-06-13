@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 import useAuth from '@/hooks/useAuth';
 import { postBlogPostAPI } from '@/services/blog';
-import { FBBlogCategory } from '@/types/blog.d';
+import { BlogCategory } from '@/types/blog.d';
 
 import LoadingPage from '@/components/Loading/LoadingPage';
 
@@ -16,7 +16,7 @@ const Form = dynamic(() => import('./Form'), {
 });
 
 interface Props {
-  categories: FBBlogCategory[];
+  categories: BlogCategory[];
 }
 
 const NewContent = ({ categories }: Props) => {

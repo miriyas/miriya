@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 import { fetchClient } from '@/services';
-import { FBBlogPost } from '@/types/blog';
+import { BlogPost } from '@/types/blog';
 
 export const getPosts = () => {
   return fetchClient('/blog/posts')
@@ -19,7 +19,7 @@ export const getPosts = () => {
 export const dynamic = 'force-dynamic';
 
 const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
-  const posts: FBBlogPost[] = await getPosts();
+  const posts: BlogPost[] = await getPosts();
 
   const blogPosts = posts.map((post) => ({
     url: `https://miriya.net/blog/${post.id}`,

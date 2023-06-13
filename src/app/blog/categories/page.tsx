@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic';
 
 import { fetchBlogCategoriesAPI } from '@/services/blog';
-import { FBBlogCategory } from '@/types/blog.d';
+import { BlogCategory } from '@/types/blog.d';
 
 export async function generateStaticParams() {
-  const categories: FBBlogCategory[] = await fetchBlogCategoriesAPI().then((res) => res.json());
+  const categories: BlogCategory[] = await fetchBlogCategoriesAPI().then((res) => res.json());
   return categories.map((category) => category.id);
 }
 

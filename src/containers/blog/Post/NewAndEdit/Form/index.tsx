@@ -7,7 +7,7 @@ import { useMount, useUnmount } from 'react-use';
 import { RESET } from 'jotai/utils';
 
 import useAuth from '@/hooks/useAuth';
-import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
+import { BlogCategory, BlogPost } from '@/types/blog.d';
 import { bodyAtom, categoryAtom, heroAtom, hiddenAtom, titleAtom, loadingAtom } from './states';
 import { revalidateApi } from '@/services';
 
@@ -16,9 +16,9 @@ import Editor from './Editor';
 import styles from './index.module.scss';
 
 interface Props {
-  categories: FBBlogCategory[];
-  postData?: FBBlogPost; // 없으면 새글
-  onSubmit: (body: Partial<FBBlogPost>, postId?: string) => Promise<AxiosResponse>;
+  categories: BlogCategory[];
+  postData?: BlogPost; // 없으면 새글
+  onSubmit: (body: Partial<BlogPost>, postId?: string) => Promise<AxiosResponse>;
 }
 
 const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
@@ -27,7 +27,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
 
   const [title, setTitle] = useAtom(titleAtom);
   const [body, setBody] = useAtom(bodyAtom);
-  const [category, setCategory] = useAtom(categoryAtom);
+  const [categoryId, setCategoryId] = useAtom(categoryAtom);
   const [hero, setHero] = useAtom(heroAtom);
   const [hidden, setHidden] = useAtom(hiddenAtom);
   const setIsLoading = useSetAtom(loadingAtom);
@@ -39,19 +39,19 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
     if (postData?.body) setBody(postData.body);
     if (postData?.hero) setHero(postData.hero);
     if (postData?.hidden) setHidden(postData.hidden);
-    setCategory(postData?.category ?? categories[0].id);
+    setCategoryId(postData?.categoryId ?? categories[0].id);
   });
 
   useUnmount(() => {
     setTitle(RESET);
     setBody(RESET);
-    setCategory(RESET);
+    setCategoryId(RESET);
     setHero(RESET);
     setHidden(RESET);
     setIsLoading(RESET);
   });
 
-  const submitDisabled = !user || !body || !title || !category;
+  const submitDisabled = !user || !body || !title || !categoryId;
 
   const onClickSubmit = () => {
     if (submitDisabled) return;
@@ -63,7 +63,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
         title,
         body,
         preview: preview.substring(0, 300),
-        category,
+        categoryId,
         hidden,
         hero,
       },

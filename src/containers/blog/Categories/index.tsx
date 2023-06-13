@@ -5,7 +5,7 @@ import { notFound, useRouter } from 'next/navigation';
 
 import useAuth from '@/hooks/useAuth';
 import { postBlogCategoryAPI } from '@/services/blog';
-import { FBBlogCategory } from '@/types/blog';
+import { BlogCategoryForList } from '@/types/blog';
 import { revalidateApi } from '@/services';
 
 import Item from './Item';
@@ -14,7 +14,7 @@ import Loading from '@/components/Loading';
 import Button from '@/components/Button';
 
 interface Props {
-  categories: FBBlogCategory[];
+  categories: BlogCategoryForList[];
 }
 
 const BlogCategoryPage = ({ categories }: Props) => {

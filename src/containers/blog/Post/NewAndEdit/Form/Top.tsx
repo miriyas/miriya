@@ -5,14 +5,14 @@ import { notFound } from 'next/navigation';
 import { useAtom, useAtomValue } from 'jotai';
 
 import useAuth from '@/hooks/useAuth';
-import { FBBlogCategory } from '@/types/blog.d';
+import { BlogCategory } from '@/types/blog.d';
 import { bodyAtom, categoryAtom, heroAtom, hiddenAtom, loadingAtom, titleAtom } from './states';
 
 import Select from '@/components/Select';
 import styles from './Top.module.scss';
 
 interface Props {
-  categories: FBBlogCategory[];
+  categories: BlogCategory[];
   onSubmit: () => void;
 }
 

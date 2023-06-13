@@ -1,24 +1,56 @@
-import { WithAuthor, WithTS } from '@/types/firebase';
+import { TimeStamp } from '@/types';
+import { WithAuthor } from '@/types/firebase';
 
-export interface BlogPost {
+// 글
+
+export interface BlogPostCore {
   title: string;
   body: string;
   preview: string;
-  category: string;
+  categoryId: string;
   hero?: string;
   hidden?: boolean;
 }
 
-export interface FBBlogPost extends BlogPost, WithAuthor, WithTS {
+export interface BlogPost extends BlogPostCore, WithAuthor, TimeStamp {
   id: string;
 }
 
-export interface BlogCategory {
+// 카테고리
+
+export interface BlogCategoryCore {
   name: string;
 }
 
-export interface FBBlogCategory extends BlogCategory {
+export interface BlogCategory extends BlogCategoryCore {
   id: string;
   order: number;
-  postsLength: number;
+}
+
+export interface BlogCategoryForList extends BlogCategory, TimeStamp {
+  _count: {
+    BlogPost: number;
+  };
+}
+
+export interface BlogPostForList {
+  id: string;
+  title: string;
+  preview: string;
+  createdAt: Date;
+  hero: string;
+  hidden: boolean;
+  category: {
+    name: string;
+  };
+}
+
+// 글 목록
+export interface BlogCategoryWithPosts extends BlogCategory {
+  BlogPost: BlogPostForList[];
+}
+
+// 글 보기
+export interface BlogPostForShow extends BlogPost {
+  category: BlogCategoryWithPosts;
 }

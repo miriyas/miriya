@@ -1,39 +1,28 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import Image from 'next/image';
 import cx from 'clsx';
 
-import { getBlogPostsAPI } from '@/services/blog';
-import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
+import { BlogPostForShow } from '@/types/blog.d';
 import { getTimeDiffText } from '@/utils/date';
 import { imageLoaderDo2Ik } from '@/utils/image';
 
 import styles from './CategoryRelated.module.scss';
 
 interface Props {
-  categories: FBBlogCategory[];
-  postData: FBBlogPost;
+  postData: BlogPostForShow;
 }
-const CategoryRelated = ({ categories, postData }: Props) => {
-  const categoryName = categories.find((category) => category.id === postData.category)?.name;
+const CategoryRelated = ({ postData }: Props) => {
+  const { category } = postData;
 
-  const { data = [] } = useQuery(
-    ['getBlogPostsAPI', postData.category],
-    () => getBlogPostsAPI(postData.category, 6).then((res) => res.data),
-    {
-      suspense: true,
-    },
-  );
-
-  const posts = data.filter((post) => post.id !== postData.id);
+  const posts = category.BlogPost;
 
   if (posts.length === 0) return null;
 
   return (
     <aside className={styles.categoryRelated}>
-      <p className={styles.header}>&apos;{categoryName}&apos; 카테고리의 다른 글</p>
+      <p className={styles.header}>&apos;{category.name}&apos; 카테고리의 다른 글</p>
       <ul>
         {posts.map((post) => {
           return (
@@ -50,7 +39,7 @@ const CategoryRelated = ({ categories, postData }: Props) => {
                 )}
                 <div className={styles.content}>
                   <p>{post.title}</p>
-                  <time>({getTimeDiffText(post.createdAt.seconds, true)})</time>
+                  <time>({getTimeDiffText(post.createdAt, true)})</time>
                 </div>
               </Link>
             </li>

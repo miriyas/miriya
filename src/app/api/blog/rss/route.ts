@@ -26,7 +26,7 @@ export const GET = async () => {
                   .replaceAll('>', '&gt;')
                   .replaceAll('\n', '')
                   .replaceAll('', '')}</description>
-                <pubDate>${new Date(post.createdAt.seconds)}</pubDate>
+                <pubDate>${post.createdAt}</pubDate>
                 <guid>${post.id}</guid>
               </item>`,
             )

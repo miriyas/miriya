@@ -7,9 +7,8 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Clipboard from 'react-clipboard.js';
 import { useRafState, useUnmount } from 'react-use';
-import { useMemo } from 'react';
 
-import { FBBlogCategory, FBBlogPost } from '@/types/blog.d';
+import { BlogPostForShow } from '@/types/blog.d';
 import { getTimeDiffText } from '@/utils/date';
 
 import styles from './Header.module.scss';
@@ -17,14 +16,13 @@ import styles from './Header.module.scss';
 const AdminOnly = dynamic(() => import('@/components/AdminOnly'), { ssr: false });
 
 interface Props {
-  categories: FBBlogCategory[];
-  postData: FBBlogPost;
+  postData: BlogPostForShow;
 }
 
 let autoHide: NodeJS.Timeout;
 
-const Header = ({ categories, postData }: Props) => {
-  const { id, title, category: categoryId, author, createdAt, hidden } = postData;
+const Header = ({ postData }: Props) => {
+  const { id, title, category, author, createdAt, hidden } = postData;
 
   const [copied, setCopied] = useRafState(false);
 
@@ -39,8 +37,6 @@ const Header = ({ categories, postData }: Props) => {
     clearTimeout(autoHide);
   });
 
-  const category = useMemo(() => categories.find((c) => c.id === categoryId), [categories, categoryId]);
-
   const url = `${process.env.NEXT_PUBLIC_FE_URL}/blog/${id}`;
 
   return (
@@ -52,7 +48,7 @@ const Header = ({ categories, postData }: Props) => {
       <div className={styles.sub}>
         <div className={styles.leftWing}>
           <span className={styles.author}>{author.nickname}</span>
-          <time className={styles.time}>{getTimeDiffText(createdAt.seconds, true)}</time>
+          <time className={styles.time}>{getTimeDiffText(createdAt, true)}</time>
           {hidden && <span className={styles.hidden}>비공개</span>}
           <AdminOnly>
             <Link href={`/blog/${id}/edit`}>수정</Link>

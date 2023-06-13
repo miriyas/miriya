@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 
 import { renderMarkdown } from '@/utils/blog';
-import { FBBlogPost } from '@/types/blog.d';
+import { BlogPostForShow } from '@/types/blog.d';
 import { fetchClient } from '@/services';
 
-export const getPost = async (postId: string): Promise<FBBlogPost> => {
+export const getPost = async (postId: string): Promise<BlogPostForShow> => {
   // Axios 쓰면 안된다! og:image용 서비스워커는 fetch만 가능함 ㅠㅠ
   // https://stackoverflow.com/questions/75280544/uncaught-in-promise-error-error-adapter-http-is-not-available-in-the-build
   const postData = await fetchClient(`/blog/posts/${postId}`, { revalidate: 0 }).then((res) => {

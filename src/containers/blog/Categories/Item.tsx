@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 'use client';
 
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
@@ -5,12 +7,12 @@ import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { changeBlogCategoryOrderAPI, deleteBlogCategoryAPI, patchBlogCategoryAPI } from '@/services/blog';
-import { FBBlogCategory } from '@/types/blog.d';
+import { BlogCategoryForList } from '@/types/blog.d';
 
 import styles from './Item.module.scss';
 
 interface Props {
-  category: FBBlogCategory;
+  category: BlogCategoryForList;
   refetch: () => void;
 }
 
@@ -69,7 +71,7 @@ const BlogCategoryPage = ({ category, refetch }: Props) => {
       ) : (
         <button type='button' onClick={onClickName} className={styles.name}>
           {category.name}
-          <span>({category.postsLength})</span>
+          <span>({category._count.BlogPost})</span>
         </button>
       )}
       <div className={styles.controller}>
