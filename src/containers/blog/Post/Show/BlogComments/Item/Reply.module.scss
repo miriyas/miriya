@@ -1,0 +1,29 @@
+@use 'src/styles/mixins' as m;
+
+.replyItem {
+  @include m.flexbox(between, start);
+  gap: 14px;
+  width: 100%;
+
+  .leftWing {
+    width: var(--h-comment-form) !important;
+    height: var(--h-comment-form) !important;
+  }
+
+  .rightWing {
+    flex: 1;
+    gap: 8px !important;
+  }
+
+  .profileWrapper {
+    width: var(--h-comment-form) !important;
+    height: var(--h-comment-form) !important;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      width: var(--h-comment-form) !important;
+      height: var(--h-comment-form) !important;
+    }
+  }
+}

@@ -8,17 +8,16 @@ import { getTimeDiffText } from '@/utils/date';
 import { deleteCommentAPI } from '@/services/comments';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
-import CommentEditForm from '@/components/CommentAndHistory/Item/Edit';
+import CommentEditForm from './Edit';
+import itemStyles from './index.module.scss';
+import styles from './Reply.module.scss';
 
 interface Props {
   comment: Comment;
-  styles: {
-    readonly [key: string]: string;
-  };
   reloadComments: () => void;
 }
 
-const Reply = ({ comment, styles, reloadComments }: Props) => {
+const Reply = ({ comment, reloadComments }: Props) => {
   const { isMine, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -35,24 +34,24 @@ const Reply = ({ comment, styles, reloadComments }: Props) => {
   return (
     <li className={styles.replyItem}>
       {editMode ? (
-        <CommentEditForm comment={comment} setEditMode={setEditMode} styles={styles} />
+        <CommentEditForm comment={comment} setEditMode={setEditMode} />
       ) : (
         <>
-          <div className={styles.leftWing}>
-            <div className={styles.profileWrapper}>
+          <div className={cx(itemStyles.leftWing, styles.leftWing)}>
+            <div className={cx(itemStyles.profileWrapper, styles.profileWrapper)}>
               <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={18} />
             </div>
           </div>
-          <div className={styles.rightWing}>
-            <div className={styles.upper}>
-              <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
+          <div className={cx(itemStyles.rightWing, styles.rightWing)}>
+            <div className={itemStyles.upper}>
+              <p className={cx(itemStyles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
                 {filterAuthorName(comment.authorId, comment.author.nickname)}
               </p>
               <time>{getTimeDiffText(comment.createdAt, true)}</time>
             </div>
-            <p className={styles.body}>{comment.body}</p>
-            <div className={styles.lower}>
-              <div className={styles.lowerLeft}>
+            <p className={itemStyles.body}>{comment.body}</p>
+            <div className={itemStyles.lower}>
+              <div className={itemStyles.lowerLeft}>
                 {!editMode && (isAdmin || isMine(comment.authorId)) && (
                   <>
                     <button type='button' onClick={onClickEdit}>

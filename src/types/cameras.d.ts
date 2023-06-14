@@ -257,5 +257,5 @@ export interface DpreviewNews {
 
 export interface CameraType extends CameraCore, TimeStamp {
   id: string;
-  commentsLength: number;
+  comments: Comment[];
 }

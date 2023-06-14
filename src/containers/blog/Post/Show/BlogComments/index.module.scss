@@ -1,0 +1,25 @@
+@use 'src/styles/mixins' as m;
+
+.commentList {
+  @include m.tinyScrollBar;
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  overflow-y: auto;
+
+  &.loading {
+    @include m.flexbox;
+  }
+
+  .header {
+    padding-bottom: 14px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--color-gray-c);
+  }
+
+  .comments {
+    @include m.flexbox(start, start);
+    flex-direction: column;
+    margin: 14px 0 32px;
+  }
+}

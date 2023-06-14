@@ -4,22 +4,22 @@ import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 import Image from 'next/image';
 
-import { Comment } from '@/types/comments.d';
 import { getTimeDiffText } from '@/utils/date';
 import useAuth from '@/hooks/useAuth';
 import useGuestbook from './useGuestbook';
 import { filterAuthorName } from '@/utils/auth';
+import { Guestbook } from '@/types/minihome.d';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import EditForm from './EditForm';
 import styles from './Comment.module.scss';
 
 interface Props {
-  comment: Comment;
+  guestbook: Guestbook;
 }
 
-const CommentItem = ({ comment }: Props) => {
-  const { submitEditGuestCommentHidden, deleteGuestComment } = useGuestbook();
+const GuestbookItem = ({ guestbook }: Props) => {
+  const { submitEditGuesbookHidden, deleteGuestbook } = useGuestbook();
   const { isMine, isAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -28,47 +28,47 @@ const CommentItem = ({ comment }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
-    deleteGuestComment(comment);
+    deleteGuestbook(guestbook);
   };
 
   const onClickHide: MouseEventHandler<HTMLButtonElement> = () => {
-    submitEditGuestCommentHidden(comment, true);
+    submitEditGuesbookHidden(guestbook, true);
   };
 
   const onClickShow: MouseEventHandler<HTMLButtonElement> = () => {
-    submitEditGuestCommentHidden(comment, false);
+    submitEditGuesbookHidden(guestbook, false);
   };
 
-  const deleted = comment.deletedAt !== null;
+  const deleted = guestbook.deletedAt !== null;
 
-  if (!isAdmin && comment.hidden && !isMine(comment.authorId)) return null;
+  if (!isAdmin && guestbook.hidden && !isMine(guestbook.authorId)) return null;
   if (!isAdmin && deleted) return null;
 
   return (
     <li
       className={cx(styles.commentItem, {
         [styles.deleted]: deleted,
-        [styles.hidden]: comment.hidden,
+        [styles.hidden]: guestbook.hidden,
       })}
     >
       <div className={styles.upper}>
         <div className={styles.leftWing}>
-          <p className={styles.number}>No.{comment.commentNoInCategory}</p>
-          <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
-            {filterAuthorName(comment.authorId, comment.author.nickname)}
+          <p className={styles.number}>No.{guestbook.guestbookNo}</p>
+          <p className={cx(styles.name, { [styles.isFake]: guestbook.author.nicknameIsFake })}>
+            {filterAuthorName(guestbook.authorId, guestbook.author.nickname)}
           </p>
-          {deleted && <time>({getTimeDiffText(comment.deletedAt, true)} 삭제됨)</time>}
-          {!deleted && comment.updatedAt && <time>({getTimeDiffText(comment.updatedAt, true)} 수정됨)</time>}
-          {!deleted && !comment.updatedAt && comment.createdAt && (
-            <time>({getTimeDiffText(comment.createdAt, true)})</time>
+          {deleted && <time>({getTimeDiffText(guestbook.deletedAt, true)} 삭제됨)</time>}
+          {!deleted && guestbook.updatedAt && <time>({getTimeDiffText(guestbook.updatedAt, true)} 수정됨)</time>}
+          {!deleted && !guestbook.updatedAt && guestbook.createdAt && (
+            <time>({getTimeDiffText(guestbook.createdAt, true)})</time>
           )}
         </div>
-        {!editMode && (isAdmin || isMine(comment.authorId)) && (
+        {!editMode && (isAdmin || isMine(guestbook.authorId)) && (
           <div className={styles.rightWing}>
             <button type='button' onClick={onClickEdit}>
               수정
             </button>
-            {comment.hidden ? (
+            {guestbook.hidden ? (
               <button type='button' onClick={onClickShow}>
                 공개하기
               </button>
@@ -78,7 +78,7 @@ const CommentItem = ({ comment }: Props) => {
               </button>
             )}
             {!deleted && (
-              <button type='button' onClick={onClickDelete} data-id={comment.id} data-author-id={comment.authorId}>
+              <button type='button' onClick={onClickDelete} data-id={guestbook.id} data-author-id={guestbook.authorId}>
                 삭제
               </button>
             )}
@@ -87,21 +87,21 @@ const CommentItem = ({ comment }: Props) => {
       </div>
       <div className={styles.lower}>
         <div className={styles.leftWing}>
-          <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={192} />
+          <ProfileImageWithFallback src={guestbook.author.profileUrl} uid={guestbook.authorId} alt='' size={192} />
         </div>
         <div className={styles.rightWing}>
           {editMode ? (
-            <EditForm comment={comment} setEditMode={setEditMode} />
+            <EditForm guestbook={guestbook} setEditMode={setEditMode} />
           ) : (
             <div className={styles.bodyWrapper}>
-              {comment.hidden && (
+              {guestbook.hidden && (
                 <div className={styles.hiddenInfo}>
                   <Image src='/images/minihome/lock.png' alt='' width={24} height={24} className={styles.image} />
                   <p className={styles.status}>비밀이야</p>
                   <p className={styles.info}>(이 글은 홈 주인과 작성자만 볼 수 있어요)</p>
                 </div>
               )}
-              <p className={styles.body}>{comment.body}</p>
+              <p className={styles.body}>{guestbook.body}</p>
             </div>
           )}
         </div>
@@ -110,4 +110,4 @@ const CommentItem = ({ comment }: Props) => {
   );
 };
 
-export default CommentItem;
+export default GuestbookItem;

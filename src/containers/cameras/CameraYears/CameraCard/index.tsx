@@ -120,7 +120,7 @@ const Camera = (props: Props) => {
                 data-tab={item.key}
               >
                 {item.label}
-                {item.key === 'comments' && camera.commentsLength > 0 && <span>{camera.commentsLength}</span>}
+                {item.key === 'comments' && camera.comments.length > 0 && <span>{camera.comments.length}</span>}
               </button>
             ))}
           </div>

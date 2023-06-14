@@ -82,6 +82,12 @@
       overflow: hidden;
     }
 
+    .commentsWrapper {
+      padding: 32px;
+      margin: 100px 0 32px;
+      border: 1px solid var(--color-gray-d);
+    }
+
     @include m.after(SD) {
       padding: 7px 0;
 

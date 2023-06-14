@@ -1,4 +1,4 @@
-import { Comment } from '@/types/comments.d';
+import { TimeStamp, WithAuthor } from '@/types';
 
 export type RecentCategoriesType = {
   [key: string]: string;
@@ -33,7 +33,17 @@ export interface CounterData {
   today?: number[];
 }
 
-export interface Guestbook {
-  items: Comment[];
+export interface NewGuestbook {
+  body: string;
+  hidden?: boolean;
+}
+
+export interface Guestbook extends NewGuestbook, WithAuthor, TimeStamp {
+  id: string;
+  guestbookNo: number | null;
+}
+
+export interface GuestbookData {
+  items: Guestbook[];
   nextCursor?: string;
 }

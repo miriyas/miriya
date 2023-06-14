@@ -1,30 +1,29 @@
 import { MouseEventHandler, useState } from 'react';
+import cx from 'clsx';
 
+import useAuth from '@/hooks/useAuth';
+import useCommentAndHistory from '../useCommentAndHistory';
 import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
 import { deleteCommentAPI } from '@/services/comments';
 import useCameras from '@/containers/cameras/useCameras';
+import { filterAuthorName } from '@/utils/auth';
+import { getTimeDiffText } from '@/utils/date';
 
-import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
-import ItemCommentVertical from './IndexVertical';
-import ItemCommentHorizontal from './IndexHorizontal';
-import defaultStyles from './index.module.scss';
+import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
+import CommentEditForm from './Edit';
+import styles from './index.module.scss';
 
 interface Props {
   comment: Comment;
-  direction?: 'horizontal' | 'vertical';
-  overrideStyles?: {
-    readonly [key: string]: string;
-  };
 }
 
-const ItemComment = ({ comment, direction = 'vertical', overrideStyles }: Props) => {
-  const styles = overrideStyles ?? defaultStyles;
-
+const ItemComment = ({ comment }: Props) => {
+  const { isMine, isAdmin } = useAuth();
+  const { reload } = useCameras();
   const { reloadComments } = useCommentAndHistory({
-    targetCategory: comment.targetCategory,
+    targetCategory: comment.category,
     targetId: comment.targetId ?? 'undefined',
   });
-  const { reload } = useCameras();
   const [editMode, setEditMode] = useState(false);
 
   const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
@@ -34,7 +33,7 @@ const ItemComment = ({ comment, direction = 'vertical', overrideStyles }: Props)
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
     deleteCommentAPI(comment.id).then(() => {
       reloadComments();
-      if (comment.targetCategory === TARGET_CATEGORY.CAMERA) reload();
+      if (comment.category === TARGET_CATEGORY.CAMERA) reload();
     });
   };
 
@@ -42,28 +41,41 @@ const ItemComment = ({ comment, direction = 'vertical', overrideStyles }: Props)
 
   if (deleted) return null;
 
-  if (direction === 'vertical') {
-    return (
-      <ItemCommentVertical
-        styles={styles}
-        comment={comment}
-        editMode={editMode}
-        setEditMode={setEditMode}
-        onClickEdit={onClickEdit}
-        onClickDelete={onClickDelete}
-      />
-    );
-  }
-
   return (
-    <ItemCommentHorizontal
-      styles={styles}
-      comment={comment}
-      editMode={editMode}
-      setEditMode={setEditMode}
-      onClickEdit={onClickEdit}
-      onClickDelete={onClickDelete}
-    />
+    <li className={cx(styles.item, 'vertical')} title={comment.id}>
+      {editMode ? (
+        <CommentEditForm comment={comment} setEditMode={setEditMode} styles={styles} />
+      ) : (
+        <>
+          <div className={styles.upper}>
+            <p>{comment.body}</p>
+          </div>
+          <div className={styles.lower}>
+            <div className={styles.leftWing}>
+              <div className={styles.profileWrapper}>
+                <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={36} />
+              </div>
+              <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
+                {filterAuthorName(comment.authorId, comment.author.nickname)}
+              </p>
+            </div>
+            <div className={styles.rightWing}>
+              {!editMode && (isAdmin || isMine(comment.authorId)) && (
+                <>
+                  <button type='button' onClick={onClickEdit}>
+                    수정
+                  </button>
+                  <button type='button' onClick={onClickDelete}>
+                    삭제
+                  </button>
+                </>
+              )}
+              <time>{getTimeDiffText(comment.createdAt, true)}</time>
+            </div>
+          </div>
+        </>
+      )}
+    </li>
   );
 };
 

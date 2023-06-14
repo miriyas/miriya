@@ -1,24 +1,24 @@
 import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
+import cx from 'clsx';
 
-import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
 import useCommentAndHistory from '../useCommentAndHistory';
+import { filterAuthorName } from '@/utils/auth';
+import { Comment } from '@/types/comments.d';
 
-import CommentEditVertical from './EditVertical';
-import CommentEditHorizontal from './EditHorizontal';
+import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 
 interface Props {
   comment: Comment;
   setEditMode: Dispatch<SetStateAction<boolean>>;
-  direction?: 'horizontal' | 'vertical';
   styles: {
     readonly [key: string]: string;
   };
 }
 
-const CommentEditForm = ({ comment, setEditMode, direction, styles }: Props) => {
+const CommentEditForm = ({ comment, setEditMode, styles }: Props) => {
   const { onEditSubmit } = useCommentAndHistory({
-    targetCategory: comment.targetCategory,
+    targetCategory: comment.category,
     targetId: comment.targetId ?? '',
   });
   const { user } = useAuth();
@@ -42,28 +42,29 @@ const CommentEditForm = ({ comment, setEditMode, direction, styles }: Props) => 
     });
   };
 
-  if (direction === 'vertical') {
-    return (
-      <CommentEditVertical
-        comment={comment}
-        body={body}
-        onSubmit={onSubmit}
-        onChangeBody={onChangeBody}
-        onClickCancel={onClickCancel}
-        styles={styles}
-      />
-    );
-  }
-
   return (
-    <CommentEditHorizontal
-      comment={comment}
-      body={body}
-      onSubmit={onSubmit}
-      onChangeBody={onChangeBody}
-      onClickCancel={onClickCancel}
-      styles={styles}
-    />
+    <form onSubmit={onSubmit} className={cx(styles.editor, 'vertical')}>
+      <div className={styles.upper}>
+        <input type='text' onChange={onChangeBody} value={body} data-lpignore='true' autoComplete='off' />
+      </div>
+      <div className={styles.lower}>
+        <div className={styles.leftWing}>
+          <div className={styles.profileWrapper}>
+            <ProfileImageWithFallback src={comment.author.profileUrl} uid={comment.authorId} alt='' size={36} />
+          </div>
+          <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
+            {filterAuthorName(comment.authorId, comment.author.nickname)}
+          </p>
+        </div>
+
+        <div className={styles.rightWing}>
+          <button type='button' onClick={onClickCancel}>
+            취소
+          </button>
+          <button type='submit'>확인</button>
+        </div>
+      </div>
+    </form>
   );
 };
 

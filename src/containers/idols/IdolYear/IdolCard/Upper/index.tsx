@@ -20,7 +20,7 @@ interface Props {
 }
 
 const Upper = ({ idol, opened, onClickOpen }: Props) => {
-  const { commentsLength, youtubeUrl, youtubeStartsAt } = idol;
+  const { comments, youtubeUrl, youtubeStartsAt } = idol;
   const { isSupporter, isAdmin } = useAuth();
   const setEditIdol = useSetAtom(editIdolAtom);
   const hasYoutube = youtubeUrl !== '' && youtubeStartsAt !== 0;
@@ -36,10 +36,10 @@ const Upper = ({ idol, opened, onClickOpen }: Props) => {
           <IconEdit />
         </button>
       )}
-      {!opened && commentsLength > 0 && (
+      {!opened && comments.length > 0 && (
         <div className={styles.withComment}>
           <IconComment />
-          <span>{commentsLength}</span>
+          <span>{comments.length}</span>
         </div>
       )}
       {opened && hasYoutube && <Youtube youtubeUrl={youtubeUrl} youtubeStartsAt={youtubeStartsAt} />}

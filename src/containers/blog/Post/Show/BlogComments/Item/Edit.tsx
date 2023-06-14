@@ -1,24 +1,43 @@
-import { ChangeEventHandler, FormEventHandler, MouseEventHandler } from 'react';
+import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
 import cx from 'clsx';
 
 import { Comment } from '@/types/comments.d';
+import useAuth from '@/hooks/useAuth';
+import useBlogComment from '../useBlogComment';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
+import styles from './Edit.module.scss';
 
 interface Props {
   comment: Comment;
-  body: string;
-  onSubmit: FormEventHandler<HTMLFormElement>;
-  onChangeBody: ChangeEventHandler<HTMLTextAreaElement>;
-  onClickCancel: MouseEventHandler<HTMLButtonElement>;
-  styles: {
-    readonly [key: string]: string;
-  };
+  setEditMode: Dispatch<SetStateAction<boolean>>;
 }
 
-const CommentEditVertical = ({ comment, body, onSubmit, onChangeBody, onClickCancel, styles }: Props) => {
+const CommentEditForm = ({ comment, setEditMode }: Props) => {
+  const { onEditSubmit } = useBlogComment({ targetId: comment.targetId });
+  const { user } = useAuth();
+  const [body, setBody] = useState(comment.body);
+
+  const onClickCancel: MouseEventHandler<HTMLButtonElement> = () => {
+    setEditMode(false);
+    setBody(comment.body);
+  };
+
+  const onChangeBody: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
+    setBody(e.currentTarget.value);
+  };
+
+  const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    if (!user) return;
+    setEditMode(false);
+    onEditSubmit(comment, body).then(() => {
+      setBody(body);
+    });
+  };
+
   return (
     <form onSubmit={onSubmit} className={styles.editor}>
       <div className={styles.leftWing}>
@@ -45,4 +64,4 @@ const CommentEditVertical = ({ comment, body, onSubmit, onChangeBody, onClickCan
   );
 };
 
-export default CommentEditVertical;
+export default CommentEditForm;

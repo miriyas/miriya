@@ -1,10 +1,8 @@
 import { TimeStamp, ValueOf, WithAuthor } from '@/types';
 
 export const TARGET_CATEGORY = {
-  GUESTBOOK: 'GUESTBOOK',
   IDOLS: 'IDOLS',
   CAMERA: 'CAMERA',
-  PENTAX: 'PENTAX',
   PENTAX_SLR: 'PENTAX_SLR',
   PENTAX_DSLR: 'PENTAX_DSLR',
   PENTAX_LENS: 'PENTAX_LENS',
@@ -26,11 +24,30 @@ export interface NewComment {
 export interface Comment extends WithAuthor, TimeStamp {
   id: string;
   body: string;
-  commentNoInCategory: number;
-  targetCategory: TargetCategoryTypes;
-  targetId: string;
-  targetName?: string;
-  hidden?: boolean;
-  parentId?: string;
+  category: TargetCategoryTypes;
+  parentId: string | null;
   children?: Comment[];
+  commentNo: number;
+  targetId: string;
+  idolId: string | null;
+  idol?: {
+    name: string;
+  };
+  cameraId: string | null;
+  camera?: {
+    maker: string;
+    name: string;
+  };
+  pentaxDslrId: string | null;
+  pentaxDslr?: {
+    name: string;
+  };
+  pentaxSlrId: string | null;
+  pentaxSlr?: {
+    name: string;
+  };
+  blogPostId: string | null;
+  blogPost?: {
+    title: string;
+  };
 }

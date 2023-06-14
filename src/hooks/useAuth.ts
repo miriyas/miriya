@@ -1,11 +1,14 @@
 import 'client-only';
 import { useCallback, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useSetAtom } from 'jotai';
 
+import { authModalAtom } from '@/components/Auth/states';
 import { getMeApiLocal, logoutApi } from '@/services/auth';
 import { ROLE } from '@/types/auth.d';
 
 const useAuth = () => {
+  const setAuthModal = useSetAtom(authModalAtom);
   const [logOutLoading, setLogOutLoading] = useState(false);
 
   const {
@@ -47,6 +50,14 @@ const useAuth = () => {
       });
   };
 
+  const showLoginModalWhenLoggedOut = (callback: () => void) => {
+    if (!currentUser) {
+      setAuthModal('login');
+      return;
+    }
+    callback();
+  };
+
   return {
     user: currentUser,
     logOut,
@@ -56,6 +67,7 @@ const useAuth = () => {
     isMine,
     isLoadingMe,
     getMe,
+    showLoginModalWhenLoggedOut,
   };
 };
 

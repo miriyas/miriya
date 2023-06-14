@@ -12,7 +12,7 @@ import styles from './NewForm.module.scss';
 
 const NewForm = () => {
   const { user } = useAuth();
-  const { submitNewGuestComment } = useGuestbook();
+  const { submitNewGuestbook } = useGuestbook();
   const [newPostBody, setNewPostBody] = useAtom(newPostBodyAtom);
   const [newPostHidden, setNewPostHidden] = useAtom(newPostHiddenAtom);
 
@@ -22,7 +22,7 @@ const NewForm = () => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    submitNewGuestComment();
+    submitNewGuestbook();
   };
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {

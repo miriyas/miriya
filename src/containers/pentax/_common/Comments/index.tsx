@@ -3,8 +3,6 @@
 import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 
-import { TARGET_CATEGORY } from '@/types/comments.d';
-
 import { ListComment, ListHistory } from '@/components/CommentAndHistory';
 import styles from './index.module.scss';
 import CommentForm from '@/components/CommentForm';
@@ -40,16 +38,12 @@ const Comments = ({ selectedCameraId, selectedCameraName, subCategory }: Props) 
           </li>
         </ul>
       </nav>
-      <CommentForm
-        targetCategory={`${TARGET_CATEGORY.PENTAX}_${subCategory}`}
-        targetId={selectedCameraId}
-        targetName={selectedCameraName}
-      />
+      <CommentForm targetCategory={`PENTAX_${subCategory}`} targetId={selectedCameraId} />
       {showHistory === 'comments' && (
-        <ListComment targetCategory={`${TARGET_CATEGORY.PENTAX}_${subCategory}`} targetId={selectedCameraId} />
+        <ListComment targetCategory={`PENTAX_${subCategory}`} targetId={selectedCameraId} />
       )}
       {showHistory === 'history' && (
-        <ListHistory targetCategory={`${TARGET_CATEGORY.PENTAX}_${subCategory}`} targetId={selectedCameraId} />
+        <ListHistory targetCategory={`PENTAX_${subCategory}`} targetId={selectedCameraId} />
       )}
     </div>
   );

@@ -3,7 +3,7 @@ import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useRouter } from 'next/navigation';
 
 import { patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
-import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
+import { Guestbook } from '@/types/minihome.d';
 import useAuth from '@/hooks/useAuth';
 import { revalidateApi } from '@/services';
 
@@ -32,12 +32,11 @@ const useGuestbook = () => {
     });
   };
 
-  const submitNewGuestComment = () => {
+  const submitNewGuestbook = () => {
     if (!user) return;
     postGuestbookAPI({
       body: newPostBody,
       hidden: newPostHidden,
-      targetCategory: TARGET_CATEGORY.GUESTBOOK,
     }).then(() => {
       resetNewPostBody();
       resetNewPostHidden();
@@ -45,13 +44,12 @@ const useGuestbook = () => {
     });
   };
 
-  const submitEditGuestComment = (comment: Comment) => {
+  const submitEditGuestbook = (guestbook: Guestbook) => {
     if (!user) return;
     patchGuestbookAPI({
-      ...comment,
+      ...guestbook,
       body: editPostBody,
       hidden: editPostHidden,
-      targetCategory: TARGET_CATEGORY.GUESTBOOK,
     }).then(() => {
       resetEditPostBody();
       resetEditPostHidden();
@@ -59,17 +57,17 @@ const useGuestbook = () => {
     });
   };
 
-  const submitEditGuestCommentHidden = (comment: Comment, hidden: boolean) => {
+  const submitEditGuesbookHidden = (guestbook: Guestbook, hidden: boolean) => {
     if (!user) return;
     patchGuestbookAPI({
-      ...comment,
+      ...guestbook,
       hidden,
     }).then(reload);
   };
 
-  const deleteGuestComment = (comment: Comment) => {
+  const deleteGuestbook = (guestbook: Guestbook) => {
     if (!user) return;
-    deleteGuestbookAPI(comment.id, user.uid).then(reload);
+    deleteGuestbookAPI(guestbook.id, user.uid).then(reload);
   };
 
   return {
@@ -77,16 +75,16 @@ const useGuestbook = () => {
     setNewPostBody,
     newPostHidden,
     setNewPostHidden,
-    submitNewGuestComment,
+    submitNewGuestbook,
 
     editPostBody,
     setEditPostBody,
     editPostHidden,
     setEditPostHidden,
-    submitEditGuestComment,
+    submitEditGuestbook,
 
-    submitEditGuestCommentHidden,
-    deleteGuestComment,
+    submitEditGuesbookHidden,
+    deleteGuestbook,
   };
 };
 

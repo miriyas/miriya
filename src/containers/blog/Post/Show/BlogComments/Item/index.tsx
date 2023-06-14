@@ -1,41 +1,40 @@
-import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
+import { ChangeEventHandler, FormEventHandler, MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
-import { useSetAtom } from 'jotai';
 
 import useAuth from '@/hooks/useAuth';
 import { Comment } from '@/types/comments.d';
+import { deleteCommentAPI, postCommentAPI } from '@/services/comments';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
-import { postCommentAPI } from '@/services/comments';
-import { authModalAtom } from '@/components/Auth/states';
+import useBlogComment from '../useBlogComment';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
-import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHistory';
 import Button from '@/components/Button';
 import CommentEditForm from './Edit';
 import Reply from './Reply';
+import styles from './index.module.scss';
 
 interface Props {
   comment: Comment;
-  editMode: boolean;
-  setEditMode: Dispatch<SetStateAction<boolean>>;
-  onClickEdit: MouseEventHandler<HTMLButtonElement>;
-  onClickDelete: MouseEventHandler<HTMLButtonElement>;
-  styles: {
-    readonly [key: string]: string;
-  };
 }
 
-const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, onClickDelete, styles }: Props) => {
-  const { isMine, isAdmin, user } = useAuth();
+const ItemComment = ({ comment }: Props) => {
+  const { isMine, isAdmin, showLoginModalWhenLoggedOut } = useAuth();
+  const { reloadComments } = useBlogComment({ targetId: comment.targetId });
+  const [editMode, setEditMode] = useState(false);
+
+  const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
+    setEditMode(true);
+  };
+
+  const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
+    deleteCommentAPI(comment.id).then(() => {
+      reloadComments();
+    });
+  };
+
   const [replyOpen, setReplyOpen] = useState(false);
   const [replyBody, setReplyBody] = useState('');
-  const setAuthModal = useSetAtom(authModalAtom);
-
-  const { reloadComments } = useCommentAndHistory({
-    targetCategory: comment.targetCategory,
-    targetId: comment.targetId,
-  });
 
   const onClickReply = () => {
     setReplyOpen(true);
@@ -47,27 +46,28 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
 
   const onSubmitReply: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (!user) {
-      setAuthModal('login');
-      return;
-    }
-    postCommentAPI({
-      body: replyBody,
-      targetCategory: comment.targetCategory,
-      targetId: comment.targetId,
-      targetName: comment.targetName,
-      parentId: comment.id,
-    }).then(() => {
-      setReplyOpen(false);
-      setReplyBody('');
-      reloadComments();
+    showLoginModalWhenLoggedOut(() => {
+      postCommentAPI({
+        body: replyBody,
+        targetCategory: comment.category,
+        targetId: comment.targetId,
+        parentId: comment.id,
+      }).then(() => {
+        setReplyOpen(false);
+        setReplyBody('');
+        reloadComments();
+      });
     });
   };
 
+  const deleted = comment.deletedAt !== null;
+
+  if (deleted) return null;
+
   return (
-    <li className={styles.item} title={comment.id}>
+    <li className={cx(styles.item, 'horizontal')} title={comment.id}>
       {editMode ? (
-        <CommentEditForm comment={comment} setEditMode={setEditMode} styles={styles} direction='horizontal' />
+        <CommentEditForm comment={comment} setEditMode={setEditMode} />
       ) : (
         <>
           <div className={styles.leftWing}>
@@ -115,7 +115,7 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
             {comment.children && comment.children.length > 0 && (
               <ul className={styles.replies}>
                 {comment.children.map((rc) => (
-                  <Reply key={rc.id} comment={rc} styles={styles} reloadComments={reloadComments} />
+                  <Reply key={rc.id} comment={rc} reloadComments={reloadComments} />
                 ))}
               </ul>
             )}
@@ -126,4 +126,4 @@ const ItemCommentHorizontal = ({ comment, editMode, setEditMode, onClickEdit, on
   );
 };
 
-export default ItemCommentHorizontal;
+export default ItemComment;

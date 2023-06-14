@@ -44,10 +44,11 @@ const Comments = () => {
     <ul className={styles.comments}>
       {data?.pages.map((page, i) => {
         const key = `frag-${i}`;
+
         return (
           <Fragment key={key}>
-            {page.items.map((comment) => {
-              return <CommentItem key={comment.id} comment={comment} />;
+            {page.items.map((guestbook) => {
+              return <CommentItem key={guestbook.id} guestbook={guestbook} />;
             })}
           </Fragment>
         );

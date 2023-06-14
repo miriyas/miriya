@@ -1,29 +1,29 @@
 import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction } from 'react';
 import { useMount } from 'react-use';
 
-import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
 import useGuestbook from './useGuestbook';
+import { Guestbook } from '@/types/minihome.d';
 
 import styles from './EditForm.module.scss';
 
 interface Props {
-  comment: Comment;
+  guestbook: Guestbook;
   setEditMode: Dispatch<SetStateAction<boolean>>;
 }
 
-const EditForm = ({ comment, setEditMode }: Props) => {
+const EditForm = ({ guestbook, setEditMode }: Props) => {
   const { user } = useAuth();
-  const { editPostBody, setEditPostBody, editPostHidden, setEditPostHidden, submitEditGuestComment } = useGuestbook();
+  const { editPostBody, setEditPostBody, editPostHidden, setEditPostHidden, submitEditGuestbook } = useGuestbook();
 
   useMount(() => {
-    setEditPostBody(comment.body);
-    setEditPostHidden(comment.hidden ?? false);
+    setEditPostBody(guestbook.body);
+    setEditPostHidden(guestbook.hidden ?? false);
   });
 
   const onClickCancel: MouseEventHandler<HTMLButtonElement> = () => {
     setEditMode(false);
-    setEditPostBody(comment.body);
+    setEditPostBody(guestbook.body);
   };
 
   const onChangeHidden: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -37,7 +37,7 @@ const EditForm = ({ comment, setEditMode }: Props) => {
   const onEditSubmit: FormEventHandler<HTMLFormElement> = () => {
     if (!user) return;
     setEditMode(false);
-    submitEditGuestComment(comment);
+    submitEditGuestbook(guestbook);
   };
 
   return (

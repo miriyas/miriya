@@ -6,14 +6,10 @@ import { BlogCategoryForList, BlogPostForShow } from '@/types/blog.d';
 import CategoriesBar from '@/containers/blog/_common/SideBar';
 import { bodyProcess } from '../utils';
 
-import Loading from '@/components/Loading';
 import Header from './Header';
+import BlogComments from './BlogComments';
+import NewForm from './BlogComments/NewForm';
 import styles from './index.module.scss';
-
-const Comments = dynamic(() => import('./Comments'), {
-  ssr: false,
-  loading: () => <Loading />,
-});
 
 const CategoryRelated = dynamic(() => import('./CategoryRelated'), { ssr: false });
 
@@ -23,7 +19,7 @@ interface Props {
 }
 
 const BlogShowPage = ({ categories, postData }: Props) => {
-  const { id, title, category, body, hero } = postData;
+  const { id, category, body, hero } = postData;
 
   return (
     <main className={styles.showPost}>
@@ -47,7 +43,10 @@ const BlogShowPage = ({ categories, postData }: Props) => {
             <Header postData={postData} />
             <div className={styles.body} dangerouslySetInnerHTML={{ __html: bodyProcess(body) }} />
             <CategoryRelated postData={postData} />
-            <Comments targetId={id} targetName={title} />
+            <div className={styles.commentsWrapper}>
+              <BlogComments targetId={id} withHeader />
+              <NewForm targetId={id} multiline />
+            </div>
           </article>
           <CategoriesBar categories={categories} currentCategory={category.id} />
         </div>

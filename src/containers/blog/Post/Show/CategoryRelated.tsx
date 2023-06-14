@@ -16,7 +16,7 @@ interface Props {
 const CategoryRelated = ({ postData }: Props) => {
   const { category } = postData;
 
-  const posts = category.BlogPost;
+  const posts = category.blogPosts;
 
   if (posts.length === 0) return null;
 

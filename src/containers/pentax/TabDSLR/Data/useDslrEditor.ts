@@ -16,7 +16,7 @@ import useCommentAndHistory from '@/components/CommentAndHistory/useCommentAndHi
 
 const useDslrEditor = (camera: PentaxDslr) => {
   const { reloadHistories } = useCommentAndHistory({
-    targetCategory: TARGET_CATEGORY.PENTAX,
+    targetCategory: TARGET_CATEGORY.PENTAX_DSLR,
     targetId: camera.id,
   });
   const { user } = useAuth();

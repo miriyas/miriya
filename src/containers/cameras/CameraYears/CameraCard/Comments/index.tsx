@@ -39,7 +39,7 @@ const Comments = ({ targetId, targetName }: Props) => {
           </li>
         </ul>
       </nav>
-      <CommentForm targetCategory={TARGET_CATEGORY.CAMERA} targetId={targetId} targetName={targetName} />
+      <CommentForm targetCategory={TARGET_CATEGORY.CAMERA} targetId={targetId} />
       {showHistory === 'comments' && <ListComment targetCategory={TARGET_CATEGORY.CAMERA} targetId={targetId} />}
       {showHistory === 'history' && <ListHistory targetCategory={TARGET_CATEGORY.CAMERA} targetId={targetId} />}
     </div>

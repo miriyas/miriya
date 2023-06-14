@@ -28,7 +28,7 @@ export interface BlogCategory extends BlogCategoryCore {
 
 export interface BlogCategoryForList extends BlogCategory, TimeStamp {
   _count: {
-    BlogPost: number;
+    blogPosts: number;
   };
 }
 
@@ -46,7 +46,7 @@ export interface BlogPostForList {
 
 // 글 목록
 export interface BlogCategoryWithPosts extends BlogCategory {
-  BlogPost: BlogPostForList[];
+  blogPosts: BlogPostForList[];
 }
 
 // 글 보기

@@ -1,30 +1,25 @@
+'use client';
+
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
-import useCameras from '@/containers/cameras/useCameras';
-import { TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
+import useBlogComment from './useBlogComment';
+import { TARGET_CATEGORY } from '@/types/comments.d';
 import { postCommentAPI } from '@/services/comments';
 
-import useCommentAndHistory from '../CommentAndHistory/useCommentAndHistory';
-import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
 import Button from '@/components/Button';
-import styles from './index.module.scss';
+import styles from './NewForm.module.scss';
 
 interface Props {
-  targetCategory: TargetCategoryTypes;
   targetId: string;
   multiline?: boolean;
 }
 
-const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
+const NewForm = ({ targetId, multiline }: Props) => {
   const { user } = useAuth();
-  const { reload } = useCameras();
-  const { reloadComments } = useCommentAndHistory({
-    targetCategory,
-    targetId,
-  });
+  const { reloadComments } = useBlogComment({ targetId });
   const [body, setBody] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -32,19 +27,18 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
     e.preventDefault();
     if (!user) return;
 
-    setLoading(true);
+    setLoading(false);
     postCommentAPI({
       body,
-      targetCategory,
+      targetCategory: TARGET_CATEGORY.BLOG,
       targetId,
     })
       .then(() => {
         setBody('');
         reloadComments();
-        if (targetCategory === TARGET_CATEGORY.CAMERA) reload();
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(true);
       });
   };
 
@@ -62,9 +56,6 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
 
   return (
     <form className={styles.commentNewForm} onSubmit={onSubmit}>
-      <div className={styles.profile}>
-        <ProfileImageWithFallback src={user.photoURL} uid={user.uid} alt='' size={64} />
-      </div>
       {multiline ? (
         <textarea
           onChange={onChange}
@@ -90,4 +81,4 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
   );
 };
 
-export default CommentForm;
+export default NewForm;

@@ -16,9 +16,7 @@ const useBlog = (categoryId?: string) => {
     getBlogCategoriesAPI().then((res) => res.data),
   );
 
-  const { data: comments = [] } = useQuery(['getBlogCommentsAPI', 10], () =>
-    getBlogCommentsAPI(10).then((res) => res.data),
-  );
+  const { data: comments = [] } = useQuery(['getBlogCommentsAPI'], () => getBlogCommentsAPI().then((res) => res.data));
 
   return {
     posts,

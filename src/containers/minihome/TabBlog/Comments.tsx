@@ -15,7 +15,7 @@ const Comments = ({ comments }: Props) => {
   return (
     <>
       <p className={styles.desc}>
-        일촌, 단짝친구 공개 폴더입니다 <span>[{comments[0]?.commentNoInCategory}]</span>
+        일촌, 단짝친구 공개 폴더입니다 <span>[{comments[0]?.commentNo}]</span>
       </p>
       <ul>
         <li className={styles.header}>
@@ -28,9 +28,9 @@ const Comments = ({ comments }: Props) => {
         {comments.map((comment) => {
           return (
             <li key={comment.id} title={comment.id}>
-              <Link href={`/blog/${comment.targetId}`}>
-                <p className={styles.no}>{comment.commentNoInCategory}</p>
-                <p className={styles.targetName}>{comment.targetName}</p>
+              <Link href={`/blog/${comment.blogPostId}`}>
+                <p className={styles.no}>{comment.commentNo}</p>
+                <p className={styles.targetName}>{comment.blogPost?.title}</p>
                 <p className={styles.body}>{comment.body}</p>
                 <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
                   {filterAuthorName(comment.authorId, comment.author.nickname)}

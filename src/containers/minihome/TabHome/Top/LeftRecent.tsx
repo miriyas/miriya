@@ -21,11 +21,11 @@ const LeftRecent = () => {
     <ul className={styles.leftRecent}>
       {recentComments?.map((recent, i) => {
         const key = `recent-${i}`;
-        const shortCategory = recent.targetCategory.split('_').join('');
+        const shortCategory = recent.category.split('_').join('');
         return (
           <li key={key}>
-            <a href={`/minihome/${recent.targetCategory.toLowerCase()}`} data-tab={recent.targetCategory}>
-              <div className={cx(styles.commentBadge, styles[recent.targetCategory.toLowerCase()])}>
+            <a href={`/minihome/${recent.category.toLowerCase()}`} data-tab={recent.category}>
+              <div className={cx(styles.commentBadge, styles[recent.category.toLowerCase()])}>
                 {RECENT_CATEGORIES[shortCategory]}
               </div>
               <p className={styles.commentBody}>{recent.body.substring(0, 30)}</p>

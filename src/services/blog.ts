@@ -41,5 +41,4 @@ export const deleteBlogCategoryAPI = (categoryId: string) => apiBe.delete(`/blog
 
 // 댓글
 
-export const getBlogCommentsAPI = (limitCount: number) =>
-  apiBe<Comment[]>('/blog/comments', { params: { limitCount } });
+export const getBlogCommentsAPI = () => apiBe<Comment[]>('/blog/comments');

@@ -1,38 +1,37 @@
+'use client';
+
 import cx from 'clsx';
 
-import useCommentAndHistory from './useCommentAndHistory';
-import { TargetCategoryTypes } from '@/types/comments.d';
+import useBlogComment from './useBlogComment';
 
 import Loading from '@/components/Loading';
 import ItemComment from './Item';
-import liststyles from './List.module.scss';
-import styles from './Item/index.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
-  targetCategory: TargetCategoryTypes;
   targetId: string;
   withHeader?: boolean;
 }
 
-export const ListComment = ({ targetCategory, targetId, withHeader }: Props) => {
-  const { comments, isLoadingComments } = useCommentAndHistory({ targetCategory, targetId });
+const BlogComments = ({ targetId, withHeader }: Props) => {
+  const { comments, isLoadingComments } = useBlogComment({ targetId });
 
   if (isLoadingComments) {
     return (
-      <div className={cx(liststyles.list, liststyles.loading, styles.commentList)}>
+      <div className={cx(styles.commentList, styles.loading)}>
         <Loading small />
       </div>
     );
   }
 
   return (
-    <div className={cx(liststyles.list, styles.commentList)}>
+    <div className={styles.commentList}>
       {withHeader && (
         <div className={styles.header}>
           댓글 <span>{comments.length + comments.reduce((acc, c) => acc + (c.children?.length || 0), 0)}</span>
         </div>
       )}
-      <ul className={cx(liststyles.comments)}>
+      <ul className={cx(styles.comments)}>
         {comments.map((comment) => (
           <ItemComment key={comment.id} comment={comment} />
         ))}
@@ -45,3 +44,5 @@ export const ListComment = ({ targetCategory, targetId, withHeader }: Props) => 
     </div>
   );
 };
+
+export default BlogComments;

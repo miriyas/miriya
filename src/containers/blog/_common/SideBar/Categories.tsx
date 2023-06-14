@@ -26,7 +26,7 @@ const Categories = ({ categories, currentCategory }: Props) => {
             >
               <Link href={`/blog/categories/${category.id}`}>
                 <p className={styles.name}>{category.name}</p>
-                <span>({category._count.BlogPost})</span>
+                <span>({category._count.blogPosts})</span>
               </Link>
             </li>
           );

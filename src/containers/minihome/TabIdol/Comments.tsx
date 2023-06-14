@@ -1,4 +1,5 @@
 import cx from 'clsx';
+import Link from 'next/link';
 
 import { getTimeDiffText } from '@/utils/date';
 import { filterAuthorName } from '@/utils/auth';
@@ -14,7 +15,7 @@ const Comments = ({ comments }: Props) => {
   return (
     <>
       <p className={styles.desc}>
-        일촌, 단짝친구 공개 폴더입니다 <span>[{comments[0]?.commentNoInCategory}]</span>
+        일촌, 단짝친구 공개 폴더입니다 <span>[{comments[0]?.commentNo}]</span>
       </p>
       <ul>
         <li className={styles.header}>
@@ -27,13 +28,15 @@ const Comments = ({ comments }: Props) => {
         {comments.map((comment) => {
           return (
             <li key={comment.id}>
-              <p className={styles.no}>{comment.commentNoInCategory}</p>
-              <p className={styles.targetName}>{comment.targetName}</p>
-              <p className={styles.body}>{comment.body}</p>
-              <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
-                {filterAuthorName(comment.authorId, comment.author.nickname)}{' '}
-              </p>
-              <time className={styles.createdAt}>{getTimeDiffText(comment.createdAt, true)}</time>
+              <Link href='/idols'>
+                <p className={styles.no}>{comment.commentNo}</p>
+                <p className={styles.targetName}>{comment.idol?.name}</p>
+                <p className={styles.body}>{comment.body}</p>
+                <p className={cx(styles.name, { [styles.isFake]: comment.author.nicknameIsFake })}>
+                  {filterAuthorName(comment.authorId, comment.author.nickname)}{' '}
+                </p>
+                <time className={styles.createdAt}>{getTimeDiffText(comment.createdAt, true)}</time>
+              </Link>
             </li>
           );
         })}

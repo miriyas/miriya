@@ -88,7 +88,7 @@ const MyCarPage = ({ carId }: Props) => {
           owner={targetCar.author.nickname}
         />
         {user?.uid === targetCar.authorId && (
-          <Link href={`/mycar/${carId}/edit`} className={styles.editButton}>
+          <Link href={`/mycar/${carId ?? cars[0]?.id}/edit`} className={styles.editButton}>
             수정
           </Link>
         )}

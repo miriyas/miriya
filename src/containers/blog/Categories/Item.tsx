@@ -71,7 +71,7 @@ const BlogCategoryPage = ({ category, refetch }: Props) => {
       ) : (
         <button type='button' onClick={onClickName} className={styles.name}>
           {category.name}
-          <span>({category._count.BlogPost})</span>
+          <span>({category._count.blogPosts})</span>
         </button>
       )}
       <div className={styles.controller}>
