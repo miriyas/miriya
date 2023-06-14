@@ -33,6 +33,13 @@ export interface CounterData {
   today?: number[];
 }
 
+export interface RightCategory {
+  [key: string]: {
+    today: number;
+    total: number;
+  };
+}
+
 export interface NewGuestbook {
   body: string;
   hidden?: boolean;

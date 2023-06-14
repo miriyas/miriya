@@ -2,37 +2,28 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useQueries, UseQueryResult } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
-import { RECENT_CATEGORIES } from '@/types/minihome.d';
 import { getMinihomRightCounterDataAPI } from '@/services/minihome';
+import { RECENT_CATEGORIES } from '@/types/minihome.d';
 
 import styles from './RightCategory.module.scss';
 
-interface CounterData {
-  today: number;
-  total: number;
-}
-
-const INITIAL_COUNT: CounterData = {
-  today: 0,
-  total: 0,
-};
-
 const RightCategory = () => {
-  const keys = Object.keys(RECENT_CATEGORIES);
-  const data = useQueries<UseQueryResult<CounterData, unknown>[]>({
-    queries: keys.map((tc) => ({
-      queryKey: ['getMinihomRightCounterDataAPI', tc],
-      queryFn: () => getMinihomRightCounterDataAPI(tc).then((res) => res.data),
-      placeholderData: INITIAL_COUNT,
-    })),
-  });
+  const { data = {} } = useQuery(
+    ['getMinihomRightCounterDataAPI'],
+    () => {
+      return getMinihomRightCounterDataAPI().then((res) => res.data);
+    },
+    {
+      suspense: true,
+    },
+  );
 
   return (
     <ul className={styles.rightCategory}>
-      {keys.map((key, i) => {
-        const count = data[i].data as CounterData;
+      {Object.keys(data).map((key) => {
+        const count = data[key];
         return (
           <li key={key}>
             <Link href={`/minihome/${key.toLowerCase()}`}>
