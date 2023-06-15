@@ -19,7 +19,7 @@ const RecentComments = () => {
         {comments.map((comment) => {
           return (
             <li key={comment.id} className={cx(styles.listItem, styles.recent)}>
-              <Link href={`/blog/${comment.targetId}`} className={styles.title}>
+              <Link href={`/blog/${comment.blogPostId}`} className={styles.title}>
                 {comment.body}
               </Link>
             </li>

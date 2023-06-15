@@ -4,7 +4,7 @@ import { renderMarkdown } from '@/utils/blog';
 import { BlogPostForShow } from '@/types/blog.d';
 import { fetchClient } from '@/services';
 
-export const getPost = async (postId: string): Promise<BlogPostForShow> => {
+export const getPost = async (postId: string): Promise<BlogPostForShow | null> => {
   // Axios 쓰면 안된다! og:image용 서비스워커는 fetch만 가능함 ㅠㅠ
   // https://stackoverflow.com/questions/75280544/uncaught-in-promise-error-error-adapter-http-is-not-available-in-the-build
   const postData = await fetchClient(`/blog/posts/${postId}`, { revalidate: 0 }).then((res) => {
@@ -16,6 +16,7 @@ export const getPost = async (postId: string): Promise<BlogPostForShow> => {
     return res.json();
   });
 
+  if (!postData) return null;
   const body = await renderMarkdown(postData.body);
   return {
     ...postData,

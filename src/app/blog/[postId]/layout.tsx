@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 
 import { getPost } from './utils';
-import { getBlogPostsAPI } from '@/services/blog';
 
 interface Props {
   params: {
@@ -14,8 +13,8 @@ export async function generateMetadata({ params: { postId } }: Props): Promise<M
   const postData = await getPost(postId);
 
   const url = `https://miriya.net/blog/${postId}`;
-  const { title } = postData;
-  const description = postData.preview;
+  const title = postData?.title ?? '글을 찾을 수 없습니다.';
+  const description = postData?.preview ?? '';
 
   return {
     title,
@@ -27,14 +26,6 @@ export async function generateMetadata({ params: { postId } }: Props): Promise<M
       url,
     },
   };
-}
-
-export async function generateStaticParams() {
-  const posts = await getBlogPostsAPI().then((res) => res.data);
-
-  return posts.map((post) => ({
-    postId: post.id,
-  }));
 }
 
 const Layout = ({ children }: { children: ReactNode }) => children;

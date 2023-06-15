@@ -1,8 +1,22 @@
+import { cookies } from 'next/headers';
 import { notFound } from 'next/navigation';
 
 import BlogShow from '@/containers/blog/Post/Show';
-import { getPost } from './utils';
 import { getBlogCategoriesAPI } from '@/services/blog';
+import { apiBe } from '@/services';
+import { BlogPostForShow } from '@/types/blog';
+import { renderMarkdown } from '@/utils/blog';
+
+interface Cookie {
+  name: string;
+  value: string;
+}
+
+export const dynamic = 'force-dynamic';
+
+const cookiesToString = (rawCookies: Cookie[]) => {
+  return rawCookies.map((cookie) => `${cookie.name}=${cookie.value}`).join('; ');
+};
 
 interface Props {
   params: {
@@ -11,19 +25,26 @@ interface Props {
 }
 
 const BlogShowPage = async ({ params: { postId } }: Props) => {
-  const categoriesData = getBlogCategoriesAPI().then((res) => res.data);
-  let postData;
-  try {
-    postData = getPost(postId);
-  } catch (error) {
-    if (error instanceof Error) {
-      if (error.message === 'Not Found') notFound();
+  const cookieStore = cookies();
+  const cookiesString = cookiesToString(cookieStore.getAll());
+  const categories = await getBlogCategoriesAPI().then((res) => res.data);
+  const postData = await apiBe<BlogPostForShow>(`/blog/posts/${postId}`, {
+    headers: {
+      Cookie: cookiesString,
+    },
+  }).then(async (res) => {
+    if (!res.data) {
+      return null;
     }
-  }
-  const [post, categories] = await Promise.all([postData, categoriesData]);
 
-  if (!post) notFound();
-  return <BlogShow categories={categories} postData={post} />;
+    return {
+      ...res.data,
+      body: await renderMarkdown(res.data.body),
+    };
+  });
+
+  if (!postData) notFound();
+  return <BlogShow categories={categories} postData={postData} />;
 };
 
 export default BlogShowPage;
