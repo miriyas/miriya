@@ -41,7 +41,7 @@ const og = async ({ params: { postId } }: Props) => {
           }}
         >
           <img
-            src={postData.hero ?? 'https://miriya.sgp1.cdn.digitaloceanspaces.com/mycar/hL0XAW5GmEpx7Vn5czGs.jpg'}
+            src={postData?.hero ?? 'https://miriya.sgp1.cdn.digitaloceanspaces.com/mycar/hL0XAW5GmEpx7Vn5czGs.jpg'}
             style={{
               position: 'absolute',
               top: 0,
@@ -86,7 +86,7 @@ const og = async ({ params: { postId } }: Props) => {
                 backgroundColor: 'rgba(0 0 0, 0.3)',
               }}
             >
-              {postData.title}
+              {postData?.title}
             </p>
           </div>
         </div>
