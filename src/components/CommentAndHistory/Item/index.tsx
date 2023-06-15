@@ -6,10 +6,10 @@ import useAuth from '@/hooks/useAuth';
 import useCommentAndHistory from '../useCommentAndHistory';
 import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
 import { deleteCommentAPI } from '@/services/comments';
+import useIdols from '@/containers/idols/useIdols';
 import useCameras from '@/containers/cameras/useCameras';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
-import { revalidateTagApi } from '@/services';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import CommentEditForm from './Edit';
@@ -23,6 +23,7 @@ const ItemComment = ({ comment }: Props) => {
   const { isMine, isAdmin } = useAuth();
   const router = useRouter();
   const { reload } = useCameras();
+  const { refetchIdols } = useIdols();
   const { reloadComments } = useCommentAndHistory({
     targetCategory: comment.category,
     targetId: comment.targetId ?? 'undefined',
@@ -35,9 +36,9 @@ const ItemComment = ({ comment }: Props) => {
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
     deleteCommentAPI(comment.id).then(async () => {
-      await revalidateTagApi('comment');
       router.refresh();
       reloadComments();
+      if (comment.category === TARGET_CATEGORY.IDOLS) refetchIdols();
       if (comment.category === TARGET_CATEGORY.CAMERA) reload();
     });
   };

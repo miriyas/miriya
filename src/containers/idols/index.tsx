@@ -1,48 +1,23 @@
-import { Dictionary } from 'lodash';
-import dynamic from 'next/dynamic';
+'use client';
 
-import { Idol, YearDesc } from '@/types/idols.d';
-import New from '@/containers/idols/IdolYear/IdolCard/Editor/New';
+import { groupBy } from 'lodash';
 
-import FilterBar from './FilterBar';
-import SideYear from './SideYear';
-import Cover from './Cover';
-import styles from './index.module.scss';
-import Placeholder from './IdolYear/Placeholder';
+import { YearDesc } from '@/types/idols.d';
+import useIdols from './useIdols';
 
-const IdolYear = dynamic(() => import('./IdolYear'), { ssr: false, loading: () => <Placeholder /> });
-const SupporterOnly = dynamic(() => import('@/components/AdminOnly'), { ssr: false });
+import Content from './Content';
 
 interface Props {
-  idols: Idol[];
   years: YearDesc[];
-  debutYears: Dictionary<Idol[]>;
-  yearStart: number;
-  yearEnd: number;
 }
 
-const IdolsPageContent = ({ idols, years, debutYears, yearStart, yearEnd }: Props) => {
-  return (
-    <main className={styles.idols}>
-      {idols.length > 0 && <FilterBar idolsLength={idols.length} yearStart={yearStart} yearEnd={yearEnd} />}
-      <ul className={styles.idolYears}>
-        {Object.keys(debutYears).map((year) => {
-          const yearIdols = debutYears[year].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
-          const desc = years.find((yearDesc) => yearDesc.year === Number(year))?.desc ?? '';
-          return <IdolYear key={year} idols={yearIdols} year={Number(year)} yearDesc={desc} />;
-        })}
-      </ul>
-      <ul className={styles.sideYears}>
-        {Object.keys(debutYears).map((year) => {
-          return <SideYear key={`side-${year}`} year={year} />;
-        })}
-      </ul>
-      <Cover />
-      <SupporterOnly>
-        <New />
-      </SupporterOnly>
-    </main>
-  );
+const IdolsPage = ({ years }: Props) => {
+  const { idols } = useIdols();
+  const debutYears = groupBy(idols, 'debutYear');
+  const yearStart = Math.min(...Object.keys(debutYears).map((year) => Number(year)));
+  const yearEnd = Math.max(...Object.keys(debutYears).map((year) => Number(year)));
+
+  return <Content idols={idols} debutYears={debutYears} years={years} yearStart={yearStart} yearEnd={yearEnd} />;
 };
 
-export default IdolsPageContent;
+export default IdolsPage;

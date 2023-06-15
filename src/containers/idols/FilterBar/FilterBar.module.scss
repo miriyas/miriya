@@ -27,8 +27,7 @@
   }
 
   .notice,
-  .categories,
-  .years {
+  .categories {
     width: 100%;
     margin-top: 14px;
     background-color: rgba(255, 255, 255, 80%);
@@ -36,10 +35,12 @@
     border-radius: 8px;
   }
 
-  .categories,
-  .years {
+  .categories {
     @include m.flexbox;
     flex-wrap: wrap;
+    min-height: 44px;
+    padding: 0 14px;
+    line-height: 44px;
 
     li {
       margin: 0 8px;
@@ -65,16 +66,5 @@
     font-size: 13px;
     line-height: 1.6;
     color: var(--color-gray-4);
-  }
-
-  .categories {
-    min-height: 44px;
-    padding: 0 14px;
-    line-height: 44px;
-  }
-
-  .years {
-    padding: 8px;
-    line-height: 32px;
   }
 }

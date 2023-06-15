@@ -7,35 +7,6 @@
     max-width: 812px;
   }
 
-  .sideYears {
-    display: none;
-
-    @include m.after(SD) {
-      @include m.fixed(calc(var(--h-nav) + 14px) 14px calc(24px + var(--h-footer) + 14px + var(--x-scroll-aid)) auto);
-      @include m.flexbox(end, center);
-      z-index: var(--z-2);
-      flex-direction: column;
-      width: var(--x-scroll-aid);
-      overflow: auto;
-    }
-
-    button {
-      @include m.flexbox;
-      height: 24px;
-      font-size: 12px;
-      cursor: pointer;
-
-      &.active {
-        font-weight: 600;
-      }
-
-      &:hover,
-      &:focus {
-        color: var(--color-blue);
-      }
-    }
-  }
-
   .cover {
     @include m.fixed(-20px -20px -20px -20px);
     z-index: var(--z-1);

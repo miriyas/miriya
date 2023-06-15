@@ -1,7 +1,5 @@
-import { groupBy } from 'lodash';
-
 import Idols from '@/containers/idols';
-import { fetchIdolsDataApi, getIdolYearsDataApi } from '@/services/idols';
+import { getIdolYearsDataApi } from '@/services/idols';
 
 import { getMetaData } from '@/app/sharedMetadata';
 
@@ -14,20 +12,11 @@ export const metadata = getMetaData({
 });
 
 const IdolsPage = async () => {
-  const idolsData = fetchIdolsDataApi()
-    .then((res) => res.json())
-    .catch(() => []);
-
-  const yearsData = getIdolYearsDataApi()
+  const years = await getIdolYearsDataApi()
     .then((res) => res.data)
     .catch(() => []);
 
-  const [idols, years] = await Promise.all([idolsData, yearsData]);
-  const debutYears = groupBy(idols, 'debutYear');
-  const yearStart = Math.min(...Object.keys(debutYears).map((year) => Number(year)));
-  const yearEnd = Math.max(...Object.keys(debutYears).map((year) => Number(year)));
-
-  return <Idols idols={idols} years={years} debutYears={debutYears} yearStart={yearStart} yearEnd={yearEnd} />;
+  return <Idols years={years} />;
 };
 
 export default IdolsPage;

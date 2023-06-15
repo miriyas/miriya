@@ -1,13 +1,14 @@
 'use client';
 
-import { MouseEventHandler, useState, useTransition } from 'react';
+import { MouseEventHandler, useTransition } from 'react';
 import cx from 'clsx';
+import { useAtom } from 'jotai';
 
 import { CATEGORIES, Category } from '@/types/idols.d';
-import { getNumberArr } from '@/utils';
 import { prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';
 import { IDOL } from '@/constants/ga';
+import { currentCategoryAtom } from '@/containers/idols/states';
 
 import Header from './Header';
 import styles from './FilterBar.module.scss';
@@ -23,7 +24,7 @@ const FilterBar = (props: Props) => {
 
   const { gaEvent } = useGA();
   const [, startTransition] = useTransition();
-  const [currentCategory, setCurrentCategory] = useState<Category>('total');
+  const [currentCategory, setCurrentCategory] = useAtom(currentCategoryAtom);
 
   const onClickCategory: MouseEventHandler<HTMLButtonElement> = (e) => {
     const newCategory = e.currentTarget.title;
@@ -38,12 +39,6 @@ const FilterBar = (props: Props) => {
     gaEvent(IDOL.IDOL_CATEGORY_CLICK, { category: newCategory });
   };
 
-  const onClickYear: MouseEventHandler<HTMLButtonElement> = (e) => {
-    const newYear = e.currentTarget.title;
-    document.getElementById(`idol-year-${newYear}`)?.scrollIntoView({ behavior: 'smooth' });
-    gaEvent(IDOL.IDOL_YEAR_CLICK, { year: newYear });
-  };
-
   return (
     <div className={styles.filterBar}>
       <Header idolsLength={idolsLength} yearStart={yearStart} yearEnd={yearEnd} />
@@ -53,18 +48,6 @@ const FilterBar = (props: Props) => {
             <li key={category} className={cx({ [styles.current]: category === currentCategory })}>
               <button type='button' onClick={onClickCategory} title={category}>
                 {prettyCategory(category)}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-      <ul className={styles.years}>
-        {getNumberArr(yearEnd - yearStart + 1).map((n) => {
-          const year = yearStart + n;
-          return (
-            <li key={year}>
-              <button type='button' onClick={onClickYear} title={String(year)}>
-                {year}
               </button>
             </li>
           );

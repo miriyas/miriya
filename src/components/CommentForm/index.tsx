@@ -2,8 +2,8 @@ import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import cx from 'clsx';
 
-import { revalidateTagApi } from '@/services';
 import useAuth from '@/hooks/useAuth';
+import useIdols from '@/containers/idols/useIdols';
 import useCameras from '@/containers/cameras/useCameras';
 import { TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
 import { postCommentAPI } from '@/services/comments';
@@ -24,6 +24,7 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
   const { user } = useAuth();
   const router = useRouter();
   const { reload } = useCameras();
+  const { refetchIdols } = useIdols();
   const { reloadComments } = useCommentAndHistory({
     targetCategory,
     targetId,
@@ -43,9 +44,9 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
     })
       .then(async () => {
         setBody('');
-        await revalidateTagApi('comment');
         router.refresh();
         reloadComments();
+        if (targetCategory === TARGET_CATEGORY.IDOLS) refetchIdols();
         if (targetCategory === TARGET_CATEGORY.CAMERA) reload();
       })
       .finally(() => {

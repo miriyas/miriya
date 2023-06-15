@@ -2,11 +2,13 @@
 
 import { useCallback, useEffect } from 'react';
 import cx from 'clsx';
+import { useAtomValue } from 'jotai';
 
 import { useResponsive } from '@/hooks/useResponsive';
 import { Idol } from '@/types/idols.d';
 import Isotope from '@/libs/isotope-layout';
 import { getIsotopeOptions } from '@/utils/idols';
+import { currentCategoryAtom } from '@/containers/idols/states';
 
 import IdolCard from './IdolCard';
 import styles from './IdolYear.module.scss';
@@ -23,6 +25,7 @@ if (typeof window !== 'undefined' && !window.isotopes) {
 
 const IdolYear = (props: Props) => {
   const { idols, year, yearDesc } = props;
+  const currentCategory = useAtomValue(currentCategoryAtom);
 
   const { isMobile } = useResponsive();
 
@@ -31,7 +34,10 @@ const IdolYear = (props: Props) => {
     if (!elem) return;
 
     window.isotopes[year] = new Isotope(elem, getIsotopeOptions(year, isMobile));
-  }, [isMobile, year, idols.length]);
+    window.isotopes[year].arrange({
+      filter: (el) => (currentCategory === 'total' ? true : el.classList.value.includes(`category-${currentCategory}`)),
+    });
+  }, [isMobile, year, idols.length, currentCategory]);
 
   const sort = useCallback(() => {
     setTimeout(() => {
