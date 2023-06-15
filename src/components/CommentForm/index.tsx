@@ -2,6 +2,7 @@ import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import cx from 'clsx';
 
+import { revalidateTagApi } from '@/services';
 import useAuth from '@/hooks/useAuth';
 import useCameras from '@/containers/cameras/useCameras';
 import { TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
@@ -40,8 +41,9 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
       targetCategory,
       targetId,
     })
-      .then(() => {
+      .then(async () => {
         setBody('');
+        await revalidateTagApi('comment');
         router.refresh();
         reloadComments();
         if (targetCategory === TARGET_CATEGORY.CAMERA) reload();

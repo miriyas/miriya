@@ -9,7 +9,7 @@ import { RESET } from 'jotai/utils';
 import useAuth from '@/hooks/useAuth';
 import { BlogCategory, BlogPost } from '@/types/blog.d';
 import { bodyAtom, categoryAtom, heroAtom, hiddenAtom, titleAtom, loadingAtom } from './states';
-import { revalidateApi } from '@/services';
+import { revalidatePathApi } from '@/services';
 
 import Top from './Top';
 import Editor from './Editor';
@@ -70,7 +70,7 @@ const BlogEditor = ({ categories, postData, onSubmit }: Props) => {
       postData?.id,
     )
       .then((res) => {
-        revalidateApi(`/blog/${res.data.postId}`).then(() => {
+        revalidatePathApi(`/blog/${res.data.postId}`).then(() => {
           router.replace(`/blog/${res.data.postId}`);
         });
       })

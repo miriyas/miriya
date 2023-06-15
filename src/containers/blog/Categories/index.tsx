@@ -6,7 +6,7 @@ import { notFound, useRouter } from 'next/navigation';
 import useAuth from '@/hooks/useAuth';
 import { postBlogCategoryAPI } from '@/services/blog';
 import { BlogCategoryForList } from '@/types/blog';
-import { revalidateApi } from '@/services';
+import { revalidatePathApi } from '@/services';
 
 import Item from './Item';
 import styles from './index.module.scss';
@@ -28,7 +28,7 @@ const BlogCategoryPage = ({ categories }: Props) => {
   };
 
   const refetch = () => {
-    revalidateApi('/blog/categories').then(() => {
+    revalidatePathApi('/blog/categories').then(() => {
       router.refresh();
     });
   };

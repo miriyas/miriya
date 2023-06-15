@@ -1,9 +1,9 @@
-import { apiBe, apiFe } from '@/services';
+import { apiBe, apiFe, fetchClient } from '@/services';
 import { Idol, IdolCore, YearDesc } from '@/types/idols.d';
 
 export const crawlIdolData = () => apiFe('/idols/crawl');
 
-export const getIdolsDataApi = () => apiBe<Idol[]>('/idols/data');
+export const fetchIdolsDataApi = () => fetchClient('/idols/data', { tags: ['idols', 'comment'] });
 
 export const getIdolYearsDataApi = () => apiBe<YearDesc[]>('/idols/years');
 

@@ -1,5 +1,6 @@
 import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
+import { useRouter } from 'next/navigation';
 
 import useAuth from '@/hooks/useAuth';
 import useCommentAndHistory from '../useCommentAndHistory';
@@ -8,6 +9,7 @@ import { deleteCommentAPI } from '@/services/comments';
 import useCameras from '@/containers/cameras/useCameras';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
+import { revalidateTagApi } from '@/services';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import CommentEditForm from './Edit';
@@ -19,6 +21,7 @@ interface Props {
 
 const ItemComment = ({ comment }: Props) => {
   const { isMine, isAdmin } = useAuth();
+  const router = useRouter();
   const { reload } = useCameras();
   const { reloadComments } = useCommentAndHistory({
     targetCategory: comment.category,
@@ -31,7 +34,9 @@ const ItemComment = ({ comment }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
-    deleteCommentAPI(comment.id).then(() => {
+    deleteCommentAPI(comment.id).then(async () => {
+      await revalidateTagApi('comment');
+      router.refresh();
       reloadComments();
       if (comment.category === TARGET_CATEGORY.CAMERA) reload();
     });

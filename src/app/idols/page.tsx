@@ -1,7 +1,7 @@
 import { groupBy } from 'lodash';
 
 import Idols from '@/containers/idols';
-import { getIdolsDataApi, getIdolYearsDataApi } from '@/services/idols';
+import { fetchIdolsDataApi, getIdolYearsDataApi } from '@/services/idols';
 
 import { getMetaData } from '@/app/sharedMetadata';
 
@@ -14,8 +14,8 @@ export const metadata = getMetaData({
 });
 
 const IdolsPage = async () => {
-  const idolsData = getIdolsDataApi()
-    .then((res) => res.data)
+  const idolsData = fetchIdolsDataApi()
+    .then((res) => res.json())
     .catch(() => []);
 
   const yearsData = getIdolYearsDataApi()

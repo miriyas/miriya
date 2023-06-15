@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
 import { Guestbook } from '@/types/minihome.d';
 import useAuth from '@/hooks/useAuth';
-import { revalidateApi } from '@/services';
+import { revalidatePathApi } from '@/services';
 
 export const newPostBodyAtom = atomWithReset<string>('');
 export const newPostHiddenAtom = atomWithReset<boolean>(false);
@@ -27,7 +27,7 @@ const useGuestbook = () => {
   const resetEditPostHidden = useResetAtom(editPostHiddenAtom);
 
   const reload = () => {
-    revalidateApi(`/minihome/guestbook`).then(() => {
+    revalidatePathApi(`/minihome/guestbook`).then(() => {
       router.refresh();
     });
   };
