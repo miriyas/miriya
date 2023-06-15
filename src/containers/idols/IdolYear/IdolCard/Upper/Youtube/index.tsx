@@ -6,7 +6,7 @@ interface Props {
 }
 
 const RightDesc = ({ youtubeUrl, youtubeStartsAt }: Props) => {
-  const url = `https://www.youtube.com/embed/${youtubeUrl}?controls=0&amp;start=${youtubeStartsAt};autoplay=1;modestbranding=1;playsinline=1`;
+  const url = `https://www.youtube-nocookie.com/embed/${youtubeUrl}?controls=0&amp;start=${youtubeStartsAt};autoplay=1;modestbranding=1;playsinline=1`;
 
   return (
     <div className={styles.youtube}>

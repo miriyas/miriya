@@ -10,7 +10,7 @@ const id = Math.random().toString(32).slice(2);
 const nextConfig = {
   compress: true,
   images: {
-    imageSizes: [100, 200, 280],
+    imageSizes: [100, 140, 200, 280],
     minimumCacheTTL: 86400,
     domains: ['miriya.sgp1.cdn.digitaloceanspaces.com', 'localhost'],
     remotePatterns: [

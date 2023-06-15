@@ -1,15 +1,15 @@
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import useAuth from '@/hooks/useAuth';
 import { NewIdolSchema, newIdolValidator } from '@/utils/validator';
 import { postIdolDataApi } from '@/services/idols';
-import useIdols from '../../../useIdols';
 
 const useNew = () => {
   const { user } = useAuth();
-  const { reload } = useIdols();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const methods = useForm<NewIdolSchema>({
@@ -40,7 +40,7 @@ const useNew = () => {
       descMelon: formValues.descMelon,
     })
       .then(() => {
-        reload();
+        router.refresh();
       })
       .finally(() => {
         setIsLoading(false);

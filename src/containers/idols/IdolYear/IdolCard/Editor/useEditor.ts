@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useResetAtom } from 'jotai/utils';
 
-import useIdols from '../../../useIdols';
 import useAuth from '@/hooks/useAuth';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { Idol } from '@/types/idols.d';
@@ -20,7 +20,7 @@ const useEditor = (idol: Idol) => {
   });
 
   const { user } = useAuth();
-  const { reload } = useIdols();
+  const router = useRouter();
   const resetEditIdol = useResetAtom(editIdolAtom);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -50,8 +50,8 @@ const useEditor = (idol: Idol) => {
 
     setIsLoading(true);
     editIdolDataApi(
+      idol.id,
       {
-        ...idol,
         category: formValues.category,
         endYear: formValues.endYear,
         youtubeUrl: formValues.youtubeUrl ?? '',
@@ -64,8 +64,8 @@ const useEditor = (idol: Idol) => {
       Object.keys(dirtyFields),
     )
       .then(() => {
+        router.refresh();
         resetEditIdol();
-        reload();
         reloadHistories();
       })
       .finally(() => {

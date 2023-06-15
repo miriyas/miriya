@@ -9,4 +9,5 @@ export const getIdolYearsDataApi = () => apiBe<YearDesc[]>('/idols/years');
 
 export const postIdolDataApi = (newIdol: IdolCore) => apiBe.post('/idols/data', { newIdol });
 
-export const editIdolDataApi = (newIdol: Idol, changed: string[]) => apiBe.patch('/idols/data', { newIdol, changed });
+export const editIdolDataApi = (idolId: string, newIdol: Partial<Idol>, changed: string[]) =>
+  apiBe.patch(`/idols/${idolId}`, { newIdol, changed });
