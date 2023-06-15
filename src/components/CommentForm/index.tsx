@@ -1,4 +1,5 @@
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
@@ -20,6 +21,7 @@ interface Props {
 
 const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
   const { user } = useAuth();
+  const router = useRouter();
   const { reload } = useCameras();
   const { reloadComments } = useCommentAndHistory({
     targetCategory,
@@ -40,6 +42,7 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
     })
       .then(() => {
         setBody('');
+        router.refresh();
         reloadComments();
         if (targetCategory === TARGET_CATEGORY.CAMERA) reload();
       })

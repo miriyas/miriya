@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 
 import { getCommentsApi, patchCommentAPI } from '@/services/comments';
@@ -10,6 +11,8 @@ interface Props {
 }
 
 const useCommentAndHistory = ({ targetCategory, targetId }: Props) => {
+  const router = useRouter();
+
   const {
     data: histories = [],
     refetch: reloadHistories,
@@ -31,6 +34,7 @@ const useCommentAndHistory = ({ targetCategory, targetId }: Props) => {
       ...comment,
       body,
     }).then(() => {
+      router.refresh();
       reloadComments();
     });
   };
