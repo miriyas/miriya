@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import { Idol } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
@@ -6,6 +7,8 @@ import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
 
 import { IconComment } from 'public/svgs';
 import styles from './index.module.scss';
+
+const LikeButton = dynamic(() => import('./LikeButton'), { ssr: false });
 
 interface Props {
   idol: Idol;
@@ -17,7 +20,7 @@ const Profile = ({ idol, onClickUpper }: Props) => {
   const imageUrl = getCDNImage(`idols/${id}.jpg`);
 
   return (
-    <button type='button' onClick={onClickUpper} className={styles.profile} aria-label='show more'>
+    <div onClick={onClickUpper} className={styles.profile} aria-label='show more' role='button' tabIndex={0}>
       <Image
         src={imageUrl}
         alt={name}
@@ -30,6 +33,9 @@ const Profile = ({ idol, onClickUpper }: Props) => {
         <p className={styles.name}>{name}</p>
         <p className={styles.category}>{prettyCategory(category)}</p>
         <p className={styles.years}>{`${debutYear} ~ ${endYear ?? ''}`}</p>
+        <div className={styles.withLike}>
+          <LikeButton targetId={id} />
+        </div>
         {comments.length > 0 && (
           <div className={styles.withComment}>
             <IconComment />
@@ -37,7 +43,7 @@ const Profile = ({ idol, onClickUpper }: Props) => {
           </div>
         )}
       </div>
-    </button>
+    </div>
   );
 };
 

@@ -1,0 +1,94 @@
+@use 'src/styles/mixins' as m;
+
+.likeButton {
+  @include m.flexbox(center, end);
+  flex-direction: column;
+  margin-top: 100px;
+
+  &.liked {
+    .like {
+      min-width: 60px !important;
+    }
+  }
+
+  &.likedByMe {
+    .like {
+      color: var(--color-blue);
+
+      svg {
+        fill: var(--color-blue);
+      }
+    }
+  }
+
+  .like {
+    min-width: 40px !important;
+    transition: 0.2s;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    span {
+      margin-left: 2px;
+    }
+  }
+
+  .likers {
+    @include m.flexbox;
+    gap: 8px;
+    margin-top: 8px;
+
+    li {
+      @include m.flexbox;
+      font-size: 12px;
+    }
+
+    .profileWrapper {
+      width: 18px;
+      height: 18px;
+      margin-right: 4px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .fancyHeart {
+    position: relative;
+    width: 25px;
+    height: 25px;
+
+    &.active .heart {
+      background-position: -1400px 0;
+      transition: background 1s steps(28);
+    }
+
+    .heart {
+      @include m.absolute(50% auto auto 50%);
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      background: url('./heart.png') no-repeat;
+      background-position: 0 0;
+      background-size: 1450px 50px;
+      transform: translate(-50%, -50%);
+      animation: faveHeart 1s steps(28);
+    }
+  }
+}
+
+@keyframes faveHeart {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -1400px 0;
+  }
+}

@@ -22,6 +22,9 @@ export interface Idol extends IdolCore, WithAuthor, TimeStamp {
   comments: {
     id: string; // 카운트용
   }[];
+  likes: {
+    id: string; // 카운트용
+  }[];
 }
 
 export interface YearDesc {

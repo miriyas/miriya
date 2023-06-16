@@ -6,6 +6,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+  text-align: center;
 
   .profileImg {
     @include m.absolute(0 0 0 0);
@@ -30,6 +31,16 @@
     .years {
       margin-top: 2px;
       font-size: 10px;
+    }
+
+    .withLike {
+      @include m.absolute(auto auto 8px 8px);
+      z-index: var(--z-3);
+
+      aside button {
+        min-width: 0 !important;
+        padding: 0;
+      }
     }
 
     .withComment {

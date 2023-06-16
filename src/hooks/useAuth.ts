@@ -50,12 +50,12 @@ const useAuth = () => {
       });
   };
 
-  const showLoginModalWhenLoggedOut = (callback: () => void) => {
+  const showLoginModalWhenLoggedOut = (callback?: () => void) => {
     if (!currentUser) {
       setAuthModal('login');
       return;
     }
-    callback();
+    callback?.();
   };
 
   return {

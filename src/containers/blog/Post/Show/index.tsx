@@ -3,14 +3,15 @@
 import dynamic from 'next/dynamic';
 
 import { BlogCategoryForList, BlogPostForShow } from '@/types/blog.d';
-import CategoriesBar from '@/containers/blog/_common/SideBar';
 import { bodyProcess } from '../utils';
 
+import CategoriesBar from '../../_common/SideBar';
 import Header from './Header';
 import BlogComments from './BlogComments';
 import NewForm from './BlogComments/NewForm';
 import styles from './index.module.scss';
 
+const LikeButton = dynamic(() => import('./LikeButton'), { ssr: false });
 const CategoryRelated = dynamic(() => import('./CategoryRelated'), { ssr: false });
 
 interface Props {
@@ -42,11 +43,12 @@ const BlogShowPage = ({ categories, postData }: Props) => {
           <article>
             <Header postData={postData} />
             <div className={styles.body} dangerouslySetInnerHTML={{ __html: bodyProcess(body) }} />
-            <CategoryRelated postData={postData} />
-            <div className={styles.commentsWrapper}>
+            <LikeButton targetId={id} />
+            <aside className={styles.commentsWrapper}>
               <BlogComments targetId={id} withHeader />
               <NewForm targetId={id} multiline />
-            </div>
+            </aside>
+            <CategoryRelated postData={postData} />
           </article>
           <CategoriesBar categories={categories} currentCategory={category.id} />
         </div>
