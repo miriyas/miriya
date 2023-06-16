@@ -7,24 +7,6 @@
   width: 100%;
   height: 100%;
 
-  .withComment {
-    @include m.flexbox;
-    @include m.absolute(8px auto auto 8px);
-    z-index: var(--z-3);
-
-    svg {
-      width: 14px;
-      height: 14px;
-      fill: var(--color-blue);
-    }
-
-    span {
-      margin-left: 2px;
-      font-size: 10px;
-      color: var(--color-blue);
-    }
-  }
-
   .no {
     @include m.flexbox;
     @include m.absolute(8px auto auto 8px);

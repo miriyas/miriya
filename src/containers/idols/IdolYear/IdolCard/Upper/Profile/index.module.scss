@@ -29,7 +29,25 @@
     .category,
     .years {
       margin-top: 2px;
-      font-size: 12px;
+      font-size: 10px;
+    }
+
+    .withComment {
+      @include m.flexbox;
+      @include m.absolute(auto 8px 8px auto);
+      z-index: var(--z-3);
+
+      svg {
+        width: 12px;
+        height: 12px;
+        fill: var(--color-white);
+      }
+
+      span {
+        margin-left: 2px;
+        font-size: 10px;
+        color: var(--color-white);
+      }
     }
   }
 }

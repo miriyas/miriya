@@ -4,6 +4,7 @@ import { Idol } from '@/types/idols.d';
 import { prettyCategory } from '@/utils/idols';
 import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
 
+import { IconComment } from 'public/svgs';
 import styles from './index.module.scss';
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const Profile = ({ idol, onClickUpper }: Props) => {
-  const { category, name, debutYear, endYear, id } = idol;
+  const { category, comments, name, debutYear, endYear, id } = idol;
   const imageUrl = getCDNImage(`idols/${id}.jpg`);
 
   return (
@@ -29,6 +30,12 @@ const Profile = ({ idol, onClickUpper }: Props) => {
         <p className={styles.name}>{name}</p>
         <p className={styles.category}>{prettyCategory(category)}</p>
         <p className={styles.years}>{`${debutYear} ~ ${endYear ?? ''}`}</p>
+        {comments.length > 0 && (
+          <div className={styles.withComment}>
+            <IconComment />
+            <span>{comments.length}</span>
+          </div>
+        )}
       </div>
     </button>
   );

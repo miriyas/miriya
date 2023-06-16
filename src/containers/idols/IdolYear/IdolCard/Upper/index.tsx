@@ -7,7 +7,7 @@ import useAuth from '@/hooks/useAuth';
 import { Idol } from '@/types/idols.d';
 import { editIdolAtom } from '@/containers/idols/states';
 
-import { IconComment, IconEdit } from 'public/svgs';
+import { IconEdit } from 'public/svgs';
 import Profile from './Profile';
 import Youtube from './Youtube';
 import idolStyles from '../index.module.scss';
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const Upper = ({ idol, opened, onClickOpen }: Props) => {
-  const { comments, youtubeUrl, youtubeStartsAt } = idol;
+  const { youtubeUrl, youtubeStartsAt } = idol;
   const { isSupporter, isAdmin } = useAuth();
   const setEditIdol = useSetAtom(editIdolAtom);
   const hasYoutube = youtubeUrl !== '' && youtubeStartsAt !== 0;
@@ -35,12 +35,6 @@ const Upper = ({ idol, opened, onClickOpen }: Props) => {
         <button type='button' className={styles.toEdit} onClick={onClickEdit} aria-label='edit'>
           <IconEdit />
         </button>
-      )}
-      {!opened && comments.length > 0 && (
-        <div className={styles.withComment}>
-          <IconComment />
-          <span>{comments.length}</span>
-        </div>
       )}
       {opened && hasYoutube && <Youtube youtubeUrl={youtubeUrl} youtubeStartsAt={youtubeStartsAt} />}
       {opened && !hasYoutube && <Profile onClickUpper={onClickOpen} idol={idol} />}
