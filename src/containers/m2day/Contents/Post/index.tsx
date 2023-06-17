@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import { useAtom } from 'jotai';
 
-import useM2day from '../useM2day';
+import useM2day from '../../useM2day';
 import { M2PostType } from '@/types/m2day.d';
 import { getTimeDiffText } from '@/utils/date';
 import { editModeAtom } from '@/containers/m2day/states';

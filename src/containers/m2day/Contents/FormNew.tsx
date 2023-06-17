@@ -2,9 +2,9 @@
 
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
-import useM2day from './useM2day';
+import useM2day from '../useM2day';
 import { postM2dayAPI } from '@/services/m2day';
-import { calcContentLength } from './utils';
+import { calcContentLength } from '../utils';
 
 import styles from './FormNew.module.scss';
 

@@ -2,11 +2,11 @@
 
 import Image from 'next/image';
 
-import styles from './SideBar.module.scss';
+import styles from './Menu.module.scss';
 
-const SideBar = () => {
+const Menu = () => {
   return (
-    <nav className={styles.sidebar}>
+    <nav className={styles.menu}>
       <ul className={styles.major}>
         <li>
           <button type='button' className={styles.active}>
@@ -41,4 +41,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default Menu;

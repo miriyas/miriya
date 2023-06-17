@@ -5,10 +5,10 @@ import { useAtom, useSetAtom } from 'jotai';
 import { RESET } from 'jotai/utils';
 import { useMount } from 'react-use';
 
-import useM2day from '../useM2day';
-import { editModeAtom, editContentAtom } from '../states';
+import useM2day from '../../useM2day';
+import { editModeAtom, editContentAtom } from '../../states';
 import { patchM2dayAPI } from '@/services/m2day';
-import { calcContentLength } from '../utils';
+import { calcContentLength } from '../../utils';
 
 import styles from './FormEdit.module.scss';
 

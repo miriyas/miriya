@@ -1,0 +1,7 @@
+@use 'src/styles/mixins' as m;
+
+.sidebar {
+  width: 150px;
+  margin-top: 64px;
+  color: var(--color-white);
+}
