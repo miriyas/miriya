@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { VERSION } from '@/constants/pentaxes';
+import { VERSION } from '@/containers/pentax/constants';
 
 import Navigation from './Navigation';
 import Desc from './Desc';

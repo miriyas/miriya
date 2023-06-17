@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { useMemo } from 'react';
 import { useMount } from 'react-use';
 
-import { X_CELL_DSLR } from '@/constants/pentaxes';
+import { X_CELL_DSLR } from '@/containers/pentax/constants';
 import { useDraggable } from '@/hooks/useDraggable';
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';

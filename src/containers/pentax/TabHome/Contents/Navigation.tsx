@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-import { MENUS } from '@/constants/pentaxes';
+import { MENUS } from '@/containers/pentax/constants';
 
 import styles from './Navigation.module.scss';
 import ImageSprite from '@/components/ImageSprite';

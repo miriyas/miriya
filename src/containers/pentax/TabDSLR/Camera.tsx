@@ -2,7 +2,7 @@ import cx from 'clsx';
 import { FocusEventHandler, MouseEventHandler, useMemo } from 'react';
 import { useAtom } from 'jotai';
 
-import { X_CELL_DSLR } from '@/constants/pentaxes';
+import { X_CELL_DSLR } from '@/containers/pentax/constants';
 import { PentaxDslrCore } from '@/types/pentaxes';
 import { selectedCameraAtom } from './states';
 

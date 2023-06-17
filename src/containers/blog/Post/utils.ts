@@ -12,7 +12,8 @@ export const imageExpandable = (rawString: string) => {
 
     if (!content) return;
     const [src, alt] = content.split('" alt="');
-    const originalSrc = src.replace([...src.matchAll(/tr:(.*?)\//g)][0][0], '');
+    if (!src) return;
+    const originalSrc = src.replace([...src.matchAll(/tr:(.*?)\//g)][0]?.[0], '');
     processed = processed.replace(
       original,
       `<details class='imageExpandable'><summary><img src='${src}' alt='${alt}' class='summaryImg' /></summary><img src='${originalSrc}' alt='${alt}' class='detailsImg' /></details>`,

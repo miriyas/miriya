@@ -8,8 +8,6 @@ import { LIKE_TARGET_CATEGORY } from '@/types/likes.d';
 import { deleteLikeAPI, getLikesApi, postLikeAPI } from '@/services/likes';
 import useAuth from '@/hooks/useAuth';
 
-import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
-import Button from '@/components/Button';
 import styles from './index.module.scss';
 
 interface Props {
@@ -17,7 +15,7 @@ interface Props {
 }
 
 const LikeButton = ({ targetId }: Props) => {
-  const { user, isAdmin, showLoginModalWhenLoggedOut } = useAuth();
+  const { user, showLoginModalWhenLoggedOut } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [likedByMe, setLikedByMe] = useState(false); // optimistic
 
@@ -78,18 +76,6 @@ const LikeButton = ({ targetId }: Props) => {
         {likedByMe ? '♥' : '♡'}
         <span>{likes.length > 0 && likes.length}</span>
       </button>
-      {isAdmin && (
-        <ul className={styles.likers}>
-          {likes.map((like) => (
-            <li key={like.id}>
-              <div className={styles.profileWrapper}>
-                <ProfileImageWithFallback src={like.author.profileUrl} uid={like.authorId} alt='' size={14} />
-              </div>
-              {like.author.nickname}
-            </li>
-          ))}
-        </ul>
-      )}
     </aside>
   );
 };

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
 
-import { MENUS, VERSION } from '@/constants/pentaxes';
+import { MENUS, VERSION } from '@/containers/pentax/constants';
 
 import NavLink from '@/components/NavLink';
 import styles from './Navigation.module.scss';
