@@ -11,6 +11,7 @@ import { metadata as profileMetadata } from './profile/page';
 
 export const metadata = {
   ...profileMetadata,
+  metadataBase: new URL('https://miriya.net/'),
   title: {
     absolute: 'MIRIYA',
     template: '%s | MIRIYA',

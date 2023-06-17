@@ -10,7 +10,6 @@ interface Props {
 
 export const getMetaData = ({ url, title, description, imageUrl, keywords }: Props): Metadata => {
   return {
-    metadataBase: new URL(url),
     title,
     description,
     keywords,
