@@ -1,0 +1,37 @@
+@use 'src/styles/mixins' as m;
+
+.formEdit {
+  padding-right: 14px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-gray-2);
+  word-wrap: break-word;
+
+  textarea {
+    flex: 1;
+    width: 100%;
+    height: 72px;
+    padding: 8px 14px;
+    font-size: 14px;
+    color: var(--color-gray-3);
+    resize: none;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-c);
+    border-radius: 2px;
+  }
+
+  .editBottom {
+    @include m.flexbox(end, center);
+    gap: 8px;
+
+    button {
+      font-size: 14px;
+      color: var(--color-gray-3);
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}

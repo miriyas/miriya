@@ -17,6 +17,12 @@ const SideBar = () => {
             <li>
               <button type='button'>모든글</button>
             </li>
+            <li>
+              <button type='button'>돌아보는</button>
+            </li>
+            <li>
+              <button type='button'>포토</button>
+            </li>
           </ul>
         </li>
         <li>

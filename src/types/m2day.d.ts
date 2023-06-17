@@ -2,7 +2,6 @@ export interface M2PostType {
   id: string;
   content: string;
   createdAt: Date;
-  tags: string;
   likes: number;
   comments: {
     id: string;
@@ -13,4 +12,8 @@ export interface M2PostType {
     };
     body: string;
   }[];
+}
+
+export interface NewM2PostType {
+  content: string;
 }

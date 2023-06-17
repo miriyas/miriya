@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import Isotope from 'isotope-layout';
 
 import type { Gtag } from '@types/gtag.js';
@@ -9,6 +10,7 @@ declare global {
     isotopes: {
       [key: number]: Isotope;
     };
+    onClickYoutube: (e: MouseEvent<HTMLAnchorElement>, link: string) => void;
   }
 }
 

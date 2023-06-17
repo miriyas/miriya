@@ -1,0 +1,70 @@
+@use 'src/styles/mixins' as m;
+
+.formNew {
+  padding: 24px;
+  margin-bottom: 14px;
+  background-color: var(--color-gray-f);
+  border-radius: 8px;
+  box-shadow: 0 -0 18px 0 rgba(var(--color-black-rgb), 0.2);
+
+  .top {
+    @include m.flexbox(between);
+    margin-bottom: 12px;
+
+    .leftWing {
+      @include m.flexbox;
+      height: 24px;
+
+      .location {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      select {
+        height: 24px;
+        padding: 0 4px;
+        margin-left: 8px;
+        font-size: 12px;
+        border: 1px solid var(--color-gray-a);
+        border-radius: 2px;
+      }
+    }
+
+    .length {
+      margin-bottom: -8px;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--color-gray-c);
+    }
+  }
+
+  .form {
+    @include m.flexbox;
+
+    textarea {
+      flex: 1;
+      height: 72px;
+      padding: 8px 14px;
+      font-size: 14px;
+      color: var(--color-gray-3);
+      resize: none;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-gray-c);
+      border-radius: 2px;
+    }
+
+    .submitButton {
+      width: 80px;
+      height: 72px;
+      margin-left: 2px;
+      background-image: linear-gradient(to bottom, var(--color-white), var(--color-gray-e));
+      border: 1px solid var(--color-gray-d);
+      border-radius: 2px;
+
+      &:hover,
+      &:focus {
+        background-image: linear-gradient(to bottom, var(--color-gray-e), var(--color-gray-e));
+      }
+    }
+  }
+}
