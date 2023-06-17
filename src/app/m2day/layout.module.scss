@@ -1,0 +1,13 @@
+@use 'src/styles/mixins' as m;
+
+.m2dayPage {
+  padding: 0;
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-em) 0,
+    var(--color-em) 6px,
+    var(--color-blog-bg) 6px,
+    var(--color-blog-bg) 272px,
+    white 1px
+  );
+}

@@ -1,0 +1,84 @@
+@use 'src/styles/mixins' as m;
+
+.post {
+  @include m.flexbox(center, start);
+  flex: 1;
+  padding: 20px 0 10px;
+
+  + .post {
+    border-top: 1px solid var(--color-gray-e);
+  }
+
+  .leftWing {
+    margin-right: 12px;
+
+    .imageBox {
+      width: 44px;
+      height: 44px;
+      background-color: var(--color-gray-8);
+    }
+  }
+
+  .rightWing {
+    .content {
+      padding-right: 14px;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--color-gray-2);
+      word-wrap: break-word;
+
+      time {
+        margin-left: 4px;
+        font-size: 12px;
+        color: var(--color-gray-8);
+      }
+    }
+
+    .tags {
+      margin-top: 2px;
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--color-gray-8);
+    }
+
+    .functions {
+      @include m.flexbox(end, center);
+      padding: 0 14px;
+      margin-top: 10px;
+
+      .me2 {
+        @include m.flexbox;
+        gap: 4px;
+        height: 24px;
+        padding: 0 6px;
+        font-size: 12px;
+        color: var(--color-m3);
+        background-image: linear-gradient(to bottom, var(--color-white), var(--color-gray-e));
+        border: 1px solid var(--color-gray-c);
+        border-radius: 3px;
+
+        img {
+          width: 10px;
+        }
+      }
+
+      .me2Count {
+        margin-left: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--color-m2);
+      }
+
+      .comment {
+        margin-left: 14px;
+        font-size: 12px;
+        color: var(--color-gray-8);
+
+        span {
+          margin-left: 4px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

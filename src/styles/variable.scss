@@ -4,8 +4,10 @@
   --color-black-rgb: 0, 0, 0;
   --color-gray-1: #111111;
   --color-gray-2: #232323;
+  --color-gray-3: #333333;
   --color-gray-4: #4c4c4c;
   --color-gray-4-rgb: 76, 76, 76;
+  --color-gray-6: #666666;
   --color-gray-7: #767676; /* Minimum WCAG AA Pass */
   --color-gray-8: #8c8c8c; /* Fail to WCAG AA */
   --color-gray-9: #999999;
@@ -82,4 +84,12 @@
   /* Blog */
   --color-blog-bg: #21a9e1;
   --w-blog-center: 994px;
+
+  /* M2day */
+  --color-m2: #7b5fd4;
+  --color-m3: #937cd8;
+  --color-m2-button1: #a388db;
+  --color-m2-button2: #8b70c8;
+  --color-m2-button-border: #5f65a5;
+  --color-m2-link: #e65802;
 }

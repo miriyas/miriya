@@ -1,0 +1,56 @@
+@use 'src/styles/mixins' as m;
+
+.profile {
+  position: relative;
+  height: 208px;
+
+  .imageWrapper {
+    width: 87px;
+    height: 87px;
+    border: 5px solid var(--color-white);
+  }
+
+  .nickname {
+    @include m.flexbox(start, center);
+    margin-top: 14px;
+    font-family: var(--font-nanum);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .intro {
+    margin-top: 6px;
+    font-family: var(--font-nanum);
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .friend {
+    @include m.absolute(auto auto 10px 0);
+    @include m.commonBoxShadow;
+    width: 90px;
+    height: 28px;
+    padding-left: 10px;
+    font-size: 12px;
+    color: var(--color-white);
+    text-align: left;
+    background-image: linear-gradient(to bottom, var(--color-m2-button1), var(--color-m2-button2));
+    border: 1px solid var(--color-m2-button-border);
+    border-radius: 4px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      width: 2px;
+      height: 9px;
+      content: '';
+      background-color: var(--color-white);
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+}

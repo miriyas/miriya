@@ -1,0 +1,30 @@
+@use 'src/styles/mixins' as m;
+
+.dateItem {
+  @include m.flexbox(center, start);
+  margin: 0 34px;
+
+  + .dateItem {
+    border-top: 1px solid var(--color-gray-e);
+  }
+
+  .dayBlock {
+    @include m.flexbox;
+    flex-direction: column;
+    width: 100px;
+    padding: 20px 24px 0 0;
+
+    .dayTop {
+      font-family: arial, 'Trebuchet MS', helvetica, sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--color-gray-3);
+    }
+
+    .dayBottom {
+      font-family: arial, 'Trebuchet MS', helvetica, sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+  }
+}
