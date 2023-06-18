@@ -5,6 +5,7 @@ import cx from 'clsx';
 
 import styles from './Pannel.module.scss';
 import { IconChevronRight } from 'public/svgs';
+import ImageExpandable from '@/components/ImageExpandable';
 
 interface Props {
   postId: string;
@@ -43,7 +44,7 @@ const PannelImage = ({ postId }: Props) => {
   return (
     <div className={cx(styles.pannel, styles.imagePannel)}>
       <div className={styles.imageWrapper}>
-        <img src={imageUrls[selectedIdx]} alt='' />
+        <ImageExpandable src={imageUrls[selectedIdx]} alt='' ignoreDimension />
 
         {imageUrls.length > 1 && (
           <button type='button' onClick={onClickPrev} className={cx(styles.arrow, styles.prev)}>

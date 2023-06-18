@@ -19,6 +19,10 @@
       color: var(--color-gray-2);
       word-wrap: break-word;
 
+      p {
+        display: inline;
+      }
+
       time,
       button {
         font-size: 12px;
@@ -31,6 +35,7 @@
 
       button {
         position: relative;
+        display: inline-block;
         padding-left: 7px;
         margin-left: 4px;
 

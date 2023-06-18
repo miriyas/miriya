@@ -52,6 +52,11 @@
         background-color: var(--color-white);
         border: 1px solid var(--color-gray-c);
         border-radius: 2px;
+
+        &:hover,
+        &:focus {
+          border-color: var(--color-gray-9);
+        }
       }
 
       .submitButton {
@@ -73,6 +78,10 @@
       @include m.flexbox(start, start);
       flex-direction: column;
       margin-top: 8px;
+
+      input {
+        font-size: 12px;
+      }
 
       .previews {
         @include m.flexbox;

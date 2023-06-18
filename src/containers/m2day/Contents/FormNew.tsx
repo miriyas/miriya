@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+import { ChangeEventHandler, FormEventHandler, useRef, useState } from 'react';
 
 import useM2day from '../useM2day';
 import { postM2dayAPI } from '@/services/m2day';
@@ -11,6 +11,7 @@ import styles from './FormNew.module.scss';
 
 const FormNew = () => {
   const { refetchPosts } = useM2day();
+  const fileRef = useRef<HTMLInputElement>(null);
   const [content, setContent] = useState('');
   const [expanded, setExpanded] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -31,6 +32,7 @@ const FormNew = () => {
     const { files } = e.currentTarget;
 
     if (files && files.length > 0) {
+      setLoading(true);
       const images = Array.from(files);
 
       const previews: string[] = [];
@@ -45,6 +47,7 @@ const FormNew = () => {
         }),
       );
       setImagePreviews((prev) => [...prev, ...previews]);
+      setLoading(false);
     } else {
       setImagePreviews([]);
     }
@@ -61,6 +64,7 @@ const FormNew = () => {
       setImagePreviews([]);
       setLoading(false);
       refetchPosts();
+      if (fileRef.current) fileRef.current.value = '';
     });
   };
 
@@ -84,7 +88,14 @@ const FormNew = () => {
         </div>
         {expanded && (
           <div className={styles.lower}>
-            <input type='file' multiple accept='image/*' className={styles.changeImage} onChange={onChangeImage} />
+            <input
+              type='file'
+              ref={fileRef}
+              multiple
+              accept='image/*'
+              className={styles.changeImage}
+              onChange={onChangeImage}
+            />
             <ul className={styles.previews}>
               {imagePreviews.map((preview) => (
                 <li key={preview} className={styles.preview} style={{ backgroundImage: `url(${preview})` }} />

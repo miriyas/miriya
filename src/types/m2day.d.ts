@@ -17,5 +17,5 @@ export interface M2PostType {
 
 export interface NewM2PostType {
   content: string;
-  images: string;
+  images?: string;
 }

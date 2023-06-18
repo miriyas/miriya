@@ -3,6 +3,7 @@ import { ValueOf, WithAuthor } from '@/types';
 export const LIKE_TARGET_CATEGORY = {
   IDOLS: 'IDOLS',
   BLOG_POST: 'BLOG_POST',
+  M2_POST: 'M2_POST',
 } as const;
 
 export type LikeTargetCategoryTypes = ValueOf<typeof LIKE_TARGET_CATEGORY>;
@@ -10,6 +11,7 @@ export type LikeTargetCategoryTypes = ValueOf<typeof LIKE_TARGET_CATEGORY>;
 export const LIKE_TARGET_ID_MAP: Record<LikeTargetCategoryTypes, string> = {
   IDOLS: 'idolId',
   BLOG_POST: 'blogPostId',
+  M2_POST: 'm2PostId',
 };
 
 export const availableLikeCategories = Object.keys(LIKE_TARGET_ID_MAP);
