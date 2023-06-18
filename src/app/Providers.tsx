@@ -2,7 +2,7 @@
 
 import { ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 interface Props {
   children: ReactNode;
@@ -27,7 +27,7 @@ const Providers = ({ children }: Props) => {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+      {/* <ReactQueryDevtools initialIsOpen={false} position='bottom-right' /> */}
     </QueryClientProvider>
   );
 };

@@ -4,12 +4,13 @@
   position: relative;
   z-index: var(--z-2);
   flex: 1;
-  padding: 0 8px 8px 0;
+  width: 100%;
 
   .top {
     width: 100%;
     height: 64px;
     padding-top: 20px;
+    padding-left: 14px;
 
     .logo {
       width: 90px;
@@ -23,7 +24,6 @@
     padding-bottom: 14px;
     overflow: hidden;
     background-color: var(--color-white);
-    border-radius: 8px;
     box-shadow: 0 -0 18px 0 rgba(var(--color-black-rgb), 0.2);
 
     .loadingWrapper {
@@ -36,7 +36,7 @@
     @include m.flexbox(start, center);
     width: 100%;
     height: 44px;
-    padding: 0 26px;
+    padding: 0 14px;
     font-size: 14px;
     font-weight: 600;
     background-image: linear-gradient(to bottom, var(--color-gray-f), var(--color-gray-e));
@@ -53,6 +53,22 @@
 
     .all {
       color: var(--color-gray-3);
+    }
+  }
+
+  @include m.after(MD) {
+    padding: 0 8px 8px 0;
+
+    .top {
+      padding-left: 0;
+    }
+
+    .contentsWrapper {
+      border-radius: 8px;
+    }
+
+    .header {
+      padding: 0 26px;
     }
   }
 }

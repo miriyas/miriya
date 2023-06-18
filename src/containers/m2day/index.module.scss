@@ -19,7 +19,12 @@
 
   .centering {
     @include m.flexbox(center, start);
+    flex-direction: column;
     width: 100%;
     max-width: 984px;
+
+    @include m.after(MD) {
+      flex-direction: row;
+    }
   }
 }

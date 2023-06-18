@@ -3,10 +3,14 @@
 .post {
   @include m.flexbox(center, start);
   flex: 1;
-  padding: 20px 0 10px;
+  padding: 10px 0;
 
   + .post {
     border-top: 1px solid var(--color-gray-e);
+  }
+
+  @include m.after(MD) {
+    padding: 20px 0 10px;
   }
 
   .rightWing {

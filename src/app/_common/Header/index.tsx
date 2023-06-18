@@ -43,6 +43,11 @@ const ROUTES = [
     title: 'Blog',
     mobileTitle: 'Blog',
   },
+  {
+    href: '/m2day',
+    title: 'm2day',
+    mobileTitle: 'm2day',
+  },
 ];
 
 const Header = () => {
@@ -93,18 +98,18 @@ const Header = () => {
                   </li>
                 );
               })}
+              <li>
+                <a
+                  onClick={onClickGithub}
+                  href='https://github.com/miriyas/miriya'
+                  target='_blank'
+                  title='Github'
+                  rel='nofollow'
+                >
+                  <IconGithub />
+                </a>
+              </li>
             </ul>
-            <div className={styles.github}>
-              <a
-                onClick={onClickGithub}
-                href='https://github.com/miriyas/miriya'
-                target='_blank'
-                title='Github'
-                rel='nofollow'
-              >
-                <IconGithub />
-              </a>
-            </div>
           </div>
         </details>
       </nav>

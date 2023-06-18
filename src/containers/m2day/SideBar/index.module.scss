@@ -1,7 +1,12 @@
 @use 'src/styles/mixins' as m;
 
 .sidebar {
+  display: none;
   width: 150px;
   margin-top: 64px;
   color: var(--color-white);
+
+  @include m.after(MD) {
+    display: block;
+  }
 }
