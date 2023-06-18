@@ -2,7 +2,8 @@ export interface M2PostType {
   id: string;
   content: string;
   createdAt: Date;
-  likes: number;
+  likes: [];
+  images: string;
   comments: {
     id: string;
     author: {
@@ -16,4 +17,5 @@ export interface M2PostType {
 
 export interface NewM2PostType {
   content: string;
+  images: string;
 }

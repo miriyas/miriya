@@ -39,31 +39,53 @@
   }
 
   .form {
-    @include m.flexbox;
+    .upper {
+      @include m.flexbox;
 
-    textarea {
-      flex: 1;
-      height: 72px;
-      padding: 8px 14px;
-      font-size: 14px;
-      color: var(--color-gray-3);
-      resize: none;
-      background-color: var(--color-white);
-      border: 1px solid var(--color-gray-c);
-      border-radius: 2px;
+      textarea {
+        flex: 1;
+        height: 72px;
+        padding: 8px 14px;
+        font-size: 14px;
+        color: var(--color-gray-3);
+        resize: none;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-c);
+        border-radius: 2px;
+      }
+
+      .submitButton {
+        width: 80px;
+        height: 72px;
+        margin-left: 2px;
+        background-image: linear-gradient(to bottom, var(--color-white), var(--color-gray-e));
+        border: 1px solid var(--color-gray-d);
+        border-radius: 2px;
+
+        &:hover,
+        &:focus {
+          background-image: linear-gradient(to bottom, var(--color-gray-e), var(--color-gray-e));
+        }
+      }
     }
 
-    .submitButton {
-      width: 80px;
-      height: 72px;
-      margin-left: 2px;
-      background-image: linear-gradient(to bottom, var(--color-white), var(--color-gray-e));
-      border: 1px solid var(--color-gray-d);
-      border-radius: 2px;
+    .lower {
+      @include m.flexbox(start, start);
+      flex-direction: column;
+      margin-top: 8px;
 
-      &:hover,
-      &:focus {
-        background-image: linear-gradient(to bottom, var(--color-gray-e), var(--color-gray-e));
+      .previews {
+        @include m.flexbox;
+        gap: 4px;
+        margin-top: 8px;
+
+        li {
+          width: 44px;
+          height: 44px;
+          overflow: hidden;
+          background-position: center;
+          background-size: cover;
+        }
       }
     }
   }

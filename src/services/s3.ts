@@ -1,3 +1,5 @@
 import { apiBe } from '@/services';
 
-export const uploadImageAPI = (body: FormData) => apiBe.postForm('/image', body);
+export const uploadImageForBlogAPI = (body: FormData) => apiBe.postForm('/blog/image', body);
+
+export const uploadImageForM2API = (body: FormData) => apiBe.postForm('/m2day/image', body);

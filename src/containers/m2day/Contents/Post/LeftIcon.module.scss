@@ -1,0 +1,40 @@
+@use 'src/styles/mixins' as m;
+
+.leftIcon {
+  margin-right: 12px;
+
+  .iconWrapper {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    margin-top: 4px;
+    overflow: hidden;
+    background-color: var(--color-gray-8);
+    border: 1px solid var(--color-gray-c);
+
+    p {
+      @include m.absolute(auto 0 0 0);
+      font-size: 10px;
+      color: var(--color-white);
+      pointer-events: none;
+      background-color: rgba(var(--color-black-rgb), 0.5);
+    }
+  }
+
+  .imageWrapper {
+    width: 44px;
+    height: 44px;
+    transition: 0.2s;
+    transform-origin: center center;
+
+    &:hover {
+      transform: scale(120%);
+    }
+
+    img {
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+    }
+  }
+}

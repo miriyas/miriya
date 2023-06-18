@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import cx from 'clsx';
 
-import styles from './index.module.scss';
+import styles from './Pannel.module.scss';
 
 interface Props {
   postId: string;
@@ -28,7 +29,7 @@ const PannelYoutube = ({ postId }: Props) => {
   if (!youtubeId) return null;
 
   return (
-    <div className={styles.youtubePannel}>
+    <div className={cx(styles.pannel, styles.youtubePannel)}>
       <iframe
         title={`youtube-${youtubeId}`}
         width={560}

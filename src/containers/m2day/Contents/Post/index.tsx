@@ -9,8 +9,10 @@ import { M2PostType } from '@/types/m2day.d';
 import { getTimeDiffText } from '@/utils/date';
 import { editModeAtom } from '@/containers/m2day/states';
 
-import M2PostContent from './Content';
+import LeftIcon from './LeftIcon';
+import Content from './Content';
 import FormEdit from './FormEdit';
+import PannelImage from './PannelImage';
 import PannelYoutube from './PannelYoutube';
 import styles from './index.module.scss';
 
@@ -38,16 +40,14 @@ const M2Post = ({ post }: Props) => {
 
   return (
     <li className={styles.post}>
-      <div className={styles.leftWing}>
-        <div className={styles.imageBox} />
-      </div>
+      <LeftIcon post={post} />
       <div className={styles.rightWing}>
         {editMode === post.id ? (
           <FormEdit me2postId={post.id} content={post.content} />
         ) : (
           <>
             <div className={styles.content}>
-              <M2PostContent postId={post.id} content={content} />
+              <Content postId={post.id} content={content} />
               <time>{getTimeDiffText(createdAt)}</time>
               <button type='button' onClick={onClickEdit}>
                 수정
@@ -57,13 +57,14 @@ const M2Post = ({ post }: Props) => {
               </button>
             </div>
             <PannelYoutube postId={post.id} />
+            <PannelImage postId={post.id} />
             <div className={styles.functions}>
               <button type='button' onClick={onClickMeToo} className={styles.me2}>
                 <Image className={styles.logo} src='/images/m2day/me2.png' width={50} height={58} alt='' />
                 미투
               </button>
               <button type='button' onClick={onClickMeToo} className={styles.me2Count}>
-                {likes}
+                {likes.length}
               </button>
               <button type='button' onClick={onClickComment} className={styles.comment}>
                 {comments.length > 0 ? '댓글' : '댓글달기'}

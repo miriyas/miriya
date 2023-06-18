@@ -6,7 +6,7 @@ import { SimpleMdeReact } from 'react-simplemde-editor';
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
 
-import { uploadImageAPI } from '@/services/s3';
+import { uploadImageForBlogAPI } from '@/services/s3';
 import { renderMarkdown } from '@/utils/blog';
 import { imageOptimize } from '../../utils';
 import { bodyAtom } from './states';
@@ -38,7 +38,7 @@ const Editor = () => {
         setUploading(true);
         const {
           data: { url },
-        } = await uploadImageAPI(formData);
+        } = await uploadImageForBlogAPI(formData);
         setUploading(false);
         const imageUrl = `${process.env.NEXT_PUBLIC_CDN_URL}/${url}`;
         const mdToInsert = `![${file.name}](${imageUrl})`;
