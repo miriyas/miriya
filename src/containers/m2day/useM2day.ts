@@ -9,7 +9,7 @@ const useM2day = () => {
 
   const {
     data: posts = [],
-    isLoading,
+    isLoading: isLoadingPosts,
     refetch: refetchPosts,
   } = useQuery(['getM2daysApi'], () => getM2daysApi().then((res) => res.data));
 
@@ -30,7 +30,7 @@ const useM2day = () => {
 
   return {
     posts,
-    isLoading,
+    isLoadingPosts,
     refetchPosts,
     onClickDelete,
   };
