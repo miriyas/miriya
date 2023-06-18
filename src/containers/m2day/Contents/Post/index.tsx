@@ -1,11 +1,11 @@
 'use client';
 
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 
 import useM2day from '../../useM2day';
 import { M2PostType } from '@/types/m2day.d';
 import { getTimeDiffText } from '@/utils/date';
-import { editModeAtom } from '@/containers/m2day/states';
+import { commentOpenAtom, editModeAtom } from '@/containers/m2day/states';
 import Functions from '@/containers/m2day/Contents/Post/Functions';
 
 import LeftIcon from './LeftIcon';
@@ -13,6 +13,7 @@ import Content from './Content';
 import FormEdit from './FormEdit';
 import PannelImage from './PannelImage';
 import PannelYoutube from './PannelYoutube';
+import PannelComments from './PannelComments';
 import styles from './index.module.scss';
 
 interface Props {
@@ -22,6 +23,7 @@ interface Props {
 const M2Post = ({ post }: Props) => {
   const { createdAt, content } = post;
   const [editMode, setEditMode] = useAtom(editModeAtom);
+  const commentOpen = useAtomValue(commentOpenAtom);
 
   const { onClickDelete } = useM2day();
 
@@ -50,6 +52,7 @@ const M2Post = ({ post }: Props) => {
             <PannelYoutube postId={post.id} />
             <PannelImage postId={post.id} />
             <Functions post={post} />
+            {commentOpen === post.id && <PannelComments postId={post.id} />}
           </>
         )}
       </div>

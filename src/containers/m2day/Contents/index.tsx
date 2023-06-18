@@ -26,7 +26,7 @@ if (typeof window !== 'undefined') {
 }
 
 const Contents = () => {
-  const { posts, isLoading } = useM2day();
+  const { posts, isLoadingPosts } = useM2day();
 
   const days = groupBy(posts, (year) => dayjs(year.createdAt).format('YYYY-MM-DD'));
 
@@ -42,7 +42,7 @@ const Contents = () => {
           <p className={styles.divider}>&gt;</p>
           <p className={styles.all}>모든글</p>
         </div>
-        {isLoading && (
+        {isLoadingPosts && (
           <div className={styles.loadingWrapper}>
             <Loading />
           </div>

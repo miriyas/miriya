@@ -13,6 +13,105 @@
   }
 }
 
+.commentsPannel {
+  padding: 12px 24px 12px 0;
+  background-color: var(--color-gray-f);
+
+  .comments {
+    display: table;
+    width: 100%;
+
+    li {
+      display: table-row;
+      width: 100%;
+      height: 24px;
+      font-size: 12px;
+
+      .nickname,
+      .body {
+        display: table-cell;
+      }
+
+      .nickname {
+        width: 120px;
+        padding-right: 14px;
+        color: var(--color-m2);
+        text-align: right;
+      }
+
+      .body {
+        flex: 1;
+      }
+
+      time {
+        margin-left: 8px;
+        color: var(--color-gray-a);
+      }
+
+      button {
+        margin-left: 8px;
+        font-size: 12px;
+        color: var(--color-gray-8);
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .form {
+    display: table-row;
+    gap: 4px;
+    width: 100%;
+    height: 24px;
+    font-size: 12px;
+
+    p,
+    .inputWrapper {
+      display: table-cell;
+    }
+
+    p {
+      padding-right: 14px;
+      line-height: 24px;
+      color: var(--color-gray-6);
+      text-align: right;
+      vertical-align: top;
+    }
+
+    input {
+      width: calc(100% - 54px);
+      height: 24px;
+      padding: 0 8px;
+      font-size: 12px;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-gray-c);
+    }
+
+    button {
+      width: 50px;
+      height: 24px;
+      margin-left: 4px;
+      color: var(--color-gray-3);
+      vertical-align: top;
+      background-image: linear-gradient(to bottom, var(--color-white), var(--color-gray-e));
+      border: 1px solid var(--color-gray-c);
+      border-radius: 3px;
+
+      &:disabled {
+        color: var(--color-gray-a);
+      }
+
+      &:hover,
+      &:focus {
+        border-color: var(--color-gray-a);
+      }
+    }
+  }
+}
+
 .imagePannel {
   width: 100%;
   padding-right: 15px;

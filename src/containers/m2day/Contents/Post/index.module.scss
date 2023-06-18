@@ -26,11 +26,11 @@
       time,
       button {
         font-size: 12px;
-        color: var(--color-gray-8);
       }
 
       time {
         margin-left: 4px;
+        color: var(--color-gray-a);
       }
 
       button {
@@ -38,61 +38,16 @@
         display: inline-block;
         padding-left: 7px;
         margin-left: 4px;
+        color: var(--color-gray-8);
 
         &::before {
           @include m.absolute(0 auto 0 0);
           content: '|';
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
           text-decoration: underline;
-        }
-      }
-    }
-
-    .functions {
-      @include m.flexbox(end, center);
-      padding: 0 14px;
-      margin-top: 10px;
-
-      .me2 {
-        @include m.flexbox;
-        gap: 4px;
-        height: 24px;
-        padding: 0 6px;
-        font-size: 12px;
-        color: var(--color-m3);
-        background-image: linear-gradient(to bottom, var(--color-white), var(--color-gray-e));
-        border: 1px solid var(--color-gray-c);
-        border-radius: 3px;
-
-        &.active {
-          color: var(--color-white);
-          background-color: var(--color-m2);
-          background-image: none;
-          border-color: var(--color-white);
-        }
-
-        img {
-          width: 10px;
-        }
-      }
-
-      .me2Count {
-        margin-left: 8px;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--color-m2);
-      }
-
-      .comment {
-        margin-left: 14px;
-        font-size: 12px;
-        color: var(--color-gray-8);
-
-        span {
-          margin-left: 4px;
-          font-weight: 600;
         }
       }
     }

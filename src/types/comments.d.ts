@@ -8,6 +8,7 @@ export const TARGET_CATEGORY = {
   PENTAX_LENS: 'PENTAX_LENS',
   PENTAX_LENS645: 'PENTAX_LENS645',
   BLOG: 'BLOG',
+  M2_POST: 'M2_POST',
 } as const;
 
 export type TargetCategoryTypes = ValueOf<typeof TARGET_CATEGORY>;
