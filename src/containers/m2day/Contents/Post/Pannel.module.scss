@@ -14,9 +14,13 @@
 }
 
 .commentsPannel {
+  @include m.flexbox(center, center);
+  flex-direction: column;
   background-color: var(--color-gray-f);
 
   .comments {
+    width: 100%;
+
     li {
       @include m.flexbox(start, start);
       width: 100%;

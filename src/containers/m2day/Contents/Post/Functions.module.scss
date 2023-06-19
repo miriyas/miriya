@@ -5,6 +5,18 @@
   padding: 0 14px;
   margin-top: 10px;
 
+  .likes {
+    @include m.flexbox;
+    gap: 4px;
+    margin-right: 8px;
+    font-size: 10px;
+    color: var(--color-gray-4);
+
+    .isFake {
+      color: var(--color-gray-a);
+    }
+  }
+
   .me2 {
     @include m.flexbox;
     gap: 4px;

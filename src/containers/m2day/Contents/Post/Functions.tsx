@@ -20,7 +20,7 @@ interface Props {
 
 const Functions = ({ post }: Props) => {
   const { id, likes, comments } = post;
-  const { user, showLoginModalWhenLoggedOut } = useAuth();
+  const { isAdmin, user, showLoginModalWhenLoggedOut } = useAuth();
   const setCommentOpen = useSetAtom(commentOpenAtom);
   const [isLoading, setIsLoading] = useState(false);
   const [likedByMe, setLikedByMe] = useState(false); // optimistic
@@ -77,6 +77,15 @@ const Functions = ({ post }: Props) => {
 
   return (
     <div className={styles.functions}>
+      {isAdmin && (
+        <ul className={styles.likes}>
+          {post.likes.map((like) => (
+            <li key={like.id} className={cx({ [styles.isFake]: like.author.nicknameIsFake })}>
+              {like.author.nickname}
+            </li>
+          ))}
+        </ul>
+      )}
       <button
         type='button'
         onClick={onClickMeToo}
