@@ -58,9 +58,7 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
 
   const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     const valueToSet = e.currentTarget.value;
-    limitLengthAlert(150, valueToSet).then(() => {
-      setBody(valueToSet);
-    });
+    if (limitLengthAlert(150, valueToSet)) setBody(valueToSet);
   };
 
   if (!user) {

@@ -34,9 +34,7 @@ const EditForm = ({ guestbook, setEditMode }: Props) => {
 
   const onChangeEdit: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     const valueToSet = e.currentTarget.value;
-    limitLengthAlert(500, valueToSet).then(() => {
-      setEditPostBody(valueToSet);
-    });
+    if (limitLengthAlert(500, valueToSet)) setEditPostBody(valueToSet);
   };
 
   const onEditSubmit: FormEventHandler<HTMLFormElement> = () => {

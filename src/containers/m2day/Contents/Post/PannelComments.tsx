@@ -32,9 +32,7 @@ const PannelComments = ({ postId }: Props) => {
 
   const onChangeComment: ChangeEventHandler<HTMLInputElement> = (e) => {
     const valueToSet = e.currentTarget.value;
-    limitLengthAlert(150, valueToSet).then(() => {
-      setNewComment(valueToSet);
-    });
+    if (limitLengthAlert(150, valueToSet)) setNewComment(valueToSet);
   };
 
   const onSubmit: FormEventHandler = (e) => {
@@ -50,6 +48,7 @@ const PannelComments = ({ postId }: Props) => {
           refetchComments();
           setNewComment('');
         })
+        .catch(() => {})
         .finally(() => {
           setInsubmit(false);
         });
@@ -70,6 +69,7 @@ const PannelComments = ({ postId }: Props) => {
             refetchComments();
             refetchPosts();
           })
+          .catch(() => {})
           .finally(() => {
             setInDelete(false);
           });

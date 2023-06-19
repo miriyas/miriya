@@ -21,13 +21,9 @@ const useAlert = () => {
   }, [setAlert]);
 
   const limitLengthAlert = (limit: number, content: string) => {
-    return new Promise((resolve) => {
-      if (content.length > limit) {
-        addAlert({ message: '너무 긴데요.. 영세 사이트에 테러하지 마세요ㅠㅠ' });
-      } else {
-        resolve(null);
-      }
-    });
+    if (content.length <= limit) return true;
+    addAlert({ message: '너무 긴데요.. 영세 사이트에 테러하지 마세요ㅠㅠ' });
+    return false;
   };
 
   const deleteWarningAlert = () => {

@@ -30,9 +30,7 @@ const NewForm = () => {
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     const valueToSet = e.currentTarget.value;
-    limitLengthAlert(500, valueToSet).then(() => {
-      setNewPostBody(valueToSet);
-    });
+    if (limitLengthAlert(500, valueToSet)) setNewPostBody(valueToSet);
   };
 
   if (!user) {

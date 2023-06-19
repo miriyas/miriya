@@ -29,9 +29,7 @@ const CommentEditForm = ({ comment, setEditMode }: Props) => {
 
   const onChangeBody: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     const valueToSet = e.currentTarget.value;
-    limitLengthAlert(150, valueToSet).then(() => {
-      setBody(valueToSet);
-    });
+    if (limitLengthAlert(150, valueToSet)) setBody(valueToSet);
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {

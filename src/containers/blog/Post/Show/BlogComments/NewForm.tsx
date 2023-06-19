@@ -46,9 +46,7 @@ const NewForm = ({ targetId, multiline }: Props) => {
 
   const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     const valueToSet = e.currentTarget.value;
-    limitLengthAlert(1000, valueToSet).then(() => {
-      setBody(valueToSet);
-    });
+    if (limitLengthAlert(1000, valueToSet)) setBody(valueToSet);
   };
 
   if (!user) {

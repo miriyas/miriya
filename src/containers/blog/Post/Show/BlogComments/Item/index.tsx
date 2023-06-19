@@ -46,9 +46,7 @@ const ItemComment = ({ comment }: Props) => {
 
   const onChangeReply: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     const valueToSet = e.currentTarget.value;
-    limitLengthAlert(1000, valueToSet).then(() => {
-      setReplyBody(valueToSet);
-    });
+    if (limitLengthAlert(1000, valueToSet)) setReplyBody(valueToSet);
   };
 
   const onSubmitReply: FormEventHandler<HTMLFormElement> = (e) => {

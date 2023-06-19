@@ -49,13 +49,23 @@ apiBe.interceptors.response.use(
           if (error.response.config?.url === '/auth/session') {
             return Promise.reject(error);
           }
-          window.dispatchEvent(
-            new CustomEvent('axiosError', {
-              detail: {
-                message: 'Unauthorized',
-              },
-            }),
-          );
+          if (error.response.data.message === 'BAD REQUEST') {
+            window.dispatchEvent(
+              new CustomEvent('axiosError', {
+                detail: {
+                  message: 'Bad Request',
+                },
+              }),
+            );
+          } else {
+            window.dispatchEvent(
+              new CustomEvent('axiosError', {
+                detail: {
+                  message: 'Unauthorized',
+                },
+              }),
+            );
+          }
           return Promise.reject(error);
         case 403:
           window.dispatchEvent(

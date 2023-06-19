@@ -25,6 +25,8 @@ export const Alert = () => {
         addAlert({ message: '권한이 없습니다.' });
       } else if (message === 'Forbidden') {
         addAlert({ message: '다시 로그인해주세요.', onConfirm: logOut });
+      } else if (message === 'Bad Request') {
+        addAlert({ message: '잘못된 요청입니다.' });
       } else {
         addAlert({ message });
       }
