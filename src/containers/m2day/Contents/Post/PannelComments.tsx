@@ -16,7 +16,7 @@ interface Props {
 }
 
 const PannelComments = ({ postId }: Props) => {
-  const { addAlert } = useAlert();
+  const { addAlert, alertUserOnly } = useAlert();
   const [newComment, setNewComment] = useState('');
   const [inSubmit, setInsubmit] = useState(false);
   const [inDelete, setInDelete] = useState(false);
@@ -36,19 +36,21 @@ const PannelComments = ({ postId }: Props) => {
 
   const onSubmit: FormEventHandler = (e) => {
     e.preventDefault();
-    setInsubmit(true);
-    postCommentAPI({
-      targetCategory: TARGET_CATEGORY.M2_POST,
-      targetId: postId,
-      body: newComment,
-    })
-      .then(() => {
-        refetchComments();
-        setNewComment('');
+    alertUserOnly(() => {
+      setInsubmit(true);
+      postCommentAPI({
+        targetCategory: TARGET_CATEGORY.M2_POST,
+        targetId: postId,
+        body: newComment,
       })
-      .finally(() => {
-        setInsubmit(false);
-      });
+        .then(() => {
+          refetchComments();
+          setNewComment('');
+        })
+        .finally(() => {
+          setInsubmit(false);
+        });
+    });
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
