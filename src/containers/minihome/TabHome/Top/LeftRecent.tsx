@@ -25,8 +25,8 @@ const LeftRecent = () => {
         return (
           <li key={key}>
             <a href={`/minihome/${recent.category.toLowerCase()}`} data-tab={recent.category}>
-              <div className={cx(styles.commentBadge, styles[recent.category.toLowerCase()])}>
-                {RECENT_CATEGORIES[shortCategory]}
+              <div className={cx(styles.commentBadge, styles[shortCategory.toLowerCase()])}>
+                {RECENT_CATEGORIES[recent.category]}
               </div>
               <p className={styles.commentBody}>{recent.body.substring(0, 30)}</p>
             </a>

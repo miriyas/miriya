@@ -51,4 +51,8 @@ export interface Comment extends WithAuthor, TimeStamp {
   blogPost?: {
     title: string;
   };
+  m2PostId: string | null;
+  m2Post?: {
+    content: string;
+  };
 }

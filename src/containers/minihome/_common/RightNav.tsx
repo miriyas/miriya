@@ -1,5 +1,7 @@
 'use client';
 
+import cx from 'clsx';
+
 import { MINIHOME_TAB } from '@/types/minihome.d';
 
 import styles from './RightNav.module.scss';
@@ -13,9 +15,10 @@ const RightNav = () => {
           return (
             <li key={key}>
               <NavLink
-                href={`/minihome/${key.toLowerCase()}`}
+                href={`/minihome/${String(key).replace('_', '').toLowerCase()}`}
                 hrefs={i === 0 ? ['/minihome/home', '/minihome'] : undefined}
                 activeClassName={styles.current}
+                className={cx({ [styles.m2day]: key === 'M2_POST' })}
               >
                 {MINIHOME_TAB[key]}
               </NavLink>

@@ -38,10 +38,6 @@ const RightCategory = () => {
           </li>
         );
       })}
-      <li>
-        <p className={styles.category} />
-        <p className={styles.count} />
-      </li>
     </ul>
   );
 };

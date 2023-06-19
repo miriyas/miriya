@@ -9,10 +9,11 @@ export const RECENT_CATEGORIES: RecentCategoriesType = {
   CAMERA: '카메라',
   PENTAX: '펜탁스',
   BLOG: '블로그',
+  M2_POST: 'm2day',
   GUESTBOOK: '방명록',
 } as const;
 
-export const MINIHOME_TAB = {
+export const MINIHOME_TAB: RecentCategoriesType = {
   HOME: '홈',
   ...RECENT_CATEGORIES,
 } as const;
