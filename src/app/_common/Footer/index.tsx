@@ -25,7 +25,9 @@ const Footer = () => {
         <a href='mailto:miriya.lee@gmail.com' rel='nofollow'>
           MIRIYA © 2012-2023
         </a>
-        <Link href='/privacy'>개인정보처리방침</Link>
+        <Link href='/privacy' prefetch={false}>
+          개인정보처리방침
+        </Link>
       </div>
       <AuthModal />
     </footer>
