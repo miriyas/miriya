@@ -2,6 +2,7 @@ import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import { Comment } from '@/types/comments.d';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
@@ -20,6 +21,7 @@ interface Props {
 
 const Reply = ({ comment, styles, reloadComments }: Props) => {
   const { isMineOrAdmin } = useAuth();
+  const { deleteWarningAlert } = useAlert();
   const [editMode, setEditMode] = useState(false);
 
   const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
@@ -27,8 +29,10 @@ const Reply = ({ comment, styles, reloadComments }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
-    deleteCommentAPI(comment.id).then(() => {
-      reloadComments();
+    deleteWarningAlert().then(() => {
+      deleteCommentAPI(comment.id).then(() => {
+        reloadComments();
+      });
     });
   };
 

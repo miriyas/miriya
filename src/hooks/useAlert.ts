@@ -20,6 +20,25 @@ const useAlert = () => {
     setAlert(undefined);
   }, [setAlert]);
 
+  const limitLengthAlert = (limit: number, content: string) => {
+    return new Promise((resolve) => {
+      if (content.length > limit) {
+        addAlert({ message: '너무 긴데요.. 영세 사이트에 테러하지 마세요ㅠㅠ' });
+      } else {
+        resolve(null);
+      }
+    });
+  };
+
+  const deleteWarningAlert = () => {
+    return new Promise((resolve) => {
+      addAlert({
+        message: '정말 삭제하시겠습니까?',
+        onConfirm: () => resolve(null),
+      });
+    });
+  };
+
   const alertUserOnly = (callback: () => void) => {
     if (!user) {
       addAlert({ message: '미안, 구경 잘 했어? 로그인 하고 돌아오자.' });
@@ -47,6 +66,8 @@ const useAlert = () => {
   return {
     alert,
     addAlert,
+    limitLengthAlert,
+    deleteWarningAlert,
     removeAlert,
     alertUserOnly,
     alertSupporterOnly,

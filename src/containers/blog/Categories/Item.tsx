@@ -18,7 +18,7 @@ interface Props {
 
 const BlogCategoryPage = ({ category, refetch }: Props) => {
   const { user, isAdmin } = useAuth();
-  const { addAlert } = useAlert();
+  const { deleteWarningAlert } = useAlert();
 
   const [nameEdit, setNameEdit] = useState(false);
   const [name, setName] = useState(category.name);
@@ -55,10 +55,7 @@ const BlogCategoryPage = ({ category, refetch }: Props) => {
 
   const onClickDelete = () => {
     if (!user || !isAdmin) return;
-    addAlert({
-      message: '진짜 삭제하시겠습니까?',
-      onConfirm: () => deleteBlogCategoryAPI(category.id).then(refetch),
-    });
+    deleteWarningAlert().then(() => deleteBlogCategoryAPI(category.id).then(refetch));
   };
 
   return (

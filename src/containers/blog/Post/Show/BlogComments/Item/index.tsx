@@ -2,11 +2,12 @@ import { ChangeEventHandler, FormEventHandler, MouseEventHandler, useState } fro
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
+import useBlogComment from '../useBlogComment';
 import { Comment } from '@/types/comments.d';
 import { deleteCommentAPI, postCommentAPI } from '@/services/comments';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
-import useBlogComment from '../useBlogComment';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import Button from '@/components/Button';
@@ -19,6 +20,7 @@ interface Props {
 }
 
 const ItemComment = ({ comment }: Props) => {
+  const { limitLengthAlert, deleteWarningAlert } = useAlert();
   const { isMineOrAdmin, showLoginModalWhenLoggedOut } = useAuth();
   const { reloadComments } = useBlogComment({ targetId: comment.targetId });
   const [editMode, setEditMode] = useState(false);
@@ -28,8 +30,10 @@ const ItemComment = ({ comment }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
-    deleteCommentAPI(comment.id).then(() => {
-      reloadComments();
+    deleteWarningAlert().then(() => {
+      deleteCommentAPI(comment.id).then(() => {
+        reloadComments();
+      });
     });
   };
 
@@ -41,7 +45,10 @@ const ItemComment = ({ comment }: Props) => {
   };
 
   const onChangeReply: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setReplyBody(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(1000, valueToSet).then(() => {
+      setReplyBody(valueToSet);
+    });
   };
 
   const onSubmitReply: FormEventHandler<HTMLFormElement> = (e) => {

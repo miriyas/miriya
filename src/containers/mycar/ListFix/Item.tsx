@@ -21,7 +21,7 @@ interface Props {
 
 const ListFixItem = ({ item, refetch, carOwnerId }: Props) => {
   const [editMode, setEditMode] = useState(false);
-  const { addAlert } = useAlert();
+  const { deleteWarningAlert } = useAlert();
   const { user, isMineOrAdmin } = useAuth();
   const metricKm = useAtomValue(metricKmAtom);
 
@@ -31,10 +31,7 @@ const ListFixItem = ({ item, refetch, carOwnerId }: Props) => {
 
   const onClickDelete = () => {
     if (!user) return;
-    addAlert({
-      message: '진짜 삭제하시겠습니까?',
-      onConfirm: () => deleteCarFixDataAPI(item.carId, item.id).then(refetch),
-    });
+    deleteWarningAlert().then(() => deleteCarFixDataAPI(item.carId, item.id).then(refetch));
   };
 
   if (editMode) {

@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 import { getTimeDiffText } from '@/utils/date';
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useGuestbook from './useGuestbook';
 import { filterAuthorName } from '@/utils/auth';
 import { Guestbook } from '@/types/minihome.d';
@@ -20,6 +21,7 @@ interface Props {
 
 const GuestbookItem = ({ guestbook }: Props) => {
   const { submitEditGuesbookHidden, deleteGuestbook } = useGuestbook();
+  const { deleteWarningAlert } = useAlert();
   const { isAdmin, isMineOrAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
@@ -28,7 +30,7 @@ const GuestbookItem = ({ guestbook }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
-    deleteGuestbook(guestbook);
+    deleteWarningAlert().then(() => deleteGuestbook(guestbook));
   };
 
   const onClickHide: MouseEventHandler<HTMLButtonElement> = () => {

@@ -16,7 +16,7 @@ interface Props {
 }
 
 const PannelComments = ({ postId }: Props) => {
-  const { addAlert, alertUserOnly } = useAlert();
+  const { addAlert, alertUserOnly, limitLengthAlert } = useAlert();
   const [newComment, setNewComment] = useState('');
   const [inSubmit, setInsubmit] = useState(false);
   const [inDelete, setInDelete] = useState(false);
@@ -31,7 +31,10 @@ const PannelComments = ({ postId }: Props) => {
   });
 
   const onChangeComment: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setNewComment(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(150, valueToSet).then(() => {
+      setNewComment(valueToSet);
+    });
   };
 
   const onSubmit: FormEventHandler = (e) => {

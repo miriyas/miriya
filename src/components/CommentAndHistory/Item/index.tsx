@@ -3,6 +3,7 @@ import cx from 'clsx';
 import { useRouter } from 'next/navigation';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useCommentAndHistory from '../useCommentAndHistory';
 import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
 import { deleteCommentAPI } from '@/services/comments';
@@ -21,6 +22,7 @@ interface Props {
 
 const ItemComment = ({ comment }: Props) => {
   const { isMineOrAdmin } = useAuth();
+  const { deleteWarningAlert } = useAlert();
   const router = useRouter();
   const { reload } = useCameras();
   const { refetchIdols } = useIdols();
@@ -35,11 +37,13 @@ const ItemComment = ({ comment }: Props) => {
   };
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = () => {
-    deleteCommentAPI(comment.id).then(async () => {
-      router.refresh();
-      reloadComments();
-      if (comment.category === TARGET_CATEGORY.IDOLS) refetchIdols();
-      if (comment.category === TARGET_CATEGORY.CAMERA) reload();
+    deleteWarningAlert().then(() => {
+      deleteCommentAPI(comment.id).then(async () => {
+        router.refresh();
+        reloadComments();
+        if (comment.category === TARGET_CATEGORY.IDOLS) refetchIdols();
+        if (comment.category === TARGET_CATEGORY.CAMERA) reload();
+      });
     });
   };
 

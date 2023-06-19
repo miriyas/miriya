@@ -20,7 +20,7 @@ interface Props {
 
 const ListLinksItem = ({ item, refetch, carOwnerId }: Props) => {
   const [editMode, setEditMode] = useState(false);
-  const { addAlert } = useAlert();
+  const { deleteWarningAlert } = useAlert();
   const { user, isMineOrAdmin } = useAuth();
 
   const onClickEdit = () => {
@@ -29,10 +29,7 @@ const ListLinksItem = ({ item, refetch, carOwnerId }: Props) => {
 
   const onClickDelete = () => {
     if (!user) return;
-    addAlert({
-      message: '진짜 삭제하시겠습니까?',
-      onConfirm: () => deleteCarLinkDataAPI(item.carId, item.id).then(refetch),
-    });
+    deleteWarningAlert().then(() => deleteCarLinkDataAPI(item.carId, item.id).then(refetch));
   };
 
   if (editMode) {

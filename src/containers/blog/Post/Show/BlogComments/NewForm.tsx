@@ -4,6 +4,7 @@ import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useBlogComment from './useBlogComment';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { postCommentAPI } from '@/services/comments';
@@ -19,6 +20,7 @@ interface Props {
 
 const NewForm = ({ targetId, multiline }: Props) => {
   const { user } = useAuth();
+  const { limitLengthAlert } = useAlert();
   const { reloadComments } = useBlogComment({ targetId });
   const [body, setBody] = useState('');
   const [loading, setLoading] = useState(false);
@@ -43,7 +45,10 @@ const NewForm = ({ targetId, multiline }: Props) => {
   };
 
   const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
-    setBody(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(1000, valueToSet).then(() => {
+      setBody(valueToSet);
+    });
   };
 
   if (!user) {

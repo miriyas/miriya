@@ -2,6 +2,7 @@ import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetS
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useCommentAndHistory from '../useCommentAndHistory';
 import { filterAuthorName } from '@/utils/auth';
 import { Comment } from '@/types/comments.d';
@@ -17,11 +18,12 @@ interface Props {
 }
 
 const CommentEditForm = ({ comment, setEditMode, styles }: Props) => {
+  const { user } = useAuth();
+  const { limitLengthAlert } = useAlert();
   const { onEditSubmit } = useCommentAndHistory({
     targetCategory: comment.category,
     targetId: comment.targetId ?? '',
   });
-  const { user } = useAuth();
   const [body, setBody] = useState(comment.body);
 
   const onClickCancel: MouseEventHandler<HTMLButtonElement> = () => {
@@ -30,7 +32,10 @@ const CommentEditForm = ({ comment, setEditMode, styles }: Props) => {
   };
 
   const onChangeBody: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
-    setBody(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(150, valueToSet).then(() => {
+      setBody(valueToSet);
+    });
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {

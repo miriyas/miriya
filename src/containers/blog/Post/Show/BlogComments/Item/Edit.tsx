@@ -1,9 +1,10 @@
 import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from 'react';
 import cx from 'clsx';
 
-import { Comment } from '@/types/comments.d';
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useBlogComment from '../useBlogComment';
+import { Comment } from '@/types/comments.d';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
 
@@ -18,6 +19,7 @@ interface Props {
 const CommentEditForm = ({ comment, setEditMode }: Props) => {
   const { onEditSubmit } = useBlogComment({ targetId: comment.targetId });
   const { user } = useAuth();
+  const { limitLengthAlert } = useAlert();
   const [body, setBody] = useState(comment.body);
 
   const onClickCancel: MouseEventHandler<HTMLButtonElement> = () => {
@@ -26,7 +28,10 @@ const CommentEditForm = ({ comment, setEditMode }: Props) => {
   };
 
   const onChangeBody: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
-    setBody(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(150, valueToSet).then(() => {
+      setBody(valueToSet);
+    });
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {

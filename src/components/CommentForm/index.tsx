@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useIdols from '@/containers/idols/useIdols';
 import useCameras from '@/containers/cameras/useCameras';
 import { TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
@@ -25,6 +26,7 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
   const router = useRouter();
   const { reload } = useCameras();
   const { refetchIdols } = useIdols();
+  const { limitLengthAlert } = useAlert();
   const { reloadComments } = useCommentAndHistory({
     targetCategory,
     targetId,
@@ -55,7 +57,10 @@ const CommentForm = ({ targetCategory, targetId, multiline }: Props) => {
   };
 
   const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
-    setBody(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(150, valueToSet).then(() => {
+      setBody(valueToSet);
+    });
   };
 
   if (!user) {

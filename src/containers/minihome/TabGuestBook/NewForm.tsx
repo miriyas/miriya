@@ -4,14 +4,17 @@ import { ChangeEventHandler, FormEventHandler } from 'react';
 import { useAtom } from 'jotai';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useGuestbook, { newPostBodyAtom, newPostHiddenAtom } from './useGuestbook';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import PleaseLogin from '@/components/PleaseLogin';
 import styles from './NewForm.module.scss';
+import Loading from '@/components/Loading';
 
 const NewForm = () => {
-  const { user } = useAuth();
+  const { user, isLoadingMe } = useAuth();
+  const { limitLengthAlert } = useAlert();
   const { submitNewGuestbook } = useGuestbook();
   const [newPostBody, setNewPostBody] = useAtom(newPostBodyAtom);
   const [newPostHidden, setNewPostHidden] = useAtom(newPostHiddenAtom);
@@ -26,16 +29,17 @@ const NewForm = () => {
   };
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setNewPostBody(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(500, valueToSet).then(() => {
+      setNewPostBody(valueToSet);
+    });
   };
 
   if (!user) {
     return (
       <div className={styles.form}>
         <div className={styles.rightWing}>
-          <div className={styles.textareaBlank}>
-            <PleaseLogin />
-          </div>
+          <div className={styles.textareaBlank}>{isLoadingMe ? <Loading small /> : <PleaseLogin />}</div>
         </div>
       </div>
     );

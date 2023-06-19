@@ -2,6 +2,7 @@ import { ChangeEventHandler, Dispatch, FormEventHandler, MouseEventHandler, SetS
 import { useMount } from 'react-use';
 
 import useAuth from '@/hooks/useAuth';
+import useAlert from '@/hooks/useAlert';
 import useGuestbook from './useGuestbook';
 import { Guestbook } from '@/types/minihome.d';
 
@@ -14,6 +15,7 @@ interface Props {
 
 const EditForm = ({ guestbook, setEditMode }: Props) => {
   const { user } = useAuth();
+  const { limitLengthAlert } = useAlert();
   const { editPostBody, setEditPostBody, editPostHidden, setEditPostHidden, submitEditGuestbook } = useGuestbook();
 
   useMount(() => {
@@ -31,7 +33,10 @@ const EditForm = ({ guestbook, setEditMode }: Props) => {
   };
 
   const onChangeEdit: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setEditPostBody(e.currentTarget.value);
+    const valueToSet = e.currentTarget.value;
+    limitLengthAlert(500, valueToSet).then(() => {
+      setEditPostBody(valueToSet);
+    });
   };
 
   const onEditSubmit: FormEventHandler<HTMLFormElement> = () => {
