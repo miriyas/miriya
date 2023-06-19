@@ -19,7 +19,7 @@ interface Props {
 }
 
 const Reply = ({ comment, styles, reloadComments }: Props) => {
-  const { isMine, isAdmin } = useAuth();
+  const { isMineOrAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
   const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
@@ -53,7 +53,7 @@ const Reply = ({ comment, styles, reloadComments }: Props) => {
             <p className={styles.body}>{comment.body}</p>
             <div className={styles.lower}>
               <div className={styles.lowerLeft}>
-                {!editMode && (isAdmin || isMine(comment.authorId)) && (
+                {!editMode && isMineOrAdmin(comment.authorId) && (
                   <>
                     <button type='button' onClick={onClickEdit}>
                       수정

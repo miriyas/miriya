@@ -7,6 +7,7 @@ import { M2PostType } from '@/types/m2day.d';
 import { getTimeDiffText } from '@/utils/date';
 import { commentOpenAtom, editModeAtom } from '@/containers/m2day/states';
 import Functions from '@/containers/m2day/Contents/Post/Functions';
+import useAuth from '@/hooks/useAuth';
 
 import LeftIcon from './LeftIcon';
 import Content from './Content';
@@ -22,6 +23,7 @@ interface Props {
 
 const M2Post = ({ post }: Props) => {
   const { createdAt, content } = post;
+  const { isAdmin } = useAuth();
   const [editMode, setEditMode] = useAtom(editModeAtom);
   const commentOpen = useAtomValue(commentOpenAtom);
 
@@ -42,12 +44,16 @@ const M2Post = ({ post }: Props) => {
             <div className={styles.content}>
               <Content postId={post.id} content={content} />
               <time>{getTimeDiffText(createdAt)}</time>
-              <button type='button' onClick={onClickEdit}>
-                수정
-              </button>
-              <button type='button' onClick={onClickDelete} data-targetid={post.id}>
-                삭제
-              </button>
+              {isAdmin && (
+                <button type='button' onClick={onClickEdit}>
+                  수정
+                </button>
+              )}
+              {isAdmin && (
+                <button type='button' onClick={onClickDelete} data-targetid={post.id}>
+                  삭제
+                </button>
+              )}
             </div>
             <PannelYoutube postId={post.id} />
             <PannelImage postId={post.id} />

@@ -20,7 +20,7 @@ interface Props {
 
 const GuestbookItem = ({ guestbook }: Props) => {
   const { submitEditGuesbookHidden, deleteGuestbook } = useGuestbook();
-  const { isMine, isAdmin } = useAuth();
+  const { isAdmin, isMineOrAdmin } = useAuth();
   const [editMode, setEditMode] = useState(false);
 
   const onClickEdit: MouseEventHandler<HTMLButtonElement> = () => {
@@ -41,8 +41,8 @@ const GuestbookItem = ({ guestbook }: Props) => {
 
   const deleted = guestbook.deletedAt !== null;
 
-  if (!isAdmin && guestbook.hidden && !isMine(guestbook.authorId)) return null;
-  if (!isAdmin && deleted) return null;
+  if (guestbook.hidden && !isMineOrAdmin(guestbook.authorId)) return null;
+  if (deleted && !isAdmin) return null;
 
   return (
     <li
@@ -63,7 +63,7 @@ const GuestbookItem = ({ guestbook }: Props) => {
             <time>({getTimeDiffText(guestbook.createdAt, true)})</time>
           )}
         </div>
-        {!editMode && (isAdmin || isMine(guestbook.authorId)) && (
+        {!editMode && isMineOrAdmin(guestbook.authorId) && (
           <div className={styles.rightWing}>
             <button type='button' onClick={onClickEdit}>
               수정

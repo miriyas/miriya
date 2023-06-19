@@ -19,7 +19,7 @@ interface Props {
 }
 
 const ItemComment = ({ comment }: Props) => {
-  const { isMine, isAdmin, showLoginModalWhenLoggedOut } = useAuth();
+  const { isMineOrAdmin, showLoginModalWhenLoggedOut } = useAuth();
   const { reloadComments } = useBlogComment({ targetId: comment.targetId });
   const [editMode, setEditMode] = useState(false);
 
@@ -85,7 +85,7 @@ const ItemComment = ({ comment }: Props) => {
             <p className={styles.body}>{comment.body}</p>
             <div className={styles.lower}>
               <div className={styles.lowerLeft}>
-                {!editMode && (isAdmin || isMine(comment.authorId)) && (
+                {!editMode && isMineOrAdmin(comment.authorId) && (
                   <>
                     <button type='button' onClick={onClickEdit}>
                       수정

@@ -5,6 +5,7 @@
   z-index: var(--z-2);
   flex: 1;
   width: 100%;
+  overflow: hidden;
 
   .top {
     width: 100%;
@@ -29,6 +30,10 @@
     .loadingWrapper {
       @include m.flexbox;
       height: 400px;
+    }
+
+    .days {
+      width: 100%;
     }
   }
 

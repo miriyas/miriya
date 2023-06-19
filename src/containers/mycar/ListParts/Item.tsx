@@ -20,7 +20,7 @@ interface Props {
 const ListPartsItem = ({ item, refetch, carOwnerId }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const { addAlert } = useAlert();
-  const { user, isAdmin, isMine } = useAuth();
+  const { user, isMineOrAdmin } = useAuth();
 
   const onClickEdit = () => {
     setEditMode(true);
@@ -50,7 +50,7 @@ const ListPartsItem = ({ item, refetch, carOwnerId }: Props) => {
       </div>
       <div className={styles.rightWing}>
         <div className={styles.dataBody}>{item.body ? item.body : '-'}</div>
-        {(isAdmin || isMine(carOwnerId)) && (
+        {isMineOrAdmin(carOwnerId) && (
           <div className={styles.dataButtons}>
             <button type='button' onClick={onClickEdit}>
               수정

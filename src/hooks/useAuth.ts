@@ -1,5 +1,5 @@
 import 'client-only';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useSetAtom } from 'jotai';
 
@@ -28,11 +28,22 @@ const useAuth = () => {
     },
   );
 
+  const isAdmin = useMemo(() => currentUser?.role === ROLE.ADMIN, [currentUser?.role]);
+
+  const isSupporter = useMemo(() => currentUser?.role === ROLE.SUPPORTER, [currentUser?.role]);
+
   const isMine = useCallback(
     (authorId: string) => {
       return currentUser?.uid === authorId;
     },
     [currentUser],
+  );
+
+  const isMineOrAdmin = useCallback(
+    (authorId: string) => {
+      return isAdmin || isMine(authorId);
+    },
+    [isAdmin, isMine],
   );
 
   const getMe = () => {
@@ -62,9 +73,10 @@ const useAuth = () => {
     user: currentUser,
     logOut,
     logOutLoading,
-    isAdmin: currentUser?.role === ROLE.ADMIN,
-    isSupporter: currentUser?.role === ROLE.SUPPORTER,
+    isAdmin,
+    isSupporter,
     isMine,
+    isMineOrAdmin,
     isLoadingMe,
     getMe,
     showLoginModalWhenLoggedOut,

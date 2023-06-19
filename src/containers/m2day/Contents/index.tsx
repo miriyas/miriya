@@ -5,6 +5,7 @@ import { groupBy } from 'lodash';
 import dayjs from 'dayjs';
 
 import useM2day from '../useM2day';
+import useAuth from '@/hooks/useAuth';
 
 import FormNew from './FormNew';
 import DateItem from './DateItem';
@@ -26,6 +27,7 @@ if (typeof window !== 'undefined') {
 }
 
 const Contents = () => {
+  const { isAdmin } = useAuth();
   const { posts, isLoadingPosts } = useM2day();
 
   const days = groupBy(posts, (year) => dayjs(year.createdAt).format('YYYY-MM-DD'));
@@ -35,7 +37,7 @@ const Contents = () => {
       <div className={styles.top}>
         <Image className={styles.logo} src='/images/m2day/logo.png' width={200} height={48} alt='' />
       </div>
-      <FormNew />
+      {isAdmin && <FormNew />}
       <div className={styles.contentsWrapper}>
         <div className={styles.header}>
           <p className={styles.me}>나는</p>

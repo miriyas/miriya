@@ -20,7 +20,7 @@ interface Props {
 }
 
 const ItemComment = ({ comment }: Props) => {
-  const { isMine, isAdmin } = useAuth();
+  const { isMineOrAdmin } = useAuth();
   const router = useRouter();
   const { reload } = useCameras();
   const { refetchIdols } = useIdols();
@@ -66,7 +66,7 @@ const ItemComment = ({ comment }: Props) => {
               </p>
             </div>
             <div className={styles.rightWing}>
-              {!editMode && (isAdmin || isMine(comment.authorId)) && (
+              {!editMode && isMineOrAdmin(comment.authorId) && (
                 <>
                   <button type='button' onClick={onClickEdit}>
                     수정

@@ -6,6 +6,7 @@ import useAlert from '@/hooks/useAlert';
 import { TARGET_CATEGORY } from '@/types/comments.d';
 import { deleteCommentAPI, getCommentsApi, postCommentAPI } from '@/services/comments';
 import { getTimeDiffText } from '@/utils/date';
+import useM2day from '@/containers/m2day/useM2day';
 
 import styles from './Pannel.module.scss';
 import Loading from '@/components/Loading';
@@ -19,6 +20,7 @@ const PannelComments = ({ postId }: Props) => {
   const [newComment, setNewComment] = useState('');
   const [inSubmit, setInsubmit] = useState(false);
   const [inDelete, setInDelete] = useState(false);
+  const { refetchPosts } = useM2day();
 
   const {
     data: comments = [],
@@ -61,6 +63,7 @@ const PannelComments = ({ postId }: Props) => {
         deleteCommentAPI(commentId)
           .then(() => {
             refetchComments();
+            refetchPosts();
           })
           .finally(() => {
             setInDelete(false);
