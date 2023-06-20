@@ -12,6 +12,11 @@ const PannelYoutube = ({ postId }: Props) => {
 
   const openYoutubePannel = (e: any) => {
     if (e.detail.postid !== postId) return;
+    if (youtubeId) {
+      setYoutubeId(undefined);
+      return;
+    }
+
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     const match = e.detail.link.match(regExp);
     const id = match && match[7].length === 11 ? match[7] : null;

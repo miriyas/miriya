@@ -12,20 +12,6 @@ import DateItem from './DateItem';
 import Loading from '@/components/Loading';
 import styles from './index.module.scss';
 
-if (typeof window !== 'undefined') {
-  window.onClickYoutube = (e) => {
-    e.preventDefault();
-    window.dispatchEvent(
-      new CustomEvent('openYoutubePannel', {
-        detail: {
-          postid: e.currentTarget.dataset.postid,
-          link: e.currentTarget.href,
-        },
-      }),
-    );
-  };
-}
-
 const Contents = () => {
   const { isAdmin } = useAuth();
   const { posts, isLoadingPosts } = useM2day();

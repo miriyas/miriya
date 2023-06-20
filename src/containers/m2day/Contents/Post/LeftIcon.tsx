@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { isEmpty } from 'lodash';
 
 import { M2PostType } from '@/types/m2day.d';
 
@@ -13,7 +14,7 @@ interface Props {
 const LeftIcon = ({ post }: Props) => {
   const { images } = post;
 
-  const imageUrls = images?.split(',') ?? [];
+  const imageUrls = isEmpty(images) ? [] : images?.split(',');
 
   const onClickAlbum = () => {
     window.dispatchEvent(
