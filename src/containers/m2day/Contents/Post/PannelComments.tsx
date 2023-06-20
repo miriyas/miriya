@@ -8,7 +8,8 @@ import { deleteCommentAPI, getCommentsApi, postCommentAPI } from '@/services/com
 import { getTimeDiffText } from '@/utils/date';
 import useM2day from '@/containers/m2day/useM2day';
 
-import styles from './Pannel.module.scss';
+import baseStyles from './index.module.scss';
+import styles from './PannelComments.module.scss';
 import Loading from '@/components/Loading';
 
 interface Props {
@@ -78,7 +79,7 @@ const PannelComments = ({ postId }: Props) => {
   };
 
   return (
-    <div className={cx(styles.pannel, styles.commentsPannel)}>
+    <div className={cx(baseStyles.pannel, styles.commentsPannel)}>
       {isLoadingComments && <Loading small />}
       <ul className={styles.comments}>
         {comments.map((comment) => {

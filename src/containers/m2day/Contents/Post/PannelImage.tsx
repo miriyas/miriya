@@ -3,9 +3,10 @@ import { MouseEventHandler, useEffect, useState } from 'react';
 import Image from 'next/image';
 import cx from 'clsx';
 
-import styles from './Pannel.module.scss';
 import { IconChevronRight } from 'public/svgs';
 import ImageExpandable from '@/components/ImageExpandable';
+import baseStyles from './index.module.scss';
+import styles from './PannelImage.module.scss';
 
 interface Props {
   postId: string;
@@ -46,7 +47,7 @@ const PannelImage = ({ postId }: Props) => {
   if (imageUrls.length === 0) return null;
 
   return (
-    <div className={cx(styles.pannel, styles.imagePannel)}>
+    <div className={cx(baseStyles.pannel, styles.imagePannel)}>
       <div className={styles.imageWrapper}>
         <ImageExpandable src={imageUrls[selectedIdx]} alt='' ignoreDimension />
 
