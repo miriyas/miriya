@@ -18,14 +18,18 @@ const PannelImage = ({ postId }: Props) => {
   useEffect(() => {
     const openImagePannel = (e: any) => {
       if (e.detail.postid !== postId) return;
-      setImageUrls(e.detail.imageUrls);
+      if (imageUrls.length === 0) {
+        setImageUrls(e.detail.imageUrls);
+        return;
+      }
+      setImageUrls([]);
     };
 
     window.addEventListener('openImagePannel', openImagePannel);
     return () => {
       window.removeEventListener('openImagePannel', openImagePannel);
     };
-  }, [postId]);
+  }, [imageUrls.length, postId]);
 
   const onClickThumbnail: MouseEventHandler<HTMLButtonElement> = (e) => {
     setSelectedIdx(Number(e.currentTarget.dataset.idx));
