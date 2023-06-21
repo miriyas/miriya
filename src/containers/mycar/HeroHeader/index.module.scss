@@ -4,6 +4,7 @@
   position: relative;
   width: 100%;
   padding-top: 56.25%; // 16:9
+  background-color: var(--color-white);
 
   @include m.after(SD) {
     width: 800px;

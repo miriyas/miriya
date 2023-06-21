@@ -3,11 +3,6 @@
 .wrapper {
   width: 100%;
 
-  &.loading {
-    @include m.flexbox;
-    height: 200px;
-  }
-
   .headerWrapper {
     position: relative;
 
