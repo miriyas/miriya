@@ -18,7 +18,7 @@ const Profile = () => {
   return (
     <div className={styles.profile}>
       <div className={styles.imageWrapper}>
-        <Image src='/images/m2day/profile.jpg' width={77} height={77} alt='' />
+        <Image src='/images/m2day/profile.jpg' width={77} height={77} alt='' priority />
       </div>
       <div className={styles.nickname}>MIRIYA</div>
       <div className={styles.intro}>

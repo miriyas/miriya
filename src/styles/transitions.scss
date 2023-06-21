@@ -1,0 +1,53 @@
+::view-transition-old(root) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideToLeft;
+}
+
+::view-transition-new(root) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideFromRight;
+}
+
+.backTransition {
+  &::view-transition-old(root) {
+    animation-name: fadeOut, slideToRight;
+  }
+
+  &::view-transition-new(root) {
+    animation-name: fadeIn, slideFromLeft;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(30px);
+  }
+}
+
+@keyframes slideToLeft {
+  to {
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes slideToRight {
+  to {
+    transform: translateX(30px);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-30px);
+  }
+}

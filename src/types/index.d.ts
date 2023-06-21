@@ -3,6 +3,12 @@ import Isotope from 'isotope-layout';
 
 import type { Gtag } from '@types/gtag.js';
 
+interface ViewTransition {
+  finished: Promise<void>;
+  ready: Promise<void>;
+  updateCallbackDone: Promise<void>;
+}
+
 declare global {
   interface Window {
     gtag: Gtag;
@@ -11,6 +17,10 @@ declare global {
       [key: number]: Isotope;
     };
     onClickYoutube: (e: MouseEvent<HTMLAnchorElement>, link: string) => void;
+  }
+
+  interface Document {
+    startViewTransition(setupPromise: () => Promise<void> | void): ViewTransition;
   }
 }
 

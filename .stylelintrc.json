@@ -43,6 +43,18 @@
         "ignorePseudoClasses": ["global", "export"]
       }
     ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": ["/^transition-/"]
+      }
+    ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["/^view-transition-/"]
+      }
+    ],
     "string-quotes": "single"
   }
 }
