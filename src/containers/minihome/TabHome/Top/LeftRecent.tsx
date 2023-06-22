@@ -22,9 +22,10 @@ const LeftRecent = () => {
       {recentComments?.map((recent, i) => {
         const key = `recent-${i}`;
         const shortCategory = recent.category.split('_').join('');
+        const href = recent.category === 'M2_POST' ? 'm2day' : recent.category.toLowerCase();
         return (
           <li key={key}>
-            <a href={`/minihome/${recent.category.toLowerCase()}`} data-tab={recent.category}>
+            <a href={`/minihome/${href}`} data-tab={recent.category}>
               <div className={cx(styles.commentBadge, styles[shortCategory.toLowerCase()])}>
                 {RECENT_CATEGORIES[recent.category]}
               </div>

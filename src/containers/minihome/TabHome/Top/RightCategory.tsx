@@ -24,9 +24,10 @@ const RightCategory = () => {
     <ul className={styles.rightCategory}>
       {Object.keys(data).map((key) => {
         const count = data[key];
+        const href = key === 'M2_POST' ? 'm2day' : key.toLowerCase();
         return (
           <li key={key}>
-            <Link href={`/minihome/${key.toLowerCase()}`}>
+            <Link href={`/minihome/${href}`}>
               <p className={styles.category}>{RECENT_CATEGORIES[key]}</p>
               <p className={styles.count}>
                 {count.today}/{count.total}

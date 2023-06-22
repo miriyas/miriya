@@ -18,7 +18,7 @@ const RightNav = () => {
                 href={`/minihome/${String(key).replace('_', '').toLowerCase()}`}
                 hrefs={i === 0 ? ['/minihome/home', '/minihome'] : undefined}
                 activeClassName={styles.current}
-                className={cx({ [styles.m2day]: key === 'M2_POST' })}
+                className={cx({ [styles.m2day]: key === 'M2DAY' })}
               >
                 {MINIHOME_TAB[key]}
               </NavLink>

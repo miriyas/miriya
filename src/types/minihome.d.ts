@@ -15,7 +15,12 @@ export const RECENT_CATEGORIES: RecentCategoriesType = {
 
 export const MINIHOME_TAB: RecentCategoriesType = {
   HOME: '홈',
-  ...RECENT_CATEGORIES,
+  IDOLS: '아이돌',
+  CAMERA: '카메라',
+  PENTAX: '펜탁스',
+  BLOG: '블로그',
+  M2DAY: 'm2day',
+  GUESTBOOK: '방명록',
 } as const;
 
 export interface GADataRow {
