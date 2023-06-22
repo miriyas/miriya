@@ -47,7 +47,7 @@ const ImageExpandable = ({ src, alt, width, height, ignoreDimension, summaryId }
     <div className={cx(styles.imageExpandable, { [styles.opened]: opened })}>
       <button type='button' className={styles.openButton} onClick={onClickSummary}>
         {ignoreDimension ? (
-          <img src={src} alt={alt ?? ''} className={styles.summaryImg} id={summaryId} />
+          <img src={src} alt={alt ?? ''} className={styles.summaryImg} id={summaryId} data-category='thumbnail' />
         ) : (
           <Image
             src={src}
