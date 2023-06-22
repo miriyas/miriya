@@ -28,12 +28,28 @@
   }
 }
 
+// TEST: test/viewtransitionapi
+
 ::view-transition-image-pair(transition-test) {
   isolation: none;
 }
 
 ::view-transition-old(transition-test),
 ::view-transition-new(transition-test) {
+  mix-blend-mode: normal;
+  animation: none;
+}
+
+// M2 album
+
+::view-transition-image-pair(transition-m2-album) {
+  isolation: none;
+}
+
+::view-transition-old(transition-m2-album),
+::view-transition-new(transition-m2-album) {
+  height: 100%;
+  // overflow: clip;
   mix-blend-mode: normal;
   animation: none;
 }
