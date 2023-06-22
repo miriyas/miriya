@@ -82,7 +82,7 @@ const Header = () => {
     const oldHref = window.location.href.replace(window.location.origin, '');
     const newHref = e.currentTarget.href.replace(window.location.origin, '');
     const isBack = isBackNavigation(oldHref, newHref);
-    if (isBack) document.documentElement.classList.add('backTransition');
+    document.documentElement.classList.add(isBack ? 'backTransition' : 'frontTransition');
 
     transitionHelper({
       updateDOM() {
@@ -92,7 +92,7 @@ const Header = () => {
         });
       },
     }).finished.finally(() => {
-      document.documentElement.classList.remove('backTransition');
+      document.documentElement.classList.remove('backTransition', 'frontTransition');
     });
   };
 

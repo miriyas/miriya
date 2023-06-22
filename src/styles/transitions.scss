@@ -1,53 +1,29 @@
-::view-transition-old(root) {
-  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideToLeft;
-}
+.frontTransition {
+  &::view-transition-image-pair(root) {
+    isolation: isolate;
+  }
 
-::view-transition-new(root) {
-  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideFromRight;
-}
-
-.backTransition {
   &::view-transition-old(root) {
-    animation-name: fadeOut, slideToRight;
+    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideToLeft;
   }
 
   &::view-transition-new(root) {
-    animation-name: fadeIn, slideFromLeft;
+    mix-blend-mode: plus-lighter;
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideFromRight;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+.backTransition {
+  &::view-transition-image-pair(root) {
+    isolation: isolate;
   }
-}
 
-@keyframes fadeOut {
-  to {
-    opacity: 0;
+  &::view-transition-old(root) {
+    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideToRight;
   }
-}
 
-@keyframes slideFromRight {
-  from {
-    transform: translateX(30px);
-  }
-}
-
-@keyframes slideToLeft {
-  to {
-    transform: translateX(-30px);
-  }
-}
-
-@keyframes slideToRight {
-  to {
-    transform: translateX(30px);
-  }
-}
-
-@keyframes slideFromLeft {
-  from {
-    transform: translateX(-30px);
+  &::view-transition-new(root) {
+    mix-blend-mode: plus-lighter;
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideFromLeft;
   }
 }
