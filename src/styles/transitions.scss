@@ -27,3 +27,13 @@
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn, 300ms cubic-bezier(0.4, 0, 0.2, 1) both slideFromLeft;
   }
 }
+
+::view-transition-image-pair(transition-test) {
+  isolation: none;
+}
+
+::view-transition-old(transition-test),
+::view-transition-new(transition-test) {
+  mix-blend-mode: normal;
+  animation: none;
+}
