@@ -2,9 +2,9 @@
 import { MouseEventHandler, useEffect, useState } from 'react';
 import Image from 'next/image';
 import cx from 'clsx';
-import { flushSync } from 'react-dom';
 
-import { transitionHelper } from '@/utils/transition';
+import { callTransition } from '@/utils/transition';
+import { TRANSITIONS } from '@/types/transitions.d';
 
 import { IconChevronRight } from 'public/svgs';
 import ImageExpandable from '@/components/ImageExpandable';
@@ -38,21 +38,8 @@ const PannelImage = ({ postId }: Props) => {
   }, [imageUrls.length, postId]);
 
   const moveToImage = (targetIdx: number, thumbnail: HTMLImageElement | null) => {
-    document.querySelector<HTMLImageElement>(`#${summaryId}`)?.style.setProperty('view-transition-name', '');
-    thumbnail?.style.setProperty('view-transition-name', 'transition-m2-album');
-    transitionHelper({
-      updateDOM() {
-        flushSync(() => {
-          thumbnail?.style.setProperty('view-transition-name', '');
-          document
-            .querySelector<HTMLImageElement>(`#${summaryId}`)
-            ?.style.setProperty('view-transition-name', 'transition-m2-album');
-          setSelectedIdx(targetIdx);
-        });
-      },
-    }).finished.finally(() => {
-      document.querySelector<HTMLImageElement>(`#${summaryId}`)?.style.setProperty('view-transition-name', '');
-      thumbnail?.style.setProperty('view-transition-name', '');
+    callTransition(thumbnail, document.querySelector<HTMLImageElement>(`#${summaryId}`), TRANSITIONS.TEST, () => {
+      setSelectedIdx(targetIdx);
     });
   };
 

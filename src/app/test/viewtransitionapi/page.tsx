@@ -2,9 +2,9 @@
 
 import { MouseEventHandler, useRef, useState } from 'react';
 import Image from 'next/image';
-import { flushSync } from 'react-dom';
 
-import { transitionHelper } from '@/utils/transition';
+import { callTransition } from '@/utils/transition';
+import { TRANSITIONS } from '@/types/transitions.d';
 
 import styles from './index.module.scss';
 
@@ -24,17 +24,9 @@ const TestPage = () => {
   const onClick: MouseEventHandler<HTMLImageElement> = (e) => {
     const thumbnail = e.currentTarget;
     const newSrc = thumbnail.dataset.url ?? '';
-    largeImageRef.current?.style.setProperty('view-transition-name', '');
-    thumbnail?.style.setProperty('view-transition-name', 'transition-test');
-    transitionHelper({
-      updateDOM() {
-        flushSync(() => {
-          thumbnail?.style.setProperty('view-transition-name', '');
-          largeImageRef.current?.style.setProperty('view-transition-name', 'transition-test');
-          setCurrentImage(newSrc);
-        });
-      },
-    }).finished.finally(() => {});
+    callTransition(thumbnail, largeImageRef.current, TRANSITIONS.TEST, () => {
+      setCurrentImage(newSrc);
+    });
   };
 
   return (

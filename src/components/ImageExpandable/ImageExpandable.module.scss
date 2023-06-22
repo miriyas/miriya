@@ -3,28 +3,40 @@
 .imageExpandable {
   z-index: var(--z-2);
 
-  &::before {
-    content: '';
-    transition: 300ms;
-  }
+  .openButton {
+    @include m.flexbox;
+    overflow: hidden;
+    cursor: zoom-in;
 
-  &[open] {
-    @include m.fixed(0 0 0 0);
-    z-index: var(--z-image-ex-1);
-
-    &::before {
-      @include m.fixed(0 0 0 0);
-      z-index: var(--z-4);
-      content: '';
-      background-color: rgba(var(--color-black-rgb), 0.7);
-      backdrop-filter: blur(2px);
+    &:hover {
+      img {
+        transform: scale(110%);
+      }
     }
 
-    summary {
-      @include m.absolute(0 0 0 0);
+    img {
+      display: block;
+      contain: layout;
+      transition: 200ms;
+    }
+  }
+
+  .closeButton {
+    display: none;
+  }
+
+  &.opened {
+    z-index: var(--z-image-ex-1);
+
+    .closeButton {
+      @include m.fixed(0 0 0 0);
       z-index: var(--z-image-ex-3);
+      display: block;
       cursor: zoom-out;
-      opacity: 0;
+      content: '';
+      background-color: rgba(var(--color-black-rgb), 0.7);
+      transition: 300ms;
+      backdrop-filter: blur(2px);
     }
 
     .detailsImg {
@@ -35,19 +47,6 @@
       height: initial;
       max-height: 100vh;
       user-select: none;
-    }
-  }
-
-  summary {
-    @include m.flexbox;
-    cursor: zoom-in;
-
-    img {
-      display: block;
-      width: 100% !important;
-      // height: auto !important;
-      // max-height: 100vw;
-      contain: layout;
     }
   }
 }

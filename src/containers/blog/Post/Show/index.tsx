@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-danger */
 
 import dynamic from 'next/dynamic';
@@ -26,12 +27,7 @@ const BlogShowPage = ({ categories, postData }: Props) => {
     <main className={styles.showPost}>
       <div className={styles.centering}>
         {hero && (
-          <div
-            className={styles.hero}
-            style={{
-              backgroundImage: `url(${hero})`,
-            }}
-          >
+          <div className={styles.hero} style={{ backgroundImage: `url(${hero})` }}>
             <div className={styles.cover}>
               <div className={styles.titleShade}>
                 <p>{postData.title}</p>

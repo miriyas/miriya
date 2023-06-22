@@ -1,3 +1,23 @@
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 10s;
+}
+
+.parentTransition {
+  &::view-transition-image-pair(root) {
+    isolation: isolate;
+  }
+
+  &::view-transition-old(root) {
+    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut;
+  }
+
+  &::view-transition-new(root) {
+    mix-blend-mode: plus-lighter;
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn;
+  }
+}
+
 .frontTransition {
   &::view-transition-image-pair(root) {
     isolation: isolate;
@@ -40,6 +60,18 @@
   animation: none;
 }
 
+// Image Expandable
+
+::view-transition-image-pair(transition-image-expandable) {
+  isolation: none;
+}
+
+::view-transition-old(transition-image-expandable),
+::view-transition-new(transition-image-expandable) {
+  mix-blend-mode: normal;
+  animation: none;
+}
+
 // M2 album
 
 ::view-transition-image-pair(transition-m2-album) {
@@ -49,7 +81,7 @@
 ::view-transition-old(transition-m2-album),
 ::view-transition-new(transition-m2-album) {
   height: 100%;
-  // overflow: clip;
+  overflow: clip;
   mix-blend-mode: normal;
   animation: none;
 }

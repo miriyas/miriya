@@ -58,10 +58,11 @@ const ROUTES = [
   },
 ];
 
-const isBackNavigation = (oldHref: string, newHref: string) => {
+const getTransitionDirection = (oldHref: string, newHref: string) => {
+  if (oldHref.includes(newHref)) return 'parentTransition';
   const oldIndex = ROUTES.indexOf(ROUTES.find((r) => r.href === oldHref) ?? ROUTES[0]);
   const newIndex = ROUTES.indexOf(ROUTES.find((r) => r.href === newHref) ?? ROUTES[0]);
-  return oldIndex > newIndex;
+  return oldIndex > newIndex ? 'backTransition' : 'frontTransition';
 };
 
 const Header = () => {
@@ -81,18 +82,15 @@ const Header = () => {
     // 뒤로가기 앞으로가기에 따라 트랜지션 방향을 전환함
     const oldHref = window.location.href.replace(window.location.origin, '');
     const newHref = e.currentTarget.href.replace(window.location.origin, '');
-    const isBack = isBackNavigation(oldHref, newHref);
-    document.documentElement.classList.add(isBack ? 'backTransition' : 'frontTransition');
-
-    transitionHelper({
-      updateDOM() {
-        // https://react.dev/reference/react-dom/flushSync 퍼포먼스에 영향가니 주의해서 사용해야함
-        flushSync(() => {
-          router.push(newHref);
-        });
-      },
+    const transitionDirection = getTransitionDirection(oldHref, newHref);
+    document.documentElement.classList.add(transitionDirection);
+    transitionHelper(() => {
+      // https://react.dev/reference/react-dom/flushSync 퍼포먼스에 영향가니 주의해서 사용해야함
+      flushSync(() => {
+        router.push(newHref);
+      });
     }).finished.finally(() => {
-      document.documentElement.classList.remove('backTransition', 'frontTransition');
+      document.documentElement.classList.remove('parentTransition', 'backTransition', 'frontTransition');
     });
   };
 

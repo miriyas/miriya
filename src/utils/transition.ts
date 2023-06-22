@@ -1,13 +1,11 @@
 // https://developer.chrome.com/docs/web-platform/view-transitions/#working-with-frameworks
 
-interface TransitionHelperArg {
-  skipTransition?: boolean;
-  classNames?: string[];
-  updateDOM: () => Promise<void> | void;
-}
+import { flushSync } from 'react-dom';
 
-export const transitionHelper = ({ skipTransition = false, classNames = [], updateDOM }: TransitionHelperArg) => {
-  if (skipTransition || !document.startViewTransition) {
+import { TRANSITIONS, TransitionTypes } from '@/types/transitions.d';
+
+export const transitionHelper = (updateDOM: () => Promise<void> | void) => {
+  if (!document.startViewTransition) {
     const updateCallbackDone = Promise.resolve(updateDOM()).then(() => {});
     const ready = Promise.reject(Error('View transitions unsupported'));
 
@@ -22,11 +20,31 @@ export const transitionHelper = ({ skipTransition = false, classNames = [], upda
     };
   }
 
-  document.documentElement.classList.add(...classNames);
+  return document.startViewTransition(updateDOM);
+};
 
-  const transition = document.startViewTransition(updateDOM);
+export const assignTransition = (element: HTMLElement | null | undefined, name: TransitionTypes) => {
+  element?.style.setProperty('view-transition-name', name);
+};
 
-  transition.finished.finally(() => document.documentElement.classList.remove(...classNames));
+export const callTransition = (
+  startElement: HTMLElement | null,
+  endElement: HTMLElement | null,
+  transitionName: TransitionTypes,
+  callback: () => void,
+) => {
+  if (!startElement || !endElement) return;
 
-  return transition;
+  assignTransition(startElement, transitionName);
+  assignTransition(endElement, TRANSITIONS._);
+  transitionHelper(() => {
+    flushSync(() => {
+      assignTransition(startElement, TRANSITIONS._);
+      assignTransition(endElement, transitionName);
+      callback();
+    });
+  }).finished.finally(() => {
+    assignTransition(startElement, TRANSITIONS._);
+    assignTransition(endElement, TRANSITIONS._);
+  });
 };
