@@ -1,0 +1,218 @@
+@use 'src/styles/mixins' as m;
+
+.viewTransitionSample {
+  @include m.flexbox;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 14px;
+    font-size: 18px;
+  }
+
+  .large {
+    img {
+      display: block;
+      width: 700px;
+      contain: layout;
+    }
+  }
+
+  .thumbnails {
+    @include m.flexbox;
+    height: 73.5px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 140px;
+      contain: layout;
+    }
+  }
+
+  .wrapper {
+    @include m.flexbox;
+    position: relative;
+    width: 410px;
+    height: 410px;
+    overflow: hidden;
+    background-color: var(--color-white);
+    border: 5px solid;
+  }
+
+  .others {
+    @include m.flexbox;
+    flex-direction: column;
+    margin-top: 8px;
+
+    nav {
+      @include m.flexbox;
+      gap: 14px;
+    }
+  }
+
+  button {
+    @include m.commonBoxShadow;
+    width: 100px;
+    height: 32px;
+    margin-top: 14px;
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    border: 1px solid var(--color-gray-e);
+    border-radius: 4px;
+  }
+}
+
+// 이하 몬드리안 예제 전용
+.mondrian,
+.mondrian2,
+.mondrian3 {
+  .wrapper {
+    > div {
+      flex: 1;
+      height: 100%;
+      border: 5px solid;
+    }
+
+    .white {
+      background-color: var(--color-white);
+    }
+
+    .red {
+      background-color: var(--color-red);
+    }
+
+    .blue {
+      background-color: var(--color-blue-dark);
+    }
+
+    .yellow {
+      background-color: var(--color-yellow);
+    }
+
+    &.activated {
+      > div {
+        position: absolute;
+      }
+
+      .box1 {
+        top: 0 * 50px;
+        left: 0 * 50px;
+        width: 2 * 50px;
+        height: 3 * 50px;
+      }
+
+      .box2 {
+        top: 3 * 50px;
+        left: 0 * 50px;
+        width: 2 * 50px;
+        height: 3 * 50px;
+      }
+
+      .box3 {
+        top: 0 * 50px;
+        left: 2 * 50px;
+        width: 6 * 50px;
+        height: 6 * 50px;
+      }
+
+      .box4 {
+        top: 6 * 50px;
+        left: 0 * 50px;
+        width: 2 * 50px;
+        height: 2 * 50px;
+      }
+
+      .box5 {
+        top: 6 * 50px;
+        left: 2 * 50px;
+        width: 5 * 50px;
+        height: 2 * 50px;
+      }
+
+      .box6 {
+        top: 6 * 50px;
+        left: 7 * 50px;
+        width: 1 * 50px;
+        height: 1 * 50px;
+      }
+
+      .box7 {
+        top: 7 * 50px;
+        left: 7 * 50px;
+        width: 1 * 50px;
+        height: 1 * 50px;
+      }
+    }
+  }
+
+  // src/styles/transitions.scss 이 파일도 참조!
+}
+
+.mondrian2 {
+  .wrapper {
+    background-color: var(--color-black);
+  }
+}
+
+.mondrian3 div {
+  transition: 200ms;
+}
+
+.text {
+  .wrapper {
+    p {
+      margin: 40px 0;
+      font-size: 48px;
+      font-weight: 600;
+    }
+  }
+}
+
+.real {
+  ul {
+    @include m.flexbox;
+    flex-direction: column;
+    gap: 8px;
+    width: 800px;
+
+    li {
+      @include m.flexbox;
+      gap: 14px;
+      width: 100%;
+      height: 63px;
+      overflow: hidden;
+
+      .thumbnail {
+        position: relative;
+        flex-shrink: 0;
+        width: 120px;
+        height: 63px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .contents {
+        @include m.flexbox(start, start);
+        flex: 1;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 0;
+
+        .title {
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .summary {
+          width: 100%;
+          font-size: 12px;
+          line-height: 16px;
+          color: var(--color-gray-8);
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+}
