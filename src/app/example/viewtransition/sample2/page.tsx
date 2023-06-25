@@ -2,8 +2,8 @@
 
 import { MouseEventHandler, useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
+import Others from '../Others';
 import { IMAGES } from '../constants';
 import styles from '../index.module.scss';
 
@@ -14,6 +14,12 @@ const ViewTransitionAPISample2 = () => {
   const onClick: MouseEventHandler<HTMLImageElement> = (e) => {
     const thumbnail = e.currentTarget;
     const newSrc = thumbnail.dataset.url ?? '';
+
+    if (!document.startViewTransition) {
+      setCurrentImage(newSrc);
+      return;
+    }
+
     document.startViewTransition(() => {
       setCurrentImage(newSrc);
     });
@@ -30,14 +36,9 @@ const ViewTransitionAPISample2 = () => {
           <Image key={imageUrl} src={imageUrl} width={200} height={250} alt='' onClick={onClick} data-url={imageUrl} />
         ))}
       </div>
-      <div className={styles.others}>
-        <p>기본값 (페이드인/페이드아웃)</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample1'>&lt; 이전 예제</Link>
-          <Link href='/example/viewtransition/sample3'>다음 예제 &gt;</Link>
-        </nav>
-      </div>
+      <Others prev={1} next={3}>
+        기본값 (페이드인/페이드아웃)
+      </Others>
     </main>
   );
 };

@@ -2,9 +2,9 @@
 
 import { MouseEventHandler, useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { flushSync } from 'react-dom';
 
+import Others from '../Others';
 import { IMAGES } from '../constants';
 import styles from '../index.module.scss';
 
@@ -15,6 +15,11 @@ const ViewTransitionAPISample3 = () => {
   const onClick: MouseEventHandler<HTMLImageElement> = (e) => {
     const thumbnail = e.currentTarget;
     const newSrc = thumbnail.dataset.url ?? '';
+
+    if (!document.startViewTransition) {
+      setCurrentImage(newSrc);
+      return;
+    }
 
     if (!thumbnail || !largeImageRef.current) return;
 
@@ -46,14 +51,9 @@ const ViewTransitionAPISample3 = () => {
           <Image key={imageUrl} src={imageUrl} width={200} height={250} alt='' onClick={onClick} data-url={imageUrl} />
         ))}
       </div>
-      <div className={styles.others}>
-        <p>슉-슉</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample2'>&lt; 이전 예제</Link>
-          <Link href='/example/viewtransition/sample4'>다음 예제 &gt;</Link>
-        </nav>
-      </div>
+      <Others prev={2} next={4}>
+        슉-슉
+      </Others>
     </main>
   );
 };

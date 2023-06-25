@@ -3,11 +3,11 @@
 import { CSSProperties, MouseEventHandler } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import cx from 'clsx';
 
 import { getRandimString } from '../utils';
 
+import Others from '../../Others';
 import { IMAGES } from '../../constants';
 import '../transition.scss';
 import commonStyles from '../../index.module.scss';
@@ -23,8 +23,13 @@ const ViewTransitionAPISample13B = async ({ params: { postId } }: Props) => {
   const router = useRouter();
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
-    document.startViewTransition(async () => {
-      await router.push('/example/viewtransition/sample13');
+    if (!document.startViewTransition) {
+      router.push('/example/viewtransition/sample13');
+      return;
+    }
+
+    document.startViewTransition(() => {
+      router.push('/example/viewtransition/sample13');
     });
   };
 
@@ -56,14 +61,7 @@ const ViewTransitionAPISample13B = async ({ params: { postId } }: Props) => {
       <button type='button' onClick={onClick}>
         돌아가기
       </button>
-      <div className={commonStyles.others}>
-        <p>아주 아주 있을법한 예제 - 슉 슉 (현재 작동 안됨)</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample12'>&lt; 이전 예제</Link>
-          {/* <Link href='/example/viewtransition/sample14'>다음 예제 &gt;</Link> */}
-        </nav>
-      </div>
+      <Others prev={12}>아주 아주 있을법한 예제 - 슉 슉 (현재 작동 안됨)</Others>
     </main>
   );
 };

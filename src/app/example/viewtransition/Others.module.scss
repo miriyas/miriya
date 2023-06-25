@@ -1,0 +1,13 @@
+@use 'src/styles/mixins' as m;
+
+.others {
+  @include m.flexbox;
+  flex-direction: column;
+  margin-top: 14px;
+
+  nav {
+    @include m.flexbox;
+    gap: 14px;
+    margin-top: 14px;
+  }
+}

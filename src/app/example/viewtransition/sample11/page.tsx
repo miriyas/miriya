@@ -2,14 +2,19 @@
 
 import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
-import Link from 'next/link';
 
+import Others from '../Others';
 import styles from '../index.module.scss';
 
 const ViewTransitionAPISample11 = () => {
   const [activated, setActivated] = useState(false);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
+    if (!document.startViewTransition) {
+      setActivated((prev) => !prev);
+      return;
+    }
+
     document.startViewTransition(() => {
       setActivated((prev) => !prev);
     });
@@ -22,14 +27,9 @@ const ViewTransitionAPISample11 = () => {
       <button type='button' onClick={onClick}>
         작동!
       </button>
-      <div className={styles.others}>
-        <p>그냥 간단하게 텍스트도..</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample10'>&lt; 이전 예제</Link>
-          <Link href='/example/viewtransition/sample12'>다음 예제 &gt;</Link>
-        </nav>
-      </div>
+      <Others prev={10} next={12}>
+        그냥 간단하게 텍스트도..
+      </Others>
     </main>
   );
 };

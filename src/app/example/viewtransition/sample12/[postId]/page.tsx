@@ -3,11 +3,11 @@
 import { MouseEventHandler } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import cx from 'clsx';
 
 import { getRandimString } from '../utils';
 
+import Others from '../../Others';
 import { IMAGES } from '../../constants';
 import commonStyles from '../../index.module.scss';
 import styles from '../sample12.module.scss';
@@ -22,6 +22,11 @@ const ViewTransitionAPISample12B = async ({ params: { postId } }: Props) => {
   const router = useRouter();
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
+    if (!document.startViewTransition) {
+      router.push('/example/viewtransition/sample12');
+      return;
+    }
+
     document.startViewTransition(() => {
       router.push('/example/viewtransition/sample12');
     });
@@ -44,14 +49,9 @@ const ViewTransitionAPISample12B = async ({ params: { postId } }: Props) => {
       <button type='button' onClick={onClick}>
         돌아가기
       </button>
-      <div className={commonStyles.others}>
-        <p>아주 아주 있을법한 예제</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample10'>&lt; 이전 예제</Link>
-          <Link href='/example/viewtransition/sample13'>다음 예제 &gt;</Link>
-        </nav>
-      </div>
+      <Others prev={11} next={13}>
+        아주 아주 있을법한 예제
+      </Others>
     </main>
   );
 };

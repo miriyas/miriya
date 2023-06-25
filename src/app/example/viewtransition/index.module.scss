@@ -1,5 +1,27 @@
 @use 'src/styles/mixins' as m;
 
+.warning {
+  @include m.flexbox;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 36px;
+
+  .title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-red);
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+
+  a {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+}
+
 .viewTransitionSample {
   @include m.flexbox;
   flex-direction: column;
@@ -37,17 +59,6 @@
     overflow: hidden;
     background-color: var(--color-white);
     border: 5px solid;
-  }
-
-  .others {
-    @include m.flexbox;
-    flex-direction: column;
-    margin-top: 8px;
-
-    nav {
-      @include m.flexbox;
-      gap: 14px;
-    }
   }
 
   button {

@@ -59,10 +59,12 @@ const ROUTES = [
 ];
 
 const getTransitionDirection = (oldHref: string, newHref: string) => {
+  const oldHrefParent = oldHref.split('/')[1];
+  const newHrefParent = newHref.split('/')[1];
   if (oldHref.includes(newHref)) return 'baseTransition';
 
-  const oldRoute = ROUTES.find((r) => r.href === oldHref);
-  const newRoute = ROUTES.find((r) => r.href === newHref);
+  const oldRoute = ROUTES.find((r) => r.href.includes(oldHrefParent));
+  const newRoute = ROUTES.find((r) => r.href.includes(newHrefParent));
   if (!oldRoute || !newRoute) return 'baseTransition';
 
   const oldIndex = ROUTES.indexOf(oldRoute);

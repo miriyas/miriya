@@ -2,8 +2,8 @@
 
 import { CSSProperties, MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
-import Link from 'next/link';
 
+import Others from '../Others';
 import styles from '../index.module.scss';
 import './transition.scss';
 
@@ -11,6 +11,11 @@ const ViewTransitionAPISample7 = () => {
   const [activated, setActivated] = useState(false);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
+    if (!document.startViewTransition) {
+      setActivated((prev) => !prev);
+      return;
+    }
+
     document.startViewTransition(() => {
       setActivated((prev) => !prev);
     });
@@ -52,14 +57,9 @@ const ViewTransitionAPISample7 = () => {
       <button type='button' onClick={onClick}>
         작동!
       </button>
-      <div className={styles.others}>
-        <p>여러개 전환 효과 (검정채움)</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample6'>&lt; 이전 예제</Link>
-          <Link href='/example/viewtransition/sample8'>다음 예제 &gt;</Link>
-        </nav>
-      </div>
+      <Others prev={6} next={8}>
+        여러개 전환 효과 (검정채움)
+      </Others>
     </main>
   );
 };

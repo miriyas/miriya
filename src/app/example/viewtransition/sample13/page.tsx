@@ -8,6 +8,7 @@ import cx from 'clsx';
 
 import { getRandimString } from './utils';
 
+import Others from '../Others';
 import { IMAGES } from '../constants';
 import commonStyles from '../index.module.scss';
 import './transition.scss';
@@ -19,6 +20,11 @@ const ViewTransitionAPISample13 = () => {
   const onClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
     const { href } = e.currentTarget; // 조심해, startViewTransition 이후로는 이벤트 접근 안돼!
+
+    if (!document.startViewTransition) {
+      router.push(href);
+      return;
+    }
 
     document.startViewTransition(() => {
       router.push(href);
@@ -60,14 +66,7 @@ const ViewTransitionAPISample13 = () => {
           );
         })}
       </ul>
-      <div className={commonStyles.others}>
-        <p>아주 아주 있을법한 예제 - 슉 슉 (현재 작동 안됨)</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample12'>&lt; 이전 예제</Link>
-          {/* <Link href='/example/viewtransition/sample14'>다음 예제 &gt;</Link> */}
-        </nav>
-      </div>
+      <Others prev={12}>아주 아주 있을법한 예제 - 슉 슉 (현재 작동 안됨)</Others>
     </main>
   );
 };

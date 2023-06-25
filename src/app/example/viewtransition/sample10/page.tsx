@@ -2,14 +2,19 @@
 
 import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
-import Link from 'next/link';
 
+import Others from '../Others';
 import styles from '../index.module.scss';
 
 const ViewTransitionAPISample10 = () => {
   const [activated, setActivated] = useState(false);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
+    if (!document.startViewTransition) {
+      setActivated((prev) => !prev);
+      return;
+    }
+
     document.startViewTransition(() => {
       setActivated((prev) => !prev);
     });
@@ -30,14 +35,9 @@ const ViewTransitionAPISample10 = () => {
       <button type='button' onClick={onClick}>
         작동!
       </button>
-      <div className={styles.others}>
-        <p>그냥 transition만 쓰면? 매우 이상하죠</p>
-        <br />
-        <nav>
-          <Link href='/example/viewtransition/sample9'>&lt; 이전 예제</Link>
-          <Link href='/example/viewtransition/sample11'>다음 예제 &gt;</Link>
-        </nav>
-      </div>
+      <Others prev={9} next={11}>
+        그냥 transition만 쓰면? 매우 이상하죠
+      </Others>
     </main>
   );
 };
