@@ -5,7 +5,7 @@ import cx from 'clsx';
 import Link from 'next/link';
 
 import styles from '../index.module.scss';
-import './sample8.scss';
+import './transition.scss';
 
 const ViewTransitionAPISample8 = () => {
   const [activated, setActivated] = useState(false);

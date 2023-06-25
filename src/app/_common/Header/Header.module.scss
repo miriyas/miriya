@@ -6,7 +6,8 @@
   z-index: var(--z-global-header);
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-gray-e);
-  view-transition-name: transition-ignore;
+  // view-transition-name: transition-ignore;
+  view-transition-name: none;
 
   a {
     @include m.flexbox;

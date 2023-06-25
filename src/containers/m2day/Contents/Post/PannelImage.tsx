@@ -38,7 +38,7 @@ const PannelImage = ({ postId }: Props) => {
   }, [imageUrls.length, postId]);
 
   const moveToImage = (targetIdx: number, thumbnail: HTMLImageElement | null) => {
-    callTransition(thumbnail, document.querySelector<HTMLImageElement>(`#${summaryId}`), TRANSITIONS.TEST, () => {
+    callTransition(thumbnail, document.querySelector<HTMLImageElement>(`#${summaryId}`), TRANSITIONS.M2_ALBUM, () => {
       setSelectedIdx(targetIdx);
     });
   };

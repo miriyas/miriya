@@ -1,22 +1,9 @@
-// ::view-transition-old(root),
-// ::view-transition-new(root) {
+// 테스트용
+// ::view-transition-group(*) {
 //   animation-duration: 10s;
 // }
 
-.parentTransition {
-  &::view-transition-image-pair(root) {
-    isolation: isolate;
-  }
-
-  &::view-transition-old(root) {
-    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut;
-  }
-
-  &::view-transition-new(root) {
-    mix-blend-mode: plus-lighter;
-    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn;
-  }
-}
+// GNB 클릭시 이동에 대한 커스텀 애니메이션
 
 .frontTransition {
   &::view-transition-image-pair(root) {
@@ -48,40 +35,17 @@
   }
 }
 
-// TEST: test/viewtransitionapi
+.baseTransition {
+  &::view-transition-image-pair(root) {
+    isolation: isolate;
+  }
 
-::view-transition-image-pair(transition-test) {
-  isolation: none;
-}
+  &::view-transition-old(root) {
+    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fadeOut;
+  }
 
-::view-transition-old(transition-test),
-::view-transition-new(transition-test) {
-  mix-blend-mode: normal;
-  animation: none;
-}
-
-// Image Expandable
-
-::view-transition-image-pair(transition-image-expandable) {
-  isolation: none;
-}
-
-::view-transition-old(transition-image-expandable),
-::view-transition-new(transition-image-expandable) {
-  mix-blend-mode: normal;
-  animation: none;
-}
-
-// M2 album
-
-::view-transition-image-pair(transition-m2-album) {
-  isolation: none;
-}
-
-::view-transition-old(transition-m2-album),
-::view-transition-new(transition-m2-album) {
-  height: 100%;
-  overflow: clip;
-  mix-blend-mode: normal;
-  animation: none;
+  &::view-transition-new(root) {
+    mix-blend-mode: plus-lighter;
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn;
+  }
 }

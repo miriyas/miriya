@@ -1,0 +1,30 @@
+// 아래 짓거리가 미친것 같아 보이면 당신은 정상..
+
+::view-transition-old(transition-sample13-hero-blog),
+::view-transition-new(transition-sample13-hero-blog),
+::view-transition-old(transition-sample13-title-blog),
+::view-transition-new(transition-sample13-title-blog),
+::view-transition-old(transition-sample13-hero-mycar),
+::view-transition-new(transition-sample13-hero-mycar),
+::view-transition-old(transition-sample13-title-mycar),
+::view-transition-new(transition-sample13-title-mycar),
+::view-transition-old(transition-sample13-hero-idols),
+::view-transition-new(transition-sample13-hero-idols),
+::view-transition-old(transition-sample13-title-idols),
+::view-transition-new(transition-sample13-title-idols),
+::view-transition-old(transition-sample13-hero-pentax),
+::view-transition-new(transition-sample13-hero-pentax),
+::view-transition-old(transition-sample13-title-pentax),
+::view-transition-new(transition-sample13-title-pentax),
+::view-transition-old(transition-sample13-hero-minihome),
+::view-transition-new(transition-sample13-hero-minihome),
+::view-transition-old(transition-sample13-title-minihome),
+::view-transition-new(transition-sample13-title-minihome),
+::view-transition-old(transition-sample13-hero-profile),
+::view-transition-new(transition-sample13-hero-profile),
+::view-transition-old(transition-sample13-title-profile),
+::view-transition-new(transition-sample13-title-profile) {
+  height: 100%;
+  mix-blend-mode: normal;
+  animation: none;
+}

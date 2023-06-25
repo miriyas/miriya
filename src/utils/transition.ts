@@ -33,7 +33,10 @@ export const callTransition = (
   transitionName: TransitionTypes,
   callback: () => void,
 ) => {
-  if (!startElement || !endElement) return;
+  if (!startElement || !endElement) {
+    callback();
+    return;
+  }
 
   assignTransition(startElement, transitionName);
   assignTransition(endElement, TRANSITIONS._);

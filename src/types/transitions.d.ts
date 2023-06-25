@@ -2,9 +2,8 @@ import { ValueOf } from '@/types.d';
 
 export const TRANSITIONS = {
   _: '',
-  TEST: 'transition-test',
-  IMAGE_EXPANDABLE: 'transition-image-expandable',
-  M2_ALBUM: 'transition-m2-album',
+  M2_ALBUM: 'm2-album', // 기본값
+  IMAGE_EXPANDABLE: 'image-expandable', // 기본값
 } as const;
 
 export type TransitionTypes = ValueOf<typeof TRANSITIONS>;

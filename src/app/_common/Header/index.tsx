@@ -59,9 +59,14 @@ const ROUTES = [
 ];
 
 const getTransitionDirection = (oldHref: string, newHref: string) => {
-  if (oldHref.includes(newHref)) return 'parentTransition';
-  const oldIndex = ROUTES.indexOf(ROUTES.find((r) => r.href === oldHref) ?? ROUTES[0]);
-  const newIndex = ROUTES.indexOf(ROUTES.find((r) => r.href === newHref) ?? ROUTES[0]);
+  if (oldHref.includes(newHref)) return 'baseTransition';
+
+  const oldRoute = ROUTES.find((r) => r.href === oldHref);
+  const newRoute = ROUTES.find((r) => r.href === newHref);
+  if (!oldRoute || !newRoute) return 'baseTransition';
+
+  const oldIndex = ROUTES.indexOf(oldRoute);
+  const newIndex = ROUTES.indexOf(newRoute);
   return oldIndex > newIndex ? 'backTransition' : 'frontTransition';
 };
 
@@ -83,6 +88,7 @@ const Header = () => {
     const oldHref = window.location.href.replace(window.location.origin, '');
     const newHref = e.currentTarget.href.replace(window.location.origin, '');
     const transitionDirection = getTransitionDirection(oldHref, newHref);
+
     document.documentElement.classList.add(transitionDirection);
     transitionHelper(() => {
       // https://react.dev/reference/react-dom/flushSync 퍼포먼스에 영향가니 주의해서 사용해야함
@@ -90,7 +96,7 @@ const Header = () => {
         router.push(newHref);
       });
     }).finished.finally(() => {
-      document.documentElement.classList.remove('parentTransition', 'backTransition', 'frontTransition');
+      document.documentElement.classList.remove('baseTransition', 'backTransition', 'frontTransition');
     });
   };
 

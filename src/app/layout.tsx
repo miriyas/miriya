@@ -28,6 +28,7 @@ const RootLayout = ({ children }: Props) => {
     <html lang='en'>
       <head>
         <meta property='fb:app_id' content='1374093376066474' />
+        <meta name='view-transition' content='same-origin' />
       </head>
       <body>
         <Suspense fallback={null}>
