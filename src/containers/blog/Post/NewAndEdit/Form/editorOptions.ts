@@ -69,6 +69,16 @@ const TOOLBAR: Toolbar = [
     className: 'fa fa-bold toolbar-em',
     title: 'Emphasize',
   },
+  {
+    name: 'caption',
+    action: (editor: EasyMDE) => {
+      const cm = editor.codemirror;
+      const text = cm.getSelection();
+      cm.replaceSelection(`<figcaption>${text}</figcaption>`);
+    },
+    className: 'fa fa-align-center',
+    title: 'Caption',
+  },
   'italic',
   '|',
   'quote',

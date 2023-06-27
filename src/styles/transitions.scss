@@ -49,3 +49,8 @@
     animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fadeIn;
   }
 }
+
+::view-transition-old(transition-m2-album),
+::view-transition-new(transition-m2-album) {
+  height: 100%;
+}

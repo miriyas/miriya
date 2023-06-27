@@ -1,27 +1,5 @@
 @use 'src/styles/mixins' as m;
 
-.warning {
-  @include m.flexbox;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 36px;
-
-  .title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-red);
-  }
-
-  .desc {
-    font-size: 12px;
-  }
-
-  a {
-    margin-top: 8px;
-    font-size: 12px;
-  }
-}
-
 .viewTransitionSample {
   @include m.flexbox;
   flex-direction: column;
@@ -155,8 +133,6 @@
       }
     }
   }
-
-  // src/styles/transitions.scss 이 파일도 참조!
 }
 
 .mondrian2 {

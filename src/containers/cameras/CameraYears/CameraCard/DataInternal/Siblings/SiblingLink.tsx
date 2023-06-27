@@ -20,7 +20,8 @@ const SiblingLink = (props: Props) => {
     // https://github.com/vercel/next.js/issues/42157 외에도 hash 관련 미구현이나 버그가 매우 많다.
     // 또한 hash 변경시 페이지 스크롤 점핑을 막기 위해 pushState를 쓴다. 우울한 일이지..
     window.dispatchEvent(new CustomEvent('hashchange'));
-    // NOTE: pushState는 hashChange 이벤트를 발생시키지 않음.. 이런것 까지 하고 싶지는 않았다.. hash를 그냥 안쓰고 싶지만 그래도 해봐야지
+    // NOTE: pushState는 hashChange 이벤트를 발생시키지 않음..
+    // 이런것 까지 하고 싶지는 않았다.. hash를 그냥 안쓰고 싶지만 그래도 해봐야지
     // https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };

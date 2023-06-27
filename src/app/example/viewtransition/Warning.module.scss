@@ -1,0 +1,23 @@
+@use 'src/styles/mixins' as m;
+
+.warning {
+  @include m.flexbox;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 36px;
+
+  .title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-red);
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+
+  a {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+}

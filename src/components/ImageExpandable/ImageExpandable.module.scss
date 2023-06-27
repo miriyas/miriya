@@ -5,6 +5,7 @@
 
   .openButton {
     @include m.flexbox;
+    width: 100%;
     overflow: hidden;
     cursor: zoom-in;
 

@@ -1,7 +1,7 @@
 'use client';
 
-import styles from './index.module.scss';
 import ExternalLink from '@/components/ExternalLink';
+import styles from './Warning.module.scss';
 
 const Warning = () => {
   if (!document.startViewTransition)

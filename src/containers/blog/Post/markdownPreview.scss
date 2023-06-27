@@ -12,6 +12,13 @@
     background-color: var(--color-em);
   }
 
+  figcaption {
+    margin: -14px 0 32px;
+    font-size: 12px;
+    color: var(--color-gray-9);
+    text-align: center;
+  }
+
   em {
     color: var(--color-em);
   }
@@ -235,6 +242,17 @@
         }
       }
     }
+
+    .warningBox {
+      padding: 32px;
+      margin-top: 32px;
+      background-color: rgba(var(--color-red-rgb), 0.1);
+      border-radius: 4px;
+
+      img {
+        margin: 0;
+      }
+    }
   }
 
   > p > code {
@@ -267,8 +285,6 @@
     }
 
     :global {
-      background-color: red;
-
       .hljs {
         color: #abb2bf;
         background: #282c34;
