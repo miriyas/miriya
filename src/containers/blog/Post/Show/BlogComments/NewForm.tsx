@@ -29,7 +29,7 @@ const NewForm = ({ targetId, multiline }: Props) => {
     e.preventDefault();
     if (!user) return;
 
-    setLoading(false);
+    setLoading(true);
     postCommentAPI({
       body,
       targetCategory: TARGET_CATEGORY.BLOG,
@@ -40,7 +40,7 @@ const NewForm = ({ targetId, multiline }: Props) => {
         reloadComments();
       })
       .finally(() => {
-        setLoading(true);
+        setLoading(false);
       });
   };
 
