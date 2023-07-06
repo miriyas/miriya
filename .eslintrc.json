@@ -1,5 +1,13 @@
 {
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "extends": [
     "airbnb",
     "airbnb/hooks",
@@ -138,5 +146,6 @@
         "controlComponents": ["input"]
       }
     ]
-  }
+  },
+  "globals": { "navigation": "readonly", "globalThis": false, "NodeJS": true }
 }

@@ -17,7 +17,7 @@ const ProfilePage = () => {
         </div>
         <h1 className={styles.name}>JunHyuk Lee</h1>
         <p className={styles.desc}>Senior Web Developer</p>
-        <p className={styles.desc2}>프론트엔드 웹 개발자로 일하고 있는 miriya의 개인 작업 목록입니다.</p>
+        <p className={styles.desc2}>프론트엔드 웹 개발자 miriya입니다.</p>
         <p>
           중학생 시절에는 그림을 그리곤 했습니다.
           <br />
