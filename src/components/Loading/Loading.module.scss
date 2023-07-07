@@ -55,9 +55,16 @@
   @include m.flexbox;
   width: 100%;
   min-height: 100vh;
-  cursor: url('/svgs/hourGlassCursor.svg'), auto;
+  cursor: none;
 
   &.inComponent {
     min-height: initial;
   }
+}
+
+.hourGlassCursor {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url('/svgs/hourGlassCursor.svg');
 }
