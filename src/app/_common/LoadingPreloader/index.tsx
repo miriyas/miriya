@@ -8,9 +8,11 @@ import styles from './index.module.scss';
 const LoadingPreloader = () => {
   return (
     <div className={styles.loadingPreloader}>
-      {getNumberArr(15).map((i) => {
-        const key = `cursor-${i + 1}`;
-        return <img key={key} src={`/images/hourGlassCursor/cursor${i + 1}.png`} alt='' />;
+      {getNumberArr(10).map((i) => {
+        return getNumberArr(15).map((j) => {
+          const key = `cursor-${i + 1}`;
+          return <img key={key} src={`/images/hourGlassCursor${i + 1}/cursor${j + 1}.png`} alt='' />;
+        });
       })}
     </div>
   );
