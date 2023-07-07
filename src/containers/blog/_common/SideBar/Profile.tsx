@@ -7,11 +7,17 @@ const Profile = () => {
   return (
     <div className={styles.profile}>
       <div className={styles.profileImgWrapper}>
-        <Image src='/images/blog/profile.png' width={200} height={250} alt='' />
+        <Image src={`${process.env.NEXT_PUBLIC_CDN_URL}/blog/profile.png`} width={200} height={250} alt='' />
       </div>
       <div className={styles.nicknameWrapper}>
         <div className={styles.iconWrapper}>
-          <Image src='/images/blog/icon.png' width={22} height={22} alt='' className={styles.icon} />
+          <Image
+            src={`${process.env.NEXT_PUBLIC_CDN_URL}/blog/icon.png`}
+            width={22}
+            height={22}
+            alt=''
+            className={styles.icon}
+          />
         </div>
         <p className={styles.nickname}>MIRIYA</p>
       </div>

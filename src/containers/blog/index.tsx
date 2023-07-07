@@ -23,7 +23,7 @@ const BlogPage = ({ posts, categories }: Props) => {
     <main className={styles.blogPage}>
       <div className={styles.centering}>
         <div className={styles.hero}>
-          <Image src='/images/blog/top.jpg' alt='' width={994 * 2} height={368 * 2} priority />
+          <Image src={`${process.env.NEXT_PUBLIC_CDN_URL}/blog/top.jpg`} alt='' fill priority />
         </div>
         <Suspense
           fallback={
