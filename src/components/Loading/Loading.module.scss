@@ -55,79 +55,9 @@
   @include m.flexbox;
   width: 100%;
   min-height: 100vh;
-  animation: hourGlassCursor 1s infinite;
+  cursor: url('/svgs/hourGlassCursor.svg'), auto;
 
   &.inComponent {
     min-height: initial;
-  }
-}
-
-@keyframes hourGlassCursor {
-  0% {
-    cursor: url('/images/hourGlassCursor/cursor1.png'), auto;
-  }
-
-  6% {
-    cursor: url('/images/hourGlassCursor/cursor2.png'), auto;
-  }
-
-  12% {
-    cursor: url('/images/hourGlassCursor/cursor3.png'), auto;
-  }
-
-  18% {
-    cursor: url('/images/hourGlassCursor/cursor4.png'), auto;
-  }
-
-  24% {
-    cursor: url('/images/hourGlassCursor/cursor5.png'), auto;
-  }
-
-  30% {
-    cursor: url('/images/hourGlassCursor/cursor6.png'), auto;
-  }
-
-  36% {
-    cursor: url('/images/hourGlassCursor/cursor7.png'), auto;
-  }
-
-  42% {
-    cursor: url('/images/hourGlassCursor/cursor8.png'), auto;
-  }
-
-  48% {
-    cursor: url('/images/hourGlassCursor/cursor9.png'), auto;
-  }
-
-  54% {
-    cursor: url('/images/hourGlassCursor/cursor10.png'), auto;
-  }
-
-  60% {
-    cursor: url('/images/hourGlassCursor/cursor11.png'), auto;
-  }
-
-  66% {
-    cursor: url('/images/hourGlassCursor/cursor12.png'), auto;
-  }
-
-  72% {
-    cursor: url('/images/hourGlassCursor/cursor13.png'), auto;
-  }
-
-  78% {
-    cursor: url('/images/hourGlassCursor/cursor14.png'), auto;
-  }
-
-  84% {
-    cursor: url('/images/hourGlassCursor/cursor15.png'), auto;
-  }
-
-  90% {
-    cursor: url('/images/hourGlassCursor/cursor1.png'), auto;
-  }
-
-  100% {
-    cursor: url('/images/hourGlassCursor/cursor1.png'), auto;
   }
 }

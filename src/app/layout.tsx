@@ -6,7 +6,6 @@ import Header from './_common/Header';
 import Footer from './_common/Footer';
 import GoogleAnalytics from './GoogleAnalytics';
 import ScrollAid from './_common/ScrollAid';
-import LoadingPreloader from './_common/LoadingPreloader';
 import '@/styles/globals.scss';
 import { metadata as profileMetadata } from './profile/page';
 
@@ -42,7 +41,6 @@ const RootLayout = ({ children }: Props) => {
             <div id='alert' />
             <div id='modal' />
             <Alert />
-            <LoadingPreloader />
           </Providers>
         </Suspense>
       </body>
