@@ -51,6 +51,11 @@
     + p {
       margin-top: 16px;
     }
+
+    @include m.after(LD) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   ul,
@@ -113,7 +118,7 @@
     font-family: monospace;
     font-size: 14px;
     line-height: 20px;
-    background-color: var(--color-gray-e);
+    background-color: rgba(var(--color-black-rgb), 0.07);
     border-radius: 4px;
   }
 
@@ -244,10 +249,20 @@
     }
 
     .warningBox {
-      padding: 32px;
+      padding: 24px;
       margin: 32px 0 16px;
+      font-size: 14px;
       background-color: rgba(var(--color-red-rgb), 0.1);
+      border: 1px dashed rgba(var(--color-red-rgb), 0.3);
       border-radius: 4px;
+
+      p {
+        font-size: 14px;
+      }
+
+      code {
+        background-color: rgba(var(--color-black-rgb), 0.1);
+      }
 
       img {
         margin: 0;
@@ -261,7 +276,7 @@
     font-family: monospace;
     font-size: 14px;
     line-height: 20px;
-    background-color: var(--color-gray-e);
+    background-color: rgba(var(--color-black-rgb), 0.07);
     border-radius: 4px;
   }
 

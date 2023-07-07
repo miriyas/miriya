@@ -66,5 +66,6 @@
   position: absolute;
   width: 25px;
   height: 25px;
+  pointer-events: none;
   background-image: url('/svgs/hourGlassCursor.svg');
 }

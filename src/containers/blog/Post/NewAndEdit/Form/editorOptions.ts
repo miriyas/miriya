@@ -94,16 +94,36 @@ const TOOLBAR: Toolbar = [
     className: 'fa fa-minus',
     title: 'HR',
   },
+  {
+    name: 'Warning',
+    action: (editor: EasyMDE) => {
+      const cm = editor.codemirror;
+      const text = cm.getSelection();
+      cm.replaceSelection(`\n\n<div class="warningBox">\n\n${text}\n</div>\n`);
+    },
+    className: 'fa fa-exclamation',
+    title: 'Warning',
+  },
+
   'image',
   {
     name: 'frame320',
     action: (editor: EasyMDE) => {
       const cm = editor.codemirror;
       const text = cm.getSelection();
-      cm.replaceSelection(`<div class='image320'>\n\n${text}\n\n</div>`);
+      cm.replaceSelection(`<div class='image320'>\n\n${text}\n</div>`);
     },
     className: 'fa fa-file-image-o',
     title: 'Image Frame 320px',
+  },
+  {
+    name: 'youtube',
+    action: (editor: EasyMDE) => {
+      const cm = editor.codemirror;
+      cm.replaceSelection(`\n\n{{youtube|YOUTUBE_ID}}\n`);
+    },
+    className: 'fa fa-film',
+    title: 'Youtube',
   },
 ];
 

@@ -1,17 +1,11 @@
 'use client';
 
-import cx from 'clsx';
 import { useEffect, useRef } from 'react';
 
-import Loading from '.';
-import styles from './Loading.module.scss';
+import ViewCode from '@/app/example/ViewCode';
+import styles from './index.module.scss';
 
-interface Props {
-  inComponent?: boolean;
-  test?: boolean;
-}
-
-const LoadingPage = ({ inComponent, test }: Props) => {
+const MouseCursorSample = () => {
   const hourGlassCursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,11 +34,12 @@ const LoadingPage = ({ inComponent, test }: Props) => {
   }, []);
 
   return (
-    <div className={cx(styles.loadingPage, { [styles.inComponent]: inComponent, [styles.test]: test })}>
-      <Loading />
+    <main className={styles.mouseCursorExample}>
+      <h1>애니메이티드 마우스 커서 예제</h1>
+      <ViewCode href='https://github.com/miriyas/miriya/blob/main/src/app/example/mousecursor/page.tsx' />
       <div ref={hourGlassCursorRef} className={styles.hourGlassCursor} />
-    </div>
+    </main>
   );
 };
 
-export default LoadingPage;
+export default MouseCursorSample;
