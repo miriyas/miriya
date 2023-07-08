@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export default async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname === '/example/middleware') {
@@ -15,3 +15,5 @@ export default async function middleware(request: NextRequest) {
 export const config = {
   matcher: ['/api/:path*', '/example/:path*'],
 };
+
+export default middleware;
