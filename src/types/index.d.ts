@@ -1,15 +1,22 @@
+/* eslint-disable no-var */
+/* eslint-disable vars-on-top */
+
 import { MouseEvent } from 'react';
 import Isotope from 'isotope-layout';
 
 import type { Gtag } from '@types/gtag.js';
 
-interface ViewTransition {
+export interface ViewTransition {
   finished: Promise<void>;
   ready: Promise<void>;
+  // Deprecated
+  domUpdated?: Promise<void>;
   updateCallbackDone: Promise<void>;
 }
 
 declare global {
+  var ongoingTransition: ViewTransition | undefined;
+
   interface Window {
     gtag: Gtag;
     dataLayer: object[];
@@ -20,7 +27,7 @@ declare global {
   }
 
   interface Document {
-    startViewTransition(setupPromise: () => Promise<void> | void): ViewTransition;
+    startViewTransition: (setupPromise: () => Promise<void> | void) => ViewTransition;
   }
 }
 

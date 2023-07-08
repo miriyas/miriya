@@ -1,6 +1,6 @@
 'use client';
 
-import { CSSProperties, MouseEventHandler } from 'react';
+import { CSSProperties, MouseEventHandler, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import cx from 'clsx';
@@ -20,17 +20,38 @@ interface Props {
 }
 
 const ViewTransitionAPISample13B = async ({ params: { postId } }: Props) => {
+  // const [renderContent, setRenderContent] = useState(!globalThis.ongoingTransition);
+
   const router = useRouter();
+  // console.log(3, globalThis.ongoingTransition);
+
+  useEffect(() => {
+    if (!globalThis.ongoingTransition) {
+      // console.log('return');
+      return;
+    }
+
+    // console.log('finished');
+
+    globalThis.ongoingTransition.finished
+      .then(() => {
+        // console.log('ongoingTransition, then - SHOW');
+        // setRenderContent(true);
+      })
+      .catch(() => {});
+  }, []);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
     if (!document.startViewTransition) {
       router.push('/example/viewtransition/sample13');
-      return;
+      // return;
     }
 
-    document.startViewTransition(() => {
-      router.push('/example/viewtransition/sample13');
-    });
+    // const aa = document.startViewTransition(() => {
+    //   router.push('/example/viewtransition/sample13');
+    // });
+
+    // console.log(aa.updateCallbackDone, 333);
   };
 
   const imageUrl = IMAGES.find((img) => img.includes(postId)) ?? '';

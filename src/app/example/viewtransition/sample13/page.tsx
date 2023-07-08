@@ -26,9 +26,23 @@ const ViewTransitionAPISample13 = () => {
       return;
     }
 
-    document.startViewTransition(() => {
+    // console.log(1, globalThis.ongoingTransition);
+
+    const transition = document.startViewTransition(() => {
+      // console.log(2, globalThis.ongoingTransition);
       router.push(href);
     });
+
+    globalThis.ongoingTransition = transition;
+
+    transition.finished
+      .finally(() => {
+        // console.log('finished, finally - RESET');
+        globalThis.ongoingTransition = undefined;
+      })
+      .catch(() => {
+        // console.log('????');
+      });
   };
 
   return (
