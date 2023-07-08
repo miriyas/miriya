@@ -14,6 +14,14 @@ import { Comment } from '@/types/comments.d';
 export const getBlogPostsAPI = (categoryId?: string, limitCount?: number) =>
   apiBe<BlogPostForList[]>('/blog/posts', { params: { categoryId, limitCount } });
 
+export const fetchBlogPostsAPI = (cookies?: string, categoryId?: string, limitCount?: number) =>
+  apiBe<BlogPostForList[]>('/blog/posts', {
+    headers: {
+      Cookie: cookies,
+    },
+    params: { categoryId, limitCount },
+  });
+
 export const getBlogPostAPI = (postId: string) => apiBe<BlogPostForShow>(`/blog/posts/${postId}`);
 
 export const fetchBlogPostAPI = (postId: string) => apiBePure<BlogPostForShow>(`/blog/posts/${postId}`);

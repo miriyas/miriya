@@ -13,3 +13,12 @@ export const getCookie = (name: string) => {
 export const deleteCookie = (name: string) => {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1999 00:00:10 GMT;`;
 };
+
+interface Cookie {
+  name: string;
+  value: string;
+}
+
+export const cookiesToString = (rawCookies: Cookie[]) => {
+  return rawCookies.map((cookie) => `${cookie.name}=${cookie.value}`).join('; ');
+};
