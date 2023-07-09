@@ -31,10 +31,10 @@
       .titleShade {
         @include m.absolute(0 14px 0 14px);
         @include m.flexbox;
+        font-size: 10px; // for em
 
         p {
           padding: 14px 32px;
-          font-size: 32px;
           font-weight: 500;
           line-height: 1.6;
           color: var(--color-white);
@@ -54,10 +54,6 @@
       .hero {
         height: 200px !important;
         margin-bottom: 0 !important;
-
-        .titleShade p {
-          font-size: 24px !important;
-        }
       }
     }
   }
@@ -65,8 +61,8 @@
   @include m.after(SD) {
     .centering {
       .hero {
-        .titleShade p {
-          font-size: 48px !important;
+        .titleShade {
+          font-size: 16px;
         }
       }
     }

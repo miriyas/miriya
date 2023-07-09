@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/server';
 
-import { getPost } from './utils';
+import { getFontSize, getPost } from './utils';
 
 export const size = {
   width: 1200,
@@ -27,12 +27,6 @@ const og = async ({ params: { postId } }: Props) => {
     const font = await fetch(new URL(`${process.env.NEXT_PUBLIC_FE_URL}/fonts/SpoqaHanSansNeo-Bold.ttf`)).then((res) =>
       res.arrayBuffer(),
     );
-
-    const titleLength = new TextEncoder().encode(postData?.title).length ?? 0;
-    let fontSize = 92;
-    if (titleLength > 20) fontSize = 86;
-    if (titleLength > 24) fontSize = 72;
-    if (titleLength > 40) fontSize = 54;
 
     // zIndex 지원 안됨, 나중에 올라오는게 위에 올라간다.
     return new ImageResponse(
@@ -84,7 +78,7 @@ const og = async ({ params: { postId } }: Props) => {
             <p
               style={{
                 padding: '14px 32px',
-                fontSize,
+                fontSize: getFontSize(postData?.title),
                 fontWeight: 500,
                 fontFamily: 'Spoqa',
                 color: 'white',

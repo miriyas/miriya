@@ -23,3 +23,12 @@ export const getPost = async (postId: string): Promise<BlogPostForShow | null> =
     body,
   };
 };
+
+export const getFontSize = (title?: string) => {
+  const titleLength = new TextEncoder().encode(title).length ?? 0;
+  let fontSize = 92;
+  if (titleLength > 20) fontSize = 86;
+  if (titleLength > 24) fontSize = 72;
+  if (titleLength > 40) fontSize = 54;
+  return fontSize;
+};

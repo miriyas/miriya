@@ -15,6 +15,15 @@ import styles from './index.module.scss';
 const LikeButton = dynamic(() => import('./LikeButton'), { ssr: false });
 const CategoryRelated = dynamic(() => import('./CategoryRelated'), { ssr: false });
 
+const getFontSize = (title?: string) => {
+  const titleLength = new TextEncoder().encode(title).length ?? 0;
+  let fontSize = '3.0em';
+  if (titleLength > 20) fontSize = '2.9em';
+  if (titleLength > 24) fontSize = '2.8em';
+  if (titleLength > 40) fontSize = '2.7em';
+  return fontSize;
+};
+
 interface Props {
   categories: BlogCategoryForList[];
   postData: BlogPostForShow;
@@ -30,7 +39,7 @@ const BlogShowPage = ({ categories, postData }: Props) => {
           <div className={styles.hero} style={{ backgroundImage: `url(${hero})` }}>
             <div className={styles.cover}>
               <div className={styles.titleShade}>
-                <p>{postData.title}</p>
+                <p style={{ fontSize: getFontSize(postData.title) }}>{postData.title}</p>
               </div>
             </div>
           </div>
