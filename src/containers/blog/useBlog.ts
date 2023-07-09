@@ -6,17 +6,21 @@ import { getBlogCategoriesAPI, getBlogCommentsAPI, getBlogPostsAPI } from '@/ser
 const useBlog = (categoryId?: string) => {
   const { isAdmin, isLoadingMe } = useAuth();
 
-  const { data: posts = [], refetch: refetchPosts } = useQuery(
-    ['getBlogPostsAPI', isAdmin, isLoadingMe, categoryId],
-    () => getBlogPostsAPI(categoryId).then((res) => res.data),
-    { enabled: !isLoadingMe },
-  );
+  const { data: posts = [], refetch: refetchPosts } = useQuery({
+    queryKey: ['getBlogPostsAPI', isAdmin, isLoadingMe, categoryId],
+    queryFn: () => getBlogPostsAPI(categoryId).then((res) => res.data),
+    enabled: !isLoadingMe,
+  });
 
-  const { data: categories = [] } = useQuery(['getBlogCategoriesAPI'], () =>
-    getBlogCategoriesAPI().then((res) => res.data),
-  );
+  const { data: categories = [] } = useQuery({
+    queryKey: ['getBlogCategoriesAPI'],
+    queryFn: () => getBlogCategoriesAPI().then((res) => res.data),
+  });
 
-  const { data: comments = [] } = useQuery(['getBlogCommentsAPI'], () => getBlogCommentsAPI().then((res) => res.data));
+  const { data: comments = [] } = useQuery({
+    queryKey: ['getBlogCommentsAPI'],
+    queryFn: () => getBlogCommentsAPI().then((res) => res.data),
+  });
 
   return {
     posts,

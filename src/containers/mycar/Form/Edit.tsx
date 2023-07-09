@@ -12,7 +12,9 @@ interface Props {
 }
 
 const EditForm = ({ carId }: Props) => {
-  const { data: cars = [] } = useQuery(['getMyCarDataAPI'], () => getMyCarDataAPI().then((res) => res.data), {
+  const { data: cars = [] } = useQuery({
+    queryKey: ['getMyCarDataAPI'],
+    queryFn: () => getMyCarDataAPI().then((res) => res.data),
     suspense: true,
   });
 

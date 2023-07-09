@@ -22,7 +22,10 @@ const ListParts = ({ car }: Props) => {
     data = [],
     isLoading,
     refetch,
-  } = useQuery(['getCarPartsDataAPI', car.id], () => getCarPartsDataAPI(car.id).then((res) => res.data));
+  } = useQuery({
+    queryKey: ['getCarPartsDataAPI', car.id],
+    queryFn: () => getCarPartsDataAPI(car.id).then((res) => res.data),
+  });
 
   return (
     <div className={styles.listWrapper}>

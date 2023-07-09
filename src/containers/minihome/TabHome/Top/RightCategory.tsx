@@ -10,15 +10,13 @@ import { RECENT_CATEGORIES } from '@/types/minihome.d';
 import styles from './RightCategory.module.scss';
 
 const RightCategory = () => {
-  const { data = {} } = useQuery(
-    ['getMinihomRightCounterDataAPI'],
-    () => {
+  const { data = {} } = useQuery({
+    queryKey: ['getMinihomRightCounterDataAPI'],
+    queryFn: () => {
       return getMinihomRightCounterDataAPI().then((res) => res.data);
     },
-    {
-      suspense: true,
-    },
-  );
+    suspense: true,
+  });
 
   return (
     <ul className={styles.rightCategory}>

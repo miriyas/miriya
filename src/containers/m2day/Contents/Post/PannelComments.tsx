@@ -27,8 +27,10 @@ const PannelComments = ({ postId }: Props) => {
     data: comments = [],
     refetch: refetchComments,
     isLoading: isLoadingComments,
-  } = useQuery(['getCommentsApi', TARGET_CATEGORY.M2_POST, postId], () => {
-    return getCommentsApi({ targetCategory: TARGET_CATEGORY.M2_POST, targetId: postId }).then((res) => res.data);
+  } = useQuery({
+    queryKey: ['getCommentsApi', TARGET_CATEGORY.M2_POST, postId],
+    queryFn: () =>
+      getCommentsApi({ targetCategory: TARGET_CATEGORY.M2_POST, targetId: postId }).then((res) => res.data),
   });
 
   const onChangeComment: ChangeEventHandler<HTMLInputElement> = (e) => {

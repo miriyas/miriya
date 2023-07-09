@@ -27,14 +27,12 @@ const DataExternal = (props: Props) => {
     data = {},
     isLoading,
     isError,
-  } = useQuery(
-    ['getExternalCameraDataApi', externalId],
-    () => getExternalCameraDataApi(externalId).then((res) => res.data),
-    {
-      suspense: true,
-      enabled: showExternalData,
-    },
-  );
+  } = useQuery({
+    queryKey: ['getExternalCameraDataApi', externalId],
+    queryFn: () => getExternalCameraDataApi(externalId).then((res) => res.data),
+    suspense: true,
+    enabled: showExternalData,
+  });
 
   if (isLoading) return null;
 

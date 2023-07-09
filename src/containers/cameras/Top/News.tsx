@@ -10,13 +10,11 @@ import ExternalLink from '@/components/ExternalLink';
 
 const NewsBar = () => {
   const newsLength = 10;
-  const { data = [], isError } = useQuery(
-    ['getRecentNewsApi', newsLength],
-    () => getRecentNewsApi(newsLength).then((res) => res.data),
-    {
-      suspense: true,
-    },
-  );
+  const { data = [], isError } = useQuery({
+    queryKey: ['getRecentNewsApi', newsLength],
+    queryFn: () => getRecentNewsApi(newsLength).then((res) => res.data),
+    suspense: true,
+  });
 
   const hasError = data[0].title === 'error';
 

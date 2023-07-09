@@ -17,16 +17,18 @@ const useCommentAndHistory = ({ targetCategory, targetId }: Props) => {
     data: histories = [],
     refetch: reloadHistories,
     isLoading: isLoadingHistories,
-  } = useQuery(['getHistoriesApi', targetCategory, targetId], () => {
-    return getHistoriesApi({ targetCategory, targetId }).then((res) => res.data);
+  } = useQuery({
+    queryKey: ['getHistoriesApi', targetCategory, targetId],
+    queryFn: () => getHistoriesApi({ targetCategory, targetId }).then((res) => res.data),
   });
 
   const {
     data: comments = [],
     refetch: reloadComments,
     isLoading: isLoadingComments,
-  } = useQuery(['getCommentsApi', targetCategory, targetId], () => {
-    return getCommentsApi({ targetCategory, targetId }).then((res) => res.data);
+  } = useQuery({
+    queryKey: ['getCommentsApi', targetCategory, targetId],
+    queryFn: () => getCommentsApi({ targetCategory, targetId }).then((res) => res.data),
   });
 
   const onEditSubmit = (comment: Comment, body: string) => {

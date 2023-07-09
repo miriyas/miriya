@@ -19,15 +19,17 @@ const LikeButton = ({ targetId }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [likedByMe, setLikedByMe] = useState(false); // optimistic
 
-  const { data: likes = [], refetch: refetchLikes } = useQuery(['getLikesApi', targetId], () =>
-    getLikesApi({
-      targetCategory: LIKE_TARGET_CATEGORY.IDOLS,
-      targetId,
-    }).then((res) => {
-      setLikedByMe(res.data.map((like) => like.authorId).includes(user?.uid ?? ''));
-      return res.data;
-    }),
-  );
+  const { data: likes = [], refetch: refetchLikes } = useQuery({
+    queryKey: ['getLikesApi', targetId],
+    queryFn: () =>
+      getLikesApi({
+        targetCategory: LIKE_TARGET_CATEGORY.IDOLS,
+        targetId,
+      }).then((res) => {
+        setLikedByMe(res.data.map((like) => like.authorId).includes(user?.uid ?? ''));
+        return res.data;
+      }),
+  });
 
   const doLike = () => {
     setLikedByMe(true);

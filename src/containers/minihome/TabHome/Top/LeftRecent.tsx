@@ -9,13 +9,11 @@ import { getMinihomeLeftCommentsDataAPI } from '@/services/minihome';
 import styles from './LeftRecent.module.scss';
 
 const LeftRecent = () => {
-  const { data: recentComments } = useQuery(
-    ['getMinihomeLeftCommentsDataAPI'],
-    () => getMinihomeLeftCommentsDataAPI().then((res) => res.data),
-    {
-      suspense: true,
-    },
-  );
+  const { data: recentComments } = useQuery({
+    queryKey: ['getMinihomeLeftCommentsDataAPI'],
+    queryFn: () => getMinihomeLeftCommentsDataAPI().then((res) => res.data),
+    suspense: true,
+  });
 
   return (
     <ul className={styles.leftRecent}>

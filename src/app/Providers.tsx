@@ -18,7 +18,7 @@ const Providers = ({ children }: Props) => {
             refetchOnMount: false,
             refetchOnWindowFocus: false,
             staleTime: 30 * 1000,
-            cacheTime: 6 * 1000,
+            gcTime: 10 * 60 * 1000,
           },
         },
       }),

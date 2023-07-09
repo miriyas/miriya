@@ -12,8 +12,9 @@ const useBlogComment = ({ targetId }: Props) => {
     data: comments = [],
     refetch: reloadComments,
     isLoading: isLoadingComments,
-  } = useQuery(['getCommentsApi', TARGET_CATEGORY.BLOG, targetId], () => {
-    return getCommentsApi({ targetCategory: TARGET_CATEGORY.BLOG, targetId }).then((res) => res.data);
+  } = useQuery({
+    queryKey: ['getCommentsApi', TARGET_CATEGORY.BLOG, targetId],
+    queryFn: () => getCommentsApi({ targetCategory: TARGET_CATEGORY.BLOG, targetId }).then((res) => res.data),
   });
 
   const onEditSubmit = (comment: Comment, body: string) => {

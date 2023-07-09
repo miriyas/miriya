@@ -16,14 +16,13 @@ const Comments = () => {
   const [observed, setObserved] = useRafState(false);
   const viewMoreRef = useRef<HTMLDivElement>(null);
 
-  const { data, fetchNextPage } = useInfiniteQuery(
-    ['getBlogPostsAPI', isAdmin],
-    ({ pageParam }) => getGuestbookDataAPI(pageParam).then((res) => res.data),
-    {
-      retry: 0,
-      getNextPageParam: (lastPage) => lastPage.nextCursor,
-    },
-  );
+  const { data, fetchNextPage } = useInfiniteQuery({
+    queryKey: ['getBlogPostsAPI', isAdmin],
+    queryFn: ({ pageParam }) => getGuestbookDataAPI(pageParam).then((res) => res.data),
+    retry: 0,
+    defaultPageParam: '',
+    getNextPageParam: (lastPage) => lastPage.nextCursor,
+  });
 
   useEffect(() => {
     if (observed || !viewMoreRef.current) return;

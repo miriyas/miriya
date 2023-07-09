@@ -22,7 +22,10 @@ const ListLinks = ({ car }: Props) => {
     data = [],
     isLoading,
     refetch,
-  } = useQuery(['getCarLinksDataAPI', car.id], () => getCarLinksDataAPI(car.id).then((res) => res.data));
+  } = useQuery({
+    queryKey: ['getCarLinksDataAPI', car.id],
+    queryFn: () => getCarLinksDataAPI(car.id).then((res) => res.data),
+  });
 
   return (
     <div className={styles.listWrapper}>

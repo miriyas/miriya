@@ -5,8 +5,9 @@ import { useMemo } from 'react';
 import { getCamerasDataApi } from '@/services/cameras';
 
 const useCameras = () => {
-  const { data: cameras = [], refetch } = useQuery(['getCamerasDataApi'], () => {
-    return getCamerasDataApi().then((res) => res.data);
+  const { data: cameras = [], refetch } = useQuery({
+    queryKey: ['getCamerasDataApi'],
+    queryFn: () => getCamerasDataApi().then((res) => res.data),
   });
 
   const years = useMemo(() => {

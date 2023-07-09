@@ -11,7 +11,10 @@ const useM2day = () => {
     data: posts = [],
     isLoading: isLoadingPosts,
     refetch: refetchPosts,
-  } = useQuery(['getM2daysApi'], () => getM2daysApi().then((res) => res.data));
+  } = useQuery({
+    queryKey: ['getM2daysApi'],
+    queryFn: () => getM2daysApi().then((res) => res.data),
+  });
 
   const onClickDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
     const { targetid } = e.currentTarget.dataset;

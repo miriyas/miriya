@@ -15,18 +15,16 @@ const useAuth = () => {
     data: currentUser = null,
     refetch,
     isLoading: isLoadingMe,
-  } = useQuery(
-    ['getMeApiLocal'],
-    () =>
+  } = useQuery({
+    queryKey: ['getMeApiLocal'],
+    queryFn: () =>
       getMeApiLocal()
         .then((res) => res.data)
         .catch(() => {
           return null;
         }),
-    {
-      retry: 0,
-    },
-  );
+    retry: 0,
+  });
 
   const isAdmin = useMemo(() => currentUser?.role === ROLE.ADMIN, [currentUser?.role]);
 

@@ -3,7 +3,9 @@ import { useQuery } from '@tanstack/react-query';
 import { getMyCarDataAPI } from '@/services/mycar';
 
 const useMyCar = () => {
-  const { data = [], refetch } = useQuery(['getMyCarDataAPI'], () => getMyCarDataAPI().then((res) => res.data), {
+  const { data = [], refetch } = useQuery({
+    queryKey: ['getMyCarDataAPI'],
+    queryFn: () => getMyCarDataAPI().then((res) => res.data),
     suspense: true,
   });
 

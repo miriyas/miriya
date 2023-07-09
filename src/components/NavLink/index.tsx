@@ -6,7 +6,7 @@ import { MouseEventHandler, ReactNode } from 'react';
 interface Props {
   children: ReactNode;
   href: string;
-  hrefs?: string[] | undefined;
+  hrefs?: string[] | undefined; // /cameras/home, /cameras 처럼 첫번째일 때 사용
   activeClassName: string;
   className?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
@@ -15,8 +15,13 @@ interface Props {
 
 const NavLink = ({ href, hrefs, children, className, activeClassName, onClick, exact }: Props) => {
   const pathname = usePathname();
-  const pureHref = href.split('?')[0];
-  const isActive = hrefs?.includes(pathname) || exact ? pathname === pureHref : pathname.includes(pureHref);
+  const parentHref = href.split('?')[0];
+  let isActive = false;
+  if (hrefs) {
+    isActive = hrefs.includes(pathname);
+  } else {
+    isActive = exact ? pathname === parentHref : pathname.includes(parentHref);
+  }
 
   return (
     <Link href={href} className={cx(className, { [activeClassName]: isActive })} onClick={onClick}>
