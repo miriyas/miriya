@@ -25,7 +25,8 @@ export const GET = async () => {
                   .replaceAll('<', '&lt;')
                   .replaceAll('>', '&gt;')
                   .replaceAll('\n', '')
-                  .replaceAll('', '')}</description>
+                  .replaceAll('', '')
+                  .replaceAll('', '')}</description>
                 <pubDate>${post.createdAt}</pubDate>
                 <guid>${post.id}</guid>
               </item>`,
