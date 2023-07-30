@@ -8,7 +8,9 @@ const BlogHomePage = async () => {
   const cookieStore = cookies();
   const cookiesString = cookiesToString(cookieStore.getAll());
 
-  const postsData = fetchBlogPostsAPI(cookiesString).then((res) => res.data);
+  const postsData = fetchBlogPostsAPI(cookiesString)
+    .then((res) => res.data)
+    .catch(() => []);
   const categoriesData = getBlogCategoriesAPI().then((res) => res.data);
   const [posts, categories] = await Promise.all([postsData, categoriesData]);
 

@@ -1,0 +1,40 @@
+@use 'src/styles/mixins' as m;
+
+.session {
+  @include m.flexbox;
+  gap: 8px;
+
+  .userName {
+    font-size: 12px;
+  }
+
+  button {
+    position: relative;
+    font-size: 12px;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    span {
+      transition: 0.2s;
+    }
+
+    .loadingIcon {
+      @include m.middleBox;
+      opacity: 0;
+      transition: 0.2s;
+    }
+
+    &.loading {
+      span {
+        opacity: 0;
+      }
+
+      .loadingIcon {
+        opacity: 1;
+      }
+    }
+  }
+}

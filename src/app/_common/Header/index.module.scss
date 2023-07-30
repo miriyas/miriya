@@ -50,11 +50,6 @@
         @include m.absolute(0 auto 0 0);
         font-size: 18px;
       }
-
-      .minihome {
-        @include m.absolute(0 44px 44px auto);
-        font-size: 16px;
-      }
     }
 
     a {
@@ -153,32 +148,6 @@
         @include m.after(SD) {
           font-size: 18px;
           font-weight: 700 !important;
-        }
-      }
-    }
-  }
-
-  .outerLinks {
-    @include m.flexbox;
-    gap: 16px;
-
-    a {
-      @include m.flexbox;
-      height: 24px;
-      font-size: 14px;
-      color: var(--color-black);
-
-      &.github {
-        font-weight: 700;
-      }
-
-      svg {
-        width: 18px;
-        height: 18px;
-        margin-right: 4px;
-
-        path {
-          transition: 200ms;
         }
       }
     }
