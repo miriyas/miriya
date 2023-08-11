@@ -40,6 +40,7 @@
 
   .mobileNav {
     width: 100%;
+    height: var(--h-nav);
 
     .upper {
       @include m.flexbox(between, center);
@@ -50,24 +51,8 @@
         @include m.absolute(0 auto 0 0);
         font-size: 18px;
       }
-    }
 
-    a {
-      @include m.flexbox;
-      height: var(--h-nav);
-      padding: 0 14px;
-      font-size: 14px;
-    }
-
-    details {
-      position: relative;
-      height: var(--h-nav);
-
-      &[open] {
-        height: 88px;
-      }
-
-      summary {
+      .mobileHamburger {
         @include m.absolute(0 0 0 auto);
         @include m.flexbox(start, center);
         width: var(--h-nav);
@@ -78,6 +63,7 @@
           width: 24px;
           height: 3px;
           background-color: var(--color-gray-2);
+          transition: 0.3s;
 
           &:nth-child(1) {
             top: 14px;
@@ -91,20 +77,64 @@
             top: 28px;
           }
         }
+
+        &.mobileOpen {
+          span {
+            transform-origin: center;
+
+            &:nth-child(1) {
+              top: 21px;
+              transform: translateX(-50%) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+              opacity: 0;
+            }
+
+            &:nth-child(3) {
+              top: 21px;
+              transform: translateX(-50%) rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      @include m.flexbox;
+      height: var(--h-nav);
+      padding: 0 14px;
+      font-size: 14px;
+    }
+
+    .mobileMenuWrapper {
+      @include m.flexbox(start, center);
+      position: fixed;
+      top: 0;
+      left: 0;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      padding-top: var(--h-nav);
+      pointer-events: none;
+      opacity: 0;
+
+      &.mobileOpen {
+        pointer-events: all;
+        opacity: 1;
       }
 
       .menus {
-        @include m.absolute(44px 0 0 0);
-        @include m.flexbox(between, center);
-        height: calc(var(--h-nav-m) * 2);
+        width: 100%;
+        height: calc(100vh - var(--h-nav));
         background-color: var(--color-gray-e);
         border-bottom: 1px solid var(--color-gray-d);
       }
 
       ul {
         @include m.flexbox(start, center);
-        flex: 1;
-        flex-wrap: wrap;
+        flex-direction: column;
+        padding: var(--h-nav) 0;
       }
 
       li {

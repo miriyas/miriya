@@ -24,6 +24,10 @@ body {
   height: stretch;
 }
 
+html.mobileCoverOpen {
+  overflow-y: hidden;
+}
+
 body {
   overflow-y: auto;
   touch-action: pan-y;

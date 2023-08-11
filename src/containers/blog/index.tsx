@@ -1,9 +1,9 @@
 'use client';
 
+import { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import cx from 'clsx';
-import { Suspense } from 'react';
 
 import { getTimeDiffText } from '@/utils/date';
 import { imageLoaderDo2Ik } from '@/utils/image';
