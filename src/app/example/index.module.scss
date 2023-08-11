@@ -1,0 +1,21 @@
+@use 'src/styles/mixins' as m;
+
+.samplePage {
+  h1 {
+    margin-bottom: 14px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  ul {
+    @include m.flexbox;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  li {
+    @include m.flexbox;
+    gap: 14px;
+  }
+}
