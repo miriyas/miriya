@@ -4,6 +4,7 @@ import { useAtomValue } from 'jotai';
 import Image from 'next/image';
 import cx from 'clsx';
 
+import { imageLoaderDo2Ik } from '@/utils/image';
 import { showPasswordAtom } from './states';
 import useAuthModal from './useAuthModal';
 
@@ -22,10 +23,11 @@ const AuthModal = () => {
         <div className={styles.head}>
           <div className={cx(styles.imageWrapper, { [styles.hidePassword]: !showPassword })}>
             <Image
-              src='/images/home/profile.jpg'
+              src={`${process.env.NEXT_PUBLIC_CDN_URL}/miriya.net/profile.jpg`}
               width={100}
               height={100}
               alt=''
+              loader={imageLoaderDo2Ik}
               title='AI가 그린 그림이지롱'
               className={styles.image}
             />
