@@ -1,0 +1,35 @@
+name: '프로덕션 환경 배포'
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  # 브랜치의 ref
+  group: ${{ github.ref }}
+  # 동일 그룹에서 돌고 있는 워크플로우가 있다면 이전 워크플로우를 취소하도록 한다.
+  cancel-in-progress: true
+
+jobs:
+  build:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy frontend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_SSH_ID }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+          port: ${{ secrets.REMOTE_SSH_PORT }}
+          script: |
+            PATH="/root/.nvm/versions/node/v18.16.0/bin:/usr/bin:/usr/local/bin"
+            cd frontend
+            git pull origin main
+            yarn
+            yarn build
+            pm2 flush
+            pm2 stop frontend
+            pm2 start frontend
