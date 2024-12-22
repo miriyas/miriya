@@ -20,6 +20,7 @@ exports[`Snapshot Home 1`] = `
               class="imageWrapper"
               href="/profile"
               style="background-image: url(/images/profile/og.jpg);"
+              title="profile"
             />
             <details
               class="noData"
@@ -51,6 +52,7 @@ exports[`Snapshot Home 1`] = `
               class="imageWrapper"
               href="/idols"
               style="background-image: url(/images/idols/og.jpg);"
+              title="idols"
             />
             <details
               class=""
@@ -122,6 +124,7 @@ exports[`Snapshot Home 1`] = `
               class="imageWrapper"
               href="/cameras"
               style="background-image: url(/images/cameras/og.jpg);"
+              title="cameras"
             />
             <details
               class=""
@@ -247,6 +250,7 @@ exports[`Snapshot Home 1`] = `
               class="imageWrapper"
               href="/minihome"
               style="background-image: url(/images/minihome/og.jpg);"
+              title="minihome"
             />
             <details
               class=""
@@ -296,6 +300,7 @@ exports[`Snapshot Home 1`] = `
               class="imageWrapper"
               href="/pentax"
               style="background-image: url(/images/pentax/og.jpg);"
+              title="pentax"
             />
             <details
               class=""
@@ -356,6 +361,7 @@ exports[`Snapshot Home 1`] = `
               class="imageWrapper"
               href="/mycar"
               style="background-image: url(/images/mycar/og.jpg);"
+              title="mycar"
             />
             <details
               class=""

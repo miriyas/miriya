@@ -49,6 +49,7 @@ const HomeArticle = (props: Props) => {
           href={`/${id}`}
           style={{ backgroundImage: `url('/images/${id}/og.jpg')` }}
           aria-label={id}
+          title={id}
         />
         <details ref={detailsRef} className={cx({ [styles.noData]: !dev })}>
           <summary>
