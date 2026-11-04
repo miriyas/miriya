@@ -62,7 +62,10 @@ const IdolsPageContent = ({ idols, years, debutYears, yearStart, yearEnd }: Prop
       <div className={styles.viewMore} ref={viewMoreRef} />
       <Cover />
       <SupporterOnly>
-        <New />
+        {/* Above the fixed .cover (z-1), like .idolYears; otherwise the form cannot be clicked. */}
+        <ul className={styles.newIdol}>
+          <New />
+        </ul>
       </SupporterOnly>
     </main>
   );

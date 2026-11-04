@@ -39,8 +39,9 @@ const Footer = () => {
           <IconGithub />
           <p>Github</p>
         </a>
-        <a href='mailto:miriya.lee@gmail.com' rel='nofollow'>
-          MIRIYA © 2012-2023
+        {/* Static pages are rendered at build time; the browser may show a newer year. */}
+        <a href='mailto:miriya.lee@gmail.com' rel='nofollow' suppressHydrationWarning>
+          MIRIYA © 2012-{new Date().getFullYear()}
         </a>
         <Link href='/privacy' prefetch={false}>
           개인정보처리방침
