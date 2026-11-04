@@ -13,11 +13,14 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# NEXT_PUBLIC_* values are inlined at build time. They come from a BuildKit
-# secret, so the env file is not stored in any image layer.
+# NEXT_PUBLIC_* values are inlined at build time. They come from a BuildKit secret.
+# IMPORTANT: standalone output COPIES .env* files into .next/standalone, so delete
+# them in the same RUN. Otherwise the secret (GITHUB_ACCESS_TOKEN) ends up in the image.
 # Lint already runs in the pre-commit hook, so skip it here (about 10 s).
 RUN --mount=type=secret,id=buildenv,target=/app/.env.production \
-    yarn build --no-lint
+    yarn build --no-lint \
+    && rm -f .next/standalone/.env* \
+    && if ls -A .next/standalone | grep -q '^\.env'; then echo "env file left in standalone" >&2; exit 1; fi
 
 FROM ${NODE_IMAGE} AS runner
 WORKDIR /app
