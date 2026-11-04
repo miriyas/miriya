@@ -24,6 +24,12 @@ body {
   height: stretch;
 }
 
+// ?layout=full (iframe embed): an inline script in layout.tsx adds this class before
+// the first paint, so the server-rendered header/footer never flash.
+html.fullLayout [data-chrome] {
+  display: none !important;
+}
+
 html.mobileCoverOpen {
   overflow-y: hidden;
 }

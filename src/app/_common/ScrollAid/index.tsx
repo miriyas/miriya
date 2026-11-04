@@ -4,10 +4,7 @@ import { useSearchParams } from 'next/navigation';
 
 import styles from './ScrollAid.module.scss';
 
-const ScrollAid = () => {
-  const searchParams = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
-  const layout = searchParams.get('layout');
-  const fullLayout = layout === 'full';
+export const ScrollAidView = ({ fullLayout = false }: { fullLayout?: boolean }) => {
 
   if (fullLayout) return null;
 
@@ -26,11 +23,18 @@ const ScrollAid = () => {
   };
 
   return (
-    <div className={styles.scrollAid}>
+    <div className={styles.scrollAid} data-chrome>
       <button type='button' onClick={onClickToTop} className={styles.toTop} aria-label='to top' />
       <button type='button' onClick={onClickToBottom} className={styles.toBottom} aria-label='to bottom' />
     </div>
   );
+};
+
+// useSearchParams needs its own <Suspense> in layout.tsx. Its fallback is <ScrollAidView />,
+// so the server HTML still has this part and the page does not jump.
+const ScrollAid = () => {
+  const searchParams = useSearchParams();
+  return <ScrollAidView fullLayout={searchParams.get('layout') === 'full'} />;
 };
 
 export default ScrollAid;

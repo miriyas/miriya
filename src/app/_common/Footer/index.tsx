@@ -11,11 +11,8 @@ import { IconGithub } from 'public/svgs';
 import AuthModal from '@/components/Auth';
 import styles from './index.module.scss';
 
-const Footer = () => {
+export const FooterView = ({ fullLayout = false }: { fullLayout?: boolean }) => {
   const { gaEvent } = useGA();
-  const searchParams = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
-  const layout = searchParams.get('layout');
-  const fullLayout = layout === 'full';
 
   if (fullLayout) return null;
 
@@ -26,7 +23,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={styles.appFooter}>
+    <footer className={styles.appFooter} data-chrome>
       <div className={styles.wrapper}>
         <a
           className={styles.github}
@@ -50,6 +47,13 @@ const Footer = () => {
       <AuthModal />
     </footer>
   );
+};
+
+// useSearchParams needs its own <Suspense> in layout.tsx. Its fallback is <FooterView />,
+// so the server HTML still has this part and the page does not jump.
+const Footer = () => {
+  const searchParams = useSearchParams();
+  return <FooterView fullLayout={searchParams.get('layout') === 'full'} />;
 };
 
 export default Footer;

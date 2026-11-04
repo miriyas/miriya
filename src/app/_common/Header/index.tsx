@@ -27,10 +27,8 @@ const getTransitionDirection = (oldHref: string, newHref: string) => {
   return oldIndex > newIndex ? 'backTransition' : 'frontTransition';
 };
 
-const Header = () => {
+export const HeaderView = ({ fullLayout = false }: { fullLayout?: boolean }) => {
   const router = useRouter();
-  const searchParams = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
-  const fullLayout = searchParams.get('layout') === 'full';
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -68,7 +66,7 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.appHeader}>
+    <header className={styles.appHeader} data-chrome>
       <nav className={styles.mobileNav}>
         <div className={styles.upper}>
           <Link href={ROUTES[0].href} className={styles.home} onClick={viewNavigate}>
@@ -125,6 +123,13 @@ const Header = () => {
       </nav>
     </header>
   );
+};
+
+// useSearchParams needs its own <Suspense> in layout.tsx. Its fallback is <HeaderView />,
+// so the server HTML still has this part and the page does not jump.
+const Header = () => {
+  const searchParams = useSearchParams();
+  return <HeaderView fullLayout={searchParams.get('layout') === 'full'} />;
 };
 
 export default Header;
