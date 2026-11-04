@@ -8,6 +8,7 @@ const id = Math.random().toString(32).slice(2);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   compress: true,
   images: {
     imageSizes: [100, 140, 200, 280],
