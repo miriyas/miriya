@@ -15,8 +15,9 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # NEXT_PUBLIC_* values are inlined at build time. They come from a BuildKit
 # secret, so the env file is not stored in any image layer.
+# Lint already runs in the pre-commit hook, so skip it here (about 10 s).
 RUN --mount=type=secret,id=buildenv,target=/app/.env.production \
-    yarn build
+    yarn build --no-lint
 
 FROM ${NODE_IMAGE} AS runner
 WORKDIR /app
