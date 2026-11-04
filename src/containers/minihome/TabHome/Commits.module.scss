@@ -24,7 +24,10 @@
     }
 
     .message {
+      min-width: 0;
+      overflow: hidden;
       color: var(--color-gray-4);
+      text-overflow: ellipsis;
 
       &:hover {
         text-decoration: underline;
@@ -32,6 +35,7 @@
     }
 
     .author {
+      flex-shrink: 0;
       margin-left: 4px;
       color: var(--color-cy-6);
 
@@ -42,6 +46,7 @@
     }
 
     time {
+      flex-shrink: 0;
       margin-left: 4px;
       font-size: 10px;
       color: var(--color-gray-8);

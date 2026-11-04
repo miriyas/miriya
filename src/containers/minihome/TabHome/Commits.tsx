@@ -25,8 +25,9 @@ const Commits = ({ data }: Props) => {
       {data.map((d) => {
         return (
           <li key={d.sha}>
-            <ExternalLink href={d.html_url} className={styles.message}>
-              {d.commit.message}
+            {/* Only the commit title (first line); the body can be many lines. */}
+            <ExternalLink href={d.html_url} className={styles.message} title={d.commit.message}>
+              {d.commit.message.split('\n')[0]}
             </ExternalLink>
             <div className={styles.author}>{prettyAuthor(d.commit.author.name)}</div>
             <time className={styles.message}>{getTimeDiffText(d.commit.committer.date)}</time>
