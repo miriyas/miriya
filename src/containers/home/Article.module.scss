@@ -25,6 +25,9 @@
 
     details {
       @include m.flexbox;
+      // Newer browsers apply display: flex to <details> (older ones ignored it).
+      // Without column, the dev comment box moves to the right of the summary.
+      flex-direction: column;
       padding: 14px;
 
       &.noData {
