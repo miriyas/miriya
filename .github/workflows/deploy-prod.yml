@@ -61,9 +61,11 @@ jobs:
           SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
           KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
           HOST: ${{ secrets.DEPLOY_HOST }}
+          # Short-lived token for pulling the image. deploy.sh reads it from stdin.
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           install -m 700 -d ~/.ssh
           printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
-          ssh -o BatchMode=yes "deploy@$HOST" "frontend sha-${GITHUB_SHA}"
+          printf '%s\n' "$GHCR_TOKEN" | ssh -o BatchMode=yes "deploy@$HOST" "frontend sha-${GITHUB_SHA}"
