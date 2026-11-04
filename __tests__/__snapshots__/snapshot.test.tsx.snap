@@ -19,9 +19,20 @@ exports[`Snapshot Home 1`] = `
               aria-label="profile"
               class="imageWrapper"
               href="/profile"
-              style="background-image: url(/images/profile/og.jpg);"
               title="profile"
-            />
+            >
+              <img
+                alt=""
+                class="image"
+                data-nimg="fill"
+                decoding="async"
+                fetchpriority="high"
+                sizes="(max-width: 820px) 100vw, 820px"
+                src="/_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=3840&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fprofile%2Fog.jpg&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </a>
             <details
               class="noData"
             >
@@ -50,9 +61,20 @@ exports[`Snapshot Home 1`] = `
               aria-label="idols"
               class="imageWrapper"
               href="/idols"
-              style="background-image: url(/images/idols/og.jpg);"
               title="idols"
-            />
+            >
+              <img
+                alt=""
+                class="image"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="(max-width: 820px) 100vw, 820px"
+                src="/_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=3840&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fidols%2Fog.jpg&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </a>
             <details
               class=""
             >
@@ -121,9 +143,20 @@ exports[`Snapshot Home 1`] = `
               aria-label="cameras"
               class="imageWrapper"
               href="/cameras"
-              style="background-image: url(/images/cameras/og.jpg);"
               title="cameras"
-            />
+            >
+              <img
+                alt=""
+                class="image"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="(max-width: 820px) 100vw, 820px"
+                src="/_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=3840&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fcameras%2Fog.jpg&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </a>
             <details
               class=""
             >
@@ -246,9 +279,20 @@ exports[`Snapshot Home 1`] = `
               aria-label="minihome"
               class="imageWrapper"
               href="/minihome"
-              style="background-image: url(/images/minihome/og.jpg);"
               title="minihome"
-            />
+            >
+              <img
+                alt=""
+                class="image"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="(max-width: 820px) 100vw, 820px"
+                src="/_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=3840&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fminihome%2Fog.jpg&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </a>
             <details
               class=""
             >
@@ -295,9 +339,20 @@ exports[`Snapshot Home 1`] = `
               aria-label="pentax"
               class="imageWrapper"
               href="/pentax"
-              style="background-image: url(/images/pentax/og.jpg);"
               title="pentax"
-            />
+            >
+              <img
+                alt=""
+                class="image"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="(max-width: 820px) 100vw, 820px"
+                src="/_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=3840&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fpentax%2Fog.jpg&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </a>
             <details
               class=""
             >
@@ -355,9 +410,20 @@ exports[`Snapshot Home 1`] = `
               aria-label="mycar"
               class="imageWrapper"
               href="/mycar"
-              style="background-image: url(/images/mycar/og.jpg);"
               title="mycar"
-            />
+            >
+              <img
+                alt=""
+                class="image"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="(max-width: 820px) 100vw, 820px"
+                src="/_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=3840&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fmycar%2Fog.jpg&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </a>
             <details
               class=""
             >

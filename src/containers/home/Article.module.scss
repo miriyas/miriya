@@ -17,10 +17,14 @@
     white-space: pre-wrap;
 
     .imageWrapper {
+      position: relative;
+      display: block;
       width: 100%;
       aspect-ratio: 1200 / 630;
-      background-position: center;
-      background-size: cover;
+    }
+
+    .image {
+      object-fit: cover;
     }
 
     details {

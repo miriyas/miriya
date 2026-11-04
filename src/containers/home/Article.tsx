@@ -2,6 +2,7 @@
 
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import cx from 'clsx';
 
@@ -26,22 +27,28 @@ interface Props {
   summary: string;
   dev?: string;
   devList?: string[];
+  priority?: boolean;
 }
 
 const HomeArticle = (props: Props) => {
-  const { id, summary, dev, devList } = props;
+  const { id, summary, dev, devList, priority = false } = props;
 
   // The dev comment stays closed until the user clicks "더보기".
   return (
     <li className={cx(styles.page, styles[id])}>
       <article>
-        <Link
-          className={styles.imageWrapper}
-          href={`/${id}`}
-          style={{ backgroundImage: `url('/images/${id}/og.jpg')` }}
-          aria-label={id}
-          title={id}
-        />
+        {/* next/image: WebP in the right width for the screen, lazy below the first card.
+            og.jpg itself stays 1200x630 because it is also the social share image. */}
+        <Link className={styles.imageWrapper} href={`/${id}`} aria-label={id} title={id}>
+          <Image
+            src={`/images/${id}/og.jpg`}
+            alt=''
+            fill
+            sizes='(max-width: 820px) 100vw, 820px'
+            priority={priority}
+            className={styles.image}
+          />
+        </Link>
         <details className={cx({ [styles.noData]: !dev })}>
           <summary>
             <div dangerouslySetInnerHTML={{ __html: processTags(summary) }} />

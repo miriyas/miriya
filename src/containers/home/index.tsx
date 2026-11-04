@@ -8,8 +8,8 @@ const Home = () => {
     <main className={styles.home}>
       <div className={styles.centering}>
         <ul className={styles.pages}>
-          {articles.map((article) => (
-            <HomeArticle key={article.id} {...article} />
+          {articles.map((article, index) => (
+            <HomeArticle key={article.id} {...article} priority={index === 0} />
           ))}
         </ul>
       </div>
