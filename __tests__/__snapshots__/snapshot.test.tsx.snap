@@ -24,7 +24,6 @@ exports[`Snapshot Home 1`] = `
             />
             <details
               class="noData"
-              open=""
             >
               <summary>
                 <div>
@@ -56,7 +55,6 @@ exports[`Snapshot Home 1`] = `
             />
             <details
               class=""
-              open=""
             >
               <summary>
                 <div>
@@ -128,7 +126,6 @@ exports[`Snapshot Home 1`] = `
             />
             <details
               class=""
-              open=""
             >
               <summary>
                 <div>
@@ -254,7 +251,6 @@ exports[`Snapshot Home 1`] = `
             />
             <details
               class=""
-              open=""
             >
               <summary>
                 <div>
@@ -304,7 +300,6 @@ exports[`Snapshot Home 1`] = `
             />
             <details
               class=""
-              open=""
             >
               <summary>
                 <div>
@@ -365,7 +360,6 @@ exports[`Snapshot Home 1`] = `
             />
             <details
               class=""
-              open=""
             >
               <summary>
                 <div>

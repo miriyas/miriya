@@ -2,10 +2,8 @@
 
 'use client';
 
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import cx from 'clsx';
-import { useWindowSize } from 'react-use';
 
 import styles from './Article.module.scss';
 
@@ -33,14 +31,7 @@ interface Props {
 const HomeArticle = (props: Props) => {
   const { id, summary, dev, devList } = props;
 
-  const detailsRef = useRef<HTMLDetailsElement>(null);
-  const { width } = useWindowSize();
-
-  useEffect(() => {
-    if (!detailsRef.current) return;
-    if (width >= 600) detailsRef.current.open = true;
-  }, [width]);
-
+  // The dev comment stays closed until the user clicks "더보기".
   return (
     <li className={cx(styles.page, styles[id])}>
       <article>
@@ -51,7 +42,7 @@ const HomeArticle = (props: Props) => {
           aria-label={id}
           title={id}
         />
-        <details ref={detailsRef} className={cx({ [styles.noData]: !dev })}>
+        <details className={cx({ [styles.noData]: !dev })}>
           <summary>
             <div dangerouslySetInnerHTML={{ __html: processTags(summary) }} />
             <span className={styles.fakeViewMore}>더보기 &gt;</span>
