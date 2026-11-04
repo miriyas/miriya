@@ -1,35 +1,69 @@
-name: '프로덕션 환경 배포'
+name: 프로덕션 배포
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
-  # 브랜치의 ref
-  group: ${{ github.ref }}
-  # 동일 그룹에서 돌고 있는 워크플로우가 있다면 이전 워크플로우를 취소하도록 한다.
-  cancel-in-progress: true
+  group: deploy-prod
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE: ghcr.io/miriyas/miriya
 
 jobs:
   build:
-    environment: production
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - name: Deploy frontend
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
         with:
-          host: ${{ secrets.REMOTE_IP }}
-          username: ${{ secrets.REMOTE_SSH_ID }}
-          password: ${{ secrets.REMOTE_PASSWORD }}
-          key: ${{ secrets.REMOTE_SSH_KEY }}
-          port: ${{ secrets.REMOTE_SSH_PORT }}
-          script: |
-            PATH="/root/.nvm/versions/node/v18.16.0/bin:/usr/bin:/usr/local/bin"
-            cd frontend
-            git pull origin main
-            yarn
-            yarn build
-            pm2 flush
-            pm2 stop frontend
-            pm2 start frontend
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # NEXT_PUBLIC_* and GITHUB_ACCESS_TOKEN (static /minihome/home) are needed at build time.
+      # They go in as a BuildKit secret, so they are not stored in the image.
+      - name: Write build env
+        env:
+          BUILD_ENV: ${{ secrets.FRONTEND_BUILD_ENV }}
+        run: printf '%s\n' "$BUILD_ENV" > "$RUNNER_TEMP/buildenv"
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:sha-${{ github.sha }}
+          secret-files: buildenv=${{ runner.temp }}/buildenv
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build
+    if: vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy over SSH
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          ssh -o BatchMode=yes "deploy@$HOST" "frontend sha-${GITHUB_SHA}"
