@@ -14,24 +14,29 @@
     .menu {
       @include m.commonBoxShadow;
       position: absolute;
-      top: calc(100% + 8px);
+      top: calc(100% + 6px);
       right: 0;
       z-index: var(--z-global-header);
-      min-width: 120px;
-      padding: 4px 0;
+      min-width: 112px;
+      padding: 4px;
       background-color: var(--color-white);
+      border: 1px solid var(--color-gray-e);
       border-radius: 6px;
 
+      // Stronger than the header link rules (.appHeader a: flex box, fixed height, blue hover).
       a {
         display: block;
-        padding: 8px 14px;
+        height: auto;
+        padding: 7px 10px;
         font-size: 12px;
-        font-weight: 400; // not the header nav link weight
+        font-weight: 400;
         color: var(--color-gray-1);
         white-space: nowrap;
+        border-radius: 4px;
 
         &:hover,
-        &:focus {
+        &:focus-visible {
+          color: var(--color-gray-1) !important;
           background-color: var(--color-bg);
         }
       }
@@ -42,8 +47,9 @@
     position: relative;
     font-size: 12px;
 
+    // focus-visible: keyboard focus only. With :focus the name stayed underlined after a click.
     &:hover,
-    &:focus {
+    &:focus-visible {
       text-decoration: underline;
     }
 

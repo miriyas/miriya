@@ -53,14 +53,13 @@ const Session = () => {
           >
             {getUserName(user)}
           </button>
+          {/* Not ul/li: the header styles `ul li:first-child a` (the logo) would apply. */}
           {menuOpen && (
-            <ul className={styles.menu} role='menu'>
-              <li role='none'>
-                <Link href='/ops' role='menuitem' prefetch={false} onClick={() => setMenuOpen(false)}>
-                  운영 상태
-                </Link>
-              </li>
-            </ul>
+            <div className={styles.menu} role='menu'>
+              <Link href='/ops' role='menuitem' prefetch={false} onClick={() => setMenuOpen(false)}>
+                운영 상태
+              </Link>
+            </div>
           )}
         </div>
       ) : (
