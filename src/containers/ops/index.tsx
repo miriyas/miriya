@@ -44,7 +44,7 @@ const Badge = ({ level, children }: { level: OpsLevel; children?: ReactNode }) =
 
 const Panel = ({ data, now }: { data: OpsStatus; now: string }) => {
   const age = minutesAgo(data.generatedAt, now);
-  const stale = age > STALE_MINUTES;
+  const stale = age > (data.project === 'kakao-meetups' ? 75 : STALE_MINUTES);
 
   return (
     <section className={styles.panel}>
@@ -54,7 +54,7 @@ const Panel = ({ data, now }: { data: OpsStatus; now: string }) => {
             {data.title}
           </a>
         </h2>
-        <Badge level={data.status} />
+        <Badge level={stale && data.status === 'ok' ? 'warn' : data.status} />
         <span className={cx(styles.generated, { [styles.stale]: stale })}>
           {formatTime(data.generatedAt)} 기준{stale && ` (${age}분 전 데이터)`}
         </span>
@@ -159,20 +159,6 @@ const OpsDashboard = ({ sources, renderedAt }: Props) => (
           </section>
         ),
       )}
-      <section className={styles.panel}>
-        <header className={styles.panelHeader}>
-          <h2>카카오톡 모임 통계</h2>
-          <a href='https://bung-analytics.vercel.app' target='_blank' rel='noopener noreferrer'>
-            새 탭에서 열기
-          </a>
-        </header>
-        <iframe
-          className={styles.meetupDashboard}
-          src='https://bung-analytics.vercel.app'
-          title='카카오톡 모임 참석 통계'
-          referrerPolicy='no-referrer'
-        />
-      </section>
     </div>
   </main>
 );

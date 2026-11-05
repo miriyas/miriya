@@ -42,4 +42,22 @@ const getMiriya = async (): Promise<OpsSource> => {
   }
 };
 
-export const getOpsSources = () => Promise.all([getMiriya(), getCharr()]);
+const getMeetups = async (): Promise<OpsSource> => {
+  const name = '카카오 모임 수집';
+  try {
+    const res = await fetch('https://bung-analytics.vercel.app/ops-status.json', {
+      cache: 'no-store',
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!res.ok) return { name, error: `수집 상태를 가져오지 못했습니다 (${res.status}).` };
+    const data: unknown = await res.json();
+    if (!isStatus(data) || data.project !== 'kakao-meetups' || !Array.isArray(data.jobs) || !Array.isArray(data.runs)) {
+      return { name, error: '수집 상태 형식을 확인할 수 없습니다.' };
+    }
+    return { name, data };
+  } catch {
+    return { name, error: '수집 상태에 연결하지 못했습니다.' };
+  }
+};
+
+export const getOpsSources = () => Promise.all([getMiriya(), getCharr(), getMeetups()]);
