@@ -35,6 +35,14 @@
     color: var(--color-gray-8);
   }
 
+  &.noSpinner {
+    justify-content: center;
+
+    &::before {
+      display: none;
+    }
+  }
+
   &::before {
     display: block;
     width: 44px;

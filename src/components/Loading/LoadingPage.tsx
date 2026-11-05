@@ -41,7 +41,7 @@ const LoadingPage = ({ inComponent, test }: Props) => {
 
   return (
     <div className={cx(styles.loadingPage, { [styles.inComponent]: inComponent, [styles.test]: test })}>
-      <Loading />
+      <Loading noSpinner />
       <div ref={hourGlassCursorRef} className={styles.hourGlassCursor} />
     </div>
   );
