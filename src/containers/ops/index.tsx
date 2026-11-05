@@ -159,6 +159,20 @@ const OpsDashboard = ({ sources, renderedAt }: Props) => (
           </section>
         ),
       )}
+      <section className={styles.panel}>
+        <header className={styles.panelHeader}>
+          <h2>카카오톡 모임 통계</h2>
+          <a href='https://bung-analytics.vercel.app' target='_blank' rel='noopener noreferrer'>
+            새 탭에서 열기
+          </a>
+        </header>
+        <iframe
+          className={styles.meetupDashboard}
+          src='https://bung-analytics.vercel.app'
+          title='카카오톡 모임 참석 통계'
+          referrerPolicy='no-referrer'
+        />
+      </section>
     </div>
   </main>
 );
