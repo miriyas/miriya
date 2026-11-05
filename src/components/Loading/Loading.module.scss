@@ -37,6 +37,7 @@
 
   &.noSpinner {
     justify-content: center;
+    height: auto;
 
     &::before {
       display: none;
@@ -58,21 +59,22 @@
 
 .loadingPage {
   @include m.flexbox;
+  flex-direction: column;
+  gap: 8px;
   width: 100%;
   min-height: 100vh;
-  cursor: none;
 
   &.inComponent {
     min-height: initial;
   }
 }
 
-.hourGlassCursor {
-  position: absolute;
+.hourGlass {
   width: 25px;
   height: 25px;
-  pointer-events: none;
   background-image: url('/svgs/hourGlassCursor.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 // Local copy of the global `loading` keyframes (styles/animations.scss).

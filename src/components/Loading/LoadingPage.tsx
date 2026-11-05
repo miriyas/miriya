@@ -1,7 +1,6 @@
 'use client';
 
 import cx from 'clsx';
-import { useEffect, useRef } from 'react';
 
 import Loading from '.';
 import styles from './Loading.module.scss';
@@ -11,38 +10,14 @@ interface Props {
   test?: boolean;
 }
 
+// The hourglass stands above the "Loading..." text. (Before, it followed the mouse in place of the
+// cursor; until the first mouse move it sat at the same center as the text, and on phones it never
+// appeared.)
 const LoadingPage = ({ inComponent, test }: Props) => {
-  const hourGlassCursorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent): void => {
-      const cursor = hourGlassCursorRef.current;
-      if (!cursor || !e.target) return;
-
-      if (e.target instanceof Element) {
-        const { localName } = e.target;
-        if (!localName) return;
-
-        if (['a', 'button'].includes(localName)) {
-          cursor.style.display = 'none';
-        } else {
-          cursor.style.display = 'block';
-          cursor.style.left = `${e.pageX - 25 / 2}px`;
-          cursor.style.top = `${e.pageY - 25 / 2}px`;
-        }
-      }
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-    };
-  }, []);
-
   return (
     <div className={cx(styles.loadingPage, { [styles.inComponent]: inComponent, [styles.test]: test })}>
+      <div className={styles.hourGlass} aria-hidden='true' />
       <Loading noSpinner />
-      <div ref={hourGlassCursorRef} className={styles.hourGlassCursor} />
     </div>
   );
 };
