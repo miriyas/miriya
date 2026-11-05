@@ -4,15 +4,12 @@ import dynamic from 'next/dynamic';
 import { Idol } from '@/types/idols';
 import { prettyCategory } from '@/utils/idols';
 import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
-import IDOL_COLORS from '@/containers/idols/idolColors.json';
 
 import { IconComment } from 'public/svgs';
 import styles from './index.module.scss';
 
 const LikeButton = dynamic(() => import('./LikeButton'), { ssr: false });
 
-// Average color of each card image (scripts/idol-colors.mjs). The card shows it until the image loads.
-const colors: Record<string, string> = IDOL_COLORS;
 
 interface Props {
   idol: Idol;
@@ -20,14 +17,15 @@ interface Props {
 }
 
 const Profile = ({ idol, onClickUpper }: Props) => {
-  const { category, comments, name, debutYear, endYear, id } = idol;
+  const { category, comments, name, debutYear, endYear, id, color } = idol;
   const imageUrl = getCDNImage(`idols/${id}.jpg`);
 
   return (
     <div
       onClick={onClickUpper}
       className={styles.profile}
-      style={{ backgroundColor: colors[id] ?? 'var(--color-gray-d)' }}
+      // Average color of the card image (from the backend), shown until the image loads.
+      style={{ backgroundColor: color ?? 'var(--color-gray-d)' }}
       aria-label='show more'
       role='button'
       tabIndex={0}

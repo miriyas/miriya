@@ -19,6 +19,8 @@ export interface IdolCore {
 
 export interface Idol extends IdolCore, WithAuthor, TimeStamp {
   id: string;
+  /** Average color of the card image (#rrggbb). null until the backend has computed it. */
+  color?: string | null;
   comments: {
     id: string; // 카운트용
   }[];

@@ -12,8 +12,7 @@
     "pm2:start": "pm2 start ecosystem.config.js",
     "pm2:stop": "pm2 stop ecosystem.config.js",
     "pm2:destroy": "pm2 flush && yarn pm2:stop",
-    "pm2:deploy": "next build && yarn pm2:start",
-    "idols:colors": "node scripts/idol-colors.mjs"
+    "pm2:deploy": "next build && yarn pm2:start"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.0.0",
