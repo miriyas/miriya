@@ -6,6 +6,9 @@ import Header, { HeaderView } from './_common/Header';
 import Footer, { FooterView } from './_common/Footer';
 import GoogleAnalytics from './GoogleAnalytics';
 import ScrollAid, { ScrollAidView } from './_common/ScrollAid';
+// Pretendard, self-hosted. The dynamic subset splits the font by character range, so a page
+// downloads only the parts it uses (Korean is large).
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import '@/styles/globals.scss';
 import { metadata as profileMetadata } from './profile/page';
 

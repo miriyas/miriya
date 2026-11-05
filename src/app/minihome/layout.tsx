@@ -27,7 +27,7 @@ export const metadata = getMetaData({
 const dungGeunMoFont = localFont({
   src: './DungGeunMo.woff2',
   variable: '--font-dunggeunmo',
-  fallback: ['Spoqa Han Sans Neo', 'sans-serif'],
+  fallback: ['Pretendard Variable', 'sans-serif'],
 });
 
 const Layout = async ({ children }: Props) => {
