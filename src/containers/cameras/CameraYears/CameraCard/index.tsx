@@ -1,12 +1,12 @@
 'use client';
 
 import cx from 'clsx';
-import { MouseEventHandler, Suspense, useEffect, useState } from 'react';
+import { MouseEventHandler, Suspense, useEffect, useRef, useState } from 'react';
 import { useRafState } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
 import { useAtomValue } from 'jotai';
 
-import { CameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras';
 import { cameraId } from '@/utils/cameras';
 import { selectedMakerAtom } from '@/containers/cameras/states';
 
@@ -51,6 +51,7 @@ const Camera = (props: Props) => {
 
   const [selected, setSelected] = useState(() => getIsSelected(id));
   const [tab, setTab] = useState('internal');
+  const nodeRef = useRef<HTMLLIElement>(null);
 
   const onClickTab: MouseEventHandler<HTMLButtonElement> = (e) => {
     setTab(e.currentTarget.dataset.tab ?? 'internal');
@@ -75,6 +76,7 @@ const Camera = (props: Props) => {
 
   return (
     <CSSTransition
+      nodeRef={nodeRef}
       in={isShow}
       timeout={200}
       classNames={{
@@ -87,6 +89,7 @@ const Camera = (props: Props) => {
       }}
     >
       <li
+        ref={nodeRef}
         id={id}
         className={cx(styles.camera, `grid-item-${year}`, `maker-${maker.toLowerCase()}`, {
           [styles.isHidden]: !isShow,

@@ -1,7 +1,7 @@
 'use client';
 
 import cx from 'clsx';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { getRecentNewsApi } from '@/services/cameras';
 
@@ -10,10 +10,9 @@ import ExternalLink from '@/components/ExternalLink';
 
 const NewsBar = () => {
   const newsLength = 10;
-  const { data = [], isError } = useQuery({
+  const { data = [], isError } = useSuspenseQuery({
     queryKey: ['getRecentNewsApi', newsLength],
     queryFn: () => getRecentNewsApi(newsLength).then((res) => res.data),
-    suspense: true,
   });
 
   const hasError = data[0].title === 'error';

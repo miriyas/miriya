@@ -3,7 +3,7 @@ import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useRouter } from 'next/navigation';
 
 import { patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
-import { Guestbook } from '@/types/minihome.d';
+import { Guestbook } from '@/types/minihome';
 import useAuth from '@/hooks/useAuth';
 import { revalidatePathApi } from '@/services';
 

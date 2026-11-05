@@ -6,7 +6,7 @@ import cx from 'clsx';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useBlogComment from './useBlogComment';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { TARGET_CATEGORY } from '@/types/comments';
 import { postCommentAPI } from '@/services/comments';
 
 import PleaseLogin from '@/components/PleaseLogin';

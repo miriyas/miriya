@@ -4,7 +4,7 @@ import Image from 'next/image';
 import cx from 'clsx';
 import dynamic from 'next/dynamic';
 
-import { FullCommitData } from '@/types/github.d';
+import { FullCommitData } from '@/types/github';
 
 import Loading from '@/components/Loading';
 import Commits from './Commits';

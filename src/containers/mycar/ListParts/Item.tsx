@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { ItemParts } from '@/types/mycar.d';
+import { ItemParts } from '@/types/mycar';
 import { deleteCarPartsDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';

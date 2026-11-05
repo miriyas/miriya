@@ -4,7 +4,7 @@ import cx from 'clsx';
 import { useAtomValue, useSetAtom } from 'jotai';
 
 import { useGA } from '@/hooks/useGA';
-import { Idol } from '@/types/idols.d';
+import { Idol } from '@/types/idols';
 import { IDOL } from '@/constants/ga';
 import { coverIdolAtom, editIdolAtom } from '@/containers/idols/states';
 

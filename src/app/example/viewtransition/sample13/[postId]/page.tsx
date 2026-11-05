@@ -14,12 +14,13 @@ import commonStyles from '../../index.module.scss';
 import styles from '../sample13.module.scss';
 
 interface Props {
-  params: {
+  params: Promise<{
     postId: string;
-  };
+  }>;
 }
 
-const ViewTransitionAPISample13B = async ({ params: { postId } }: Props) => {
+const ViewTransitionAPISample13B = async ({ params }: Props) => {
+  const { postId } = await params;
   const router = useRouter();
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {

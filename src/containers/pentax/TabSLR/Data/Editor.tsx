@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import { PentaxSlr } from '@/types/pentaxes.d';
+import { PentaxSlr } from '@/types/pentaxes';
 import useSlrEditor from './useSlrEditor';
 
 import { yearsField, mountField, dimensionField, fields1, fields2, fields3, fields4, fields5, fields6 } from './fields';

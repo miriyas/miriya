@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { isEmpty } from 'lodash';
 
-import { M2PostType } from '@/types/m2day.d';
+import { M2PostType } from '@/types/m2day';
 
 import styles from './LeftIcon.module.scss';
 

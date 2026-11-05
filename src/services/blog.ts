@@ -6,8 +6,8 @@ import {
   BlogCategory,
   BlogPostForShow,
   BlogCategoryForList,
-} from '@/types/blog.d';
-import { Comment } from '@/types/comments.d';
+} from '@/types/blog';
+import { Comment } from '@/types/comments';
 
 // 글
 

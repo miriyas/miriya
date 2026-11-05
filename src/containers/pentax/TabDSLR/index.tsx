@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import { PentaxDslr } from '@/types/pentaxes.d';
+import { PentaxDslr } from '@/types/pentaxes';
 
 import Loading from '@/components/Loading';
 import styles from './index.module.scss';

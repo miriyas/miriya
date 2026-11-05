@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
-import { BlogCategoryForList } from '@/types/blog.d';
+import { BlogCategoryForList } from '@/types/blog';
 
 import { IconRSS } from 'public/svgs';
 import ExternalLink from '@/components/ExternalLink';

@@ -5,7 +5,7 @@ import { useSetAtom } from 'jotai';
 
 import { authModalAtom } from '@/components/Auth/states';
 import { getMeApiLocal, logoutApi } from '@/services/auth';
-import { ROLE } from '@/types/auth.d';
+import { ROLE } from '@/types/auth';
 
 const useAuth = () => {
   const setAuthModal = useSetAtom(authModalAtom);

@@ -6,7 +6,7 @@ import { Dictionary } from 'lodash';
 import { useAtom } from 'jotai';
 import { useRafState } from 'react-use';
 
-import { Idol, YearDesc } from '@/types/idols.d';
+import { Idol, YearDesc } from '@/types/idols';
 import New from '@/containers/idols/IdolYear/IdolCard/Editor/New';
 import { showIdolEndAtom } from '@/containers/idols/states';
 

@@ -1,4 +1,4 @@
-import { CameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras';
 
 import DataRefs from './DataRefs';
 import DataSensor from './DataSensor';

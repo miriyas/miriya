@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { TargetCategoryTypes } from '@/types/comments.d';
+import { TargetCategoryTypes } from '@/types/comments';
 import { getTimeDiffText } from '@/utils/date';
 import useCommentAndHistory from './useCommentAndHistory';
 

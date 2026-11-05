@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import dynamic from 'next/dynamic';
 
-const Warning = dynamic(() => import('./Warning'), { ssr: false });
+import Warning from './WarningLazy';
 
 interface Props {
   children: ReactNode;

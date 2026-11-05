@@ -20,7 +20,7 @@ const Comments = () => {
     queryKey: ['getBlogPostsAPI', isAdmin],
     queryFn: ({ pageParam }) => getGuestbookDataAPI(pageParam).then((res) => res.data),
     retry: 0,
-    defaultPageParam: '',
+    initialPageParam: '' as string,
     getNextPageParam: (lastPage) => lastPage.nextCursor,
   });
 

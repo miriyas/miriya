@@ -5,7 +5,7 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import cx from 'clsx';
 
-import { InputFields } from '@/types/index.d';
+import { InputFields } from '@/types';
 
 import LabelWithInfo from './LabelWithInfo';
 import styles from './index.module.scss';

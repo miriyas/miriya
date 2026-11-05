@@ -3,7 +3,7 @@ import { useAtom } from 'jotai';
 import cx from 'clsx';
 import Link from 'next/link';
 
-import { MyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar';
 import { currentCarAtom } from '@/containers/mycar/states';
 
 import styles from './Top.module.scss';

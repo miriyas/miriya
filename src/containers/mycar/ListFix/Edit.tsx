@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAtomValue } from 'jotai';
 
-import { ItemFix } from '@/types/mycar.d';
+import { ItemFix } from '@/types/mycar';
 import { patchCarFixDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';

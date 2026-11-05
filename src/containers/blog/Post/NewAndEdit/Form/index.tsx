@@ -7,7 +7,7 @@ import { useMount, useUnmount } from 'react-use';
 import { RESET } from 'jotai/utils';
 
 import useAuth from '@/hooks/useAuth';
-import { BlogCategory, BlogPost } from '@/types/blog.d';
+import { BlogCategory, BlogPost } from '@/types/blog';
 import { bodyAtom, categoryAtom, heroAtom, hiddenAtom, titleAtom, loadingAtom } from './states';
 import { revalidatePathApi } from '@/services';
 

@@ -10,7 +10,7 @@ import styles from './ViewMoreButton.module.scss';
 const scrollAmount = 2000; // 충분한 사이즈를 임의로 넣음
 
 interface Props {
-  wrapperRef: RefObject<HTMLDivElement>;
+  wrapperRef: RefObject<HTMLDivElement | null>;
 }
 
 const ViewMoreButton = (props: Props) => {

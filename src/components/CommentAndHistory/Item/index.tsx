@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useCommentAndHistory from '../useCommentAndHistory';
-import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
+import { Comment, TARGET_CATEGORY } from '@/types/comments';
 import { deleteCommentAPI } from '@/services/comments';
 import useIdols from '@/containers/idols/useIdols';
 import useCameras from '@/containers/cameras/useCameras';

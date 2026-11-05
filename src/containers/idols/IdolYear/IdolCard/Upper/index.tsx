@@ -4,7 +4,7 @@ import { useSetAtom } from 'jotai';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
-import { Idol } from '@/types/idols.d';
+import { Idol } from '@/types/idols';
 import { editIdolAtom } from '@/containers/idols/states';
 
 import { IconEdit } from 'public/svgs';

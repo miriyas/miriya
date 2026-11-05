@@ -1,7 +1,7 @@
 import cx from 'clsx';
 
 import useCommentAndHistory from './useCommentAndHistory';
-import { TargetCategoryTypes } from '@/types/comments.d';
+import { TargetCategoryTypes } from '@/types/comments';
 
 import Loading from '@/components/Loading';
 import ItemComment from './Item';

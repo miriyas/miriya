@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ChangeEventHandler, FormEventHandler, MouseEventHandler, useState } from 'react';
 
 import useAlert from '@/hooks/useAlert';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { TARGET_CATEGORY } from '@/types/comments';
 import { deleteCommentAPI, getCommentsApi, postCommentAPI } from '@/services/comments';
 import { getTimeDiffText } from '@/utils/date';
 import useM2day from '@/containers/m2day/useM2day';

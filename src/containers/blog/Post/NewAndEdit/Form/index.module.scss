@@ -33,37 +33,35 @@
       height: calc(100vh - var(--h-nav) - var(--h-footer) - 44px); // 44는 Top
     }
 
-    :global {
-      .EasyMDEContainer {
-        position: relative;
-        height: 100%;
-        overflow: hidden;
-      }
+    :global(.EasyMDEContainer) {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
 
-      .editor-toolbar {
-        height: 32px;
-        padding: 0;
-        border-radius: 0;
-      }
+    :global(.editor-toolbar) {
+      height: 32px;
+      padding: 0;
+      border-radius: 0;
+    }
 
-      .editor-statusbar {
-        @include m.absolute(auto 24px 3px auto);
-        font-size: 10px;
+    :global(.editor-statusbar) {
+      @include m.absolute(auto 24px 3px auto);
+      font-size: 10px;
 
-        span {
-          min-width: auto;
-        }
+      span {
+        min-width: auto;
       }
+    }
 
-      .CodeMirror {
-        height: calc(100vh - var(--h-nav) - var(--h-footer) - 32px - 44px);
-        border-radius: 0;
-      }
+    :global(.CodeMirror) {
+      height: calc(100vh - var(--h-nav) - var(--h-footer) - 32px - 44px);
+      border-radius: 0;
+    }
 
-      .CodeMirror-lines {
-        font-size: 14px;
-        line-height: 22px;
-      }
+    :global(.CodeMirror-lines) {
+      font-size: 14px;
+      line-height: 22px;
     }
 
     .previewWrapper {

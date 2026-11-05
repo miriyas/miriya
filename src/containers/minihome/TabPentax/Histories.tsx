@@ -1,6 +1,6 @@
 'use client';
 
-import { History } from '@/types/histories.d';
+import { History } from '@/types/histories';
 import { getTimeDiffText } from '@/utils/date';
 
 import styles from '../common.module.scss';

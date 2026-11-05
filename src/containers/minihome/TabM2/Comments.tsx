@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import Link from 'next/link';
 
-import { Comment } from '@/types/comments.d';
+import { Comment } from '@/types/comments';
 import { getTimeDiffText } from '@/utils/date';
 import { filterAuthorName } from '@/utils/auth';
 

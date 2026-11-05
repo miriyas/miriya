@@ -1,7 +1,7 @@
 import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 
 import { useGA } from '@/hooks/useGA';
-import { IdolCore } from '@/types/idols.d';
+import { IdolCore } from '@/types/idols';
 import { IDOL } from '@/constants/ga';
 
 import styles from './Desc.module.scss';

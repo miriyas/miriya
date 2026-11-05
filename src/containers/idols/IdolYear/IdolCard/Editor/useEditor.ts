@@ -5,8 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useResetAtom } from 'jotai/utils';
 
 import useAuth from '@/hooks/useAuth';
-import { TARGET_CATEGORY } from '@/types/comments.d';
-import { Idol } from '@/types/idols.d';
+import { TARGET_CATEGORY } from '@/types/comments';
+import { Idol } from '@/types/idols';
 import { EditIdolSchema, editIdolValidator } from '@/utils/validator';
 import { editIdolAtom } from '@/containers/idols/states';
 import { editIdolDataApi } from '@/services/idols';

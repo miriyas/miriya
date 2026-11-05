@@ -4,6 +4,7 @@ import { MouseEventHandler, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { callTransition } from '@/utils/transition';
+import { TransitionTypes } from '@/types/transitions';
 
 import Others from '../Others';
 import { IMAGES } from '../constants';
@@ -17,7 +18,7 @@ const ViewTransitionAPISample4 = () => {
     const thumbnail = e.currentTarget;
     const newSrc = thumbnail.dataset.url ?? '';
 
-    callTransition(thumbnail, largeImageRef.current, '아무거나', () => {
+    callTransition(thumbnail, largeImageRef.current, '아무거나' as TransitionTypes, () => {
       setCurrentImage(newSrc);
     });
   };

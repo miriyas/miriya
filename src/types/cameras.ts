@@ -1,4 +1,4 @@
-import { TimeStamp, ValueOf } from '@/types/index.d';
+import { TimeStamp, ValueOf } from '@/types';
 
 export const MOUNT = {
   CanonEF: 'Canon EF',

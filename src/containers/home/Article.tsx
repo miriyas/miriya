@@ -45,7 +45,9 @@ const HomeArticle = (props: Props) => {
             alt=''
             fill
             sizes='(max-width: 820px) 100vw, 820px'
-            priority={priority}
+            // Next 16: `preload` replaces `priority`, and fetchPriority is no longer added for us.
+            preload={priority}
+            fetchPriority={priority ? 'high' : undefined}
             className={styles.image}
           />
         </Link>

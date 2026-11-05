@@ -1,7 +1,8 @@
 import cx from 'clsx';
-import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
-import { CameraCore } from '@/types/cameras.d';
+import { CameraCore } from '@/types/cameras';
 import { externalCameraId } from '@/utils/digicam';
 import { cameraId } from '@/utils/cameras';
 import { getExternalCameraDataApi } from '@/services/cameras';
@@ -16,25 +17,17 @@ interface Props {
   showExternalData: boolean;
 }
 
-const DataExternal = (props: Props) => {
-  const { camera, showExternalData } = props;
+const DataExternalContent = (props: Pick<Props, 'camera'>) => {
+  const { camera } = props;
   const { maker, name } = camera;
 
   const id = cameraId(maker, name);
   const externalId = externalCameraId(maker, name);
 
-  const {
-    data = {},
-    isLoading,
-    isError,
-  } = useQuery({
+  const { data = {}, isError } = useSuspenseQuery({
     queryKey: ['getExternalCameraDataApi', externalId],
     queryFn: () => getExternalCameraDataApi(externalId).then((res) => res.data),
-    suspense: true,
-    enabled: showExternalData,
   });
-
-  if (isLoading) return null;
 
   const hasError = Object.keys(data)[0] === 'error';
 
@@ -66,6 +59,16 @@ const DataExternal = (props: Props) => {
       </ExternalLink>
     </div>
   );
+};
+
+// useSuspenseQuery has no `enabled`. Fetch only after the external tab is opened once,
+// and keep showing the data after that (same as the old suspense + enabled query).
+const DataExternal = (props: Props) => {
+  const { camera, showExternalData } = props;
+  const [opened, setOpened] = useState(showExternalData);
+  if (showExternalData && !opened) setOpened(true);
+  if (!opened && !showExternalData) return null;
+  return <DataExternalContent camera={camera} />;
 };
 
 export default DataExternal;

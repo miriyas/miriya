@@ -1,15 +1,14 @@
-'use client';
-
 import BlogEdit from '@/containers/blog/Post/NewAndEdit/Edit';
 import { getBlogCategoriesAPI, getBlogPostAPI } from '@/services/blog';
 
 interface Props {
-  params: {
+  params: Promise<{
     postId: string;
-  };
+  }>;
 }
 
-const BlogEditPage = async ({ params: { postId } }: Props) => {
+const BlogEditPage = async ({ params }: Props) => {
+  const { postId } = await params;
   if (!postId) return null;
   const postData = getBlogPostAPI(postId).then((res) => res.data);
   const categoriesData = getBlogCategoriesAPI().then((res) => res.data);

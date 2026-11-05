@@ -1,4 +1,4 @@
-import { InputFields } from '@/types/index.d';
+import { InputFields } from '@/types';
 
 export const yearStartField = {
   label: '생산시작',

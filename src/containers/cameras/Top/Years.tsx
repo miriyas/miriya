@@ -6,7 +6,7 @@ import { Dictionary } from 'lodash';
 
 import { useGA } from '@/hooks/useGA';
 import { CAMERA } from '@/constants/ga';
-import { CameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras';
 import { getNumberArr } from '@/utils';
 
 import styles from './index.module.scss';

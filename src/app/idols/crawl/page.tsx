@@ -1,4 +1,4 @@
-import { CrawlGeneration } from '@/types/idols.d';
+import { CrawlGeneration } from '@/types/idols';
 import { crawlIdolData } from '@/services/idols';
 
 import styles from './index.module.scss';

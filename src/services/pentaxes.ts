@@ -1,5 +1,5 @@
 import { apiBe, apiFe } from '@/services';
-import { DslrEditProps, PentaxDslr, PentaxSlr, SlrEditProps } from '@/types/pentaxes.d';
+import { DslrEditProps, PentaxDslr, PentaxSlr, SlrEditProps } from '@/types/pentaxes';
 
 export const getReadMeMarkdownApi = () => apiFe('/pentax/markdown/readme');
 

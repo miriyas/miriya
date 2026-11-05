@@ -1,4 +1,4 @@
-import { OPTICS_TYPE, OpticsTypes } from '@/types/cameras.d';
+import { OPTICS_TYPE, OpticsTypes } from '@/types/cameras';
 
 interface Props {
   type: OpticsTypes | undefined;

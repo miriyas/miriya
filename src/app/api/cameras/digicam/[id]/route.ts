@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 import { trim } from 'lodash';
 
-import { DigicamDB } from '@/types/cameras.d';
+import { DigicamDB } from '@/types/cameras';
 import { apiBe } from '@/services';
 
 const processData = (rawString: string) => {
@@ -32,12 +32,13 @@ const getCameraDataFromURL = async (url: string) => {
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export const GET = async (_: NextRequest, { params }: Props) => {
-  const data = await getCameraDataFromURL(params.id);
+  const { id } = await params;
+  const data = await getCameraDataFromURL(id);
   return NextResponse.json(data);
 };

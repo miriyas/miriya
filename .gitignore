@@ -43,3 +43,6 @@ serviceAccountKey.json
 
 # Sentry Auth Token
 .sentryclirc
+
+# Build env written by CI (contains secrets)
+.env.production

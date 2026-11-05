@@ -5,7 +5,7 @@ import cx from 'clsx';
 import { useAtomValue } from 'jotai';
 
 import { useResponsive } from '@/hooks/useResponsive';
-import { Idol } from '@/types/idols.d';
+import { Idol } from '@/types/idols';
 import Isotope from '@/libs/isotope-layout';
 import { getIsotopeOptions } from '@/utils/idols';
 import { currentCategoryAtom } from '@/containers/idols/states';

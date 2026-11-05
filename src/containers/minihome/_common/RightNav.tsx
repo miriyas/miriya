@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import { MINIHOME_TAB } from '@/types/minihome.d';
+import { MINIHOME_TAB } from '@/types/minihome';
 
 import styles from './RightNav.module.scss';
 import NavLink from '@/components/NavLink';

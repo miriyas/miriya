@@ -5,10 +5,9 @@
 import cx from 'clsx';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import Clipboard from 'react-clipboard.js';
 import { useRafState, useUnmount } from 'react-use';
 
-import { BlogPostForShow } from '@/types/blog.d';
+import { BlogPostForShow } from '@/types/blog';
 import { getTimeDiffText } from '@/utils/date';
 
 import styles from './Header.module.scss';
@@ -55,14 +54,15 @@ const Header = ({ postData }: Props) => {
           </AdminOnly>
         </div>
         <div className={styles.rightWing}>
-          <Clipboard
-            data-clipboard-text={url}
-            onSuccess={onSuccess}
+          {/* react-clipboard.js does not support React 19. The browser Clipboard API does the same. */}
+          <button
+            type='button'
+            onClick={() => navigator.clipboard.writeText(url).then(onSuccess)}
             className={cx(styles.url, { [styles.copied]: copied })}
           >
             {url}
             <span>복사완료!</span>
-          </Clipboard>
+          </button>
         </div>
       </div>
     </header>

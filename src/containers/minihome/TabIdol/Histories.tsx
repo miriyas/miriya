@@ -1,5 +1,5 @@
 import { getTimeDiffText } from '@/utils/date';
-import { History } from '@/types/histories.d';
+import { History } from '@/types/histories';
 
 import styles from '../common.module.scss';
 

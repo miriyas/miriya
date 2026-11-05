@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import { PentaxDslr } from '@/types/pentaxes.d';
+import { PentaxDslr } from '@/types/pentaxes';
 import useDslrEditor from './useDslrEditor';
 
 import {

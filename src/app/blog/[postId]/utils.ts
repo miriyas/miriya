@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import { renderMarkdown } from '@/utils/blog';
-import { BlogPostForShow } from '@/types/blog.d';
+import { BlogPostForShow } from '@/types/blog';
 import { fetchClient } from '@/services';
 
 export const getPost = async (postId: string): Promise<BlogPostForShow | null> => {

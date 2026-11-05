@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 
 import { getMyCarDataAPI } from '@/services/mycar';
@@ -12,10 +12,9 @@ interface Props {
 }
 
 const EditForm = ({ carId }: Props) => {
-  const { data: cars = [] } = useQuery({
+  const { data: cars = [] } = useSuspenseQuery({
     queryKey: ['getMyCarDataAPI'],
     queryFn: () => getMyCarDataAPI().then((res) => res.data),
-    suspense: true,
   });
 
   const currentCar = cars.find((car) => car.id === carId);

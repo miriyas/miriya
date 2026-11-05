@@ -1,5 +1,5 @@
 import { apiBe, apiFe } from '@/services';
-import { Idol, IdolCore, YearDesc } from '@/types/idols.d';
+import { Idol, IdolCore, YearDesc } from '@/types/idols';
 
 export const crawlIdolData = () => apiFe('/idols/crawl');
 

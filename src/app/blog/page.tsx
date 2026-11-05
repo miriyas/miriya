@@ -5,7 +5,7 @@ import { getBlogCategoriesAPI, fetchBlogPostsAPI } from '@/services/blog';
 import { cookiesToString } from '@/utils/cookie';
 
 const BlogHomePage = async () => {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const cookiesString = cookiesToString(cookieStore.getAll());
 
   const postsData = fetchBlogPostsAPI(cookiesString)

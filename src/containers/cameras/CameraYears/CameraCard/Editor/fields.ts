@@ -1,4 +1,4 @@
-import { InputFields } from '@/types/index.d';
+import { InputFields } from '@/types';
 
 const basicFields: InputFields = {
   year: {

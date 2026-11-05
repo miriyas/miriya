@@ -22,6 +22,7 @@ export const Modal = memo(({ isShow, className, header, children, closeIcon, onC
   });
 
   const ref = useRef<Element | null>(null);
+  const nodeRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useMount(() => {
@@ -33,6 +34,7 @@ export const Modal = memo(({ isShow, className, header, children, closeIcon, onC
 
   return createPortal(
     <CSSTransition
+      nodeRef={nodeRef}
       in={isShow}
       timeout={200}
       classNames={{
@@ -44,7 +46,7 @@ export const Modal = memo(({ isShow, className, header, children, closeIcon, onC
       mountOnEnter
       unmountOnExit
     >
-      <div className={styles.modalWrapper}>
+      <div className={styles.modalWrapper} ref={nodeRef}>
         <button type='button' className={styles.bg} onClick={onClose} aria-label='close' />
         <div className={styles.wrapper}>
           <dialog className={cx(styles.modal, className)} translate='no'>

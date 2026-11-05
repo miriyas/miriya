@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Idol } from '@/types/idols.d';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { Idol } from '@/types/idols';
+import { TARGET_CATEGORY } from '@/types/comments';
 
 import Desc from './Desc';
 import { ListHistory, ListComment } from '@/components/CommentAndHistory';

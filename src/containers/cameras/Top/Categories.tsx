@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import useRafAtom from '@/hooks/useRafAtom';
 import { useGA } from '@/hooks/useGA';
 import { CAMERA } from '@/constants/ga';
-import { CAMERA_MAKERS } from '@/types/cameras.d';
+import { CAMERA_MAKERS } from '@/types/cameras';
 import { selectedMakerAtom } from '../states';
 
 import styles from './index.module.scss';

@@ -29,14 +29,14 @@ jobs:
       # Keep the Node version the same as Dockerfile.prebuilt (sharp is a native module).
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.20.8
+          node-version: 22.23.4
 
       - name: Cache node_modules
         id: nm-cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: nm-${{ runner.os }}-node18.20.8-${{ hashFiles('yarn.lock') }}
+          key: nm-${{ runner.os }}-node22.23.4-${{ hashFiles('yarn.lock') }}
 
       - name: Install packages
         if: steps.nm-cache.outputs.cache-hit != 'true'
@@ -52,7 +52,7 @@ jobs:
           restore-keys: next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
 
       # NEXT_PUBLIC_* and GITHUB_ACCESS_TOKEN (static /minihome/home) are needed at build time.
-      # Lint already runs in the pre-commit hook, so it is skipped here.
+      # Lint runs in the pre-commit hook. (Next 16 build does not lint.)
       - name: Build
         env:
           BUILD_ENV: ${{ secrets.FRONTEND_BUILD_ENV }}
@@ -60,7 +60,7 @@ jobs:
         run: |
           trap 'rm -f .env.production' EXIT
           (umask 077; printf '%s\n' "$BUILD_ENV" > .env.production)
-          yarn build --no-lint
+          yarn build
 
       # IMPORTANT: standalone output COPIES .env* files into .next/standalone.
       # Remove them, then make sure no secret value is left in the image context.

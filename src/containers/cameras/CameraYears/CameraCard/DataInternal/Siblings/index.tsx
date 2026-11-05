@@ -1,4 +1,4 @@
-import { CameraCore } from '@/types/cameras.d';
+import { CameraCore } from '@/types/cameras';
 
 import SiblingLinks from './SiblingLinks';
 import styles from '../index.module.scss';

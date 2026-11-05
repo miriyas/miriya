@@ -13,7 +13,7 @@ const cookiesToString = (rawCookies: Cookie[]) => {
 };
 
 export const GET = async () => {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const cookiesString = cookiesToString(cookieStore.getAll());
 
   let currentUser = null;

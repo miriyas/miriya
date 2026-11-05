@@ -1,7 +1,7 @@
-import dynamic from 'next/dynamic';
-
 import { fetchBlogCategoriesAPI } from '@/services/blog';
-import { BlogCategory } from '@/types/blog.d';
+import { BlogCategory } from '@/types/blog';
+
+import BlogCategoryManage from './BlogCategoryManageLazy';
 
 export async function generateStaticParams() {
   const categories: BlogCategory[] = await fetchBlogCategoriesAPI().then((res) => res.json());
@@ -9,8 +9,6 @@ export async function generateStaticParams() {
 }
 
 export const revalidate = 3600;
-
-const BlogCategoryManage = dynamic(() => import('@/containers/blog/Categories'), { ssr: false });
 
 const BlogCategoryManagePage = async () => {
   const categories = await fetchBlogCategoriesAPI().then((res) => res.json());

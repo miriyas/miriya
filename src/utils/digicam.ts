@@ -1,4 +1,4 @@
-import { CAMERA_MAKER, CameraMakerTypes } from '@/types/cameras.d';
+import { CAMERA_MAKER, CameraMakerTypes } from '@/types/cameras';
 
 /** digicamDB용 id 생성 */
 export const externalCameraId = (maker: CameraMakerTypes, name: string) => {

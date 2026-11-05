@@ -4,7 +4,7 @@ import cx from 'clsx';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useBlogComment from '../useBlogComment';
-import { Comment } from '@/types/comments.d';
+import { Comment } from '@/types/comments';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
 

@@ -1,4 +1,4 @@
-import { CameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras';
 
 interface Props {
   camera: CameraType;

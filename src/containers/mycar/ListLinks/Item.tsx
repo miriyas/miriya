@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import cx from 'clsx';
 
-import { ItemLink } from '@/types/mycar.d';
+import { ItemLink } from '@/types/mycar';
 import { deleteCarLinkDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';

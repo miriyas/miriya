@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { CameraCore } from '@/types/cameras.d';
+import { CameraCore } from '@/types/cameras';
 import { cameraId } from '@/utils/cameras';
 import { imageLoaderDo2Ik } from '@/utils/image';
 

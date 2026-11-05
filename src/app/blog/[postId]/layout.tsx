@@ -4,12 +4,13 @@ import { Metadata } from 'next';
 import { getPost } from './utils';
 
 interface Props {
-  params: {
+  params: Promise<{
     postId: string;
-  };
+  }>;
 }
 
-export async function generateMetadata({ params: { postId } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { postId } = await params;
   const postData = await getPost(postId);
 
   const url = `https://miriya.net/blog/${postId}`;

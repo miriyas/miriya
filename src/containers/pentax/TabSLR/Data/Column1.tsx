@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import { PentaxSlrCore } from '@/types/pentaxes.d';
+import { PentaxSlrCore } from '@/types/pentaxes';
 import { valueOr } from '@/utils';
 
 import styles from '../../_common/CommonData.module.scss';

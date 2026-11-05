@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { getTimeDiffText } from '@/utils/date';
 import { filterAuthorName } from '@/utils/auth';
-import { Comment } from '@/types/comments.d';
+import { Comment } from '@/types/comments';
 
 import styles from '../common.module.scss';
 

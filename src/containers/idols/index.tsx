@@ -2,7 +2,7 @@
 
 import { groupBy } from 'lodash';
 
-import { YearDesc } from '@/types/idols.d';
+import { YearDesc } from '@/types/idols';
 import useIdols from './useIdols';
 
 import Content from './Content';

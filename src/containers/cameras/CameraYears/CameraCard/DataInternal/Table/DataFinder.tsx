@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { OPTICS_TYPE, OpticsTypes, CameraType } from '@/types/cameras.d';
+import { OPTICS_TYPE, OpticsTypes, CameraType } from '@/types/cameras';
 
 import styles from './Table.module.scss';
 

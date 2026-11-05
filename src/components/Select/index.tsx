@@ -7,6 +7,7 @@ import styles from './index.module.scss';
 
 interface Props extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' | 'className' | 'ref'> {
   className?: string;
+  placeholder?: string;
 }
 
 const Select = forwardRef<HTMLSelectElement, Props>((props, ref) => {

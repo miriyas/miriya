@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import cx from 'clsx';
 
-import { CameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras';
 
 import Badges from './Badges';
 import DataImage from './Image';

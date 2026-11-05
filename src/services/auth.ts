@@ -1,5 +1,5 @@
 import { apiBe, apiFe } from '@/services';
-import { UserWithRole } from '@/types/auth.d';
+import { UserWithRole } from '@/types/auth';
 
 export const postIdTokenApi = (idToken: string) => apiBe.post('/auth/session', { idToken });
 

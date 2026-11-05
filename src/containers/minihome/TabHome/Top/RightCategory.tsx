@@ -2,20 +2,19 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { getMinihomRightCounterDataAPI } from '@/services/minihome';
-import { RECENT_CATEGORIES } from '@/types/minihome.d';
+import { RECENT_CATEGORIES } from '@/types/minihome';
 
 import styles from './RightCategory.module.scss';
 
 const RightCategory = () => {
-  const { data = {} } = useQuery({
+  const { data = {} } = useSuspenseQuery({
     queryKey: ['getMinihomRightCounterDataAPI'],
     queryFn: () => {
       return getMinihomRightCounterDataAPI().then((res) => res.data);
     },
-    suspense: true,
   });
 
   return (

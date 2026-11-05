@@ -5,7 +5,7 @@ import { FormEventHandler } from 'react';
 
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { TARGET_CATEGORY } from '@/types/comments';
 import { PentaxDslr } from '@/types/pentaxes';
 import { PentaxDSLRSchemaCore, pentaxDslrValidator } from '@/utils/validator';
 import { editCameraAtom } from '../states';

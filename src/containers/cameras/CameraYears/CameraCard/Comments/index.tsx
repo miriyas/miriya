@@ -3,7 +3,7 @@
 import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { TARGET_CATEGORY } from '@/types/comments';
 
 import { ListComment, ListHistory } from '@/components/CommentAndHistory';
 import styles from './index.module.scss';

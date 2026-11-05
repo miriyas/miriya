@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 
-import { PentaxDslrCore } from '@/types/pentaxes.d';
+import { PentaxDslrCore } from '@/types/pentaxes';
 import { valueOr } from '@/utils';
 
 import ExternalLink from '@/components/ExternalLink';

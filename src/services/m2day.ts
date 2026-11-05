@@ -1,5 +1,5 @@
 import { apiBe } from '@/services';
-import { M2PostType, NewM2PostType } from '@/types/m2day.d';
+import { M2PostType, NewM2PostType } from '@/types/m2day';
 
 export const getM2daysApi = () => apiBe<M2PostType[]>('/m2day');
 

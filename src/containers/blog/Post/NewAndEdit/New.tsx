@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 import useAuth from '@/hooks/useAuth';
 import { postBlogPostAPI } from '@/services/blog';
-import { BlogCategory } from '@/types/blog.d';
+import { BlogCategory } from '@/types/blog';
 
 import LoadingPage from '@/components/Loading/LoadingPage';
 

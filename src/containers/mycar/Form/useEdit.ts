@@ -7,7 +7,7 @@ import useMyCar from '../useMyCar';
 import useAuth from '@/hooks/useAuth';
 import { EditMyCarSchema, editMyCarValidator } from '@/utils/validator';
 import { patchCarDataAPI } from '@/services/mycar';
-import { MyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar';
 import useAlert from '@/hooks/useAlert';
 
 const useEdit = (currentCar: MyCar) => {

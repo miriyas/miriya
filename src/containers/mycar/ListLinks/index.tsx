@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import useAuth from '@/hooks/useAuth';
 import { getCarLinksDataAPI } from '@/services/mycar';
-import { MyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar';
 
 import Loading from '@/components/Loading';
 import New from './New';

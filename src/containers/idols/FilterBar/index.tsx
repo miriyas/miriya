@@ -4,7 +4,7 @@ import { MouseEventHandler, useTransition } from 'react';
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 
-import { CATEGORIES, Category } from '@/types/idols.d';
+import { CATEGORIES, Category } from '@/types/idols';
 import { prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';
 import { IDOL } from '@/constants/ga';

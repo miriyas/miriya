@@ -5,7 +5,7 @@ import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useCommentAndHistory from '../useCommentAndHistory';
 import { filterAuthorName } from '@/utils/auth';
-import { Comment } from '@/types/comments.d';
+import { Comment } from '@/types/comments';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 

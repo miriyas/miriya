@@ -1,6 +1,6 @@
 import { User } from 'firebase/auth';
 
-import { ValueOf } from '@/types/index.d';
+import { ValueOf } from '@/types';
 
 export const ROLE = {
   ADMIN: 'ADMIN',

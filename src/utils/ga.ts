@@ -14,7 +14,7 @@ if (typeof window !== 'undefined') {
   };
 
   window.gtag('js', new Date());
-  window.gtag('config', process.env.NEXT_PUBLIC_GA_ID);
+  window.gtag('config', process.env.NEXT_PUBLIC_GA_ID ?? '');
 }
 
 export {};

@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getCommentsApi, patchCommentAPI } from '@/services/comments';
 import { getHistoriesApi } from '@/services/histories';
-import { Comment, TargetCategoryTypes } from '@/types/comments.d';
+import { Comment, TargetCategoryTypes } from '@/types/comments';
 
 interface Props {
   targetCategory: TargetCategoryTypes;

@@ -1,4 +1,4 @@
-import { Like } from '@/types/likes.d';
+import { Like } from '@/types/likes';
 
 export interface M2PostType {
   id: string;

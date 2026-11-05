@@ -1,8 +1,6 @@
 import { MouseEvent } from 'react';
 import Isotope from 'isotope-layout';
 
-import type { Gtag } from '@types/gtag.js';
-
 interface ViewTransition {
   finished: Promise<void>;
   ready: Promise<void>;
@@ -11,7 +9,8 @@ interface ViewTransition {
 
 declare global {
   interface Window {
-    gtag: Gtag;
+    // eslint-disable-next-line no-undef
+    gtag: Gtag.Gtag; // global namespace from @types/gtag.js
     dataLayer: object[];
     isotopes: {
       [key: number]: Isotope;

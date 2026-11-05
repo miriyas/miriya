@@ -1,4 +1,4 @@
-import { Comment } from '@/types/comments.d';
+import { Comment } from '@/types/comments';
 
 import Comments from './Comments';
 import styles from '../common.module.scss';

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import cx from 'clsx';
 
-import { BlogPostForShow } from '@/types/blog.d';
+import { BlogPostForShow } from '@/types/blog';
 import { getTimeDiffText } from '@/utils/date';
 import { imageLoaderDo2Ik } from '@/utils/image';
 

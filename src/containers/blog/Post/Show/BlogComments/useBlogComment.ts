@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getCommentsApi, patchCommentAPI } from '@/services/comments';
-import { Comment, TARGET_CATEGORY } from '@/types/comments.d';
+import { Comment, TARGET_CATEGORY } from '@/types/comments';
 
 interface Props {
   targetId: string;

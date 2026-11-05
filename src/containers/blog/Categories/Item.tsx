@@ -7,7 +7,7 @@ import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import { changeBlogCategoryOrderAPI, deleteBlogCategoryAPI, patchBlogCategoryAPI } from '@/services/blog';
-import { BlogCategoryForList } from '@/types/blog.d';
+import { BlogCategoryForList } from '@/types/blog';
 
 import styles from './Item.module.scss';
 

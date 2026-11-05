@@ -6,7 +6,7 @@ import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useIdols from '@/containers/idols/useIdols';
 import useCameras from '@/containers/cameras/useCameras';
-import { TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments.d';
+import { TargetCategoryTypes, TARGET_CATEGORY } from '@/types/comments';
 import { postCommentAPI } from '@/services/comments';
 
 import useCommentAndHistory from '../CommentAndHistory/useCommentAndHistory';

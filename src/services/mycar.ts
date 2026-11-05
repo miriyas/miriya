@@ -1,5 +1,5 @@
 import { apiBe, apiBePure } from '@/services';
-import { ItemFix, ItemLink, ItemParts, MyCar, NewItemFix, NewItemLink, NewItemParts } from '@/types/mycar.d';
+import { ItemFix, ItemLink, ItemParts, MyCar, NewItemFix, NewItemLink, NewItemParts } from '@/types/mycar';
 
 export const getMyCarDataAPI = () => apiBe<MyCar[]>('/mycar');
 

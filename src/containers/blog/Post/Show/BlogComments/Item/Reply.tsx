@@ -2,7 +2,7 @@ import { MouseEventHandler, useState } from 'react';
 import cx from 'clsx';
 
 import useAuth from '@/hooks/useAuth';
-import { Comment } from '@/types/comments.d';
+import { Comment } from '@/types/comments';
 import { filterAuthorName } from '@/utils/auth';
 import { getTimeDiffText } from '@/utils/date';
 import { deleteCommentAPI } from '@/services/comments';

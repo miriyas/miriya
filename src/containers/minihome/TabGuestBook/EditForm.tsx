@@ -4,7 +4,7 @@ import { useMount } from 'react-use';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useGuestbook from './useGuestbook';
-import { Guestbook } from '@/types/minihome.d';
+import { Guestbook } from '@/types/minihome';
 
 import styles from './EditForm.module.scss';
 

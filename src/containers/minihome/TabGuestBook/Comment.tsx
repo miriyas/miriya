@@ -9,7 +9,7 @@ import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';
 import useGuestbook from './useGuestbook';
 import { filterAuthorName } from '@/utils/auth';
-import { Guestbook } from '@/types/minihome.d';
+import { Guestbook } from '@/types/minihome';
 
 import ProfileImageWithFallback from '@/components/ProfileImageWithFallback';
 import EditForm from './EditForm';

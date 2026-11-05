@@ -134,7 +134,6 @@ export interface PentaxSlrCore {
       color?: string;
     };
     power?: string;
-    etc?: string;
     modes?: string;
     metering?: {
       k?: string;

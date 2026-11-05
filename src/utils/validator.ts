@@ -1,6 +1,6 @@
 import { InferType, bool, mixed, number, object, ref, string } from 'yup';
 
-import { CATEGORIES } from '@/types/idols.d';
+import { CATEGORIES } from '@/types/idols';
 
 export const stringTest = string();
 

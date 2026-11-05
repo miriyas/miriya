@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useAtomValue } from 'jotai';
 
-import { ItemFix } from '@/types/mycar.d';
+import { ItemFix } from '@/types/mycar';
 import { deleteCarFixDataAPI } from '@/services/mycar';
 import useAlert from '@/hooks/useAlert';
 import useAuth from '@/hooks/useAuth';

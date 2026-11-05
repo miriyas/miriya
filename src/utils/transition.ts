@@ -2,7 +2,7 @@
 
 import { flushSync } from 'react-dom';
 
-import { TRANSITIONS, TransitionTypes } from '@/types/transitions.d';
+import { TRANSITIONS, TransitionTypes } from '@/types/transitions';
 
 export const transitionHelper = (updateDOM: () => Promise<void> | void) => {
   if (!document.startViewTransition) {

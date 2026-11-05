@@ -5,7 +5,7 @@ import cx from 'clsx';
 
 import useAuthSocial from '@/hooks/useAuthSocial';
 import useAuthEmail from '@/hooks/useAuthEmail';
-import { SupportedProviders } from '@/types/index.d';
+import { SupportedProviders } from '@/types';
 
 import { IconProviderFacebook, IconProviderGithub, IconProviderGoogle } from 'public/svgs';
 import authStyles from '../index.module.scss';

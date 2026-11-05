@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
 
 import { getFontSize, getPost } from './utils';
 
@@ -8,19 +8,21 @@ export const size = {
   height: 630,
 };
 export const contentType = 'image/png';
-export const runtime = 'edge';
+// Default Node.js runtime. (Edge is deprecated in Next 16, and in Edge the markdown parser
+// loads its browser build, which needs `document`.)
 
 interface Props {
-  params: {
+  params: Promise<{
     postId: string;
-  };
+  }>;
 }
 
 // https://og-playground.vercel.app/
 // https://github.com/vercel/satori#documentation
 // https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation/og-image-examples#load-files-in-node.js-runtime
-const og = async ({ params: { postId } }: Props) => {
+const og = async ({ params }: Props) => {
   try {
+    const { postId } = await params;
     const postData = await getPost(postId);
 
     // woff2는 지원 안됨, ttf/otf가 컴파일이 빠르다.
@@ -60,7 +62,7 @@ const og = async ({ params: { postId } }: Props) => {
               right: 0,
               bottom: 0,
               left: 0,
-              backgroundColor: 'rgba(0 0 0, 0.3)',
+              backgroundColor: 'rgba(0, 0, 0, 0.3)',
             }}
           />
           <div
@@ -83,7 +85,7 @@ const og = async ({ params: { postId } }: Props) => {
                 fontFamily: 'Spoqa',
                 color: 'white',
                 textAlign: 'center',
-                backgroundColor: 'rgba(0 0 0, 0.3)',
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
               }}
             >
               {postData?.title}

@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 
 import { apiFe } from '@/services';
-import { CrawlGeneration, CrawlIdol, CrawlIdolData } from '@/types/idols.d';
+import { CrawlGeneration, CrawlIdol, CrawlIdolData } from '@/types/idols';
 
 const processData = (rawString: string) => {
   const $ = cheerio.load(rawString);

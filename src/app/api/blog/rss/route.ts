@@ -1,5 +1,8 @@
 import { getBlogPostsAPI } from '@/services/blog';
 
+// Next 13 built this once and never updated it. Now it is cached and rebuilt every hour.
+export const revalidate = 3600;
+
 export const GET = async () => {
   const posts = await getBlogPostsAPI().then((res) => res.data);
 

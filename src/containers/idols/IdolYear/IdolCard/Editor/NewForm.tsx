@@ -3,7 +3,7 @@ import cx from 'clsx';
 import { FieldErrors, FieldNamesMarkedBoolean, UseFormRegister } from 'react-hook-form';
 
 import useAlert from '@/hooks/useAlert';
-import { CATEGORIES } from '@/types/idols.d';
+import { CATEGORIES } from '@/types/idols';
 import { prettyCategory } from '@/utils/idols';
 import { NewIdolSchema } from '@/utils/validator';
 

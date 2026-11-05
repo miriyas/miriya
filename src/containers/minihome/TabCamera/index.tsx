@@ -2,8 +2,8 @@
 
 import { ChangeEventHandler, useState } from 'react';
 
-import { Comment } from '@/types/comments.d';
-import { History } from '@/types/histories.d';
+import { Comment } from '@/types/comments';
+import { History } from '@/types/histories';
 
 import Select from '@/components/Select';
 import Comments from './Comments';

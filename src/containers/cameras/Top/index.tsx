@@ -4,7 +4,7 @@ import { Suspense, useMemo } from 'react';
 // import dynamic from 'next/dynamic';
 import { Dictionary } from 'lodash';
 
-import { CameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras';
 
 import Header from './Header';
 import News from './News';

@@ -19,13 +19,14 @@ const cookiesToString = (rawCookies: Cookie[]) => {
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     postId: string;
-  };
+  }>;
 }
 
-const BlogShowPage = async ({ params: { postId } }: Props) => {
-  const cookieStore = cookies();
+const BlogShowPage = async ({ params }: Props) => {
+  const { postId } = await params;
+  const cookieStore = await cookies();
   const cookiesString = cookiesToString(cookieStore.getAll());
   const categories = await getBlogCategoriesAPI().then((res) => res.data);
   const postData = await apiBe<BlogPostForShow>(`/blog/posts/${postId}`, {

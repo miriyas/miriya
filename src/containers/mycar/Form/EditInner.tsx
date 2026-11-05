@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import useEdit from './useEdit';
 import useAuth from '@/hooks/useAuth';
-import { MyCar } from '@/types/mycar.d';
+import { MyCar } from '@/types/mycar';
 import { getCDNImage } from '@/utils/image';
 
 import Loading from '@/components/Loading';

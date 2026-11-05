@@ -1,5 +1,5 @@
 import { apiBe } from '@/services';
-import { Comment, NewComment, TargetCategoryTypes } from '@/types/comments.d';
+import { Comment, NewComment, TargetCategoryTypes } from '@/types/comments';
 
 interface GetCommentsParams {
   targetCategory: TargetCategoryTypes;

@@ -1,18 +1,17 @@
 'use client';
 
 import cx from 'clsx';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
-import { RECENT_CATEGORIES } from '@/types/minihome.d';
+import { RECENT_CATEGORIES } from '@/types/minihome';
 import { getMinihomeLeftCommentsDataAPI } from '@/services/minihome';
 
 import styles from './LeftRecent.module.scss';
 
 const LeftRecent = () => {
-  const { data: recentComments } = useQuery({
+  const { data: recentComments } = useSuspenseQuery({
     queryKey: ['getMinihomeLeftCommentsDataAPI'],
     queryFn: () => getMinihomeLeftCommentsDataAPI().then((res) => res.data),
-    suspense: true,
   });
 
   return (

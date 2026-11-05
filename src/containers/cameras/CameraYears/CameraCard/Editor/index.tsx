@@ -1,7 +1,7 @@
 import { Dispatch, FormEventHandler, SetStateAction } from 'react';
 
 import useEditor from './useEditor';
-import { CameraType } from '@/types/cameras.d';
+import { CameraType } from '@/types/cameras';
 import useAlert from '@/hooks/useAlert';
 import { fields } from '@/containers/cameras/CameraYears/CameraCard/Editor/fields';
 

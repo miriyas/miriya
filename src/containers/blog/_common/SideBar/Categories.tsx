@@ -2,7 +2,7 @@
 import cx from 'clsx';
 import Link from 'next/link';
 
-import { BlogCategoryForList } from '@/types/blog.d';
+import { BlogCategoryForList } from '@/types/blog';
 
 import styles from './index.module.scss';
 

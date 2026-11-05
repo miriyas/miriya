@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import { Idol } from '@/types/idols.d';
+import { Idol } from '@/types/idols';
 import { prettyCategory } from '@/utils/idols';
 import { getCDNImage, imageLoaderDo2Ik } from '@/utils/image';
 

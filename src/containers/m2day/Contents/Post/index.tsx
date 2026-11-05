@@ -3,7 +3,7 @@
 import { useAtom, useAtomValue } from 'jotai';
 
 import useM2day from '../../useM2day';
-import { M2PostType } from '@/types/m2day.d';
+import { M2PostType } from '@/types/m2day';
 import { getTimeDiffText } from '@/utils/date';
 import { commentOpenAtom, editModeAtom } from '@/containers/m2day/states';
 import Functions from '@/containers/m2day/Contents/Post/Functions';

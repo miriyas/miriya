@@ -2,8 +2,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import useAuth from '@/hooks/useAuth';
-import { CameraType } from '@/types/cameras.d';
-import { TARGET_CATEGORY } from '@/types/comments.d';
+import { CameraType } from '@/types/cameras';
+import { TARGET_CATEGORY } from '@/types/comments';
 import { FBCamerachema, cameraValidator } from '@/utils/validator';
 import { editCameraDataApi } from '@/services/cameras';
 import useCameras from '../../../useCameras';

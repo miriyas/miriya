@@ -1,6 +1,6 @@
 import { apiBe } from '@/services';
-import { Comment } from '@/types/comments.d';
-import { GADataRow, Guestbook, GuestbookData, NewGuestbook, RightCategory } from '@/types/minihome.d';
+import { Comment } from '@/types/comments';
+import { GADataRow, Guestbook, GuestbookData, NewGuestbook, RightCategory } from '@/types/minihome';
 
 export const getGAdataAPI = () => apiBe<GADataRow[]>('/minihome/counter');
 

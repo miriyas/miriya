@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import cx from 'clsx';
 import { useState } from 'react';
 
-import { LIKE_TARGET_CATEGORY } from '@/types/likes.d';
+import { LIKE_TARGET_CATEGORY } from '@/types/likes';
 import { deleteLikeAPI, getLikesApi, postLikeAPI } from '@/services/likes';
 import useAuth from '@/hooks/useAuth';
 

@@ -5,7 +5,7 @@ import cx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { ItemLink } from '@/types/mycar.d';
+import { ItemLink } from '@/types/mycar';
 import { patchCarLinkDataAPI } from '@/services/mycar';
 import useAuth from '@/hooks/useAuth';
 import useAlert from '@/hooks/useAlert';

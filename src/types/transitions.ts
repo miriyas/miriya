@@ -1,4 +1,4 @@
-import { ValueOf } from '@/types.d';
+import { ValueOf } from '@/types';
 
 export const TRANSITIONS = {
   _: '',

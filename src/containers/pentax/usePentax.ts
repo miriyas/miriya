@@ -1,18 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { getPentaxDslrDataApi, getPentaxSlrDataApi } from '@/services/pentaxes';
 
 const usePentax = () => {
-  const { data: dslrs = [], refetch: reloadDslr } = useQuery({
+  const { data: dslrs = [], refetch: reloadDslr } = useSuspenseQuery({
     queryKey: ['getPentaxDslrDataApi'],
     queryFn: () => getPentaxDslrDataApi().then((res) => res.data),
-    suspense: true,
   });
 
-  const { data: slrs = [], refetch: reloadSlr } = useQuery({
+  const { data: slrs = [], refetch: reloadSlr } = useSuspenseQuery({
     queryKey: ['getPentaxSlrDataApi'],
     queryFn: () => getPentaxSlrDataApi().then((res) => res.data),
-    suspense: true,
   });
 
   return {

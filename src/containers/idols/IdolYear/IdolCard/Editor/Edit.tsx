@@ -1,7 +1,7 @@
 import { useResetAtom } from 'jotai/utils';
 
 import useEditor from './useEditor';
-import { Idol } from '@/types/idols.d';
+import { Idol } from '@/types/idols';
 import { editIdolAtom } from '@/containers/idols/states';
 
 import Form from './EditForm';

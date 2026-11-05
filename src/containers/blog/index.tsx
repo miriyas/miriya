@@ -7,7 +7,7 @@ import cx from 'clsx';
 
 import { getTimeDiffText } from '@/utils/date';
 import { imageLoaderDo2Ik } from '@/utils/image';
-import { BlogCategoryForList, BlogPostForList } from '@/types/blog.d';
+import { BlogCategoryForList, BlogPostForList } from '@/types/blog';
 
 import CategoriesBar from './_common/SideBar';
 import styles from './index.module.scss';

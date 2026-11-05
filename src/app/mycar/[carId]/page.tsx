@@ -12,13 +12,14 @@ export async function generateStaticParams() {
 }
 
 interface Props {
-  params: {
+  params: Promise<{
     carId: string;
-  };
+  }>;
 }
 
 const MyCarPage = async ({ params }: Props) => {
-  return <MyCar carId={params.carId} />;
+  const { carId } = await params;
+  return <MyCar carId={carId} />;
 };
 
 export default MyCarPage;

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import cx from 'clsx';
 
 import { callTransition } from '@/utils/transition';
-import { TRANSITIONS } from '@/types/transitions.d';
+import { TRANSITIONS } from '@/types/transitions';
 
 import { IconChevronRight } from 'public/svgs';
 import ImageExpandable from '@/components/ImageExpandable';

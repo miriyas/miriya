@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { SENSOR_SIZE, SensorSizeTypes, CameraType } from '@/types/cameras.d';
+import { SENSOR_SIZE, SensorSizeTypes, CameraType } from '@/types/cameras';
 
 import styles from './Table.module.scss';
 

@@ -1,6 +1,8 @@
-import { ImageResponse, NextRequest } from 'next/server';
+import { NextRequest } from 'next/server';
+import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
+// Default Node.js runtime. (Edge is deprecated in Next 16, and in Edge the markdown parser
+// loads its browser build, which needs `document`.)
 
 const hexEncode = (str: string) => {
   let result = '';
@@ -114,16 +116,17 @@ const avatar = async (uid: string) => {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
-    return null;
+    return new Response(null, { status: 500 });
   }
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     uid: string;
-  };
+  }>;
 }
 
-export const GET = async (_: NextRequest, { params: { uid } }: Props) => {
+export const GET = async (_: NextRequest, { params }: Props) => {
+  const { uid } = await params;
   return avatar(uid);
 };

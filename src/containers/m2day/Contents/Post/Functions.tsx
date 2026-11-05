@@ -8,8 +8,8 @@ import Image from 'next/image';
 import { commentOpenAtom } from '@/containers/m2day/states';
 import useAuth from '@/hooks/useAuth';
 import useM2day from '../../useM2day';
-import { M2PostType } from '@/types/m2day.d';
-import { LIKE_TARGET_CATEGORY } from '@/types/likes.d';
+import { M2PostType } from '@/types/m2day';
+import { LIKE_TARGET_CATEGORY } from '@/types/likes';
 import { deleteLikeAPI, postLikeAPI } from '@/services/likes';
 
 import styles from './Functions.module.scss';

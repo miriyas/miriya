@@ -6,7 +6,7 @@ import { useMount } from 'react-use';
 
 import { getNumberArr } from '@/utils';
 import { selectedCameraAtom } from './states';
-import { PentaxSlr } from '@/types/pentaxes.d';
+import { PentaxSlr } from '@/types/pentaxes';
 
 import Picture from '../_common/Picture';
 import Comments from '../_common/Comments';

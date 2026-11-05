@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { useAtom, useAtomValue } from 'jotai';
 
 import useAuth from '@/hooks/useAuth';
-import { BlogCategory } from '@/types/blog.d';
+import { BlogCategory } from '@/types/blog';
 import { bodyAtom, categoryAtom, heroAtom, hiddenAtom, loadingAtom, titleAtom } from './states';
 
 import Select from '@/components/Select';

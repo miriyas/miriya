@@ -13,6 +13,9 @@ const getReadme = () => {
   return content;
 };
 
+// Build once (as in Next 13). The markdown file is in src/, which is not in the runtime image.
+export const dynamic = 'force-static';
+
 export const GET = async () => {
   const data = await getReadme();
   const result = await remark().use(html, { sanitize: false }).process(data);

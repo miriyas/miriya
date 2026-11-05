@@ -1,5 +1,5 @@
 import { apiBe } from '@/services';
-import { Like, NewLike, LikeTargetCategoryTypes } from '@/types/likes.d';
+import { Like, NewLike, LikeTargetCategoryTypes } from '@/types/likes';
 
 interface LikeParams {
   targetCategory: LikeTargetCategoryTypes;

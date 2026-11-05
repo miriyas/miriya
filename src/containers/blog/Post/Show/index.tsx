@@ -1,19 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-danger */
 
-import dynamic from 'next/dynamic';
-
-import { BlogCategoryForList, BlogPostForShow } from '@/types/blog.d';
+import { BlogCategoryForList, BlogPostForShow } from '@/types/blog';
 import { bodyProcess } from '../utils';
 
 import CategoriesBar from '../../_common/SideBar';
 import Header from './Header';
 import BlogComments from './BlogComments';
 import NewForm from './BlogComments/NewForm';
+import { LikeButton, CategoryRelated } from './lazy';
 import styles from './index.module.scss';
-
-const LikeButton = dynamic(() => import('./LikeButton'), { ssr: false });
-const CategoryRelated = dynamic(() => import('./CategoryRelated'), { ssr: false });
 
 const getFontSize = (title?: string) => {
   const titleLength = new TextEncoder().encode(title).length ?? 0;

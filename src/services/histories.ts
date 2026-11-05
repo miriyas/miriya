@@ -1,5 +1,5 @@
 import { apiBe } from '@/services';
-import { History } from '@/types/histories.d';
+import { History } from '@/types/histories';
 
 interface GetHistoriesParams {
   targetCategory: string;
