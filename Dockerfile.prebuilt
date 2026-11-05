@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:1
+# Used by CI (.github/workflows/deploy-prod.yml). CI runs `next build` on the runner
+# (with node_modules and .next/cache cached) and gives this file a small context dir:
+#   ./            <- .next/standalone (server.js, traced node_modules), .env* removed
+#   ./.next/static
+#   ./public
+# For a full build from source (local test), use ./Dockerfile.
+# Keep the Node version the same as actions/setup-node in the workflow (sharp is native).
+FROM node:18.20.8-bookworm-slim
+WORKDIR /app
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000 \
+    HOSTNAME=0.0.0.0
+COPY --chown=node:node . .
+USER node
+EXPOSE 3000
+CMD ["node", "server.js"]

@@ -24,6 +24,65 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Build on the runner, not inside Docker: node_modules and .next/cache are kept
+      # between runs, so a normal deploy does not install packages or compile from zero.
+      # Keep the Node version the same as Dockerfile.prebuilt (sharp is a native module).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.20.8
+
+      - name: Cache node_modules
+        id: nm-cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: nm-${{ runner.os }}-node18.20.8-${{ hashFiles('yarn.lock') }}
+
+      - name: Install packages
+        if: steps.nm-cache.outputs.cache-hit != 'true'
+        env:
+          HUSKY: '0'
+        run: yarn install --frozen-lockfile --network-timeout 600000
+
+      - name: Cache Next build
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
+          restore-keys: next-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
+
+      # NEXT_PUBLIC_* and GITHUB_ACCESS_TOKEN (static /minihome/home) are needed at build time.
+      # Lint already runs in the pre-commit hook, so it is skipped here.
+      - name: Build
+        env:
+          BUILD_ENV: ${{ secrets.FRONTEND_BUILD_ENV }}
+          NEXT_TELEMETRY_DISABLED: '1'
+        run: |
+          trap 'rm -f .env.production' EXIT
+          (umask 077; printf '%s\n' "$BUILD_ENV" > .env.production)
+          yarn build --no-lint
+
+      # IMPORTANT: standalone output COPIES .env* files into .next/standalone.
+      # Remove them, then make sure no secret value is left in the image context.
+      - name: Make image context
+        env:
+          BUILD_ENV: ${{ secrets.FRONTEND_BUILD_ENV }}
+        run: |
+          ctx="$RUNNER_TEMP/image"
+          rm -f .next/standalone/.env*
+          mkdir -p "$ctx/.next"
+          cp -a .next/standalone/. "$ctx/"
+          cp -a .next/static "$ctx/.next/static"
+          cp -a public "$ctx/public"
+          if find "$ctx" -maxdepth 1 -name '.env*' | grep -q .; then
+            echo "env file left in image context" >&2; exit 1
+          fi
+          token="$(printf '%s\n' "$BUILD_ENV" | sed -n 's/^GITHUB_ACCESS_TOKEN=//p')"
+          if [ -n "$token" ] && grep -rqF -- "$token" "$ctx"; then
+            echo "GITHUB_ACCESS_TOKEN found in image context" >&2; exit 1
+          fi
+          du -sh "$ctx"
+
       - uses: docker/setup-buildx-action@v3
 
       - uses: docker/login-action@v3
@@ -32,24 +91,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # NEXT_PUBLIC_* and GITHUB_ACCESS_TOKEN (static /minihome/home) are needed at build time.
-      # They go in as a BuildKit secret, so they are not stored in the image.
-      - name: Write build env
-        env:
-          BUILD_ENV: ${{ secrets.FRONTEND_BUILD_ENV }}
-        run: printf '%s\n' "$BUILD_ENV" > "$RUNNER_TEMP/buildenv"
-
       - uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ${{ runner.temp }}/image
+          file: Dockerfile.prebuilt
           platforms: linux/amd64
           push: true
           tags: |
             ${{ env.IMAGE }}:latest
             ${{ env.IMAGE }}:sha-${{ github.sha }}
-          secret-files: buildenv=${{ runner.temp }}/buildenv
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
   deploy:
     needs: build
