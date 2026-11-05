@@ -3,7 +3,6 @@
 import { MouseEventHandler, useEffect } from 'react';
 import { startCase } from 'lodash';
 import cx from 'clsx';
-import { useRouter } from 'next/navigation';
 
 import useRafAtom from '@/hooks/useRafAtom';
 import { useGA } from '@/hooks/useGA';
@@ -15,7 +14,6 @@ import styles from './index.module.scss';
 
 const Categories = () => {
   const { gaEvent } = useGA();
-  const router = useRouter();
 
   const [selectedMaker, setSelectedMaker] = useRafAtom(selectedMakerAtom);
 
@@ -23,14 +21,17 @@ const Categories = () => {
     const params = new URLSearchParams(window.location.search);
     const initialMaker = params.get('maker') ?? 'ALL';
     setSelectedMaker(initialMaker);
+    // Back / forward between makers: follow the URL.
+    const onPopState = () => setSelectedMaker(new URLSearchParams(window.location.search).get('maker') ?? 'ALL');
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
   }, [setSelectedMaker]);
 
   const onClickMaker: MouseEventHandler<HTMLButtonElement> = (e) => {
     setSelectedMaker(e.currentTarget.title);
-    // search params가 변경되었을 때 리랜더 되어 언마운트 애니메이션이 불가능해지므로, next/navigation 안쓰고 강제로 soft navigation 사용
-    // window.history.pushState(null, '', `?maker=${e.currentTarget.title}`);
-    // 추가 : https://github.com/vercel/next.js/releases/tag/v13.4.0 여기서 해결됨.
-    router.push(`/cameras?maker=${e.currentTarget.title}`);
+    // Only the URL changes (shareable ?maker=). router.push started a Next navigation and re-rendered
+    // the route on every click. Next 14.1+ keeps the router in sync with the history API.
+    window.history.pushState(null, '', `?maker=${e.currentTarget.title}`);
     gaEvent(CAMERA.CAMERA_MAKER_CLICK, { maker: e.currentTarget.title });
   };
 

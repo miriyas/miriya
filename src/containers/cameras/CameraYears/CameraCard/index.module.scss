@@ -8,7 +8,11 @@
   overflow: hidden;
   background-color: var(--color-white);
   border-radius: 8px;
-  transition: opacity 100ms, width 200ms;
+  // Runs when the card is shown (mount, or display: none -> shown by the maker filter).
+  animation: cameraCardIn 200ms ease-out;
+  // Off-screen cards skip layout and paint (most of the ~450 cards). Size kept for the scrollbar.
+  content-visibility: auto;
+  contain-intrinsic-size: auto 240px auto 420px;
 
   .wrapper {
     width: 100%;
@@ -24,33 +28,6 @@
   }
 
   &.isHidden {
-    display: none;
-  }
-
-  &.exitActive,
-  &.exitDone {
-    width: 1px;
-    opacity: 0;
-    transform: scaleX(0.1);
-    transform-origin: center;
-  }
-
-  &.enter {
-    display: block;
-    width: 1px;
-    opacity: 0;
-    transform: scaleX(0.1);
-    transform-origin: center;
-  }
-
-  &.enterDone,
-  &.enterActive {
-    width: 240px;
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-  &.exitDone {
     display: none;
   }
 
@@ -110,5 +87,17 @@
         color: var(--color-pink);
       }
     }
+  }
+}
+
+@keyframes cameraCardIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

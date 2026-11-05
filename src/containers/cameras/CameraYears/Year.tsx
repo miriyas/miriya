@@ -32,7 +32,7 @@ const CameraYear = (props: Props) => {
         {cameras.map((camera) => {
           return (
             <Suspense key={`${camera.maker}-${camera.year}-${camera.name}`} fallback={null}>
-              <Camera camera={camera} />
+              <Camera camera={camera} show={selectedMaker === 'ALL' || camera.maker === selectedMaker} />
             </Suspense>
           );
         })}
