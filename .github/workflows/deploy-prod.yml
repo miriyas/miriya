@@ -57,6 +57,8 @@ jobs:
         env:
           BUILD_ENV: ${{ secrets.FRONTEND_BUILD_ENV }}
           NEXT_TELEMETRY_DISABLED: '1'
+          # Static pages are rendered here. Same time zone as the container (Dockerfile.prebuilt).
+          TZ: Asia/Seoul
         run: |
           trap 'rm -f .env.production' EXIT
           (umask 077; printf '%s\n' "$BUILD_ENV" > .env.production)

@@ -24,7 +24,9 @@ RUN --mount=type=secret,id=buildenv,target=/app/.env.production \
 
 FROM ${NODE_IMAGE} AS runner
 WORKDIR /app
-ENV NODE_ENV=production \
+# Korean time for dates formatted on the server (same as Dockerfile.prebuilt).
+ENV TZ=Asia/Seoul \
+    NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
     PORT=3000 \
     HOSTNAME=0.0.0.0
