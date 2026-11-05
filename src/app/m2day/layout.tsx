@@ -1,6 +1,4 @@
 import { ReactNode } from 'react';
-import localFont from 'next/font/local';
-import cx from 'clsx';
 
 import { getMetaData } from '@/app/sharedMetadata';
 import styles from './layout.module.scss';
@@ -13,18 +11,8 @@ export const metadata = getMetaData({
   keywords: ['미투데이', 'me2day', '마이크로블로그'],
 });
 
-const nanumGothicFont = localFont({
-  src: [
-    { path: './NanumGothic.woff2', weight: '400' },
-    { path: './NanumGothicBold.woff2', weight: '600' },
-  ],
-
-  variable: '--font-nanum',
-  fallback: ['나눔고딕', 'NanumGothic', 'NanumGothicOTF', 'sans-serif'],
-});
-
 const Layout = ({ children }: { children: ReactNode }) => {
-  return <main className={cx(styles.m2dayPage, nanumGothicFont.variable)}>{children}</main>;
+  return <main className={styles.m2dayPage}>{children}</main>;
 };
 
 export default Layout;

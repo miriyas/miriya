@@ -13,14 +13,12 @@
   .nickname {
     @include m.flexbox(start, center);
     margin-top: 14px;
-    font-family: var(--font-nanum);
     font-size: 14px;
     font-weight: 600;
   }
 
   .intro {
     margin-top: 6px;
-    font-family: var(--font-nanum);
     font-size: 12px;
     line-height: 18px;
   }
