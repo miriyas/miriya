@@ -1,12 +1,23 @@
 import axios, { AxiosError } from 'axios';
 
+/**
+ * Backend base URL. In the browser: the public URL. On the frontend server: BE_INTERNAL_URL
+ * (compose sets http://backend:3000), so server-side calls stay inside the server instead of
+ * going out through Cloudflare (Korean traffic is often routed to an overseas Cloudflare location,
+ * and every round trip costs 0.5-1 s). Falls back to the public URL when it is not set (CI build).
+ */
+export const BE_URL =
+  typeof window === 'undefined'
+    ? process.env.BE_INTERNAL_URL || process.env.NEXT_PUBLIC_BE_URL
+    : process.env.NEXT_PUBLIC_BE_URL;
+
 interface FetchProps {
   tags?: string[];
   revalidate?: number;
 }
 
 export const fetchClient = (url: string, options?: FetchProps) =>
-  fetch(`${process.env.NEXT_PUBLIC_BE_URL}/api${url}`, {
+  fetch(`${BE_URL}/api${url}`, {
     next: { revalidate: options?.revalidate ?? 60 * 60 * 10, tags: options?.tags }, // 1시간 캐시
   });
 
@@ -15,7 +26,7 @@ export const fetchClient = (url: string, options?: FetchProps) =>
  * 프론트엔드 서버에서 사용할 때는 쿠키가 포함될 수 있다.
  */
 export const apiBe = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_BE_URL}/api`,
+  baseURL: `${BE_URL}/api`,
   timeout: 30_000,
   withCredentials: true,
 });
@@ -25,7 +36,7 @@ export const apiBe = axios.create({
  * 프론트엔드 서버에서만 사용할 것이며, metadata나 static 관련된 작업용으로만 쓴다.
  */
 export const apiBePure = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_BE_URL}/api`,
+  baseURL: `${BE_URL}/api`,
   timeout: 30_000,
   withCredentials: true,
 });

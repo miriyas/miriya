@@ -5,16 +5,24 @@ import Link from 'next/link';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { getMinihomRightCounterDataAPI } from '@/services/minihome';
-import { RECENT_CATEGORIES } from '@/types/minihome';
+import { RECENT_CATEGORIES, RightCategory as RightCategoryData } from '@/types/minihome';
 
 import styles from './RightCategory.module.scss';
 
-const RightCategory = () => {
+interface Props {
+  initialData?: RightCategoryData;
+  fetchedAt?: number;
+}
+
+const RightCategory = ({ initialData, fetchedAt }: Props) => {
   const { data = {} } = useSuspenseQuery({
     queryKey: ['getMinihomRightCounterDataAPI'],
     queryFn: () => {
       return getMinihomRightCounterDataAPI().then((res) => res.data);
     },
+    initialData,
+    initialDataUpdatedAt: fetchedAt,
+    refetchOnMount: true, // the HTML can be up to 1 hour old
   });
 
   return (

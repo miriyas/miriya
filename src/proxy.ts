@@ -9,7 +9,7 @@ const isAdmin = async (request: NextRequest) => {
   const cookie = request.headers.get('cookie');
   if (!request.cookies.get('session') || !cookie) return false;
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BE_URL}/api/auth/session`, {
+    const res = await fetch(`${process.env.BE_INTERNAL_URL || process.env.NEXT_PUBLIC_BE_URL}/api/auth/session`, {
       headers: { cookie },
       cache: 'no-store',
       signal: AbortSignal.timeout(5000),

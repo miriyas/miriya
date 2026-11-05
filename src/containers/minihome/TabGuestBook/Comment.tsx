@@ -59,10 +59,13 @@ const GuestbookItem = ({ guestbook }: Props) => {
           <p className={cx(styles.name, { [styles.isFake]: guestbook.author.nicknameIsFake })}>
             {filterAuthorName(guestbook.authorId, guestbook.author.nickname)}
           </p>
-          {deleted && <time>({getTimeDiffText(guestbook.deletedAt, true)} 삭제됨)</time>}
-          {!deleted && guestbook.updatedAt && <time>({getTimeDiffText(guestbook.updatedAt, true)} 수정됨)</time>}
+          {/* Relative times ('3분 전'): the server HTML can be older than the browser's clock. */}
+          {deleted && <time suppressHydrationWarning>({getTimeDiffText(guestbook.deletedAt, true)} 삭제됨)</time>}
+          {!deleted && guestbook.updatedAt && (
+            <time suppressHydrationWarning>({getTimeDiffText(guestbook.updatedAt, true)} 수정됨)</time>
+          )}
           {!deleted && !guestbook.updatedAt && guestbook.createdAt && (
-            <time>({getTimeDiffText(guestbook.createdAt, true)})</time>
+            <time suppressHydrationWarning>({getTimeDiffText(guestbook.createdAt, true)})</time>
           )}
         </div>
         {!editMode && isMineOrAdmin(guestbook.authorId) && (

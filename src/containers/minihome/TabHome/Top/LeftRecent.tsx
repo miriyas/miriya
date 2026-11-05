@@ -4,14 +4,23 @@ import cx from 'clsx';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { RECENT_CATEGORIES } from '@/types/minihome';
+import { Comment } from '@/types/comments';
 import { getMinihomeLeftCommentsDataAPI } from '@/services/minihome';
 
 import styles from './LeftRecent.module.scss';
 
-const LeftRecent = () => {
+interface Props {
+  initialData?: Comment[];
+  fetchedAt?: number;
+}
+
+const LeftRecent = ({ initialData, fetchedAt }: Props) => {
   const { data: recentComments } = useSuspenseQuery({
     queryKey: ['getMinihomeLeftCommentsDataAPI'],
     queryFn: () => getMinihomeLeftCommentsDataAPI().then((res) => res.data),
+    initialData,
+    initialDataUpdatedAt: fetchedAt,
+    refetchOnMount: true, // the HTML can be up to 1 hour old
   });
 
   return (

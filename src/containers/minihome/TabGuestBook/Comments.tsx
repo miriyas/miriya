@@ -5,13 +5,14 @@ import { useRafState } from 'react-use';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { getGuestbookDataAPI } from '@/services/minihome';
+import { GuestbookData } from '@/types/minihome';
 import useAuth from '@/hooks/useAuth';
 import { GUESTBOOK_QUERY_KEY } from './useGuestbook';
 
 import CommentItem from './Comment';
 import styles from './Comments.module.scss';
 
-const Comments = () => {
+const Comments = ({ firstPage, fetchedAt }: { firstPage?: GuestbookData; fetchedAt?: number }) => {
   const { isAdmin } = useAuth();
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [observed, setObserved] = useRafState(false);
@@ -23,6 +24,11 @@ const Comments = () => {
     retry: 0,
     initialPageParam: '' as string,
     getNextPageParam: (lastPage) => lastPage.nextCursor,
+    // Public entries from the server HTML, shown at once. The HTML can be up to 1 hour old, so
+    // fetch again on mount when the data is older than staleTime (the app default is no refetch).
+    initialData: !isAdmin && firstPage ? { pages: [firstPage], pageParams: [''] } : undefined,
+    initialDataUpdatedAt: fetchedAt,
+    refetchOnMount: true,
   });
 
   useEffect(() => {
