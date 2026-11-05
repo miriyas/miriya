@@ -44,6 +44,15 @@ export interface BlogPostForList {
   };
 }
 
+/** GET /api/blog/search */
+export interface BlogSearchResult {
+  id: string;
+  title: string;
+  hero: string | null;
+  createdAt: string;
+  snippet: string;
+}
+
 // 글 목록
 export interface BlogCategoryWithPosts extends BlogCategory {
   blogPosts: BlogPostForList[];

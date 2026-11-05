@@ -107,6 +107,12 @@
       }
     }
 
+    .empty {
+      padding: 14px 0;
+      font-size: 14px;
+      color: var(--color-gray-a);
+    }
+
     .header {
       width: 100%;
       margin-bottom: 14px;
@@ -196,16 +202,16 @@
       }
     }
 
-    :global(.ais-Hits) {
+    .hits {
       @include m.flexbox(center, start);
       flex-direction: column;
     }
 
-    :global(.ais-Hits-list) {
+    .hitsList {
       width: 100%;
     }
 
-    :global(.ais-Hits-item) {
+    .hitsItem {
       width: 100%;
 
       &:first-child {

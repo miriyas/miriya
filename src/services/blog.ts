@@ -6,6 +6,7 @@ import {
   BlogCategory,
   BlogPostForShow,
   BlogCategoryForList,
+  BlogSearchResult,
 } from '@/types/blog';
 import { Comment } from '@/types/comments';
 
@@ -50,3 +51,6 @@ export const deleteBlogCategoryAPI = (categoryId: string) => apiBe.delete(`/blog
 // 댓글
 
 export const getBlogCommentsAPI = () => apiBe<Comment[]>('/blog/comments');
+
+// 검색 (our own DB; the cookie lets admins also find hidden posts)
+export const searchBlogPostsAPI = (q: string) => apiBe<BlogSearchResult[]>('/blog/search', { params: { q } });
