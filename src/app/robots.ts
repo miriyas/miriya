@@ -5,6 +5,7 @@ const robots = (): MetadataRoute.Robots => {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: '/ops', // admin-only dashboard (also noindex and 404 for others)
     },
     sitemap: 'https://miriya.net/sitemap.xml',
   };

@@ -1,0 +1,182 @@
+@use 'src/styles/mixins' as m;
+
+.ops {
+  .centering {
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .sub {
+    margin: 4px 0 20px;
+    font-size: 13px;
+    color: var(--color-gray-6);
+  }
+}
+
+.panel {
+  @include m.commonBoxShadow;
+  padding: 20px;
+  margin-bottom: 24px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+
+  &.failed {
+    border-left: 4px solid var(--color-red);
+  }
+}
+
+.panelHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .generated {
+    font-size: 13px;
+    color: var(--color-gray-6);
+
+    &.stale {
+      font-weight: 600;
+      color: var(--color-red);
+    }
+  }
+
+  .adminLink {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--color-blue);
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 10px;
+
+  &.ok {
+    color: var(--color-white);
+    background-color: var(--color-green);
+  }
+
+  &.warn {
+    color: var(--color-black);
+    background-color: var(--color-yellow);
+  }
+
+  &.error {
+    color: var(--color-white);
+    background-color: var(--color-red);
+  }
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+
+  li {
+    padding: 12px;
+    background-color: var(--color-bg);
+    border-left: 4px solid var(--color-green);
+    border-radius: 6px;
+
+    &.warn {
+      border-left-color: var(--color-yellow);
+    }
+
+    &.error {
+      border-left-color: var(--color-red);
+    }
+  }
+
+  .metricLabel {
+    font-size: 12px;
+    color: var(--color-gray-6);
+  }
+
+  .metricValue {
+    margin-top: 4px;
+    font-size: 22px;
+    font-weight: 700;
+
+    span {
+      margin-left: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-gray-6);
+    }
+  }
+
+  .metricHint {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--color-gray-8);
+  }
+}
+
+.table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 8px 6px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-gray-e);
+  }
+
+  th {
+    font-weight: 600;
+    color: var(--color-gray-6);
+    white-space: nowrap;
+  }
+
+  td:nth-child(-n + 5) {
+    white-space: nowrap;
+  }
+}
+
+.note {
+  max-width: 420px;
+  font-size: 12px;
+  color: var(--color-gray-6);
+  word-break: break-all;
+}
+
+.runs {
+  margin-top: 12px;
+
+  summary {
+    font-size: 13px;
+    color: var(--color-blue);
+    cursor: pointer;
+  }
+}
+
+@include m.before(SD) {
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
+}
