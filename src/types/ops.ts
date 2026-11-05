@@ -31,6 +31,20 @@ export interface OpsJob {
   lastRun: OpsRun | null;
 }
 
+/** One day, one source, one model. Costs are estimates from the price table, not real charges. */
+export interface OpsAiUsage {
+  day: string; // Korean date, YYYY-MM-DD
+  provider: string; // "anthropic" | "openai"
+  source: string; // "claude-code" | "charr:summarize" | ...
+  model: string;
+  requests: number;
+  inputTokens: number;
+  outputTokens: number;
+  cacheReadTokens: number;
+  cacheWriteTokens: number;
+  costUsd: number;
+}
+
 export interface OpsStatus {
   version: 1;
   project: string;
@@ -42,6 +56,7 @@ export interface OpsStatus {
   metrics: OpsMetric[];
   jobs: OpsJob[];
   runs: OpsRun[];
+  aiUsage?: OpsAiUsage[]; // optional: only some projects have it
 }
 
 /** One panel on the page: the data, or why it could not be read. */

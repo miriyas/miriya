@@ -3,6 +3,7 @@ import cx from 'clsx';
 
 import { OpsLevel, OpsRun, OpsSource, OpsStatus } from '@/types/ops';
 
+import AiUsageChart from './AiUsageChart';
 import AutoRefresh from './AutoRefresh';
 import styles from './index.module.scss';
 
@@ -76,6 +77,8 @@ const Panel = ({ data, now }: { data: OpsStatus; now: string }) => {
           </li>
         ))}
       </ul>
+
+      {data.aiUsage && data.aiUsage.length > 0 && <AiUsageChart usage={data.aiUsage} now={now} />}
 
       {data.jobs.length > 0 && (
         <table className={styles.table}>
