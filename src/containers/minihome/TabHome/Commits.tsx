@@ -30,7 +30,11 @@ const Commits = ({ data }: Props) => {
               {d.commit.message.split('\n')[0]}
             </ExternalLink>
             <div className={styles.author}>{prettyAuthor(d.commit.author.name)}</div>
-            <time className={styles.message}>{getTimeDiffText(d.commit.committer.date)}</time>
+            {/* Relative time ("21분 전"): the page HTML is cached for up to 1 hour, so the browser
+                always shows a newer value. That difference is expected. */}
+            <time className={styles.message} suppressHydrationWarning>
+              {getTimeDiffText(d.commit.committer.date)}
+            </time>
           </li>
         );
       })}
