@@ -31,7 +31,7 @@ export const FooterView = ({ fullLayout = false }: { fullLayout?: boolean }) => 
           href='https://github.com/miriyas/miriya'
           target='_blank'
           title='Github'
-          rel='nofollow'
+          rel='nofollow noreferrer'
         >
           <IconGithub />
           <p>Github</p>

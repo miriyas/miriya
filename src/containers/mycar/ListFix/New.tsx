@@ -1,5 +1,3 @@
-/* eslint-disable prefer-destructuring */
-
 'use client';
 
 import { FormEventHandler, useState } from 'react';

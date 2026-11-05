@@ -1,7 +1,5 @@
 'use client';
 
-/* eslint-disable react/no-danger */
-
 import cx from 'clsx';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';

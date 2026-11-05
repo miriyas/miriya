@@ -76,6 +76,8 @@ export const HeaderView = ({ fullLayout = false }: { fullLayout?: boolean }) => 
             className={cx(styles.mobileHamburger, { [styles.mobileOpen]: mobileOpen })}
             type='button'
             onClick={onClickHamburger}
+            aria-label='메뉴'
+            aria-expanded={mobileOpen}
           >
             <span />
             <span />

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-danger */
 
 import { BlogCategoryForList, BlogPostForShow } from '@/types/blog';

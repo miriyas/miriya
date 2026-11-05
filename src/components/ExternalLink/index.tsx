@@ -9,10 +9,16 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
 }
 
-/** rel: nofollow 적용한 외부 링크 */
+/** 외부 링크: rel nofollow + noreferrer (target=_blank로 연 페이지가 이 창을 조작하지 못하게) */
 const ExternalLink = ({ href, children, className, ...restProps }: Props) => {
   return (
-    <a href={href} target='_blank' rel='nofollow' className={cx(styles.externalLink, className)} {...restProps}>
+    <a
+      href={href}
+      target='_blank'
+      rel='nofollow noreferrer'
+      className={cx(styles.externalLink, className)}
+      {...restProps}
+    >
       {children}
     </a>
   );

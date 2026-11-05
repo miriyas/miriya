@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useCallback, useMemo } from 'react';
 import { debounce } from 'lodash';
 import { decamelizeKeys } from 'humps';

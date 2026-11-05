@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { MouseEventHandler, useEffect, useState } from 'react';
 import Image from 'next/image';
 import cx from 'clsx';

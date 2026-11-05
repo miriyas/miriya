@@ -19,8 +19,8 @@ export const GET = async () => {
   let currentUser = null;
   try {
     currentUser = await getMeApi(cookiesString).then((res) => res.data);
-  } catch (error) {
-    // do nothing
+  } catch {
+    // not logged in: return null
   }
   return NextResponse.json(currentUser);
 };
