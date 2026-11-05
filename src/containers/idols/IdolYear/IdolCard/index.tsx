@@ -32,6 +32,9 @@ const IdolCard = (props: Props) => {
     if (!opened) return;
     if (opened && editIdol === name) return;
     setOpened(false);
+    // Back to the list: remove the background photo, but only if it is still this idol's
+    // (a click on another card has already set that card's photo).
+    setCoverUrl((current) => (current === idol.id ? undefined : current));
     sort();
   });
 

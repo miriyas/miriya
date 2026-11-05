@@ -13,7 +13,16 @@ const Cover = () => {
   const id = useAtomValue(coverIdolAtom);
 
   useEffect(() => {
-    if (!coverRef.current || !id) return;
+    if (!coverRef.current) return undefined;
+
+    // No open card: fade the photo out (same 0.5 s transition), then remove it.
+    // Only the nodes that exist now are removed, so a card opened within 0.5 s keeps its photo.
+    if (!id) {
+      const old = [...coverRef.current.children];
+      old.forEach((node) => node.removeAttribute('class'));
+      const timer = setTimeout(() => old.forEach((node) => node.remove()), 500);
+      return () => clearTimeout(timer);
+    }
 
     const coverNode = document.createElement('div');
     coverNode.setAttribute('style', `background-image: url(${getCDNImage(`idols/${id}.jpg`)})`);
@@ -32,6 +41,7 @@ const Cover = () => {
       if (!coverRef.current || coverRef.current.children.length === 1) return;
       coverRef.current.children[0].remove();
     }, 500);
+    return undefined;
   }, [id]);
 
   return <div className={styles.cover} ref={coverRef} />;
