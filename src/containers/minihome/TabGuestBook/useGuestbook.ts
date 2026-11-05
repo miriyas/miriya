@@ -1,11 +1,13 @@
 import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
-import { useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 
 import { patchGuestbookAPI, postGuestbookAPI, deleteGuestbookAPI } from '@/services/minihome';
 import { Guestbook } from '@/types/minihome';
 import useAuth from '@/hooks/useAuth';
-import { revalidatePathApi } from '@/services';
+
+/** React Query key of the guestbook list (Comments.tsx). */
+export const GUESTBOOK_QUERY_KEY = 'getGuestbookDataAPI';
 
 export const newPostBodyAtom = atomWithReset<string>('');
 export const newPostHiddenAtom = atomWithReset<boolean>(false);
@@ -14,7 +16,7 @@ export const editPostHiddenAtom = atomWithReset<boolean>(false);
 
 const useGuestbook = () => {
   const { user } = useAuth();
-  const router = useRouter();
+  const queryClient = useQueryClient();
 
   const [newPostBody, setNewPostBody] = useAtom(newPostBodyAtom);
   const resetNewPostBody = useResetAtom(newPostBodyAtom);
@@ -26,11 +28,9 @@ const useGuestbook = () => {
   const [editPostHidden, setEditPostHidden] = useAtom(editPostHiddenAtom);
   const resetEditPostHidden = useResetAtom(editPostHiddenAtom);
 
-  const reload = () => {
-    revalidatePathApi(`/minihome/guestbook`).then(() => {
-      router.refresh();
-    });
-  };
+  // The list is loaded in the browser with React Query, so router.refresh() did not change it.
+  // Invalidate the query: the list loads again at once (all loaded pages).
+  const reload = () => queryClient.invalidateQueries({ queryKey: [GUESTBOOK_QUERY_KEY] });
 
   const submitNewGuestbook = () => {
     if (!user) return;

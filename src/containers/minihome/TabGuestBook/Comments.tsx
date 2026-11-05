@@ -6,6 +6,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { getGuestbookDataAPI } from '@/services/minihome';
 import useAuth from '@/hooks/useAuth';
+import { GUESTBOOK_QUERY_KEY } from './useGuestbook';
 
 import CommentItem from './Comment';
 import styles from './Comments.module.scss';
@@ -17,7 +18,7 @@ const Comments = () => {
   const viewMoreRef = useRef<HTMLDivElement>(null);
 
   const { data, fetchNextPage } = useInfiniteQuery({
-    queryKey: ['getBlogPostsAPI', isAdmin],
+    queryKey: [GUESTBOOK_QUERY_KEY, isAdmin],
     queryFn: ({ pageParam }) => getGuestbookDataAPI(pageParam).then((res) => res.data),
     retry: 0,
     initialPageParam: '' as string,
