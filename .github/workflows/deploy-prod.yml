@@ -72,7 +72,13 @@ jobs:
           rm -f .next/standalone/.env*
           mkdir -p "$ctx/.next"
           cp -a .next/standalone/. "$ctx/"
-          cp -a .next/static "$ctx/.next/static"
+          # Copy the CONTENTS: Next 16 standalone already has .next/static, and
+          # `cp -a dir existing-dir` would make .next/static/static (all JS 404).
+          mkdir -p "$ctx/.next/static"
+          cp -a .next/static/. "$ctx/.next/static/"
+          if [ -e "$ctx/.next/static/static" ] || [ ! -d "$ctx/.next/static/chunks" ]; then
+            echo "static files are not at .next/static/chunks" >&2; exit 1
+          fi
           cp -a public "$ctx/public"
           if find "$ctx" -maxdepth 1 -name '.env*' | grep -q .; then
             echo "env file left in image context" >&2; exit 1
