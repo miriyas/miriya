@@ -5,7 +5,7 @@ import cx from 'clsx';
 import { useAtom } from 'jotai';
 
 import { CATEGORIES, Category } from '@/types/idols';
-import { prettyCategory } from '@/utils/idols';
+import { arrangeCategory, prettyCategory } from '@/utils/idols';
 import { useGA } from '@/hooks/useGA';
 import { IDOL } from '@/constants/ga';
 import { currentCategoryAtom } from '@/containers/idols/states';
@@ -31,11 +31,7 @@ const FilterBar = (props: Props) => {
     startTransition(() => {
       setCurrentCategory(newCategory as Category);
     });
-    Object.keys(window.isotopes).forEach((key) => {
-      window.isotopes[Number(key)].arrange({
-        filter: (elem) => (newCategory === 'total' ? true : elem.classList.value.includes(`category-${newCategory}`)),
-      });
-    });
+    arrangeCategory(newCategory as Category);
     gaEvent(IDOL.IDOL_CATEGORY_CLICK, { category: newCategory });
   };
 

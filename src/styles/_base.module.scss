@@ -24,6 +24,13 @@ body {
   height: stretch;
 }
 
+// Always keep space for the page scrollbar. Otherwise the page width changes when the
+// scrollbar appears or disappears (for example on an idol filter click), and the
+// centered layout moves left and right.
+html {
+  scrollbar-gutter: stable;
+}
+
 // ?layout=full (iframe embed): an inline script in layout.tsx adds this class before
 // the first paint, so the server-rendered header/footer never flash.
 html.fullLayout [data-chrome] {
