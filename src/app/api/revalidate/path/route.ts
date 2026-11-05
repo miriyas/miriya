@@ -5,8 +5,10 @@ export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get('path') || '/';
   revalidatePath(path);
   // 로컬에서 했을 경우, 프로덕션도 해준다.
-  if (process.env.ENVIRONMENT !== 'production') {
-    fetch(`https://miriya.net/api/revalidate/path?path=${path}`);
+  // NODE_ENV must be the check: ENVIRONMENT is not set anywhere, so production called itself
+  // again and again without end (each call started the next one).
+  if (process.env.NODE_ENV === 'development') {
+    fetch(`https://miriya.net/api/revalidate/path?path=${encodeURIComponent(path)}`);
   }
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }
