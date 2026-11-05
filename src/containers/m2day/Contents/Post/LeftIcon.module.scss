@@ -17,15 +17,15 @@
       font-size: 10px;
       color: var(--color-white);
       pointer-events: none;
-      background-color: rgba(var(--color-black-rgb), 0.5);
+      background-color: rgb(var(--color-black-rgb), 0.5);
     }
   }
 
   .imageWrapper {
     width: 44px;
     height: 44px;
-    transition: 0.2s;
     transform-origin: center center;
+    transition: 0.2s;
 
     &:hover {
       transform: scale(120%);

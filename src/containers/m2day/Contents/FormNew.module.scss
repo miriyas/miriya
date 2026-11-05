@@ -4,7 +4,7 @@
   padding: 24px;
   margin-bottom: 14px;
   background-color: var(--color-gray-f);
-  box-shadow: 0 -0 18px 0 rgba(var(--color-black-rgb), 0.2);
+  box-shadow: 0 -0 18px 0 rgb(var(--color-black-rgb), 0.2);
 
   @include m.after(MD) {
     border-radius: 8px;

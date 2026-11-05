@@ -1,6 +1,6 @@
 'use client';
 
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import cx from 'clsx';
@@ -18,8 +18,9 @@ interface Props {
   }>;
 }
 
-const ViewTransitionAPISample12B = async ({ params }: Props) => {
-  const { postId } = await params;
+// A client component cannot be async (and hooks cannot run in one): read params with use().
+const ViewTransitionAPISample12B = ({ params }: Props) => {
+  const { postId } = use(params);
   const router = useRouter();
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {

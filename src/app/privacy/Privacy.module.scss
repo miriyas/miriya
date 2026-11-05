@@ -5,8 +5,8 @@
 
   .centering {
     @include m.flexbox(center, start);
-    flex-direction: column;
     flex-shrink: 0;
+    flex-direction: column;
     width: 100%;
     max-width: 800px;
     padding: 14px;

@@ -6,7 +6,7 @@
   z-index: var(--z-global-alert);
   flex-direction: column;
   overflow: hidden;
-  background-color: rgba(var(--color-black-rgb), 0.4);
+  background-color: rgb(var(--color-black-rgb), 0.4);
 
   .alertBackground {
     @include m.position(absolute, 0 0 0 0);
@@ -71,7 +71,7 @@
       font-size: 12px;
       line-height: 1.4;
       color: var(--color-gray-2);
-      word-break: break-word;
+      overflow-wrap: anywhere; // replaces the deprecated word-break: break-word
       white-space: pre-wrap;
 
       strong {

@@ -1,10 +1,10 @@
 // Global styles
-@import 'reset.module';
-@import 'base.module';
-@import 'variable';
-@import 'levels';
-@import 'animations';
-@import 'transitions';
+@use 'reset.module';
+@use 'base.module';
+@use 'variable';
+@use 'levels';
+@use 'animations';
+@use 'transitions';
 
 // Modules
 

@@ -2,8 +2,8 @@
 
 .mdWrapper {
   @include m.flexbox(start, start);
-  flex-direction: column;
   flex-shrink: 0;
+  flex-direction: column;
   width: 400px;
   height: calc(var(--h-pentax-picture) + var(--h-pentax-data) - var(--x-pentax-dslr-cell));
   padding: 14px;

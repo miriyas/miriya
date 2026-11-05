@@ -18,7 +18,10 @@ export const shrinkNumber = (value: number | string) => {
 };
 
 export const getUserName = (user: User) => {
-  return user.displayName ?? `${user.email?.substring(0, 4)}**` ?? user.uid.substring(0, 8);
+  // A template string is never null, so the old `?? uid` part never ran (users without email got 'undefined**').
+  if (user.displayName) return user.displayName;
+  if (user.email) return `${user.email.substring(0, 4)}**`;
+  return user.uid.substring(0, 8);
 };
 
 export const getAuthorData = (user: User) => {

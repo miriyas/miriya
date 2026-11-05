@@ -34,12 +34,12 @@
       top: 17px;
       bottom: 17px;
       width: 44px;
-      background-color: rgba(var(--color-black-rgb), 0.3);
+      background-color: rgb(var(--color-black-rgb), 0.3);
       opacity: 0;
       transition: 0.2s;
 
       &:hover {
-        background-color: rgba(var(--color-black-rgb), 0.4);
+        background-color: rgb(var(--color-black-rgb), 0.4);
       }
 
       &.prev {
@@ -82,8 +82,8 @@
         position: relative;
         width: 100%;
         height: 100%;
-        transition: 0.2s;
         transform-origin: center center;
+        transition: 0.2s;
 
         &:hover {
           transform: scale(120%);

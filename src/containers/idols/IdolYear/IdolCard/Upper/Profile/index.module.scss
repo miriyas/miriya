@@ -19,7 +19,7 @@
     @include m.absolute(auto 0 0 0);
     padding: 8px;
     color: var(--color-white);
-    background-color: rgba(var(--color-black-rgb), 0.3);
+    background-color: rgb(var(--color-black-rgb), 0.3);
     backdrop-filter: blur(2px);
 
     .name {

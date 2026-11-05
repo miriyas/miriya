@@ -11,11 +11,11 @@
       z-index: var(--z-2);
       padding: 0 8px;
       color: var(--color-white);
-      background-color: rgba(var(--color-black-rgb), 0.2);
+      background-color: rgb(var(--color-black-rgb), 0.2);
 
       &:hover,
       &:active {
-        background-color: rgba(var(--color-black-rgb), 0.4);
+        background-color: rgb(var(--color-black-rgb), 0.4);
       }
     }
   }

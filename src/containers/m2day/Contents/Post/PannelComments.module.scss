@@ -24,7 +24,7 @@
       .body {
         flex: 1;
         overflow: hidden;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
 
       time {
@@ -55,9 +55,9 @@
       width: 120px;
       padding-right: 14px;
       line-height: 24px;
+      vertical-align: top;
       color: var(--color-gray-6);
       text-align: right;
-      vertical-align: top;
     }
 
     .inputWrapper {
@@ -77,8 +77,8 @@
       width: 50px;
       height: 24px;
       margin-left: 4px;
-      color: var(--color-gray-3);
       vertical-align: top;
+      color: var(--color-gray-3);
       background-image: linear-gradient(to bottom, var(--color-white), var(--color-gray-e));
       border: 1px solid var(--color-gray-c);
       border-radius: 3px;

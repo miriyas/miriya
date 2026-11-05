@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Resolver } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import useAuth from '@/hooks/useAuth';
@@ -21,7 +21,8 @@ const useEditor = (camera: CameraType) => {
 
   const methods = useForm<FBCamerachema>({
     mode: 'onBlur',
-    resolver: yupResolver(cameraValidator),
+    // The validator has no `id` (FBCamerachema adds it), so the resolver type is wider than the form type.
+    resolver: yupResolver(cameraValidator) as unknown as Resolver<FBCamerachema>,
     defaultValues: {
       name: camera.name,
       name2: camera.name2,

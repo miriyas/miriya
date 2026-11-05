@@ -94,8 +94,7 @@
         @include m.cyworldStyleScrollBar;
         height: 100%;
         padding-right: 14px;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden auto;
       }
     }
   }

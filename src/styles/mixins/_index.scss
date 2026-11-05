@@ -3,12 +3,12 @@
 @forward 'responsive';
 
 @mixin commonBoxShadow {
-  box-shadow: 0 2px 4px 0 rgba(var(--color-gray-4-rgb), 0.1);
+  box-shadow: 0 2px 4px 0 rgb(var(--color-gray-4-rgb), 0.1);
 }
 
 @mixin cyworldStyleScrollBar {
-  scrollbar-width: auto;
   scrollbar-color: #dddddd #f1f1f1;
+  scrollbar-width: auto;
 
   /* Chrome, Edge, and Safari */
   &::-webkit-scrollbar {
@@ -27,8 +27,8 @@
 }
 
 @mixin tinyScrollBar {
-  scrollbar-width: 4px;
   scrollbar-color: #dddddd #f1f1f1;
+  scrollbar-width: 4px;
 
   /* Chrome, Edge, and Safari */
   &::-webkit-scrollbar {
@@ -50,6 +50,6 @@
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   white-space: nowrap;
 }

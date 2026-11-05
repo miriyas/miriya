@@ -66,7 +66,7 @@
       a {
         &:hover {
           .content {
-            background-color: rgba(var(--color-black-rgb), 0.5);
+            background-color: rgb(var(--color-black-rgb), 0.5);
             backdrop-filter: none;
 
             p {
@@ -82,8 +82,8 @@
 
         img {
           display: block;
-          transition: 200ms;
           object-fit: cover;
+          transition: 200ms;
         }
       }
 
@@ -91,7 +91,7 @@
         @include m.middleBox;
         padding: 8px 14px;
         text-align: center;
-        background-color: rgba(var(--color-black-rgb), 0.4);
+        background-color: rgb(var(--color-black-rgb), 0.4);
         backdrop-filter: blur(2px);
         transition: 200ms;
 

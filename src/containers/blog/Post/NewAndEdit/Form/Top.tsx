@@ -50,7 +50,7 @@ const BlogEditor = ({ categories, onSubmit }: Props) => {
     <div className={styles.top}>
       <input type='text' value={title} onChange={onChangeTitle} placeholder='제목' />
       <div className={styles.rightWing}>
-        <label>
+        <label aria-label='대표이미지 URL'>
           <input type='text' onChange={onChangeHero} value={hero} placeholder='대표이미지 URL' />
         </label>
         <label>

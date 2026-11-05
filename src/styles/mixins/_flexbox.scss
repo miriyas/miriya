@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $FLEX_MAP: (
   'around': space-around,
   'between': space-between,
@@ -10,7 +12,7 @@ $FLEX_MAP: (
 );
 
 @function _getFlexValue($key) {
-  @return map-get($FLEX_MAP, $key);
+  @return map.get($FLEX_MAP, $key);
 }
 
 @mixin flexbox($jc: center, $ai: center) {

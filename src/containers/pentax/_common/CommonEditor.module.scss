@@ -35,8 +35,8 @@
     @include m.flexbox(start, center);
     position: relative;
     flex: 1;
-    flex-direction: column;
     flex-shrink: 0;
+    flex-direction: column;
     gap: 1px;
     height: 100%;
     padding: 14px 0;

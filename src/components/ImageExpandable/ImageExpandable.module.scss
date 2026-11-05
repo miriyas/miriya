@@ -35,9 +35,9 @@
       display: block;
       cursor: zoom-out;
       content: '';
-      background-color: rgba(var(--color-black-rgb), 0.7);
-      transition: 300ms;
+      background-color: rgb(var(--color-black-rgb), 0.7);
       backdrop-filter: blur(2px);
+      transition: 300ms;
     }
 
     .detailsImg {

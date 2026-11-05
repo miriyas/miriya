@@ -26,8 +26,8 @@
     .message {
       min-width: 0;
       overflow: hidden;
-      color: var(--color-gray-4);
       text-overflow: ellipsis;
+      color: var(--color-gray-4);
 
       &:hover {
         text-decoration: underline;
