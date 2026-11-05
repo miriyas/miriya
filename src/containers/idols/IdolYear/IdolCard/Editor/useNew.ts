@@ -20,6 +20,7 @@ const useNew = () => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors, dirtyFields, isDirty },
   } = methods;
 
@@ -55,6 +56,7 @@ const useNew = () => {
     isLoading,
     dirtyFields,
     submitIdol,
+    reset,
   };
 };
 

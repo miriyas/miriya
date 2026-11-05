@@ -8,9 +8,12 @@ import Form from './NewForm';
 import styles from '../index.module.scss';
 
 const New = () => {
-  const { errors, dirtyFields, isDirty, register, submitIdol, isLoading } = useNew();
+  const { errors, dirtyFields, isDirty, register, submitIdol, isLoading, reset } = useNew();
 
-  const onClickCancel = () => {};
+  // The add form is always open, so cancel clears what the user typed.
+  const onClickCancel = () => {
+    reset();
+  };
 
   return (
     <li className={cx(styles.idolCard, styles.opened)}>
