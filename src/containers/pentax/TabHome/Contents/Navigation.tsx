@@ -9,9 +9,7 @@ import { MENUS } from '@/containers/pentax/constants';
 import styles from './Navigation.module.scss';
 import ImageSprite from '@/components/ImageSprite';
 
-const Navigation = () => {
-  const query = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
-
+export const NavigationView = ({ query }: { query: string }) => {
   return (
     <nav className={styles.navigation}>
       <ul>
@@ -28,6 +26,12 @@ const Navigation = () => {
       </ul>
     </nav>
   );
+};
+
+// useSearchParams needs its own <Suspense> with <NavigationView query='' /> as fallback.
+const Navigation = () => {
+  const query = useSearchParams();
+  return <NavigationView query={query.toString()} />;
 };
 
 export default Navigation;

@@ -1,10 +1,6 @@
-'use client';
+import React, { Suspense } from 'react';
 
-import React from 'react';
-import cx from 'clsx';
-import { useSearchParams } from 'next/navigation';
-
-import Navigation from '@/containers/pentax/_common/Navigation';
+import Navigation, { NavigationView } from '@/containers/pentax/_common/Navigation';
 
 import styles from './layout.module.scss';
 
@@ -12,15 +8,15 @@ interface Props {
   children: React.ReactNode;
 }
 
+// Do not call useSearchParams here: it would turn the whole /pentax tree into client-only
+// rendering. ?layout=full is handled by the html.fullLayout class (see app/layout.tsx).
 const Wrapper = ({ children }: Props) => {
-  const searchParams = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
-  const layout = searchParams.get('layout');
-  const fullLayout = layout === 'full';
-
   return (
-    <main className={cx(styles.pentaxes, { [styles.full]: fullLayout })}>
+    <main className={styles.pentaxes}>
       <div className={styles.centering}>
-        <Navigation />
+        <Suspense fallback={<NavigationView query='' />}>
+          <Navigation />
+        </Suspense>
         {children}
         <div className={styles.share}>
           <p className={styles.title}>공유하기</p>

@@ -3,7 +3,8 @@
 .pentaxes {
   margin-top: 24px;
 
-  &.full {
+  // ?layout=full (iframe embed). The class is set on <html> by app/layout.tsx.
+  :global(html.fullLayout) & {
     display: block;
     padding: 0;
     margin: 0;

@@ -9,9 +9,8 @@ import NavLink from '@/components/NavLink';
 import styles from './Navigation.module.scss';
 import ExternalLink from '@/components/ExternalLink';
 
-const Navigation = () => {
-  const query = useSearchParams(); // 상위에 반드시 Suspense로 묶지 않으면 위로 타고 올라가며 Next SSR 전부 깨짐.
-
+// The links keep the current query (for example ?layout=full).
+export const NavigationView = ({ query }: { query: string }) => {
   return (
     <div className={styles.navigation}>
       <nav>
@@ -33,6 +32,13 @@ const Navigation = () => {
       </p>
     </div>
   );
+};
+
+// useSearchParams needs its own <Suspense> with <NavigationView query='' /> as fallback.
+// Otherwise the whole page loses server rendering.
+const Navigation = () => {
+  const query = useSearchParams();
+  return <NavigationView query={query.toString()} />;
 };
 
 export default Navigation;
