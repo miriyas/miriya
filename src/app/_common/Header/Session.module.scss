@@ -8,6 +8,36 @@
     font-size: 12px;
   }
 
+  .userMenu {
+    position: relative;
+
+    .menu {
+      @include m.commonBoxShadow;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: var(--z-global-header);
+      min-width: 120px;
+      padding: 4px 0;
+      background-color: var(--color-white);
+      border-radius: 6px;
+
+      a {
+        display: block;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 400; // not the header nav link weight
+        color: var(--color-gray-1);
+        white-space: nowrap;
+
+        &:hover,
+        &:focus {
+          background-color: var(--color-bg);
+        }
+      }
+    }
+  }
+
   button {
     position: relative;
     font-size: 12px;

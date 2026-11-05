@@ -14,12 +14,12 @@
 
     &:hover,
     &:active {
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
   &.current {
-    font-weight: 700;
+    font-weight: 600;
 
     &::after {
       @include m.absolute(-1px -1px -1px -1px);

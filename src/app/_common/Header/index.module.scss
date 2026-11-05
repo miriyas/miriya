@@ -21,7 +21,7 @@
     }
 
     &.home {
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-black) !important;
     }
 
@@ -177,7 +177,7 @@
       &:first-child a {
         @include m.after(SD) {
           font-size: 18px;
-          font-weight: 700 !important;
+          font-weight: 600 !important;
         }
       }
     }
