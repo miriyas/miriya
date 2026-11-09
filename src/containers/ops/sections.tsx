@@ -81,7 +81,15 @@ export const ProjectHeader = async ({ projectKey, now }: { projectKey: ProjectKe
   const { data } = source;
   return (
     <div className={styles.projectHeader}>
-      <h2>{data ? <a href={data.url} target='_blank' rel='noreferrer'>{data.title}</a> : source.name}</h2>
+      <h2>
+        {data ? (
+          <a href={data.url} target='_blank' rel='noreferrer'>
+            {data.title}
+          </a>
+        ) : (
+          source.name
+        )}
+      </h2>
       <Badge level={f.level} />
       {data && <span className={styles.generated}>{formatTime(data.generatedAt)} 기준</span>}
       {data?.adminUrl && (
@@ -119,15 +127,15 @@ export const MetricsSection = async ({ projectKey, group }: { projectKey: Projec
   );
 };
 
-export const JobsSection = async ({ projectKey }: { projectKey: ProjectKey }) => {
+export const JobsSection = async ({ projectKey, now }: { projectKey: ProjectKey; now: string }) => {
   const source = await getSource(projectKey);
   const { data } = source;
   if (!data || (data.jobs.length === 0 && data.runs.length === 0)) return null;
   return (
     <Section title='작업'>
       <div className={cx({ [styles.dim]: source.error })}>
-        {data.jobs.length > 0 && <JobsTable jobs={data.jobs} />}
-        {data.runs.length > 0 && <RunsList runs={data.runs} />}
+        {data.jobs.length > 0 && <JobsTable jobs={data.jobs} now={now} />}
+        {data.runs.length > 0 && <RunsList runs={data.runs} now={now} />}
       </div>
     </Section>
   );

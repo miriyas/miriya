@@ -38,7 +38,7 @@ const OpsProjectPage = async ({ params }: { params: Promise<{ project: string }>
         <MetricsSection projectKey={key} group='data' />
       </Suspense>
       <Suspense fallback={wait('작업')}>
-        <JobsSection projectKey={key} />
+        <JobsSection projectKey={key} now={now} />
       </Suspense>
       <Suspense fallback={null}>
         <MetricsSection projectKey={key} group='cost' />

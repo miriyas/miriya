@@ -377,3 +377,8 @@
     color: var(--color-blue);
   }
 }
+
+.when {
+  cursor: help;
+  border-bottom: 1px dotted var(--color-gray-c);
+}

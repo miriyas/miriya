@@ -3,7 +3,7 @@ import cx from 'clsx';
 
 import { OpsJob, OpsLevel, OpsMetric, OpsRun, OpsSource } from '@/types/ops';
 
-import { duration, formatTime, freshness, LEVEL_LABEL, runResult } from './format';
+import { duration, formatTime, freshness, LEVEL_LABEL, relativeTime, runResult } from './format';
 import styles from './index.module.scss';
 
 export const Badge = ({ level, children }: { level: OpsLevel; children?: ReactNode }) => (
@@ -38,6 +38,16 @@ export const StaleNote = ({ source, now }: { source: OpsSource; now: string }) =
   return null;
 };
 
+/** Relative time ("3시간 전"); the absolute Korean time shows on mouse hover. */
+export const When = ({ iso, now }: { iso: string | null | undefined; now: string }) =>
+  iso ? (
+    <time dateTime={iso} title={formatTime(iso)} className={styles.when}>
+      {relativeTime(iso, now)}
+    </time>
+  ) : (
+    <>-</>
+  );
+
 export const MetricGrid = ({ metrics }: { metrics: OpsMetric[] }) => (
   <ul className={styles.metrics}>
     {metrics.map((m) => (
@@ -53,7 +63,7 @@ export const MetricGrid = ({ metrics }: { metrics: OpsMetric[] }) => (
   </ul>
 );
 
-export const JobsTable = ({ jobs }: { jobs: OpsJob[] }) => (
+export const JobsTable = ({ jobs, now }: { jobs: OpsJob[]; now: string }) => (
   <table className={styles.table}>
     <thead>
       <tr>
@@ -73,7 +83,9 @@ export const JobsTable = ({ jobs }: { jobs: OpsJob[] }) => (
           <td>
             <Badge level={job.status} />
           </td>
-          <td>{formatTime(job.lastRun?.startedAt ?? null)}</td>
+          <td>
+            <When iso={job.lastRun?.startedAt} now={now} />
+          </td>
           <td>{job.lastRun ? duration(job.lastRun) : '-'}</td>
           <td className={styles.note}>{job.note ?? job.lastRun?.error ?? job.lastRun?.summary ?? '기록 없음'}</td>
         </tr>
@@ -82,14 +94,16 @@ export const JobsTable = ({ jobs }: { jobs: OpsJob[] }) => (
   </table>
 );
 
-export const RunsList = ({ runs }: { runs: OpsRun[] }) => (
+export const RunsList = ({ runs, now }: { runs: OpsRun[]; now: string }) => (
   <details className={styles.runs}>
     <summary>최근 실행 {runs.length}개</summary>
     <table className={styles.table}>
       <tbody>
         {runs.map((run) => (
           <tr key={`${run.job}-${run.startedAt}`}>
-            <td>{formatTime(run.startedAt)}</td>
+            <td>
+              <When iso={run.startedAt} now={now} />
+            </td>
             <td>{run.job}</td>
             <td>
               <Badge level={runResult(run)}>{run.finishedAt ? undefined : '실행 중'}</Badge>

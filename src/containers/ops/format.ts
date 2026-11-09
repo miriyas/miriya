@@ -17,6 +17,15 @@ export const formatTime = (iso: string | null | undefined) => (iso ? kst.format(
 
 export const minutesAgo = (iso: string, now: string) => Math.round((Date.parse(now) - Date.parse(iso)) / 60000);
 
+/** "방금", "5분 전", "3시간 전", "2일 전". */
+export const relativeTime = (iso: string, now: string) => {
+  const min = minutesAgo(iso, now);
+  if (min < 1) return '방금';
+  if (min < 60) return `${min}분 전`;
+  if (min < 48 * 60) return `${Math.floor(min / 60)}시간 전`;
+  return `${Math.floor(min / 1440)}일 전`;
+};
+
 export const duration = (run: OpsRun) => {
   if (!run.finishedAt) return '실행 중';
   const sec = Math.round((Date.parse(run.finishedAt) - Date.parse(run.startedAt)) / 1000);
@@ -68,10 +77,15 @@ export const problemsOf = (source: OpsSource, now: string) => {
   source.data?.metrics
     .filter((m) => m.level && m.level !== 'ok')
     .forEach((m) =>
-      items.push({ level: m.level!, text: `${m.label}: ${m.value.toLocaleString('ko-KR')}${m.unit}${m.hint ? ` (${m.hint})` : ''}` }),
+      items.push({
+        level: m.level!,
+        text: `${m.label}: ${m.value.toLocaleString('ko-KR')}${m.unit}${m.hint ? ` (${m.hint})` : ''}`,
+      }),
     );
   source.data?.jobs
     .filter((j) => j.status !== 'ok')
-    .forEach((j) => items.push({ level: j.status, text: `${j.label}: ${j.note ?? j.lastRun?.error ?? LEVEL_LABEL[j.status]}` }));
+    .forEach((j) =>
+      items.push({ level: j.status, text: `${j.label}: ${j.note ?? j.lastRun?.error ?? LEVEL_LABEL[j.status]}` }),
+    );
   return items;
 };
