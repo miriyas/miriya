@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
 import cx from 'clsx';
 
-import { OpsLevel, OpsRun, OpsSource, OpsStatus } from '@/types/ops';
+import { OpsLevel, OpsRun, OpsSource, OpsStatus, VisitorSite } from '@/types/ops';
 
 import AiUsageChart from './AiUsageChart';
 import AutoRefresh from './AutoRefresh';
+import VisitorChart from './VisitorChart';
 import styles from './index.module.scss';
 
 const REFRESH_SECONDS = 60;
@@ -42,7 +43,7 @@ const Badge = ({ level, children }: { level: OpsLevel; children?: ReactNode }) =
   <span className={cx(styles.badge, styles[level])}>{children ?? LEVEL_LABEL[level]}</span>
 );
 
-const Panel = ({ data, now }: { data: OpsStatus; now: string }) => {
+const Panel = ({ data, now, visitors }: { data: OpsStatus; now: string; visitors?: VisitorSite }) => {
   const age = minutesAgo(data.generatedAt, now);
   const stale = age > (data.project === 'kakao-meetups' ? 75 : STALE_MINUTES);
 
@@ -77,6 +78,8 @@ const Panel = ({ data, now }: { data: OpsStatus; now: string }) => {
           </li>
         ))}
       </ul>
+
+      {visitors && <VisitorChart site={visitors} />}
 
       {data.aiUsage && data.aiUsage.length > 0 && <AiUsageChart usage={data.aiUsage} now={now} />}
 
@@ -135,10 +138,11 @@ const Panel = ({ data, now }: { data: OpsStatus; now: string }) => {
 
 interface Props {
   sources: OpsSource[];
+  visitors: Record<string, VisitorSite>;
   renderedAt: string;
 }
 
-const OpsDashboard = ({ sources, renderedAt }: Props) => (
+const OpsDashboard = ({ sources, visitors, renderedAt }: Props) => (
   <main className={styles.ops}>
     <AutoRefresh seconds={REFRESH_SECONDS} />
     <div className={styles.centering}>
@@ -148,7 +152,7 @@ const OpsDashboard = ({ sources, renderedAt }: Props) => (
       </p>
       {sources.map((source) =>
         source.data ? (
-          <Panel key={source.name} data={source.data} now={renderedAt} />
+          <Panel key={source.name} data={source.data} now={renderedAt} visitors={visitors[source.data.project]} />
         ) : (
           <section key={source.name} className={cx(styles.panel, styles.failed)}>
             <header className={styles.panelHeader}>

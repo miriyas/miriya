@@ -2,7 +2,8 @@ import 'server-only';
 
 import { readFile } from 'node:fs/promises';
 
-import { OpsSource, OpsStatus } from '@/types/ops';
+import { OpsSource, OpsStatus, VisitorSite } from '@/types/ops';
+import { BE_URL } from '@/services';
 
 // Runs on the server only, so OPS_TOKEN never goes to the browser.
 
@@ -61,3 +62,19 @@ const getMeetups = async (): Promise<OpsSource> => {
 };
 
 export const getOpsSources = () => Promise.all([getMiriya(), getCharr(), getMeetups()]);
+
+/** Daily visitors per site (key = OpsStatus.project). The backend checks that the cookie is the admin's. */
+export const getVisitors = async (cookie: string): Promise<Record<string, VisitorSite>> => {
+  try {
+    const res = await fetch(`${BE_URL}/api/ops/visitors`, {
+      headers: { cookie },
+      cache: 'no-store',
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) return {};
+    const body = (await res.json()) as { sites?: VisitorSite[] };
+    return Object.fromEntries((body.sites ?? []).map((site) => [site.key, site]));
+  } catch {
+    return {};
+  }
+};

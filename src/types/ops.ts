@@ -61,3 +61,13 @@ export interface OpsStatus {
 
 /** One panel on the page: the data, or why it could not be read. */
 export type OpsSource = { name: string; data: OpsStatus; error?: undefined } | { name: string; data?: undefined; error: string };
+
+/** Daily visitors (GA4 activeUsers) from miriya-server /api/ops/visitors. */
+export interface VisitorDay {
+  date: string; // YYYY-MM-DD, Korean time
+  users: number;
+}
+
+export type VisitorSite =
+  | { key: string; title: string; days: VisitorDay[]; error?: undefined }
+  | { key: string; title: string; days?: undefined; error: string };
