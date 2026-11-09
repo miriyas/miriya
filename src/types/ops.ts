@@ -59,8 +59,17 @@ export interface OpsStatus {
   aiUsage?: OpsAiUsage[]; // optional: only some projects have it
 }
 
-/** One panel on the page: the data, or why it could not be read. */
-export type OpsSource = { name: string; data: OpsStatus; error?: undefined } | { name: string; data?: undefined; error: string };
+/**
+ * One project on the page. `data` with `error` = the last fetch failed and `data` is the last good
+ * value from `staleSince` (kept in the frontend server's memory).
+ */
+export interface OpsSource {
+  key: string;
+  name: string;
+  data?: OpsStatus;
+  error?: string;
+  staleSince?: string; // UTC ISO
+}
 
 /** Daily visitors (GA4 activeUsers) from miriya-server /api/ops/visitors. */
 export interface VisitorDay {
@@ -71,3 +80,22 @@ export interface VisitorDay {
 export type VisitorSite =
   | { key: string; title: string; days: VisitorDay[]; error?: undefined }
   | { key: string; title: string; days?: undefined; error: string };
+
+export interface TrafficRow {
+  label: string;
+  value: number;
+}
+
+/** One site's traffic from miriya-server /api/ops/traffic (last 7 days unless named). */
+export type Traffic =
+  | {
+      generatedAt: string;
+      realtime: number | null; // active users, last 30 minutes
+      topPages: TrafficRow[];
+      sources: TrafficRow[];
+      newUsers: number;
+      pageViews: number;
+      avgEngagementSec: number;
+      error?: undefined;
+    }
+  | { error: string };
