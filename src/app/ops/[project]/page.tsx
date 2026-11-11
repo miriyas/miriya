@@ -27,7 +27,7 @@ const OpsProjectPage = async ({ params }: { params: Promise<{ project: string }>
         <ProjectHeader projectKey={key} now={now} />
       </Suspense>
       <Suspense fallback={wait('상태')}>
-        <MetricsSection projectKey={key} group='status' />
+        <MetricsSection projectKey={key} group='status' now={now} />
       </Suspense>
       {project.ga && (
         <Suspense fallback={wait('트래픽')}>
@@ -35,13 +35,13 @@ const OpsProjectPage = async ({ params }: { params: Promise<{ project: string }>
         </Suspense>
       )}
       <Suspense fallback={wait('데이터')}>
-        <MetricsSection projectKey={key} group='data' />
+        <MetricsSection projectKey={key} group='data' now={now} />
       </Suspense>
       <Suspense fallback={wait('작업')}>
         <JobsSection projectKey={key} now={now} />
       </Suspense>
       <Suspense fallback={null}>
-        <MetricsSection projectKey={key} group='cost' />
+        <MetricsSection projectKey={key} group='cost' now={now} />
       </Suspense>
     </>
   );

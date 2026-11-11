@@ -3,7 +3,7 @@ import cx from 'clsx';
 
 import { OpsJob, OpsLevel, OpsMetric, OpsRun, OpsSource } from '@/types/ops';
 
-import { duration, formatTime, freshness, LEVEL_LABEL, relativeTime, runResult } from './format';
+import { duration, formatTime, freshness, LEVEL_LABEL, metricAgoIso, relativeTime, runResult } from './format';
 import styles from './index.module.scss';
 
 export const Badge = ({ level, children }: { level: OpsLevel; children?: ReactNode }) => (
@@ -38,7 +38,7 @@ export const StaleNote = ({ source, now }: { source: OpsSource; now: string }) =
   return null;
 };
 
-/** Relative time ("3시간 전"); the absolute Korean time shows on mouse hover. */
+/** Relative time ("10시간 30분 전"); the absolute Korean time ("2026/11/11 14:14") shows on mouse hover. */
 export const When = ({ iso, now }: { iso: string | null | undefined; now: string }) =>
   iso ? (
     <time dateTime={iso} title={formatTime(iso)} className={styles.when}>
@@ -48,14 +48,20 @@ export const When = ({ iso, now }: { iso: string | null | undefined; now: string
     <>-</>
   );
 
-export const MetricGrid = ({ metrics }: { metrics: OpsMetric[] }) => (
+export const MetricGrid = ({ metrics, now }: { metrics: OpsMetric[]; now: string }) => (
   <ul className={styles.metrics}>
     {metrics.map((m) => (
       <li key={m.key} className={styles[m.level ?? 'ok']}>
         <p className={styles.metricLabel}>{m.label}</p>
         <p className={styles.metricValue}>
-          {m.value.toLocaleString('ko-KR')}
-          <span>{m.unit}</span>
+          {metricAgoIso(m, now) ? (
+            <When iso={metricAgoIso(m, now)} now={now} />
+          ) : (
+            <>
+              {m.value.toLocaleString('ko-KR')}
+              <span>{m.unit}</span>
+            </>
+          )}
         </p>
         {m.hint && <p className={styles.metricHint}>{m.hint}</p>}
       </li>

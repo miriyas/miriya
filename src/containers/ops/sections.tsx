@@ -3,8 +3,8 @@ import cx from 'clsx';
 
 import { findProject, getSource, getTraffic, getVisitors, PROJECTS, ProjectKey } from '@/app/ops/data';
 import AiUsageChart from './AiUsageChart';
-import { formatTime, freshness, metricGroup, MetricGroup, problemsOf } from './format';
-import { Badge, JobsTable, MetricGrid, RunsList, Section, StaleNote } from './parts';
+import { freshness, metricAgoIso, metricGroup, MetricGroup, problemsOf } from './format';
+import { Badge, JobsTable, MetricGrid, RunsList, Section, StaleNote, When } from './parts';
 import TrafficView from './TrafficView';
 import VisitorChart from './VisitorChart';
 import styles from './index.module.scss';
@@ -59,14 +59,19 @@ export const ProjectCard = async ({ projectKey, now }: { projectKey: ProjectKey;
           <div>
             <dt>마지막 배포</dt>
             <dd>
-              {deploy.value}
-              {deploy.unit}
+              <When iso={metricAgoIso(deploy, now)} now={now} />
             </dd>
           </div>
         )}
       </dl>
       <p className={styles.cardTime}>
-        {source.data ? `${formatTime(source.data.generatedAt)} 기준` : source.error}
+        {source.data ? (
+          <>
+            <When iso={source.data.generatedAt} now={now} /> 기준
+          </>
+        ) : (
+          source.error
+        )}
         {f.failed && source.data && ' (연결 실패, 이전 값)'}
       </p>
     </Link>
@@ -91,7 +96,11 @@ export const ProjectHeader = async ({ projectKey, now }: { projectKey: ProjectKe
         )}
       </h2>
       <Badge level={f.level} />
-      {data && <span className={styles.generated}>{formatTime(data.generatedAt)} 기준</span>}
+      {data && (
+        <span className={styles.generated}>
+          <When iso={data.generatedAt} now={now} /> 기준
+        </span>
+      )}
       {data?.adminUrl && (
         <a className={styles.adminLink} href={data.adminUrl} target='_blank' rel='noreferrer'>
           운영자 화면
@@ -105,7 +114,7 @@ export const ProjectHeader = async ({ projectKey, now }: { projectKey: ProjectKe
 const TITLES: Record<MetricGroup, string> = { status: '상태', data: '데이터', cost: '비용' };
 
 /** One group of metrics. Renders nothing when the project has none in this group. */
-export const MetricsSection = async ({ projectKey, group }: { projectKey: ProjectKey; group: MetricGroup }) => {
+export const MetricsSection = async ({ projectKey, group, now }: { projectKey: ProjectKey; group: MetricGroup; now: string }) => {
   const source = await getSource(projectKey);
   const metrics = source.data?.metrics.filter((m) => metricGroup(m) === group) ?? [];
   if (metrics.length === 0) return null;
@@ -121,7 +130,7 @@ export const MetricsSection = async ({ projectKey, group }: { projectKey: Projec
       }
     >
       <div className={cx({ [styles.dim]: source.error })}>
-        <MetricGrid metrics={metrics} />
+        <MetricGrid metrics={metrics} now={now} />
       </div>
     </Section>
   );
@@ -162,7 +171,7 @@ export const AiSection = async ({ now }: { now: string }) => {
   return (
     <>
       <StaleNote source={source} now={now} />
-      <MetricGrid metrics={costs} />
+      <MetricGrid metrics={costs} now={now} />
       <AiUsageChart usage={usage} now={now} />
     </>
   );

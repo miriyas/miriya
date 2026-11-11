@@ -4,26 +4,44 @@ export const REFRESH_SECONDS = 60;
 
 export const LEVEL_LABEL: Record<OpsLevel, string> = { ok: '정상', warn: '주의', error: '오류' };
 
-// All times in the JSON are UTC. Show them in Korean time.
-const kst = new Intl.DateTimeFormat('ko-KR', {
+// All times in the JSON are UTC. Absolute times are Korean time, "2026/11/11 14:14".
+const kst = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Asia/Seoul',
+  year: 'numeric',
   month: '2-digit',
   day: '2-digit',
   hour: '2-digit',
   minute: '2-digit',
-  hour12: false,
+  hourCycle: 'h23',
 });
-export const formatTime = (iso: string | null | undefined) => (iso ? kst.format(new Date(iso)) : '-');
+export const formatTime = (iso: string | null | undefined) => {
+  if (!iso) return '-';
+  const p = Object.fromEntries(kst.formatToParts(new Date(iso)).map((x) => [x.type, x.value]));
+  return `${p.year}/${p.month}/${p.day} ${p.hour}:${p.minute}`;
+};
 
 export const minutesAgo = (iso: string, now: string) => Math.round((Date.parse(now) - Date.parse(iso)) / 60000);
 
-/** "방금", "5분 전", "3시간 전", "2일 전". */
+/** "방금", "5분 전", "10시간 30분 전", "2일 3시간 전". */
 export const relativeTime = (iso: string, now: string) => {
-  const min = minutesAgo(iso, now);
+  const min = Math.max(0, Math.floor((Date.parse(now) - Date.parse(iso)) / 60000));
   if (min < 1) return '방금';
   if (min < 60) return `${min}분 전`;
-  if (min < 48 * 60) return `${Math.floor(min / 60)}시간 전`;
-  return `${Math.floor(min / 1440)}일 전`;
+  const h = Math.floor(min / 60);
+  if (h < 24) return `${h}시간${min % 60 ? ` ${min % 60}분` : ''} 전`;
+  const d = Math.floor(h / 24);
+  return `${d}일${h % 24 ? ` ${h % 24}시간` : ''} 전`;
+};
+
+// Metrics such as "마지막 배포 10.3 시간 전" come as a number of hours (or minutes) ago.
+const AGO_UNITS: Record<string, number> = { '시간 전': 3600_000, '분 전': 60_000 };
+/** The moment an "N시간 전" metric points to, or null for other metrics. */
+export const metricAgoIso = (m: Pick<OpsMetric, 'value' | 'unit'>, now: string) =>
+  AGO_UNITS[m.unit] ? new Date(Date.parse(now) - m.value * AGO_UNITS[m.unit]).toISOString() : null;
+/** "10시간 30분 전" for time metrics, "1,234건" for the rest. */
+export const metricText = (m: Pick<OpsMetric, 'value' | 'unit'>, now: string) => {
+  const iso = metricAgoIso(m, now);
+  return iso ? relativeTime(iso, now) : `${m.value.toLocaleString('ko-KR')}${m.unit}`;
 };
 
 export const duration = (run: OpsRun) => {
@@ -79,7 +97,7 @@ export const problemsOf = (source: OpsSource, now: string) => {
     .forEach((m) =>
       items.push({
         level: m.level!,
-        text: `${m.label}: ${m.value.toLocaleString('ko-KR')}${m.unit}${m.hint ? ` (${m.hint})` : ''}`,
+        text: `${m.label}: ${metricText(m, now)}${m.hint ? ` (${m.hint})` : ''}`,
       }),
     );
   source.data?.jobs
