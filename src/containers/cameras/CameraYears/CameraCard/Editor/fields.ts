@@ -9,18 +9,18 @@ const basicFields: InputFields = {
   maker: {
     label: '*메이커',
     desc: '모두 소문자 입력\n지원 항목 :',
-    example: 'canon, contax, fujifilm, kodak, minolta, nikon, olympus, panasonic, pentax, samsung, sigma, sony',
+    example: 'canon, contax, fujifilm, hasselblad, kodak, leica, minolta, nikon, olympus, panasonic, pentax, samsung, sigma, sony',
   },
   maker2: {
     label: '메이커2',
     desc: 'Canon DCS1 / kodak EOS-DSC1 처럼 타사에서도 같은 바디로 출시된 경우. 이 경우엔 kodak 입력',
-    example: 'canon, contax, fujifilm, kodak, minolta, nikon, olympus, panasonic, pentax, samsung, sigma, sony',
+    example: 'canon, contax, fujifilm, hasselblad, kodak, leica, minolta, nikon, olympus, panasonic, pentax, samsung, sigma, sony',
   },
   mount: {
     label: '*마운트',
     desc: '렌즈 마운트 기재.\n지원 항목은 아래와 같음. 혹시 더 있다면 방명록에 남겨주세요.',
     example:
-      'Canon EF, Canon EF-S, Canon EF-M, Canon RF, Canon RF-S, Contax N, 4/3, Fujifilm G, Fujifilm X, Micro 4/3, Leica L, Nikon F, Nikon Z, Nikon 1, Pentax K, Pentax Q, Sigma SA, Sony A, Sony E, 645',
+      'Canon EF, Canon EF-S, Canon EF-M, Canon RF, Canon RF-S, Contax N, 4/3, Fujifilm G, Fujifilm X, Hasselblad X, Micro 4/3, Leica L, Leica S, Leica T/L, Nikon F, Nikon Z, Nikon 1, Pentax K, Pentax Q, Samsung NX, Samsung NX-M, Sigma SA, Sony A, Sony E, 645',
   },
   grade: {
     label: '*등급',

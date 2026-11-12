@@ -9,6 +9,14 @@
       height: 10px;
       margin-bottom: 4px;
 
+      &.leica {
+        height: 16px;
+
+        img {
+          height: 16px;
+        }
+      }
+
       &.olympus {
         height: 14px;
 
