@@ -96,6 +96,8 @@ export const cameraValidator = object({
     type: stringTest,
     isoMin: numberTest,
     isoMax: numberTest,
+    isoBaseMin: numberTest,
+    isoBaseMax: numberTest,
     vr: booleanTest,
     cleaning: booleanTest,
     astro: booleanTest,

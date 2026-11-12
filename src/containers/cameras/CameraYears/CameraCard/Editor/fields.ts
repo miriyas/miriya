@@ -91,14 +91,24 @@ const sensorFields: InputFields = {
     example: 'CCD, CMOS, LBCAST, Foveon',
   },
   'sensor.isoMin': {
-    label: 'ISO 저',
-    desc: '지원 ISO가 200-3200인 카메라인데, 확장으로 100-6400을 지원하는 카메라의 경우엔',
+    label: 'ISO 저 (확장)',
+    desc: '확장 감도를 포함한 가장 낮은 ISO. 기본 ISO가 200-3200이고 확장으로 100-6400을 지원하면 100',
     example: '100',
   },
   'sensor.isoMax': {
-    label: 'ISO 고',
-    desc: '지원 ISO가 200-3200인 카메라인데, 확장으로 100-6400을 지원하는 카메라의 경우엔',
+    label: 'ISO 고 (확장)',
+    desc: '확장 감도를 포함한 가장 높은 ISO. 기본 ISO가 200-3200이고 확장으로 100-6400을 지원하면 6400',
     example: '6400',
+  },
+  'sensor.isoBaseMin': {
+    label: '기본 ISO 저',
+    desc: '확장 감도를 뺀 기본 ISO의 가장 낮은 값. 위 예에서는 200',
+    example: '200',
+  },
+  'sensor.isoBaseMax': {
+    label: '기본 ISO 고',
+    desc: '확장 감도를 뺀 기본 ISO의 가장 높은 값. 위 예에서는 3200',
+    example: '3200',
   },
   'sensor.vr': {
     type: 'checkbox',

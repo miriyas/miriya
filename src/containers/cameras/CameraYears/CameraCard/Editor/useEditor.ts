@@ -43,6 +43,8 @@ const useEditor = (camera: CameraType) => {
         type: camera.sensor?.type ?? '',
         isoMin: camera.sensor?.isoMin ?? 0,
         isoMax: camera.sensor?.isoMax ?? 0,
+        isoBaseMin: camera.sensor?.isoBaseMin ?? 0,
+        isoBaseMax: camera.sensor?.isoBaseMax ?? 0,
         vr: camera.sensor?.vr ?? false,
         cleaning: camera.sensor?.cleaning ?? false,
         astro: camera.sensor?.astro ?? false,

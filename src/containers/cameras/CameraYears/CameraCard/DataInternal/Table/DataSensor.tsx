@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { SENSOR_SIZE, SensorSizeTypes, CameraType } from '@/types/cameras';
+import { SENSOR_SIZE, SensorSizeTypes, CameraType, Sensor } from '@/types/cameras';
 
 import styles from './Table.module.scss';
 
@@ -16,6 +16,18 @@ const prettySensorSize = (sensorSize?: SensorSizeTypes) => {
   }[sensorSize];
 };
 
+// Native range, with the extended ends in brackets: ISO(100)200-6400(25600).
+// isoMin/isoMax hold the extended range; isoBaseMin/isoBaseMax the native one (0 = not known).
+const formatIso = (sensor: Sensor) => {
+  const { isoMin, isoMax, isoBaseMin, isoBaseMax } = sensor;
+  const low = isoBaseMin || isoMin;
+  const high = isoBaseMax || isoMax;
+  if (!low && !high) return '';
+  const extLow = isoMin && low && isoMin < low ? `(${isoMin})` : '';
+  const extHigh = isoMax && high && isoMax > high ? `(${isoMax})` : '';
+  return `ISO${extLow}${low ?? ''}-${high ?? ''}${extHigh}`;
+};
+
 interface Props {
   camera: CameraType;
 }
@@ -27,7 +39,7 @@ const DataSensor = (props: Props) => {
   if (!sensor) return null;
 
   const sensorData = [sensor.name, sensor.pixelsFamiliar, sensor.type].filter((item) => !!item).join(' ');
-  const isoData = sensor?.isoMin ? `ISO${sensor?.isoMin}-${sensor?.isoMax}` : '';
+  const isoData = formatIso(sensor);
 
   return (
     <>

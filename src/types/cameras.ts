@@ -208,6 +208,9 @@ export interface Sensor {
   type: SensorTypes;
   isoMin?: number;
   isoMax?: number;
+  // Native ISO range. isoMin/isoMax hold the extended range (L/H) when the camera has one.
+  isoBaseMin?: number;
+  isoBaseMax?: number;
   vr?: boolean;
   astro?: boolean;
   noLowPass?: boolean;
