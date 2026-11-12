@@ -17,7 +17,7 @@ export const articles = [
   {
     id: 'cameras',
     summary:
-      '출시일 기준, 95년부터 현재까지 출시된 DSLR/DSLT를 정리중입니다..\n저는 대학생 시절 [SLR클럽](http://www.slrclub.com) 활동을 활발하게 했었고,\n당시에 플래시와 포토샵으로 [카메라 족보](http://www.slrclub.com/bbs/vx2.php?id=best_review&no=2248)와 [펜탁스 렌즈의 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)를 만든 적이 있었지요.',
+      '출시일 기준, 95년부터 현재까지 출시된 DSLR과 미러리스 카메라를 정리 중입니다..\n저는 대학생 시절 [SLR클럽](http://www.slrclub.com) 활동을 활발하게 했었고,\n당시에 플래시와 포토샵으로 [카메라 족보](http://www.slrclub.com/bbs/vx2.php?id=best_review&no=2248)와 [펜탁스 렌즈의 계보표](http://www.slrclub.com/bbs/vx2.php?id=pds&no=28147)를 만든 적이 있었지요.',
     dev: '개발자 멘트 : 당시에 어떤 분이 <q>"나같으면 자바스크립트로 짜겠다"</q> 라고 말한걸 아직 기억하고 있습니다. 그때는 <q>"와 개발자 무서워, 어떻게 코딩이 더 쉽지?"</q> 라고 생각했었지요. 하지만 12년이 지난 지금 오니 세로 2만 픽셀짜리 PSB (PSD의 오타 아님) 파일을 일일히 수정하는 것 보다 코딩으로 만드는게 더 효율적이고 쉽네요.',
     devList: [
       'Next.js 13 버전의 experimental appDir을 적용해봤습니다. 2023년 3월 현재 기준으로는 일단 실무에서 쓰진 못할 물건입니다. 라우팅 관련된 모든 부분에 hash id 쓰는 부분이 몽땅 누락되어있고, 대안도 없이 못쓰게 만든 기능이 무수하게 많습니다. 또한 [useSearchParams](https://beta.nextjs.org/docs/api-reference/use-search-params#static-rendering) 등 일부 신규 hook들은 Suspense로 감싸지 않으면 상위 컴포넌트로 타고 올라가면서 [웹사이트 전체의 SSR을 깨버리는 무지막지한 문제](https://github.com/vercel/next.js/issues/47350) 도 있습니다. 어딘가 수정했는데 갑자기 SEO 메타태그가 안나온다- 이런 문제가 발생할 수 있는거죠.',

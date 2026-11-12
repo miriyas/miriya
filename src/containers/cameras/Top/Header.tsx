@@ -14,14 +14,14 @@ const Header = ({ yearStart, yearEnd, length }: Props) => {
     <div className={styles.header}>
       <div className={styles.upper}>
         <h1>
-          History of DSLR&nbsp;
+          History of DSLR &amp; Mirrorless&nbsp;
           <span>
             {yearStart}~{yearEnd}
           </span>
         </h1>
       </div>
       <div className={cx(styles.commonBox, styles.notice)}>
-        출시일 기준, 95년부터 현재까지 출시된 DSLR/DSLT를 정리중입니다.
+        출시일 기준, 95년부터 현재까지 출시된 DSLR과 미러리스 카메라를 정리 중입니다.
         <br />
         {length}개 카메라를 여러 소스에서 교차 검증하다보니 틀린 내용, 추가할 부분이 있을 수 있습니다.
         <br />

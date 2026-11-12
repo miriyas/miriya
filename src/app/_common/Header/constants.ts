@@ -9,7 +9,7 @@ export const ROUTES = [
   },
   {
     href: '/cameras',
-    title: 'History of DSLR',
+    title: 'History of DSLR & Mirrorless',
   },
   {
     href: '/pentax',

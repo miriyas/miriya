@@ -7,10 +7,10 @@ import { getMetaData } from '@/app/sharedMetadata';
 
 export const metadata = getMetaData({
   url: 'https://miriya.net/cameras',
-  title: 'History of DSLR',
-  description: '1998년부터 2011년까지의 DSLR 카메라들',
+  title: 'History of DSLR & Mirrorless',
+  description: '1995년부터 지금까지 나온 DSLR과 미러리스 카메라',
   imageUrl: 'https://miriya.net/images/cameras/og.jpg',
-  keywords: ['DSLR', 'DSLT', 'MILC', 'camera', 'history', 'interchangable'],
+  keywords: ['DSLR', 'DSLT', 'MILC', 'camera', 'history', 'mirrorless', 'interchangeable'],
 });
 
 export const revalidate = 3600;
