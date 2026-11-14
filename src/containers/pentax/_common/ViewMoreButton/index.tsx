@@ -7,8 +7,6 @@ import { useRafState, useUnmount } from 'react-use';
 import { IconChevronRight } from 'public/svgs';
 import styles from './ViewMoreButton.module.scss';
 
-const scrollAmount = 2000; // 충분한 사이즈를 임의로 넣음
-
 interface Props {
   wrapperRef: RefObject<HTMLDivElement | null>;
 }
@@ -45,11 +43,10 @@ const ViewMoreButton = (props: Props) => {
 
   const toggleViewMore = () => {
     if (!wrapperRef.current) return;
-    wrapperRef.current.scrollBy({
-      top: 0,
-      left: scrollAmount * (scrollEnded ? -1 : 1),
-      behavior: 'smooth',
-    });
+    const el = wrapperRef.current;
+    // Scroll to an exact end. iOS Safari does not clamp a smooth scrollBy past the end (the old
+    // scrollBy(2000) went ~650px past it and showed the black background).
+    el.scrollTo({ top: 0, left: scrollEnded ? 0 : el.scrollWidth - el.clientWidth, behavior: 'smooth' });
   };
 
   return (

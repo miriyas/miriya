@@ -17,11 +17,8 @@
     height: 100%;
     padding-right: var(--x-pentax-dslr-cell); // ViewMoreButton;
     overflow-x: auto;
-    overscroll-behavior-x: none; // no rubber-band past the ends (it showed the black background on iOS)
     cursor: grab;
-    // Black only behind the year row. iOS Safari can show this background for a moment while it
-    // draws the wide timeline (after a page scroll); a full black background looked like a broken page.
-    background: linear-gradient(var(--color-black) 0 var(--x-pentax-dslr-cell), var(--color-white) 0);
+    background-color: var(--color-black);
 
     &.grabbing {
       cursor: grabbing;
