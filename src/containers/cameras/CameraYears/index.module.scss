@@ -29,6 +29,7 @@
     .cameras {
       @include m.flexbox(start, center);
       flex-wrap: wrap;
+      align-items: stretch;
       gap: 14px;
     }
   }

@@ -4,7 +4,9 @@
   @include m.commonBoxShadow;
   position: relative;
   width: 100%;
-  height: 420px;
+  // A card grows with its data (newer bodies list more specs); the row (.cameras, stretch) takes
+  // the height of its tallest card. Before, a fixed 420px gave long cards an inner scrollbar.
+  min-height: 420px;
   contain-intrinsic-size: auto 240px auto 420px;
   // Off-screen cards skip layout and paint (most of the ~450 cards). Size kept for the scrollbar.
   content-visibility: auto;
@@ -15,8 +17,10 @@
   animation: cameraCardIn 200ms ease-out;
 
   .wrapper {
+    position: relative;
     width: 100%;
-    height: 420px;
+    height: 100%;
+    min-height: 420px;
   }
 
   @include m.after(521px) {
@@ -49,16 +53,23 @@
     }
   }
 
+  // External data (the back side) covers the card above the tabs and scrolls if it is long.
   .dataSet {
-    @include m.absolute(0 0 0 0);
+    @include m.absolute(0 0 var(--h-camera-data-source-btn) 0);
     @include m.flexbox(start, center);
     flex-direction: column;
-    height: calc(420px - var(--h-camera-data-source-btn));
     padding: 8px 8px 0;
     overflow: auto;
     background-color: var(--color-white);
     backface-visibility: hidden;
     transition: 300ms;
+  }
+
+  // Internal data (the front side) stays in the flow, so it sets the card height.
+  .dataSet.dataInternal {
+    position: relative;
+    padding-bottom: calc(var(--h-camera-data-source-btn) + 6px);
+    overflow: visible;
   }
 
   .tabs {
