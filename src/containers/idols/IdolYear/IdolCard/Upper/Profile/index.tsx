@@ -37,6 +37,10 @@ const Profile = ({ idol, onClickUpper }: Props) => {
         height={220}
         className={styles.profileImg}
         loader={imageLoaderDo2Ik}
+        // Some idols have no image on the CDN yet: hide the broken-image icon and show the background only.
+        onError={(e) => {
+          e.currentTarget.style.visibility = 'hidden';
+        }}
       />
       <div className={styles.content}>
         <p className={styles.name}>{name}</p>
