@@ -16,7 +16,7 @@ const DataDisplay = (props: Props) => {
 
   return (
     <tr className={styles.dataMulti}>
-      <th>화면</th>
+      <th>디스플레이</th>
       <td>
         <span>{display.desc}</span>
         {display.liveview && <span className='green'>LiveView</span>}

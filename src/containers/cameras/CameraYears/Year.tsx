@@ -23,7 +23,11 @@ const CameraYear = (props: Props) => {
   const filteredCameras = cameras.filter((c) => (selectedMaker === 'ALL' ? c : c.maker === selectedMaker));
 
   return (
-    <li id={`camera-year-${year}`} className={styles.cameraYear}>
+    <li
+      id={`camera-year-${year}`}
+      // Kept mounted (cards stay ready for the next filter), only hidden when the maker has none here.
+      className={cx(styles.cameraYear, { [styles.isEmpty]: filteredCameras.length === 0 })}
+    >
       <div className={styles.title}>
         {year}년 <span>{filteredCameras.length}기종</span>
       </div>

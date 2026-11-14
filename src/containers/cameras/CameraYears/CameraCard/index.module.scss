@@ -43,16 +43,6 @@
     border: 1px solid var(--color-gray-d);
   }
 
-  &.showExternalData {
-    .dataInternal {
-      transform: rotateY(180deg);
-    }
-
-    .dataExternal {
-      transform: rotateY(0);
-    }
-  }
-
   // External data (the back side) covers the card above the tabs and scrolls if it is long.
   .dataSet {
     @include m.absolute(0 0 var(--h-camera-data-source-btn) 0);

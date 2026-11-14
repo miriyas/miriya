@@ -1,18 +1,14 @@
 'use client';
 
 import cx from 'clsx';
-import { MouseEventHandler, Suspense, memo, useEffect, useState } from 'react';
+import { MouseEventHandler, memo, useEffect, useState } from 'react';
 
 import { CameraType } from '@/types/cameras';
 import { cameraId } from '@/utils/cameras';
 
-import Loading from '@/components/Loading';
-import Editor from './Editor';
 import Comments from './Comments';
 import DataInternal from './DataInternal';
-import DataExternal from './DataExternal';
 import styles from './index.module.scss';
-import externalStyles from './DataExternal/index.module.scss';
 
 const getIsSelected = (id: string) => {
   return typeof window !== 'undefined' ? window.location.hash.replace('#', '') === id : false;
@@ -22,10 +18,6 @@ const TABS = [
   {
     key: 'internal',
     label: 'Original',
-  },
-  {
-    key: 'external',
-    label: 'DigicamDB',
   },
   {
     key: 'comments',
@@ -73,25 +65,11 @@ const Camera = (props: Props) => {
       className={cx(styles.camera, `grid-item-${year}`, `maker-${maker.toLowerCase()}`, {
         [styles.isHidden]: !show,
         [styles.selected]: selected,
-        [styles.showExternalData]: tab === 'external',
       })}
     >
       <div className={styles.wrapper}>
-        <Suspense
-          fallback={
-            <div
-              className={cx(styles.dataSet, styles.dataExternal, externalStyles.dataExternal, externalStyles.loading)}
-            >
-              <p className={externalStyles.id}>{id}</p>
-              <Loading />
-            </div>
-          }
-        >
-          <DataExternal camera={camera} showExternalData={tab === 'external'} />
-        </Suspense>
-        <DataInternal camera={camera} setTab={setTab} />
+        <DataInternal camera={camera} />
         {tab === 'comments' && <Comments targetId={camera.id} targetName={camera.name} />}
-        {tab === 'editor' && <Editor camera={camera} setTab={setTab} />}
         <div className={styles.tabs}>
           {TABS.map((item) => (
             <button

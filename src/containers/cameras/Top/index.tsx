@@ -11,6 +11,7 @@ import News from './News';
 import NewsPlaceholder from './NewsPlaceholder';
 import Years from './Years';
 import Categories from './Categories';
+import Lineup from './Lineup';
 import styles from './index.module.scss';
 
 interface Props {
@@ -29,6 +30,7 @@ const Top = ({ cameras, years }: Props) => {
         <News />
       </Suspense>
       <Categories />
+      <Lineup cameras={cameras} />
       <Suspense fallback={null}>
         <Years yearStart={yearStart} yearEnd={yearEnd} years={years} />
       </Suspense>

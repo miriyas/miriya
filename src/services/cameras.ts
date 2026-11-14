@@ -1,8 +1,7 @@
 import { apiBe, apiFe } from '@/services';
-import { DigicamDB, DpreviewNews, CameraType } from '@/types/cameras';
+import { DpreviewNews, CameraType } from '@/types/cameras';
 import { FBCamerachema } from '@/utils/validator';
 
-export const getExternalCameraDataApi = (externalId: string) => apiFe<DigicamDB>(`/cameras/digicam/${externalId}`);
 
 export const getRecentNewsApi = (count: number) => apiFe<DpreviewNews[]>('/cameras/dpreview', { params: { count } });
 

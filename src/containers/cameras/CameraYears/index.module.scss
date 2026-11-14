@@ -7,6 +7,10 @@
   .cameraYear {
     margin-top: 50px;
 
+    &.isEmpty {
+      display: none;
+    }
+
     &.placeholder {
       .title {
         opacity: 0.5;

@@ -260,8 +260,6 @@ export interface CameraCore {
   refs?: string;
 }
 
-export type DigicamDB = Record<string, string>;
-
 export interface DpreviewNews {
   link: string;
   title: string;

@@ -43,7 +43,7 @@ export const apiBePure = axios.create({
 
 /**
  * 브라우저 → 프론트엔드 서버, 혹은 프론트엔드 서버 → 프론트엔드 서버로 사용할 수 있다.
- * revalidate나 digicam 등 /api 가 붙은 프론트엔드 서버의 API를 브라우저에서 호출하는 용도다.
+ * revalidate 등 /api 가 붙은 프론트엔드 서버의 API를 브라우저에서 호출하는 용도다.
  */
 export const apiFe = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_FE_URL}/api`,

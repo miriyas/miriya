@@ -50,14 +50,4 @@
     }
   }
 
-  .editButton {
-    margin-top: 8px;
-    font-size: 10px;
-    color: var(--color-gray-c);
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-  }
 }
