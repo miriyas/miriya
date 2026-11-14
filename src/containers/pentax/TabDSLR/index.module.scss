@@ -18,7 +18,8 @@
     padding-right: var(--x-pentax-dslr-cell); // ViewMoreButton;
     overflow-x: auto;
     cursor: grab;
-    background-color: var(--color-black);
+    // Seen only past the ends (iOS overscroll): black behind the year row, grid-line gray below.
+    background: linear-gradient(var(--color-black) 0 var(--x-pentax-dslr-cell), var(--color-gray-d) 0);
 
     &.grabbing {
       cursor: grabbing;
