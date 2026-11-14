@@ -27,7 +27,7 @@ export const NavigationView = ({ query }: { query: string }) => {
         </ul>
       </nav>
       <p className={styles.desc}>
-        1975 ~ 2023 <span>*</span>{' '}
+        1975 ~ 2026 <span>*</span>{' '}
         <ExternalLink href='https://miriya.net/pentax'>PENTAXIAN Encyclopedia v{VERSION}</ExternalLink>
       </p>
     </div>
