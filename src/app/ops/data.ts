@@ -10,7 +10,6 @@ import { BE_URL } from '@/services';
 
 // Runs on the server only, so OPS_TOKEN never goes to the browser.
 
-const CHARR_URL = 'https://charr.today/api/ops/status';
 // Written every minute by miriya-server/deploy/ops-status.py, mounted read-only (compose.yml).
 const MIRIYA_FILE = process.env.OPS_STATUS_FILE ?? '/app/ops-status/miriya.json';
 
@@ -19,22 +18,26 @@ type Loaded = { data: OpsStatus; error?: undefined } | { data?: undefined; error
 const isStatus = (data: unknown): data is OpsStatus =>
   !!data && typeof data === 'object' && (data as OpsStatus).version === 1 && Array.isArray((data as OpsStatus).metrics);
 
-const loadCharr = async (): Promise<Loaded> => {
+/** A project that serves the version 1 JSON behind `Authorization: Bearer <OPS_TOKEN>`. */
+const loadWithToken = (url: string, host: string) => async (): Promise<Loaded> => {
   const token = process.env.OPS_TOKEN;
   if (!token) return { error: 'OPS_TOKEN이 서버에 설정되지 않았습니다.' };
   try {
-    const res = await fetch(CHARR_URL, {
+    const res = await fetch(url, {
       headers: { Authorization: `Bearer ${token}` },
       cache: 'no-store',
       signal: AbortSignal.timeout(8000),
     });
-    if (!res.ok) return { error: `charr.today 응답 ${res.status}` };
+    if (!res.ok) return { error: `${host} 응답 ${res.status}` };
     const data: unknown = await res.json();
     return isStatus(data) ? { data } : { error: '응답 모양이 version 1이 아닙니다.' };
   } catch (error) {
-    return { error: `charr.today에 연결하지 못했습니다 (${(error as Error).name}).` };
+    return { error: `${host}에 연결하지 못했습니다 (${(error as Error).name}).` };
   }
 };
+
+const loadCharr = loadWithToken('https://charr.today/api/ops/status', 'charr.today');
+const loadDorr = loadWithToken('https://dorr.today/api/ops/status', 'dorr.today');
 
 const loadMiriya = async (): Promise<Loaded> => {
   try {
@@ -67,6 +70,7 @@ const loadMeetups = async (): Promise<Loaded> => {
 export const PROJECTS = [
   { key: 'miriya', name: 'miriya 서버', load: loadMiriya, ga: true },
   { key: 'charr', name: '차르르', load: loadCharr, ga: true },
+  { key: 'dorr', name: '도르르', load: loadDorr, ga: false },
   { key: 'meetups', name: '카카오 모임 수집', load: loadMeetups, ga: false },
 ] as const;
 

@@ -10,6 +10,7 @@ const TABS = [
   { href: '/ops', label: '개요' },
   { href: '/ops/miriya', label: 'miriya 서버' },
   { href: '/ops/charr', label: '차르르' },
+  { href: '/ops/dorr', label: '도르르' },
   { href: '/ops/meetups', label: '카카오 모임' },
   { href: '/ops/ai', label: 'AI 비용' },
 ];
