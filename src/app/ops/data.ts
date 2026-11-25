@@ -37,7 +37,7 @@ const loadWithToken = (url: string, host: string) => async (): Promise<Loaded> =
 };
 
 const loadCharr = loadWithToken('https://charr.today/api/ops/status', 'charr.today');
-const loadDorr = loadWithToken('https://dorr.today/api/ops/status', 'dorr.today');
+const loadDorr = loadWithToken('https://dorr.today/api/ops/status/', 'dorr.today');
 
 const loadMiriya = async (): Promise<Loaded> => {
   try {
